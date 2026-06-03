@@ -11,6 +11,7 @@ from firebase_admin import credentials, db
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 FIREBASE_DATABASE_URL = os.environ.get("FIREBASE_DATABASE_URL")
 FIREBASE_SERVICE_ACCOUNT = os.environ.get("FIREBASE_SERVICE_ACCOUNT")
+YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 
 genai.configure(api_key=GEMINI_API_KEY)
 service_account_info = json.loads(FIREBASE_SERVICE_ACCOUNT)
@@ -144,6 +145,56 @@ def fetch_akchаbar_rates():
         return None
 
 
+def fetch_youtube_trending(region_code="KG", max_results=10):
+    """Вирусные видео YouTube по региону"""
+    try:
+        url = "https://www.googleapis.com/youtube/v3/videos"
+        params = {
+            "part": "snippet,statistics",
+            "chart": "mostPopular",
+            "regionCode": region_code,
+            "maxResults": max_results,
+            "key": YOUTUBE_API_KEY,
+            "videoCategoryId": "0"  # все категории
+        }
+        r = requests.get(url, params=params, timeout=10)
+        if not r.ok:
+            print(f"  ✗ YouTube {region_code}: HTTP {r.status_code}")
+            return []
+
+        data = r.json()
+        items = []
+        for video in data.get("items", []):
+            snippet = video.get("snippet", {})
+            stats = video.get("statistics", {})
+            video_id = video.get("id", "")
+            views = int(stats.get("viewCount", 0))
+            views_str = f"{views/1_000_000:.1f}M" if views >= 1_000_000 else f"{views//1000}K"
+
+            label = "🔥 ВИРАЛЬНО В КГ" if region_code == "KG" else \
+                    "🌍 ВИРАЛЬНО В МИРЕ" if region_code == "US" else \
+                    f"🔥 ТРЕНД {region_code}"
+
+            items.append({
+                "title": snippet.get("title", ""),
+                "url": f"https://www.youtube.com/watch?v={video_id}",
+                "summary": f"{views_str} просмотров · {snippet.get('channelTitle', '')}",
+                "imageUrl": snippet.get("thumbnails", {}).get("high", {}).get("url"),
+                "source": f"YouTube {region_code}",
+                "category": "VIRAL",
+                "priority": 1,
+                "publishedAt": int(datetime.now().timestamp() * 1000),
+                "regionCode": region_code,
+                "viewCount": views,
+                "label": label
+            })
+        print(f"  ✓ YouTube {region_code}: {len(items)} видео")
+        return items
+    except Exception as e:
+        print(f"  ✗ YouTube {region_code}: {e}")
+        return []
+
+
 def fetch_rss(source):
     try:
         r = requests.get(source["url"], timeout=10,
@@ -221,6 +272,21 @@ def filter_with_gemini(news_list):
 
 def main():
     print("🚀 Ticker247 Backend — Fetching news...")
+
+    # YouTube вирусные видео — сохраняем отдельно
+    print("▶ YouTube trending...")
+    viral_kg = fetch_youtube_trending("KG", 10)
+    viral_world = fetch_youtube_trending("US", 10)
+    viral_ru = fetch_youtube_trending("RU", 5)
+
+    viral_ref = db.reference("/viral")
+    viral_ref.set({
+        "kg": viral_kg,
+        "world": viral_world,
+        "ru": viral_ru,
+        "updatedAt": int(datetime.now().timestamp() * 1000)
+    })
+    print(f"✅ YouTube: KG={len(viral_kg)}, World={len(viral_world)}, RU={len(viral_ru)}")
     all_news = []
     category_counts = {}
 
