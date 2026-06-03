@@ -3,6 +3,7 @@ import json
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from bs4 import BeautifulSoup
 import google.generativeai as genai
 import firebase_admin
 from firebase_admin import credentials, db
@@ -68,6 +69,80 @@ BORING_KEYWORDS = [
     "постановление", "регламент", "меморандум", "пленарное",
     "ратификация", "брифинг", "распоряжение"
 ]
+
+def fetch_akchаbar_rates():
+    """Парсим курсы валют с Акчабара — покупка и продажа по банкам КР"""
+    try:
+        headers = {"User-Agent": "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36"}
+        r = requests.get("https://akchаbar.com/ru/currency", timeout=15, headers=headers)
+        if not r.ok:
+            print(f"  ✗ Акчабар: HTTP {r.status_code}")
+            return None
+
+        soup = BeautifulSoup(r.content, "html.parser")
+        rates = {}
+
+        # Ищем таблицу курсов
+        table = soup.find("table", class_=lambda x: x and "currency" in x.lower()) or \
+                soup.find("table")
+
+        if not table:
+            print("  ✗ Акчабар: таблица не найдена")
+            return None
+
+        target = ["USD", "EUR", "RUB", "CNY", "KZT"]
+        rows = table.find_all("tr")
+
+        for row in rows:
+            cells = row.find_all(["td", "th"])
+            if len(cells) >= 3:
+                currency = cells[0].get_text(strip=True).upper()
+                if any(t in currency for t in target):
+                    code = next((t for t in target if t in currency), None)
+                    if code:
+                        try:
+                            buy = cells[1].get_text(strip=True).replace(",", ".").replace(" ", "")
+                            sell = cells[2].get_text(strip=True).replace(",", ".").replace(" ", "")
+                            buy_f = float(buy)
+                            sell_f = float(sell)
+                            if buy_f > 0 and sell_f > 0:
+                                rates[code] = {"buy": buy_f, "sell": sell_f}
+                        except:
+                            pass
+
+        if not rates:
+            print("  ✗ Акчабар: курсы не распознаны")
+            return None
+
+        # Формируем строку для отображения
+        lines = []
+        emoji_map = {"USD": "$", "EUR": "€", "RUB": "₽", "CNY": "¥", "KZT": "₸"}
+        for code, vals in rates.items():
+            em = emoji_map.get(code, "")
+            lines.append(f"{em}{code}  {vals['buy']:.2f} / {vals['sell']:.2f}")
+
+        title = " | ".join(lines)
+        summary = "\n".join([
+            f"{emoji_map.get(c,'')}{c}: покупка {v['buy']:.2f} · продажа {v['sell']:.2f} сом"
+            for c, v in rates.items()
+        ])
+
+        print(f"  ✓ Акчабар: {len(rates)} валют")
+        return {
+            "title": title,
+            "summary": summary,
+            "url": "https://akchаbar.com/ru/currency",
+            "imageUrl": None,
+            "source": "Акчабар",
+            "category": "CURRENCY",
+            "priority": 1,
+            "publishedAt": int(datetime.now().timestamp() * 1000),
+            "rates": rates
+        }
+    except Exception as e:
+        print(f"  ✗ Акчабар ошибка: {e}")
+        return None
+
 
 def fetch_rss(source):
     try:
@@ -148,6 +223,13 @@ def main():
     print("🚀 Ticker247 Backend — Fetching news...")
     all_news = []
     category_counts = {}
+
+    # Акчабар — курсы с покупкой/продажей
+    print("💱 Парсим Акчабар...")
+    akchаbar = fetch_akchаbar_rates()
+    if akchаbar:
+        all_news.insert(0, akchаbar)
+        category_counts["CURRENCY"] = 1
 
     for source in RSS_SOURCES:
         items = fetch_rss(source)
