@@ -23,7 +23,8 @@ RSS_SOURCES = [
     # КГ новости — приоритет
     {"url": "https://24.kg/rss/", "source": "24.kg", "category": "NEWS", "priority": 1, "quota": 8},
     {"url": "https://kabar.kg/rss/", "source": "Kabar.kg", "category": "NEWS", "priority": 1, "quota": 6},
-    {"url": "https://akipress.com/rss/news.rss", "source": "AKIpress", "category": "NEWS", "priority": 1, "quota": 5},
+    {"url": "https://akipress.com/rss/news.rss", "source": "AKIpress", "category": "NEWS", "priority": 1, "quota": 8},
+    {"url": "https://kaktus.media/rss.xml", "source": "Kaktus.media", "category": "NEWS", "priority": 1, "quota": 6},
 
     # Мировые новости — ограничены
     {"url": "https://ria.ru/export/rss2/archive/index.xml", "source": "РИА Новости", "category": "NEWS", "priority": 1, "quota": 4},
@@ -70,6 +71,27 @@ BORING_KEYWORDS = [
     "постановление", "регламент", "меморандум", "пленарное",
     "ратификация", "брифинг", "распоряжение"
 ]
+
+# Источники только на русском/кыргызском
+RU_KG_ONLY_SOURCES = {"24.kg", "Kabar.kg", "AKIpress", "Zakon.kz"}
+
+import re
+
+def clean_text(text: str) -> str:
+    """Убираем все HTML entities и мусорные символы"""
+    import html
+    text = html.unescape(text)  # убирает ВСЕ HTML entities включая &nbsp;
+    text = text.replace('\xa0', ' ')  # non-breaking space
+    text = text.replace('​', '')  # zero-width space
+    text = re.sub(r'<[^>]+>', '', text)  # HTML теги
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+def is_russian_or_kyrgyz(text: str) -> bool:
+    """True если текст на русском или кыргызском (кириллица преобладает)"""
+    cyrillic = sum(1 for c in text if 'Ѐ' <= c <= 'ӿ')
+    latin = sum(1 for c in text if 'a' <= c.lower() <= 'z')
+    return cyrillic > latin * 0.5  # строже — кириллицы должно быть больше половины латиницы
 
 def fetch_akchаbar_rates():
     """Парсим курсы валют с Акчабара — покупка и продажа по банкам КР"""
@@ -204,10 +226,17 @@ def fetch_rss(source):
         root = ET.fromstring(r.content)
         items = []
         for item in root.findall(".//item")[:source.get("quota", 5)]:
-            title = item.findtext("title", "").strip()
+            title = clean_text(item.findtext("title", "").strip())
             link = item.findtext("link", "").strip()
-            desc = item.findtext("description", "").strip()[:200]
-            if not title or any(k in title.lower() for k in BORING_KEYWORDS):
+            desc = clean_text(item.findtext("description", "").strip())[:200]
+
+            if not title:
+                continue
+            # Фильтр скучных новостей
+            if any(k in title.lower() for k in BORING_KEYWORDS):
+                continue
+            # Для КГ/РУ источников — только кириллица
+            if source["source"] in RU_KG_ONLY_SOURCES and not is_russian_or_kyrgyz(title):
                 continue
             image = None
             enc = item.find("enclosure")
@@ -236,12 +265,19 @@ def filter_with_gemini(news_list):
     if not news_list:
         return news_list
     titles = [f"{i+1}. [{item['category']}] {item['title']}" for i, item in enumerate(news_list)]
-    prompt = f"""Ты редактор новостного приложения для глобальной аудитории.
-Из списка ниже:
-1. Убери скучные/бюрократические новости
+    prompt = f"""Ты редактор новостного приложения для аудитории Кыргызстана и СНГ.
+Из списка новостей:
+1. Убери скучные/бюрократические (заседания, протоколы, меморандумы)
 2. Убери дубликаты — оставь лучшую версию
-3. Обозначь срочные (катастрофы, ЧП, экстренные события) — priority=2
-4. Верни JSON: {{"keep": [1,3,5], "urgent": [2], "important": [4]}}
+3. Расставь приоритеты:
+   - priority=2 (urgent): ЧС, катастрофы, МЧС, теракты, экстренные события
+   - priority=1 (important): спортивные победы атлетов КГ/ЦА, важные политические события,
+     крупные назначения, преступления, происшествия, вирусные темы, технологические прорывы
+   - priority=0: обычные новости
+4. Верни JSON: {{"keep": [1,3,5], "urgent": [2], "important": [3,5]}}
+
+Примеры important: "дзюдоистка КГ выиграла золото", "президент назначил нового министра",
+"крупное ДТП в Бишкеке", "новый iPhone представлен"
 
 Новости:
 {chr(10).join(titles[:60])}
