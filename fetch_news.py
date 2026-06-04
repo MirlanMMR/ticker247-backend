@@ -261,23 +261,55 @@ def fetch_rss(source):
         print(f"  ✗ {source['source']}: {e}")
         return []
 
+CATEGORY_KEYWORDS = {
+    "SPORT": ["футбол", "баскетбол", "UFC", "борьба", "дзюдо", "бокс", "чемпион", "турнир",
+              "матч", "спортсмен", "олимпийский", "спорт", "тренер", "команда", "лига"],
+    "TECH": ["технологии", "смартфон", "iPhone", "Android", "искусственный интеллект", "ИИ",
+             "приложение", "интернет", "компьютер", "программа", "Tesla", "Apple", "Google"],
+    "AUTO": ["автомобиль", "машина", "авто", "ДТП", "авария", "дорога", "трафик",
+             "электромобиль", "бензин", "топливо", "водитель", "транспорт"],
+    "FASHION": ["мода", "стиль", "одежда", "коллекция", "бренд", "дизайнер", "тренд",
+                "красота", "макияж", "fashion", "одежда"],
+    "CULTURE": ["кино", "фильм", "сериал", "концерт", "музыка", "театр", "выставка",
+                "актёр", "режиссёр", "премьера", "шоу", "артист"],
+    "TOURS": ["туризм", "тур", "отдых", "курорт", "отель", "путешествие", "виза",
+              "Иссык-Куль", "авиа", "рейс", "туристы"],
+    "REALTY": ["недвижимость", "квартира", "дом", "аренда", "ипотека", "цена жилья",
+               "строительство", "застройщик", "жилой"],
+    "URGENT": ["ЧС", "МЧС", "авария", "пожар", "землетрясение", "наводнение", "теракт",
+               "взрыв", "обрушение", "эвакуация", "жертвы", "погиб"],
+}
+
+def auto_categorize(item: dict) -> str:
+    """Определяем категорию по ключевым словам если категория NEWS"""
+    if item.get("category") != "NEWS":
+        return item.get("category", "NEWS")
+    title_lower = item.get("title", "").lower()
+    for category, keywords in CATEGORY_KEYWORDS.items():
+        if any(kw.lower() in title_lower for kw in keywords):
+            return category
+    return "NEWS"
+
 def filter_with_gemini(news_list):
     if not news_list:
         return news_list
+
+    # Автоматическая перекатегоризация по ключевым словам
+    for item in news_list:
+        item["category"] = auto_categorize(item)
+
     titles = [f"{i+1}. [{item['category']}] {item['title']}" for i, item in enumerate(news_list)]
     prompt = f"""Ты редактор новостного приложения для аудитории Кыргызстана и СНГ.
 Из списка новостей:
 1. Убери скучные/бюрократические (заседания, протоколы, меморандумы)
 2. Убери дубликаты — оставь лучшую версию
-3. Расставь приоритеты:
+3. Если категория не совпадает с темой новости — исправь на правильную:
+   SPORT, TECH, AUTO, FASHION, CULTURE, TOURS, REALTY, NEWS, URGENT
+4. Расставь приоритеты:
    - priority=2 (urgent): ЧС, катастрофы, МЧС, теракты, экстренные события
-   - priority=1 (important): спортивные победы атлетов КГ/ЦА, важные политические события,
-     крупные назначения, преступления, происшествия, вирусные темы, технологические прорывы
+   - priority=1 (important): победы КГ/ЦА спортсменов, назначения, преступления, прорывы
    - priority=0: обычные новости
-4. Верни JSON: {{"keep": [1,3,5], "urgent": [2], "important": [3,5]}}
-
-Примеры important: "дзюдоистка КГ выиграла золото", "президент назначил нового министра",
-"крупное ДТП в Бишкеке", "новый iPhone представлен"
+5. Верни JSON: {{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "AUTO"}}}}
 
 Новости:
 {chr(10).join(titles[:60])}
@@ -295,11 +327,13 @@ def filter_with_gemini(news_list):
         urgent = set(i-1 for i in result.get("urgent", []))
         important = set(i-1 for i in result.get("important", []))
         filtered = []
+        recategorize = {int(k)-1: v for k, v in result.get("recategorize", {}).items()}
         for i in keep:
             if 0 <= i < len(news_list):
                 item = news_list[i].copy()
                 if i in urgent: item["priority"] = 2
                 elif i in important: item["priority"] = 1
+                if i in recategorize: item["category"] = recategorize[i]
                 filtered.append(item)
         return filtered
     except Exception as e:
@@ -312,14 +346,16 @@ def main():
     # YouTube вирусные видео — сохраняем отдельно
     print("▶ YouTube trending...")
     viral_kg = fetch_youtube_trending("KG", 10)
-    viral_world = fetch_youtube_trending("US", 10)
-    viral_ru = fetch_youtube_trending("RU", 5)
+    viral_ru = fetch_youtube_trending("RU", 8)
+    viral_kz = fetch_youtube_trending("KZ", 5)
+    viral_world = fetch_youtube_trending("US", 5)  # мировые — меньше
 
     viral_ref = db.reference("/viral")
     viral_ref.set({
         "kg": viral_kg,
-        "world": viral_world,
         "ru": viral_ru,
+        "kz": viral_kz,
+        "world": viral_world,
         "updatedAt": int(datetime.now().timestamp() * 1000)
     })
     print(f"✅ YouTube: KG={len(viral_kg)}, World={len(viral_world)}, RU={len(viral_ru)}")
