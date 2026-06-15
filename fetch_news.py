@@ -12,6 +12,8 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 FIREBASE_DATABASE_URL = os.environ.get("FIREBASE_DATABASE_URL")
 FIREBASE_SERVICE_ACCOUNT = os.environ.get("FIREBASE_SERVICE_ACCOUNT")
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHANNEL = "@t247feed"
 
 genai.configure(api_key=GEMINI_API_KEY)
 service_account_info = json.loads(FIREBASE_SERVICE_ACCOUNT)
@@ -220,6 +222,42 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
         return []
 
 
+INDICES = [
+    {"symbol": "^DJI",   "name": "Dow Jones", "emoji": "🇺🇸"},
+    {"symbol": "^GSPC",  "name": "S&P 500",   "emoji": "📈"},
+    {"symbol": "^IXIC",  "name": "NASDAQ",     "emoji": "💻"},
+    {"symbol": "GC=F",   "name": "Золото",     "emoji": "🥇"},
+    {"symbol": "CL=F",   "name": "Нефть WTI",  "emoji": "🛢️"},
+]
+
+def fetch_indices():
+    """Биржевые индексы и золото через Yahoo Finance (без ключа)"""
+    results = []
+    headers = {"User-Agent": "Mozilla/5.0 Ticker247/1.0"}
+    for idx in INDICES:
+        try:
+            url = f"https://query1.finance.yahoo.com/v8/finance/chart/{requests.utils.quote(idx['symbol'])}?interval=1d&range=1d"
+            r = requests.get(url, headers=headers, timeout=8)
+            if not r.ok:
+                continue
+            meta = r.json()["chart"]["result"][0]["meta"]
+            price = meta["regularMarketPrice"]
+            prev  = meta["chartPreviousClose"]
+            chg   = (price - prev) / prev * 100 if prev else 0
+            arrow = "▲" if chg >= 0 else "▼"
+            results.append({
+                "symbol": idx["symbol"],
+                "name":   idx["name"],
+                "emoji":  idx["emoji"],
+                "price":  price,
+                "change": chg,
+                "display": f"{idx['emoji']} {idx['name']} {'${:,.0f}'.format(price) if 'GC' in idx['symbol'] or 'CL' in idx['symbol'] else '{:,.0f}'.format(int(price))} {arrow}{abs(chg):.1f}%"
+            })
+        except Exception as e:
+            print(f"  ✗ {idx['name']}: {e}")
+    print(f"  ✓ Indices: {len(results)}")
+    return results
+
 def detect_language(text: str) -> str:
     """Определяем язык текста по символам — без внешних библиотек"""
     if not text:
@@ -424,8 +462,129 @@ def filter_with_gemini(news_list):
         print(f"Gemini error: {e}")
         return news_list[:40]
 
+def shorten_url(url: str) -> str:
+    """Сокращаем ссылку через TinyURL (бесплатно, без ключа)."""
+    if not url or not url.startswith("http"):
+        return url
+    try:
+        r = requests.get(
+            "https://tinyurl.com/api-create.php",
+            params={"url": url},
+            timeout=5
+        )
+        if r.status_code == 200 and r.text.startswith("http"):
+            return r.text.strip()
+    except Exception:
+        pass
+    return url
+
+
+CATEGORY_HASHTAGS = {
+    "URGENT":  "#Срочно",
+    "SPORT":   "#Спорт",
+    "TECH":    "#Технологии",
+    "AUTO":    "#Авто",
+    "FASHION": "#Мода",
+    "CULTURE": "#Культура",
+    "TOURS":   "#Туризм",
+    "MONEY":   "#Деньги",
+    "HEALTH":  "#Здоровье",
+    "STARS":   "#Звёзды",
+    "VIRAL":   "#Вирально",
+    "GOOD":    "#Хорошиеновости",
+    "NEWS":    "#Новости",
+}
+
+
+def post_to_telegram(items: list):
+    """Постим топ-новости в @t247feed. Дедупликация через Firebase /tg_posted."""
+    if not TELEGRAM_BOT_TOKEN:
+        print("⚠️ TELEGRAM_BOT_TOKEN не задан, пропускаем постинг")
+        return
+
+    # Загружаем уже опубликованные URL
+    posted_ref = db.reference("/tg_posted")
+    posted_data = posted_ref.get() or {}
+    posted_urls = set(posted_data.keys() if isinstance(posted_data, dict) else [])
+
+    # Берём только priority >= 2 (срочные/важные), не опубликованные ранее
+    candidates = [
+        item for item in items
+        if item.get("priority", 0) >= 2
+        and item.get("url", "") not in posted_urls
+        and item.get("category") not in ("CURRENCY", "CRYPTO")
+    ]
+
+    # Максимум 5 постов за один запуск
+    to_post = candidates[:5]
+    if not to_post:
+        print("📭 Нет новых важных новостей для постинга в TG")
+        return
+
+    api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    new_posted = {}
+
+    for item in to_post:
+        title   = item.get("title", "")
+        summary = item.get("summary", "")
+        url     = item.get("url", "")
+        cat     = item.get("category", "NEWS")
+        source  = item.get("source", "")
+        hashtag = CATEGORY_HASHTAGS.get(cat, "#Новости")
+
+        short_url = shorten_url(url) if url else ""
+
+        # Формируем текст поста
+        text = f"<b>{title}</b>"
+        if summary and summary != title:
+            # Обрезаем по последнему предложению до 400 символов
+            body = summary[:400]
+            last_dot = max(body.rfind(". "), body.rfind("! "), body.rfind("? "))
+            if last_dot > 100:
+                body = body[:last_dot + 1]
+            text += f"\n\n{body}"
+        if short_url:
+            text += f"\n\n🔗 {short_url}"
+        text += f"\n\n{hashtag} | 📲 @t247feed"
+        if source:
+            text += f" | {source}"
+
+        try:
+            resp = requests.post(api_url, json={
+                "chat_id": TELEGRAM_CHANNEL,
+                "text": text,
+                "parse_mode": "HTML",
+                "disable_web_page_preview": False,
+            }, timeout=10)
+            if resp.status_code == 200:
+                print(f"✅ TG posted: {title[:60]}")
+                if url:
+                    new_posted[url.replace(".", "_").replace("/", "|")[:100]] = int(datetime.now().timestamp())
+            else:
+                print(f"❌ TG error {resp.status_code}: {resp.text[:200]}")
+        except Exception as e:
+            print(f"❌ TG exception: {e}")
+
+    # Сохраняем опубликованные URL в Firebase
+    if new_posted:
+        posted_ref.update(new_posted)
+        # Чистим старые записи (старше 7 дней) чтобы не накапливались
+        cutoff = int(datetime.now().timestamp()) - 7 * 86400
+        to_delete = {k: None for k, v in posted_data.items() if isinstance(v, int) and v < cutoff}
+        if to_delete:
+            posted_ref.update(to_delete)
+
+
 def main():
     print("🚀 Ticker247 Backend — Fetching news...")
+
+    # Биржевые индексы — Dow Jones, S&P 500, золото, нефть
+    print("📊 Индексы...")
+    indices = fetch_indices()
+    db.reference("/indices").set({
+        "items": indices,
+        "updatedAt": int(datetime.now().timestamp() * 1000)
+    })
 
     # YouTube вирусные видео — сохраняем отдельно
     print("▶ YouTube trending...")
@@ -489,6 +648,10 @@ def main():
         "count": len(filtered)
     })
     print("✅ Сохранено в Firebase!")
+
+    # Постим важные новости в Telegram-канал
+    print("📤 Постим в @t247feed...")
+    post_to_telegram(filtered)
 
 if __name__ == "__main__":
     main()
