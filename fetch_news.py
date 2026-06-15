@@ -197,14 +197,17 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                     "🌍 ВИРАЛЬНО В МИРЕ" if region_code == "US" else \
                     f"🔥 ТРЕНД {region_code}"
 
+            title_text = snippet.get("title", "")
+            lang = detect_language(title_text) if title_text else "unknown"
             items.append({
-                "title": snippet.get("title", ""),
+                "title": title_text,
                 "url": f"https://www.youtube.com/watch?v={video_id}",
                 "summary": f"{views_str} просмотров · {snippet.get('channelTitle', '')}",
                 "imageUrl": snippet.get("thumbnails", {}).get("high", {}).get("url"),
                 "source": f"YouTube {region_code}",
                 "category": "VIRAL",
                 "priority": 1,
+                "language": lang,
                 "publishedAt": int(datetime.now().timestamp() * 1000),
                 "regionCode": region_code,
                 "viewCount": views,
@@ -217,6 +220,48 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
         return []
 
 
+def detect_language(text: str) -> str:
+    """Определяем язык текста по символам — без внешних библиотек"""
+    if not text:
+        return "unknown"
+    cyrillic = sum(1 for c in text if 'Ѐ' <= c <= 'ӿ')
+    latin = sum(1 for c in text if 'a' <= c.lower() <= 'z')
+    arabic = sum(1 for c in text if '؀' <= c <= 'ۿ')
+    total = max(len(text), 1)
+    if cyrillic / total > 0.2:
+        return "ru"
+    if arabic / total > 0.2:
+        return "ar"
+    if latin / total > 0.3:
+        return "en"
+    return "other"
+
+def extract_full_summary(item_el) -> str:
+    """Извлекаем полный текст до логической точки — не обрезаем на полуслове"""
+    # Пробуем content:encoded — там обычно полная статья
+    ns = {"content": "http://purl.org/rss/1.0/modules/content/"}
+    full = item_el.findtext("content:encoded", namespaces=ns) or ""
+    if not full:
+        full = item_el.findtext("description", "") or ""
+
+    text = clean_text(full)
+
+    # Убираем дубль заголовка в начале текста (частая проблема 24.kg и др.)
+    title = clean_text(item_el.findtext("title", ""))
+    if title and text.startswith(title):
+        text = text[len(title):].lstrip(" .,—-")
+
+    # Берём до 600 символов, но обрезаем по последнему полному предложению
+    if len(text) > 600:
+        text = text[:600]
+        for sep in (". ", "! ", "? ", ".\n"):
+            idx = text.rfind(sep)
+            if idx > 100:
+                text = text[:idx + 1]
+                break
+
+    return text.strip()
+
 def fetch_rss(source):
     try:
         r = requests.get(source["url"], timeout=10,
@@ -225,35 +270,37 @@ def fetch_rss(source):
             return []
         root = ET.fromstring(r.content)
         items = []
-        for item in root.findall(".//item")[:source.get("quota", 5)]:
-            title = clean_text(item.findtext("title", "").strip())
-            link = item.findtext("link", "").strip()
-            desc = clean_text(item.findtext("description", "").strip())[:200]
+        for item_el in root.findall(".//item")[:source.get("quota", 5)]:
+            title = clean_text(item_el.findtext("title", "").strip())
+            link = item_el.findtext("link", "").strip()
+            summary = extract_full_summary(item_el)
+            lang = detect_language(title + " " + summary)
 
             if not title:
                 continue
-            # Фильтр скучных новостей
             if any(k in title.lower() for k in BORING_KEYWORDS):
                 continue
-            # Для КГ/РУ источников — только кириллица
             if source["source"] in RU_KG_ONLY_SOURCES and not is_russian_or_kyrgyz(title):
                 continue
+
             image = None
-            enc = item.find("enclosure")
+            enc = item_el.find("enclosure")
             if enc is not None and "image" in (enc.get("type") or ""):
                 image = enc.get("url")
             if not image:
                 for tag in ["media:content", "media:thumbnail"]:
-                    el = item.find(tag)
+                    el = item_el.find(tag)
                     if el is not None:
-                        url = el.get("url", "")
-                        if any(ext in url for ext in [".jpg", ".jpeg", ".png", ".webp"]):
-                            image = url
+                        url_img = el.get("url", "")
+                        if any(ext in url_img for ext in [".jpg", ".jpeg", ".png", ".webp"]):
+                            image = url_img
                             break
+
             items.append({
-                "title": title, "url": link, "summary": desc,
+                "title": title, "url": link, "summary": summary,
                 "imageUrl": image, "source": source["source"],
                 "category": source["category"], "priority": source["priority"],
+                "language": lang,
                 "publishedAt": int(datetime.now().timestamp() * 1000)
             })
         return items
@@ -294,27 +341,64 @@ def filter_with_gemini(news_list):
     if not news_list:
         return news_list
 
-    # Автоматическая перекатегоризация по ключевым словам
     for item in news_list:
         item["category"] = auto_categorize(item)
 
-    titles = [f"{i+1}. [{item['category']}] {item['title']}" for i, item in enumerate(news_list)]
-    prompt = f"""Ты редактор новостного приложения для аудитории Кыргызстана и СНГ.
-Из списка новостей:
-1. Убери скучные/бюрократические (заседания, протоколы, меморандумы)
-2. Убери дубликаты — оставь лучшую версию
-3. Если категория не совпадает с темой новости — исправь на правильную:
-   SPORT, TECH, AUTO, FASHION, CULTURE, TOURS, REALTY, NEWS, URGENT
-4. Расставь приоритеты:
-   - priority=2 (urgent): ЧС, катастрофы, МЧС, теракты, экстренные события
-   - priority=1 (important): победы КГ/ЦА спортсменов, назначения, преступления, прорывы
+    titles = [
+        f"{i+1}. [{item['category']}] {item['title']}"
+        for i, item in enumerate(news_list)
+    ]
+
+    prompt = f"""Ты главный редактор глобального новостного приложения Ticker 24/7.
+Приложение работает по всему миру — пользователи видят контент на своём языке.
+Твоя задача: отобрать новости которые людям действительно интересно читать прямо сейчас.
+
+ПРИНЦИПЫ ОТБОРА:
+
+1. АКТУАЛЬНОСТЬ ТЕМЫ важнее даты публикации.
+   ✓ Новое видео про релиз iPhone 17 — актуально (тема свежая)
+   ✗ Статья про историю аналоговой связи — неактуально (тема устарела)
+   ✓ Результаты вчерашнего матча ЧМ — актуально
+   ✗ Интервью про ВОВ без новостного повода — неактуально
+
+2. КРУПНЫЕ ТЕКУЩИЕ СОБЫТИЯ — обязательно в ленте:
+   - Чемпионаты мира и Европы (футбол, хоккей, баскетбол и др.)
+   - Титульные бои UFC, бокс (любой вес, любая федерация)
+   - Олимпийские игры, Азиатские игры
+   - Громкие судебные процессы, политические кризисы
+   - Крупные технологические релизы (новый iPhone, Android, AI-модели)
+   - Ожидаемые кинопремьеры, музыкальные альбомы, игры
+   - Природные катастрофы, теракты, войны
+   Если есть видео об этих событиях — предпочти видео тексту.
+
+3. КЫРГЫЗСТАН И ЦА — особый приоритет:
+   - Любой успех кыргызстанского/казахстанского/узбекского спортсмена = priority 2
+   - Внутренние события КГ важны для местной аудитории
+   - Бойцы: Топурия, Джумагулов, Досмагамбетов, Сидаков и другие ЦА атлеты
+
+4. ЧТО УБИРАТЬ:
+   - Бюрократия: заседания, протоколы, меморандумы, брифинги, ратификации
+   - Реклама и PR материалы
+   - Исторические справки без актуального новостного повода
+   - Дубликаты: оставь лучшую версию (предпочти видео, затем — с фото, затем — с длинным текстом)
+   - Кликбейт без содержания ("Вы не поверите что случилось...")
+
+5. КАТЕГОРИИ (исправляй если не совпадает с темой):
+   URGENT=экстренное, SPORT=спорт, TECH=технологии, AUTO=авто,
+   FASHION=мода, CULTURE=кино/музыка/театр, TOURS=туризм,
+   MONEY=финансы/экономика, HEALTH=здоровье, GOOD=позитив,
+   STARS=знаменитости, VIRAL=вирусное видео, NEWS=всё остальное
+
+6. ПРИОРИТЕТЫ:
+   - priority=2: ЧС, теракты, катастрофы, победы ЦА спортсменов, геополитические кризисы
+   - priority=1: результаты крупных турниров, громкие преступления, важные технологические новости
    - priority=0: обычные новости
-5. Верни JSON: {{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "AUTO"}}}}
 
-Новости:
-{chr(10).join(titles[:60])}
+Верни ТОЛЬКО JSON без объяснений:
+{{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}}}
 
-Только JSON, без объяснений."""
+НОВОСТИ:
+{chr(10).join(titles[:60])}"""
 
     try:
         model = genai.GenerativeModel("gemini-1.5-flash")
@@ -326,12 +410,12 @@ def filter_with_gemini(news_list):
         keep = [i-1 for i in result.get("keep", [])]
         urgent = set(i-1 for i in result.get("urgent", []))
         important = set(i-1 for i in result.get("important", []))
-        filtered = []
         recategorize = {int(k)-1: v for k, v in result.get("recategorize", {}).items()}
+        filtered = []
         for i in keep:
             if 0 <= i < len(news_list):
                 item = news_list[i].copy()
-                if i in urgent: item["priority"] = 2
+                if i in urgent:   item["priority"] = 2
                 elif i in important: item["priority"] = 1
                 if i in recategorize: item["category"] = recategorize[i]
                 filtered.append(item)
