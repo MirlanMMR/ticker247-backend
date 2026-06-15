@@ -510,7 +510,7 @@ def post_to_telegram(items: list):
     # Берём только priority >= 2 (срочные/важные), не опубликованные ранее
     candidates = [
         item for item in items
-        if item.get("priority", 0) >= 2
+        if item.get("priority", 0) >= 1
         and item.get("url", "") not in posted_urls
         and item.get("category") not in ("CURRENCY", "CRYPTO")
     ]
