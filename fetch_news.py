@@ -79,12 +79,14 @@ RSS_SOURCES = [
     # ════════════════════════════════════════════════════
     # КГ / ЦА — локальный приоритет
     # ════════════════════════════════════════════════════
-    {"url": "https://24.kg/rss/", "source": "24.kg", "category": "NEWS", "priority": 1, "quota": 8},
-    {"url": "https://kabar.kg/rss/", "source": "Kabar.kg", "category": "NEWS", "priority": 1, "quota": 6},
-    {"url": "https://akipress.com/rss/news.rss", "source": "AKIpress", "category": "NEWS", "priority": 1, "quota": 8},
-    {"url": "https://kaktus.media/rss.xml", "source": "Kaktus.media", "category": "NEWS", "priority": 1, "quota": 6},
-    {"url": "https://sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG", "category": "NEWS", "priority": 1, "quota": 4},
-    {"url": "https://www.vb.kg/rss.xml", "source": "Вечерний Бишкек", "category": "NEWS", "priority": 0, "quota": 4},
+    {"url": "https://24.kg/rss/", "source": "24.kg", "category": "NEWS", "priority": 2, "quota": 12},
+    {"url": "https://kabar.kg/rss/", "source": "Kabar.kg", "category": "NEWS", "priority": 2, "quota": 10},
+    {"url": "https://akipress.com/rss/news.rss", "source": "AKIpress", "category": "NEWS", "priority": 2, "quota": 12},
+    {"url": "https://kaktus.media/rss.xml", "source": "Kaktus.media", "category": "NEWS", "priority": 2, "quota": 10},
+    {"url": "https://sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG", "category": "NEWS", "priority": 1, "quota": 8},
+    {"url": "https://www.vb.kg/rss.xml", "source": "Вечерний Бишкек", "category": "NEWS", "priority": 1, "quota": 8},
+    {"url": "https://knews.kg/feed/", "source": "Knews.kg", "category": "NEWS", "priority": 1, "quota": 8},
+    {"url": "https://www.gezitter.org/rss/", "source": "Gezitter", "category": "NEWS", "priority": 1, "quota": 6},
 
     # Казахстан
     {"url": "https://tengrinews.kz/rss/", "source": "Tengrinews", "category": "NEWS", "priority": 1, "quota": 4},
@@ -431,7 +433,11 @@ CATEGORY_KEYWORDS = {
     "REALTY": ["недвижимость", "квартира", "дом", "аренда", "ипотека", "цена жилья",
                "строительство", "застройщик", "жилой"],
     "URGENT": ["ЧС", "МЧС", "авария", "пожар", "землетрясение", "наводнение", "теракт",
-               "взрыв", "обрушение", "эвакуация", "жертвы", "погиб"],
+               "взрыв", "обрушение", "эвакуация", "жертвы", "погиб",
+               "отключение", "отключат", "без воды", "без света", "отравление", "отравились",
+               "перекрыт", "перекрыли", "дорога закрыта", "перевал закрыт",
+               "задержан", "арестован", "обыск", "рейд", "коррупция",
+               "упал", "столкновение", "ДТП", "авиакатастрофа"],
 }
 
 def auto_categorize(item: dict) -> str:
@@ -731,7 +737,8 @@ def main():
             filtered_batch = filter_with_gemini(batch)
             filtered.extend(filtered_batch)
         filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
-        filtered = filtered[:60]
+        max_items = 80 if lang == "ru" else 60
+        filtered = filtered[:max_items]
         cats = {}
         for item in filtered:
             cats[item["category"]] = cats.get(item["category"], 0) + 1
