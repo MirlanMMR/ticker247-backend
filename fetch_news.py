@@ -27,10 +27,10 @@ RSS_SOURCES = [
     # ════════════════════════════════════════════════════
     {"url": "https://feeds.bbci.co.uk/news/rss.xml", "source": "BBC News", "category": "NEWS", "priority": 2, "quota": 6},
     {"url": "https://feeds.bbci.co.uk/news/world/rss.xml", "source": "BBC World", "category": "NEWS", "priority": 2, "quota": 5},
-    {"url": "https://rss.reuters.com/reuters/topNews", "source": "Reuters", "category": "NEWS", "priority": 2, "quota": 6},
+    {"url": "https://feeds.reuters.com/reuters/topNews", "source": "Reuters", "category": "NEWS", "priority": 2, "quota": 6},
     {"url": "https://www.aljazeera.com/xml/rss/all.xml", "source": "Al Jazeera", "category": "NEWS", "priority": 1, "quota": 5},
-    {"url": "https://apnews.com/rss", "source": "AP News", "category": "NEWS", "priority": 2, "quota": 5},
-    {"url": "https://www.dw.com/rss/rss.xml", "source": "Deutsche Welle", "category": "NEWS", "priority": 1, "quota": 4},
+    {"url": "https://rsshub.app/apnews/topics/apf-topnews", "source": "AP News", "category": "NEWS", "priority": 2, "quota": 5},
+    {"url": "https://rss.dw.com/rdf/rss-en-all", "source": "Deutsche Welle", "category": "NEWS", "priority": 1, "quota": 4},
 
     # ════════════════════════════════════════════════════
     # ГЛОБАЛЬНЫЙ СПОРТ
@@ -50,7 +50,7 @@ RSS_SOURCES = [
     # ════════════════════════════════════════════════════
     # ГЛОБАЛЬНЫЕ ФИНАНСЫ
     # ════════════════════════════════════════════════════
-    {"url": "https://feeds.bloomberg.com/markets/news.rss", "source": "Bloomberg", "category": "MONEY", "priority": 1, "quota": 4},
+    {"url": "https://feeds.bloomberg.com/politics/news.rss", "source": "Bloomberg", "category": "MONEY", "priority": 1, "quota": 4},
     {"url": "https://www.forbes.com/innovation/feed2/", "source": "Forbes", "category": "MONEY", "priority": 0, "quota": 3},
 
     # ════════════════════════════════════════════════════
