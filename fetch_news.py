@@ -29,9 +29,9 @@ RSS_SOURCES = [
     {"url": "https://kaktus.media/rss.xml", "source": "Kaktus.media", "category": "NEWS", "priority": 1, "quota": 6},
 
     # Мировые новости — ограничены
-    {"url": "https://ria.ru/export/rss2/archive/index.xml", "source": "РИА Новости", "category": "NEWS", "priority": 1, "quota": 4},
-    {"url": "https://tass.ru/rss/v2.xml", "source": "ТАСС", "category": "NEWS", "priority": 1, "quota": 3},
-    {"url": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss", "source": "РБК", "category": "NEWS", "priority": 0, "quota": 3},
+    {"url": "https://ria.ru/export/rss2/archive/index.xml", "source": "РИА Новости", "category": "NEWS", "priority": 1, "quota": 2},
+    {"url": "https://tass.ru/rss/v2.xml", "source": "ТАСС", "category": "NEWS", "priority": 1, "quota": 2},
+    {"url": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss", "source": "РБК", "category": "NEWS", "priority": 0, "quota": 2},
 
     # Технологии
     {"url": "https://habr.com/ru/rss/flows/develop/all/", "source": "Хабр", "category": "TECH", "priority": 0, "quota": 5},
@@ -188,13 +188,26 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
 
         data = r.json()
         items = []
+
+        # Категории-мусор: игры (20), детские (24), аниме/анимация (31)
+        BLOCKED_CATEGORIES = {"20", "24", "31"}
+
         for video in data.get("items", []):
             snippet = video.get("snippet", {})
             stats = video.get("statistics", {})
             video_id = video.get("id", "")
             views = int(stats.get("viewCount", 0))
-            views_str = f"{views/1_000_000:.1f}M" if views >= 1_000_000 else f"{views//1000}K"
+            duration_def = snippet.get("categoryId", "0")
 
+            # Минимум 100K просмотров
+            if views < 100_000:
+                continue
+
+            # Фильтруем мусорные категории
+            if snippet.get("categoryId", "") in BLOCKED_CATEGORIES:
+                continue
+
+            views_str = f"{views/1_000_000:.1f}M" if views >= 1_000_000 else f"{views//1000}K"
             label = "🔥 ВИРАЛЬНО В КГ" if region_code == "KG" else \
                     "🌍 ВИРАЛЬНО В МИРЕ" if region_code == "US" else \
                     f"🔥 ТРЕНД {region_code}"
@@ -215,7 +228,10 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                 "viewCount": views,
                 "label": label
             })
-        print(f"  ✓ YouTube {region_code}: {len(items)} видео")
+
+        # Сортируем по просмотрам — самые популярные первыми
+        items.sort(key=lambda x: x["viewCount"], reverse=True)
+        print(f"  ✓ YouTube {region_code}: {len(items)} видео (отфильтровано по 100K+ просмотров)")
         return items
     except Exception as e:
         print(f"  ✗ YouTube {region_code}: {e}")
@@ -399,18 +415,19 @@ def filter_with_gemini(news_list):
    ✓ Результаты вчерашнего матча ЧМ — актуально
    ✗ Интервью про ВОВ без новостного повода — неактуально
 
-2. КРУПНЫЕ ТЕКУЩИЕ СОБЫТИЯ — обязательно в ленте:
-   - Чемпионаты мира и Европы (футбол, хоккей, баскетбол и др.)
-   - Титульные бои UFC, бокс (любой вес, любая федерация)
-   - Олимпийские игры, Азиатские игры
-   - Громкие судебные процессы, политические кризисы
-   - Крупные технологические релизы (новый iPhone, Android, AI-модели)
-   - Ожидаемые кинопремьеры, музыкальные альбомы, игры
-   - Природные катастрофы, теракты, войны
+2. ЖИВАЯ ПОВЕСТКА — определи сам что сейчас главное в мире и давай этому приоритет:
+   Спорт: любые финалы, полуфиналы, рекорды, сенсации — неважно какой турнир, если он
+   сейчас в разгаре и люди это обсуждают → priority 2. Это может быть ЧМ по футболу,
+   теннисный Большой шлем, Формула-1, UFC, бокс, баскетбол NBA — всё что актуально СЕЙЧАС.
+   Технологии: анонсы и релизы продуктов которые обсуждает весь мир прямо сейчас.
+   Культура: премьеры фильмов, альбомов, сериалов которые ждали.
+   Политика: выборы, кризисы, войны, санкции — то что меняет жизнь людей.
+   Не нужно знать наперёд — смотри на то что ЕСТЬ в списке новостей и оцени
+   насколько это важно именно сейчас, а не вообще.
 
-   ВИДЕО > ТЕКСТ: если есть YouTube-видео о событии и текстовая статья о том же —
-   видео получает на 1 приоритет выше. Хайлайты боя, обзор матча, распаковка нового гаджета
-   всегда интереснее агрегаторной статьи на ту же тему.
+   ВИДЕО > ТЕКСТ: YouTube-видео о событии получает на 1 приоритет выше текстовой статьи
+   на ту же тему. Хайлайты матча, обзор гаджета, репортаж с места события —
+   всегда интереснее агрегаторной статьи.
 
 3. КЫРГЫЗСТАН И ЦА — особый приоритет:
    - Любой успех кыргызстанского/казахстанского/узбекского спортсмена = priority 2
