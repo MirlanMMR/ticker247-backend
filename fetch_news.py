@@ -253,7 +253,15 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                     f"🔥 ТРЕНД {region_code}"
 
             title_text = snippet.get("title", "")
+            # Пропускаем музыкальные клипы и лирик-видео
+            title_lower = title_text.lower()
+            if any(kw in title_lower for kw in ["official music video", "official video", "official audio",
+                                                 "official mv", "lyrics", "lyric video", "music video",
+                                                 "official clip", "клип", "премьера клипа"]):
+                continue
             lang = detect_language(title_text) if title_text else "unknown"
+            # KG и RU тренды — локальные, US/мировые — world
+            scope = "local" if region_code in ("KG", "RU") else "world"
             items.append({
                 "title": title_text,
                 "url": f"https://www.youtube.com/watch?v={video_id}",
@@ -263,6 +271,7 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                 "category": "VIRAL",
                 "priority": 1,
                 "language": lang,
+                "scope": scope,
                 "publishedAt": int(datetime.now().timestamp() * 1000),
                 "regionCode": region_code,
                 "viewCount": views,
