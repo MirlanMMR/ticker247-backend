@@ -695,34 +695,51 @@ def main():
     print(f"Всего: {len(all_news)} статей")
     print("🤖 Фильтруем через Gemini AI...")
 
-    filtered = []
-    for i in range(0, len(all_news), 80):
-        batch = all_news[i:i+80]
-        filtered_batch = filter_with_gemini(batch)
-        filtered.extend(filtered_batch)
+    # Группируем по языку: ru = кириллица (ru/ky/uk/be), en, es, ar, other
+    CYRILLIC_LANGS = {"ru", "ky", "uk", "be", "bg", "sr", "mk"}
+    lang_groups = {"ru": [], "en": [], "es": [], "ar": [], "other": []}
+    for item in all_news:
+        lang = item.get("language", "unknown")
+        if lang in CYRILLIC_LANGS:
+            lang_groups["ru"].append(item)
+        elif lang == "en":
+            lang_groups["en"].append(item)
+        elif lang == "es":
+            lang_groups["es"].append(item)
+        elif lang == "ar":
+            lang_groups["ar"].append(item)
+        else:
+            lang_groups["other"].append(item)
 
-    # Сортируем: срочные первыми, потом по категориям
-    filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
-    filtered = filtered[:120]
+    ts = int(datetime.now().timestamp() * 1000)
+    all_filtered = []
 
-    # Статистика
-    cats = {}
-    for item in filtered:
-        cats[item["category"]] = cats.get(item["category"], 0) + 1
-    print(f"После AI: {len(filtered)} статей")
-    print(f"Категории: {cats}")
+    for lang, group in lang_groups.items():
+        if not group:
+            continue
+        print(f"\n🌐 [{lang.upper()}] {len(group)} статей → Gemini...")
+        filtered = []
+        for i in range(0, len(group), 80):
+            batch = group[i:i+80]
+            filtered_batch = filter_with_gemini(batch)
+            filtered.extend(filtered_batch)
+        filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
+        filtered = filtered[:60]
+        cats = {}
+        for item in filtered:
+            cats[item["category"]] = cats.get(item["category"], 0) + 1
+        print(f"  После AI: {len(filtered)} | {cats}")
+        db.reference(f"/news/{lang}").set({
+            "items": filtered,
+            "updatedAt": ts,
+            "count": len(filtered)
+        })
+        print(f"  ✅ /news/{lang} сохранено")
+        all_filtered.extend(filtered)
 
-    ref = db.reference("/news")
-    ref.set({
-        "items": filtered,
-        "updatedAt": int(datetime.now().timestamp() * 1000),
-        "count": len(filtered)
-    })
-    print("✅ Сохранено в Firebase!")
-
-    # Постим важные новости в Telegram-канал
-    print("📤 Постим в @t247feed...")
-    post_to_telegram(filtered)
+    # Постим важные новости в Telegram-канал (из всех языков)
+    print("\n📤 Постим в @t247feed...")
+    post_to_telegram(all_filtered)
 
 if __name__ == "__main__":
     main()
