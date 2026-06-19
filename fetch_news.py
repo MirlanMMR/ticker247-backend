@@ -738,23 +738,32 @@ def main():
     print(f"Всего: {len(all_news)} статей")
     print("🤖 Фильтруем через Gemini AI...")
 
-    # Группируем по языку: ru = кириллица (ru/ky/uk/be), en, es, ar, other
+    # Мировые новости (scope=world) идут во ВСЕ пулы.
+    # Локальные (scope=local) — только в пул по языку статьи.
     CYRILLIC_LANGS = {"ru", "ky", "uk", "be", "bg", "sr", "mk"}
-    lang_groups = {"ru": [], "en": [], "es": [], "pt": [], "ar": [], "other": []}
+    lang_groups = {"ru": [], "en": [], "es": [], "pt": [], "ar": []}
+    ALL_POOLS = list(lang_groups.keys())
+
     for item in all_news:
         lang = item.get("language", "unknown")
-        if lang in CYRILLIC_LANGS:
-            lang_groups["ru"].append(item)
-        elif lang == "en":
-            lang_groups["en"].append(item)
-        elif lang == "es":
-            lang_groups["es"].append(item)
-        elif lang == "pt":
-            lang_groups["pt"].append(item)
-        elif lang == "ar":
-            lang_groups["ar"].append(item)
+        scope = item.get("scope", "world")
+
+        if scope == "world":
+            # Мировые — копируем во все пулы
+            for pool in ALL_POOLS:
+                lang_groups[pool].append(item)
         else:
-            lang_groups["other"].append(item)
+            # Локальные — только в родной пул
+            if lang in CYRILLIC_LANGS:
+                lang_groups["ru"].append(item)
+            elif lang == "es":
+                lang_groups["es"].append(item)
+            elif lang == "pt":
+                lang_groups["pt"].append(item)
+            elif lang == "ar":
+                lang_groups["ar"].append(item)
+            else:
+                lang_groups["en"].append(item)
 
     ts = int(datetime.now().timestamp() * 1000)
     all_filtered = []
