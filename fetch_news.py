@@ -65,6 +65,11 @@ RSS_SOURCES = [
     {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 1, "quota": 4},
     {"url": "https://www.infobae.com/feeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 0, "quota": 3},
     {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 0, "quota": 3},
+    # Португальский
+    {"url": "https://feeds.bbci.co.uk/portuguese/rss.xml", "source": "BBC Brasil", "category": "NEWS", "priority": 2, "quota": 6},
+    {"url": "https://g1.globo.com/rss/g1/", "source": "G1 Globo", "category": "NEWS", "priority": 1, "quota": 6},
+    {"url": "https://www.publico.pt/rss", "source": "Público PT", "category": "NEWS", "priority": 1, "quota": 4},
+    {"url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml", "source": "Folha de S.Paulo", "category": "NEWS", "priority": 1, "quota": 5},
 
     # ════════════════════════════════════════════════════
     # АРАБСКИЙ МИР
@@ -697,7 +702,7 @@ def main():
 
     # Группируем по языку: ru = кириллица (ru/ky/uk/be), en, es, ar, other
     CYRILLIC_LANGS = {"ru", "ky", "uk", "be", "bg", "sr", "mk"}
-    lang_groups = {"ru": [], "en": [], "es": [], "ar": [], "other": []}
+    lang_groups = {"ru": [], "en": [], "es": [], "pt": [], "ar": [], "other": []}
     for item in all_news:
         lang = item.get("language", "unknown")
         if lang in CYRILLIC_LANGS:
@@ -706,6 +711,8 @@ def main():
             lang_groups["en"].append(item)
         elif lang == "es":
             lang_groups["es"].append(item)
+        elif lang == "pt":
+            lang_groups["pt"].append(item)
         elif lang == "ar":
             lang_groups["ar"].append(item)
         else:
