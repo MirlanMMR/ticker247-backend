@@ -507,7 +507,7 @@ def filter_with_gemini(news_list):
 {chr(10).join(titles[:60])}"""
 
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-2.0-flash")
         response = model.generate_content(prompt)
         text = response.text.strip()
         if "```" in text:
@@ -528,6 +528,9 @@ def filter_with_gemini(news_list):
         return filtered
     except Exception as e:
         print(f"Gemini error: {e}")
+        # Fallback: берём равномерно из всего списка, не только первые 40
+        import random
+        random.shuffle(news_list)
         return news_list[:40]
 
 def shorten_url(url: str) -> str:
