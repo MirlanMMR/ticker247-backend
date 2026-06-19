@@ -652,7 +652,7 @@ def main():
 
     # Сортируем: срочные первыми, потом по категориям
     filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
-    filtered = filtered[:80]
+    filtered = filtered[:120]
 
     # Статистика
     cats = {}
