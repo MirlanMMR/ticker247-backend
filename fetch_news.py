@@ -65,7 +65,7 @@ RSS_SOURCES = [
     {"url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml", "source": "Folha de S.Paulo", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local"},
 
     # АРАБСКИЙ МИР (локальные для AR пула)
-    {"url": "https://www.aljazeera.net/rss", "source": "Al Jazeera Arabic", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local"},
+    # Al Jazeera Arabic убран — RTL поддержка не реализована
 
     # ════════════════════════════════════════════════════
     # КГ / ЦА — локальные для RU пула
@@ -495,11 +495,6 @@ POOL_CONFIG = {
         "language_name": "португальском",
         "language_rule": "O conteúdo deve estar em português. Remover tudo em outros idiomas.",
     },
-    "ar": {
-        "region": "Саудовская Аравия, ОАЭ, Египет, Марокко (арабский мир)",
-        "language_name": "арабском",
-        "language_rule": "يجب أن يكون المحتوى باللغة العربية. احذف كل ما هو بلغة أخرى.",
-    },
 }
 
 # Обратная совместимость
@@ -754,7 +749,7 @@ def main():
     # Мировые новости (scope=world) идут во ВСЕ пулы.
     # Локальные (scope=local) — только в пул по языку статьи.
     CYRILLIC_LANGS = {"ru", "ky", "uk", "be", "bg", "sr", "mk"}
-    lang_groups = {"ru": [], "en": [], "es": [], "pt": [], "ar": []}
+    lang_groups = {"ru": [], "en": [], "es": [], "pt": []}
     ALL_POOLS = list(lang_groups.keys())
 
     for item in all_news:
@@ -762,19 +757,15 @@ def main():
         scope = item.get("scope", "world")
 
         if scope == "world":
-            # Мировые — копируем во все пулы
             for pool in ALL_POOLS:
                 lang_groups[pool].append(item)
         else:
-            # Локальные — только в родной пул
             if lang in CYRILLIC_LANGS:
                 lang_groups["ru"].append(item)
             elif lang == "es":
                 lang_groups["es"].append(item)
             elif lang == "pt":
                 lang_groups["pt"].append(item)
-            elif lang == "ar":
-                lang_groups["ar"].append(item)
             else:
                 lang_groups["en"].append(item)
 
