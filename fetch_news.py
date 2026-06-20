@@ -65,7 +65,7 @@ RSS_SOURCES = [
     {"url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml", "source": "Folha de S.Paulo", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local"},
 
     # АРАБСКИЙ МИР (локальные для AR пула)
-    # Al Jazeera Arabic убран — RTL поддержка не реализована
+    {"url": "https://www.aljazeera.net/rss", "source": "Al Jazeera Arabic", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
 
     # ════════════════════════════════════════════════════
     # КГ / ЦА — локальные для RU пула
