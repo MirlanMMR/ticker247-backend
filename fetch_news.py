@@ -304,6 +304,15 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                                                  "official mv", "lyrics", "lyric video", "music video",
                                                  "official clip", "клип", "премьера клипа"]):
                 continue
+            # Блокируем корейские/японские/китайские символы в названии
+            import re as _re
+            if _re.search(r'[가-힯ᄀ-ᇿ぀-ヿ㐀-䶿一-鿿]', title_text):
+                continue
+            # Блокируем k-pop / аниме теги
+            if any(kw in title_lower for kw in ["kpop", "k-pop", "bts", "blackpink", "twice", "stray kids",
+                                                 "aespa", "newjeans", "ive ", "nmixx", "anime", "アニメ",
+                                                 "manga", "vtuber", "hololive"]):
+                continue
             lang = detect_language(title_text) if title_text else "unknown"
             # KG и RU тренды — локальные, US/мировые — world
             scope = "local" if region_code in ("KG", "RU") else "world"
