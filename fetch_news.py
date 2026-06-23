@@ -52,17 +52,62 @@ RSS_SOURCES = [
     {"url": "https://www.rollingstone.com/feed/", "source": "Rolling Stone", "category": "CULTURE", "priority": 0, "quota": 3, "scope": "world"},
 
     # ════════════════════════════════════════════════════
+    # АНГЛОЯЗЫЧНЫЙ МИР (локальные для EN пула)
+    # ════════════════════════════════════════════════════
+    # США
+    {"url": "https://feeds.npr.org/1001/rss.xml", "source": "NPR News", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "en"},
+    {"url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", "source": "NY Times", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "en"},
+    {"url": "https://feeds.nbcnews.com/nbcnews/public/news", "source": "NBC News", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
+    {"url": "https://rss.cnn.com/rss/edition.rss", "source": "CNN", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
+    {"url": "https://feeds.washingtonpost.com/rss/national", "source": "Washington Post", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
+    {"url": "https://www.politico.com/rss/politicopicks.xml", "source": "Politico", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
+    # Великобритания
+    {"url": "https://www.theguardian.com/uk/rss", "source": "The Guardian", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "en"},
+    {"url": "https://feeds.skynews.com/feeds/rss/home.xml", "source": "Sky News", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
+    # Технологии EN
+    {"url": "https://www.engadget.com/rss.xml", "source": "Engadget", "category": "TECH", "priority": 0, "quota": 4, "scope": "local", "lang": "en"},
+    {"url": "https://arstechnica.com/feed/", "source": "Ars Technica", "category": "TECH", "priority": 0, "quota": 4, "scope": "local", "lang": "en"},
+    # Спорт EN
+    {"url": "https://www.skysports.com/rss/12040", "source": "Sky Sports", "category": "SPORT", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
+    {"url": "https://www.theguardian.com/sport/rss", "source": "Guardian Sport", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
+    # Финансы EN
+    {"url": "https://feeds.marketwatch.com/marketwatch/topstories/", "source": "MarketWatch", "category": "MONEY", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
+    # Тренды EN
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=GB", "source": "Trends UK", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "en"},
+
+    # ════════════════════════════════════════════════════
     # ИСПАНОЯЗЫЧНЫЙ МИР (локальные для ES пула)
     # ════════════════════════════════════════════════════
-    {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local"},
-    {"url": "https://www.infobae.com/feeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local"},
-    {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local"},
+    {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "es"},
+    {"url": "https://www.infobae.com/feeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    # Латинская Америка
+    {"url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/", "source": "La Nación AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.eluniversal.com.mx/rss.xml", "source": "El Universal MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
+    {"url": "https://www.latercera.com/feed/", "source": "La Tercera CL", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
+    {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.univision.com/rss/noticias", "source": "Univisión", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
+    # Спорт ES
+    {"url": "https://www.marca.com/rss/portada.xml", "source": "Marca", "category": "SPORT", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://as.com/rss/tags/ultimo_hora.xml", "source": "AS Deporte", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
+    # Тренды ES
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=MX", "source": "Trends MX", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "es"},
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=AR", "source": "Trends AR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "es"},
 
     # ПОРТУГАЛОЯЗЫЧНЫЙ МИР (локальные для PT пула)
-    {"url": "https://feeds.bbci.co.uk/portuguese/rss.xml", "source": "BBC Brasil", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local"},
-    {"url": "https://g1.globo.com/rss/g1/", "source": "G1 Globo", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local"},
-    {"url": "https://www.publico.pt/rss", "source": "Público PT", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local"},
-    {"url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml", "source": "Folha de S.Paulo", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local"},
+    {"url": "https://feeds.bbci.co.uk/portuguese/rss.xml", "source": "BBC Brasil", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "pt"},
+    {"url": "https://g1.globo.com/rss/g1/", "source": "G1 Globo", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "pt"},
+    {"url": "https://www.publico.pt/rss", "source": "Público PT", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    {"url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml", "source": "Folha de S.Paulo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "pt"},
+    {"url": "https://noticias.uol.com.br/ultnot/index.xml", "source": "UOL Notícias", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
+    {"url": "https://www.correiobraziliense.com.br/rss/ultimas-noticias", "source": "Correio Braziliense", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    {"url": "https://www.jn.pt/rss/", "source": "Jornal de Notícias PT", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    # Спорт PT
+    {"url": "https://www.lance.com.br/rss/lancenet.xml", "source": "Lance! BR", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    {"url": "https://www.record.pt/rss", "source": "Record PT", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    # Тренды PT
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=BR", "source": "Trends BR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "pt"},
 
     # АРАБСКИЙ МИР (локальные для AR пула)
     {"url": "https://www.aljazeera.net/rss", "source": "Al Jazeera Arabic", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
@@ -404,6 +449,7 @@ def fetch_rss(source):
                 "imageUrl": image, "source": source["source"],
                 "category": source["category"], "priority": source["priority"],
                 "language": lang, "scope": source.get("scope", "world"),
+                "source_lang": source.get("lang"),
                 "publishedAt": int(datetime.now().timestamp() * 1000)
             })
         return items
@@ -710,20 +756,26 @@ def main():
 
     # YouTube вирусные видео — сохраняем отдельно
     print("▶ YouTube trending...")
-    viral_kg = fetch_youtube_trending("KG", 10)
-    viral_ru = fetch_youtube_trending("RU", 8)
-    viral_kz = fetch_youtube_trending("KZ", 5)
-    viral_world = fetch_youtube_trending("US", 5)  # мировые — меньше
+    viral_kg    = fetch_youtube_trending("KG", 10)
+    viral_ru    = fetch_youtube_trending("RU", 8)
+    viral_kz    = fetch_youtube_trending("KZ", 5)
+    viral_world = fetch_youtube_trending("US", 5)
+    viral_br    = fetch_youtube_trending("BR", 8)   # Бразилия — PT пул
+    viral_mx    = fetch_youtube_trending("MX", 8)   # Мексика — ES пул
+    viral_gb    = fetch_youtube_trending("GB", 5)   # Великобритания — EN пул
 
     viral_ref = db.reference("/viral")
     viral_ref.set({
-        "kg": viral_kg,
-        "ru": viral_ru,
-        "kz": viral_kz,
+        "kg":    viral_kg,
+        "ru":    viral_ru,
+        "kz":    viral_kz,
         "world": viral_world,
+        "br":    viral_br,
+        "mx":    viral_mx,
+        "gb":    viral_gb,
         "updatedAt": int(datetime.now().timestamp() * 1000)
     })
-    print(f"✅ YouTube: KG={len(viral_kg)}, World={len(viral_world)}, RU={len(viral_ru)}")
+    print(f"✅ YouTube: KG={len(viral_kg)}, RU={len(viral_ru)}, BR={len(viral_br)}, MX={len(viral_mx)}, GB={len(viral_gb)}, World={len(viral_world)}")
     all_news = []
     category_counts = {}
 
@@ -753,18 +805,22 @@ def main():
     ALL_POOLS = list(lang_groups.keys())
 
     for item in all_news:
-        lang = item.get("language", "unknown")
-        scope = item.get("scope", "world")
+        detected_lang = item.get("language", "unknown")
+        source_lang   = item.get("source_lang")   # явный язык источника (en/es/pt/ru)
+        scope         = item.get("scope", "world")
 
         if scope == "world":
             for pool in ALL_POOLS:
                 lang_groups[pool].append(item)
         else:
-            if lang in CYRILLIC_LANGS:
+            # Если источник явно помечен языком — доверяем ему
+            if source_lang in lang_groups:
+                lang_groups[source_lang].append(item)
+            elif detected_lang in CYRILLIC_LANGS:
                 lang_groups["ru"].append(item)
-            elif lang == "es":
+            elif detected_lang == "es":
                 lang_groups["es"].append(item)
-            elif lang == "pt":
+            elif detected_lang == "pt":
                 lang_groups["pt"].append(item)
             else:
                 lang_groups["en"].append(item)
