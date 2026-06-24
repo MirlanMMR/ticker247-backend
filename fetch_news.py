@@ -162,6 +162,43 @@ BORING_KEYWORDS = [
 # Источники только на русском/кыргызском
 RU_KG_ONLY_SOURCES = {"24.kg", "Kabar.kg", "AKIpress", "Zakon.kz"}
 
+# Жанровые стоп-слова для YouTube (по умолчанию, перезаписываются из Firebase)
+YOUTUBE_BLOCK_KEYWORDS = [
+    "kpop", "k-pop", "bts", "blackpink", "twice", "stray kids",
+    "aespa", "newjeans", "nmixx", "vtuber", "hololive",
+    "anime", "аниме", "manga", "манга",
+    "official music video", "official video", "official audio",
+    "official mv", "lyrics", "lyric video", "music video",
+    "official clip", "клип", "премьера клипа"
+]
+
+def load_firebase_config():
+    """Загружает конфиг из Firebase /config и обновляет глобальные переменные."""
+    global RSS_SOURCES, BORING_KEYWORDS, YOUTUBE_BLOCK_KEYWORDS
+    try:
+        config = db.reference("/config").get()
+        if not config:
+            print("⚠️ /config в Firebase пуст — используем дефолтные значения")
+            return
+
+        # Источники RSS
+        if "rss_sources" in config and isinstance(config["rss_sources"], list):
+            RSS_SOURCES = config["rss_sources"]
+            print(f"✅ Firebase config: {len(RSS_SOURCES)} RSS источников")
+
+        # Скучные ключевые слова
+        if "boring_keywords" in config and isinstance(config["boring_keywords"], list):
+            BORING_KEYWORDS = config["boring_keywords"]
+            print(f"✅ Firebase config: {len(BORING_KEYWORDS)} boring keywords")
+
+        # YouTube стоп-слова
+        if "youtube_block_keywords" in config and isinstance(config["youtube_block_keywords"], list):
+            YOUTUBE_BLOCK_KEYWORDS = config["youtube_block_keywords"]
+            print(f"✅ Firebase config: {len(YOUTUBE_BLOCK_KEYWORDS)} YouTube block keywords")
+
+    except Exception as e:
+        print(f"⚠️ Ошибка загрузки Firebase config: {e} — используем дефолтные значения")
+
 import re
 
 def clean_text(text: str) -> str:
@@ -304,10 +341,8 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                                                  "official mv", "lyrics", "lyric video", "music video",
                                                  "official clip", "клип", "премьера клипа"]):
                 continue
-            # Блокируем только жанровый мусор — не язык, а тип контента
-            if any(kw in title_lower for kw in ["kpop", "k-pop", "bts", "blackpink", "twice", "stray kids",
-                                                 "aespa", "newjeans", "nmixx", "vtuber", "hololive",
-                                                 "anime", "аниме", "manga", "манга"]):
+            # Блокируем только жанровый мусор — берём из Firebase config
+            if any(kw in title_lower for kw in YOUTUBE_BLOCK_KEYWORDS):
                 continue
             lang = detect_language(title_text) if title_text else "unknown"
             # KG и RU тренды — локальные, US/мировые — world
@@ -750,6 +785,9 @@ def post_to_telegram(items: list):
 
 def main():
     print("🚀 Ticker247 Backend — Fetching news...")
+
+    # Загружаем конфиг из Firebase (источники, фильтры)
+    load_firebase_config()
 
     # Биржевые индексы — Dow Jones, S&P 500, золото, нефть
     print("📊 Индексы...")
