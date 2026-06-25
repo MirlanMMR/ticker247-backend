@@ -322,8 +322,8 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
             views = int(stats.get("viewCount", 0))
             category_id = snippet.get("categoryId", "0")
 
-            # Минимум 100K просмотров
-            if views < 100_000:
+            # Минимум 500K просмотров
+            if views < 500_000:
                 continue
 
             # Только разрешённые категории
