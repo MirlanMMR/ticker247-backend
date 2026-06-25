@@ -311,8 +311,8 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
         data = r.json()
         items = []
 
-        # Категории-мусор: игры (20), детские (24), аниме/анимация (31)
-        BLOCKED_CATEGORIES = {"20", "24", "31"}
+        # Категории-мусор: игры (20), детские (24), аниме/анимация (31), музыка (10)
+        BLOCKED_CATEGORIES = {"20", "24", "31", "10"}
 
         for video in data.get("items", []):
             snippet = video.get("snippet", {})
@@ -339,7 +339,9 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
             title_lower = title_text.lower()
             if any(kw in title_lower for kw in ["official music video", "official video", "official audio",
                                                  "official mv", "lyrics", "lyric video", "music video",
-                                                 "official clip", "клип", "премьера клипа"]):
+                                                 "official clip", "клип", "премьера клипа",
+                                                 "soundtrack", "ost", "official soundtrack", "score",
+                                                 "chapter ", "deltarune", "undertale"]):
                 continue
             # Блокируем только жанровый мусор — берём из Firebase config
             if any(kw in title_lower for kw in YOUTUBE_BLOCK_KEYWORDS):
