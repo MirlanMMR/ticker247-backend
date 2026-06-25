@@ -311,22 +311,23 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
         data = r.json()
         items = []
 
-        # Категории-мусор: игры (20), детские (24), аниме/анимация (31), музыка (10)
-        BLOCKED_CATEGORIES = {"20", "24", "31", "10"}
+        # Белый список: только релевантные категории
+        # 17=Спорт, 19=Путешествия, 22=Люди и блоги, 23=Юмор, 25=Новости, 28=Наука и техника
+        ALLOWED_CATEGORIES = {"17", "19", "22", "23", "25", "28"}
 
         for video in data.get("items", []):
             snippet = video.get("snippet", {})
             stats = video.get("statistics", {})
             video_id = video.get("id", "")
             views = int(stats.get("viewCount", 0))
-            duration_def = snippet.get("categoryId", "0")
+            category_id = snippet.get("categoryId", "0")
 
             # Минимум 100K просмотров
             if views < 100_000:
                 continue
 
-            # Фильтруем мусорные категории
-            if snippet.get("categoryId", "") in BLOCKED_CATEGORIES:
+            # Только разрешённые категории
+            if category_id not in ALLOWED_CATEGORIES:
                 continue
 
             views_str = f"{views/1_000_000:.1f}M" if views >= 1_000_000 else f"{views//1000}K"
@@ -341,7 +342,9 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                                                  "official mv", "lyrics", "lyric video", "music video",
                                                  "official clip", "клип", "премьера клипа",
                                                  "soundtrack", "ost", "official soundtrack", "score",
-                                                 "chapter ", "deltarune", "undertale"]):
+                                                 "chapter ", "deltarune", "undertale",
+                                                 "trailer", "teaser", "official trailer", "official teaser",
+                                                 "anime", "episode ", "season ", "серия ", "сезон "]):
                 continue
             # Блокируем только жанровый мусор — берём из Firebase config
             if any(kw in title_lower for kw in YOUTUBE_BLOCK_KEYWORDS):
