@@ -844,6 +844,33 @@ def main():
 
     print(f"\nПо категориям: {category_counts}")
     print(f"Всего: {len(all_news)} статей")
+
+    # Дедупликация по схожести заголовков — убираем дубли об одном событии
+    def title_words(title):
+        stop = {"в","на","и","с","по","из","за","от","к","о","об","не","что","как","для","при","до","он","она","они","это"}
+        return set(w.lower() for w in title.split() if len(w) > 3 and w.lower() not in stop)
+
+    deduped = []
+    for item in all_news:
+        words = title_words(item.get("title", ""))
+        is_dup = False
+        for kept in deduped:
+            kept_words = title_words(kept.get("title", ""))
+            if len(words) > 0 and len(kept_words) > 0:
+                overlap = len(words & kept_words) / min(len(words), len(kept_words))
+                if overlap >= 0.6:
+                    # Оставляем с большим приоритетом или более ранний
+                    if item.get("priority", 0) > kept.get("priority", 0):
+                        deduped.remove(kept)
+                        deduped.append(item)
+                    is_dup = True
+                    break
+        if not is_dup:
+            deduped.append(item)
+
+    print(f"После дедупликации: {len(deduped)} (убрано {len(all_news)-len(deduped)} дублей)")
+    all_news = deduped
+
     print("🤖 Фильтруем через Gemini AI...")
 
     # Мировые новости (scope=world) идут во ВСЕ пулы.
