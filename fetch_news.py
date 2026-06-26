@@ -503,8 +503,10 @@ def fetch_rss(source):
         return []
 
 CATEGORY_KEYWORDS = {
-    "SPORT": ["футбол", "баскетбол", "UFC", "борьба", "дзюдо", "бокс", "чемпион", "турнир",
-              "матч", "спортсмен", "олимпийский", "спорт", "тренер", "команда", "лига"],
+    "SPORT": ["футбол", "баскетбол", "UFC", "дзюдо", "бокс", "чемпионат", "турнир по",
+              "матч", "спортсмен", "олимпийский", "олимпиада", "спортивный", "тренировка",
+              "футбольный клуб", "хоккей", "волейбол", "теннис", "лига чемпионов",
+              "забил гол", "победил на чемпионате", "чемпион мира по", "чемпион азии по"],
     "TECH": ["технологии", "смартфон", "iPhone", "Android", "искусственный интеллект", "ИИ",
              "приложение", "интернет", "компьютер", "программа", "Tesla", "Apple", "Google"],
     "AUTO": ["автомобиль", "машина", "авто", "ДТП", "авария", "дорога", "трафик",
@@ -640,7 +642,9 @@ priority=0 — обычные новости
 URGENT=экстренное, SPORT=спорт, TECH=технологии, AUTO=авто,
 FASHION=мода, CULTURE=кино/музыка/театр, TOURS=туризм,
 MONEY=финансы/экономика, HEALTH=здоровье, GOOD=позитив,
-STARS=знаменитости, VIRAL=вирусное видео, NEWS=всё остальное
+STARS=знаменитости (только певцы/актёры/блогеры/спортсмены шоу-бизнеса — НЕ политики, НЕ чиновники, НЕ общественные деятели),
+VIRAL=вирусное видео, NEWS=всё остальное
+ВАЖНО: политики, депутаты, министры, активисты, общественные деятели → категория NEWS или KG, никогда не STARS
 
 Верни ТОЛЬКО JSON без объяснений:
 {{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}}}
@@ -850,21 +854,37 @@ def main():
         stop = {"в","на","и","с","по","из","за","от","к","о","об","не","что","как","для","при","до","он","она","они","это"}
         return set(w.lower() for w in title.split() if len(w) > 3 and w.lower() not in stop)
 
+    def proper_nouns(title):
+        """Имена собственные — слова с заглавной буквы длиннее 3 символов (работает между языками)"""
+        return set(w for w in title.split() if len(w) > 3 and w[0].isupper() and w.isalpha())
+
+    def are_duplicates(title1, title2):
+        """Проверяем дубль двумя методами: совпадение слов (1 язык) или имён собственных (разные языки)"""
+        w1, w2 = title_words(title1), title_words(title2)
+        if len(w1) > 0 and len(w2) > 0:
+            overlap = len(w1 & w2) / min(len(w1), len(w2))
+            if overlap >= 0.6:
+                return True
+        # Кросс-языковая проверка: 2+ общих имени собственных в схожем контексте
+        p1, p2 = proper_nouns(title1), proper_nouns(title2)
+        if len(p1) >= 2 and len(p2) >= 2 and len(p1 & p2) >= 2:
+            return True
+        # 1 уникальное имя собственное + оба заголовка очень коротких
+        if len(p1 & p2) >= 1 and len(w1) <= 3 and len(w2) <= 3:
+            return True
+        return False
+
     deduped = []
     for item in all_news:
-        words = title_words(item.get("title", ""))
         is_dup = False
         for kept in deduped:
-            kept_words = title_words(kept.get("title", ""))
-            if len(words) > 0 and len(kept_words) > 0:
-                overlap = len(words & kept_words) / min(len(words), len(kept_words))
-                if overlap >= 0.6:
-                    # Оставляем с большим приоритетом или более ранний
-                    if item.get("priority", 0) > kept.get("priority", 0):
-                        deduped.remove(kept)
-                        deduped.append(item)
-                    is_dup = True
-                    break
+            if are_duplicates(item.get("title", ""), kept.get("title", "")):
+                # Оставляем с большим приоритетом
+                if item.get("priority", 0) > kept.get("priority", 0):
+                    deduped.remove(kept)
+                    deduped.append(item)
+                is_dup = True
+                break
         if not is_dup:
             deduped.append(item)
 
