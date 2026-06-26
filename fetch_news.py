@@ -885,6 +885,9 @@ def main():
             batch = group[i:i+80]
             filtered_batch = filter_with_gemini(batch, lang)
             filtered.extend(filtered_batch)
+        # Удаляем новости старше 90 дней (требование Google Play News policy)
+        cutoff = (datetime.now().timestamp() - 90 * 24 * 3600) * 1000
+        filtered = [x for x in filtered if x.get("publishedAt", 0) >= cutoff]
         filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
         max_items = 80 if lang == "ru" else 60
         filtered = filtered[:max_items]
