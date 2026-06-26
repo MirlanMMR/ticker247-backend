@@ -492,7 +492,8 @@ def fetch_rss(source):
             items.append({
                 "title": title, "url": link, "summary": summary,
                 "imageUrl": image, "source": source["source"],
-                "category": source["category"], "priority": source["priority"],
+                "category": source["category"], "source_category": source["category"],
+                "priority": source["priority"],
                 "language": lang, "scope": source.get("scope", "world"),
                 "source_lang": source.get("lang"),
                 "publishedAt": int(datetime.now().timestamp() * 1000)
@@ -663,13 +664,35 @@ VIRAL=вирусное видео, NEWS=всё остальное
         urgent = set(i-1 for i in result.get("urgent", []))
         important = set(i-1 for i in result.get("important", []))
         recategorize = {int(k)-1: v for k, v in result.get("recategorize", {}).items()}
+
+        # Белый список: какие категории Gemini может назначать для каждого типа источника
+        # Специализированные источники не меняют категорию — только NEWS-источники гибкие
+        SOURCE_CATEGORY_LOCK = {
+            "SPORT":   {"SPORT", "URGENT"},
+            "TECH":    {"TECH", "URGENT"},
+            "AUTO":    {"AUTO", "URGENT"},
+            "FASHION": {"FASHION", "STARS", "CULTURE"},
+            "CULTURE": {"CULTURE", "STARS"},
+            "MONEY":   {"MONEY", "URGENT", "TECH"},
+            "TOURS":   {"TOURS"},
+            "TRENDS":  {"TRENDS", "NEWS", "VIRAL"},
+            # NEWS-источники могут быть переназначены в любую категорию
+            "NEWS":    None,  # None = без ограничений
+        }
+
         filtered = []
         for i in keep:
             if 0 <= i < len(news_list):
                 item = news_list[i].copy()
                 if i in urgent:   item["priority"] = 2
                 elif i in important: item["priority"] = 1
-                if i in recategorize: item["category"] = recategorize[i]
+                if i in recategorize:
+                    new_cat = recategorize[i]
+                    source_cat = item.get("source_category", item.get("category", "NEWS"))
+                    allowed = SOURCE_CATEGORY_LOCK.get(source_cat)
+                    if allowed is None or new_cat in allowed:
+                        item["category"] = new_cat
+                    # иначе — игнорируем переназначение Gemini
                 filtered.append(item)
         return filtered
     except Exception as e:
