@@ -18,9 +18,9 @@ TELEGRAM_CHANNEL = "@t247feed"
 # Бот должен быть админом в каждом. Пока канала нет — ставь None, постинг пропустится.
 TELEGRAM_CHANNELS = {
     "ru": "@t247feed",
-    "en": None,   # создай @t247feed_en и замени None
-    "es": None,   # @t247feed_es
-    "pt": None,   # @t247feed_pt
+    "en": "@t247feed_en",
+    "es": "@t247feed_es",
+    "pt": "@t247feed_pt",
 }
 
 genai.configure(api_key=GEMINI_API_KEY)
