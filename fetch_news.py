@@ -740,6 +740,62 @@ VIRAL=вирусное видео, NEWS=всё остальное
         random.shuffle(news_list)
         return news_list[:40]
 
+POOL_LANGUAGE_NAMES = {
+    "ru": "русский",
+    "en": "английский (English)",
+    "es": "испанский (español)",
+    "pt": "португальский (português)",
+}
+
+def needs_translation(item, pool):
+    """Нужен ли перевод статьи на язык пула"""
+    lang = item.get("language", "unknown")
+    scope = item.get("scope", "world")
+    if pool == "ru":
+        return lang in ("en", "ar")
+    if pool == "en":
+        return lang in ("ru", "ar")
+    # es/pt: детектор не отличает латиницу от английского,
+    # поэтому переводим только мировые статьи (они на английском)
+    return lang in ("ru", "ar") or (lang == "en" and scope == "world")
+
+def translate_batch(items, target_lang):
+    """Переводит title и summary на язык пула через Gemini. Мутирует items.
+    При ошибке оставляет оригиналы — лента не ломается."""
+    if not items:
+        return
+    name = POOL_LANGUAGE_NAMES.get(target_lang, target_lang)
+    lines = []
+    for i, item in enumerate(items, 1):
+        t = item.get("title", "")[:200].replace("\n", " ")
+        s = item.get("summary", "")[:300].replace("\n", " ")
+        lines.append(f"{i}. TITLE: {t} ||| SUMMARY: {s}")
+    prompt = f"""Переведи новостные заголовки и описания на {name} язык.
+Сохрани имена собственные, цифры и факты точно. Стиль — новостной, краткий.
+Верни ТОЛЬКО JSON без пояснений:
+{{"1": {{"t": "перевод заголовка", "s": "перевод описания"}}, "2": ...}}
+
+{chr(10).join(lines)}"""
+    try:
+        model = genai.GenerativeModel("gemini-2.0-flash")
+        response = model.generate_content(prompt)
+        text = response.text.strip()
+        if "```" in text:
+            text = text.split("```")[1].replace("json", "").strip()
+        result = json.loads(text)
+        translated = 0
+        for i, item in enumerate(items, 1):
+            tr = result.get(str(i))
+            if tr and tr.get("t"):
+                item["title"] = tr["t"]
+                if tr.get("s"):
+                    item["summary"] = tr["s"]
+                item["language"] = target_lang
+                translated += 1
+        print(f"  ✓ Переведено {translated}/{len(items)} на {target_lang}")
+    except Exception as e:
+        print(f"  ✗ Перевод ({target_lang}): {e}")
+
 def shorten_url(url: str) -> str:
     """Сокращаем ссылку через TinyURL (бесплатно, без ключа)."""
     if not url or not url.startswith("http"):
@@ -999,6 +1055,12 @@ def main():
         filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
         max_items = 80 if lang == "ru" else 60
         filtered = filtered[:max_items]
+        # Автоперевод: статьи не на языке пула переводим через Gemini
+        to_translate = [x for x in filtered if needs_translation(x, lang)]
+        if to_translate:
+            print(f"  🌍 Переводим {len(to_translate)} статей на {lang}...")
+            for j in range(0, len(to_translate), 30):
+                translate_batch(to_translate[j:j+30], lang)
         cats = {}
         for item in filtered:
             cats[item["category"]] = cats.get(item["category"], 0) + 1
