@@ -14,6 +14,14 @@ FIREBASE_SERVICE_ACCOUNT = os.environ.get("FIREBASE_SERVICE_ACCOUNT")
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHANNEL = "@t247feed"
+# Языковые каналы: каждый пул постится в свой канал.
+# Бот должен быть админом в каждом. Пока канала нет — ставь None, постинг пропустится.
+TELEGRAM_CHANNELS = {
+    "ru": "@t247feed",
+    "en": None,   # создай @t247feed_en и замени None
+    "es": None,   # @t247feed_es
+    "pt": None,   # @t247feed_pt
+}
 
 genai.configure(api_key=GEMINI_API_KEY)
 service_account_info = json.loads(FIREBASE_SERVICE_ACCOUNT)
@@ -830,14 +838,15 @@ CATEGORY_HASHTAGS = {
 }
 
 
-def post_to_telegram(items: list):
-    """Постим топ-новости в @t247feed. Дедупликация через Firebase /tg_posted."""
+def post_to_telegram(items: list, channel: str = TELEGRAM_CHANNEL, lang: str = "ru"):
+    """Постим топ-новости в языковой канал. Дедупликация через Firebase /tg_posted/{lang}."""
     if not TELEGRAM_BOT_TOKEN:
         print("⚠️ TELEGRAM_BOT_TOKEN не задан, пропускаем постинг")
         return
 
-    # Загружаем уже опубликованные URL
-    posted_ref = db.reference("/tg_posted")
+    # Загружаем уже опубликованные URL (отдельный список на каждый язык —
+    # одна и та же мировая новость постится в каждый канал на своём языке)
+    posted_ref = db.reference(f"/tg_posted/{lang}" if lang != "ru" else "/tg_posted")
     posted_data = posted_ref.get() or {}
     posted_urls = set(posted_data.keys() if isinstance(posted_data, dict) else [])
 
@@ -879,13 +888,13 @@ def post_to_telegram(items: list):
             text += f"\n\n{body}"
         if short_url:
             text += f"\n\n🔗 {short_url}"
-        text += f"\n\n{hashtag} | 📲 @t247feed"
+        text += f"\n\n{hashtag} | 📲 {channel}"
         if source:
             text += f" | {source}"
 
         try:
             resp = requests.post(api_url, json={
-                "chat_id": TELEGRAM_CHANNEL,
+                "chat_id": channel,
                 "text": text,
                 "parse_mode": "HTML",
                 "disable_web_page_preview": False,
@@ -1073,9 +1082,11 @@ def main():
         print(f"  ✅ /news/{lang} сохранено")
         all_filtered.extend(filtered)
 
-    # Постим важные новости в Telegram-канал (из всех языков)
-    print("\n📤 Постим в @t247feed...")
-    post_to_telegram(all_filtered)
+        # Постим в языковой Telegram-канал — каждый пул в свой
+        channel = TELEGRAM_CHANNELS.get(lang)
+        if channel:
+            print(f"📤 Постим [{lang}] в {channel}...")
+            post_to_telegram(filtered, channel=channel, lang=lang)
 
 if __name__ == "__main__":
     main()
