@@ -429,6 +429,30 @@ def detect_language(text: str) -> str:
         return "en"
     return "other"
 
+# Служебные фразы источников (копирайты, дисклеймеры) — вырезаются из текста статьи.
+# Паттерн применяется если найден в первых 300 символах.
+BOILERPLATE_PATTERNS = [
+    "Автором материала является K-News. Любое копирование или частичное использование возможно по разрешению редакции K-News.",
+    "Любое копирование или частичное использование возможно по разрешению редакции",
+    "Использование материалов разрешено только при наличии гиперссылки",
+    "При использовании материалов ссылка на источник обязательна",
+    "Все права защищены.",
+    "© Все права защищены",
+    "Читайте нас в Telegram",
+    "Подписывайтесь на наш Telegram",
+    "Подписывайтесь на нас в",
+    "Фото иллюстративное.",
+    "Фото из архива.",
+]
+
+def strip_boilerplate(text: str) -> str:
+    """Убираем служебные фразы источников из начала текста"""
+    for pattern in BOILERPLATE_PATTERNS:
+        idx = text.find(pattern)
+        if 0 <= idx < 300:
+            text = (text[:idx] + text[idx + len(pattern):]).strip(" .,—-\n")
+    return text
+
 def extract_full_summary(item_el) -> str:
     """Извлекаем полный текст до логической точки — не обрезаем на полуслове"""
     # Пробуем content:encoded — там обычно полная статья
@@ -437,7 +461,7 @@ def extract_full_summary(item_el) -> str:
     if not full:
         full = item_el.findtext("description", "") or ""
 
-    text = clean_text(full)
+    text = strip_boilerplate(clean_text(full))
 
     # Убираем дубль заголовка в начале текста (частая проблема 24.kg и др.)
     title = clean_text(item_el.findtext("title", ""))
@@ -683,6 +707,17 @@ VIRAL=вирусное видео, NEWS=всё остальное
             "NEWS":    None,  # None = без ограничений
         }
 
+        # Тематические категории требуют подтверждения ключевым словом в заголовке.
+        # Gemini может назначить AUTO/SPORT/... только если тема реально присутствует.
+        KEYWORD_VALIDATED = {"AUTO", "SPORT", "TECH", "FASHION", "CULTURE", "TOURS", "REALTY"}
+
+        def validate_recat(new_cat: str, title: str) -> bool:
+            if new_cat not in KEYWORD_VALIDATED:
+                return True  # NEWS, URGENT, STARS, MONEY и пр. — на усмотрение Gemini
+            keywords = CATEGORY_KEYWORDS.get(new_cat, [])
+            title_lower = title.lower()
+            return any(kw.lower() in title_lower for kw in keywords)
+
         filtered = []
         for i in keep:
             if 0 <= i < len(news_list):
@@ -693,7 +728,7 @@ VIRAL=вирусное видео, NEWS=всё остальное
                     new_cat = recategorize[i]
                     source_cat = item.get("source_category", item.get("category", "NEWS"))
                     allowed = SOURCE_CATEGORY_LOCK.get(source_cat)
-                    if allowed is None or new_cat in allowed:
+                    if (allowed is None or new_cat in allowed) and validate_recat(new_cat, item.get("title", "")):
                         item["category"] = new_cat
                     # иначе — игнорируем переназначение Gemini
                 filtered.append(item)
