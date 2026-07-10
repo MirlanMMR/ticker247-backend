@@ -746,7 +746,7 @@ VIRAL=вирусное видео, NEWS=всё остальное
         # Fallback: берём равномерно из всего списка, не только первые 40
         import random
         random.shuffle(news_list)
-        return news_list[:40]
+        return news_list[:60]
 
 POOL_LANGUAGE_NAMES = {
     "ru": "русский",
@@ -785,6 +785,8 @@ def translate_batch(items, target_lang):
 
 {chr(10).join(lines)}"""
     try:
+        import time
+        time.sleep(2)  # пауза между запросами — не упираемся в rate limit Gemini
         model = genai.GenerativeModel("gemini-2.0-flash")
         response = model.generate_content(prompt)
         text = response.text.strip()
@@ -1031,8 +1033,10 @@ def main():
         scope         = item.get("scope", "world")
 
         if scope == "world":
+            # Каждому пулу — своя КОПИЯ: пулы переводят статьи на свой язык,
+            # общий объект нельзя мутировать из четырёх мест
             for pool in ALL_POOLS:
-                lang_groups[pool].append(item)
+                lang_groups[pool].append(dict(item))
         else:
             # Если источник явно помечен языком — доверяем ему
             if source_lang in lang_groups:
@@ -1065,11 +1069,18 @@ def main():
         max_items = 80 if lang == "ru" else 60
         filtered = filtered[:max_items]
         # Автоперевод: статьи не на языке пула переводим через Gemini
+        # Батчи по 15 + один повтор для неудавшихся — падение батча не оставляет
+        # половину пула на чужом языке (приложение фильтрует их из ленты)
         to_translate = [x for x in filtered if needs_translation(x, lang)]
         if to_translate:
             print(f"  🌍 Переводим {len(to_translate)} статей на {lang}...")
-            for j in range(0, len(to_translate), 30):
-                translate_batch(to_translate[j:j+30], lang)
+            for j in range(0, len(to_translate), 15):
+                translate_batch(to_translate[j:j+15], lang)
+            retry = [x for x in to_translate if needs_translation(x, lang)]
+            if retry:
+                print(f"  🔁 Повтор перевода {len(retry)} статей...")
+                for j in range(0, len(retry), 15):
+                    translate_batch(retry[j:j+15], lang)
         cats = {}
         for item in filtered:
             cats[item["category"]] = cats.get(item["category"], 0) + 1
