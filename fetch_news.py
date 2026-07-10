@@ -19,7 +19,7 @@ TELEGRAM_CHANNEL = "@t247feed"
 TELEGRAM_CHANNELS = {
     "ru": "@t247feed",
     "en": "@t247feed_en",
-    "es": "@ticker247feed_es",
+    "es": "@t247feed_es",
     "pt": "@t247feed_pt",
 }
 
