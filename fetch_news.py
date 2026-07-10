@@ -1099,5 +1099,11 @@ def main():
             print(f"📤 Постим [{lang}] в {channel}...")
             post_to_telegram(filtered, channel=channel, lang=lang)
 
+    # Публикуем имена редакторских каналов — приложение читает их отсюда,
+    # смена канала не требует обновления приложения
+    db.reference("/config/editorial_channels").set({
+        lang: ch.lstrip("@") for lang, ch in TELEGRAM_CHANNELS.items() if ch
+    })
+
 if __name__ == "__main__":
     main()
