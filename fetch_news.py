@@ -748,6 +748,150 @@ VIRAL=вирусное видео, NEWS=всё остальное
         random.shuffle(news_list)
         return news_list[:60]
 
+# ════════════════════════════════════════════════════════════════════
+# Источники ПРИЛОЖЕНИЯ (Telegram/YouTube каналы, парсятся на устройстве).
+# Публикуются в /config/app_sources — приложение читает их оттуда,
+# при недоступности использует зашитые копии (SourceSelector.kt).
+# h=handle, c=category, t=type (TELEGRAM|YOUTUBE_RSS), p=priority
+# ════════════════════════════════════════════════════════════════════
+APP_SOURCES = {
+    "kg_always": [
+        {"h": "t247feed",      "c": "KG",      "t": "TELEGRAM", "p": 10},
+        {"h": "akipress",      "c": "KG",      "t": "TELEGRAM", "p": 2},
+        {"h": "kabar_news_kg", "c": "KG",      "t": "TELEGRAM", "p": 2},
+        {"h": "kyrgyzinform",  "c": "KG",      "t": "TELEGRAM", "p": 1},
+        {"h": "tazabek",       "c": "KG",      "t": "TELEGRAM", "p": 1},
+        {"h": "breakingmash",  "c": "URGENT",  "t": "TELEGRAM", "p": 2},
+        {"h": "ticketon_kg",   "c": "CULTURE", "t": "TELEGRAM", "p": 1},
+    ],
+    "kg_sport": [
+        {"h": "akipress",      "c": "SPORT", "t": "TELEGRAM", "p": 2},
+        {"h": "kabar_news_kg", "c": "SPORT", "t": "TELEGRAM", "p": 1},
+        {"h": "kgboxing",      "c": "SPORT", "t": "TELEGRAM", "p": 2},
+        {"h": "mma_kg",        "c": "SPORT", "t": "TELEGRAM", "p": 2},
+        {"h": "kyrgyz_sport",  "c": "SPORT", "t": "TELEGRAM", "p": 2},
+        {"h": "ufc_ru",        "c": "SPORT", "t": "TELEGRAM", "p": 1},
+        {"h": "mmafightclub",  "c": "SPORT", "t": "TELEGRAM", "p": 1},
+        {"h": "wrestlingkg",   "c": "SPORT", "t": "TELEGRAM", "p": 2},
+        {"h": "sport24kg",     "c": "SPORT", "t": "TELEGRAM", "p": 2},
+    ],
+    "kg_youtube": [
+        {"h": "UCJQOJGxH87GCxUyHGqOG6Ew", "c": "KG", "t": "YOUTUBE_RSS", "p": 2},
+        {"h": "UCiivW6grbRvpMtXKBIGfOdg", "c": "KG", "t": "YOUTUBE_RSS", "p": 1},
+        {"h": "UCBFxQUBinMPqQHLHmpMZaJw", "c": "KG", "t": "YOUTUBE_RSS", "p": 2},
+    ],
+    "combat_sports_youtube": [
+        {"h": "UCNFDnh7bvAMCgKzDFNO2fhg", "c": "SPORT", "t": "YOUTUBE_RSS", "p": 2},
+        {"h": "UCPIAn-SWhJzBilt1MekO4Vg", "c": "SPORT", "t": "YOUTUBE_RSS", "p": 1},
+        {"h": "UCwIiHyFLKZBBzzpLEPsGkEA", "c": "SPORT", "t": "YOUTUBE_RSS", "p": 1},
+        {"h": "UCou-8TbxWsXQnBd4hkB9EBg", "c": "SPORT", "t": "YOUTUBE_RSS", "p": 1},
+        {"h": "UCfX2-S9FBD1MZiDqxMCNmLg", "c": "SPORT", "t": "YOUTUBE_RSS", "p": 2},
+    ],
+    "world_neutral": [
+        {"h": "bbcrussian",    "c": "WORLD", "t": "TELEGRAM", "p": 2},
+        {"h": "aljazeeraee",   "c": "WORLD", "t": "TELEGRAM", "p": 2},
+        {"h": "deutscheWelle", "c": "WORLD", "t": "TELEGRAM", "p": 1},
+        {"h": "inosmi",        "c": "WORLD", "t": "TELEGRAM", "p": 1},
+    ],
+    "world_cis_extra": [
+        {"h": "meduzaio",    "c": "WORLD", "t": "TELEGRAM", "p": 1},
+        {"h": "tvrain",      "c": "WORLD", "t": "TELEGRAM", "p": 1},
+        {"h": "currenttime", "c": "WORLD", "t": "TELEGRAM", "p": 1},
+    ],
+    "world_europe_extra": [
+        {"h": "euromaidan",    "c": "WORLD", "t": "TELEGRAM", "p": 1},
+        {"h": "bbcrussian",    "c": "WORLD", "t": "TELEGRAM", "p": 2},
+        {"h": "deutscheWelle", "c": "WORLD", "t": "TELEGRAM", "p": 2},
+    ],
+    "world_middle_east_extra": [
+        {"h": "aljazeeraee", "c": "WORLD", "t": "TELEGRAM", "p": 2},
+        {"h": "bbcrussian",  "c": "WORLD", "t": "TELEGRAM", "p": 1},
+    ],
+    "tech_always": [
+        {"h": "androidauthority",  "c": "TECH", "t": "TELEGRAM", "p": 2},
+        {"h": "mobilereview",      "c": "TECH", "t": "TELEGRAM", "p": 2},
+        {"h": "ru_9to5google",     "c": "TECH", "t": "TELEGRAM", "p": 1},
+        {"h": "phonegeeks",        "c": "TECH", "t": "TELEGRAM", "p": 1},
+        {"h": "techinsider_ru",    "c": "TECH", "t": "TELEGRAM", "p": 1},
+        {"h": "ixbt_live",         "c": "TECH", "t": "TELEGRAM", "p": 2},
+        {"h": "gsminfo_ru",        "c": "TECH", "t": "TELEGRAM", "p": 1},
+        {"h": "androidinsider_ru", "c": "TECH", "t": "TELEGRAM", "p": 1},
+        {"h": "wylsacom",          "c": "TECH", "t": "TELEGRAM", "p": 2},
+        {"h": "fandroid_ru",       "c": "TECH", "t": "TELEGRAM", "p": 1},
+    ],
+    "tours_kg": [
+        {"h": "travel_kg",         "c": "TOURS", "t": "TELEGRAM", "p": 2},
+        {"h": "kyrgyzstan_travel", "c": "TOURS", "t": "TELEGRAM", "p": 2},
+        {"h": "visitkyrgyzstan",   "c": "TOURS", "t": "TELEGRAM", "p": 2},
+        {"h": "ilovekgtravel",     "c": "TOURS", "t": "TELEGRAM", "p": 1},
+        {"h": "centralasiatravel", "c": "TOURS", "t": "TELEGRAM", "p": 1},
+        {"h": "travelplus_ru",     "c": "TOURS", "t": "TELEGRAM", "p": 1},
+    ],
+    "tours_youtube": [
+        {"h": "UCt_NLJ4McJlCnSbLn5LxjJg", "c": "TOURS", "t": "YOUTUBE_RSS", "p": 2},
+        {"h": "UCojElg7pBFxqgFRfKLUwMoA", "c": "TOURS", "t": "YOUTUBE_RSS", "p": 2},
+        {"h": "UCKSFtEiJHxMGGDxd0OR9Lug", "c": "TOURS", "t": "YOUTUBE_RSS", "p": 1},
+        {"h": "UCxDZs_ltFFvn0FDHT6kmoXA", "c": "TOURS", "t": "YOUTUBE_RSS", "p": 2},
+        {"h": "UCnT37BcNGEoMkdDflNJPc5A", "c": "TOURS", "t": "YOUTUBE_RSS", "p": 1},
+    ],
+    "good_news": [
+        {"h": "goodnewsru",    "c": "GOOD", "t": "TELEGRAM", "p": 1},
+        {"h": "pozitiv_kg",    "c": "GOOD", "t": "TELEGRAM", "p": 2},
+        {"h": "dobroe_utro_kg","c": "GOOD", "t": "TELEGRAM", "p": 1},
+        {"h": "positivnews",   "c": "GOOD", "t": "TELEGRAM", "p": 1},
+        {"h": "worldgoodnews", "c": "GOOD", "t": "TELEGRAM", "p": 1},
+    ],
+    "stars_always": [
+        {"h": "starhit",      "c": "STARS", "t": "TELEGRAM", "p": 1},
+        {"h": "showbiz_kg",   "c": "STARS", "t": "TELEGRAM", "p": 2},
+        {"h": "musickg",      "c": "STARS", "t": "TELEGRAM", "p": 2},
+        {"h": "peopletalkru", "c": "STARS", "t": "TELEGRAM", "p": 1},
+        {"h": "tmz_news",     "c": "STARS", "t": "TELEGRAM", "p": 1},
+        {"h": "cosmo_ru",     "c": "STARS", "t": "TELEGRAM", "p": 1},
+    ],
+    "health_always": [
+        {"h": "healthkg",      "c": "HEALTH", "t": "TELEGRAM", "p": 2},
+        {"h": "doctorpiter",   "c": "HEALTH", "t": "TELEGRAM", "p": 1},
+        {"h": "medicalru",     "c": "HEALTH", "t": "TELEGRAM", "p": 1},
+        {"h": "zdorovieinfo",  "c": "HEALTH", "t": "TELEGRAM", "p": 1},
+        {"h": "lifehacker_ru", "c": "HEALTH", "t": "TELEGRAM", "p": 1},
+        {"h": "psychologykg",  "c": "HEALTH", "t": "TELEGRAM", "p": 2},
+    ],
+    "money_always": [
+        {"h": "fingramota_kg",    "c": "MONEY", "t": "TELEGRAM", "p": 2},
+        {"h": "rbc_economics",    "c": "MONEY", "t": "TELEGRAM", "p": 1},
+        {"h": "tinkoff_journal",  "c": "MONEY", "t": "TELEGRAM", "p": 1},
+        {"h": "nbrkg",            "c": "MONEY", "t": "TELEGRAM", "p": 2},
+        {"h": "money_kg",         "c": "MONEY", "t": "TELEGRAM", "p": 2},
+        {"h": "invest_simple_ru", "c": "MONEY", "t": "TELEGRAM", "p": 1},
+    ],
+    "life_always": [
+        {"h": "lifehacks_kg",    "c": "LIFE", "t": "TELEGRAM", "p": 2},
+        {"h": "lifehacker_ru",   "c": "LIFE", "t": "TELEGRAM", "p": 1},
+        {"h": "recipekg",        "c": "LIFE", "t": "TELEGRAM", "p": 2},
+        {"h": "sovetdoma",       "c": "LIFE", "t": "TELEGRAM", "p": 1},
+        {"h": "psychology_life", "c": "LIFE", "t": "TELEGRAM", "p": 1},
+        {"h": "mama_kg",         "c": "LIFE", "t": "TELEGRAM", "p": 2},
+    ],
+    "niche_always": [
+        {"h": "avtoradar",     "c": "AUTO",    "t": "TELEGRAM", "p": 0},
+        {"h": "driveru",       "c": "AUTO",    "t": "TELEGRAM", "p": 0},
+        {"h": "motor_ru",      "c": "AUTO",    "t": "TELEGRAM", "p": 0},
+        {"h": "buro247",       "c": "FASHION", "t": "TELEGRAM", "p": 0},
+        {"h": "vogue_russia",  "c": "FASHION", "t": "TELEGRAM", "p": 0},
+        {"h": "kinopoisk",     "c": "CULTURE", "t": "TELEGRAM", "p": 0},
+        {"h": "afishakg",      "c": "CULTURE", "t": "TELEGRAM", "p": 0},
+        {"h": "sport24russia", "c": "SPORT",   "t": "TELEGRAM", "p": 0},
+        {"h": "matchtv",       "c": "SPORT",   "t": "TELEGRAM", "p": 0},
+    ],
+    "youtube_world_news": [
+        {"h": "UCK9hDpGRfzZuoOkL9Nf-7jA", "c": "WORLD", "t": "YOUTUBE_RSS", "p": 2},
+        {"h": "UC0d3LGCJMzB0YQZN5TFe1QA", "c": "WORLD", "t": "YOUTUBE_RSS", "p": 1},
+        {"h": "UCknLrEdhRCp1aegoMqRaCZg", "c": "WORLD", "t": "YOUTUBE_RSS", "p": 1},
+        {"h": "UChqUTb7kYRX8-EiaN3XFrSQ", "c": "WORLD", "t": "YOUTUBE_RSS", "p": 1},
+    ],
+}
+
 POOL_LANGUAGE_NAMES = {
     "ru": "русский",
     "en": "английский (English)",
@@ -1104,6 +1248,10 @@ def main():
     db.reference("/config/editorial_channels").set({
         lang: ch.lstrip("@") for lang, ch in TELEGRAM_CHANNELS.items() if ch
     })
+
+    # Публикуем источники приложения (Telegram/YouTube каналы, которые
+    # приложение парсит само) — правка здесь меняет контент у всех без релиза
+    db.reference("/config/app_sources").set(APP_SOURCES)
 
 if __name__ == "__main__":
     main()
