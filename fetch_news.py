@@ -1266,7 +1266,8 @@ def main():
     # Публикуем имена редакторских каналов — приложение читает их отсюда,
     # смена канала не требует обновления приложения
     db.reference("/config/editorial_channels").set({
-        lang: ch.lstrip("@") for lang, ch in TELEGRAM_CHANNELS.items() if ch
+        **{lang: ch.lstrip("@") for lang, ch in TELEGRAM_CHANNELS.items() if ch},
+        "gl": "t247_gl",  # глобальный редакторский — посты для всех регионов
     })
 
     # Публикуем источники приложения (Telegram/YouTube каналы, которые
