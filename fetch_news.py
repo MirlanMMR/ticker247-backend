@@ -373,12 +373,30 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                 "publishedAt": int(datetime.now().timestamp() * 1000),
                 "regionCode": region_code,
                 "viewCount": views,
+                "channelId": snippet.get("channelId", ""),
                 "label": label
             })
 
+        # Фильтр по подписчикам: берём только видео крупных каналов —
+        # отсекает случайный/непонятный контент из трендов
+        if items:
+            ch_ids = list({it["channelId"] for it in items if it["channelId"]})
+            try:
+                r2 = requests.get("https://www.googleapis.com/youtube/v3/channels", params={
+                    "part": "statistics", "id": ",".join(ch_ids[:50]), "key": YOUTUBE_API_KEY
+                }, timeout=10)
+                subs = {c["id"]: int(c.get("statistics", {}).get("subscriberCount", 0))
+                        for c in r2.json().get("items", [])}
+                min_subs = 100_000 if region_code in ("KG", "RU", "KZ") else 1_000_000
+                before = len(items)
+                items = [it for it in items if subs.get(it["channelId"], 0) >= min_subs]
+                print(f"  📊 Фильтр подписчиков ({min_subs//1000}K+): {before} → {len(items)}")
+            except Exception as e:
+                print(f"  ⚠️ channels.list: {e}")
+
         # Сортируем по просмотрам — самые популярные первыми
         items.sort(key=lambda x: x["viewCount"], reverse=True)
-        print(f"  ✓ YouTube {region_code}: {len(items)} видео (отфильтровано по 100K+ просмотров)")
+        print(f"  ✓ YouTube {region_code}: {len(items)} видео")
         return items
     except Exception as e:
         print(f"  ✗ YouTube {region_code}: {e}")
@@ -1080,13 +1098,15 @@ def main():
 
     # YouTube вирусные видео — сохраняем отдельно
     print("▶ YouTube trending...")
-    viral_kg    = fetch_youtube_trending("KG", 10)
-    viral_ru    = fetch_youtube_trending("RU", 8)
-    viral_kz    = fetch_youtube_trending("KZ", 5)
-    viral_world = fetch_youtube_trending("US", 5)
-    viral_br    = fetch_youtube_trending("BR", 8)   # Бразилия — PT пул
-    viral_mx    = fetch_youtube_trending("MX", 8)   # Мексика — ES пул
-    viral_gb    = fetch_youtube_trending("GB", 5)   # Великобритания — EN пул
+    # Берём по 30 кандидатов: после фильтров (категории, стоп-слова,
+    # просмотры, подписчики) выживает лишь часть
+    viral_kg    = fetch_youtube_trending("KG", 30)
+    viral_ru    = fetch_youtube_trending("RU", 25)
+    viral_kz    = fetch_youtube_trending("KZ", 20)
+    viral_world = fetch_youtube_trending("US", 20)
+    viral_br    = fetch_youtube_trending("BR", 25)  # Бразилия — PT пул
+    viral_mx    = fetch_youtube_trending("MX", 25)  # Мексика — ES пул
+    viral_gb    = fetch_youtube_trending("GB", 20)  # Великобритания — EN пул
 
     viral_ref = db.reference("/viral")
     viral_ref.set({
