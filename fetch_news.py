@@ -971,6 +971,22 @@ def translate_batch(items, target_lang):
         time.sleep(0.15)  # мягкий темп — не дразним эндпоинт
     print(f"  ✓ Переведено {translated}/{len(items)} на {target_lang}")
 
+def tg_post_keys(item) -> list:
+    """Ключи дедупликации TG-поста: по URL и по заголовку.
+    Заголовочный ключ ловит ту же новость от другого источника (другой URL).
+    Символы . / # $ [ ] недопустимы в ключах Firebase."""
+    keys = []
+    url = item.get("url", "")
+    if url:
+        keys.append("u:" + "".join(c if c not in './#$[]' else '_' for c in url)[:96])
+    words = sorted(set(
+        w.lower()[:6] for w in item.get("title", "").split()
+        if len(w) > 3 and w.isalpha()
+    ))[:10]
+    if words:
+        keys.append("t:" + "-".join(words)[:96])
+    return keys
+
 def shorten_url(url: str) -> str:
     """Сокращаем ссылку через TinyURL (бесплатно, без ключа)."""
     if not url or not url.startswith("http"):
@@ -1026,11 +1042,12 @@ def post_to_telegram(items: list, channel: str = TELEGRAM_CHANNEL, lang: str = "
             return il in ("ru", "ky", "uk", "be", "bg", "sr", "mk")
         return il == lang
 
-    # Берём только priority >= 1 (срочные/важные), не опубликованные ранее
+    # Берём только priority >= 1 (срочные/важные), не опубликованные ранее.
+    # Дедуп по URL И по заголовку — та же новость от другого источника не постится
     candidates = [
         item for item in items
         if item.get("priority", 0) >= 1
-        and item.get("url", "") not in posted_urls
+        and not any(k in posted_urls for k in tg_post_keys(item))
         and item.get("category") not in ("CURRENCY", "CRYPTO")
         and lang_ok(item)
     ]
@@ -1078,8 +1095,9 @@ def post_to_telegram(items: list, channel: str = TELEGRAM_CHANNEL, lang: str = "
             }, timeout=10)
             if resp.status_code == 200:
                 print(f"✅ TG posted: {title[:60]}")
-                if url:
-                    new_posted[url.replace(".", "_").replace("/", "|")[:100]] = int(datetime.now().timestamp())
+                ts_now = int(datetime.now().timestamp())
+                for k in tg_post_keys(item):
+                    new_posted[k] = ts_now
             else:
                 print(f"❌ TG error {resp.status_code}: {resp.text[:200]}")
         except Exception as e:
