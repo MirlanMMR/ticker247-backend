@@ -544,7 +544,10 @@ def fetch_rss(source):
                 "imageUrl": image, "source": source["source"],
                 "category": source["category"], "source_category": source["category"],
                 "priority": source["priority"],
-                "language": lang, "scope": source.get("scope", "world"),
+                # Язык: явный язык источника надёжнее детектора
+                # (детектор не отличает испанский/португальский от английского)
+                "language": source.get("lang") or lang,
+                "scope": source.get("scope", "world"),
                 "source_lang": source.get("lang"),
                 "publishedAt": int(datetime.now().timestamp() * 1000)
             })
@@ -929,44 +932,44 @@ def needs_translation(item, pool):
     # поэтому переводим только мировые статьи (они на английском)
     return lang in ("ru", "ar") or (lang == "en" and scope == "world")
 
-def translate_batch(items, target_lang):
-    """Переводит title и summary на язык пула через Gemini. Мутирует items.
-    При ошибке оставляет оригиналы — лента не ломается."""
-    if not items:
-        return
-    name = POOL_LANGUAGE_NAMES.get(target_lang, target_lang)
-    lines = []
-    for i, item in enumerate(items, 1):
-        t = item.get("title", "")[:200].replace("\n", " ")
-        s = item.get("summary", "")[:300].replace("\n", " ")
-        lines.append(f"{i}. TITLE: {t} ||| SUMMARY: {s}")
-    prompt = f"""Переведи новостные заголовки и описания на {name} язык.
-Сохрани имена собственные, цифры и факты точно. Стиль — новостной, краткий.
-Верни ТОЛЬКО JSON без пояснений:
-{{"1": {{"t": "перевод заголовка", "s": "перевод описания"}}, "2": ...}}
-
-{chr(10).join(lines)}"""
+def _gtx_translate(text: str, target: str) -> str | None:
+    """Бесплатный Google Translate (без ключа и квот). None при ошибке."""
+    if not text.strip():
+        return ""
     try:
-        import time
-        time.sleep(2)  # пауза между запросами — не упираемся в rate limit Gemini
-        model = genai.GenerativeModel("gemini-2.0-flash")
-        response = model.generate_content(prompt)
-        text = response.text.strip()
-        if "```" in text:
-            text = text.split("```")[1].replace("json", "").strip()
-        result = json.loads(text)
-        translated = 0
-        for i, item in enumerate(items, 1):
-            tr = result.get(str(i))
-            if tr and tr.get("t"):
-                item["title"] = tr["t"]
-                if tr.get("s"):
-                    item["summary"] = tr["s"]
+        r = requests.get("https://translate.googleapis.com/translate_a/single",
+            params={"client": "gtx", "sl": "auto", "tl": target, "dt": "t", "q": text[:1500]},
+            timeout=10)
+        if not r.ok:
+            return None
+        data = r.json()
+        return "".join(seg[0] for seg in data[0] if seg and seg[0])
+    except Exception:
+        return None
+
+def translate_batch(items, target_lang):
+    """Переводит title и summary на язык пула через бесплатный Google Translate.
+    (Gemini не используется — его квота нужна фильтрации.) Мутирует items;
+    при ошибке оставляет оригиналы — лента не ломается."""
+    import time
+    translated = 0
+    for item in items:
+        # Заголовок и текст одним запросом, разделитель переживает перевод
+        combined = item.get("title", "")[:300] + "\n@@@\n" + item.get("summary", "")[:800]
+        result = _gtx_translate(combined, target_lang)
+        if result and "@@@" in result:
+            t, s = result.split("@@@", 1)
+            if t.strip():
+                item["title"] = t.strip()
+                item["summary"] = s.strip()
                 item["language"] = target_lang
                 translated += 1
-        print(f"  ✓ Переведено {translated}/{len(items)} на {target_lang}")
-    except Exception as e:
-        print(f"  ✗ Перевод ({target_lang}): {e}")
+        elif result and result.strip():
+            item["title"] = result.strip().split("\n")[0]
+            item["language"] = target_lang
+            translated += 1
+        time.sleep(0.15)  # мягкий темп — не дразним эндпоинт
+    print(f"  ✓ Переведено {translated}/{len(items)} на {target_lang}")
 
 def shorten_url(url: str) -> str:
     """Сокращаем ссылку через TinyURL (бесплатно, без ключа)."""
@@ -1014,12 +1017,22 @@ def post_to_telegram(items: list, channel: str = TELEGRAM_CHANNEL, lang: str = "
     posted_data = posted_ref.get() or {}
     posted_urls = set(posted_data.keys() if isinstance(posted_data, dict) else [])
 
-    # Берём только priority >= 2 (срочные/важные), не опубликованные ранее
+    # Пост должен быть на языке канала — непереведённые (сбой перевода) пропускаем
+    def lang_ok(item):
+        il = item.get("language", "unknown")
+        if il in ("unknown", "other", ""):
+            return True
+        if lang == "ru":
+            return il in ("ru", "ky", "uk", "be", "bg", "sr", "mk")
+        return il == lang
+
+    # Берём только priority >= 1 (срочные/важные), не опубликованные ранее
     candidates = [
         item for item in items
         if item.get("priority", 0) >= 1
         and item.get("url", "") not in posted_urls
         and item.get("category") not in ("CURRENCY", "CRYPTO")
+        and lang_ok(item)
     ]
 
     # Максимум 5 постов за один запуск
