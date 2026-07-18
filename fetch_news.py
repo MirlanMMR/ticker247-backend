@@ -1085,6 +1085,9 @@ def post_to_telegram(items: list, channel: str = TELEGRAM_CHANNEL, lang: str = "
         text += f"\n\n{hashtag} | 📲 {channel}"
         if source:
             text += f" | {source}"
+        # Контакт для рекламодателей — в каждом посте, на языке канала
+        ads_word = {"ru": "Реклама", "en": "Ads", "es": "Publicidad", "pt": "Publicidade"}.get(lang, "Ads")
+        text += f"\n📣 {ads_word}: @ticker247ads_bot"
 
         try:
             resp = requests.post(api_url, json={
