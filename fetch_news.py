@@ -319,8 +319,10 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
         items = []
 
         # Белый список: только релевантные категории
-        # 17=Спорт, 19=Путешествия, 22=Люди и блоги, 23=Юмор, 25=Новости, 28=Наука и техника
-        ALLOWED_CATEGORIES = {"17", "19", "22", "23", "25", "28"}
+        # 17=Спорт, 19=Путешествия, 25=Новости, 28=Наука и техника
+        # (22 «Люди и блоги» и 23 «Юмор» исключены — главные источники мусора:
+        # геймплеи, летсплеи и случайный контент грузят именно туда)
+        ALLOWED_CATEGORIES = {"17", "19", "25", "28"}
 
         for video in data.get("items", []):
             snippet = video.get("snippet", {})
@@ -352,7 +354,11 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                                                  "soundtrack", "ost", "official soundtrack", "score",
                                                  "chapter ", "deltarune", "undertale",
                                                  "trailer", "teaser", "official trailer", "official teaser",
-                                                 "anime", "episode ", "season ", "серия ", "сезон "]):
+                                                 "anime", "episode ", "season ", "серия ", "сезон ",
+                                                 # Игровой контент — не новости
+                                                 "gameplay", "геймплей", "прохожден", "летсплей", "стрим ",
+                                                 "minecraft", "roblox", "backrooms", "симулятор", "speedrun",
+                                                 "спидран", "фнаф", "fnaf", "gta ", "мод ", "моды "]):
                 continue
             # Блокируем только жанровый мусор — берём из Firebase config
             if any(kw in title_lower for kw in YOUTUBE_BLOCK_KEYWORDS):
