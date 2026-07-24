@@ -963,12 +963,18 @@ def _gtx_translate(text: str, target: str) -> str | None:
 def translate_batch(items, target_lang):
     """Переводит title и summary на язык пула через бесплатный Google Translate.
     (Gemini не используется — его квота нужна фильтрации.) Мутирует items;
-    при ошибке оставляет оригиналы — лента не ломается."""
+    при ошибке оставляет оригиналы — лента не ломается.
+
+    Прозрачность вместо точечных фиксов слов: машинный перевод неизбежно даёт
+    огрехи на идиомах/титулах («swinging»→«качели», «King»→«Кинг»). Латать
+    конкретные слова — бесконечная игра в кротов, поэтому вместо этого честно
+    помечаем перевод и сохраняем оригинал — читатель сам видит и может свериться."""
     import time
     translated = 0
     for item in items:
+        orig_title = item.get("title", "")
         # Заголовок и текст одним запросом, разделитель переживает перевод
-        combined = item.get("title", "")[:300] + "\n@@@\n" + item.get("summary", "")[:800]
+        combined = orig_title[:300] + "\n@@@\n" + item.get("summary", "")[:800]
         result = _gtx_translate(combined, target_lang)
         if result and "@@@" in result:
             t, s = result.split("@@@", 1)
@@ -976,10 +982,14 @@ def translate_batch(items, target_lang):
                 item["title"] = t.strip()
                 item["summary"] = s.strip()
                 item["language"] = target_lang
+                item["origTitle"] = orig_title
+                item["translated"] = True
                 translated += 1
         elif result and result.strip():
             item["title"] = result.strip().split("\n")[0]
             item["language"] = target_lang
+            item["origTitle"] = orig_title
+            item["translated"] = True
             translated += 1
         time.sleep(0.15)  # мягкий темп — не дразним эндпоинт
     print(f"  ✓ Переведено {translated}/{len(items)} на {target_lang}")
