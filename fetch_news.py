@@ -33,6 +33,7 @@ RSS_SOURCES = [
     # ════════════════════════════════════════════════════
     # МИРОВЫЕ — глобальные издания
     # ════════════════════════════════════════════════════
+    {"url": "https://feeds.bbci.co.uk/russian/rss.xml", "source": "BBC Русская служба", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "ru"},
     {"url": "https://feeds.bbci.co.uk/news/rss.xml", "source": "BBC News", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world"},
     {"url": "https://feeds.bbci.co.uk/news/world/rss.xml", "source": "BBC World", "category": "NEWS", "priority": 2, "quota": 5, "scope": "world"},
     {"url": "https://feeds.reuters.com/reuters/topNews", "source": "Reuters", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world"},
@@ -511,6 +512,59 @@ def extract_full_summary(item_el) -> str:
                 break
 
     return text.strip()
+
+# Служебный мусор новостных страниц — строки, которые нельзя тащить в summary
+_PAGE_NOISE = ("this video can not be played", "published ", "getty images",
+               "image source", "image caption", "advertisement", "sign up",
+               "follow us", "related topics", "cookies", "javascript",
+               "share this", "copyright", "watch:", "listen:")
+
+def enrich_short_summaries(items, min_len=250, budget=25):
+    """Мировые RSS (BBC/Reuters и др.) дают одно предложение-затравку.
+    Для таких статей тянем страницу и собираем 2-4 первых абзаца текста —
+    ДО перевода, чтобы читатель получил резюме на своём языке.
+    budget ограничивает число HTTP-запросов за прогон (job ежечасный)."""
+    done = 0
+    for item in items:
+        if done >= budget:
+            break
+        s = item.get("summary", "")
+        if len(s) >= min_len or not item.get("url", "").startswith("http"):
+            continue
+        if "t.me" in item["url"] or "telegram." in item["url"]:
+            continue
+        try:
+            r = requests.get(item["url"], timeout=8,
+                             headers={"User-Agent": "Mozilla/5.0 Ticker247/1.0"})
+            done += 1
+            if not r.ok:
+                continue
+            soup = BeautifulSoup(r.content, "html.parser")
+            root = soup.find("article") or soup
+            paras = []
+            for p in root.find_all("p"):
+                t = clean_text(p.get_text(" ", strip=True))
+                if len(t) < 60:          # подписи, даты, крошки
+                    continue
+                low = t.lower()
+                if any(n in low for n in _PAGE_NOISE):
+                    continue
+                paras.append(t)
+                if sum(len(x) for x in paras) > 700:
+                    break
+            body = " ".join(paras).strip()
+            # Обрезаем по последнему полному предложению
+            if len(body) > 700:
+                body = body[:700]
+                idx = max(body.rfind(". "), body.rfind("! "), body.rfind("? "))
+                if idx > 150:
+                    body = body[:idx + 1]
+            if len(body) > len(s) + 80:
+                item["summary"] = body
+        except Exception:
+            continue
+    if done:
+        print(f"  📄 Обогащено полным текстом: {done} запросов")
 
 def fetch_rss(source):
     try:
@@ -1294,6 +1348,9 @@ def main():
         filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
         max_items = 80 if lang == "ru" else 60
         filtered = filtered[:max_items]
+        # Короткие summary (затравки BBC/Reuters) расширяем текстом со страницы —
+        # до перевода, чтобы пул получил резюме уже на своём языке
+        enrich_short_summaries(filtered)
         # Автоперевод: статьи не на языке пула переводим через Gemini
         # Батчи по 15 + один повтор для неудавшихся — падение батча не оставляет
         # половину пула на чужом языке (приложение фильтрует их из ленты)
