@@ -1036,20 +1036,16 @@ def translate_batch(items, target_lang):
     translated = 0
     for item in items:
         orig_title = item.get("title", "")
-        # Заголовок и текст одним запросом, разделитель переживает перевод
-        combined = orig_title[:300] + "\n@@@\n" + item.get("summary", "")[:800]
-        result = _gtx_translate(combined, target_lang)
-        if result and "@@@" in result:
-            t, s = result.split("@@@", 1)
-            if t.strip():
-                item["title"] = t.strip()
-                item["summary"] = s.strip()
-                item["language"] = target_lang
-                item["origTitle"] = orig_title
-                item["translated"] = True
-                translated += 1
-        elif result and result.strip():
-            item["title"] = result.strip().split("\n")[0]
+        orig_summary = item.get("summary", "")
+        # Заголовок и текст переводим ОТДЕЛЬНЫМИ запросами — общий запрос с
+        # разделителем "@@@" на длинных текстах ломался (Google съедал разделитель),
+        # из-за чего заголовок переводился, а текст оставался на языке оригинала
+        # с ложной пометкой translated=True
+        t = _gtx_translate(orig_title[:300], target_lang) if orig_title else ""
+        s = _gtx_translate(orig_summary[:800], target_lang) if orig_summary else ""
+        if t and t.strip():
+            item["title"] = t.strip()
+            item["summary"] = s.strip() if s and s.strip() else orig_summary
             item["language"] = target_lang
             item["origTitle"] = orig_title
             item["translated"] = True
