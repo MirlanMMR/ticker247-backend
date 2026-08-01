@@ -996,6 +996,10 @@ def needs_translation(item, pool):
     """Нужен ли перевод статьи на язык пула"""
     lang = item.get("language", "unknown")
     scope = item.get("scope", "world")
+    # "other" — детектор не распознал алфавит (не кириллица/латиница/арабский:
+    # греческий, тайский и т.п.) — почти наверняка не язык пула, переводим на все
+    if lang == "other":
+        return True
     if pool == "ru":
         return lang in ("en", "ar")
     if pool == "en":
