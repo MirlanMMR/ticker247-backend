@@ -519,7 +519,7 @@ _PAGE_NOISE = ("this video can not be played", "published ", "getty images",
                "follow us", "related topics", "cookies", "javascript",
                "share this", "copyright", "watch:", "listen:")
 
-def enrich_short_summaries(items, min_len=250, budget=25):
+def enrich_short_summaries(items, min_len=400, budget=25):
     """Мировые RSS (BBC/Reuters и др.) дают одно предложение-затравку.
     Для таких статей тянем страницу и собираем 2-4 первых абзаца текста —
     ДО перевода, чтобы читатель получил резюме на своём языке.
