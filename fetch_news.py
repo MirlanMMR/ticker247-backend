@@ -569,6 +569,40 @@ def enrich_short_summaries(items, min_len=400, budget=25):
     if done:
         print(f"  📄 Обогащено полным текстом: {done} запросов")
 
+def enrich_missing_images(items, budget=15):
+    """Важные/срочные новости без фото (priority>=2, URGENT, #карусель) всё
+    равно попадают в hero-карусель приложения — с генерической заглушкой
+    вместо картинки. RSS иногда не даёт enclosure, но сайт почти всегда
+    указывает og:image в мета-тегах страницы — вытаскиваем его точечно,
+    только для этих важных случаев, чтобы не тратить бюджет запросов
+    на рядовые новости, для которых фото не критично."""
+    done = 0
+    for item in items:
+        if done >= budget:
+            break
+        if item.get("imageUrl"):
+            continue
+        is_important = item.get("priority", 0) >= 2 or item.get("category") == "URGENT"
+        if not is_important:
+            continue
+        url = item.get("url", "")
+        if not url.startswith("http") or "t.me" in url or "telegram." in url:
+            continue
+        try:
+            r = requests.get(url, timeout=8, headers=BROWSER_HEADERS)
+            done += 1
+            if not r.ok:
+                continue
+            soup = BeautifulSoup(r.content, "html.parser")
+            og = soup.find("meta", property="og:image") or soup.find("meta", attrs={"name": "og:image"})
+            img_url = og.get("content") if og else None
+            if img_url and img_url.startswith("http"):
+                item["imageUrl"] = img_url
+        except Exception:
+            continue
+    if done:
+        print(f"  🖼️ Дозагружено og:image для важных новостей: {done} запросов")
+
 def fetch_rss(source):
     try:
         r = requests.get(source["url"], timeout=10, headers=BROWSER_HEADERS)
@@ -1411,6 +1445,9 @@ def main():
         # Короткие summary (затравки BBC/Reuters) расширяем текстом со страницы —
         # до перевода, чтобы пул получил резюме уже на своём языке
         enrich_short_summaries(filtered)
+        # Важные/срочные новости без фото — подтягиваем og:image со страницы,
+        # чтобы они не висели в hero-карусели с генерической заглушкой
+        enrich_missing_images(filtered)
         # Автоперевод: статьи не на языке пула переводим через Gemini
         # Батчи по 15 + один повтор для неудавшихся — падение батча не оставляет
         # половину пула на чужом языке (приложение фильтрует их из ленты)
