@@ -13,6 +13,15 @@ FIREBASE_DATABASE_URL = os.environ.get("FIREBASE_DATABASE_URL")
 FIREBASE_SERVICE_ACCOUNT = os.environ.get("FIREBASE_SERVICE_ACCOUNT")
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+# Некоторые сайты (ТАСС и др.) блокируют по простому User-Agent — притворяемся
+# обычным браузером, чтобы дозагружать полный текст коротких новостей
+BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
+}
+
 TELEGRAM_CHANNEL = "@t247feed"
 # Языковые каналы: каждый пул постится в свой канал.
 # Бот должен быть админом в каждом. Пока канала нет — ставь None, постинг пропустится.
@@ -535,7 +544,7 @@ def enrich_short_summaries(items, min_len=400, budget=25):
             continue
         try:
             r = requests.get(item["url"], timeout=8,
-                             headers={"User-Agent": "Mozilla/5.0 Ticker247/1.0"})
+                             headers=BROWSER_HEADERS)
             done += 1
             if not r.ok:
                 continue
