@@ -776,6 +776,12 @@ priority=1 — важная мировая повестка:
 
 priority=0 — обычные новости
 
+═══ ПРАВИЛО №4 — ПОДОЗРЕНИЕ НА СКРЫТУЮ РЕКЛАМУ ═══
+Если не уверен на 100%, что это реклама/PR (иначе удалил бы по Правилу №2),
+но есть подозрение — оставь в ленте, но добавь номер в "ad_suspects".
+Такие новости получат короткий срок жизни и сами исчезнут при следующем
+обновлении — это подстраховка, а не наказание, ошибиться не страшно.
+
 ═══ КАТЕГОРИИ ═══
 URGENT=экстренное, SPORT=спорт, TECH=технологии, AUTO=авто,
 FASHION=мода, CULTURE=кино/музыка/театр, TOURS=туризм,
@@ -785,7 +791,7 @@ VIRAL=вирусное видео, NEWS=всё остальное
 ВАЖНО: политики, депутаты, министры, активисты, общественные деятели → категория NEWS или KG, никогда не STARS
 
 Верни ТОЛЬКО JSON без объяснений:
-{{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}}}
+{{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}, "ad_suspects": [3]}}
 
 НОВОСТИ:
 {chr(10).join(titles[:60])}"""
@@ -801,6 +807,7 @@ VIRAL=вирусное видео, NEWS=всё остальное
         urgent = set(i-1 for i in result.get("urgent", []))
         important = set(i-1 for i in result.get("important", []))
         recategorize = {int(k)-1: v for k, v in result.get("recategorize", {}).items()}
+        ad_suspects = set(i-1 for i in result.get("ad_suspects", []))
 
         # Белый список: какие категории Gemini может назначать для каждого типа источника
         # Специализированные источники не меняют категорию — только NEWS-источники гибкие
@@ -841,7 +848,13 @@ VIRAL=вирусное видео, NEWS=всё остальное
                     if (allowed is None or new_cat in allowed) and validate_recat(new_cat, item.get("title", "")):
                         item["category"] = new_cat
                     # иначе — игнорируем переназначение Gemini
+                if i in ad_suspects:
+                    # "Чёрная метка" — подозрение на скрытую рекламу/PR: живёт
+                    # только до следующего часового прогона, а не обычные 24ч
+                    item["expiresAt"] = int(datetime.now().timestamp() * 1000) + 75 * 60 * 1000
                 filtered.append(item)
+        if ad_suspects:
+            print(f"  🏴 Чёрная метка (подозрение на рекламу): {len(ad_suspects)}")
         return filtered
     except Exception as e:
         print(f"Gemini error: {e}")
