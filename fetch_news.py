@@ -97,18 +97,15 @@ RSS_SOURCES = [
     # ИСПАНОЯЗЫЧНЫЙ МИР (локальные для ES пула)
     # ════════════════════════════════════════════════════
     {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "es"},
-    {"url": "https://www.infobae.com/feeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.infobae.com/arc/outboundfeeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
     {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
     # Латинская Америка
     {"url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/", "source": "La Nación AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
-    {"url": "https://www.eluniversal.com.mx/rss.xml", "source": "El Universal MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/", "source": "El Universal MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
     {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
-    {"url": "https://www.latercera.com/feed/", "source": "La Tercera CL", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
     {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
-    {"url": "https://www.univision.com/rss/noticias", "source": "Univisión", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
     # Спорт ES
     {"url": "https://www.marca.com/rss/portada.xml", "source": "Marca", "category": "SPORT", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
-    {"url": "https://as.com/rss/tags/ultimo_hora.xml", "source": "AS Deporte", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
     # Тренды ES
     {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=MX", "source": "Trends MX", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "es"},
     {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=AR", "source": "Trends AR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "es"},
@@ -119,10 +116,7 @@ RSS_SOURCES = [
     {"url": "https://www.publico.pt/rss", "source": "Público PT", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
     {"url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml", "source": "Folha de S.Paulo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "pt"},
     {"url": "https://noticias.uol.com.br/ultnot/index.xml", "source": "UOL Notícias", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
-    {"url": "https://www.correiobraziliense.com.br/rss/ultimas-noticias", "source": "Correio Braziliense", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
-    {"url": "https://www.jn.pt/rss/", "source": "Jornal de Notícias PT", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
     # Спорт PT
-    {"url": "https://www.lance.com.br/rss/lancenet.xml", "source": "Lance! BR", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
     {"url": "https://www.record.pt/rss", "source": "Record PT", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
     # Тренды PT
     {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=BR", "source": "Trends BR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "pt"},
@@ -577,8 +571,7 @@ def enrich_short_summaries(items, min_len=400, budget=25):
 
 def fetch_rss(source):
     try:
-        r = requests.get(source["url"], timeout=10,
-                        headers={"User-Agent": "Mozilla/5.0 Ticker247/1.0"})
+        r = requests.get(source["url"], timeout=10, headers=BROWSER_HEADERS)
         if not r.ok:
             return []
         root = ET.fromstring(r.content)
