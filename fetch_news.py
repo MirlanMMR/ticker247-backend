@@ -672,6 +672,33 @@ CATEGORY_KEYWORDS = {
         "вышел в финал", "вышел в полуфинал", "вышел в четвертьфинал",
         "завоевал золото", "завоевал медаль", "нокаут", "победил на чемпионате",
         "чемпион мира", "чемпион азии", "рекорд мира",
+        # Английский, испанский, португальский — те же категории событий для
+        # мировых/англоязычных/латиноамериканских/бразильских пулов. Gemini и
+        # так понимает срочность по смыслу, это лишь подстраховка для
+        # предварительной пометки (auto_categorize) до вызова Gemini
+        "earthquake", "flood", "flash flood", "landslide", "avalanche",
+        "hurricane", "typhoon", "tornado", "tsunami", "drought", "wildfire",
+        "severe storm", "gale", "hailstorm", "cold snap", "heatwave", "blizzard",
+        "plane crash", "collapse", "explosion", "gas leak", "chemical spill",
+        "radiation leak", "oil spill", "state of emergency", "evacuation",
+        "rescue operation", "killed", "dead", "casualties", "injured", "shot dead",
+        "found dead", "poisoning", "mass poisoning", "outbreak", "epidemic",
+        "quarantine", "deadly virus",
+        "terror attack", "shooting", "hostage", "explosive device", "bomb",
+        "default", "devaluation", "sanctions", "currency collapse", "bank collapse",
+        "prices soar", "price surge", "bread shortage", "fuel shortage", "food shortage",
+        "coup", "impeachment", "president resigns", "martial law",
+        "war", "armed conflict", "missile strike", "declares war",
+        "reaches the final", "reaches the semifinal", "wins gold", "wins medal",
+        "knockout", "world champion", "world record",
+        "terremoto", "inundación", "huracán", "tifón", "tornado", "tsunami",
+        "sequía", "incendio forestal", "ola de calor", "ola de frío",
+        "estado de emergencia", "evacuación", "muertos", "heridos", "tiroteo",
+        "atentado", "rehenes", "bomba", "guerra", "golpe de estado",
+        "terremoto", "inundação", "furacão", "tufão", "tsunami", "seca",
+        "incêndio florestal", "onda de calor", "onda de frio",
+        "estado de emergência", "evacuação", "mortos", "feridos", "tiroteio",
+        "atentado", "reféns", "bomba", "guerra", "golpe de estado",
     ],
     # Коммунальные отключения, перекрытия дорог, местная коррупция — актуальны
     # только если новость про СТРАНУ читателя (scope=local), см. auto_categorize
@@ -684,6 +711,19 @@ CATEGORY_KEYWORDS = {
         "движение затруднено", "затор на", "коллапс на дороге", "парализовало движение",
         "задержан за коррупцию", "арестован министр", "обыск в министерстве",
         "задержан чиновник", "антикоррупционный рейд",
+        # Английский/испанский/португальский эквиваленты — те же события
+        # (отключения, транспортный коллапс, коррупционные аресты) для других пулов
+        "power outage", "blackout", "power cut", "water shutoff", "water outage",
+        "road closed", "road closure", "highway closed", "traffic collapse",
+        "gridlock", "massive traffic jam", "hours-long traffic jam",
+        "transit strike", "train strike", "subway shutdown", "flight grounded",
+        "arrested for corruption", "minister arrested", "official arrested", "corruption raid",
+        "apagón", "corte de luz", "corte de agua", "carretera cerrada",
+        "atasco", "embotellamiento", "huelga de transporte",
+        "detenido por corrupción", "ministro detenido", "funcionario detenido",
+        "apagão", "corte de energia", "corte de água", "estrada fechada",
+        "engarrafamento", "greve de transporte",
+        "preso por corrupção", "ministro preso", "funcionário preso",
     ],
     "KG": ["кыргыз", "бишкек", "ош", "кыргызстан", "кыргызча",
            "иссык-куль", "нарын", "джалал-абад", "баткен", "талас", "чуй"],
