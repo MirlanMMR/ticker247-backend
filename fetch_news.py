@@ -545,6 +545,7 @@ def enrich_short_summaries(items, min_len=400, budget=25):
             soup = BeautifulSoup(r.content, "html.parser")
             root = soup.find("article") or soup
             paras = []
+            seen_paras = set()
             for p in root.find_all("p"):
                 t = clean_text(p.get_text(" ", strip=True))
                 if len(t) < 60:          # подписи, даты, крошки
@@ -552,6 +553,13 @@ def enrich_short_summaries(items, min_len=400, budget=25):
                 low = t.lower()
                 if any(n in low for n in _PAGE_NOISE):
                     continue
+                # Некоторые сайты дублируют лид-абзац (стандфёрст + начало
+                # текста) — сравниваем по первым 50 символам, не по полному
+                # тексту, т.к. дубли иногда чуть отличаются пунктуацией
+                dedup_key = low[:50]
+                if dedup_key in seen_paras:
+                    continue
+                seen_paras.add(dedup_key)
                 paras.append(t)
                 if sum(len(x) for x in paras) > 700:
                     break
