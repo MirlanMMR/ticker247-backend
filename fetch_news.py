@@ -3,6 +3,7 @@ import json
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 import google.generativeai as genai
 import firebase_admin
@@ -649,6 +650,20 @@ def enrich_missing_images(items, budget=15):
     if done:
         print(f"  🖼️ Дозагружено og:image для важных новостей: {done} запросов")
 
+def parse_pub_date(item_el) -> int:
+    """Настоящая дата публикации из RSS (<pubDate>, формат RFC 822).
+    Без этого статья-расследование недельной давности выглядела как
+    "опубликована только что" — получала бонус за свежесть в оценке
+    важности и попадала в hero-карусель как будто это горячая новость."""
+    raw = item_el.findtext("pubDate", "").strip()
+    if raw:
+        try:
+            dt = parsedate_to_datetime(raw)
+            return int(dt.timestamp() * 1000)
+        except Exception:
+            pass
+    return int(datetime.now().timestamp() * 1000)
+
 def fetch_rss(source):
     try:
         r = requests.get(source["url"], timeout=10, headers=BROWSER_HEADERS)
@@ -692,7 +707,7 @@ def fetch_rss(source):
                 "language": source.get("lang") or lang,
                 "scope": source.get("scope", "world"),
                 "source_lang": source.get("lang"),
-                "publishedAt": int(datetime.now().timestamp() * 1000)
+                "publishedAt": parse_pub_date(item_el)
             })
         return items
     except Exception as e:
