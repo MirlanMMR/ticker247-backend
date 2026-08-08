@@ -308,8 +308,32 @@ def fetch_akchаbar_rates():
         return None
 
 
-def fetch_youtube_trending(region_code="KG", max_results=10):
-    """Вирусные видео YouTube по региону"""
+# Категории YouTube, которые нам интересны:
+# 25=Новости и политика, 17=Спорт, 28=Наука и техника, 19=Путешествия
+VIRAL_CATEGORIES = ("25", "17", "28", "19")
+
+def fetch_youtube_viral(region_code, max_results=10):
+    """Тренды региона по КАЖДОЙ релевантной категории отдельно.
+
+    Общий чарт mostPopular почти целиком состоит из музыки, развлечений и
+    игр, поэтому прежний фильтр по белому списку категорий выкидывал ~100%
+    выдачи и узел /viral оставался пустым. Запрос с videoCategoryId
+    возвращает топ уже внутри нужной категории — фильтровать нечего.
+    """
+    seen, merged = set(), []
+    for cat in VIRAL_CATEGORIES:
+        for it in fetch_youtube_trending(region_code, max_results, category_id=cat):
+            if it["url"] in seen:
+                continue
+            seen.add(it["url"])
+            merged.append(it)
+    merged.sort(key=lambda x: x["viewCount"], reverse=True)
+    merged = merged[:25]
+    print(f"  ✓ YouTube {region_code}: {len(merged)} видео (по {len(VIRAL_CATEGORIES)} категориям)")
+    return merged
+
+def fetch_youtube_trending(region_code="KG", max_results=10, category_id=None):
+    """Вирусные видео региона; с category_id — тренды внутри категории"""
     try:
         url = "https://www.googleapis.com/youtube/v3/videos"
         params = {
@@ -319,34 +343,28 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
             "maxResults": max_results,
             "key": YOUTUBE_API_KEY,
         }
+        if category_id:
+            params["videoCategoryId"] = category_id
         r = requests.get(url, params=params, timeout=10)
         if not r.ok:
-            print(f"  ✗ YouTube {region_code}: HTTP {r.status_code}")
+            # 400 — категория не поддерживается в этом регионе, это норма
+            if r.status_code != 400:
+                print(f"  ✗ YouTube {region_code}/{category_id}: HTTP {r.status_code}")
             return []
 
         data = r.json()
         items = []
-
-        # Белый список: только релевантные категории
-        # 17=Спорт, 19=Путешествия, 25=Новости, 28=Наука и техника
-        # (22 «Люди и блоги» и 23 «Юмор» исключены — главные источники мусора:
-        # геймплеи, летсплеи и случайный контент грузят именно туда)
-        ALLOWED_CATEGORIES = {"17", "19", "25", "28"}
 
         for video in data.get("items", []):
             snippet = video.get("snippet", {})
             stats = video.get("statistics", {})
             video_id = video.get("id", "")
             views = int(stats.get("viewCount", 0))
-            category_id = snippet.get("categoryId", "0")
 
-            # Порог просмотров: KG/локальные регионы — 100K, мировые — 500K
-            min_views = 100_000 if region_code in ("KG", "RU", "KZ") else 500_000
+            # Порог ниже, чем был у общего чарта: внутри категории цифры
+            # естественно скромнее — новости и спорт редко берут миллионы
+            min_views = 50_000 if region_code in ("KG", "RU", "KZ") else 200_000
             if views < min_views:
-                continue
-
-            # Только разрешённые категории
-            if category_id not in ALLOWED_CATEGORIES:
                 continue
 
             views_str = f"{views/1_000_000:.1f}M" if views >= 1_000_000 else f"{views//1000}K"
@@ -402,16 +420,15 @@ def fetch_youtube_trending(region_code="KG", max_results=10):
                 }, timeout=10)
                 subs = {c["id"]: int(c.get("statistics", {}).get("subscriberCount", 0))
                         for c in r2.json().get("items", [])}
-                min_subs = 100_000 if region_code in ("KG", "RU", "KZ") else 1_000_000
-                before = len(items)
+                # Порог снижен: у региональных новостных/спортивных каналов
+                # редко бывает миллион подписчиков, прежний фильтр их срезал
+                min_subs = 50_000 if region_code in ("KG", "RU", "KZ") else 300_000
                 items = [it for it in items if subs.get(it["channelId"], 0) >= min_subs]
-                print(f"  📊 Фильтр подписчиков ({min_subs//1000}K+): {before} → {len(items)}")
             except Exception as e:
                 print(f"  ⚠️ channels.list: {e}")
 
-        # Сортируем по просмотрам — самые популярные первыми
-        items.sort(key=lambda x: x["viewCount"], reverse=True)
-        print(f"  ✓ YouTube {region_code}: {len(items)} видео")
+        # Сортировку и итоговый лог делает fetch_youtube_viral (иначе на
+        # каждый регион печаталось бы по строке на категорию)
         return items
     except Exception as e:
         print(f"  ✗ YouTube {region_code}: {e}")
@@ -1322,13 +1339,13 @@ def main():
     print("▶ YouTube trending...")
     # Берём по 30 кандидатов: после фильтров (категории, стоп-слова,
     # просмотры, подписчики) выживает лишь часть
-    viral_kg    = fetch_youtube_trending("KG", 30)
-    viral_ru    = fetch_youtube_trending("RU", 25)
-    viral_kz    = fetch_youtube_trending("KZ", 20)
-    viral_world = fetch_youtube_trending("US", 20)
-    viral_br    = fetch_youtube_trending("BR", 25)  # Бразилия — PT пул
-    viral_mx    = fetch_youtube_trending("MX", 25)  # Мексика — ES пул
-    viral_gb    = fetch_youtube_trending("GB", 20)  # Великобритания — EN пул
+    viral_kg    = fetch_youtube_viral("KG", 15)
+    viral_ru    = fetch_youtube_viral("RU", 15)
+    viral_kz    = fetch_youtube_viral("KZ", 10)
+    viral_world = fetch_youtube_viral("US", 10)
+    viral_br    = fetch_youtube_viral("BR", 15)  # Бразилия — PT пул
+    viral_mx    = fetch_youtube_viral("MX", 15)  # Мексика — ES пул
+    viral_gb    = fetch_youtube_viral("GB", 10)  # Великобритания — EN пул
 
     viral_ref = db.reference("/viral")
     viral_ref.set({
