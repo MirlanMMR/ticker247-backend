@@ -744,8 +744,7 @@ CATEGORY_KEYWORDS = {
         "авиакатастрофа", "крушение", "обрушение", "взрыв", "утечка газа",
         "химическая авария", "радиация", "разлив нефти",
         "ЧС", "МЧС", "чрезвычайная ситуация", "режим ЧС", "эвакуация", "спасательная операция",
-        "погиб", "погибли", "жертвы", "пострадавшие", "ранен", "убит", "найден мёртвым",
-        "отравление", "отравились", "массовое отравление", "вспышка", "эпидемия",
+        "массовое отравление", "вспышка", "эпидемия",
         "карантин", "опасный вирус", "вспышка инфекции",
         "теракт", "стрельба", "захват заложников", "взрывное устройство", "бомба",
         "дефолт", "девальвация", "санкции", "обвал курса", "банкротство банка",
@@ -769,8 +768,7 @@ CATEGORY_KEYWORDS = {
         "severe storm", "gale", "hailstorm", "cold snap", "heatwave", "blizzard",
         "plane crash", "collapse", "explosion", "gas leak", "chemical spill",
         "radiation leak", "oil spill", "state of emergency", "evacuation",
-        "rescue operation", "killed", "dead", "casualties", "injured", "shot dead",
-        "found dead", "poisoning", "mass poisoning", "outbreak", "epidemic",
+        "rescue operation", "mass poisoning", "outbreak", "epidemic",
         "quarantine", "deadly virus",
         "terror attack", "shooting", "hostage", "explosive device", "bomb",
         "default", "devaluation", "sanctions", "currency collapse", "bank collapse",
@@ -781,11 +779,11 @@ CATEGORY_KEYWORDS = {
         "knockout", "world champion", "world record",
         "terremoto", "inundación", "huracán", "tifón", "tornado", "tsunami",
         "sequía", "incendio forestal", "ola de calor", "ola de frío",
-        "estado de emergencia", "evacuación", "muertos", "heridos", "tiroteo",
+        "estado de emergencia", "evacuación", "tiroteo",
         "atentado", "rehenes", "bomba", "guerra", "golpe de estado",
         "terremoto", "inundação", "furacão", "tufão", "tsunami", "seca",
         "incêndio florestal", "onda de calor", "onda de frio",
-        "estado de emergência", "evacuação", "mortos", "feridos", "tiroteio",
+        "estado de emergência", "evacuação", "tiroteio",
         "atentado", "reféns", "bomba", "guerra", "golpe de estado",
     ],
     # Коммунальные отключения, перекрытия дорог, местная коррупция — актуальны
@@ -799,19 +797,28 @@ CATEGORY_KEYWORDS = {
         "движение затруднено", "затор на", "коллапс на дороге", "парализовало движение",
         "задержан за коррупцию", "арестован министр", "обыск в министерстве",
         "задержан чиновник", "антикоррупционный рейд",
+        # Рядовые смерти/аварии/пострадавшие — не «мировая» срочность: каждый день
+        # где-то в мире ДТП или бытовое происшествие, это не должно попадать в
+        # карусель у читателя из другой страны. Крупные катастрофы остаются
+        # в основном списке URGENT (землетрясения, теракты, авиакатастрофы и т.д.)
+        "погиб", "погибли", "жертвы", "пострадавшие", "ранен", "убит", "найден мёртвым",
+        "отравление", "отравились",
         # Английский/испанский/португальский эквиваленты — те же события
-        # (отключения, транспортный коллапс, коррупционные аресты) для других пулов
+        # (отключения, транспортный коллапс, коррупционные аресты, рядовые ДТП) для других пулов
         "power outage", "blackout", "power cut", "water shutoff", "water outage",
         "road closed", "road closure", "highway closed", "traffic collapse",
         "gridlock", "massive traffic jam", "hours-long traffic jam",
         "transit strike", "train strike", "subway shutdown", "flight grounded",
         "arrested for corruption", "minister arrested", "official arrested", "corruption raid",
+        "killed", "dead", "casualties", "injured", "shot dead", "found dead", "poisoning",
         "apagón", "corte de luz", "corte de agua", "carretera cerrada",
         "atasco", "embotellamiento", "huelga de transporte",
         "detenido por corrupción", "ministro detenido", "funcionario detenido",
+        "muertos", "heridos",
         "apagão", "corte de energia", "corte de água", "estrada fechada",
         "engarrafamento", "greve de transporte",
         "preso por corrupção", "ministro preso", "funcionário preso",
+        "mortos", "feridos",
     ],
     "KG": ["кыргыз", "бишкек", "ош", "кыргызстан", "кыргызча",
            "иссык-куль", "нарын", "джалал-абад", "баткен", "талас", "чуй"],
