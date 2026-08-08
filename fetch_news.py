@@ -104,6 +104,8 @@ RSS_SOURCES = [
     {"url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/", "source": "El Universal MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
     {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
     {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.abc.es/rss/feeds/abcPortada.xml", "source": "ABC.es", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.excelsior.com.mx/rss/nacional.xml", "source": "Excelsior MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
     # Спорт ES
     {"url": "https://www.marca.com/rss/portada.xml", "source": "Marca", "category": "SPORT", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
     # Тренды ES
@@ -116,6 +118,8 @@ RSS_SOURCES = [
     {"url": "https://www.publico.pt/rss", "source": "Público PT", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
     {"url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml", "source": "Folha de S.Paulo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "pt"},
     {"url": "https://noticias.uol.com.br/ultnot/index.xml", "source": "UOL Notícias", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
+    {"url": "https://www.cnnbrasil.com.br/feed/", "source": "CNN Brasil", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
+    {"url": "https://www.terra.com.br/rss/", "source": "Terra BR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
     # Спорт PT
     {"url": "https://www.record.pt/rss", "source": "Record PT", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
     # Тренды PT
@@ -1448,7 +1452,7 @@ def main():
         cutoff = (datetime.now().timestamp() - 90 * 24 * 3600) * 1000
         filtered = [x for x in filtered if x.get("publishedAt", 0) >= cutoff]
         filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
-        max_items = 80 if lang == "ru" else 60
+        max_items = 80 if lang == "ru" else 70
         filtered = filtered[:max_items]
         # Короткие summary (затравки BBC/Reuters) расширяем текстом со страницы —
         # до перевода, чтобы пул получил резюме уже на своём языке
