@@ -1364,15 +1364,38 @@ def main():
     viral_mx    = fetch_youtube_viral("MX", 15)  # Мексика — ES пул
     viral_gb    = fetch_youtube_viral("GB", 10)  # Великобритания — EN пул
 
+    # "world" (тренды США) подмешивается ВО ВСЕ пулы — без перевода заголовки
+    # оставались на английском даже в ru/es/pt. Переводим по одной копии на
+    # язык; для EN-пула сам "world" остаётся как есть (уже английский).
+    def translate_viral_titles(items, target_lang):
+        import time
+        out = []
+        for it in items:
+            it2 = dict(it)
+            t = _gtx_translate(it2.get("title", "")[:300], target_lang)
+            if t and t.strip():
+                it2["title"] = t.strip()
+            out.append(it2)
+            time.sleep(0.1)
+        return out
+
+    print("  🌐 Перевожу мировую подборку YouTube...")
+    viral_world_ru = translate_viral_titles(viral_world, "ru")
+    viral_world_es = translate_viral_titles(viral_world, "es")
+    viral_world_pt = translate_viral_titles(viral_world, "pt")
+
     viral_ref = db.reference("/viral")
     viral_ref.set({
-        "kg":    viral_kg,
-        "ru":    viral_ru,
-        "kz":    viral_kz,
-        "world": viral_world,
-        "br":    viral_br,
-        "mx":    viral_mx,
-        "gb":    viral_gb,
+        "kg":       viral_kg,
+        "ru":       viral_ru,
+        "kz":       viral_kz,
+        "world":    viral_world,     # английский — для gb/en пула
+        "world_ru": viral_world_ru,
+        "world_es": viral_world_es,
+        "world_pt": viral_world_pt,
+        "br":       viral_br,
+        "mx":       viral_mx,
+        "gb":       viral_gb,
         "updatedAt": int(datetime.now().timestamp() * 1000)
     })
     print(f"✅ YouTube: KG={len(viral_kg)}, RU={len(viral_ru)}, BR={len(viral_br)}, MX={len(viral_mx)}, GB={len(viral_gb)}, World={len(viral_world)}")
