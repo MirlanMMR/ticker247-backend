@@ -337,7 +337,7 @@ def fetch_youtube_trending(region_code="KG", max_results=10, category_id=None):
     try:
         url = "https://www.googleapis.com/youtube/v3/videos"
         params = {
-            "part": "snippet,statistics",
+            "part": "snippet,statistics,status",
             "chart": "mostPopular",
             "regionCode": region_code,
             "maxResults": max_results,
@@ -385,7 +385,20 @@ def fetch_youtube_trending(region_code="KG", max_results=10, category_id=None):
                                                  # Игровой контент — не новости
                                                  "gameplay", "геймплей", "прохожден", "летсплей", "стрим ",
                                                  "minecraft", "roblox", "backrooms", "симулятор", "speedrun",
-                                                 "спидран", "фнаф", "fnaf", "gta ", "мод ", "моды "]):
+                                                 "спидран", "фнаф", "fnaf", "gta ", "мод ", "моды ",
+                                                 "fortnite", "valorant", "dota", "cs2", "counter-strike",
+                                                 "league of legends", "warzone", "call of duty", "pubg",
+                                                 "twitch", "highlights", "montage", "funny moments",
+                                                 "смешные моменты", "нарезка", "нарезки",
+                                                 # Клипы-реакции с чужих трансляций — не журналистика,
+                                                 # источник в скобках вида "(@espn)" типичен для таких
+                                                 " did this", " got caught", "you won't believe",
+                                                 "wait for it", "watch till the end"]):
+                continue
+            # Заголовки-реакции: обычно куча смайликов/капса — сигнал
+            # клипа-нарезки, а не новости, даже если категория формально спорт
+            emoji_count = sum(1 for ch in title_text if ord(ch) > 0x1F300)
+            if emoji_count >= 2:
                 continue
             # Блокируем только жанровый мусор — берём из Firebase config
             if any(kw in title_lower for kw in YOUTUBE_BLOCK_KEYWORDS):
@@ -407,7 +420,11 @@ def fetch_youtube_trending(region_code="KG", max_results=10, category_id=None):
                 "regionCode": region_code,
                 "viewCount": views,
                 "channelId": snippet.get("channelId", ""),
-                "label": label
+                "label": label,
+                # Часть трендовых видео запрещает встраивание — если так,
+                # приложение не пытается открыть плеер (там гарантированно
+                # будет ошибка), а сразу открывает YouTube
+                "embeddable": video.get("status", {}).get("embeddable", True)
             })
 
         # Фильтр по подписчикам: берём только видео крупных каналов —
