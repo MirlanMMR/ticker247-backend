@@ -1297,6 +1297,7 @@ def post_to_telegram(items: list, channel: str = TELEGRAM_CHANNEL, lang: str = "
 
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     new_posted = {}
+    new_messages = {}  # message_id -> {"ts", "channel"} — для автоочистки архива
 
     for item in to_post:
         title   = item.get("title", "")
@@ -1338,6 +1339,9 @@ def post_to_telegram(items: list, channel: str = TELEGRAM_CHANNEL, lang: str = "
                 ts_now = int(datetime.now().timestamp())
                 for k in tg_post_keys(item):
                     new_posted[k] = ts_now
+                mid = resp.json().get("result", {}).get("message_id")
+                if mid:
+                    new_messages[str(mid)] = {"ts": ts_now, "channel": channel}
             else:
                 print(f"❌ TG error {resp.status_code}: {resp.text[:200]}")
         except Exception as e:
@@ -1351,6 +1355,38 @@ def post_to_telegram(items: list, channel: str = TELEGRAM_CHANNEL, lang: str = "
         to_delete = {k: None for k, v in posted_data.items() if isinstance(v, int) and v < cutoff}
         if to_delete:
             posted_ref.update(to_delete)
+
+    # Запоминаем message_id новых постов — понадобится для автоочистки
+    msg_ref = db.reference(f"/tg_messages/{lang}" if lang != "ru" else "/tg_messages/ru")
+    if new_messages:
+        msg_ref.update(new_messages)
+
+    # Автоочистка канала: удаляем из САМОГО Telegram-канала посты старше
+    # 30 дней (не только запись в базе, а именно сообщение с канала) —
+    # иначе архив в канале растёт бесконечно. Требует, чтобы бот был
+    # админом канала с правом "Удаление сообщений".
+    all_messages = msg_ref.get() or {}
+    msg_cutoff = int(datetime.now().timestamp()) - 30 * 86400
+    old_messages = {k: v for k, v in all_messages.items()
+                     if isinstance(v, dict) and v.get("ts", 0) < msg_cutoff}
+    if old_messages:
+        delete_api = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/deleteMessage"
+        deleted, to_forget = 0, {}
+        for mid, info in old_messages.items():
+            try:
+                r = requests.post(delete_api, json={
+                    "chat_id": info.get("channel", channel),
+                    "message_id": int(mid)
+                }, timeout=10)
+                if r.status_code == 200:
+                    deleted += 1
+                to_forget[mid] = None  # забываем в любом случае — иначе будем пытаться вечно
+            except Exception:
+                to_forget[mid] = None
+        if to_forget:
+            msg_ref.update(to_forget)
+        if deleted:
+            print(f"  🗑️ TG архив [{lang}]: удалено {deleted}/{len(old_messages)} постов старше 30 дней")
 
 
 def main():
@@ -1521,7 +1557,7 @@ def main():
             filtered_batch = filter_with_gemini(batch, lang)
             filtered.extend(filtered_batch)
         # Удаляем новости старше 90 дней (требование Google Play News policy)
-        cutoff = (datetime.now().timestamp() - 90 * 24 * 3600) * 1000
+        cutoff = (datetime.now().timestamp() - 30 * 24 * 3600) * 1000
         filtered = [x for x in filtered if x.get("publishedAt", 0) >= cutoff]
         filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
         max_items = 80 if lang == "ru" else 70
