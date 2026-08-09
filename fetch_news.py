@@ -407,6 +407,16 @@ def fetch_youtube_trending(region_code="KG", max_results=10, category_id=None):
             lang = detect_language(title_text) if title_text else "unknown"
             # KG и RU тренды — локальные, US/мировые — world
             scope = "local" if region_code in ("KG", "RU") else "world"
+            # Настоящая дата загрузки видео, не момент сбора — иначе видео,
+            # остающееся в трендах несколько циклов подряд, каждый час получает
+            # новую метку "сейчас" и "воскресает" свежим в ленте у тех, кто его
+            # уже видел и пролистал (тот же класс бага, что чинили в fetch_rss)
+            published_raw = snippet.get("publishedAt", "")
+            try:
+                published_ms = int(datetime.fromisoformat(
+                    published_raw.replace("Z", "+00:00")).timestamp() * 1000)
+            except (ValueError, AttributeError):
+                published_ms = int(datetime.now().timestamp() * 1000)
             items.append({
                 "title": title_text,
                 "url": f"https://www.youtube.com/watch?v={video_id}",
@@ -417,7 +427,15 @@ def fetch_youtube_trending(region_code="KG", max_results=10, category_id=None):
                 "priority": 1,
                 "language": lang,
                 "scope": scope,
-                "publishedAt": int(datetime.now().timestamp() * 1000),
+                "publishedAt": published_ms,
+                # Дата публикации теперь честная и может быть старше суток —
+                # видео нередко попадает в тренды через день-два после заливки.
+                # Клиентский фильтр ленты (не старше 24ч от publishedAt) выкинул
+                # бы такое видео сразу. expiresAt — отдельное "показывать, пока
+                # остаётся трендовым": продлевается на 24ч каждый раз, пока
+                # видео снова попадает в этот же fetch; если завтра из трендов
+                # выпало — новых продлений не будет, и через 24ч само уйдёт
+                "expiresAt": int(datetime.now().timestamp() * 1000) + 24 * 3600 * 1000,
                 "regionCode": region_code,
                 "viewCount": views,
                 "channelId": snippet.get("channelId", ""),
