@@ -1514,8 +1514,14 @@ def main():
     viral_world_es = dedup_against(
         in_language(fetch_youtube_viral("ES", 10) + fetch_youtube_viral("AR", 10), "es"),
         viral_mx)
+    # Ангола (~37 млн) и Мозамбик (~34 млн) — португальский там официальный, и
+    # вместе они вчетверо больше самой Португалии (~10 млн), которая одна давала
+    # всего 3 ролика. Бразилию сюда брать нельзя: она занимает локальный узел br,
+    # и бразилец увидел бы одно и то же в обеих секциях
     viral_world_pt = dedup_against(
-        in_language(fetch_youtube_viral("PT", 10), "pt"),
+        in_language(fetch_youtube_viral("PT", 10) +
+                    fetch_youtube_viral("AO", 10) +
+                    fetch_youtube_viral("MZ", 10), "pt"),
         viral_br)
     # Русский: русскоязычные тренды соседних стран — для читателя это
     # действительно «не у нас», и при этом понятно без перевода
