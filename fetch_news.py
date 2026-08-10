@@ -420,7 +420,14 @@ def fetch_youtube_trending(region_code="KG", max_results=10, category_id=None):
             # Блокируем только жанровый мусор — берём из Firebase config
             if any(kw in title_lower for kw in YOUTUBE_BLOCK_KEYWORDS):
                 continue
-            lang = detect_language(title_text) if title_text else "unknown"
+            # Язык РЕЧИ в ролике, а не язык подписи. Раньше язык определялся
+            # только по заголовку — а мировую подборку мы переводим, и
+            # англоязычное видео с русским заголовком считалось русским.
+            # defaultAudioLanguage отдаёт сам YouTube; если автор его не
+            # проставил, откатываемся на определение по заголовку
+            audio_lang = (snippet.get("defaultAudioLanguage")
+                          or snippet.get("defaultLanguage") or "")[:2].lower()
+            lang = audio_lang or (detect_language(title_text) if title_text else "unknown")
             # KG и RU тренды — локальные, US/мировые — world
             scope = "local" if region_code in ("KG", "RU") else "world"
             # Настоящая дата загрузки видео, не момент сбора — иначе видео,
@@ -442,6 +449,7 @@ def fetch_youtube_trending(region_code="KG", max_results=10, category_id=None):
                 "category": "VIRAL",
                 "priority": 1,
                 "language": lang,
+                "audioLang": audio_lang,   # пусто, если автор не указал
                 "scope": scope,
                 "publishedAt": published_ms,
                 # Дата публикации теперь честная и может быть старше суток —
@@ -1480,25 +1488,40 @@ def main():
     viral_mx    = fetch_youtube_viral("MX", 15)  # Мексика — ES пул
     viral_gb    = fetch_youtube_viral("GB", 10)  # Великобритания — EN пул
 
-    # "world" (тренды США) подмешивается ВО ВСЕ пулы — без перевода заголовки
-    # оставались на английском даже в ru/es/pt. Переводим по одной копии на
-    # язык; для EN-пула сам "world" остаётся как есть (уже английский).
-    def translate_viral_titles(items, target_lang):
-        import time
-        out = []
-        for it in items:
-            it2 = dict(it)
-            t = _gtx_translate(it2.get("title", "")[:300], target_lang)
-            if t and t.strip():
-                it2["title"] = t.strip()
-            out.append(it2)
-            time.sleep(0.1)
-        return out
+    # ── Мировая подборка для неанглоязычных пулов ────────────────────────────
+    # Было: брали тренды США и переводили ТОЛЬКО заголовок. Видео при этом
+    # оставалось англоязычным — человек открывал ролик с русской подписью и
+    # слышал английскую речь. Озвучить видео мы не можем, поэтому для каждого
+    # пула берём ролики, которые изначально на его языке: тренды стран, где на
+    # этом языке говорят. Английский пул продолжает получать тренды США как есть.
+    def in_language(items, lang):
+        """Только ролики, где РЕЧЬ на нужном языке.
 
-    print("  🌐 Перевожу мировую подборку YouTube...")
-    viral_world_ru = translate_viral_titles(viral_world, "ru")
-    viral_world_es = translate_viral_titles(viral_world, "es")
-    viral_world_pt = translate_viral_titles(viral_world, "pt")
+        audioLang приходит от YouTube; если автор его не проставил — пусто, и
+        тогда доверяем определению по заголовку (для роликов из «родной» страны
+        языка это надёжно, потому что заголовок мы у них не переводим).
+        """
+        return [it for it in items
+                if (it.get("audioLang") or it.get("language", ""))[:2] == lang]
+
+    def dedup_against(items, *others):
+        seen = {it["url"] for group in others for it in group}
+        return [it for it in items if it["url"] not in seen]
+
+    print("  🌐 Собираю мировую подборку YouTube на языках пулов...")
+    # Испанский и португальский — родные страны языка, кроме уже занятых
+    # локальными узлами (MX для es, BR для pt)
+    viral_world_es = dedup_against(
+        in_language(fetch_youtube_viral("ES", 10) + fetch_youtube_viral("AR", 10), "es"),
+        viral_mx)
+    viral_world_pt = dedup_against(
+        in_language(fetch_youtube_viral("PT", 10), "pt"),
+        viral_br)
+    # Русский: русскоязычные тренды соседних стран — для читателя это
+    # действительно «не у нас», и при этом понятно без перевода
+    viral_world_ru = dedup_against(
+        in_language(fetch_youtube_viral("BY", 10) + viral_kz, "ru"),
+        viral_ru, viral_kg)
 
     viral_ref = db.reference("/viral")
     viral_ref.set({
