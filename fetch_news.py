@@ -83,6 +83,11 @@ RSS_SOURCES = [
     # Великобритания
     {"url": "https://www.theguardian.com/uk/rss", "source": "The Guardian", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "en"},
     {"url": "https://feeds.skynews.com/feeds/rss/home.xml", "source": "Sky News", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
+    # Южная Корея — сильная англоязычная пресса специально под международную
+    # аудиторию, переводить нечего, забираем как есть (scope=world — не
+    # "домашняя" страна пула en, но публикуется на английском)
+    {"url": "https://en.yna.co.kr/RSS/news.xml", "source": "Yonhap News", "category": "NEWS", "priority": 2, "quota": 5, "scope": "world", "lang": "en"},
+    {"url": "https://feed.koreatimes.co.kr/k/allnews.xml", "source": "Korea Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "en"},
     # Технологии EN
     {"url": "https://www.engadget.com/rss.xml", "source": "Engadget", "category": "TECH", "priority": 0, "quota": 4, "scope": "local", "lang": "en"},
     {"url": "https://arstechnica.com/feed/", "source": "Ars Technica", "category": "TECH", "priority": 0, "quota": 4, "scope": "local", "lang": "en"},
