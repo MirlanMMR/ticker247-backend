@@ -131,6 +131,13 @@ RSS_SOURCES = [
     # Тренды PT
     {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=BR", "source": "Trends BR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "pt"},
 
+    # ════════════════════════════════════════════════════
+    # ВЬЕТНАМ (локальные для VI пула) — источники проверены живыми
+    # 10.08.2026: реальные статьи, не заглушки
+    {"url": "https://vnexpress.net/rss/tin-moi-nhat.rss", "source": "VnExpress", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "vi"},
+    {"url": "https://thanhnien.vn/rss/home.rss", "source": "Thanh Niên", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "vi"},
+    {"url": "https://tuoitre.vn/rss/thoi-su.rss", "source": "Tuổi Trẻ", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local", "lang": "vi"},
+
     # АРАБСКИЙ МИР (локальные для AR пула)
     {"url": "https://www.aljazeera.net/rss", "source": "Al Jazeera Arabic", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
 
@@ -884,6 +891,11 @@ POOL_CONFIG = {
         "language_name": "португальском",
         "language_rule": "O conteúdo deve estar em português. Remover tudo em outros idiomas.",
     },
+    "vi": {
+        "region": "Вьетнам",
+        "language_name": "вьетнамском",
+        "language_rule": "Nội dung phải bằng tiếng Việt. Loại bỏ mọi thứ bằng ngôn ngữ khác.",
+    },
 }
 
 # Обратная совместимость
@@ -1567,7 +1579,7 @@ def main():
     # Мировые новости (scope=world) идут во ВСЕ пулы.
     # Локальные (scope=local) — только в пул по языку статьи.
     CYRILLIC_LANGS = {"ru", "ky", "uk", "be", "bg", "sr", "mk"}
-    lang_groups = {"ru": [], "en": [], "es": [], "pt": []}
+    lang_groups = {"ru": [], "en": [], "es": [], "pt": [], "vi": []}
     ALL_POOLS = list(lang_groups.keys())
 
     for item in all_news:
