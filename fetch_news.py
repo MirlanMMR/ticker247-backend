@@ -163,7 +163,11 @@ RSS_SOURCES = [
     # РОССИЯ — scope=world: местные новости РФ не должны попадать в блок
     # «Местные» пользователей других стран русского пула (КГ, УЗ, KZ и т.д.)
     {"url": "https://ria.ru/export/rss2/archive/index.xml", "source": "РИА Новости", "category": "NEWS", "priority": 1, "quota": 2, "scope": "world"},
-    {"url": "https://tass.ru/rss/v2.xml", "source": "ТАСС", "category": "NEWS", "priority": 1, "quota": 2, "scope": "world"},
+    # ТАСС отключён: в RSS отдаёт только подзаголовок в одну строку, а страница
+    # статьи закрыта JS-защитой (servicepipe) — не 403, а заглушка с челленджем,
+    # которую не обойти без headless-браузера. Итог: в читалке каждая новость
+    # ТАСС открывается почти пустой. РИА рядом проверен и работает нормально
+    # (страница отдаёт полный текст), поэтому он остаётся
     {"url": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss", "source": "РБК", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world"},
 
     # РУССКОЯЗЫЧНЫЕ ТЕМАТИЧЕСКИЕ
