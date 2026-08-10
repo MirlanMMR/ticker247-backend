@@ -1523,6 +1523,21 @@ def main():
         in_language(fetch_youtube_viral("BY", 10) + viral_kz, "ru"),
         viral_ru, viral_kg)
 
+    # Локальные узлы тоже чистим по языку речи: в трендах РФ и Казахстана
+    # регулярно висят англоязычные ролики (проверено на живом запуске: 2 из 25
+    # в ru, 4 из 19 в kz, по 3 в br и mx). Для читателя это ровно та же
+    # проблема, что и с мировой подборкой — открывает и не понимает
+    def in_languages(items, *langs):
+        ok = set(langs)
+        return [it for it in items
+                if (it.get("audioLang") or it.get("language", ""))[:2] in ok]
+
+    viral_kg = in_languages(viral_kg, "ru", "ky")
+    viral_ru = in_languages(viral_ru, "ru")
+    viral_kz = in_languages(viral_kz, "ru", "kk")
+    viral_br = in_languages(viral_br, "pt")
+    viral_mx = in_languages(viral_mx, "es")
+
     viral_ref = db.reference("/viral")
     viral_ref.set({
         "kg":       viral_kg,
