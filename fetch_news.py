@@ -374,6 +374,19 @@ YOUTUBE_CHANNELS = {
 }
 
 
+# Служебные ролики одобренных каналов, которые новостями не являются.
+# Пополняется одной строкой; сверяется вхождением в название, регистр не важен
+VIDEO_STOP_WORDS = (
+    # Только названия рутинных тиражей. Одиночное «loteria» сюда НЕ ставить:
+    # «Loteria Federal suspende concursos após fraude» — это новость о
+    # махинациях, и она бы отсеялась вместе со сводкой результатов
+    "sorteios das loterias", "sorteio da mega-sena", "sorteio da quina",
+    "resultado da mega-sena", "resultado das loterias",
+    "horóscopo", "horoscopo", "horoscope",
+    "гороскоп", "знаки зодиака",
+)
+
+
 def fetch_channel_videos(channel_id, channel_name, scope, lang, limit=6):
     """Свежие видео канала — через API YouTube.
 
@@ -426,6 +439,13 @@ def fetch_channel_videos(channel_id, channel_name, scope, lang, limit=6):
         # Шортсы и блогерские нарезки узнаются по хештегам в заголовке —
         # у выпуска новостей их не бывает
         if "#" in title_text:
+            continue
+        # Служебная рутина одобренных каналов: гороскопы и результаты лотерей.
+        # Канал мы одобряем целиком, поэтому такие ролики идут вместе с
+        # новостями — у бразильского g1 это ежедневные «Sorteios das Loterias».
+        # Прогноз погоды сюда НЕ добавляем: по названию обычный прогноз не
+        # отличить от штормового предупреждения, а его терять нельзя
+        if any(w in title_text.lower() for w in VIDEO_STOP_WORDS):
             continue
         try:
             published_ms = int(datetime.fromisoformat(
