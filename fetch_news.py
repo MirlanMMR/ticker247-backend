@@ -376,6 +376,100 @@ YOUTUBE_CHANNELS = {
 
 # Служебные ролики одобренных каналов, которые новостями не являются.
 # Пополняется одной строкой; сверяется вхождением в название, регистр не важен
+# ─── Прямые эфиры ────────────────────────────────────────────────────────────
+# Круглосуточные трансляции для плиток «прямой эфир» в ленте.
+#
+# Ссылка на эфир НЕ постоянная: трансляция — это обычное видео со своим
+# номером, и когда канал останавливает вещание и запускает новое, номер
+# меняется. Зашить его в приложение нельзя — через сутки будут мёртвые плитки.
+# Поэтому номер спрашиваем у YouTube и кладём в базу, а приложение играет то,
+# что лежит там.
+#
+# Запрос «что сейчас в эфире» относится у YouTube к поисковым и стоит 100
+# единиц квоты вместо одной, поэтому обновляем НЕ ЧАЩЕ раза в три часа:
+# около 2400 единиц в сутки при лимите 10 000. Трансляции живут дольше трёх
+# часов, так что на глаз разницы нет.
+#
+# Просмотры пользователей нашу квоту не тратят вообще — видео идёт от YouTube
+# напрямую. Квота уходит только на эти восемь запросов в сутки на канал.
+LIVE_CHANNELS = [
+    ("UCoMdktPbSTixAyNGwb-UYkQ", "Sky News",           "en"),
+    ("UCNye-wNBqNL5ZzHSJj3l8Bg", "Al Jazeera English", "en"),
+    ("UCFzJjgVicCtFxJ5B0P_ei8A", "Euronews по-русски", "ru"),
+]
+
+LIVE_REFRESH_HOURS = 3
+
+
+def fetch_live_streams():
+    """Ссылки на текущие эфиры — в узел /live. Обновляет не чаще раза в 3 часа."""
+    ref = db.reference("/live")
+    try:
+        existing = ref.get() or {}
+    except Exception:
+        existing = {}
+
+    now_ms = int(datetime.now().timestamp() * 1000)
+    updated_at = existing.get("updatedAt", 0) if isinstance(existing, dict) else 0
+    if now_ms - updated_at < LIVE_REFRESH_HOURS * 3600 * 1000:
+        age_h = (now_ms - updated_at) / 3600000
+        print(f"  ⏭ Эфиры: обновлялись {age_h:.1f} ч назад, пропускаем (раз в {LIVE_REFRESH_HOURS} ч)")
+        return
+
+    items = []
+    for channel_id, name, pool in LIVE_CHANNELS:
+        try:
+            r = requests.get(
+                "https://www.googleapis.com/youtube/v3/search",
+                params={
+                    "part": "snippet",
+                    "channelId": channel_id,
+                    "eventType": "live",
+                    "type": "video",
+                    "maxResults": 1,
+                    "key": YOUTUBE_API_KEY,
+                },
+                timeout=15,
+            )
+            if r.status_code == 403:
+                # Квота исчерпана — прекращаем совсем, чтобы не долбиться
+                # впустую. Старые ссылки остаются в базе: трансляция идёт
+                # сутками, и, скорее всего, они ещё рабочие
+                print("  ✗ Эфиры: квота YouTube исчерпана, оставляем прежние ссылки")
+                return
+            if not r.ok:
+                print(f"  ✗ Эфир {name}: HTTP {r.status_code}")
+                continue
+            found = r.json().get("items", [])
+            if not found:
+                print(f"  · Эфир {name}: сейчас не вещает")
+                continue
+            entry = found[0]
+            video_id = entry.get("id", {}).get("videoId")
+            snippet = entry.get("snippet", {})
+            if not video_id:
+                continue
+            thumbs = snippet.get("thumbnails", {})
+            items.append({
+                "channelId": channel_id,
+                "name": name,
+                "pool": pool,
+                "videoId": video_id,
+                "url": f"https://www.youtube.com/watch?v={video_id}",
+                "title": (snippet.get("title") or name).strip(),
+                "imageUrl": (thumbs.get("high") or thumbs.get("medium") or {}).get("url"),
+            })
+            print(f"  ✓ Эфир {name}: {video_id}")
+        except Exception as e:
+            print(f"  ✗ Эфир {name}: {e}")
+
+    if not items:
+        print("  · Эфиры: ничего не нашли, прежние ссылки оставляем как есть")
+        return
+    ref.set({"items": items, "updatedAt": now_ms})
+    print(f"✅ Эфиры обновлены: {len(items)}")
+
+
 VIDEO_STOP_WORDS = (
     # Только названия рутинных тиражей. Одиночное «loteria» сюда НЕ ставить:
     # «Loteria Federal suspende concursos após fraude» — это новость о
@@ -1634,6 +1728,9 @@ def main():
     })
 
     # YouTube вирусные видео — сохраняем отдельно
+    print("📡 Прямые эфиры...")
+    fetch_live_streams()
+
     print("▶ YouTube — видео с отобранных каналов...")
     # БЫЛО — тренды региона; давало блогерский мусор, см. YOUTUBE_CHANNELS:
     # viral_kg    = fetch_youtube_viral("KG", 15)
