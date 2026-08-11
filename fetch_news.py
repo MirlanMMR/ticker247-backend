@@ -1974,6 +1974,33 @@ def main():
     print("📝 Дозаполняем короткие описания...")
     enrich_short_summaries(all_news, budget=80)
 
+    # Новости, у которых текста нет и взять его негде (Al Jazeera, Sky Sports,
+    # Marca, Bloomberg отдают статью только после выполнения скриптов —
+    # проверено вручную 11.08.2026). В ленте им делать нечего: заголовок, фото
+    # и пустое место выглядят как поломка приложения.
+    #
+    # Но срочные оставляем: «землетрясение магнитудой 7.4» ценно как СИГНАЛ,
+    # даже без подробностей. Такие помечаем notifyOnly — приложение покажет их
+    # в бегущей строке и уведомлении, но не в ленте, а в читалке напишет, что
+    # материал готовится. Подробности придут ОТДЕЛЬНОЙ новостью, когда источник
+    # допишет текст: дописать старую запись мы не можем, обратной связи с
+    # лентой источника нет
+    NO_TEXT_LIMIT = 40
+    kept, dropped, notify_only = [], 0, 0
+    for item in all_news:
+        if len((item.get("summary") or "").strip()) >= NO_TEXT_LIMIT:
+            kept.append(item)
+            continue
+        urgent = item.get("category") == "URGENT" or item.get("priority", 0) >= 2
+        if urgent:
+            item["notifyOnly"] = True
+            notify_only += 1
+            kept.append(item)
+        else:
+            dropped += 1
+    all_news = kept
+    print(f"  🗑 Без текста: выброшено {dropped}, оставлено для уведомлений {notify_only}")
+
     print("🤖 Фильтруем через Gemini AI...")
 
     # Мировые новости (scope=world) идут во ВСЕ пулы.
