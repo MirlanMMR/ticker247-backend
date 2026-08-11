@@ -359,6 +359,8 @@ YOUTUBE_CHANNELS = {
         ("UCoMdktPbSTixAyNGwb-UYkQ", "Sky News",             "local"),
         ("UC52X5wxOL_s5yw0dQk7NtgA", "Associated Press",     "world"),
         ("UCHnyfMqiRRG1u-2MsSQLbXA", "Veritasium",           "world"),
+        ("UCupvZG-5ko_eiXAupbDfxWw", "CNN",                  "world"),
+        ("UCNye-wNBqNL5ZzHSJj3l8Bg", "Al Jazeera English",   "world"),
     ],
     "es": [
         ("UCT4Jg8h03dD0iN3Pb5L0PMA", "DW Español",           "world"),
