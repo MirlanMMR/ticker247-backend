@@ -1776,7 +1776,9 @@ def main():
 
     # YouTube вирусные видео — сохраняем отдельно
     print("📻 Радиостанции...")
-    db.reference("/config/radio_stations").set(RADIO_STATIONS)
+    # Узел внутри /viral, а не /config: права боевой базы открывают на чтение
+    # только news и viral, из /config приложение станции не увидит вовсе
+    db.reference("/viral/radio").set(RADIO_STATIONS)
     print(f"  ✓ Станций опубликовано: {len(RADIO_STATIONS)}")
 
     print("📡 Прямые эфиры...")
