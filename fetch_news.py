@@ -1,5 +1,6 @@
 import os
 import json
+import html
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
@@ -328,6 +329,123 @@ def fetch_akchаbar_rates():
 # Категории YouTube, которые нам интересны:
 # 25=Новости и политика, 17=Спорт, 28=Наука и техника, 19=Путешествия
 VIRAL_CATEGORIES = ("25", "17", "28", "19")
+
+# ─── Белый список YouTube-каналов ────────────────────────────────────────────
+# Тренды YouTube — это про популярность, а не про новости: из 24 роликов
+# русского блока приходил 21 разный канал, и почти все блогерские
+# («Wow iPhone !», «Напрыгал на 1,5 млн долларов», шортсы с рекламой в кадре).
+# Отсеивать такое после факта бессмысленно, поэтому берём видео ПРЯМО с
+# отобранных каналов: кроме них попасть в блок нечему.
+#
+# Принцип отбора — нейтральные вещатели, не только новостные: то, что
+# действительно стоит внимания, выходит и у них.
+#
+# Каждый канал проверен живьём 11.08.2026: лента отдаёт свежие видео.
+# Ленты BBC News Русская служба и DW на русском отдают 404 при живых каналах —
+# не использовать, нужен путь через API с ключом.
+# Список пересматривать примерно раз в три месяца.
+YOUTUBE_CHANNELS = {
+    "ru": [
+        ("UCBG57608Hukev3d0d-gvLhQ", "Настоящее Время",      "world"),
+        ("UCztZRXyQNaQuJZtS0GM95Zw", "Настоящее Время. Сюжеты", "world"),
+        ("UCFzJjgVicCtFxJ5B0P_ei8A", "Euronews по-русски",   "world"),
+        ("UC5yuKBFjaEgLarSi2auKgag", "Азаттык Азия",         "local"),
+        ("UCxfxoGrNe4uXrNeBgeESGFQ", "Kyrgyz Sport TV",      "local"),
+    ],
+    "en": [
+        ("UC16niRr50-MSBwiO3YDb3RA", "BBC News",             "world"),
+        ("UChqUTb7kYRX8-EiaN3XFrSQ", "Reuters",              "world"),
+        ("UCknLrEdhRCp1aegoMqRaCZg", "DW News",              "world"),
+        ("UCoMdktPbSTixAyNGwb-UYkQ", "Sky News",             "local"),
+        ("UC52X5wxOL_s5yw0dQk7NtgA", "Associated Press",     "world"),
+        ("UCHnyfMqiRRG1u-2MsSQLbXA", "Veritasium",           "world"),
+    ],
+    "es": [
+        ("UCT4Jg8h03dD0iN3Pb5L0PMA", "DW Español",           "world"),
+        ("UCyoGb3SMlTlB8CLGVH4c8Rw", "euronews en español",  "world"),
+        ("UC7QZIf0dta-XPXsp9Hv4dTw", "RTVE Noticias",        "local"),
+    ],
+    "pt": [
+        ("UCaGmdJSSiR7fkh2A-c6emsA", "g1",                   "local"),
+        ("UCp6RRaz93Pt2xYZoEye_rLA", "GloboNews",            "world"),
+    ],
+}
+
+
+def fetch_channel_videos(channel_id, channel_name, scope, lang, limit=6):
+    """Свежие видео канала из его ленты — без ключа и без квоты API.
+
+    Порога по просмотрам здесь нет сознательно: качество гарантирует сам
+    канал, а не популярность. Более того, порог вредил — свежий ролик просто
+    не успевает набрать просмотры, и в блок попадало то, что постарее
+    (а кыргызский блок с порогом в 50 000 оставался пустым вовсе).
+    """
+    try:
+        r = requests.get(
+            f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}",
+            headers=BROWSER_HEADERS, timeout=15,
+        )
+        if not r.ok:
+            print(f"  ✗ Канал {channel_name}: HTTP {r.status_code}")
+            return []
+        xml = r.text
+    except Exception as e:
+        print(f"  ✗ Канал {channel_name}: {e}")
+        return []
+
+    items = []
+    for entry in re.findall(r"<entry>(.*?)</entry>", xml, re.S)[:limit]:
+        vid = re.search(r"<yt:videoId>([\w-]+)</yt:videoId>", entry)
+        title = re.search(r"<title>(.*?)</title>", entry, re.S)
+        pub = re.search(r"<published>(.*?)</published>", entry)
+        thumb = re.search(r'<media:thumbnail url="([^"]+)"', entry)
+        views = re.search(r'<media:statistics views="(\d+)"', entry)
+        if not vid or not title:
+            continue
+        title_text = html.unescape(title.group(1)).strip()
+        # Шортсы и блогерские нарезки узнаются по хештегам в заголовке —
+        # у выпуска новостей их не бывает
+        if "#" in title_text:
+            continue
+        try:
+            published_ms = int(datetime.fromisoformat(
+                pub.group(1).replace("Z", "+00:00")).timestamp() * 1000)
+        except (ValueError, AttributeError):
+            published_ms = int(datetime.now().timestamp() * 1000)
+        n = int(views.group(1)) if views else 0
+        views_str = (f"{n/1_000_000:.1f}M" if n >= 1_000_000
+                     else f"{n//1000}K" if n >= 1000 else "")
+        items.append({
+            "title": title_text,
+            "url": f"https://www.youtube.com/watch?v={vid.group(1)}",
+            "summary": f"{views_str} · {channel_name}".strip(" ·") if views_str else channel_name,
+            "imageUrl": thumb.group(1) if thumb else None,
+            "source": f"YouTube {channel_name}",
+            "category": "VIRAL",
+            "priority": 1,
+            "language": lang,
+            "audioLang": lang,
+            "scope": scope,
+            "publishedAt": published_ms,
+            "expiresAt": int(datetime.now().timestamp() * 1000) + 24 * 3600 * 1000,
+            "viewCount": n,
+            "channelId": channel_id,
+            "embeddable": True,
+        })
+    return items
+
+
+def collect_pool_videos(lang):
+    """Видео пула: местные и мировые, свежие сверху."""
+    local, world = [], []
+    for cid, name, scope in YOUTUBE_CHANNELS.get(lang, []):
+        got = fetch_channel_videos(cid, name, scope, lang)
+        (local if scope == "local" else world).extend(got)
+    local.sort(key=lambda x: x["publishedAt"], reverse=True)
+    world.sort(key=lambda x: x["publishedAt"], reverse=True)
+    print(f"  ✓ Каналы {lang}: местных {len(local)}, мировых {len(world)}")
+    return local, world
+
 
 def fetch_youtube_viral(region_code, max_results=10):
     """Тренды региона по КАЖДОЙ релевантной категории отдельно.
@@ -1477,72 +1595,37 @@ def main():
     })
 
     # YouTube вирусные видео — сохраняем отдельно
-    print("▶ YouTube trending...")
-    # Берём по 30 кандидатов: после фильтров (категории, стоп-слова,
-    # просмотры, подписчики) выживает лишь часть
-    viral_kg    = fetch_youtube_viral("KG", 15)
-    viral_ru    = fetch_youtube_viral("RU", 15)
-    viral_kz    = fetch_youtube_viral("KZ", 10)
-    viral_world = fetch_youtube_viral("US", 10)
-    viral_br    = fetch_youtube_viral("BR", 15)  # Бразилия — PT пул
-    viral_mx    = fetch_youtube_viral("MX", 15)  # Мексика — ES пул
-    viral_gb    = fetch_youtube_viral("GB", 10)  # Великобритания — EN пул
+    print("▶ YouTube — видео с отобранных каналов...")
+    # БЫЛО — тренды региона; давало блогерский мусор, см. YOUTUBE_CHANNELS:
+    # viral_kg    = fetch_youtube_viral("KG", 15)
+    # viral_ru    = fetch_youtube_viral("RU", 15)
+    # viral_kz    = fetch_youtube_viral("KZ", 10)
+    # viral_world = fetch_youtube_viral("US", 10)
+    # viral_br    = fetch_youtube_viral("BR", 15)
+    # viral_mx    = fetch_youtube_viral("MX", 15)
+    # viral_gb    = fetch_youtube_viral("GB", 10)
+    ru_local, ru_world = collect_pool_videos("ru")
+    en_local, en_world = collect_pool_videos("en")
+    es_local, es_world = collect_pool_videos("es")
+    pt_local, pt_world = collect_pool_videos("pt")
 
-    # ── Мировая подборка для неанглоязычных пулов ────────────────────────────
-    # Было: брали тренды США и переводили ТОЛЬКО заголовок. Видео при этом
-    # оставалось англоязычным — человек открывал ролик с русской подписью и
-    # слышал английскую речь. Озвучить видео мы не можем, поэтому для каждого
-    # пула берём ролики, которые изначально на его языке: тренды стран, где на
-    # этом языке говорят. Английский пул продолжает получать тренды США как есть.
-    def in_language(items, lang):
-        """Только ролики, где РЕЧЬ на нужном языке.
+    # Узлы оставлены прежними — приложение читает их по этим именам.
+    # Местные каналы пула идут в «свой» узел, остальные — в мировой
+    viral_kg    = ru_local
+    viral_ru    = ru_local
+    viral_kz    = ru_local
+    viral_world = en_world
+    viral_gb    = en_local or en_world
+    viral_mx    = es_local or es_world
+    viral_br    = pt_local or pt_world
 
-        audioLang приходит от YouTube; если автор его не проставил — пусто, и
-        тогда доверяем определению по заголовку (для роликов из «родной» страны
-        языка это надёжно, потому что заголовок мы у них не переводим).
-        """
-        return [it for it in items
-                if (it.get("audioLang") or it.get("language", ""))[:2] == lang]
-
-    def dedup_against(items, *others):
-        seen = {it["url"] for group in others for it in group}
-        return [it for it in items if it["url"] not in seen]
-
-    print("  🌐 Собираю мировую подборку YouTube на языках пулов...")
-    # Испанский и португальский — родные страны языка, кроме уже занятых
-    # локальными узлами (MX для es, BR для pt)
-    viral_world_es = dedup_against(
-        in_language(fetch_youtube_viral("ES", 10) + fetch_youtube_viral("AR", 10), "es"),
-        viral_mx)
-    # Ангола (~37 млн) и Мозамбик (~34 млн) — португальский там официальный, и
-    # вместе они вчетверо больше самой Португалии (~10 млн), которая одна давала
-    # всего 3 ролика. Бразилию сюда брать нельзя: она занимает локальный узел br,
-    # и бразилец увидел бы одно и то же в обеих секциях
-    viral_world_pt = dedup_against(
-        in_language(fetch_youtube_viral("PT", 10) +
-                    fetch_youtube_viral("AO", 10) +
-                    fetch_youtube_viral("MZ", 10), "pt"),
-        viral_br)
-    # Русский: русскоязычные тренды соседних стран — для читателя это
-    # действительно «не у нас», и при этом понятно без перевода
-    viral_world_ru = dedup_against(
-        in_language(fetch_youtube_viral("BY", 10) + viral_kz, "ru"),
-        viral_ru, viral_kg)
-
-    # Локальные узлы тоже чистим по языку речи: в трендах РФ и Казахстана
-    # регулярно висят англоязычные ролики (проверено на живом запуске: 2 из 25
-    # в ru, 4 из 19 в kz, по 3 в br и mx). Для читателя это ровно та же
-    # проблема, что и с мировой подборкой — открывает и не понимает
-    def in_languages(items, *langs):
-        ok = set(langs)
-        return [it for it in items
-                if (it.get("audioLang") or it.get("language", ""))[:2] in ok]
-
-    viral_kg = in_languages(viral_kg, "ru", "ky")
-    viral_ru = in_languages(viral_ru, "ru")
-    viral_kz = in_languages(viral_kz, "ru", "kk")
-    viral_br = in_languages(viral_br, "pt")
-    viral_mx = in_languages(viral_mx, "es")
+    # ── Мировые подборки пулов ───────────────────────────────────────────────
+    # Раньше здесь брали тренды соседних стран и чистили их по языку речи.
+    # Теперь источник — сами каналы из белого списка, у которых язык известен
+    # заранее, поэтому ни языковой фильтр, ни чистка локальных узлов не нужны.
+    viral_world_ru = ru_world
+    viral_world_es = es_world
+    viral_world_pt = pt_world
 
     viral_ref = db.reference("/viral")
     viral_ref.set({
