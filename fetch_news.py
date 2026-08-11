@@ -373,53 +373,70 @@ YOUTUBE_CHANNELS = {
 
 
 def fetch_channel_videos(channel_id, channel_name, scope, lang, limit=6):
-    """Свежие видео канала из его ленты — без ключа и без квоты API.
+    """Свежие видео канала — через API YouTube.
 
-    Порога по просмотрам здесь нет сознательно: качество гарантирует сам
-    канал, а не популярность. Более того, порог вредил — свежий ролик просто
-    не успевает набрать просмотры, и в блок попадало то, что постарее
-    (а кыргызский блок с порогом в 50 000 оставался пустым вовсе).
+    БЫЛО: публичная лента канала (feeds/videos.xml) — без ключа и квоты.
+    С машины разработчика работает, а С СЕРВЕРА GitHub Actions YouTube
+    отдаёт 404 на все такие запросы: ленты закрыты для дата-центров.
+    Проверено живым запуском — все 16 каналов вернули 404/500, блоки
+    оказались пустыми. Поэтому берём те же видео через API по ключу,
+    который у нас и так есть.
+
+    Служебный плейлист загрузок канала получается из его идентификатора
+    заменой префикса UC на UU — отдельный запрос за ним не нужен, это
+    экономит половину обращений.
+
+    Порога по просмотрам нет сознательно: качество гарантирует сам канал,
+    а не популярность. Более того, порог вредил — свежий ролик не успевает
+    набрать просмотры, и в блок попадало то, что постарее (а кыргызский
+    блок с порогом в 50 000 оставался пустым вовсе).
     """
+    uploads_playlist = "UU" + channel_id[2:]
     try:
         r = requests.get(
-            f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}",
-            headers=BROWSER_HEADERS, timeout=15,
+            "https://www.googleapis.com/youtube/v3/playlistItems",
+            params={
+                "part": "snippet",
+                "playlistId": uploads_playlist,
+                "maxResults": limit,
+                "key": YOUTUBE_API_KEY,
+            },
+            timeout=15,
         )
         if not r.ok:
             print(f"  ✗ Канал {channel_name}: HTTP {r.status_code}")
             return []
-        xml = r.text
+        data = r.json()
     except Exception as e:
         print(f"  ✗ Канал {channel_name}: {e}")
         return []
 
     items = []
-    for entry in re.findall(r"<entry>(.*?)</entry>", xml, re.S)[:limit]:
-        vid = re.search(r"<yt:videoId>([\w-]+)</yt:videoId>", entry)
-        title = re.search(r"<title>(.*?)</title>", entry, re.S)
-        pub = re.search(r"<published>(.*?)</published>", entry)
-        thumb = re.search(r'<media:thumbnail url="([^"]+)"', entry)
-        views = re.search(r'<media:statistics views="(\d+)"', entry)
-        if not vid or not title:
+    for entry in data.get("items", []):
+        snippet = entry.get("snippet", {})
+        video_id = snippet.get("resourceId", {}).get("videoId")
+        title_text = (snippet.get("title") or "").strip()
+        if not video_id or not title_text:
             continue
-        title_text = html.unescape(title.group(1)).strip()
+        # Приватные и удалённые ролики остаются в плейлисте заглушками
+        if title_text in ("Private video", "Deleted video"):
+            continue
         # Шортсы и блогерские нарезки узнаются по хештегам в заголовке —
         # у выпуска новостей их не бывает
         if "#" in title_text:
             continue
         try:
             published_ms = int(datetime.fromisoformat(
-                pub.group(1).replace("Z", "+00:00")).timestamp() * 1000)
+                snippet.get("publishedAt", "").replace("Z", "+00:00")).timestamp() * 1000)
         except (ValueError, AttributeError):
             published_ms = int(datetime.now().timestamp() * 1000)
-        n = int(views.group(1)) if views else 0
-        views_str = (f"{n/1_000_000:.1f}M" if n >= 1_000_000
-                     else f"{n//1000}K" if n >= 1000 else "")
+        thumbs = snippet.get("thumbnails", {})
+        image = (thumbs.get("high") or thumbs.get("medium") or thumbs.get("default") or {}).get("url")
         items.append({
             "title": title_text,
-            "url": f"https://www.youtube.com/watch?v={vid.group(1)}",
-            "summary": f"{views_str} · {channel_name}".strip(" ·") if views_str else channel_name,
-            "imageUrl": thumb.group(1) if thumb else None,
+            "url": f"https://www.youtube.com/watch?v={video_id}",
+            "summary": channel_name,
+            "imageUrl": image,
             "source": f"YouTube {channel_name}",
             "category": "VIRAL",
             "priority": 1,
@@ -428,7 +445,7 @@ def fetch_channel_videos(channel_id, channel_name, scope, lang, limit=6):
             "scope": scope,
             "publishedAt": published_ms,
             "expiresAt": int(datetime.now().timestamp() * 1000) + 24 * 3600 * 1000,
-            "viewCount": n,
+            "viewCount": 0,
             "channelId": channel_id,
             "embeddable": True,
         })
