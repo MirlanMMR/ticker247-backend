@@ -82,62 +82,62 @@ RSS_SOURCES = [
     {"url": "https://feeds.washingtonpost.com/rss/national", "source": "Washington Post", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
     {"url": "https://www.politico.com/rss/politicopicks.xml", "source": "Politico", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
     # Великобритания
-    {"url": "https://www.theguardian.com/uk/rss", "source": "The Guardian", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "en"},
-    {"url": "https://feeds.skynews.com/feeds/rss/home.xml", "source": "Sky News", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
+    {"url": "https://www.theguardian.com/uk/rss", "source": "The Guardian", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "en"},
+    {"url": "https://feeds.skynews.com/feeds/rss/home.xml", "source": "Sky News", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "en"},
     # Южная Корея — сильная англоязычная пресса специально под международную
     # аудиторию, переводить нечего, забираем как есть (scope=world — не
     # "домашняя" страна пула en, но публикуется на английском)
     {"url": "https://en.yna.co.kr/RSS/news.xml", "source": "Yonhap News", "category": "NEWS", "priority": 2, "quota": 5, "scope": "world", "lang": "en"},
     {"url": "https://feed.koreatimes.co.kr/k/allnews.xml", "source": "Korea Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "en"},
     # Технологии EN
-    {"url": "https://www.engadget.com/rss.xml", "source": "Engadget", "category": "TECH", "priority": 0, "quota": 4, "scope": "local", "lang": "en"},
-    {"url": "https://arstechnica.com/feed/", "source": "Ars Technica", "category": "TECH", "priority": 0, "quota": 4, "scope": "local", "lang": "en"},
+    {"url": "https://www.engadget.com/rss.xml", "source": "Engadget", "category": "TECH", "priority": 0, "quota": 4, "scope": "world", "lang": "en"},
+    {"url": "https://arstechnica.com/feed/", "source": "Ars Technica", "category": "TECH", "priority": 0, "quota": 4, "scope": "world", "lang": "en"},
     # Спорт EN
-    {"url": "https://www.skysports.com/rss/12040", "source": "Sky Sports", "category": "SPORT", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
-    {"url": "https://www.theguardian.com/sport/rss", "source": "Guardian Sport", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
+    {"url": "https://www.skysports.com/rss/12040", "source": "Sky Sports", "category": "SPORT", "priority": 1, "quota": 5, "scope": "world", "lang": "en"},
+    {"url": "https://www.theguardian.com/sport/rss", "source": "Guardian Sport", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world", "lang": "en"},
     # Финансы EN
     {"url": "https://feeds.marketwatch.com/marketwatch/topstories/", "source": "MarketWatch", "category": "MONEY", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
     # Тренды EN
-    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=GB", "source": "Trends UK", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "en"},
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=GB", "source": "Trends UK", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "world", "lang": "en"},
 
     # ════════════════════════════════════════════════════
     # ИСПАНОЯЗЫЧНЫЙ МИР (локальные для ES пула)
     # ════════════════════════════════════════════════════
-    {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "es"},
-    {"url": "https://www.infobae.com/arc/outboundfeeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
-    {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "es"},
+    {"url": "https://www.infobae.com/arc/outboundfeeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
+    {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     # Латинская Америка
-    {"url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/", "source": "La Nación AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/", "source": "La Nación AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     {"url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/", "source": "El Universal MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
-    {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
-    {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
-    {"url": "https://www.abc.es/rss/feeds/abcPortada.xml", "source": "ABC.es", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "es"},
+    {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
+    {"url": "https://www.abc.es/rss/feeds/abcPortada.xml", "source": "ABC.es", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     {"url": "https://www.excelsior.com.mx/rss/nacional.xml", "source": "Excelsior MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
     # Спорт ES
-    {"url": "https://www.marca.com/rss/portada.xml", "source": "Marca", "category": "SPORT", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.marca.com/rss/portada.xml", "source": "Marca", "category": "SPORT", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     # Тренды ES
-    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=MX", "source": "Trends MX", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "es"},
-    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=AR", "source": "Trends AR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "es"},
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=MX", "source": "Trends MX", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "world", "lang": "es"},
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=AR", "source": "Trends AR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "world", "lang": "es"},
 
     # ПОРТУГАЛОЯЗЫЧНЫЙ МИР (локальные для PT пула)
-    {"url": "https://feeds.bbci.co.uk/portuguese/rss.xml", "source": "BBC Brasil", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "pt"},
+    {"url": "https://feeds.bbci.co.uk/portuguese/rss.xml", "source": "BBC Brasil", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "pt"},
     {"url": "https://g1.globo.com/rss/g1/", "source": "G1 Globo", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "pt"},
-    {"url": "https://www.publico.pt/rss", "source": "Público PT", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    {"url": "https://www.publico.pt/rss", "source": "Público PT", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "pt"},
     {"url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml", "source": "Folha de S.Paulo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "pt"},
     {"url": "https://noticias.uol.com.br/ultnot/index.xml", "source": "UOL Notícias", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
     {"url": "https://www.cnnbrasil.com.br/feed/", "source": "CNN Brasil", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
-    {"url": "https://www.terra.com.br/rss/", "source": "Terra BR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
+    {"url": "https://www.terra.com.br/rss/", "source": "Terra BR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "pt"},
     # Спорт PT
-    {"url": "https://www.record.pt/rss", "source": "Record PT", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    {"url": "https://www.record.pt/rss", "source": "Record PT", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world", "lang": "pt"},
     # Тренды PT
-    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=BR", "source": "Trends BR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local", "lang": "pt"},
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=BR", "source": "Trends BR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "world", "lang": "pt"},
 
     # ════════════════════════════════════════════════════
     # ВЬЕТНАМ (локальные для VI пула) — источники проверены живыми
     # 10.08.2026: реальные статьи, не заглушки
-    {"url": "https://vnexpress.net/rss/tin-moi-nhat.rss", "source": "VnExpress", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "vi"},
-    {"url": "https://thanhnien.vn/rss/home.rss", "source": "Thanh Niên", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "vi"},
-    {"url": "https://tuoitre.vn/rss/thoi-su.rss", "source": "Tuổi Trẻ", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local", "lang": "vi"},
+    {"url": "https://vnexpress.net/rss/tin-moi-nhat.rss", "source": "VnExpress", "category": "NEWS", "priority": 2, "quota": 8, "scope": "world", "lang": "vi"},
+    {"url": "https://thanhnien.vn/rss/home.rss", "source": "Thanh Niên", "category": "NEWS", "priority": 2, "quota": 8, "scope": "world", "lang": "vi"},
+    {"url": "https://tuoitre.vn/rss/thoi-su.rss", "source": "Tuổi Trẻ", "category": "NEWS", "priority": 1, "quota": 6, "scope": "world", "lang": "vi"},
 
     # АРАБСКИЙ МИР (локальные для AR пула)
     {"url": "https://www.aljazeera.net/rss", "source": "Al Jazeera Arabic", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
@@ -155,11 +155,11 @@ RSS_SOURCES = [
     {"url": "https://www.gezitter.org/rss/", "source": "Gezitter", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local"},
 
     # Казахстан
-    {"url": "https://tengrinews.kz/rss/", "source": "Tengrinews", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local"},
-    {"url": "https://www.zakon.kz/rss.xml", "source": "Zakon.kz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local"},
+    {"url": "https://tengrinews.kz/rss/", "source": "Tengrinews", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
+    {"url": "https://www.zakon.kz/rss.xml", "source": "Zakon.kz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
 
     # Узбекистан
-    {"url": "https://kun.uz/rss/", "source": "Kun.uz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local"},
+    {"url": "https://kun.uz/rss/", "source": "Kun.uz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
 
     # РОССИЯ — scope=world: местные новости РФ не должны попадать в блок
     # «Местные» пользователей других стран русского пула (КГ, УЗ, KZ и т.д.)
@@ -172,20 +172,20 @@ RSS_SOURCES = [
     {"url": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss", "source": "РБК", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world"},
 
     # РУССКОЯЗЫЧНЫЕ ТЕМАТИЧЕСКИЕ
-    {"url": "https://rsport.ria.ru/export/rss2/archive/index.xml", "source": "РИА Спорт", "category": "SPORT", "priority": 1, "quota": 4, "scope": "local"},
-    {"url": "https://www.sports.ru/rss/main.xml", "source": "Sports.ru", "category": "SPORT", "priority": 0, "quota": 3, "scope": "local"},
-    {"url": "https://habr.com/ru/rss/flows/develop/all/", "source": "Хабр", "category": "TECH", "priority": 0, "quota": 4, "scope": "local"},
-    {"url": "https://www.ixbt.com/export/news.rss", "source": "iXBT", "category": "TECH", "priority": 0, "quota": 3, "scope": "local"},
-    {"url": "https://www.drive.ru/rss.xml", "source": "Drive.ru", "category": "AUTO", "priority": 0, "quota": 4, "scope": "local"},
-    {"url": "https://www.cosmo.ru/rss/all.xml", "source": "Cosmopolitan RU", "category": "FASHION", "priority": 0, "quota": 3, "scope": "local"},
-    {"url": "https://www.elle.ru/rss/", "source": "Elle Russia", "category": "FASHION", "priority": 0, "quota": 3, "scope": "local"},
-    {"url": "https://www.kino-teatr.ru/rss/news.rss", "source": "Кино-Театр", "category": "CULTURE", "priority": 0, "quota": 4, "scope": "local"},
-    {"url": "https://www.tourprom.ru/rss/", "source": "Tourprom", "category": "TOURS", "priority": 0, "quota": 4, "scope": "local"},
+    {"url": "https://rsport.ria.ru/export/rss2/archive/index.xml", "source": "РИА Спорт", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world"},
+    {"url": "https://www.sports.ru/rss/main.xml", "source": "Sports.ru", "category": "SPORT", "priority": 0, "quota": 3, "scope": "world"},
+    {"url": "https://habr.com/ru/rss/flows/develop/all/", "source": "Хабр", "category": "TECH", "priority": 0, "quota": 4, "scope": "world"},
+    {"url": "https://www.ixbt.com/export/news.rss", "source": "iXBT", "category": "TECH", "priority": 0, "quota": 3, "scope": "world"},
+    {"url": "https://www.drive.ru/rss.xml", "source": "Drive.ru", "category": "AUTO", "priority": 0, "quota": 4, "scope": "world"},
+    {"url": "https://www.cosmo.ru/rss/all.xml", "source": "Cosmopolitan RU", "category": "FASHION", "priority": 0, "quota": 3, "scope": "world"},
+    {"url": "https://www.elle.ru/rss/", "source": "Elle Russia", "category": "FASHION", "priority": 0, "quota": 3, "scope": "world"},
+    {"url": "https://www.kino-teatr.ru/rss/news.rss", "source": "Кино-Театр", "category": "CULTURE", "priority": 0, "quota": 4, "scope": "world"},
+    {"url": "https://www.tourprom.ru/rss/", "source": "Tourprom", "category": "TOURS", "priority": 0, "quota": 4, "scope": "world"},
 
     # ТРЕНДЫ
-    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=KG", "source": "Тренды KG", "category": "TRENDS", "priority": 1, "quota": 5, "scope": "local"},
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=KG", "source": "Тренды KG", "category": "TRENDS", "priority": 1, "quota": 5, "scope": "world"},
     {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=US", "source": "Тренды US", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "world"},
-    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=RU", "source": "Тренды RU", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "local"},
+    {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=RU", "source": "Тренды RU", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "world"},
 ]
 
 BORING_KEYWORDS = [
@@ -207,6 +207,47 @@ YOUTUBE_BLOCK_KEYWORDS = [
     "official clip", "клип", "премьера клипа"
 ]
 
+
+# ─── Правило «под флагом страны — источники этой страны» ─────────────────────
+# В ленте блок «Местные» подписан флагом страны читателя. Значит и лежать там
+# должны издания ЭТОЙ страны, а не всего языкового пространства.
+#
+# Раньше признак стоял вручную у каждого источника и разъезжался: в русском
+# пуле местной оказывалась новость РИА (Россия), в английском под британским
+# флагом — NY Times (США). Теперь признак вычисляется по домену издания, а
+# ручную пометку в списке используем только как подсказку.
+#
+# Домашняя страна пула: ru → Кыргызстан, en → США, es → Мексика, pt → Бразилия.
+# Всё остальное — мировое, даже если написано на языке пула.
+LOCAL_DOMAINS = {
+    "ru": ["kaktus.media", "sputnik.kg", "vb.kg", "knews.kg", "gezitter.org",
+           "kabar.kg", "akipress.com", "24.kg", "turmush.kg", "super.kg", "economist.kg"],
+    "en": ["nytimes.com", "npr.org", "nbcnews.com", "cnn.com", "washingtonpost.com",
+           "politico.com", "marketwatch.com", "apnews.com", "usatoday.com", "axios.com"],
+    "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
+           "proceso.com.mx", "elfinanciero.com.mx", "reforma.com"],
+    "pt": ["globo.com", "uol.com.br", "folha.uol.com.br", "estadao.com.br",
+           "band.uol.com.br", "r7.com", "cnnbrasil.com.br"],
+}
+
+
+def normalize_source_scopes(sources):
+    """Приводит scope источников к правилу выше. Возвращает исправленный список."""
+    changed = 0
+    for s in sources:
+        url = (s.get("url") or "").lower()
+        is_local = any(
+            dom in url for doms in LOCAL_DOMAINS.values() for dom in doms
+        )
+        want = "local" if is_local else "world"
+        if s.get("scope") != want:
+            changed += 1
+            s["scope"] = want
+    if changed:
+        print(f"  ⚖️ Разметка источников исправлена: {changed}")
+    return sources
+
+
 def load_firebase_config():
     """Загружает конфиг из Firebase /config и обновляет глобальные переменные."""
     global RSS_SOURCES, BORING_KEYWORDS, YOUTUBE_BLOCK_KEYWORDS
@@ -218,8 +259,14 @@ def load_firebase_config():
 
         # Источники RSS
         if "rss_sources" in config and isinstance(config["rss_sources"], list):
-            RSS_SOURCES = config["rss_sources"]
-            print(f"✅ Firebase config: {len(RSS_SOURCES)} RSS источников")
+            RSS_SOURCES = normalize_source_scopes(config["rss_sources"])
+            # Список берётся ИЗ БАЗЫ и полностью перекрывает зашитый в файле.
+            # Из-за этого правки в коде однажды не дали никакого эффекта, а
+            # причину искали полдня — поэтому пишем об этом прямо в журнал
+            print(f"✅ Источники ИЗ FIREBASE (зашитый список не используется): {len(RSS_SOURCES)}")
+            # Возвращаем исправленную разметку обратно в базу, чтобы код и
+            # база не расходились
+            db.reference("/config/rss_sources").set(RSS_SOURCES)
 
         # Скучные ключевые слова
         if "boring_keywords" in config and isinstance(config["boring_keywords"], list):
