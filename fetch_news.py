@@ -402,8 +402,20 @@ LIVE_REFRESH_HOURS = 3
 
 
 def fetch_live_streams():
-    """Ссылки на текущие эфиры — в узел /live. Обновляет не чаще раза в 3 часа."""
-    ref = db.reference("/live")
+    """Ссылки на текущие эфиры для узла /viral/live.
+
+    Ничего не пишет сама, а ВОЗВРАЩАЕТ готовый кусок: запись /viral идёт
+    целиком и стёрла бы вложенный узел сразу после его создания. Поэтому
+    эфиры кладутся вместе с остальным виральным в один приём.
+
+    Если обновлять рано или не получилось — возвращает прежние данные, чтобы
+    они не пропали при перезаписи /viral.
+    """
+    # Узел внутри /viral, а не отдельный /live: в правах боевой базы открыты
+    # на чтение только news и viral, а отдельный узел пришлось бы открывать
+    # руками в консоли Firebase. По смыслу данные родственные — и там и там
+    # видео с YouTube
+    ref = db.reference("/viral/live")
     try:
         existing = ref.get() or {}
     except Exception:
@@ -414,7 +426,7 @@ def fetch_live_streams():
     if now_ms - updated_at < LIVE_REFRESH_HOURS * 3600 * 1000:
         age_h = (now_ms - updated_at) / 3600000
         print(f"  ⏭ Эфиры: обновлялись {age_h:.1f} ч назад, пропускаем (раз в {LIVE_REFRESH_HOURS} ч)")
-        return
+        return existing
 
     items = []
     for channel_id, name, pool in LIVE_CHANNELS:
@@ -436,7 +448,7 @@ def fetch_live_streams():
                 # впустую. Старые ссылки остаются в базе: трансляция идёт
                 # сутками, и, скорее всего, они ещё рабочие
                 print("  ✗ Эфиры: квота YouTube исчерпана, оставляем прежние ссылки")
-                return
+                return existing
             if not r.ok:
                 print(f"  ✗ Эфир {name}: HTTP {r.status_code}")
                 continue
@@ -465,9 +477,9 @@ def fetch_live_streams():
 
     if not items:
         print("  · Эфиры: ничего не нашли, прежние ссылки оставляем как есть")
-        return
-    ref.set({"items": items, "updatedAt": now_ms})
+        return existing
     print(f"✅ Эфиры обновлены: {len(items)}")
+    return {"items": items, "updatedAt": now_ms}
 
 
 VIDEO_STOP_WORDS = (
@@ -1729,7 +1741,7 @@ def main():
 
     # YouTube вирусные видео — сохраняем отдельно
     print("📡 Прямые эфиры...")
-    fetch_live_streams()
+    live_payload = fetch_live_streams()
 
     print("▶ YouTube — видео с отобранных каналов...")
     # БЫЛО — тренды региона; давало блогерский мусор, см. YOUTUBE_CHANNELS:
@@ -1775,6 +1787,7 @@ def main():
         "br":       viral_br,
         "mx":       viral_mx,
         "gb":       viral_gb,
+        "live":     live_payload,   # прямые эфиры, см. fetch_live_streams
         "updatedAt": int(datetime.now().timestamp() * 1000)
     })
     print(f"✅ YouTube: KG={len(viral_kg)}, RU={len(viral_ru)}, BR={len(viral_br)}, MX={len(viral_mx)}, GB={len(viral_gb)}, World={len(viral_world)}")
