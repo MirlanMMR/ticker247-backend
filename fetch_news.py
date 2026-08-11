@@ -979,6 +979,21 @@ def enrich_short_summaries(items, min_len=400, budget=25):
                 low = t.lower()
                 if any(n in low for n in _PAGE_NOISE):
                     continue
+                # Часть сайтов (Al Jazeera, Sky Sports, Marca) отдаёт статью
+                # только после выполнения скриптов, и в разметке лежат меню и
+                # куски кода. Раньше они шли в описание — читатель видел
+                # «play Live Sign up Show navigation menu…» или обрывки вроде
+                # «ars». Лучше оставить описание пустым, чем заполнить мусором.
+                if any(m in t for m in ("{", "};", "function(", "var ", "://")):
+                    continue
+                # Навигация: много слов подряд без знаков препинания
+                if t.count(" ") >= 6 and not any(c in t for c in ".!?…"):
+                    continue
+                # Слипшиеся слова меню («upShow», «menuNews») — заглавная
+                # буква сразу после строчной внутри слова, и таких много
+                import re as _re
+                if len(_re.findall(r"[a-zа-я][A-ZА-Я]", t)) >= 3:
+                    continue
                 # Некоторые сайты дублируют лид-абзац (стандфёрст + начало
                 # текста) — сравниваем по первым 50 символам, не по полному
                 # тексту, т.к. дубли иногда чуть отличаются пунктуацией
@@ -1952,6 +1967,13 @@ def main():
     print(f"После дедупликации: {len(deduped)} (убрано {len(all_news)-len(deduped)} дублей)")
     all_news = deduped
 
+    # Дозаполняем описания ОДИН раз, до разделения по пулам: мировая статья
+    # копируется в каждый пул, и раньше её страница тянулась заново для
+    # каждого — бюджет запросов выгорал вчетверо быстрее, а до части новостей
+    # очередь не доходила вовсе, и они оставались с пустым описанием
+    print("📝 Дозаполняем короткие описания...")
+    enrich_short_summaries(all_news, budget=80)
+
     print("🤖 Фильтруем через Gemini AI...")
 
     # Мировые новости (scope=world) идут во ВСЕ пулы.
@@ -2001,9 +2023,6 @@ def main():
         filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
         max_items = 80 if lang == "ru" else 70
         filtered = filtered[:max_items]
-        # Короткие summary (затравки BBC/Reuters) расширяем текстом со страницы —
-        # до перевода, чтобы пул получил резюме уже на своём языке
-        enrich_short_summaries(filtered)
         # Важные/срочные новости без фото — подтягиваем og:image со страницы,
         # чтобы они не висели в hero-карусели с генерической заглушкой
         enrich_missing_images(filtered)
