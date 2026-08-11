@@ -376,6 +376,41 @@ YOUTUBE_CHANNELS = {
 
 # Служебные ролики одобренных каналов, которые новостями не являются.
 # Пополняется одной строкой; сверяется вхождением в название, регистр не важен
+
+# ─── Радиостанции ────────────────────────────────────────────────────────────
+# Список живёт здесь, а не в приложении: адреса потоков переезжают, и без
+# этого узла умершая станция чинилась бы только обновлением в Play.
+# В приложении остаётся такой же зашитый список — как запасной, на случай
+# недоступной сети.
+#
+# Отбор: серьёзные вещатели, деловые и общественные, без музыкальных.
+# Все потоки проверены живьём 11.08.2026.
+RADIO_STATIONS = [
+    # ru: нейтральных новостных радио почти не осталось, поэтому деловые
+    {"name": "РБК",              "url": "https://rbcreg.hostingradio.ru/rbc32.aacp",                                  "pool": "ru", "colorFrom": "FF1F3A5F", "colorTo": "FF2E6CA8"},
+    {"name": "Коммерсантъ FM",   "url": "https://kommersant77.hostingradio.ru:8085/kommersant128.mp3",                 "pool": "ru", "colorFrom": "FF4A2B1E", "colorTo": "FF8A5A3B"},
+    {"name": "Бизнес FM",        "url": "https://bfm.hostingradio.ru:9075/fm",                                        "pool": "ru", "colorFrom": "FF1E3B32", "colorTo": "FF2F7A63"},
+    {"name": "Радио МИР",        "url": "https://icecast-mirtv.cdnvideo.ru/radio_mir_256",                             "pool": "ru", "colorFrom": "FF2B2350", "colorTo": "FF5B4BA8"},
+
+    {"name": "BBC World Service","url": "http://stream.live.vc.bbcmedia.co.uk/bbc_world_service",                      "pool": "en", "colorFrom": "FF3B1F24", "colorTo": "FF8C2F39"},
+    {"name": "NPR",              "url": "http://npr-ice.streamguys1.com/live.mp3",                                     "pool": "en", "colorFrom": "FF1D3247", "colorTo": "FF2E6B8F"},
+    {"name": "Times Radio",      "url": "https://timesradio.wireless.radio/stream",                                    "pool": "en", "colorFrom": "FF22303C", "colorTo": "FF44637D"},
+
+    {"name": "Cadena SER",       "url": "http://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3","pool": "es", "colorFrom": "FF3A2036", "colorTo": "FF7C3F6E"},
+    {"name": "COPE",             "url": "http://flucast13-h-cloud.flumotion.com/cope/net1.mp3",                        "pool": "es", "colorFrom": "FF20303A", "colorTo": "FF3F6C82"},
+    {"name": "Catalunya Informació","url": "https://shoutcast.ccma.cat/ccma/catalunyainformacioHD.mp3",                "pool": "es", "colorFrom": "FF33291C", "colorTo": "FF7A6134"},
+    {"name": "W Radio",          "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/WRADIOAAC.aac","pool": "es", "colorFrom": "FF2A1F3D", "colorTo": "FF5C3F87"},
+    {"name": "El Heraldo Radio", "url": "https://stream.radiojar.com/ce31v3yah8nwv",                                   "pool": "es", "colorFrom": "FF3A1F2A", "colorTo": "FF7E3F5C"},
+    {"name": "Radio UNAM",       "url": "https://tv.radiohosting.online:9486/stream",                                  "pool": "es", "colorFrom": "FF1F3A2E", "colorTo": "FF357E62"},
+    {"name": "Caracol Radio",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CARACOL_RADIOAAC.aac","pool": "es", "colorFrom": "FF3D2A1F", "colorTo": "FF8A5B33"},
+
+    {"name": "BandNews FM",      "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/BANDNEWSFM_SP_ADP.aac","pool": "pt", "colorFrom": "FF1F3340", "colorTo": "FF2F6C88"},
+    {"name": "CBN São Paulo",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_SP_ADP.aac","pool": "pt", "colorFrom": "FF23302A", "colorTo": "FF3D7A5F"},
+    {"name": "CBN Rio",          "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_RJ_ADP.aac","pool": "pt", "colorFrom": "FF2B2438", "colorTo": "FF574A80"},
+    {"name": "Rádio Itatiaia",   "url": "https://8903.brasilstream.com.br/stream",                                     "pool": "pt", "colorFrom": "FF3A2622", "colorTo": "FF7E4C3D"},
+    {"name": "Renascença",       "url": "http://22653.live.streamtheworld.com/RADIO_RENASCENCA_SC",                    "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5B85"},
+]
+
 # ─── Прямые эфиры ────────────────────────────────────────────────────────────
 # Круглосуточные трансляции для плиток «прямой эфир» в ленте.
 #
@@ -1740,6 +1775,10 @@ def main():
     })
 
     # YouTube вирусные видео — сохраняем отдельно
+    print("📻 Радиостанции...")
+    db.reference("/config/radio_stations").set(RADIO_STATIONS)
+    print(f"  ✓ Станций опубликовано: {len(RADIO_STATIONS)}")
+
     print("📡 Прямые эфиры...")
     live_payload = fetch_live_streams()
 
