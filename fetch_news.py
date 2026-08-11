@@ -1775,12 +1775,6 @@ def main():
     })
 
     # YouTube вирусные видео — сохраняем отдельно
-    print("📻 Радиостанции...")
-    # Узел внутри /viral, а не /config: права боевой базы открывают на чтение
-    # только news и viral, из /config приложение станции не увидит вовсе
-    db.reference("/viral/radio").set(RADIO_STATIONS)
-    print(f"  ✓ Станций опубликовано: {len(RADIO_STATIONS)}")
-
     print("📡 Прямые эфиры...")
     live_payload = fetch_live_streams()
 
@@ -1829,6 +1823,11 @@ def main():
         "mx":       viral_mx,
         "gb":       viral_gb,
         "live":     live_payload,   # прямые эфиры, см. fetch_live_streams
+        # Станции кладём ВНУТРЬ этой записи, а не отдельным вызовом: запись
+        # /viral идёт целиком и стёрла бы вложенный узел сразу после создания.
+        # Узел внутри /viral, а не в /config, потому что права боевой базы
+        # открывают на чтение только news и viral
+        "radio":    RADIO_STATIONS,
         "updatedAt": int(datetime.now().timestamp() * 1000)
     })
     print(f"✅ YouTube: KG={len(viral_kg)}, RU={len(viral_ru)}, BR={len(viral_br)}, MX={len(viral_mx)}, GB={len(viral_gb)}, World={len(viral_world)}")
