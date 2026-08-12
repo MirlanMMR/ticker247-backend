@@ -89,8 +89,11 @@ RSS_SOURCES = [
     # Южная Корея — сильная англоязычная пресса специально под международную
     # аудиторию, переводить нечего, забираем как есть (scope=world — не
     # "домашняя" страна пула en, но публикуется на английском)
-    {"url": "https://en.yna.co.kr/RSS/news.xml", "source": "Yonhap News", "category": "NEWS", "priority": 2, "quota": 5, "scope": "world", "lang": "en"},
-    {"url": "https://feed.koreatimes.co.kr/k/allnews.xml", "source": "Korea Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "en"},
+    # Корейские источники отключены 12.08.2026. Ленты живые, но подача не
+    # годится: телеграфные пометки в заголовках («(4-й LD)» — четвёртая правка
+    # материала), непереведённые тела статей, и почти всё содержимое — внутренняя
+    # повестка Кореи, которая до русского читателя не доходит по смыслу.
+    # Были: en.yna.co.kr/RSS/news.xml (Yonhap), feed.koreatimes.co.kr/k/allnews.xml
     # Технологии EN
     {"url": "https://www.engadget.com/rss.xml", "source": "Engadget", "category": "TECH", "priority": 0, "quota": 4, "scope": "world", "lang": "en"},
     {"url": "https://arstechnica.com/feed/", "source": "Ars Technica", "category": "TECH", "priority": 0, "quota": 4, "scope": "world", "lang": "en"},
@@ -282,6 +285,15 @@ POOL_DOMAINS = {
 # из этого файла. Добавляя пул (французский, арабский), впиши его сюда.
 ACTIVE_POOLS = ["ru", "en", "es", "pt"]
 
+# Источники, снятые с эфира. Список источников СЛИВАЕТСЯ с базой, и слияние
+# умеет только добавлять — без этого списка удалённый из файла источник
+# продолжает жить в Firebase и попадать в ленту. Пишем кусок адреса.
+RETIRED_SOURCES = [
+    "yna.co.kr",        # Yonhap: телеграфные пометки в заголовках, тела статей без перевода
+    "koreatimes.co.kr", # то же и внутренняя повестка Кореи
+    "tass.ru",          # отключён ранее: в RSS только подзаголовок, страница почти пустая
+]
+
 # Пулы, которые были включены и выключены: их ветки в /news надо подчистить
 DISABLED_POOLS = ["vi"]
 
@@ -289,10 +301,13 @@ DISABLED_POOLS = ["vi"]
 def normalize_source_scopes(sources):
     """Приводит scope источников к правилу выше. Возвращает исправленный список."""
     dropped = [s for s in sources if s.get("lang") and s["lang"] not in ACTIVE_POOLS]
-    if dropped:
-        sources = [s for s in sources if s not in dropped]
-        names = ", ".join(sorted({s.get("source", "?") for s in dropped}))
-        print(f"  🚫 Источники отключённых пулов убраны: {len(dropped)} ({names})")
+    retired = [s for s in sources
+               if any(dom in (s.get("url") or "").lower() for dom in RETIRED_SOURCES)]
+    if dropped or retired:
+        out = dropped + retired
+        sources = [s for s in sources if s not in out]
+        names = ", ".join(sorted({s.get("source", "?") for s in out}))
+        print(f"  🚫 Источники убраны: {len(out)} ({names})")
 
     changed = 0
     stats = {"local": 0, "pool": 0, "world": 0}
