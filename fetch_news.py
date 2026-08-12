@@ -1407,6 +1407,13 @@ VIRAL=вирусное видео, NEWS=всё остальное
                 item = news_list[i].copy()
                 if i in urgent:   item["priority"] = 2
                 elif i in important: item["priority"] = 1
+                # Рубрика, а не новость: срочность снимаем, даже если Gemini
+                # её присвоил. Пуш «Срочно» ради приглашения задать вопрос
+                # журналистам подрывает доверие к самой пометке
+                if is_service_format(item) and (item["priority"] >= 2 or item.get("category") == "URGENT"):
+                    item["priority"] = 0
+                    if item.get("category") == "URGENT":
+                        item["category"] = "NEWS"
                 if i in recategorize:
                     new_cat = recategorize[i]
                     source_cat = item.get("source_category", item.get("category", "NEWS"))
@@ -1579,6 +1586,41 @@ POOL_LANGUAGE_NAMES = {
     "es": "испанский (español)",
     "pt": "португальский (português)",
 }
+
+
+# ─── Служебные форматы: не новости, а рубрики ────────────────────────────────
+# Прямые трансляции, «вопросы читателей», подборки и обзоры — это формат
+# издания, а не событие. Раньше такое могло получить пометку СРОЧНО и уйти
+# пушем в шторку: человека будили приглашением задать вопрос журналистам
+# Guardian (поймано 12.08.2026). Событие в них если и есть, то придёт
+# отдельной новостью.
+# ВАЖНО: адреса живых блогов (/live/) сюда НЕ входят. Живой блог ведут и про
+# катастрофу: на проверке правило сняло срочность с «Вторая ночь поисков
+# выживших в Колумбии» — настоящее землетрясение с погибшими. Формат сам по
+# себе ничего не говорит о важности события, поэтому судим по заголовку.
+SERVICE_FORMAT_MARKERS = (
+    "/podcast", "/newsletter", "/quiz", "/crossword", "/horoscope",
+    "/commentisfree", "/opinion/", "/lifeandstyle/",
+)
+SERVICE_FORMAT_TITLE = (
+    "вопросы и ответы", "в прямом эфире", "прямая трансляция", "онлайн-трансляция",
+    "спрашивайте", "задайте вопрос", "подборка", "обзор недели", "итоги недели",
+    "что посмотреть", "что почитать", "гид по", "рейтинг лучших",
+    "live blog", "live updates", "q&a", "ask our", "your questions",
+    "readers reply", "week in review", "best of", "what to watch",
+    "en directo", "en vivo", "preguntas y respuestas",
+    "ao vivo", "perguntas e respostas",
+)
+
+
+def is_service_format(item):
+    """Рубрика/формат, а не новость: срочность и пуш таким не положены."""
+    url = (item.get("url") or "").lower()
+    if any(m in url for m in SERVICE_FORMAT_MARKERS):
+        return True
+    title = (item.get("title") or "").lower()
+    return any(m in title for m in SERVICE_FORMAT_TITLE)
+
 
 def needs_translation(item, pool):
     """Нужен ли перевод статьи на язык пула.
