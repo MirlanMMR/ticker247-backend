@@ -1674,6 +1674,11 @@ VIRAL=вирусное видео, NEWS=всё остальное
         if ad_suspects:
             print(f"  🏴 Чёрная метка (подозрение на рекламу): {len(ad_suspects)}")
         print(f"  ✂️ [{lang}] отбраковано ИИ: {len(news_list) - len(filtered)} из {len(news_list)}")
+        # ВРЕМЕННО: смотрим, не режет ли правило про инфоповод лишнее
+        _kept = set(keep)
+        for _n, _it in enumerate(news_list):
+            if _n not in _kept:
+                print(f"  ✂︎ [{lang}] {_it.get('source','?')} | {_it.get('title','')[:100]}")
         return filtered
     except Exception as e:
         print(f"⚠️ Gemini error (порция без отбора): {e}")
