@@ -2173,21 +2173,49 @@ def main():
             return True
         return False
 
-    deduped = []
+    # Собираем статьи об одном событии в кучки, а не выбрасываем на ходу:
+    # решение, сколько версий оставить, зависит от всей кучки целиком
+    clusters = []
     for item in all_news:
-        is_dup = False
-        for kept in deduped:
-            if are_duplicates(item.get("title", ""), kept.get("title", "")):
-                # Оставляем с большим приоритетом
-                if item.get("priority", 0) > kept.get("priority", 0):
-                    deduped.remove(kept)
-                    deduped.append(item)
-                is_dup = True
+        for c in clusters:
+            if are_duplicates(item.get("title", ""), c[0].get("title", "")):
+                c.append(item)
                 break
-        if not is_dup:
-            deduped.append(item)
+        else:
+            clusters.append([item])
 
-    print(f"После дедупликации: {len(deduped)} (убрано {len(all_news)-len(deduped)} дублей)")
+    # У важного события несколько версий — это не дубли, а РАЗНЫЕ ВЗГЛЯДЫ:
+    # местная газета пишет с места, региональная объясняет соседям, мировая
+    # даёт контекст. Читателю есть что сравнить, и в этом наше преимущество
+    # перед лентой, где событие подано одним голосом.
+    #
+    # Условия строгие: только важное событие и только по одной версии с уровня.
+    # Три пересказа одного агентства — по-прежнему дубль.
+    MAX_ANGLES = 3
+    deduped, angles = [], 0
+    for c in clusters:
+        c.sort(key=lambda x: x.get("priority", 0), reverse=True)
+        if len(c) == 1 or c[0].get("priority", 0) < 2:
+            deduped.append(c[0])
+            continue
+        chosen, used_scopes = [], set()
+        for it in c:
+            scope = it.get("scope", "world")
+            if scope in used_scopes:
+                continue
+            used_scopes.add(scope)
+            chosen.append(it)
+            if len(chosen) == MAX_ANGLES:
+                break
+        if len(chosen) > 1:
+            angles += len(chosen) - 1
+            for it in chosen:
+                # Пометка для приложения: показать такие рядом, а не вразнобой
+                it["storyKey"] = chosen[0].get("url", "")
+        deduped.extend(chosen)
+
+    print(f"После дедупликации: {len(deduped)} (убрано {len(all_news)-len(deduped)} дублей, "
+          f"оставлено вторых мнений: {angles})")
     all_news = deduped
 
     # Дозаполняем описания ОДИН раз, до разделения по пулам: мировая статья
