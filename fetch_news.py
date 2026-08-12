@@ -133,11 +133,11 @@ RSS_SOURCES = [
     {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=BR", "source": "Trends BR", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "world", "lang": "pt"},
 
     # ════════════════════════════════════════════════════
-    # ВЬЕТНАМ (локальные для VI пула) — источники проверены живыми
-    # 10.08.2026: реальные статьи, не заглушки
-    {"url": "https://vnexpress.net/rss/tin-moi-nhat.rss", "source": "VnExpress", "category": "NEWS", "priority": 2, "quota": 8, "scope": "world", "lang": "vi"},
-    {"url": "https://thanhnien.vn/rss/home.rss", "source": "Thanh Niên", "category": "NEWS", "priority": 2, "quota": 8, "scope": "world", "lang": "vi"},
-    {"url": "https://tuoitre.vn/rss/thoi-su.rss", "source": "Tuổi Trẻ", "category": "NEWS", "priority": 1, "quota": 6, "scope": "world", "lang": "vi"},
+    # ВЬЕТНАМ — пул отключён 12.08.2026: аудитории нет, а ИИ отбраковывал
+    # весь пул целиком (0 статей из 105). Следующими идут французский и
+    # арабский. Источники живые, вернуть можно в любой момент:
+    # vnexpress.net/rss/tin-moi-nhat.rss, thanhnien.vn/rss/home.rss,
+    # tuoitre.vn/rss/thoi-su.rss
 
     # АРАБСКИЙ МИР (локальные для AR пула)
     {"url": "https://www.aljazeera.net/rss", "source": "Al Jazeera Arabic", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
@@ -231,8 +231,24 @@ LOCAL_DOMAINS = {
 }
 
 
+# Языковые пулы, которые сейчас выходят в приложении. Источник, помеченный
+# языком не отсюда, отбрасывается при загрузке конфига — иначе выключенный пул
+# продолжает жить в базе, потому что список источников берётся ИЗ FIREBASE, а не
+# из этого файла. Добавляя пул (французский, арабский), впиши его сюда.
+ACTIVE_POOLS = ["ru", "en", "es", "pt"]
+
+# Пулы, которые были включены и выключены: их ветки в /news надо подчистить
+DISABLED_POOLS = ["vi"]
+
+
 def normalize_source_scopes(sources):
     """Приводит scope источников к правилу выше. Возвращает исправленный список."""
+    dropped = [s for s in sources if s.get("lang") and s["lang"] not in ACTIVE_POOLS]
+    if dropped:
+        sources = [s for s in sources if s not in dropped]
+        names = ", ".join(sorted({s.get("source", "?") for s in dropped}))
+        print(f"  🚫 Источники отключённых пулов убраны: {len(dropped)} ({names})")
+
     changed = 0
     for s in sources:
         url = (s.get("url") or "").lower()
@@ -1263,17 +1279,36 @@ POOL_CONFIG = {
         "language_name": "португальском",
         "language_rule": "O conteúdo deve estar em português. Remover tudo em outros idiomas.",
     },
-    "vi": {
-        "region": "Вьетнам",
-        "language_name": "вьетнамском",
-        "language_rule": "Nội dung phải bằng tiếng Việt. Loại bỏ mọi thứ bằng ngôn ngữ khác.",
-    },
 }
 
 # Обратная совместимость
 REGIONAL_SPORT_PRIORITY = {k: v["region"] for k, v in POOL_CONFIG.items()}
 
+# За один запрос отдаём столько заголовков. Раньше лишние просто отрезались
+# (`titles[:60]`), и половина собранного за час никогда не доходила до ИИ —
+# статья не могла попасть в ленту, даже будучи лучшей в пуле.
+GEMINI_CHUNK = 60
+
+
 def filter_with_gemini(news_list, lang="ru"):
+    """Прогоняет пул через ИИ порциями и склеивает результат.
+
+    Порядок статей внутри порции сохраняется, порции идут подряд — общий
+    порядок списка не меняется.
+    """
+    if not news_list:
+        return news_list
+
+    if len(news_list) <= GEMINI_CHUNK:
+        return _filter_chunk(news_list, lang)
+
+    out = []
+    for start in range(0, len(news_list), GEMINI_CHUNK):
+        out.extend(_filter_chunk(news_list[start:start + GEMINI_CHUNK], lang))
+    return out
+
+
+def _filter_chunk(news_list, lang="ru"):
     if not news_list:
         return news_list
 
@@ -1360,7 +1395,7 @@ VIRAL=вирусное видео, NEWS=всё остальное
 {{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}, "ad_suspects": [3]}}
 
 НОВОСТИ:
-{chr(10).join(titles[:60])}"""
+{chr(10).join(titles)}"""
 
     try:
         # Псевдоним, а не конкретная версия: Google отключает старые модели
@@ -1433,11 +1468,13 @@ VIRAL=вирусное видео, NEWS=всё остальное
             print(f"  🏴 Чёрная метка (подозрение на рекламу): {len(ad_suspects)}")
         return filtered
     except Exception as e:
-        print(f"Gemini error: {e}")
-        # Fallback: берём равномерно из всего списка, не только первые 40
+        print(f"⚠️ Gemini error (порция без отбора): {e}")
+        # Запасной вариант на одну порцию: половина наугад. Полный отбор ИИ
+        # оставляет примерно столько же, так что лента не проседает и не
+        # раздувается мусором. Ошибка кричит в логе: полгода она молчала,
+        # и мы не знали, что ленту всё это время набирала случайность
         import random
-        random.shuffle(news_list)
-        return news_list[:60]
+        return random.sample(news_list, max(1, len(news_list) // 2))
 
 # ════════════════════════════════════════════════════════════════════
 # Источники ПРИЛОЖЕНИЯ (Telegram/YouTube каналы, парсятся на устройстве).
@@ -2051,7 +2088,7 @@ def main():
     # Мировые новости (scope=world) идут во ВСЕ пулы.
     # Локальные (scope=local) — только в пул по языку статьи.
     CYRILLIC_LANGS = {"ru", "ky", "uk", "be", "bg", "sr", "mk"}
-    lang_groups = {"ru": [], "en": [], "es": [], "pt": [], "vi": []}
+    lang_groups = {"ru": [], "en": [], "es": [], "pt": []}
     ALL_POOLS = list(lang_groups.keys())
 
     for item in all_news:
@@ -2128,6 +2165,15 @@ def main():
         if channel:
             print(f"📤 Постим [{lang}] в {channel}...")
             post_to_telegram(filtered, channel=channel, lang=lang)
+
+    # Пул выключили — убираем его ветку. Иначе у того, кто уже выбрал этот
+    # язык, приложение будет вечно показывать последнюю выдачу перед
+    # отключением. Список явный: слепо чистить всё, чего нет среди пулов,
+    # опасно — в /news могут лежать ветки, о которых этот скрипт не знает
+    for stale in DISABLED_POOLS:
+        if db.reference(f"/news/{stale}").get(shallow=True):
+            db.reference(f"/news/{stale}").delete()
+            print(f"  🧹 Убрана ветка отключённого пула: /news/{stale}")
 
     # Публикуем имена редакторских каналов — приложение читает их отсюда,
     # смена канала не требует обновления приложения
