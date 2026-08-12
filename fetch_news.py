@@ -113,6 +113,17 @@ RSS_SOURCES = [
     {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     {"url": "https://www.abc.es/rss/feeds/abcPortada.xml", "source": "ABC.es", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     {"url": "https://www.excelsior.com.mx/rss/nacional.xml", "source": "Excelsior MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    # Испаноязычная Америка — добавлено 12.08.2026. Ленты проверены живыми:
+    # отдают настоящие статьи, не заглушки. Emol (Чили) и El Observador (Уругвай)
+    # отброшены: первый рвёт соединение, второй отдаёт 403
+    {"url": "https://www.latercera.com/arcio/rss/", "source": "La Tercera CL", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://elcomercio.pe/arcio/rss/", "source": "El Comercio PE", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://rpp.pe/feed", "source": "RPP PE", "category": "NEWS", "priority": 1, "quota": 3, "scope": "pool", "lang": "es"},
+    {"url": "https://www.eluniverso.com/arcio/rss/", "source": "El Universo EC", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://www.elnacional.com/feed/", "source": "El Nacional VE", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://www.prensalibre.com/rss/", "source": "Prensa Libre GT", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "es"},
+    {"url": "https://www.nacion.com/arcio/rss/", "source": "La Nación CR", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "es"},
+    {"url": "https://www.elsalvador.com/feed/", "source": "El Salvador", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "es"},
     # Спорт ES
     {"url": "https://www.marca.com/rss/portada.xml", "source": "Marca", "category": "SPORT", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     # Тренды ES
@@ -231,6 +242,33 @@ LOCAL_DOMAINS = {
 }
 
 
+# ─── Средний уровень: издания языкового пространства ────────────────────────
+# Между «мировым» и «моей страной» не хватало третьей ступени. Новость про
+# саммит Меркосур или Кубок Либертадорес не мировая — русскому читателю она не
+# нужна, — но и не местная: она интересна всем испаноязычным сразу.
+#
+# Такие статьи остаются внутри своего пула и НЕ ПЕРЕВОДЯТСЯ: язык уже общий.
+# Это самый дешёвый способ наполнить ленту — ни запросов к переводчику, ни
+# потери смысла.
+#
+# Домашняя страна пула сюда не входит, она в LOCAL_DOMAINS выше.
+POOL_DOMAINS = {
+    "ru": ["ria.ru", "rbc.ru", "lenta.ru", "iz.ru", "kommersant.ru", "rg.ru",
+           "tengrinews.kz", "zakon.kz", "gazeta.uz", "podrobno.uz", "asiaplustj.info"],
+    # BBC, Guardian, Sky, Reuters, Al Jazeera сюда НЕ вносить: формально они
+    # британские, но по сути это мировая лента, и она кормит все пулы. Запри их
+    # в английском — остальные три пула останутся без мировой повестки
+    "en": ["thehindu.com", "smh.com.au", "irishtimes.com", "nzherald.co.nz"],
+    "es": ["elpais.com", "abc.es", "marca.com", "clarin.com", "lanacion.com.ar",
+           "infobae.com", "eltiempo.com", "emol.com", "latercera.com",
+           "elcomercio.pe", "rpp.pe", "eluniverso.com", "elnacional.com",
+           "prensalibre.com", "elsalvador.com", "nacion.com", "elobservador.com.uy",
+           "bbci.co.uk/mundo"],
+    "pt": ["publico.pt", "expresso.pt", "dn.pt", "observador.pt", "rtp.pt",
+           "jornaldeangola.ao", "verangola.net", "opais.co.mz"],
+}
+
+
 # Языковые пулы, которые сейчас выходят в приложении. Источник, помеченный
 # языком не отсюда, отбрасывается при загрузке конфига — иначе выключенный пул
 # продолжает жить в базе, потому что список источников берётся ИЗ FIREBASE, а не
@@ -250,17 +288,26 @@ def normalize_source_scopes(sources):
         print(f"  🚫 Источники отключённых пулов убраны: {len(dropped)} ({names})")
 
     changed = 0
+    stats = {"local": 0, "pool": 0, "world": 0}
     for s in sources:
         url = (s.get("url") or "").lower()
-        is_local = any(
-            dom in url for doms in LOCAL_DOMAINS.values() for dom in doms
-        )
-        want = "local" if is_local else "world"
+        # Порядок проверок важен: домашняя страна пула перекрывает языковое
+        # пространство. bbc.com попадает и в POOL_DOMAINS(en), и в mundo(es) —
+        # но "bbc.com/mundo" длиннее и проверяется на том же уровне, поэтому
+        # язык источника решает, к какому пулу его относить
+        if any(dom in url for doms in LOCAL_DOMAINS.values() for dom in doms):
+            want = "local"
+        elif any(dom in url for doms in POOL_DOMAINS.values() for dom in doms):
+            want = "pool"
+        else:
+            want = "world"
+        stats[want] += 1
         if s.get("scope") != want:
             changed += 1
             s["scope"] = want
     if changed:
         print(f"  ⚖️ Разметка источников исправлена: {changed}")
+    print(f"  📐 Уровни: местных {stats['local']}, пуловых {stats['pool']}, мировых {stats['world']}")
     return sources
 
 
@@ -275,7 +322,17 @@ def load_firebase_config():
 
         # Источники RSS
         if "rss_sources" in config and isinstance(config["rss_sources"], list):
-            RSS_SOURCES = normalize_source_scopes(config["rss_sources"])
+            # Слияние, а не замена. База — главная (там живут ручные правки без
+            # деплоя), но источники, добавленные в этот файл, подхватываются
+            # автоматически. Раньше правка кода не давала эффекта вообще, и
+            # причину искали полдня
+            from_db = config["rss_sources"]
+            known = {(s.get("url") or "").lower() for s in from_db}
+            added = [s for s in RSS_SOURCES if (s.get("url") or "").lower() not in known]
+            if added:
+                names = ", ".join(s.get("source", "?") for s in added)
+                print(f"  ➕ Новые источники из кода: {len(added)} ({names})")
+            RSS_SOURCES = normalize_source_scopes(from_db + added)
             # Список берётся ИЗ БАЗЫ и полностью перекрывает зашитый в файле.
             # Из-за этого правки в коде однажды не дали никакого эффекта, а
             # причину искали полдня — поэтому пишем об этом прямо в журнал
@@ -1324,9 +1381,17 @@ def _filter_chunk(news_list, lang="ru"):
     prompt = f"""Ты редактор пула «{lang.upper()}» новостного агрегатора Ticker 24/7.
 Аудитория: читатели на {pool['language_name']} языке, регион: {pool['region']}.
 
-═══ ПРАВИЛО №1 — ЯЗЫК (важнее всего остального) ═══
-{pool['language_rule']}
-Новость о событии в любой стране допустима, если она написана на языке пула.
+═══ ПРАВИЛО №1 — ЯЗЫК ═══
+НЕ удаляй новость из-за того, что заголовок на чужом языке. Отбор идёт ДО
+перевода: всё отобранное переводится на {pool['language_name']} следующим шагом.
+Суди по СОДЕРЖАНИЮ — важно ли событие читателю пула, а не на каком языке
+пришло. Раньше это правило требовало обратного, и мировая повестка не доходила
+до неанглоязычных пулов: землетрясение с сотнями погибших выбрасывалось лишь
+потому, что заголовок был английским.
+
+Язык — повод удалить только в одном случае: новость интересна исключительно
+носителям своего языка и региона (местная поп-звезда, локальный чемпионат,
+разбор чужого законопроекта), и переводить её читателю пула незачем.
 
 ═══ ПРАВИЛО №2 — ЧТО УДАЛЯТЬ ═══
 - Нишевый развлекательный контент не для массовой аудитории (субкультуры, фандомы)
@@ -1466,12 +1531,7 @@ VIRAL=вирусное видео, NEWS=всё остальное
                 filtered.append(item)
         if ad_suspects:
             print(f"  🏴 Чёрная метка (подозрение на рекламу): {len(ad_suspects)}")
-        # ВРЕМЕННО (12.08.2026): смотрим, что именно ИИ выбрасывает — пулы
-        # es/pt/ru оставляют впятеро меньше английского, надо понять почему
-        keep_set = set(keep)
-        for n, item in enumerate(news_list):
-            if n not in keep_set:
-                print(f"  ✂️ [{lang}] {item.get('source','?')} | {item.get('language','?')} | {item.get('title','')[:110]}")
+        print(f"  ✂️ [{lang}] отбраковано ИИ: {len(news_list) - len(filtered)} из {len(news_list)}")
         return filtered
     except Exception as e:
         print(f"⚠️ Gemini error (порция без отбора): {e}")
