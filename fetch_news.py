@@ -1363,7 +1363,10 @@ VIRAL=вирусное видео, NEWS=всё остальное
 {chr(10).join(titles[:60])}"""
 
     try:
-        model = genai.GenerativeModel("gemini-2.0-flash")
+        # Псевдоним, а не конкретная версия: Google отключает старые модели
+        # без предупреждения (так умерла gemini-2.0-flash), и тогда фильтр молча
+        # уходит в запасной вариант — 60 случайных статей вместо отбора
+        model = genai.GenerativeModel("gemini-flash-latest")
         response = model.generate_content(prompt)
         text = response.text.strip()
         if "```" in text:
