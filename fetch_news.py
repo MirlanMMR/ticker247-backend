@@ -1628,7 +1628,7 @@ def promote_global_stories(all_news):
 # волен вести куда угодно, и он привёл на модель примерно вдесятеро дороже
 # ожидаемой — десять долларов сгорели за сутки. Здесь цена известна заранее.
 # Если прикреплённой не окажется, падаем на псевдоним и громко сообщаем.
-GEMINI_MODEL = "gemini-2.5-flash-lite"
+GEMINI_MODEL = "gemini-flash-lite-latest"
 GEMINI_MODEL_FALLBACK = "gemini-flash-latest"
 
 # Счётчик расхода: раньше о цене узнавали, когда деньги кончались
@@ -1663,6 +1663,11 @@ AI_CACHE = {}
 # Была ли хоть одна порция без отбора: тогда запоминать вердикты нельзя
 _LAST_CHUNK_FELL_BACK = False
 AI_CACHE_TTL_MS = 48 * 3600 * 1000     # двое суток: сутки живёт новость + запас
+
+# Вердикты, записанные до этого момента, к ИИ отношения не имеют: прогоны
+# 13.08.2026 между 12:17 и 12:35 шли при кончившихся деньгах, и в память
+# попадала случайная выборка. Отсечка дешевле и честнее, чем чистка руками
+AI_CACHE_MIN_TS = 1786625100000  # 13.08.2026 12:45 UTC
 
 
 def _cache_key(item) -> str:
@@ -1721,6 +1726,8 @@ def filter_with_gemini(news_list, lang="ru"):
     dropped_by_memory = 0
     for idx, item in enumerate(news_list):
         v = pool_cache.get(_cache_key(item))
+        if isinstance(v, dict) and v.get("ts", 0) < AI_CACHE_MIN_TS:
+            v = None            # запись из эпохи случайных вердиктов
         if not isinstance(v, dict):
             to_ask.append((idx, item))
             continue
