@@ -61,6 +61,14 @@ RSS_SOURCES = [
     {"url": "https://www.eurosport.com/rss/sport/rss.xml", "source": "Eurosport", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world"},
 
     # МИРОВЫЕ ТЕХНОЛОГИИ
+    # Добор после ухода источников без текста (13.08.2026). Страницы проверены:
+    # UPI 4800 знаков, Independent 3200, Straits Times 2400, Newsweek 1900.
+    # Отсеяны вручную: The Conversation (разборы «что это значит» — их выбросит
+    # правило про инфоповод) и Anadolu (государственное агентство, как ТАСС)
+    {"url": "https://rss.upi.com/news/top_news.rss", "source": "UPI", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world"},
+    {"url": "https://www.independent.co.uk/news/world/rss", "source": "The Independent", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world"},
+    {"url": "https://www.straitstimes.com/news/world/rss.xml", "source": "Straits Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
+    {"url": "https://www.newsweek.com/rss", "source": "Newsweek", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
     # Замена ушедшим (13.08.2026): страницы проверены, текст отдают —
     # CBS 2700 знаков, Time 7200, Fortune 9300
     {"url": "https://www.cbsnews.com/latest/rss/main", "source": "CBS News", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world"},
