@@ -2378,8 +2378,14 @@ def meets_standard(item, lang):
     if len(title) > TITLE_MAX:
         notes.append("заголовок длиннее эталона")
 
+    # Короткий текст сам по себе не приговор: «Вертолёт Apache разбился у
+    # Форт-Худа, погибли двое солдат» — восемьдесят знаков тела, но заголовок
+    # отвечает на что, где и когда. Снимаем, только если и заголовок не несёт
+    # события, или тела нет вовсе
     if not item.get("notifyOnly") and len(body) < BODY_MIN:
-        return False, f"текста меньше эталона ({len(body)})", notes
+        if len(body) < 40 or len(title) < 45:
+            return False, f"текста меньше эталона ({len(body)})", notes
+        notes.append("коротко, но заголовок содержателен")
 
     url = item.get("url") or ""
     if not url.startswith("http"):
