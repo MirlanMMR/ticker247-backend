@@ -61,6 +61,14 @@ RSS_SOURCES = [
     {"url": "https://www.eurosport.com/rss/sport/rss.xml", "source": "Eurosport", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world"},
 
     # МИРОВЫЕ ТЕХНОЛОГИИ
+    # Источник годится, если текст приходит ХОТЬ ОТКУДА-ТО: со страницы или
+    # из самой ленты. Сперва я судил только по странице и отбросил Axios за
+    # отказ 403 — а он отдаёт 3359 знаков прямо в ленте, больше всех прочих.
+    # Этим четверым страница не нужна вовсе (13.08.2026)
+    {"url": "https://api.axios.com/feed/", "source": "Axios", "category": "NEWS", "priority": 2, "quota": 5, "scope": "world"},
+    {"url": "https://www.semafor.com/rss.xml", "source": "Semafor", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
+    {"url": "https://www.france24.com/en/rss", "source": "France 24", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
+    {"url": "https://thehill.com/news/feed/", "source": "The Hill", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
     # Добор после ухода источников без текста (13.08.2026). Страницы проверены:
     # UPI 4800 знаков, Independent 3200, Straits Times 2400, Newsweek 1900.
     # Отсеяны вручную: The Conversation (разборы «что это значит» — их выбросит
