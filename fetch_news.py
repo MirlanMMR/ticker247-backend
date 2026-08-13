@@ -1755,9 +1755,14 @@ def _filter_chunk(news_list, lang="ru"):
 разбор чужого законопроекта), и переводить её читателю пула незачем.
 
 ═══ ГЛАВНОЕ ПРАВИЛО — ИНФОПОВОД ═══
-Прежде всего спроси о каждой новости: ЧТО произошло и КОГДА. Не можешь
-ответить одним предложением с глаголом в прошедшем времени — это не новость,
-удаляй, каким бы интересным ни казался заголовок.
+Прежде всего ответь по каждой новости на три вопроса: ЧТО произошло, ГДЕ и
+КОГДА. Не можешь уложить ответ в одно предложение с глаголом в прошедшем
+времени — это не новость, удаляй, каким бы интересным ни казался заголовок.
+
+Отдельно про манеру западных изданий: они щедры на воду — впечатления
+очевидцев, настроение улицы, размышления автора о смысле происходящего. Это
+не делает материал новостью. Если, убрав ощущения и эпитеты, не остаётся
+факта — что, где, когда, — удаляй.
 
 Новость есть:      «запустили ракету», «умер премьер», «суд вынес приговор»,
                    «компания купила завод», «цена выросла на 20%»
@@ -2268,10 +2273,66 @@ QC_STUB_MARKERS = [
 ]
 
 
+
+# ── ЭТАЛОН НОВОСТИ ───────────────────────────────────────────────────────────
+# Чёрный список выше перечисляет известные дефекты — он ловит только то, что мы
+# уже видели. Эталон работает наоборот: описывает, какой должна быть годная
+# новость, и не выпускает всё, что не дотягивает, включая беды, которых мы
+# ещё не встречали.
+#
+# Два уровня строгости, иначе лента опустеет:
+#   СНИМАЕМ С ЭФИРА — читать нечего или это не наша новость
+#   ПОМЕЧАЕМ В ЖУРНАЛ — изъян заметный, но материал ценнее изъяна
+TITLE_MIN, TITLE_MAX = 25, 200
+BODY_MIN = 200                      # меньше — это подпись, а не новость
+FUTURE_TOLERANCE_MS = 3 * 3600 * 1000   # часовые пояса врут в пределах пары часов
+
+# Хвост источника в заголовке: «…, — РИА Новости», «... - BBC News»
+TITLE_TAIL = re.compile(r"\s*[-—–]\s*[A-ZА-Я][^-—–]{2,24}$")
+
+
+def meets_standard(item, lang):
+    """Возвращает (годна, причина_снятия, список_замечаний)."""
+    notes = []
+    title = (item.get("title") or "").strip()
+    body = (item.get("summary") or "").strip()
+
+    if len(title) < TITLE_MIN:
+        return False, "заголовок короче эталона", notes
+    if len(title) > TITLE_MAX:
+        notes.append("заголовок длиннее эталона")
+
+    if not item.get("notifyOnly") and len(body) < BODY_MIN:
+        return False, f"текста меньше эталона ({len(body)})", notes
+
+    url = item.get("url") or ""
+    if not url.startswith("http"):
+        return False, "нет рабочей ссылки", notes
+
+    published = item.get("publishedAt", 0)
+    now = int(datetime.now().timestamp() * 1000)
+    if published > now + FUTURE_TOLERANCE_MS:
+        return False, "дата из будущего", notes
+    if published and now - published > 36 * 3600 * 1000:
+        return False, "старше полутора суток", notes
+
+    if item.get("scope") not in ("local", "pool", "world"):
+        notes.append("уровень не проставлен")
+        item["scope"] = "world"
+
+    if item.get("translated") and not item.get("origTitle"):
+        notes.append("перевод без оригинала")
+
+    if not item.get("imageUrl"):
+        notes.append("без фото")
+
+    return True, None, notes
+
+
 def quality_gate(items, lang):
     """Правит и отсеивает новости перед публикацией. Возвращает годные."""
     kept, dropped = [], []
-    fixed = Counter()
+    fixed, warned = Counter(), Counter()
 
     for item in items:
         title = (item.get("title") or "").strip()
@@ -2310,10 +2371,19 @@ def quality_gate(items, lang):
 
         item["summary"] = body
 
-        # 6. Пусто после всех правок. Срочные оставляем — они ценны как сигнал
-        #    и живут по правилам notifyOnly
-        if len(body) < 40 and not item.get("notifyOnly"):
-            dropped.append((item, "текста не осталось"))
+        # 6. Хвост источника в заголовке — «…, — РИА Новости». Источник и так
+        #    подписан под карточкой, в заголовке он крадёт место
+        new_title = TITLE_TAIL.sub("", title).strip()
+        if new_title != title and len(new_title) >= TITLE_MIN:
+            item["title"] = new_title
+            fixed["хвост источника в заголовке"] += 1
+
+        # 7. Соответствие эталону — последнее слово
+        ok, why, notes = meets_standard(item, lang)
+        for n in notes:
+            warned[n] += 1
+        if not ok:
+            dropped.append((item, why))
             continue
 
         kept.append(item)
@@ -2321,6 +2391,8 @@ def quality_gate(items, lang):
     if fixed:
         parts = ", ".join(f"{k}: {v}" for k, v in fixed.most_common())
         print(f"  🛡 Контроль качества [{lang}]: исправлено — {parts}")
+    if warned:
+        print(f"  🛡 Замечания [{lang}]: " + ", ".join(f"{k}: {v}" for k, v in warned.most_common()))
     if dropped:
         print(f"  🛡 Снято с эфира [{lang}]: {len(dropped)}")
         for it, why in dropped[:5]:
