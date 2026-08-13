@@ -1063,13 +1063,51 @@ BOILERPLATE_PATTERNS = [
     "Фото из архива.",
 ]
 
+# Хвосты, которые издания приклеивают в КОНЦЕ описания. Проверка качества
+# (quality_check.py) показала их первым же запуском: чистили только начало
+# текста, и читатель дочитывал новость до «…Выбор рекламы» или «Read more».
+TAIL_PATTERNS = [
+    r"\(Image credit:[^)]*\)\s*$",
+    r"\(Фото:[^)]*\)\s*$",
+    r"Read more\s*$",
+    r"Читать далее\s*$",
+    r"\[…\]\s*$",
+    r"\[\.\.\.\]\s*$",
+    r"The post .{0,80} appeared first on .{0,60}$",
+    r"(?:©|Copyright).{0,120}$",
+    r"[^.!?]{0,60}Cond[eé] Nast.{0,80}$",
+    r"Все права защищены.{0,80}$",
+    r"Материал полностью[^.]{0,60}$",
+    r"Подпишитесь[^.]{0,80}$",
+    r"Выбор рекламы\s*$",
+]
+
+
+def strip_tail(text: str) -> str:
+    """Срезаем служебный хвост и обрываем по последнему целому предложению."""
+    for _ in range(3):          # хвосты бывают слоями: «[…] Read more ©»
+        before = text
+        for pat in TAIL_PATTERNS:
+            text = re.sub(pat, "", text, flags=re.I | re.S).rstrip(" .,—-–;:\n")
+        if text == before:
+            break
+    # Оборвано на полуслове — отступаем до конца последнего предложения.
+    # Лучше короче, но целиком: обрывок читается как поломка
+    if text and text[-1] not in ".!?…»\"'":
+        idx = max(text.rfind(". "), text.rfind("! "), text.rfind("? "),
+                  text.rfind("…"), text.rfind(".\n"))
+        if idx > 80:
+            text = text[:idx + 1]
+    return text.strip()
+
+
 def strip_boilerplate(text: str) -> str:
-    """Убираем служебные фразы источников из начала текста"""
+    """Убираем служебные фразы источников из начала текста и хвост из конца"""
     for pattern in BOILERPLATE_PATTERNS:
         idx = text.find(pattern)
         if 0 <= idx < 300:
             text = (text[:idx] + text[idx + len(pattern):]).strip(" .,—-\n")
-    return text
+    return strip_tail(text)
 
 def extract_full_summary(item_el) -> str:
     """Извлекаем полный текст до логической точки — не обрезаем на полуслове"""
@@ -1178,6 +1216,7 @@ def enrich_short_summaries(items, min_len=400, budget=25):
                 idx = max(body.rfind(". "), body.rfind("! "), body.rfind("? "))
                 if idx > 150:
                     body = body[:idx + 1]
+            body = strip_tail(body)
             if len(body) > len(s) + 80:
                 item["summary"] = body
         except Exception:
@@ -1777,6 +1816,13 @@ VIRAL=вирусное видео, NEWS=всё остальное
                 # Рубрика, а не новость: срочность снимаем, даже если Gemini
                 # её присвоил. Пуш «Срочно» ради приглашения задать вопрос
                 # журналистам подрывает доверие к самой пометке
+                # Категорию URGENT ставит и авторазметка по ключевым словам —
+                # а она видит «взрыв» в заголовке про взрывной рост продаж.
+                # Если ИИ не признал новость важной (priority < 2), метка
+                # «срочно» не заслужена: пуш и красный бейдж обесцениваются,
+                # когда ими помечают разлив нефти недельной давности
+                if item.get("category") == "URGENT" and item.get("priority", 0) < 2:
+                    item["category"] = "NEWS"
                 if is_service_format(item) and (item["priority"] >= 2 or item.get("category") == "URGENT"):
                     item["priority"] = 0
                     if item.get("category") == "URGENT":
