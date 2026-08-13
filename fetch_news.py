@@ -1598,22 +1598,117 @@ def promote_global_stories(all_news):
         print("  🌍 Мировых среди местных не нашлось")
 
 
+# ── Память вердиктов ИИ ──────────────────────────────────────────────────────
+# Новость живёт в ленте сутки, а прогон идёт каждый час — значит про одну и ту
+# же статью мы спрашивали ИИ до 24 раз и платили за каждый ответ. Теперь
+# спрашиваем один раз, ответ помним.
+#
+# Вердикт хранится в Firebase (/ai_cache/<пул>/<ключ>), чтобы переживать
+# перезапуски: прогон живёт минуты, память в оперативке умирает вместе с ним.
+#
+# Побочная польза важнее экономии: выдача перестаёт прыгать. Раньше одна и та
+# же новость то попадала в ленту, то исчезала — ИИ отвечал чуть иначе при
+# каждом опросе, и читатель видел, как статья пропадает без причины.
+AI_CACHE = {}
+AI_CACHE_TTL_MS = 48 * 3600 * 1000     # двое суток: сутки живёт новость + запас
+
+
+def _cache_key(item) -> str:
+    """Ключ статьи. В ключах Firebase запрещены . # $ [ ] / — заменяем."""
+    raw = item.get("url") or item.get("title", "")
+    safe = "".join(c if c not in "./#$[]" else "_" for c in raw)
+    return safe[-180:] or "_"
+
+
+def load_ai_cache():
+    global AI_CACHE
+    try:
+        AI_CACHE = db.reference("/ai_cache").get() or {}
+    except Exception as e:
+        print(f"  ⚠️ Память вердиктов недоступна: {e}")
+        AI_CACHE = {}
+    total = sum(len(v) for v in AI_CACHE.values() if isinstance(v, dict))
+    print(f"  🧠 Память вердиктов: {total} статей")
+
+
+def save_ai_cache():
+    """Сохраняем, попутно выбрасывая протухшее — иначе узел растёт вечно."""
+    now = int(datetime.now().timestamp() * 1000)
+    cleaned = {}
+    for pool, entries in AI_CACHE.items():
+        if not isinstance(entries, dict):
+            continue
+        fresh = {k: v for k, v in entries.items()
+                 if isinstance(v, dict) and now - v.get("ts", 0) < AI_CACHE_TTL_MS}
+        if fresh:
+            cleaned[pool] = fresh
+    try:
+        db.reference("/ai_cache").set(cleaned)
+        print(f"  🧠 Память вердиктов сохранена: {sum(len(v) for v in cleaned.values())}")
+    except Exception as e:
+        print(f"  ⚠️ Память вердиктов не сохранилась: {e}")
+
+
 def filter_with_gemini(news_list, lang="ru"):
     """Прогоняет пул через ИИ порциями и склеивает результат.
 
-    Порядок статей внутри порции сохраняется, порции идут подряд — общий
-    порядок списка не меняется.
+    Про статьи с известным вердиктом ИИ не спрашиваем вовсе — берём из памяти.
+    Порядок исходного списка сохраняется: и те, что вернулись из памяти, и те,
+    что судили сейчас, встают на свои места.
     """
     if not news_list:
         return news_list
 
-    if len(news_list) <= GEMINI_CHUNK:
-        return _filter_chunk(news_list, lang)
+    pool_cache = AI_CACHE.setdefault(lang, {})
+    if not isinstance(pool_cache, dict):
+        pool_cache = AI_CACHE[lang] = {}
 
-    out = []
-    for start in range(0, len(news_list), GEMINI_CHUNK):
-        out.extend(_filter_chunk(news_list[start:start + GEMINI_CHUNK], lang))
-    return out
+    known_keep, to_ask = {}, []
+    dropped_by_memory = 0
+    for idx, item in enumerate(news_list):
+        v = pool_cache.get(_cache_key(item))
+        if not isinstance(v, dict):
+            to_ask.append((idx, item))
+            continue
+        if not v.get("keep"):
+            dropped_by_memory += 1
+            continue
+        # Вердикт помним, а свежий текст и фото берём нынешние: статья могла
+        # обрасти подробностями с прошлого часа
+        fresh = dict(item)
+        fresh["priority"] = v.get("priority", item.get("priority", 0))
+        if v.get("category"):
+            fresh["category"] = v["category"]
+        if v.get("scope"):
+            fresh["scope"] = v["scope"]
+        known_keep[idx] = fresh
+
+    judged = {}
+    if to_ask:
+        asked_items = [it for _, it in to_ask]
+        out = []
+        for start in range(0, len(asked_items), GEMINI_CHUNK):
+            out.extend(_filter_chunk(asked_items[start:start + GEMINI_CHUNK], lang))
+        kept_keys = {_cache_key(x) for x in out}
+        now = int(datetime.now().timestamp() * 1000)
+        for idx, item in to_ask:
+            k = _cache_key(item)
+            keep = k in kept_keys
+            pool_cache[k] = {"keep": keep, "ts": now}
+            if keep:
+                verdict = next(x for x in out if _cache_key(x) == k)
+                pool_cache[k].update({
+                    "priority": verdict.get("priority", 0),
+                    "category": verdict.get("category"),
+                    "scope": verdict.get("scope"),
+                })
+                judged[idx] = verdict
+
+    print(f"  🧠 [{lang}] из памяти: {len(known_keep)} оставлено, "
+          f"{dropped_by_memory} отсеяно | спрошено у ИИ: {len(to_ask)}")
+
+    merged = {**known_keep, **judged}
+    return [merged[i] for i in sorted(merged)]
 
 
 def _filter_chunk(news_list, lang="ru"):
@@ -2623,6 +2718,7 @@ def main():
 
     promote_global_stories(all_news)
 
+    load_ai_cache()
     print("🤖 Фильтруем через Gemini AI...")
 
     # Мировые новости (scope=world) идут во ВСЕ пулы.
@@ -2713,6 +2809,8 @@ def main():
         if db.reference(f"/news/{stale}").get(shallow=True):
             db.reference(f"/news/{stale}").delete()
             print(f"  🧹 Убрана ветка отключённого пула: /news/{stale}")
+
+    save_ai_cache()
 
     # Публикуем имена редакторских каналов — приложение читает их отсюда,
     # смена канала не требует обновления приложения
