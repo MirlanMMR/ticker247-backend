@@ -589,6 +589,9 @@ YOUTUBE_CHANNELS = {
 # зашитый в приложении — правя один, правь и второй
 RADIO_STATIONS = [
     # ru: нейтральных новостных радио почти не осталось, поэтому деловые
+    # Государственное радио Кыргызстана (ОТРК) — речевое, новостное.
+    # Музыкальное «Миң кыял» и не отвечающее «Биринчи» не берём
+    {"name": "Кыргыз радиосу",  "url": "https://liveradio.utrk.kg/kyrgyzradio",                              "pool": "ru", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B"},
     {"name": "РБК",              "url": "https://rbcreg.hostingradio.ru/rbc32.aacp",                                  "pool": "ru", "colorFrom": "FF1F3A5F", "colorTo": "FF2E6CA8"},
     {"name": "Коммерсантъ FM",   "url": "https://kommersant77.hostingradio.ru:8085/kommersant128.mp3",                 "pool": "ru", "colorFrom": "FF4A2B1E", "colorTo": "FF8A5A3B"},
     {"name": "Бизнес FM",        "url": "https://bfm.hostingradio.ru:9075/fm",                                        "pool": "ru", "colorFrom": "FF1E3B32", "colorTo": "FF2F7A63"},
@@ -2378,14 +2381,13 @@ def meets_standard(item, lang):
     if len(title) > TITLE_MAX:
         notes.append("заголовок длиннее эталона")
 
-    # Короткий текст сам по себе не приговор: «Вертолёт Apache разбился у
-    # Форт-Худа, погибли двое солдат» — восемьдесят знаков тела, но заголовок
-    # отвечает на что, где и когда. Снимаем, только если и заголовок не несёт
-    # события, или тела нет вовсе
-    if not item.get("notifyOnly") and len(body) < BODY_MIN:
-        if len(body) < 40 or len(title) < 45:
-            return False, f"текста меньше эталона ({len(body)})", notes
-        notes.append("коротко, но заголовок содержателен")
+    # Нижнего порога по длине НЕТ. Считать знаки — грубая замена пониманию:
+    # «Вертолёт Apache разбился у Форт-Худа, погибли двое солдат» — восемьдесят
+    # знаков, и это полноценная новость, а иная простыня на две тысячи знаков
+    # события не содержит вовсе. Смысл оценивает ИИ правилом об инфоповоде,
+    # эталон следит лишь за тем, чтобы карточка не оказалась пустой
+    if not item.get("notifyOnly") and len(body) < 40:
+        return False, "текста нет вовсе", notes
 
     url = item.get("url") or ""
     if not url.startswith("http"):
