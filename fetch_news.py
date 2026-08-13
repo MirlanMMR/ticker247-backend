@@ -2108,6 +2108,10 @@ def translate_batch(items, target_lang):
             item["summary"] = s.strip() if s and s.strip() else orig_summary
             item["language"] = target_lang
             item["origTitle"] = orig_title
+            # Оригинал ТЕКСТА, а не только заголовка: в приложении есть кнопка
+            # «показать оригинал», и она возвращала одну строку — показывать
+            # было нечего, тело статьи мы не сохраняли вовсе
+            item["origSummary"] = orig_summary
             item["translated"] = True
             translated += 1
         time.sleep(0.15)  # мягкий темп — не дразним эндпоинт
