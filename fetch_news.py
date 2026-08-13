@@ -2282,225 +2282,149 @@ def _gtx_translate(text: str, target: str) -> str | None:
     except Exception:
         return None
 
-def translate_batch(items, target_lang):
-    """Переводит title и summary на язык пула через бесплатный Google Translate.
-    (Gemini не используется — его квота нужна фильтрации.) Мутирует items;
-    при ошибке оставляет оригиналы — лента не ломается.
-
-    Прозрачность вместо точечных фиксов слов: машинный перевод неизбежно даёт
-    огрехи на идиомах/титулах («swinging»→«качели», «King»→«Кинг»). Латать
-    конкретные слова — бесконечная игра в кротов, поэтому вместо этого честно
-    помечаем перевод и сохраняем оригинал — читатель сам видит и может свериться."""
-    import time
-    translated = 0
-    for item in items:
-        orig_title = item.get("title", "")
-        orig_summary = item.get("summary", "")
-        # Заголовок и текст переводим ОТДЕЛЬНЫМИ запросами — общий запрос с
-        # разделителем "@@@" на длинных текстах ломался (Google съедал разделитель),
-        # из-за чего заголовок переводился, а текст оставался на языке оригинала
-        # с ложной пометкой translated=True
-        t = _gtx_translate(orig_title[:300], target_lang) if orig_title else ""
-        s = _gtx_translate(orig_summary[:800], target_lang) if orig_summary else ""
-        if t and t.strip():
-            item["title"] = t.strip()
-            item["summary"] = s.strip() if s and s.strip() else orig_summary
-            item["language"] = target_lang
-            item["origTitle"] = orig_title
-            # Оригинал ТЕКСТА, а не только заголовка: в приложении есть кнопка
-            # «показать оригинал», и она возвращала одну строку — показывать
-            # было нечего, тело статьи мы не сохраняли вовсе
-            item["origSummary"] = orig_summary
-            item["translated"] = True
-            translated += 1
-        time.sleep(0.15)  # мягкий темп — не дразним эндпоинт
-    print(f"  ✓ Переведено {translated}/{len(items)} на {target_lang}")
+# ── Память переводов ─────────────────────────────────────────────────────────
+# Новость живёт сутки, прогон идёт каждый час — без памяти одну и ту же статью
+# перевели бы двадцать четыре раза и заплатили за каждый раз. Храним рядом с
+# вердиктами: /translations/<пул>/<ключ>
+TRANSLATIONS = {}
 
 
-# ═══════════════════════════════════════════════════════════════════════════
-# СЛУЖБА КОНТРОЛЯ КАЧЕСТВА — последний рубеж перед эфиром
-# ═══════════════════════════════════════════════════════════════════════════
-# Проверка идёт ПЕРЕД записью в базу, а не после: то, что уже показано
-# читателю, чинить поздно. Что можно исправить — исправляем молча, что нельзя
-# — не выпускаем совсем.
-#
-# Список правил растёт из настоящих находок, а не из фантазий: каждая строка
-# ниже — ошибка, которую пользователь увидел на своём экране.
-# Порядок — от самых частых к редким.
-
-# Строки, которых не должно быть в тексте новости ни при каких условиях.
-# Вырезаем строку целиком, а не всю новость: обычно это одна подпись среди
-# нормальных абзацев («Photographer: Bonnie Cash/UPI/Bloomberg»)
-QC_JUNK_LINES = [
-    r"^\s*photographer\s*:.*$",
-    r"^\s*photo\s*:.*$",
-    r"^\s*cr[ée]dito\s*,.*$",
-    r"^\s*credit\s*:.*$",
-    r"^\s*image (?:credit|source|caption)\s*:?.*$",
-    r"\(image credit:[^)]*\)",
-    r"^\s*getty images.*$",
-    r"^\s*read more\s*$",
-    r"^\s*end of\b.*$",
-    r"^\s*подписывайтесь на наши соцсети.*$",
-    r"^\s*при первом открытии приложения.*$",
-]
-
-# Приметы того, что вместо статьи пришла заглушка. Такую новость не чиним —
-# снимаем с эфира: показывать нечего, а заголовок обещает содержание
-QC_STUB_MARKERS = [
-    "blog is currently unavailable", "please try again later",
-    "этот блог в настоящее время недоступен", "access denied",
-    "reference #", "errors.edgesuite.net", "javascript is disabled",
-    "subscribe to continue", "подпишитесь, чтобы продолжить",
-]
+def load_translations():
+    global TRANSLATIONS
+    try:
+        TRANSLATIONS = db.reference("/translations").get() or {}
+    except Exception as e:
+        print(f"  ⚠️ Память переводов недоступна: {e}")
+        TRANSLATIONS = {}
+    total = sum(len(v) for v in TRANSLATIONS.values() if isinstance(v, dict))
+    print(f"  🗂 Память переводов: {total} статей")
 
 
-
-# ── ЭТАЛОН НОВОСТИ ───────────────────────────────────────────────────────────
-# Чёрный список выше перечисляет известные дефекты — он ловит только то, что мы
-# уже видели. Эталон работает наоборот: описывает, какой должна быть годная
-# новость, и не выпускает всё, что не дотягивает, включая беды, которых мы
-# ещё не встречали.
-#
-# Два уровня строгости, иначе лента опустеет:
-#   СНИМАЕМ С ЭФИРА — читать нечего или это не наша новость
-#   ПОМЕЧАЕМ В ЖУРНАЛ — изъян заметный, но материал ценнее изъяна
-TITLE_MIN, TITLE_MAX = 25, 200
-# 120, а не 200: «Суд принял дело бывшего сотрудника ГКНБ» — это сто знаков, но
-# на «что, где, когда» отвечает полностью. Порог в 200 выбрасывал настоящие
-# местные новости, а вместе с ними и атаку на поезд в Одесской области
-BODY_MIN = 120
-FUTURE_TOLERANCE_MS = 3 * 3600 * 1000   # часовые пояса врут в пределах пары часов
-
-# Хвост источника в заголовке: «…, — РИА Новости», «... - BBC News»
-TITLE_TAIL = re.compile(r"\s*[-—–]\s*[A-ZА-Я][^-—–]{2,24}$")
-
-
-def meets_standard(item, lang):
-    """Возвращает (годна, причина_снятия, список_замечаний)."""
-    notes = []
-    title = (item.get("title") or "").strip()
-    body = (item.get("summary") or "").strip()
-
-    if len(title) < TITLE_MIN:
-        return False, "заголовок короче эталона", notes
-    if len(title) > TITLE_MAX:
-        notes.append("заголовок длиннее эталона")
-
-    # Нижнего порога по длине НЕТ. Считать знаки — грубая замена пониманию:
-    # «Вертолёт Apache разбился у Форт-Худа, погибли двое солдат» — восемьдесят
-    # знаков, и это полноценная новость, а иная простыня на две тысячи знаков
-    # события не содержит вовсе. Смысл оценивает ИИ правилом об инфоповоде,
-    # эталон следит лишь за тем, чтобы карточка не оказалась пустой
-    if not item.get("notifyOnly") and len(body) < 40:
-        return False, "текста нет вовсе", notes
-
-    url = item.get("url") or ""
-    if not url.startswith("http"):
-        return False, "нет рабочей ссылки", notes
-
-    published = item.get("publishedAt", 0)
+def save_translations():
     now = int(datetime.now().timestamp() * 1000)
-    if published > now + FUTURE_TOLERANCE_MS:
-        return False, "дата из будущего", notes
-    if published and now - published > 36 * 3600 * 1000:
-        return False, "старше полутора суток", notes
-
-    if item.get("scope") not in ("local", "pool", "world"):
-        notes.append("уровень не проставлен")
-        item["scope"] = "world"
-
-    if item.get("translated") and not item.get("origTitle"):
-        notes.append("перевод без оригинала")
-
-    if not item.get("imageUrl"):
-        notes.append("без фото")
-
-    return True, None, notes
+    cleaned = {}
+    for pool, entries in TRANSLATIONS.items():
+        if not isinstance(entries, dict):
+            continue
+        fresh = {k: v for k, v in entries.items()
+                 if isinstance(v, dict) and now - v.get("ts", 0) < AI_CACHE_TTL_MS}
+        if fresh:
+            cleaned[pool] = fresh
+    try:
+        db.reference("/translations").set(cleaned)
+        print(f"  🗂 Память переводов сохранена: {sum(len(v) for v in cleaned.values())}")
+    except Exception as e:
+        print(f"  ⚠️ Память переводов не сохранилась: {e}")
 
 
-def quality_gate(items, lang):
-    """Правит и отсеивает новости перед публикацией. Возвращает годные."""
-    kept, dropped = [], []
-    fixed, warned = Counter(), Counter()
+def _gemini_translate(items, target_lang):
+    """Перевод пачки новостей через ИИ. Возвращает список пар или None.
 
+    Почему ИИ, а не бесплатный переводчик: тот ломается ровно там, где всего
+    заметнее. «a contrarreloj» (наперегонки со временем) он превратил в «на
+    время», а «HD Hyundai Chairman to meet Bill Gates» — в «Председатель HD
+    Hyundai Билл Гейтс», слепив двух разных людей в одного. ИИ понимает, что
+    перед ним новость, держит имена, должности и падежи.
+    """
+    LANG_NAME = {"ru": "русский", "en": "английский", "es": "испанский", "pt": "португальский"}
+    numbered = []
+    for i, it in enumerate(items, 1):
+        numbered.append(f"{i}. ЗАГОЛОВОК: {it.get('title','')}\n   ТЕКСТ: {(it.get('summary') or '')[:900]}")
+
+    prompt = f"""Переведи новости на {LANG_NAME.get(target_lang, target_lang)} язык.
+
+Требования:
+· Это новостная лента, а не художественный текст: переводи точно и сухо
+· Имена, фамилии, должности и названия компаний — правильно и целиком.
+  «HD Hyundai Chairman to meet Bill Gates» — это председатель Hyundai
+  ВСТРЕТИТСЯ С Гейтсом, а не «председатель Билл Гейтс»
+· Идиомы передавай смыслом, а не по словам
+· Не сокращай и не пересказывай, не добавляй ничего от себя
+· Служебные пометки телеграфных лент — «(4th LD)», «UPDATE 2» — убирай
+
+Верни ТОЛЬКО JSON без пояснений, ключ — номер новости:
+{{"1": {{"title": "...", "summary": "..."}}, "2": {{"title": "...", "summary": "..."}}}}
+
+НОВОСТИ:
+{chr(10).join(numbered)}"""
+
+    try:
+        text = ask_gemini(prompt)
+        if "```" in text:
+            text = text.split("```")[1].replace("json", "").strip()
+        data = json.loads(text)
+        out = []
+        for i in range(1, len(items) + 1):
+            row = data.get(str(i)) or {}
+            out.append((row.get("title", "").strip(), row.get("summary", "").strip()))
+        return out
+    except Exception as e:
+        print(f"  ⚠️ Перевод через ИИ не удался: {str(e)[:80]}")
+        return None
+
+
+def translate_batch(items, target_lang):
+    """Переводит title и summary на язык пула.
+
+    Порядок: память → ИИ → бесплатный Google Translate. Бесплатный оставлен
+    запасным: если ИИ не ответит, лента не должна остаться без перевода.
+
+    Прозрачность: оригинал сохраняем в origTitle/origSummary, перевод помечаем
+    флагом translated — читатель видит пометку и может свериться.
+    """
+    import time
+    pool_mem = TRANSLATIONS.setdefault(target_lang, {})
+    if not isinstance(pool_mem, dict):
+        pool_mem = TRANSLATIONS[target_lang] = {}
+
+    def apply(item, title, summary, orig_title, orig_summary):
+        if not title:
+            return False
+        item["title"] = title
+        item["summary"] = summary or orig_summary
+        item["language"] = target_lang
+        item["origTitle"] = orig_title
+        item["origSummary"] = orig_summary
+        item["translated"] = True
+        return True
+
+    pending, translated = [], 0
     for item in items:
-        title = (item.get("title") or "").strip()
-        body = (item.get("summary") or "").strip()
-        low = body.lower()
-
-        # 1. Заглушка вместо статьи — снимаем с эфира
-        if any(m in low for m in QC_STUB_MARKERS):
-            dropped.append((item, "заглушка вместо текста"))
+        key = _cache_key(item)
+        saved = pool_mem.get(key)
+        if isinstance(saved, dict) and saved.get("title"):
+            if apply(item, saved["title"], saved.get("summary", ""),
+                     saved.get("origTitle", item.get("title", "")),
+                     saved.get("origSummary", item.get("summary", ""))):
+                translated += 1
             continue
+        pending.append(item)
 
-        # 2. Служебные строки внутри текста — вырезаем построчно
-        before = body
-        for pat in QC_JUNK_LINES:
-            body = re.sub(pat, "", body, flags=re.I | re.M)
-        body = re.sub(r"\n{3,}", "\n\n", body).strip()
-        if body != before:
-            fixed["служебные строки"] += 1
+    from_memory = translated
+    if pending:
+        originals = [(it.get("title", ""), it.get("summary", "")) for it in pending]
+        result = _gemini_translate(pending, target_lang)
+        now = int(datetime.now().timestamp() * 1000)
 
-        # 3. Хвост и обрыв на полуслове
-        cleaned = strip_tail(body)
-        if cleaned != body:
-            fixed["хвост"] += 1
-            body = cleaned
+        for idx, item in enumerate(pending):
+            ot, os_ = originals[idx]
+            t = s_ = ""
+            if result:
+                t, s_ = result[idx]
+            if not t:
+                # Запасной путь: бесплатный переводчик, как раньше
+                t = _gtx_translate(ot[:300], target_lang) or ""
+                s_ = _gtx_translate(os_[:800], target_lang) or ""
+                time.sleep(0.15)
+            if apply(item, t, s_, ot, os_):
+                translated += 1
+                pool_mem[_cache_key(item)] = {
+                    "title": t, "summary": s_ or os_,
+                    "origTitle": ot, "origSummary": os_, "ts": now,
+                }
 
-        # 4. Заголовок, продублированный первой строкой текста
-        if title and body.lower().startswith(title.lower()[:40]):
-            body = body[len(title):].lstrip(" .,—-:\n")
-            fixed["дубль заголовка"] += 1
-
-        # 5. Метка «срочно», не подтверждённая важностью. Красный бейдж и пуш
-        #    обесцениваются, если ими метят рядовую новость
-        if item.get("category") == "URGENT" and item.get("priority", 0) < 2:
-            item["category"] = "NEWS"
-            fixed["незаслуженное «срочно»"] += 1
-
-        item["summary"] = body
-
-        # 6. Хвост источника в заголовке — «…, — РИА Новости». Источник и так
-        #    подписан под карточкой, в заголовке он крадёт место
-        new_title = TITLE_TAIL.sub("", title).strip()
-        if new_title != title and len(new_title) >= TITLE_MIN:
-            item["title"] = new_title
-            fixed["хвост источника в заголовке"] += 1
-
-        # 7. Местное издание не может оказаться в блоке «Новости из».
-        #
-        # Правило простое и жёсткое, потому что ИИ здесь ошибается предсказуемо:
-        # в новости «Россия привезла в Кыргызстан 671 тысячу учебников» он видит
-        # две страны и ставит уровень языкового пространства. А событие целиком
-        # уместилось в Кыргызстане, и читатель ждёт его среди местных.
-        # Мировой уровень местному изданию оставляем: кыргызское СМИ вполне
-        # может писать о выборах в США, и это действительно мировая новость.
-        url_low = (item.get("url") or "").lower()
-        if item.get("scope") == "pool" and any(dom in url_low for dom in LOCAL_DOMAINS.get(lang, [])):
-            item["scope"] = "local"
-            fixed["местное издание вернулось в «Местные»"] += 1
-
-        # 8. Соответствие эталону — последнее слово
-        ok, why, notes = meets_standard(item, lang)
-        for n in notes:
-            warned[n] += 1
-        if not ok:
-            dropped.append((item, why))
-            continue
-
-        kept.append(item)
-
-    if fixed:
-        parts = ", ".join(f"{k}: {v}" for k, v in fixed.most_common())
-        print(f"  🛡 Контроль качества [{lang}]: исправлено — {parts}")
-    if warned:
-        print(f"  🛡 Замечания [{lang}]: " + ", ".join(f"{k}: {v}" for k, v in warned.most_common()))
-    if dropped:
-        print(f"  🛡 Снято с эфира [{lang}]: {len(dropped)}")
-        for it, why in dropped[:5]:
-            print(f"       {why} | [{it.get('source','?')}] {(it.get('title') or '')[:60]}")
-    return kept
+    print(f"  ✓ Переведено {translated}/{len(items)} на {target_lang} "
+          f"(из памяти {from_memory}, заново {translated - from_memory})")
 
 
 def tg_post_keys(item) -> list:
@@ -2911,6 +2835,7 @@ def main():
     promote_global_stories(all_news)
 
     load_ai_cache()
+    load_translations()
     print("🤖 Фильтруем через Gemini AI...")
 
     # Мировые новости (scope=world) идут во ВСЕ пулы.
@@ -2966,13 +2891,13 @@ def main():
         to_translate = [x for x in filtered if needs_translation(x, lang)]
         if to_translate:
             print(f"  🌍 Переводим {len(to_translate)} статей на {lang}...")
-            for j in range(0, len(to_translate), 15):
-                translate_batch(to_translate[j:j+15], lang)
+            for j in range(0, len(to_translate), 10):
+                translate_batch(to_translate[j:j+10], lang)
             retry = [x for x in to_translate if needs_translation(x, lang)]
             if retry:
                 print(f"  🔁 Повтор перевода {len(retry)} статей...")
-                for j in range(0, len(retry), 15):
-                    translate_batch(retry[j:j+15], lang)
+                for j in range(0, len(retry), 10):
+                    translate_batch(retry[j:j+10], lang)
         cats = {}
         for item in filtered:
             cats[item["category"]] = cats.get(item["category"], 0) + 1
@@ -3003,6 +2928,7 @@ def main():
             print(f"  🧹 Убрана ветка отключённого пула: /news/{stale}")
 
     save_ai_cache()
+    save_translations()
 
     # Расход этого прогона. Цены Flash-Lite на 13.08.2026 — примерно $0.10 за
     # миллион входящих и $0.40 за миллион исходящих; считаем по ним, чтобы
