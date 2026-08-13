@@ -2117,6 +2117,105 @@ def translate_batch(items, target_lang):
         time.sleep(0.15)  # мягкий темп — не дразним эндпоинт
     print(f"  ✓ Переведено {translated}/{len(items)} на {target_lang}")
 
+
+# ═══════════════════════════════════════════════════════════════════════════
+# СЛУЖБА КОНТРОЛЯ КАЧЕСТВА — последний рубеж перед эфиром
+# ═══════════════════════════════════════════════════════════════════════════
+# Проверка идёт ПЕРЕД записью в базу, а не после: то, что уже показано
+# читателю, чинить поздно. Что можно исправить — исправляем молча, что нельзя
+# — не выпускаем совсем.
+#
+# Список правил растёт из настоящих находок, а не из фантазий: каждая строка
+# ниже — ошибка, которую пользователь увидел на своём экране.
+# Порядок — от самых частых к редким.
+
+# Строки, которых не должно быть в тексте новости ни при каких условиях.
+# Вырезаем строку целиком, а не всю новость: обычно это одна подпись среди
+# нормальных абзацев («Photographer: Bonnie Cash/UPI/Bloomberg»)
+QC_JUNK_LINES = [
+    r"^\s*photographer\s*:.*$",
+    r"^\s*photo\s*:.*$",
+    r"^\s*cr[ée]dito\s*,.*$",
+    r"^\s*credit\s*:.*$",
+    r"^\s*image (?:credit|source|caption)\s*:?.*$",
+    r"\(image credit:[^)]*\)",
+    r"^\s*getty images.*$",
+    r"^\s*read more\s*$",
+    r"^\s*end of\b.*$",
+    r"^\s*подписывайтесь на наши соцсети.*$",
+    r"^\s*при первом открытии приложения.*$",
+]
+
+# Приметы того, что вместо статьи пришла заглушка. Такую новость не чиним —
+# снимаем с эфира: показывать нечего, а заголовок обещает содержание
+QC_STUB_MARKERS = [
+    "blog is currently unavailable", "please try again later",
+    "этот блог в настоящее время недоступен", "access denied",
+    "reference #", "errors.edgesuite.net", "javascript is disabled",
+    "subscribe to continue", "подпишитесь, чтобы продолжить",
+]
+
+
+def quality_gate(items, lang):
+    """Правит и отсеивает новости перед публикацией. Возвращает годные."""
+    kept, dropped = [], []
+    fixed = Counter()
+
+    for item in items:
+        title = (item.get("title") or "").strip()
+        body = (item.get("summary") or "").strip()
+        low = body.lower()
+
+        # 1. Заглушка вместо статьи — снимаем с эфира
+        if any(m in low for m in QC_STUB_MARKERS):
+            dropped.append((item, "заглушка вместо текста"))
+            continue
+
+        # 2. Служебные строки внутри текста — вырезаем построчно
+        before = body
+        for pat in QC_JUNK_LINES:
+            body = re.sub(pat, "", body, flags=re.I | re.M)
+        body = re.sub(r"\n{3,}", "\n\n", body).strip()
+        if body != before:
+            fixed["служебные строки"] += 1
+
+        # 3. Хвост и обрыв на полуслове
+        cleaned = strip_tail(body)
+        if cleaned != body:
+            fixed["хвост"] += 1
+            body = cleaned
+
+        # 4. Заголовок, продублированный первой строкой текста
+        if title and body.lower().startswith(title.lower()[:40]):
+            body = body[len(title):].lstrip(" .,—-:\n")
+            fixed["дубль заголовка"] += 1
+
+        # 5. Метка «срочно», не подтверждённая важностью. Красный бейдж и пуш
+        #    обесцениваются, если ими метят рядовую новость
+        if item.get("category") == "URGENT" and item.get("priority", 0) < 2:
+            item["category"] = "NEWS"
+            fixed["незаслуженное «срочно»"] += 1
+
+        item["summary"] = body
+
+        # 6. Пусто после всех правок. Срочные оставляем — они ценны как сигнал
+        #    и живут по правилам notifyOnly
+        if len(body) < 40 and not item.get("notifyOnly"):
+            dropped.append((item, "текста не осталось"))
+            continue
+
+        kept.append(item)
+
+    if fixed:
+        parts = ", ".join(f"{k}: {v}" for k, v in fixed.most_common())
+        print(f"  🛡 Контроль качества [{lang}]: исправлено — {parts}")
+    if dropped:
+        print(f"  🛡 Снято с эфира [{lang}]: {len(dropped)}")
+        for it, why in dropped[:5]:
+            print(f"       {why} | [{it.get('source','?')}] {(it.get('title') or '')[:60]}")
+    return kept
+
+
 def tg_post_keys(item) -> list:
     """Ключи дедупликации TG-поста: по URL и по заголовку.
     Заголовочный ключ ловит ту же новость от другого источника (другой URL).
@@ -2590,6 +2689,8 @@ def main():
         for item in filtered:
             cats[item["category"]] = cats.get(item["category"], 0) + 1
         print(f"  После AI: {len(filtered)} | {cats}")
+        # Последний рубеж перед эфиром: чиним что можно, снимаем что нельзя
+        filtered = quality_gate(filtered, lang)
         db.reference(f"/news/{lang}").set({
             "items": filtered,
             "updatedAt": ts,
