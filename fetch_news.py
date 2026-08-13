@@ -1153,76 +1153,92 @@ _PAGE_NOISE = ("this video can not be played", "published ", "getty images",
                "подписывайтесь на наши соцсети", "при первом открытии приложения",
                "получайте уведомления о важных", "недоступно на территории")
 
-def enrich_short_summaries(items, min_len=400, budget=25):
-    """Мировые RSS (BBC/Reuters и др.) дают одно предложение-затравку.
-    Для таких статей тянем страницу и собираем 2-4 первых абзаца текста —
-    ДО перевода, чтобы читатель получил резюме на своём языке.
-    budget ограничивает число HTTP-запросов за прогон (job ежечасный)."""
-    done = 0
-    for item in items:
-        if done >= budget:
-            break
-        s = item.get("summary", "")
-        if len(s) >= min_len or not item.get("url", "").startswith("http"):
-            continue
-        if "t.me" in item["url"] or "telegram." in item["url"]:
-            continue
-        try:
-            r = requests.get(item["url"], timeout=8,
-                             headers=BROWSER_HEADERS)
-            done += 1
-            if not r.ok:
+def _page_body(url: str) -> str:
+    """Текст статьи со страницы: 2-4 первых абзаца, очищенных от разметки."""
+    try:
+        r = requests.get(url, timeout=8, headers=BROWSER_HEADERS)
+        if not r.ok:
+            return ""
+        soup = BeautifulSoup(r.content, "html.parser")
+        root = soup.find("article") or soup
+        paras, seen = [], set()
+        for p in root.find_all("p"):
+            t = clean_text(p.get_text(" ", strip=True))
+            if len(t) < 60:                     # подписи, даты, крошки
                 continue
-            soup = BeautifulSoup(r.content, "html.parser")
-            root = soup.find("article") or soup
-            paras = []
-            seen_paras = set()
-            for p in root.find_all("p"):
-                t = clean_text(p.get_text(" ", strip=True))
-                if len(t) < 60:          # подписи, даты, крошки
-                    continue
-                low = t.lower()
-                if any(n in low for n in _PAGE_NOISE):
-                    continue
-                # Часть сайтов (Al Jazeera, Sky Sports, Marca) отдаёт статью
-                # только после выполнения скриптов, и в разметке лежат меню и
-                # куски кода. Раньше они шли в описание — читатель видел
-                # «play Live Sign up Show navigation menu…» или обрывки вроде
-                # «ars». Лучше оставить описание пустым, чем заполнить мусором.
-                if any(m in t for m in ("{", "};", "function(", "var ", "://")):
-                    continue
-                # Навигация: много слов подряд без знаков препинания
-                if t.count(" ") >= 6 and not any(c in t for c in ".!?…"):
-                    continue
-                # Слипшиеся слова меню («upShow», «menuNews») — заглавная
-                # буква сразу после строчной внутри слова, и таких много
-                import re as _re
-                if len(_re.findall(r"[a-zа-я][A-ZА-Я]", t)) >= 3:
-                    continue
-                # Некоторые сайты дублируют лид-абзац (стандфёрст + начало
-                # текста) — сравниваем по первым 50 символам, не по полному
-                # тексту, т.к. дубли иногда чуть отличаются пунктуацией
-                dedup_key = low[:50]
-                if dedup_key in seen_paras:
-                    continue
-                seen_paras.add(dedup_key)
-                paras.append(t)
-                if sum(len(x) for x in paras) > 700:
-                    break
-            body = " ".join(paras).strip()
-            # Обрезаем по последнему полному предложению
-            if len(body) > 700:
-                body = body[:700]
-                idx = max(body.rfind(". "), body.rfind("! "), body.rfind("? "))
-                if idx > 150:
-                    body = body[:idx + 1]
-            body = strip_tail(body)
-            if len(body) > len(s) + 80:
-                item["summary"] = body
-        except Exception:
+            low = t.lower()
+            if any(n in low for n in _PAGE_NOISE):
+                continue
+            # Куски кода и меню: часть сайтов отдаёт статью только после
+            # выполнения скриптов, и в разметке лежит что угодно
+            if any(m in t for m in ("{", "};", "function(", "var ", "://")):
+                continue
+            if t.count(" ") >= 6 and not any(c in t for c in ".!?…"):
+                continue
+            if len(re.findall(r"[a-zа-я][A-ZА-Я]", t)) >= 3:
+                continue
+            key = low[:50]
+            if key in seen:
+                continue
+            seen.add(key)
+            paras.append(t)
+            if sum(len(x) for x in paras) > 700:
+                break
+        body = " ".join(paras).strip()
+        if len(body) > 700:
+            body = body[:700]
+            idx = max(body.rfind(". "), body.rfind("! "), body.rfind("? "))
+            if idx > 150:
+                body = body[:idx + 1]
+        return strip_tail(body)
+    except Exception:
+        return ""
+
+
+def enrich_short_summaries(items, min_len=400, budget=150, workers=8):
+    """Дотягивает короткие описания текстом со страницы статьи.
+
+    Мировые ленты дают одно предложение-затравку, и на экране это выглядит как
+    «две строки и кнопка». Идёт ДО перевода, чтобы читатель получил резюме на
+    своём языке.
+
+    Восемь потоков, а не по очереди: раньше бюджет держали крошечным (25),
+    потому что каждая страница ждала предыдущую, и короткие новости оставались
+    короткими — а эталон качества их потом снимал с эфира. Дотянуть лучше, чем
+    выбросить.
+    """
+    targets, seen_urls = [], set()
+    for item in items:
+        url = item.get("url", "")
+        if len(item.get("summary", "")) >= min_len or not url.startswith("http"):
             continue
-    if done:
-        print(f"  📄 Обогащено полным текстом: {done} запросов")
+        if "t.me" in url or "telegram." in url or url in seen_urls:
+            continue
+        seen_urls.add(url)
+        targets.append(item)
+    targets = targets[:budget]
+    if not targets:
+        return
+
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        bodies = list(pool.map(lambda it: _page_body(it["url"]), targets))
+
+    done = 0
+    by_url = {}
+    for item, body in zip(targets, bodies):
+        if body and len(body) > len(item.get("summary", "")) + 80:
+            item["summary"] = body
+            by_url[item["url"]] = body
+            done += 1
+    # Копии той же статьи в списке получают тот же текст
+    for item in items:
+        if len(item.get("summary", "")) < min_len:
+            b = by_url.get(item.get("url"))
+            if b:
+                item["summary"] = b
+    print(f"  📄 Дотянуто текстом со страницы: {done} из {len(targets)}")
+
 
 def enrich_missing_images(items, budget=200, workers=8):
     """Достаёт фотографию со страницы статьи для новостей, где её нет в ленте.
@@ -2284,7 +2300,10 @@ QC_STUB_MARKERS = [
 #   СНИМАЕМ С ЭФИРА — читать нечего или это не наша новость
 #   ПОМЕЧАЕМ В ЖУРНАЛ — изъян заметный, но материал ценнее изъяна
 TITLE_MIN, TITLE_MAX = 25, 200
-BODY_MIN = 200                      # меньше — это подпись, а не новость
+# 120, а не 200: «Суд принял дело бывшего сотрудника ГКНБ» — это сто знаков, но
+# на «что, где, когда» отвечает полностью. Порог в 200 выбрасывал настоящие
+# местные новости, а вместе с ними и атаку на поезд в Одесской области
+BODY_MIN = 120
 FUTURE_TOLERANCE_MS = 3 * 3600 * 1000   # часовые пояса врут в пределах пары часов
 
 # Хвост источника в заголовке: «…, — РИА Новости», «... - BBC News»
@@ -2775,7 +2794,7 @@ def main():
     # каждого — бюджет запросов выгорал вчетверо быстрее, а до части новостей
     # очередь не доходила вовсе, и они оставались с пустым описанием
     print("📝 Дозаполняем короткие описания...")
-    enrich_short_summaries(all_news, budget=80)
+    enrich_short_summaries(all_news)
     enrich_missing_images(all_news)
 
     # Новости, у которых текста нет и взять его негде (Al Jazeera, Sky Sports,
