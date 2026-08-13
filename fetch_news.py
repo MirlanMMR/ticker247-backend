@@ -1610,6 +1610,8 @@ def promote_global_stories(all_news):
 # же новость то попадала в ленту, то исчезала — ИИ отвечал чуть иначе при
 # каждом опросе, и читатель видел, как статья пропадает без причины.
 AI_CACHE = {}
+# Была ли хоть одна порция без отбора: тогда запоминать вердикты нельзя
+_LAST_CHUNK_FELL_BACK = False
 AI_CACHE_TTL_MS = 48 * 3600 * 1000     # двое суток: сутки живёт новость + запас
 
 
@@ -1659,6 +1661,8 @@ def filter_with_gemini(news_list, lang="ru"):
     if not news_list:
         return news_list
 
+    global _LAST_CHUNK_FELL_BACK
+    _LAST_CHUNK_FELL_BACK = False
     pool_cache = AI_CACHE.setdefault(lang, {})
     if not isinstance(pool_cache, dict):
         pool_cache = AI_CACHE[lang] = {}
@@ -1691,18 +1695,27 @@ def filter_with_gemini(news_list, lang="ru"):
             out.extend(_filter_chunk(asked_items[start:start + GEMINI_CHUNK], lang))
         kept_keys = {_cache_key(x) for x in out}
         now = int(datetime.now().timestamp() * 1000)
+        remember = not _LAST_CHUNK_FELL_BACK
+        if not remember:
+            print(f"  🧠 [{lang}] вердикты НЕ запомнены: ИИ не отвечал, выборка случайная")
         for idx, item in to_ask:
             k = _cache_key(item)
             keep = k in kept_keys
-            pool_cache[k] = {"keep": keep, "ts": now}
+            # Показать и запомнить — разные действия. Новость, отобранную
+            # запасным путём, показываем (лента не должна пустеть), но в
+            # память не пишем: это была случайность, а не решение ИИ
             if keep:
                 verdict = next(x for x in out if _cache_key(x) == k)
-                pool_cache[k].update({
-                    "priority": verdict.get("priority", 0),
-                    "category": verdict.get("category"),
-                    "scope": verdict.get("scope"),
-                })
                 judged[idx] = verdict
+                if remember:
+                    pool_cache[k] = {
+                        "keep": True, "ts": now,
+                        "priority": verdict.get("priority", 0),
+                        "category": verdict.get("category"),
+                        "scope": verdict.get("scope"),
+                    }
+            elif remember:
+                pool_cache[k] = {"keep": False, "ts": now}
 
     print(f"  🧠 [{lang}] из памяти: {len(known_keep)} оставлено, "
           f"{dropped_by_memory} отсеяно | спрошено у ИИ: {len(to_ask)}")
@@ -1943,6 +1956,10 @@ VIRAL=вирусное видео, NEWS=всё остальное
         return filtered
     except Exception as e:
         print(f"⚠️ Gemini error (порция без отбора): {e}")
+        # Пометка для памяти вердиктов: это НЕ решение ИИ, а случайная выборка.
+        # Запомнить её значило бы закрепить случайность на двое суток вперёд
+        global _LAST_CHUNK_FELL_BACK
+        _LAST_CHUNK_FELL_BACK = True
         # Запасной вариант на одну порцию: половина наугад. Полный отбор ИИ
         # оставляет примерно столько же, так что лента не проседает и не
         # раздувается мусором. Ошибка кричит в логе: полгода она молчала,
