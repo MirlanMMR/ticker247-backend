@@ -61,6 +61,11 @@ RSS_SOURCES = [
     {"url": "https://www.eurosport.com/rss/sport/rss.xml", "source": "Eurosport", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world"},
 
     # МИРОВЫЕ ТЕХНОЛОГИИ
+    # Португалия осталась без изданий: Público и Expresso отдают 403, DN и JN
+    # закрыли ленты. Эти два живы и текст дают (13.08.2026)
+    {"url": "https://observador.pt/feed/", "source": "Observador PT", "category": "NEWS", "priority": 1, "quota": 5, "scope": "pool", "lang": "pt"},
+    {"url": "https://www.noticiasaominuto.com/rss/ultima-hora", "source": "Notícias ao Minuto", "category": "NEWS", "priority": 1, "quota": 5, "scope": "pool", "lang": "pt"},
+    {"url": "https://opais.co.mz/feed/", "source": "O País MZ", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "pt"},
     # Источник годится, если текст приходит ХОТЬ ОТКУДА-ТО: со страницы или
     # из самой ленты. Сперва я судил только по странице и отбросил Axios за
     # отказ 403 — а он отдаёт 3359 знаков прямо в ленте, больше всех прочих.
@@ -101,7 +106,7 @@ RSS_SOURCES = [
     {"url": "https://feeds.npr.org/1001/rss.xml", "source": "NPR News", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "en"},
     {"url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", "source": "NY Times", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "en"},
     {"url": "https://feeds.nbcnews.com/nbcnews/public/news", "source": "NBC News", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
-    {"url": "https://rss.cnn.com/rss/edition.rss", "source": "CNN", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
+    {"url": "http://rss.cnn.com/rss/cnn_topstories.rss", "source": "CNN", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
     {"url": "https://feeds.washingtonpost.com/rss/national", "source": "Washington Post", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "en"},
     {"url": "https://www.politico.com/rss/politicopicks.xml", "source": "Politico", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
     # Великобритания
@@ -317,6 +322,17 @@ ACTIVE_POOLS = ["ru", "en", "es", "pt"]
 RETIRED_SOURCES = [
     "yna.co.kr",        # Yonhap: телеграфные пометки в заголовках, тела статей без перевода
     "koreatimes.co.kr", # то же и внутренняя повестка Кореи
+    # Мертвы окончательно — проверено и с ноутбука, и на серверах GitHub
+    # (13.08.2026). Домены не разрешаются, ленты пусты или отдают не XML
+    "feeds.reuters.com",    # бесплатной ленты у Reuters больше нет
+    "gezitter.org",         # домен не существует
+    "elle.ru",              # домен не существует
+    "drive.ru",             # лента пустая
+    "kino-teatr.ru",        # отдаёт не XML
+    "latercera.com",        # лента пустая
+    "publico.pt",           # 403 и битый XML
+    "kun.uz",               # отдаёт HTML вместо ленты
+    "trends.google.com",    # Google закрыл эти ленты, 404 во всех странах
     "aljazeera.net",    # арабская лента: тексты на арабском во всех пулах.
                         # Метки языка мало — слияние не трогает записи, уже
                         # лежащие в базе, а эта попала туда раньше. Вернём,
@@ -438,7 +454,7 @@ def fetch_akchаbar_rates():
     """Парсим курсы валют с Акчабара — покупка и продажа по банкам КР"""
     try:
         headers = {"User-Agent": "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36"}
-        r = requests.get("https://akchаbar.com/ru/currency", timeout=15, headers=headers)
+        r = requests.get("https://akchabar.com/ru/currency", timeout=15, headers=headers)
         if not r.ok:
             print(f"  ✗ Акчабар: HTTP {r.status_code}")
             return None
@@ -495,7 +511,7 @@ def fetch_akchаbar_rates():
         return {
             "title": title,
             "summary": summary,
-            "url": "https://akchаbar.com/ru/currency",
+            "url": "https://akchabar.com/ru/currency",
             "imageUrl": None,
             "source": "Акчабар",
             "category": "CURRENCY",
