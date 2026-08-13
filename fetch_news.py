@@ -1185,6 +1185,24 @@ def _page_body(url: str) -> str:
             if sum(len(x) for x in paras) > 700:
                 break
         body = " ".join(paras).strip()
+
+        # Абзацы не дались — берём краткое описание из мета-тега. Сайты кладут
+        # его для соцсетей, и там обычно две-три сотни знаков: не статья, но
+        # честное «что, где, когда». Без этого настоящие новости снимались с
+        # эфира за короткий текст — «Обмеление Дуная остановило АЭС Румынии»,
+        # «Суд Бишкека о подписантах письма 75»
+        if len(body) < 200:
+            for attrs in ({"property": "og:description"},
+                          {"name": "og:description"},
+                          {"name": "description"},
+                          {"name": "twitter:description"}):
+                tag = soup.find("meta", attrs=attrs)
+                meta = clean_text(tag.get("content") or "") if tag else ""
+                if len(meta) > len(body):
+                    body = meta
+                if len(body) >= 200:
+                    break
+
         if len(body) > 700:
             body = body[:700]
             idx = max(body.rfind(". "), body.rfind("! "), body.rfind("? "))
