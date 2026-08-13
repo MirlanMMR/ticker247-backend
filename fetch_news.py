@@ -1200,8 +1200,6 @@ def enrich_missing_images(items, budget=200, workers=8):
                 item["imageUrl"] = img
 
     print(f"  🖼️ Фото добыто: {len(by_url)} из {len(targets)} страниц")
-    if done:
-        print(f"  🖼️ Дозагружено og:image для важных новостей: {done} запросов")
 
 def parse_pub_date(item_el) -> int:
     """Настоящая дата публикации из RSS (<pubDate>, формат RFC 822).
