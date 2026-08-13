@@ -1592,8 +1592,7 @@ def promote_global_stories(all_news):
 {chr(10).join(titles[:GEMINI_CHUNK * 3])}"""
 
     try:
-        model = genai.GenerativeModel("gemini-flash-latest")
-        text = model.generate_content(prompt).text.strip()
+        text = ask_gemini(prompt)
         if "```" in text:
             text = text.split("```")[1].replace("json", "").strip()
         picked = json.loads(text).get("global", [])
@@ -1625,6 +1624,41 @@ def promote_global_stories(all_news):
 # Побочная польза важнее экономии: выдача перестаёт прыгать. Раньше одна и та
 # же новость то попадала в ленту, то исчезала — ИИ отвечал чуть иначе при
 # каждом опросе, и читатель видел, как статья пропадает без причины.
+# Модель прикреплена, а не «последняя»: псевдоним gemini-flash-latest Google
+# волен вести куда угодно, и он привёл на модель примерно вдесятеро дороже
+# ожидаемой — десять долларов сгорели за сутки. Здесь цена известна заранее.
+# Если прикреплённой не окажется, падаем на псевдоним и громко сообщаем.
+GEMINI_MODEL = "gemini-2.5-flash-lite"
+GEMINI_MODEL_FALLBACK = "gemini-flash-latest"
+
+# Счётчик расхода: раньше о цене узнавали, когда деньги кончались
+TOKENS = {"in": 0, "out": 0, "calls": 0}
+
+
+def ask_gemini(prompt: str) -> str:
+    """Один запрос к ИИ с подсчётом токенов и запасной моделью."""
+    global _MODEL_IN_USE
+    try:
+        model = genai.GenerativeModel(_MODEL_IN_USE)
+        resp = model.generate_content(prompt)
+    except Exception as e:
+        if "not found" in str(e).lower() or "404" in str(e):
+            print(f"  ⚠️ Модель {_MODEL_IN_USE} недоступна, беру {GEMINI_MODEL_FALLBACK}")
+            _MODEL_IN_USE = GEMINI_MODEL_FALLBACK
+            model = genai.GenerativeModel(_MODEL_IN_USE)
+            resp = model.generate_content(prompt)
+        else:
+            raise
+    u = getattr(resp, "usage_metadata", None)
+    if u:
+        TOKENS["in"] += getattr(u, "prompt_token_count", 0) or 0
+        TOKENS["out"] += getattr(u, "candidates_token_count", 0) or 0
+    TOKENS["calls"] += 1
+    return resp.text.strip()
+
+
+_MODEL_IN_USE = GEMINI_MODEL
+
 AI_CACHE = {}
 # Была ли хоть одна порция без отбора: тогда запоминать вердикты нельзя
 _LAST_CHUNK_FELL_BACK = False
@@ -1891,9 +1925,7 @@ VIRAL=вирусное видео, NEWS=всё остальное
         # Псевдоним, а не конкретная версия: Google отключает старые модели
         # без предупреждения (так умерла gemini-2.0-flash), и тогда фильтр молча
         # уходит в запасной вариант — 60 случайных статей вместо отбора
-        model = genai.GenerativeModel("gemini-flash-latest")
-        response = model.generate_content(prompt)
-        text = response.text.strip()
+        text = ask_gemini(prompt)
         if "```" in text:
             text = text.split("```")[1].replace("json", "").strip()
         result = json.loads(text)
@@ -2919,6 +2951,14 @@ def main():
             print(f"  🧹 Убрана ветка отключённого пула: /news/{stale}")
 
     save_ai_cache()
+
+    # Расход этого прогона. Цены Flash-Lite на 13.08.2026 — примерно $0.10 за
+    # миллион входящих и $0.40 за миллион исходящих; считаем по ним, чтобы
+    # видеть порядок суммы, а не точную копейку
+    cost = TOKENS["in"] / 1e6 * 0.10 + TOKENS["out"] / 1e6 * 0.40
+    print(f"💰 Расход ИИ: {TOKENS['calls']} запросов, "
+          f"{TOKENS['in']:,} входящих + {TOKENS['out']:,} исходящих токенов "
+          f"≈ ${cost:.4f} за прогон (≈ ${cost * 24:.2f} в сутки при часовом графике)")
 
     # Публикуем имена редакторских каналов — приложение читает их отсюда,
     # смена канала не требует обновления приложения
