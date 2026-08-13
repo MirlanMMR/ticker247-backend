@@ -2427,6 +2427,192 @@ def translate_batch(items, target_lang):
           f"(из памяти {from_memory}, заново {translated - from_memory})")
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# СЛУЖБА КОНТРОЛЯ КАЧЕСТВА — последний рубеж перед эфиром
+# ═══════════════════════════════════════════════════════════════════════════
+# Проверка идёт ПЕРЕД записью в базу, а не после: то, что уже показано
+# читателю, чинить поздно. Что можно исправить — исправляем молча, что нельзя
+# — не выпускаем совсем.
+#
+# Список правил растёт из настоящих находок, а не из фантазий: каждая строка
+# ниже — ошибка, которую пользователь увидел на своём экране.
+# Порядок — от самых частых к редким.
+
+# Строки, которых не должно быть в тексте новости ни при каких условиях.
+# Вырезаем строку целиком, а не всю новость: обычно это одна подпись среди
+# нормальных абзацев («Photographer: Bonnie Cash/UPI/Bloomberg»)
+QC_JUNK_LINES = [
+    r"^\s*photographer\s*:.*$",
+    r"^\s*photo\s*:.*$",
+    r"^\s*cr[ée]dito\s*,.*$",
+    r"^\s*credit\s*:.*$",
+    r"^\s*image (?:credit|source|caption)\s*:?.*$",
+    r"\(image credit:[^)]*\)",
+    r"^\s*getty images.*$",
+    r"^\s*read more\s*$",
+    r"^\s*end of\b.*$",
+    r"^\s*подписывайтесь на наши соцсети.*$",
+    r"^\s*при первом открытии приложения.*$",
+]
+
+# Приметы того, что вместо статьи пришла заглушка. Такую новость не чиним —
+# снимаем с эфира: показывать нечего, а заголовок обещает содержание
+QC_STUB_MARKERS = [
+    "blog is currently unavailable", "please try again later",
+    "этот блог в настоящее время недоступен", "access denied",
+    "reference #", "errors.edgesuite.net", "javascript is disabled",
+    "subscribe to continue", "подпишитесь, чтобы продолжить",
+]
+
+
+
+# ── ЭТАЛОН НОВОСТИ ───────────────────────────────────────────────────────────
+# Чёрный список выше перечисляет известные дефекты — он ловит только то, что мы
+# уже видели. Эталон работает наоборот: описывает, какой должна быть годная
+# новость, и не выпускает всё, что не дотягивает, включая беды, которых мы
+# ещё не встречали.
+#
+# Два уровня строгости, иначе лента опустеет:
+#   СНИМАЕМ С ЭФИРА — читать нечего или это не наша новость
+#   ПОМЕЧАЕМ В ЖУРНАЛ — изъян заметный, но материал ценнее изъяна
+TITLE_MIN, TITLE_MAX = 25, 200
+# 120, а не 200: «Суд принял дело бывшего сотрудника ГКНБ» — это сто знаков, но
+# на «что, где, когда» отвечает полностью. Порог в 200 выбрасывал настоящие
+# местные новости, а вместе с ними и атаку на поезд в Одесской области
+BODY_MIN = 120
+FUTURE_TOLERANCE_MS = 3 * 3600 * 1000   # часовые пояса врут в пределах пары часов
+
+# Хвост источника в заголовке: «…, — РИА Новости», «... - BBC News»
+TITLE_TAIL = re.compile(r"\s*[-—–]\s*[A-ZА-Я][^-—–]{2,24}$")
+
+
+def meets_standard(item, lang):
+    """Возвращает (годна, причина_снятия, список_замечаний)."""
+    notes = []
+    title = (item.get("title") or "").strip()
+    body = (item.get("summary") or "").strip()
+
+    if len(title) < TITLE_MIN:
+        return False, "заголовок короче эталона", notes
+    if len(title) > TITLE_MAX:
+        notes.append("заголовок длиннее эталона")
+
+    # Нижнего порога по длине НЕТ. Считать знаки — грубая замена пониманию:
+    # «Вертолёт Apache разбился у Форт-Худа, погибли двое солдат» — восемьдесят
+    # знаков, и это полноценная новость, а иная простыня на две тысячи знаков
+    # события не содержит вовсе. Смысл оценивает ИИ правилом об инфоповоде,
+    # эталон следит лишь за тем, чтобы карточка не оказалась пустой
+    if not item.get("notifyOnly") and len(body) < 40:
+        return False, "текста нет вовсе", notes
+
+    url = item.get("url") or ""
+    if not url.startswith("http"):
+        return False, "нет рабочей ссылки", notes
+
+    published = item.get("publishedAt", 0)
+    now = int(datetime.now().timestamp() * 1000)
+    if published > now + FUTURE_TOLERANCE_MS:
+        return False, "дата из будущего", notes
+    if published and now - published > 36 * 3600 * 1000:
+        return False, "старше полутора суток", notes
+
+    if item.get("scope") not in ("local", "pool", "world"):
+        notes.append("уровень не проставлен")
+        item["scope"] = "world"
+
+    if item.get("translated") and not item.get("origTitle"):
+        notes.append("перевод без оригинала")
+
+    if not item.get("imageUrl"):
+        notes.append("без фото")
+
+    return True, None, notes
+
+
+def quality_gate(items, lang):
+    """Правит и отсеивает новости перед публикацией. Возвращает годные."""
+    kept, dropped = [], []
+    fixed, warned = Counter(), Counter()
+
+    for item in items:
+        title = (item.get("title") or "").strip()
+        body = (item.get("summary") or "").strip()
+        low = body.lower()
+
+        # 1. Заглушка вместо статьи — снимаем с эфира
+        if any(m in low for m in QC_STUB_MARKERS):
+            dropped.append((item, "заглушка вместо текста"))
+            continue
+
+        # 2. Служебные строки внутри текста — вырезаем построчно
+        before = body
+        for pat in QC_JUNK_LINES:
+            body = re.sub(pat, "", body, flags=re.I | re.M)
+        body = re.sub(r"\n{3,}", "\n\n", body).strip()
+        if body != before:
+            fixed["служебные строки"] += 1
+
+        # 3. Хвост и обрыв на полуслове
+        cleaned = strip_tail(body)
+        if cleaned != body:
+            fixed["хвост"] += 1
+            body = cleaned
+
+        # 4. Заголовок, продублированный первой строкой текста
+        if title and body.lower().startswith(title.lower()[:40]):
+            body = body[len(title):].lstrip(" .,—-:\n")
+            fixed["дубль заголовка"] += 1
+
+        # 5. Метка «срочно», не подтверждённая важностью. Красный бейдж и пуш
+        #    обесцениваются, если ими метят рядовую новость
+        if item.get("category") == "URGENT" and item.get("priority", 0) < 2:
+            item["category"] = "NEWS"
+            fixed["незаслуженное «срочно»"] += 1
+
+        item["summary"] = body
+
+        # 6. Хвост источника в заголовке — «…, — РИА Новости». Источник и так
+        #    подписан под карточкой, в заголовке он крадёт место
+        new_title = TITLE_TAIL.sub("", title).strip()
+        if new_title != title and len(new_title) >= TITLE_MIN:
+            item["title"] = new_title
+            fixed["хвост источника в заголовке"] += 1
+
+        # 7. Местное издание не может оказаться в блоке «Новости из».
+        #
+        # Правило простое и жёсткое, потому что ИИ здесь ошибается предсказуемо:
+        # в новости «Россия привезла в Кыргызстан 671 тысячу учебников» он видит
+        # две страны и ставит уровень языкового пространства. А событие целиком
+        # уместилось в Кыргызстане, и читатель ждёт его среди местных.
+        # Мировой уровень местному изданию оставляем: кыргызское СМИ вполне
+        # может писать о выборах в США, и это действительно мировая новость.
+        url_low = (item.get("url") or "").lower()
+        if item.get("scope") == "pool" and any(dom in url_low for dom in LOCAL_DOMAINS.get(lang, [])):
+            item["scope"] = "local"
+            fixed["местное издание вернулось в «Местные»"] += 1
+
+        # 8. Соответствие эталону — последнее слово
+        ok, why, notes = meets_standard(item, lang)
+        for n in notes:
+            warned[n] += 1
+        if not ok:
+            dropped.append((item, why))
+            continue
+
+        kept.append(item)
+
+    if fixed:
+        parts = ", ".join(f"{k}: {v}" for k, v in fixed.most_common())
+        print(f"  🛡 Контроль качества [{lang}]: исправлено — {parts}")
+    if warned:
+        print(f"  🛡 Замечания [{lang}]: " + ", ".join(f"{k}: {v}" for k, v in warned.most_common()))
+    if dropped:
+        print(f"  🛡 Снято с эфира [{lang}]: {len(dropped)}")
+        for it, why in dropped[:5]:
+            print(f"       {why} | [{it.get('source','?')}] {(it.get('title') or '')[:60]}")
+    return kept
+
+
 def tg_post_keys(item) -> list:
     """Ключи дедупликации TG-поста: по URL и по заголовку.
     Заголовочный ключ ловит ту же новость от другого источника (другой URL).
