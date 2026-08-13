@@ -1132,37 +1132,74 @@ def enrich_short_summaries(items, min_len=400, budget=25):
     if done:
         print(f"  📄 Обогащено полным текстом: {done} запросов")
 
-def enrich_missing_images(items, budget=15):
-    """Важные/срочные новости без фото (priority>=2, URGENT, #карусель) всё
-    равно попадают в hero-карусель приложения — с генерической заглушкой
-    вместо картинки. RSS иногда не даёт enclosure, но сайт почти всегда
-    указывает og:image в мета-тегах страницы — вытаскиваем его точечно,
-    только для этих важных случаев, чтобы не тратить бюджет запросов
-    на рядовые новости, для которых фото не критично."""
-    done = 0
+def enrich_missing_images(items, budget=200, workers=8):
+    """Достаёт фотографию со страницы статьи для новостей, где её нет в ленте.
+
+    RSS часто приходит без картинки, а сайт почти всегда кладёт og:image —
+    метку для соцсетей. Без неё в ленте видна эмодзи-заглушка: в английском
+    пуле такими были 40 новостей из 55.
+
+    Два прежних изъяна, из-за которых заглушек было столько:
+
+    1. Вызывалось ПОСЛЕ разделения по пулам. Мировая новость лежит в четырёх
+       пулах копиями, и одна и та же страница открывалась четырежды — бюджет
+       сгорал вчетверо быстрее. Теперь зовём до разделения, по одному разу
+       на адрес.
+    2. Страницы открывались по очереди, поэтому бюджет держали крошечным (15)
+       и тратили только на важные новости. Восемь потоков делают ту же работу
+       за секунды, и хватает на всю ленту.
+
+    Денег это не стоит: обычное открытие страницы, не запрос к ИИ.
+    """
+    targets = []
+    seen_urls = set()
     for item in items:
-        if done >= budget:
-            break
         if item.get("imageUrl"):
-            continue
-        is_important = item.get("priority", 0) >= 2 or item.get("category") == "URGENT"
-        if not is_important:
             continue
         url = item.get("url", "")
         if not url.startswith("http") or "t.me" in url or "telegram." in url:
             continue
-        try:
-            r = requests.get(url, timeout=8, headers=BROWSER_HEADERS)
-            done += 1
-            if not r.ok:
-                continue
-            soup = BeautifulSoup(r.content, "html.parser")
-            og = soup.find("meta", property="og:image") or soup.find("meta", attrs={"name": "og:image"})
-            img_url = og.get("content") if og else None
-            if img_url and img_url.startswith("http"):
-                item["imageUrl"] = img_url
-        except Exception:
+        if url in seen_urls:
             continue
+        seen_urls.add(url)
+        targets.append(item)
+    targets = targets[:budget]
+    if not targets:
+        return
+
+    def fetch(item):
+        try:
+            r = requests.get(item["url"], timeout=8, headers=BROWSER_HEADERS)
+            if not r.ok:
+                return None
+            soup = BeautifulSoup(r.content, "html.parser")
+            og = (soup.find("meta", property="og:image")
+                  or soup.find("meta", attrs={"name": "og:image"})
+                  or soup.find("meta", attrs={"name": "twitter:image"}))
+            img = og.get("content") if og else None
+            return img if img and img.startswith("http") else None
+        except Exception:
+            return None
+
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        results = list(pool.map(fetch, targets))
+
+    by_url = {}
+    for item, img in zip(targets, results):
+        if img:
+            item["imageUrl"] = img
+            by_url[item["url"]] = img
+
+    # Копии той же новости в других пулах ещё не созданы, но в общем списке
+    # могут лежать записи с тем же адресом — раздаём найденное всем
+    for item in items:
+        if not item.get("imageUrl"):
+            img = by_url.get(item.get("url"))
+            if img:
+                item["imageUrl"] = img
+
+    print(f"  🖼️ Фото добыто: {len(by_url)} из {len(targets)} страниц")
     if done:
         print(f"  🖼️ Дозагружено og:image для важных новостей: {done} запросов")
 
@@ -2356,6 +2393,7 @@ def main():
     # очередь не доходила вовсе, и они оставались с пустым описанием
     print("📝 Дозаполняем короткие описания...")
     enrich_short_summaries(all_news, budget=80)
+    enrich_missing_images(all_news)
 
     # Новости, у которых текста нет и взять его негде (Al Jazeera, Sky Sports,
     # Marca, Bloomberg отдают статью только после выполнения скриптов —
@@ -2435,9 +2473,6 @@ def main():
         filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
         max_items = 80 if lang == "ru" else 70
         filtered = filtered[:max_items]
-        # Важные/срочные новости без фото — подтягиваем og:image со страницы,
-        # чтобы они не висели в hero-карусели с генерической заглушкой
-        enrich_missing_images(filtered)
         # Автоперевод: статьи не на языке пула переводим через Gemini
         # Батчи по 15 + один повтор для неудавшихся — падение батча не оставляет
         # половину пула на чужом языке (приложение фильтрует их из ленты)
