@@ -305,7 +305,7 @@ RETIRED_SOURCES = [
     "washingtonpost.com",   # соединение обрывается по таймауту
     "nytimes.com",          # 403 Forbidden
     "bloomberg.com",        # 403 Forbidden
-    "sky.com/news",         # 403, страница блокировки Akamai
+    "skynews.com",          # 403, страница блокировки Akamai
     "marketwatch.com",      # 401 Forbidden
 ]
 
