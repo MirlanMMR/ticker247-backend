@@ -61,6 +61,11 @@ RSS_SOURCES = [
     {"url": "https://www.eurosport.com/rss/sport/rss.xml", "source": "Eurosport", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world"},
 
     # МИРОВЫЕ ТЕХНОЛОГИИ
+    # Замена ушедшим (13.08.2026): страницы проверены, текст отдают —
+    # CBS 2700 знаков, Time 7200, Fortune 9300
+    {"url": "https://www.cbsnews.com/latest/rss/main", "source": "CBS News", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world"},
+    {"url": "https://time.com/feed/", "source": "Time", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
+    {"url": "https://fortune.com/feed/", "source": "Fortune", "category": "MONEY", "priority": 1, "quota": 4, "scope": "world"},
     {"url": "https://techcrunch.com/feed/", "source": "TechCrunch", "category": "TECH", "priority": 0, "quota": 4, "scope": "world"},
     {"url": "https://www.theverge.com/rss/index.xml", "source": "The Verge", "category": "TECH", "priority": 0, "quota": 4, "scope": "world"},
     {"url": "https://www.wired.com/feed/rss", "source": "Wired", "category": "TECH", "priority": 0, "quota": 3, "scope": "world"},
@@ -291,7 +296,17 @@ ACTIVE_POOLS = ["ru", "en", "es", "pt"]
 RETIRED_SOURCES = [
     "yna.co.kr",        # Yonhap: телеграфные пометки в заголовках, тела статей без перевода
     "koreatimes.co.kr", # то же и внутренняя повестка Кореи
-    "tass.ru",          # отключён ранее: в RSS только подзаголовок, страница почти пустая
+    # Ниже — источники, которые НЕ ОТДАЮТ ТЕКСТ. Критерий технический, а не
+    # редакторский: в ленте приходит одна строка-затравка, а страница отвечает
+    # отказом или молчит, и читалке нечего показать. Человек упирается в две
+    # строки и кнопку «читать на сайте» — мы обещали, что так не будет.
+    # Проверено 13.08.2026 запросом статьи с телефонным User-Agent
+    "tass.ru",              # в RSS только подзаголовок, страница почти пустая
+    "washingtonpost.com",   # соединение обрывается по таймауту
+    "nytimes.com",          # 403 Forbidden
+    "bloomberg.com",        # 403 Forbidden
+    "sky.com/news",         # 403, страница блокировки Akamai
+    "marketwatch.com",      # 401 Forbidden
 ]
 
 # Пулы, которые были включены и выключены: их ветки в /news надо подчистить
