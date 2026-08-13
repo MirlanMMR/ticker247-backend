@@ -279,8 +279,13 @@ POOL_DOMAINS = {
            "elcomercio.pe", "rpp.pe", "eluniverso.com", "elnacional.com",
            "prensalibre.com", "elsalvador.com", "nacion.com", "elobservador.com.uy",
            "bbci.co.uk/mundo"],
+    # Бразильские издания тоже здесь: раньше Terra BR и BBC Brasil числились
+    # мировыми, и «Ratinho высказался в эфире SBT» уходило в английскую и
+    # русскую ленты. Это новости языкового пространства, не планеты
     "pt": ["publico.pt", "expresso.pt", "dn.pt", "observador.pt", "rtp.pt",
-           "jornaldeangola.ao", "verangola.net", "opais.co.mz"],
+           "jornaldeangola.ao", "verangola.net", "opais.co.mz",
+           "terra.com.br", "bbci.co.uk/portuguese", "cnnbrasil.com.br",
+           "uol.com.br", "globo.com", "estadao.com.br"],
 }
 
 
@@ -296,6 +301,10 @@ ACTIVE_POOLS = ["ru", "en", "es", "pt"]
 RETIRED_SOURCES = [
     "yna.co.kr",        # Yonhap: телеграфные пометки в заголовках, тела статей без перевода
     "koreatimes.co.kr", # то же и внутренняя повестка Кореи
+    "aljazeera.net",    # арабская лента: тексты на арабском во всех пулах.
+                        # Метки языка мало — слияние не трогает записи, уже
+                        # лежащие в базе, а эта попала туда раньше. Вернём,
+                        # когда появится арабский пул
     # Ниже — источники, которые НЕ ОТДАЮТ ТЕКСТ. Критерий технический, а не
     # редакторский: в ленте приходит одна строка-затравка, а страница отвечает
     # отказом или молчит, и читалке нечего показать. Человек упирается в две
@@ -1060,7 +1069,19 @@ def extract_full_summary(item_el) -> str:
 _PAGE_NOISE = ("this video can not be played", "published ", "getty images",
                "image source", "image caption", "advertisement", "sign up",
                "follow us", "related topics", "cookies", "javascript",
-               "share this", "copyright", "watch:", "listen:")
+               "share this", "copyright", "watch:", "listen:",
+               # Подписи под фотографиями: приходят отдельным абзацем и в ленте
+               # выглядят как начало статьи — «Photographer: Bonnie Cash/UPI/
+               # Bloomberg», «Crédito, YouTube/Miss Universe»
+               "photographer:", "photo:", "crédito,", "credito,", "credit:",
+               "фото:", "иллюстрация:",
+               # Заглушки живых блогов: приходят с кодом 200 и нормальной
+               # разметкой, поэтому проверка ответа их не ловит (Sky Sports)
+               "blog is currently unavailable", "please try again later",
+               "этот блог в настоящее время недоступен",
+               # Собственная реклама издания внутри текста (BBC Русская служба)
+               "подписывайтесь на наши соцсети", "при первом открытии приложения",
+               "получайте уведомления о важных", "недоступно на территории")
 
 def enrich_short_summaries(items, min_len=400, budget=25):
     """Мировые RSS (BBC/Reuters и др.) дают одно предложение-затравку.
