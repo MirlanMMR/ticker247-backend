@@ -591,7 +591,7 @@ RADIO_STATIONS = [
     # ru: нейтральных новостных радио почти не осталось, поэтому деловые
     # Государственное радио Кыргызстана (ОТРК) — речевое, новостное.
     # Музыкальное «Миң кыял» и не отвечающее «Биринчи» не берём
-    {"name": "Кыргыз радиосу",  "url": "https://liveradio.utrk.kg/kyrgyzradio",                              "pool": "ru", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B"},
+    {"name": "Кыргыз радиосу",  "url": "https://liveradio.utrk.kg/kyrgyzradio",                              "pool": "ru", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "KG,KZ,UZ,TM"},
     {"name": "РБК",              "url": "https://rbcreg.hostingradio.ru/rbc32.aacp",                                  "pool": "ru", "colorFrom": "FF1F3A5F", "colorTo": "FF2E6CA8"},
     {"name": "Коммерсантъ FM",   "url": "https://kommersant77.hostingradio.ru:8085/kommersant128.mp3",                 "pool": "ru", "colorFrom": "FF4A2B1E", "colorTo": "FF8A5A3B"},
     {"name": "Бизнес FM",        "url": "https://bfm.hostingradio.ru:9075/fm",                                        "pool": "ru", "colorFrom": "FF1E3B32", "colorTo": "FF2F7A63"},
