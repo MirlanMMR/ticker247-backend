@@ -2414,14 +2414,23 @@ def translate_batch(items, target_lang):
             if not t:
                 # Запасной путь: бесплатный переводчик, как раньше
                 t = _gtx_translate(ot[:300], target_lang) or ""
+                time.sleep(0.15)
+            if not s_ and os_:
+                # ИИ вернул заголовок, но не текст — такое случается, и раньше
+                # мы молча оставляли английское тело под русским заголовком,
+                # да ещё и запоминали эту пару на двое суток
                 s_ = _gtx_translate(os_[:800], target_lang) or ""
                 time.sleep(0.15)
             if apply(item, t, s_, ot, os_):
                 translated += 1
-                pool_mem[_cache_key(item)] = {
-                    "title": t, "summary": s_ or os_,
-                    "origTitle": ot, "origSummary": os_, "ts": now,
-                }
+                # В память кладём только честный перевод: если тело осталось
+                # оригиналом, пусть следующий прогон попробует ещё раз
+                body_ok = bool(s_) or not os_
+                if body_ok:
+                    pool_mem[_cache_key(item)] = {
+                        "title": t, "summary": s_,
+                        "origTitle": ot, "origSummary": os_, "ts": now,
+                    }
 
     print(f"  ✓ Переведено {translated}/{len(items)} на {target_lang} "
           f"(из памяти {from_memory}, заново {translated - from_memory})")
