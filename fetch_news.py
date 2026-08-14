@@ -221,7 +221,6 @@ RSS_SOURCES = [
     # РУССКОЯЗЫЧНЫЕ ТЕМАТИЧЕСКИЕ
     {"url": "https://rsport.ria.ru/export/rss2/archive/index.xml", "source": "РИА Спорт", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world"},
     {"url": "https://www.sports.ru/rss/main.xml", "source": "Sports.ru", "category": "SPORT", "priority": 0, "quota": 3, "scope": "world"},
-    {"url": "https://habr.com/ru/rss/flows/develop/all/", "source": "Хабр", "category": "TECH", "priority": 0, "quota": 4, "scope": "world"},
     {"url": "https://www.ixbt.com/export/news.rss", "source": "iXBT", "category": "TECH", "priority": 0, "quota": 3, "scope": "world"},
     {"url": "https://www.drive.ru/rss.xml", "source": "Drive.ru", "category": "AUTO", "priority": 0, "quota": 4, "scope": "world"},
     {"url": "https://www.cosmo.ru/rss/all.xml", "source": "Cosmopolitan RU", "category": "FASHION", "priority": 0, "quota": 3, "scope": "world"},
@@ -332,6 +331,11 @@ ACTIVE_POOLS = ["ru", "en", "es", "pt"]
 RETIRED_SOURCES = [
     "yna.co.kr",        # Yonhap: телеграфные пометки в заголовках, тела статей без перевода
     "koreatimes.co.kr", # то же и внутренняя повестка Кореи
+    "habr.com",         # площадка статей разработчиков, а не новостное издание:
+                        # «как тестировать распределённые системы» — руководство,
+                        # а не событие. Наше правило об инфоповоде выбрасывало
+                        # почти всё, что он присылал, а обложки он рисует сам —
+                        # узорная заставка с заголовком вместо фотографии
     # Мертвы окончательно — проверено и с ноутбука, и на серверах GitHub
     # (13.08.2026). Домены не разрешаются, ленты пусты или отдают не XML
     "feeds.reuters.com",    # бесплатной ленты у Reuters больше нет
