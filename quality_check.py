@@ -134,6 +134,35 @@ def check_pool(pool, show_all=False):
                 break
         seen[(it.get("title") or "")[:60]] = words
 
+    # Почти-дубли: пары, которые склейка НЕ признала одним событием, но
+    # которые подозрительно близки. Нужны, чтобы настраивать порог по живым
+    # данным, а не на глаз: 24.kg и Knews.kg пишут об одном деле ГКНБ разными
+    # словами, и мы показываем обе — одну с фото, другую без
+    STOP = {"который", "которая", "после", "более", "также", "через", "около"}
+    def sig(t):
+        return {w.strip(".,:;«»\"'()").lower() for w in t.split()
+                if len(w) > 5 and w.lower() not in STOP}
+    near = []
+    for a in range(len(items)):
+        for b in range(a + 1, len(items)):
+            wa, wb = sig(items[a].get("title") or ""), sig(items[b].get("title") or "")
+            if len(wa) < 3 or len(wb) < 3:
+                continue
+            common = wa & wb
+            ratio = len(common) / min(len(wa), len(wb))
+            if 0.3 <= ratio < 0.6:
+                near.append((ratio, items[a], items[b], common))
+    if near:
+        near.sort(reverse=True, key=lambda x: x[0])
+        print(f"  ── почти-дубли (склейка их пропустила): {len(near)}")
+        for ratio, x, y, common in near[:5]:
+            fa = "фото" if x.get("imageUrl") else "БЕЗ ФОТО"
+            fb = "фото" if y.get("imageUrl") else "БЕЗ ФОТО"
+            print(f"     {ratio:.0%} общих слов: {', '.join(sorted(common))}")
+            print(f"        [{x.get('source')}, {fa}] {(x.get('title') or '')[:58]}")
+            print(f"        [{y.get('source')}, {fb}] {(y.get('title') or '')[:58]}")
+        print()
+
     total_bad = len({id(it) for lst in found.values() for _, it in lst})
     print(f"с замечаниями: {total_bad} ({total_bad * 100 // max(len(items), 1)}%)")
     print()

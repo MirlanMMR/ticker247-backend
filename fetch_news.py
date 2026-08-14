@@ -323,6 +323,29 @@ POOL_DOMAINS = {
 # языком не отсюда, отбрасывается при загрузке конфига — иначе выключенный пул
 # продолжает жить в базе, потому что список источников берётся ИЗ FIREBASE, а не
 # из этого файла. Добавляя пул (французский, арабский), впиши его сюда.
+# Издания одной редакции. BBC News, BBC World, BBC Русская служба, BBC Sport,
+# BBC Mundo и BBC Brasil — шесть строк в списке источников, но один вещатель:
+# в русской ленте на них приходилось 15% новостей, в английской 24%, и одно
+# наводнение в Японии выходило дважды с одной и той же фотографией.
+#
+# Используем в двух местах: при склейке дублей (одна редакция об одном событии
+# — точно дубль, порог совпадения слов ниже) и при ограничении доли в ленте.
+PUBLISHER_FAMILIES = {
+    "bbc": ["BBC News", "BBC World", "BBC Sport", "BBC Русская служба",
+            "BBC Mundo", "BBC Brasil"],
+    "cbn": ["CBN São Paulo", "CBN Rio"],
+    "elpais": ["El País", "El País América"],
+}
+
+
+def publisher_family(source: str) -> str:
+    """К какой редакции относится источник. Своё имя, если семьи нет."""
+    for fam, members in PUBLISHER_FAMILIES.items():
+        if source in members:
+            return fam
+    return source
+
+
 ACTIVE_POOLS = ["ru", "en", "es", "pt"]
 
 # Источники, снятые с эфира. Список источников СЛИВАЕТСЯ с базой, и слияние
@@ -3095,10 +3118,26 @@ def main():
 
     # Собираем статьи об одном событии в кучки, а не выбрасываем на ходу:
     # решение, сколько версий оставить, зависит от всей кучки целиком
+    def same_event_same_family(a, b) -> bool:
+        """Две редакции одного вещателя об одном событии.
+
+        Пишут разными словами и с разными цифрами — «погибли четыре человека»
+        против «погибли восемь» просто потому, что вышли с разницей в час, —
+        поэтому общий порог в 60% слов их не ловит. Но одна редакция не даёт
+        двух РАЗНЫХ новостей с таким пересечением, так что порог можно опустить.
+        """
+        if publisher_family(a.get("source", "")) != publisher_family(b.get("source", "")):
+            return False
+        wa, wb = title_words(a.get("title", "")), title_words(b.get("title", ""))
+        if len(wa) < 3 or len(wb) < 3:
+            return False
+        return len(wa & wb) / min(len(wa), len(wb)) >= 0.35
+
     clusters = []
     for item in all_news:
         for c in clusters:
-            if are_duplicates(item.get("title", ""), c[0].get("title", "")):
+            if (are_duplicates(item.get("title", ""), c[0].get("title", ""))
+                    or same_event_same_family(item, c[0])):
                 c.append(item)
                 break
         else:
@@ -3232,7 +3271,26 @@ def main():
         filtered = [x for x in filtered if x.get("publishedAt", 0) >= cutoff]
         filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
         max_items = 80 if lang == "ru" else 70
-        filtered = filtered[:max_items]
+
+        # Ни одна редакция не занимает больше пятой части ленты.
+        #
+        # BBC давал 15% русской ленты и 24% английской — шестью «разными»
+        # источниками, которые на деле один вещатель. Читатель видит не
+        # агрегатор, а пересказ одного издания. Считаем по семьям, отбираем
+        # лучшее по важности: список уже отсортирован, берём первые.
+        family_cap = max(3, max_items // 5)
+        per_family, capped, cut = Counter(), [], Counter()
+        for x in filtered:
+            fam = publisher_family(x.get("source", ""))
+            if per_family[fam] >= family_cap:
+                cut[fam] += 1
+                continue
+            per_family[fam] += 1
+            capped.append(x)
+        if cut:
+            print(f"  ⚖️ Доля издателя ограничена [{lang}]: "
+                  + ", ".join(f"{f} −{n}" for f, n in cut.most_common()))
+        filtered = capped[:max_items]
         # Автоперевод: статьи не на языке пула переводим через Gemini
         # Батчи по 15 + один повтор для неудавшихся — падение батча не оставляет
         # половину пула на чужом языке (приложение фильтрует их из ленты)
