@@ -1168,7 +1168,17 @@ _PAGE_NOISE = ("this video can not be played", "published ", "getty images",
                "этот блог в настоящее время недоступен",
                # Собственная реклама издания внутри текста (BBC Русская служба)
                "подписывайтесь на наши соцсети", "при первом открытии приложения",
-               "получайте уведомления о важных", "недоступно на территории")
+               "получайте уведомления о важных", "недоступно на территории",
+               # Зазывалки в соцсети и рассылку в конце статьи. Проверяются по
+               # ОРИГИНАЛУ, до перевода: El Tiempo подклеивает «Toda la
+               # información de Colombia está disponible en Facebook y Twitter,
+               # así como en nuestro boletín semanal» — и это уезжало в ленту
+               # как часть новости о жертвах землетрясения
+               "en facebook y twitter", "no facebook e twitter",
+               "boletín semanal", "boletim semanal", "nuestro boletín",
+               "nosso boletim", "síguenos en", "siga-nos", "suscríbase",
+               "inscreva-se", "weekly newsletter", "our newsletter",
+               "toda la información de", "más noticias en")
 
 def _page_body(url: str) -> str:
     """Текст статьи со страницы: 2-4 первых абзаца, очищенных от разметки."""
