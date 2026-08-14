@@ -2296,6 +2296,24 @@ def load_translations():
     except Exception as e:
         print(f"  ⚠️ Память переводов недоступна: {e}")
         TRANSLATIONS = {}
+    # Выбрасываем половинчатые записи: заголовок переведён, а тело осталось
+    # оригиналом. Такие попали в память 14.08.2026 из-за ошибки в этом файле —
+    # ИИ иногда возвращает заголовок без текста, и мы это запоминали
+    CYR = re.compile(r"[а-яё]", re.I)
+    bad = 0
+    for pool, entries in list(TRANSLATIONS.items()):
+        if not isinstance(entries, dict):
+            continue
+        for k, v in list(entries.items()):
+            if not isinstance(v, dict):
+                continue
+            body = v.get("summary") or ""
+            if not body:
+                del entries[k]; bad += 1; continue
+            if pool == "ru" and len(body) > 60 and not CYR.search(body):
+                del entries[k]; bad += 1
+    if bad:
+        print(f"  🗂 Выброшено половинчатых переводов: {bad}")
     total = sum(len(v) for v in TRANSLATIONS.values() if isinstance(v, dict))
     print(f"  🗂 Память переводов: {total} статей")
 
