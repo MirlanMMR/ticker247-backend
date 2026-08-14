@@ -1391,6 +1391,18 @@ def fetch_rss(source):
                             image = url_img
                             break
 
+            item_lang = source.get("lang") or lang
+            # Исключение из «источник надёжнее детектора»: кириллица против
+            # латиницы не путается, в отличие от испанского/португальского/
+            # английского между собой. Vlast.kz помечен как «ru», но иногда
+            # публикует материалы на английском — статичная метка это скрывала,
+            # и needs_translation() считала статью уже переведённой
+            if item_lang in ("ru", "ky", "uk", "kk", "be", "bg", "sr", "mk", "uz", "tg"):
+                cyr = len(re.findall(r"[а-яё]", title + summary, re.I))
+                lat = len(re.findall(r"[a-z]{3,}", title + summary, re.I))
+                if cyr < 3 and lat >= 5:
+                    item_lang = lang if lang not in ("unknown", "other") else "en"
+
             items.append({
                 "title": title, "url": link, "summary": summary,
                 "imageUrl": image, "source": source["source"],
@@ -1398,7 +1410,7 @@ def fetch_rss(source):
                 "priority": source["priority"],
                 # Язык: явный язык источника надёжнее детектора
                 # (детектор не отличает испанский/португальский от английского)
-                "language": source.get("lang") or lang,
+                "language": item_lang,
                 "scope": source.get("scope", "world"),
                 "source_lang": source.get("lang"),
                 "publishedAt": parse_pub_date(item_el)
@@ -2444,6 +2456,20 @@ def _gemini_translate(items, target_lang):
         return None
 
 
+def _wrong_alphabet(text: str, target_lang: str) -> bool:
+    """Похож ли текст на другой язык, чем заказанный.
+
+    Кириллица в испанском/португальском/английском ответе — верный признак,
+    что ИИ на этой конкретной статье перепутал целевой язык. Латиница в
+    русском ответе — то же самое в обратную сторону.
+    """
+    cyr = len(re.findall(r"[а-яё]", text, re.I))
+    lat = len(re.findall(r"[a-z]{3,}", text, re.I))
+    if target_lang == "ru":
+        return cyr < 5 and lat >= 5
+    return cyr >= 5
+
+
 def translate_batch(items, target_lang):
     """Переводит title и summary на язык пула.
 
@@ -2492,6 +2518,14 @@ def translate_batch(items, target_lang):
             t = s_ = ""
             if result:
                 t, s_ = result[idx]
+
+            # ИИ иногда сбивается и отвечает не на том языке для одной статьи
+            # в порции — редкий, но настоящий сбой: заметка Engadget про
+            # шпионское ПО пришла в испанскую ленту переведённой на русский.
+            # Проверяем алфавит и, если он не тот, отбрасываем ответ ИИ целиком
+            if t and _wrong_alphabet(t, target_lang):
+                t = s_ = ""
+
             if not t:
                 # Запасной путь: бесплатный переводчик, как раньше
                 t = _gtx_translate(ot[:300], target_lang) or ""
@@ -2655,6 +2689,30 @@ def quality_gate(items, lang):
         if title and body.lower().startswith(title.lower()[:40]):
             body = body[len(title):].lstrip(" .,—-:\n")
             fixed["дубль заголовка"] += 1
+
+        # 4б. Заголовок, повторённый ВНУТРИ текста — не в начале. 24.kg вставляет
+        # между двумя одинаковыми предложениями подпись к фото: «...мигрантами.
+        # Фото иллюстративное. В РФ на 40 процентов сократилось...» — читатель
+        # видит одну и ту же мысль дважды с посторонней фразой между ними.
+        #
+        # Работаем на уровне СЛОВ, не символьных индексов: первая версия искала
+        # позицию по индексу в очищенной от пунктуации строке и переносила его
+        # на исходный текст с окном погрешности — из-за накопленного смещения
+        # окно промахивалось, и обрезка утаскивала за собой весь хвост статьи
+        # с уникальными подробностями («за шесть месяцев 2026 года»).
+        # Здесь ищем точную последовательность слов заголовка внутри текста и
+        # вырезаем ровно её — что вокруг, не трогаем.
+        if title and len(title.split()) >= 4:
+            def _norm_word(w): return re.sub(r"[^\w]", "", w.lower())
+            title_tokens = [_norm_word(w) for w in title.split() if _norm_word(w)]
+            words = body.split()
+            norm_words = [_norm_word(w) for w in words]
+            n = len(title_tokens)
+            for i in range(len(norm_words) - n + 1):
+                if norm_words[i:i + n] == title_tokens:
+                    body = re.sub(r"\s{2,}", " ", " ".join(words[:i] + words[i + n:])).strip()
+                    fixed["заголовок повторён внутри текста"] += 1
+                    break
 
         # 5. Метка «срочно», не подтверждённая важностью. Красный бейдж и пуш
         #    обесцениваются, если ими метят рядовую новость
