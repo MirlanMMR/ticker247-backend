@@ -211,6 +211,11 @@ RSS_SOURCES = [
     # которую не обойти без headless-браузера. Итог: в читалке каждая новость
     # ТАСС открывается почти пустой. РИА рядом проверен и работает нормально
     # (страница отдаёт полный текст), поэтому он остаётся
+    # Найдено 14.08.2026 по наводке пользователя (подсмотрел в ленте Google).
+    # Ленты проверены: текст отдают, страницы открываются
+    {"url": "https://vlast.kz/feed/", "source": "Vlast.kz", "category": "NEWS", "priority": 1, "quota": 5, "scope": "pool", "lang": "ru"},
+    {"url": "https://eco.akipress.org/rss/", "source": "AKIpress Эко", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "ru"},
+    {"url": "https://itc.ua/feed/", "source": "ITC.ua", "category": "TECH", "priority": 0, "quota": 3, "scope": "world", "lang": "ru"},
     {"url": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss", "source": "РБК", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world"},
 
     # РУССКОЯЗЫЧНЫЕ ТЕМАТИЧЕСКИЕ
@@ -290,7 +295,7 @@ LOCAL_DOMAINS = {
 # стабильных и качественных источников, а не ради заполнения.
 POOL_DOMAINS = {
     "ru": ["ria.ru", "rbc.ru", "lenta.ru", "iz.ru", "kommersant.ru", "rg.ru",
-           "tengrinews.kz", "zakon.kz", "gazeta.uz", "podrobno.uz", "asiaplustj.info"],
+           "tengrinews.kz", "zakon.kz", "vlast.kz", "gazeta.uz", "podrobno.uz", "asiaplustj.info"],
     # BBC, Guardian, Sky, Reuters, Al Jazeera сюда НЕ вносить: формально они
     # британские, но по сути это мировая лента, и она кормит все пулы. Запри их
     # в английском — остальные три пула останутся без мировой повестки
