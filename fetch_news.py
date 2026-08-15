@@ -188,6 +188,17 @@ RSS_SOURCES = [
     {"url": "https://www.semana.com/arc/outboundfeeds/rss/", "source": "Semana CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
     {"url": "https://www.diariolibre.com/rss/portada.xml", "source": "Diario Libre DO", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "es"},
 
+    # -- Американские андердоги: некоммерческие редакции ---------------------
+    # Мысль пользователя 15.08.2026: крупным изданиям мы не нужны, а этим —
+    # наоборот. У них беда не с материалом, а с читателем, и распространение
+    # для них уставная цель: материалы выходят под свободной лицензией с
+    # прямой просьбой перепечатывать. Ни договариваться, ни опасаться претензий
+    # не нужно. Заодно это шаг к четвёртому уровню — новостям штатов
+    {"url": "https://www.texastribune.org/feeds/main/", "source": "Texas Tribune", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
+    {"url": "https://mississippitoday.org/feed/", "source": "Mississippi Today", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
+    {"url": "https://www.themarshallproject.org/rss/recent.rss", "source": "Marshall Project", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
+    {"url": "https://www.propublica.org/feeds/propublica/main", "source": "ProPublica", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
+
     {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "es"},
     {"url": "https://www.infobae.com/arc/outboundfeeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
@@ -324,7 +335,9 @@ LOCAL_DOMAINS = {
            "kabar.kg", "akipress.com", "24.kg", "turmush.kg", "super.kg", "economist.kg"],
     "en": ["nytimes.com", "npr.org", "nbcnews.com", "cnn.com", "washingtonpost.com",
            "politico.com", "marketwatch.com", "apnews.com", "usatoday.com", "axios.com",
-           "latimes.com", "seattletimes.com", "nypost.com", "cbsnews.com", "upi.com"],
+           "latimes.com", "seattletimes.com", "nypost.com", "cbsnews.com", "upi.com",
+           "texastribune.org", "mississippitoday.org", "themarshallproject.org",
+           "propublica.org"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com",
            "eleconomista.com.mx", "expansion.mx"],
