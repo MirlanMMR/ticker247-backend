@@ -1738,13 +1738,24 @@ def fetch_rss(source):
             if enc is not None and "image" in (enc.get("type") or ""):
                 image = enc.get("url")
             if not image:
-                for tag in ["media:content", "media:thumbnail"]:
-                    el = item_el.find(tag)
-                    if el is not None:
-                        url_img = el.get("url", "")
-                        if any(ext in url_img for ext in [".jpg", ".jpeg", ".png", ".webp"]):
-                            image = url_img
-                            break
+                # ElementTree НЕ находит <media:content> по имени с приставкой:
+                # для него тег зовётся «{http://search.yahoo.com/mrss/}content».
+                # Поэтому поиск по "media:content" не срабатывал НИКОГДА, и
+                # издания, дающие фото только так, приходили к нам без картинок
+                # (Axios — три новости подряд с пустой карточкой). Ищем по
+                # окончанию имени: работает при любом объявлении пространства
+                for el in item_el.iter():
+                    name = el.tag.rsplit("}", 1)[-1].lower()
+                    if name not in ("content", "thumbnail"):
+                        continue
+                    url_img = el.get("url", "")
+                    medium = (el.get("medium") or el.get("type") or "").lower()
+                    is_img = ("image" in medium
+                              or any(ext in url_img.lower()
+                                     for ext in (".jpg", ".jpeg", ".png", ".webp")))
+                    if url_img.startswith("http") and is_img:
+                        image = url_img
+                        break
 
             item_lang = source.get("lang") or lang
             # Исключение из «источник надёжнее детектора»: кириллица против
