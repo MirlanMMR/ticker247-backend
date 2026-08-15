@@ -153,6 +153,26 @@ RSS_SOURCES = [
     # ════════════════════════════════════════════════════
     # ИСПАНОЯЗЫЧНЫЙ МИР (локальные для ES пула)
     # ════════════════════════════════════════════════════
+    # ── Португальский пул: было 12 источников против 44 мировых лент ──────
+    # Мировая повестка одинаково заливает все пулы, и там, где своих изданий
+    # мало, от пула остаётся одна витрина чужих новостей: в португальском было
+    # 40 мировых новостей из 52. Бразилия — домашняя страна пула, её издания
+    # идут местными; Португалия, Ангола и Мозамбик — страны пула.
+    # Все ленты проверены живьём 15.08.2026
+    {"url": "https://agenciabrasil.ebc.com.br/rss/ultimasnoticias/feed.xml", "source": "Agência Brasil", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "pt"},
+    {"url": "https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/brasil/?outputType=xml", "source": "Estadão", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "pt"},
+    {"url": "https://www.metropoles.com/feed", "source": "Metrópoles", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
+    {"url": "https://www.poder360.com.br/feed/", "source": "Poder360", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    {"url": "https://www.gazetadopovo.com.br/feed/rss/republica.xml", "source": "Gazeta do Povo", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    {"url": "https://rss.uol.com.br/feed/noticias.xml", "source": "UOL Notícias", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
+    {"url": "https://www.infomoney.com.br/feed/", "source": "InfoMoney", "category": "MONEY", "priority": 1, "quota": 3, "scope": "local", "lang": "pt"},
+    {"url": "https://exame.com/feed/", "source": "Exame", "category": "MONEY", "priority": 1, "quota": 3, "scope": "local", "lang": "pt"},
+    {"url": "https://feeds.feedburner.com/PublicoRSS", "source": "Público", "category": "NEWS", "priority": 1, "quota": 5, "scope": "pool", "lang": "pt"},
+    {"url": "https://www.rtp.pt/noticias/rss", "source": "RTP Notícias", "category": "NEWS", "priority": 1, "quota": 5, "scope": "pool", "lang": "pt"},
+    {"url": "https://feeds.feedburner.com/dn-ultimas", "source": "Diário de Notícias", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "pt"},
+    {"url": "https://eco.sapo.pt/feed/", "source": "ECO", "category": "MONEY", "priority": 0, "quota": 3, "scope": "pool", "lang": "pt"},
+    {"url": "https://www.jornaldenegocios.pt/rss", "source": "Jornal de Negócios", "category": "MONEY", "priority": 0, "quota": 3, "scope": "pool", "lang": "pt"},
+
     {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "es"},
     {"url": "https://www.infobae.com/arc/outboundfeeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
@@ -293,7 +313,9 @@ LOCAL_DOMAINS = {
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com"],
     "pt": ["globo.com", "uol.com.br", "folha.uol.com.br", "estadao.com.br",
-           "band.uol.com.br", "r7.com", "cnnbrasil.com.br"],
+           "band.uol.com.br", "r7.com", "cnnbrasil.com.br", "agenciabrasil.ebc.com.br",
+           "metropoles.com", "poder360.com.br", "gazetadopovo.com.br",
+           "infomoney.com.br", "exame.com"],
 }
 
 
@@ -335,9 +357,12 @@ POOL_DOMAINS = {
     # мировыми, и «Ratinho высказался в эфире SBT» уходило в английскую и
     # русскую ленты. Это новости языкового пространства, не планеты
     "pt": ["publico.pt", "expresso.pt", "dn.pt", "observador.pt", "rtp.pt",
+           "eco.sapo.pt", "jornaldenegocios.pt", "noticiasaominuto.com",
            "jornaldeangola.ao", "verangola.net", "opais.co.mz",
            "terra.com.br", "bbci.co.uk/portuguese", "cnnbrasil.com.br",
-           "uol.com.br", "globo.com", "estadao.com.br"],
+           "uol.com.br", "globo.com", "estadao.com.br",
+           "agenciabrasil.ebc.com.br", "metropoles.com", "poder360.com.br",
+           "gazetadopovo.com.br", "infomoney.com.br", "exame.com"],
 }
 
 
@@ -381,6 +406,10 @@ RETIRED_SOURCES = [
                         # а не событие. Наше правило об инфоповоде выбрасывало
                         # почти всё, что он присылал, а обложки он рисует сам —
                         # узорная заставка с заголовком вместо фотографии
+    # Португальский пул, проверено 15.08.2026: ленты не отдают материалов
+    "www.publico.pt/rss",           # пустой ответ 202, без единого материала
+    "rss.uol.com.br/feed/geral",    # 403 роботам; у UOL рабочий адрес другой
+    "trendingsearches/daily/rss?geo=BR",  # Google убрал эту ленту, 404
     # Мертвы окончательно — проверено и с ноутбука, и на серверах GitHub
     # (13.08.2026). Домены не разрешаются, ленты пусты или отдают не XML
     "feeds.reuters.com",    # бесплатной ленты у Reuters больше нет
