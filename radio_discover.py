@@ -55,7 +55,12 @@ def main():
             talk.sort(key=lambda s: -(s.get("clickcount") or 0))
             print(f"\n  ── {code}: всего {len(stations)}, в эфире {len(live)}, "
                   f"речевых {len(talk)}")
-            for s in talk[:6]:
+            # Где станций мало, меток обычно нет вовсе (Центральная Азия,
+            # Африка) — там показываем ВСЁ, отбирать будем по названиям
+            shown = talk[:6] if talk else sorted(live, key=lambda s: -(s.get("clickcount") or 0))[:20]
+            if not talk and live:
+                print("     (меток нет — показываю все станции страны)")
+            for s in shown:
                 print(f"     {s['name'][:36]:38} {str(s.get('codec')):5} "
                       f"{s.get('bitrate') or 0:3}k  {(s.get('tags') or '')[:38]}")
                 print(f"       {s['url_resolved'][:100]}")
