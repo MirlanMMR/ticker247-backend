@@ -1674,6 +1674,11 @@ def enrich_missing_images(items, budget=450, workers=16):
     # дважды — крупным текстом сверху и ещё раз на снимке. Настоящее фото при
     # этом лежит на той же странице
     _SHARING_CARD = re.compile(r"/images/sharing/|/sharing/|/social[-_/]|og[-_]image|share[-_]card", re.I)
+    # Миниатюра вместо снимка: часть изданий отдаёт в og:image уменьшенную
+    # копию (у El Tiempo прямо «og_thumbnail» в адресе, у CBS «/thumbnail»).
+    # На весь экран она разваливается в мыло, поэтому ищем на странице
+    # настоящее фото — тем же способом, что и для карточек соцсетей
+    _THUMB_IMAGE = re.compile(r"thumb|/small[-_/]|_150x|_300x|/preview/", re.I)
 
     def _page_photo(soup):
         """Настоящий снимок со страницы, когда og:image оказался карточкой."""
@@ -1706,8 +1711,9 @@ def enrich_missing_images(items, budget=450, workers=16):
                   or soup.find("meta", attrs={"name": "og:image"})
                   or soup.find("meta", attrs={"name": "twitter:image"}))
             img = og.get("content") if og else None
-            if img and _SHARING_CARD.search(img):
-                img = _page_photo(soup)     # заголовок на картинке — ищем живое фото
+            if img and (_SHARING_CARD.search(img) or _THUMB_IMAGE.search(img)):
+                # заголовок на картинке или миниатюра — ищем живое фото
+                img = _page_photo(soup) or img
             return img if img and img.startswith("http") else None
         except Exception:
             return None
@@ -1777,6 +1783,12 @@ def fetch_rss(source):
                 # издания, дающие фото только так, приходили к нам без картинок
                 # (Axios — три новости подряд с пустой карточкой). Ищем по
                 # окончанию имени: работает при любом объявлении пространства
+                # Берём САМУЮ БОЛЬШУЮ, а не первую попавшуюся. Ленты кладут
+                # рядом несколько размеров, и <media:thumbnail> (обычно 320
+                # пикселей) часто идёт первым — на весь экран такая картинка
+                # разваливается в мыло. Прежний код так и делал, и качество
+                # просело сразу у многих новостей
+                best, best_w = None, -1
                 for el in item_el.iter():
                     name = el.tag.rsplit("}", 1)[-1].lower()
                     if name not in ("content", "thumbnail"):
@@ -1786,9 +1798,19 @@ def fetch_rss(source):
                     is_img = ("image" in medium
                               or any(ext in url_img.lower()
                                      for ext in (".jpg", ".jpeg", ".png", ".webp")))
-                    if url_img.startswith("http") and is_img:
-                        image = url_img
-                        break
+                    if not (url_img.startswith("http") and is_img):
+                        continue
+                    try:
+                        width = int(el.get("width") or 0)
+                    except ValueError:
+                        width = 0
+                    # Ширина указана не всегда; когда её нет, полноразмерная
+                    # картинка всё равно должна выигрывать у миниатюры
+                    score = width or (400 if name == "content" else 100)
+                    if score > best_w:
+                        best, best_w = url_img, score
+                if best:
+                    image = best
 
             item_lang = source.get("lang") or lang
             # Исключение из «источник надёжнее детектора»: кириллица против
