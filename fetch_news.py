@@ -1365,6 +1365,34 @@ def enrich_missing_images(items, budget=200, workers=8):
     if not targets:
         return
 
+    # Карточка для соцсетей — не фотография. РИА (и не только) кладёт в
+    # og:image картинку с ВПЕЧАТАННЫМ заголовком: у ria.ru это
+    # /images/sharing/article/…. В ленте читатель видел одну и ту же фразу
+    # дважды — крупным текстом сверху и ещё раз на снимке. Настоящее фото при
+    # этом лежит на той же странице
+    _SHARING_CARD = re.compile(r"/images/sharing/|/sharing/|/social[-_/]|og[-_]image|share[-_]card", re.I)
+
+    def _page_photo(soup):
+        """Настоящий снимок со страницы, когда og:image оказался карточкой."""
+        for img in soup.find_all("img"):
+            src = img.get("src") or img.get("data-src") or ""
+            if not src.startswith("http") or _SHARING_CARD.search(src):
+                continue
+            if not any(e in src.lower() for e in (".jpg", ".jpeg", ".png", ".webp")):
+                continue
+            # Иконки, аватарки и пиксели-счётчики отсеиваем по заявленному
+            # размеру: настоящая иллюстрация к статье не бывает уже 400 точек
+            try:
+                w = int(img.get("width") or 0)
+                if 0 < w < 400:
+                    continue
+            except ValueError:
+                pass
+            if any(k in src.lower() for k in ("logo", "icon", "avatar", "banner", "pixel", "1x1")):
+                continue
+            return src
+        return None
+
     def fetch(item):
         try:
             r = requests.get(item["url"], timeout=8, headers=BROWSER_HEADERS)
@@ -1375,6 +1403,8 @@ def enrich_missing_images(items, budget=200, workers=8):
                   or soup.find("meta", attrs={"name": "og:image"})
                   or soup.find("meta", attrs={"name": "twitter:image"}))
             img = og.get("content") if og else None
+            if img and _SHARING_CARD.search(img):
+                img = _page_photo(soup)     # заголовок на картинке — ищем живое фото
             return img if img and img.startswith("http") else None
         except Exception:
             return None
