@@ -188,6 +188,25 @@ RSS_SOURCES = [
     {"url": "https://www.semana.com/arc/outboundfeeds/rss/", "source": "Semana CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
     {"url": "https://www.diariolibre.com/rss/portada.xml", "source": "Diario Libre DO", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "es"},
 
+    # Редакции штатов (сеть States Newsroom). Квота маленькая: их задача —
+    # ширина охвата, а не объём. Раньше "местными" для США были только
+    # национальные издания, и пятьдесят штатов сводились к Вашингтону и
+    # Нью-Йорку. Из домашней сети пользователя эти ленты не открываются,
+    # с серверов GitHub — все двенадцать, по сотне материалов каждая.
+    # Фото в лентах нет, дотягиваем со страницы
+    {"url": "https://floridaphoenix.com/feed/", "source": "Florida Phoenix", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://ohiocapitaljournal.com/feed/", "source": "Ohio Capital Journal", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://michiganadvance.com/feed/", "source": "Michigan Advance", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://georgiarecorder.com/feed/", "source": "Georgia Recorder", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://penncapital-star.com/feed/", "source": "Pennsylvania Capital-Star", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://ncnewsline.com/feed/", "source": "NC Newsline", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://azmirror.com/feed/", "source": "Arizona Mirror", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://minnesotareformer.com/feed/", "source": "Minnesota Reformer", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://coloradonewsline.com/feed/", "source": "Colorado Newsline", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://nevadacurrent.com/feed/", "source": "Nevada Current", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://virginiamercury.com/feed/", "source": "Virginia Mercury", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://missouriindependent.com/feed/", "source": "Missouri Independent", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+
     # -- Американские андердоги: некоммерческие редакции ---------------------
     # Мысль пользователя 15.08.2026: крупным изданиям мы не нужны, а этим —
     # наоборот. У них беда не с материалом, а с читателем, и распространение
@@ -337,7 +356,8 @@ LOCAL_DOMAINS = {
            "politico.com", "marketwatch.com", "apnews.com", "usatoday.com", "axios.com",
            "latimes.com", "seattletimes.com", "nypost.com", "cbsnews.com", "upi.com",
            "texastribune.org", "mississippitoday.org", "themarshallproject.org",
-           "propublica.org"],
+           "propublica.org",
+           "floridaphoenix.com", "ohiocapitaljournal.com", "michiganadvance.com", "georgiarecorder.com", "penncapital-star.com", "ncnewsline.com", "azmirror.com", "minnesotareformer.com", "coloradonewsline.com", "nevadacurrent.com", "virginiamercury.com", "missouriindependent.com"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com",
            "eleconomista.com.mx", "expansion.mx"],
