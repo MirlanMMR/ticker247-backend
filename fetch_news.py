@@ -3669,10 +3669,12 @@ def main():
     # второй мировой новости, и по нему мост тащил бы что попало. Связь должна
     # быть в гражданах — «киргизстанец», «американец», «гражданин США»
     BRIDGE_MARKERS = {
-        "ru": ("кыргызстан", "киргизстан", "кыргызстанк", "киргиз",
-               "kyrgyz national", "kyrgyz citizen", "kyrgyz man", "kyrgyz woman",
-               "kyrgyz driver", "from kyrgyzstan", "ciudadano kirguís",
-               "cidadão quirguiz"),
+        # Для маленькой страны само упоминание уже сигнал: «Кыргызстан» в
+        # американской или бразильской заметке случайно не появляется. Для
+        # больших (США, Мексика, Бразилия) так нельзя — там нужны слова про
+        # людей, иначе мост потащит любую мировую новость
+        "ru": ("kyrgyz", "kirghiz", "kyrgyzstan", "bishkek",
+               "quirguiz", "kirguis", "kirguís", "kirghizistan"),
         "en": ("американец", "американка", "американцы", "гражданин сша",
                "гражданка сша", "citizen of the united states",
                "estadounidense", "ciudadano estadounidense",
