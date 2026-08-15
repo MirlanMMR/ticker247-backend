@@ -3715,7 +3715,12 @@ def main():
                 if target == own or bridged >= 20:
                     continue
                 if any(m in hay for m in markers):
-                    lang_groups[target].append(dict(item))
+                    # Помечаем перевезённую копию: в приложении такая новость
+                    # получает метку «наши за границей». Родственник, ищущий
+                    # вести о своих, не должен выуживать её из общей ленты
+                    crossed = dict(item)
+                    crossed["bridge"] = True
+                    lang_groups[target].append(crossed)
                     bridged += 1
                     print(f"  🌉 [{target}] мост: {item.get('title','')[:60]}")
                     break
