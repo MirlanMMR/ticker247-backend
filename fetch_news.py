@@ -1321,13 +1321,91 @@ def _page_body(url: str) -> str:
                 if len(body) >= 200:
                     break
 
-        if len(body) > 700:
-            body = body[:700]
+        # 1300, а не 700: столько вмещают полторы страницы читалки — ровно тот
+        # объём, который человек проглядывает без утомительной прокрутки.
+        # Прежние 700 обрывали материал ради экономии, которой никто не просил
+        if len(body) > 1300:
+            body = body[:1300]
             idx = max(body.rfind(". "), body.rfind("! "), body.rfind("? "))
             if idx > 150:
                 body = body[:idx + 1]
-        return strip_tail(body)
+        body = strip_tail(body)
+
+        # Последний рубеж: машина сама признаётся, что потеряла смысл
+        if _looks_mangled(body):
+            fixed = _ai_rescue_body(url, body, soup)
+            if fixed:
+                return fixed
+        return body
     except Exception:
+        return ""
+
+
+def _looks_mangled(body: str) -> bool:
+    """Признаки того, что мы потеряли смысл, а не просто дочитали до конца.
+
+    Ни один из них не считает знаки ради экономии — каждый ловит СИМПТОМ:
+    текст обещал продолжение и не дал его, оборвался на полуслове или не
+    набрался вовсе. Только на таких страницах зовём ИИ, а не на всех подряд —
+    это разница между полутора долларами в месяц и тридцатью пятью.
+    """
+    if not body:
+        return False
+    tail = body.rstrip()
+    # 1. Обещан перечень, а перечня нет: «ограничения будут действовать на
+    #    следующих участках:» — и тишина. Так пропал список улиц Бишкека
+    if tail.endswith((":", "—", "–", "-")):
+        return True
+    # 2. Оборвано на полуслове: последнее предложение не закончено
+    if tail and tail[-1] not in ".!?…»\"'" and len(tail.split()) > 12:
+        return True
+    # 3. Со страницы не набралось и на абзац — возможно, там вообще нет текста
+    #    (видеосюжет), и тогда новость честнее снять с эфира, чем показать
+    #    пустую карточку
+    if len(tail) < 200:
+        return True
+    return False
+
+
+def _ai_rescue_body(url: str, broken: str, soup) -> str:
+    """Просит ИИ собрать текст новости со страницы, которую машина не осилила.
+
+    Разбор по правилам дёшев и в девяти случаях из десяти верен, поэтому он
+    идёт первым. Сюда попадают оставшиеся: перечни, врезки, страницы, где
+    текст размечен не абзацами. ИИ видит ту же страницу и решает по смыслу.
+    """
+    if not GEMINI_API_KEY:
+        return ""
+    # Ключ чистим так же, как для вердиктов: в ключах Firebase запрещены
+    # . # $ [ ] / — а это ровно то, из чего состоит любой адрес статьи
+    key = _cache_key({"url": url})
+    cached = PAGE_BODY_CACHE.get(key)
+    if isinstance(cached, dict):
+        return cached.get("text", "")
+    try:
+        # Отдаём очищенный от разметки текст страницы, а не HTML: дешевле по
+        # токенам и модели не приходится продираться через вёрстку
+        raw = clean_text(soup.get_text(" ", strip=True))[:12000]
+        prompt = (
+            "Ниже — текст веб-страницы с новостью, вперемешку с меню, рекламой "
+            "и ссылками на другие материалы. Собери из него САМУ новость.\n\n"
+            "Правила:\n"
+            "- Верни только текст новости: ни меню, ни подписей к фото, ни "
+            "«читайте также», ни имён авторов и редакции.\n"
+            "- Ничего не сокращай и не пересказывай своими словами — это "
+            "извлечение, а не выжимка. Перечни (улицы, списки, пункты) "
+            "переноси ПОЛНОСТЬЮ: ради них новость и открывают.\n"
+            "- Если текста новости на странице нет вовсе (это видеосюжет, "
+            "фотогалерея или страница-заглушка), верни ровно: НЕТ_ТЕКСТА\n\n"
+            f"Страница:\n{raw}"
+        )
+        out = ask_gemini(prompt).strip()
+        if out.startswith("НЕТ_ТЕКСТА") or len(out) < 120:
+            out = ""
+        PAGE_BODY_CACHE[key] = {"text": out, "ts": int(datetime.now().timestamp() * 1000)}
+        return out
+    except Exception as e:
+        print(f"  ⚠️ ИИ не смог разобрать страницу: {str(e)[:70]}")
         return ""
 
 
@@ -1847,6 +1925,11 @@ _MODEL_IN_USE = GEMINI_MODEL
 RULES_VERSION = 6
 
 AI_CACHE = {}
+# Разобранные ИИ страницы: адрес → текст новости. Без этой памяти мы платили
+# бы за одну и ту же страницу каждый час, пока новость висит в ленте — двадцать
+# четыре раза вместо одного
+PAGE_BODY_CACHE = {}
+PAGE_BODY_TTL_MS = 48 * 3600 * 1000
 # Была ли хоть одна порция без отбора: тогда запоминать вердикты нельзя
 _LAST_CHUNK_FELL_BACK = False
 AI_CACHE_TTL_MS = 48 * 3600 * 1000     # двое суток: сутки живёт новость + запас
@@ -1873,6 +1956,27 @@ def load_ai_cache():
         AI_CACHE = {}
     total = sum(len(v) for v in AI_CACHE.values() if isinstance(v, dict))
     print(f"  🧠 Память вердиктов: {total} статей")
+
+
+def load_page_bodies():
+    global PAGE_BODY_CACHE
+    try:
+        PAGE_BODY_CACHE = db.reference("/page_bodies").get() or {}
+    except Exception as e:
+        print(f"  ⚠️ Память разобранных страниц недоступна: {e}")
+        PAGE_BODY_CACHE = {}
+    print(f"  📄 Память разобранных страниц: {len(PAGE_BODY_CACHE)}")
+
+
+def save_page_bodies():
+    now = int(datetime.now().timestamp() * 1000)
+    cleaned = {k: v for k, v in PAGE_BODY_CACHE.items()
+               if isinstance(v, dict) and now - v.get("ts", 0) < PAGE_BODY_TTL_MS}
+    try:
+        db.reference("/page_bodies").set(cleaned)
+        print(f"  📄 Память страниц сохранена: {len(cleaned)}")
+    except Exception as e:
+        print(f"  ⚠️ Память страниц не сохранена: {e}")
 
 
 def save_ai_cache():
@@ -3330,6 +3434,7 @@ def main():
     promote_global_stories(all_news)
 
     load_ai_cache()
+    load_page_bodies()
     load_translations()
     print("🤖 Фильтруем через Gemini AI...")
 
@@ -3445,6 +3550,7 @@ def main():
             print(f"  🧹 Убрана ветка отключённого пула: /news/{stale}")
 
     save_ai_cache()
+    save_page_bodies()
     save_translations()
 
     # Расход этого прогона. Цены Flash-Lite на 13.08.2026 — примерно $0.10 за
