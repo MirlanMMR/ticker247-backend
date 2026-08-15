@@ -546,7 +546,22 @@ def clean_text(text: str) -> str:
     text = html.unescape(text)  # убирает ВСЕ HTML entities включая &nbsp;
     text = text.replace('\xa0', ' ')  # non-breaking space
     text = text.replace('​', '')  # zero-width space
-    text = re.sub(r'<[^>]+>', '', text)  # HTML теги
+    # Теги вырезаем ДО распаковки сущностей было бы правильнее, но ленты
+    # приходят по-разному, поэтому чистим в два прохода и добиваем остатки.
+    #
+    # Простое правило <[^>]+> ломается на теге, внутри которого есть > в
+    # значении атрибута: обрезав не там, оно оставляло хвост в тексте, и
+    # читатель видел «data-image-caption="(Foto: Lisi Niesner / Reuters)"
+    # data-large-file="https://…jpg?fit=1280"/>» вместо новости (InfoMoney).
+    # Поэтому сначала выбрасываем теги вместе со значениями атрибутов в
+    # кавычках, и только потом — всё остальное
+    text = re.sub(r'<[a-zA-Z/!][^<>]*?(?:"[^"]*"[^<>]*?)*>', ' ', text)
+    text = re.sub(r'<[^>]+>', ' ', text)
+    # Осиротевшие куски разметки: одиночные атрибуты и закрывающие скобки,
+    # уцелевшие от особо кривой вёрстки
+    text = re.sub(r'\b(?:data|src|alt|title|class|style|width|height|srcset|sizes)'
+                  r'-?[\w-]*\s*=\s*"[^"]*"', ' ', text)
+    text = re.sub(r'\s*/?>\s*', ' ', text)
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
