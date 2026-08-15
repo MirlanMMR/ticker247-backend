@@ -783,6 +783,13 @@ def check_radio_stations(stations, workers=8, timeout=10):
                              headers={**BROWSER_HEADERS, "Range": "bytes=0-4000"})
             ok = r.status_code in (200, 206)
             ctype = (r.headers.get("Content-Type") or "").lower()
+            # Важен адрес, на котором поток оказался ПОСЛЕ перенаправлений, а
+            # не тот, что записан у нас. El Heraldo Radio отдавал https, но
+            # уводил на http://n11.radiojar.com — приложение незашифрованный
+            # HTTP блокирует молча, и станция считалась живой, оставаясь немой
+            if ok and not (r.url or "").lower().startswith("https://"):
+                print(f"     ↳ {st['name']}: перенаправление на незашифрованный {r.url[:60]}")
+                ok = False
             # Сервер вещания на месте, но вместо звука отдаёт страницу с ошибкой.
             # Плейлисты HLS (.m3u8) сюда не попадают: часть серверов помечает их
             # text/..., а это законный поток, а не ошибка
