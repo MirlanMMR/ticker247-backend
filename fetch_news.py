@@ -648,13 +648,46 @@ YOUTUBE_CHANNELS = {
 # зашитый в приложении — правя один, правь и второй
 RADIO_STATIONS = [
     # ru: нейтральных новостных радио почти не осталось, поэтому деловые
-    # Государственное радио Кыргызстана (ОТРК) — речевое, новостное.
-    # Музыкальное «Миң кыял» и не отвечающее «Биринчи» не берём
-    {"name": "Кыргыз радиосу",  "url": "https://liveradio.utrk.kg/kyrgyzradio",                              "pool": "ru", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "KG,KZ,UZ,TM"},
+    # Кыргыз радиосу убрано: сервер вещания ОТРК отвечает, но эфира на нём нет
+    # ни одного — ни kyrgyzradio, ни 1radio. Государственное радио ушло из
+    # интернета. Кыргызстанские станции подбираем вручную: в открытой базе их
+    # всего восемь и все музыкальные
     {"name": "РБК",              "url": "https://rbcreg.hostingradio.ru/rbc32.aacp",                                  "pool": "ru", "colorFrom": "FF1F3A5F", "colorTo": "FF2E6CA8"},
     {"name": "Коммерсантъ FM",   "url": "https://kommersant77.hostingradio.ru:8085/kommersant128.mp3",                 "pool": "ru", "colorFrom": "FF4A2B1E", "colorTo": "FF8A5A3B"},
     {"name": "Бизнес FM",        "url": "https://bfm.hostingradio.ru:9075/fm",                                        "pool": "ru", "colorFrom": "FF1E3B32", "colorTo": "FF2F7A63"},
     {"name": "Радио МИР",        "url": "https://icecast-mirtv.cdnvideo.ru/radio_mir_256",                             "pool": "ru", "colorFrom": "FF2B2350", "colorTo": "FF5B4BA8"},
+
+    # ── Речевые станции по странам пулов ────────────────────────────────────
+    # Радио идёт ОТ СТРАНЫ, а не от языка: португальцу в Лиссабоне бразильское
+    # радио чужое, испанцу — мексиканское. Отобраны новостные и разговорные,
+    # музыкальные не берём. Проверены живьём 15.08.2026
+    {"name": "KQED",             "url": "https://streams.kqed.org/kqedradio",                                          "pool": "en", "colorFrom": "FF1B2A44", "colorTo": "FF35558C", "countries": "US"},
+    {"name": "Newstalk",         "url": "https://edge.audioxi.com/NT",                                                 "pool": "en", "colorFrom": "FF14331F", "colorTo": "FF2A6B3F", "countries": "IE"},
+    {"name": "ABC News Radio",   "url": "https://abc.streamguys1.com/live/newsradio/icecast.audio",                     "pool": "en", "colorFrom": "FF1E2F45", "colorTo": "FF3B5F8A", "countries": "AU"},
+    {"name": "ABC Radio National","url": "https://abc.streamguys1.com/live/rnnsw/icecast.audio",                        "pool": "en", "colorFrom": "FF2B2440", "colorTo": "FF564A80", "countries": "AU"},
+
+    {"name": "RAC1",             "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/RAC_1.mp3", "pool": "es", "colorFrom": "FF3A2216", "colorTo": "FF7A4A2E", "countries": "ES"},
+    {"name": "88.9 Noticias",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/XHMFMAAC_SC.aac", "pool": "es", "colorFrom": "FF1F3A2E", "colorTo": "FF3E7A5C", "countries": "MX"},
+    {"name": "El Destape Radio", "url": "https://ipanel.instream.audio/8004/stream",                                   "pool": "es", "colorFrom": "FF3A1F2C", "colorTo": "FF743E58", "countries": "AR"},
+    {"name": "Cadena 3",         "url": "https://liveradio.mediainbox.net/radio3.mp3",                                 "pool": "es", "colorFrom": "FF33301A", "colorTo": "FF6B6234", "countries": "AR"},
+    {"name": "RPP Noticias",     "url": "https://mdstrm.com/audio/5fab3416b5f9ef165cfab6e9/icecast.audio",             "pool": "es", "colorFrom": "FF3A1C1C", "colorTo": "FF783A3A", "countries": "PE"},
+    {"name": "Bío-Bío",          "url": "https://unlimited3-cl.dps.live/biobiosantiago/aac/icecast.audio",             "pool": "es", "colorFrom": "FF16303A", "colorTo": "FF2C6274", "countries": "CL"},
+    {"name": "Cooperativa",      "url": "https://unlimited3-cl.dps.live/cooperativafm/mp3/icecast.audio",              "pool": "es", "colorFrom": "FF1E2D3F", "colorTo": "FF3C5B7E", "countries": "CL"},
+    {"name": "ADN Radio",        "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/ADNAAC.aac","pool": "es", "colorFrom": "FF302038", "colorTo": "FF614070", "countries": "CL"},
+
+    {"name": "TSF Rádio Notícias","url": "https://directo.tsf.pt/tsfdirecto.mp3",                                      "pool": "pt", "colorFrom": "FF1F3340", "colorTo": "FF3E6680", "countries": "PT"},
+
+    # Потоки HLS (.m3u8) — так вещает почти всё современное радио. Работают с
+    # версии, где в приложение добавлен модуль media3-exoplayer-hls: без него
+    # ExoPlayer такой адрес молча не открывает
+    {"name": "CBC Radio 1",      "url": "https://cbcradiolive.akamaized.net/hls/live/2041036/ES_R1ETR/master.m3u8",   "pool": "en", "colorFrom": "FF3A1D1D", "colorTo": "FF7A3A3A", "countries": "CA"},
+    {"name": "Newstalk ZB",      "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NZME_01AAC.m3u8", "pool": "en", "colorFrom": "FF14303A", "colorTo": "FF296070", "countries": "NZ"},
+    {"name": "Onda Cero",        "url": "https://atres-live.ondacero.es/live/ondacero/bitrate_1.m3u8",                "pool": "es", "colorFrom": "FF3A2A16", "colorTo": "FF7A5A2E", "countries": "ES"},
+    {"name": "Radio 10",         "url": "https://radio10.stweb.tv/radio10/live/playlist.m3u8",                        "pool": "es", "colorFrom": "FF2A3A20", "colorTo": "FF547A40", "countries": "AR"},
+    {"name": "Radio Nacional",   "url": "https://cdnhd.iblups.com/hls/0773874174fd4eba8bb9eff741d190dc.m3u8",         "pool": "es", "colorFrom": "FF3A1C2A", "colorTo": "FF783A54", "countries": "PE"},
+    {"name": "Antena 1",         "url": "https://streaming-live.rtp.pt/liveradio/antena180a/playlist.m3u8",           "pool": "pt", "colorFrom": "FF1C3A32", "colorTo": "FF387A64", "countries": "PT"},
+    {"name": "BandNews FM SP",   "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/BANDNEWSFM_SPAAC.m3u8", "pool": "pt", "colorFrom": "FF3A2016", "colorTo": "FF7A422E", "countries": "BR"},
+    {"name": "Rádio Gaúcha",     "url": "https://1132747t.ha.azioncdn.net/primary/gaucha_rbs.sdp/playlist.m3u8",      "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5474", "countries": "BR"},
 
     {"name": "BBC World Service","url": "https://stream.live.vc.bbcmedia.co.uk/bbc_world_service",                      "pool": "en", "colorFrom": "FF3B1F24", "colorTo": "FF8C2F39"},
     {"name": "NPR",              "url": "https://npr-ice.streamguys1.com/live.mp3",                                     "pool": "en", "colorFrom": "FF1D3247", "colorTo": "FF2E6B8F"},
@@ -672,7 +705,7 @@ RADIO_STATIONS = [
     {"name": "CBN São Paulo",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_SP_ADP.aac","pool": "pt", "colorFrom": "FF23302A", "colorTo": "FF3D7A5F"},
     {"name": "CBN Rio",          "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_RJ_ADP.aac","pool": "pt", "colorFrom": "FF2B2438", "colorTo": "FF574A80"},
     {"name": "Rádio Itatiaia",   "url": "https://8903.brasilstream.com.br/stream",                                     "pool": "pt", "colorFrom": "FF3A2622", "colorTo": "FF7E4C3D"},
-    {"name": "Renascença",       "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_RENASCENCA_SC",                    "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5B85"},
+    {"name": "Renascença",       "url": "https://22653.live.streamtheworld.com/RADIO_RENASCENCA_SC",                    "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5B85"},
 ]
 
 def check_radio_stations(stations, workers=8, timeout=10):
@@ -696,8 +729,11 @@ def check_radio_stations(stations, workers=8, timeout=10):
                              headers={**BROWSER_HEADERS, "Range": "bytes=0-4000"})
             ok = r.status_code in (200, 206)
             ctype = (r.headers.get("Content-Type") or "").lower()
-            # Сервер вещания на месте, но вместо звука отдаёт страницу с ошибкой
-            if ok and ctype.startswith("text/"):
+            # Сервер вещания на месте, но вместо звука отдаёт страницу с ошибкой.
+            # Плейлисты HLS (.m3u8) сюда не попадают: часть серверов помечает их
+            # text/..., а это законный поток, а не ошибка
+            if ok and ctype.startswith("text/") and "mpegurl" not in ctype \
+                    and ".m3u8" not in st["url"]:
                 ok = False
             r.close()
             return ok
