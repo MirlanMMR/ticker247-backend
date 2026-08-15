@@ -1347,7 +1347,12 @@ _PAGE_NOISE = ("this video can not be played", "published ", "getty images",
                # выглядят как начало статьи — «Photographer: Bonnie Cash/UPI/
                # Bloomberg», «Crédito, YouTube/Miss Universe»
                "photographer:", "photo:", "crédito,", "credito,", "credit:",
-               "фото:", "иллюстрация:",
+               "фото:", "иллюстрация:", "illustration:",
+               # Ряд кнопок «поделиться», который часть сайтов отдаёт обычным
+               # абзацем: у Axios в ленту уходило «facebook (opens in new
+               # window) twitter (opens in new window)…» вместо текста новости
+               "(opens in new window)", "add axios as your preferred source",
+               "as your preferred source", "see more of our stories on google",
                # Заглушки живых блогов: приходят с кодом 200 и нормальной
                # разметкой, поэтому проверка ответа их не ловит (Sky Sports)
                "blog is currently unavailable", "please try again later",
@@ -1547,7 +1552,33 @@ def enrich_short_summaries(items, min_len=400, budget=150, workers=8):
     print(f"  📄 Дотянуто текстом со страницы: {done} из {len(targets)}")
 
 
-def enrich_missing_images(items, budget=200, workers=8):
+def drop_repeated_images(items):
+    """Убирает логотип издания, выданный за фотографию новости.
+
+    Часть сайтов ставит один и тот же og:image всем материалам подряд — свой
+    логотип или фирменную заставку (Terra BR, UPI). В ленте это выглядит
+    честной картинкой, но не говорит о новости ничего: пять разных событий с
+    одинаковым логотипом.
+
+    Признак простой и не требует распознавания картинок: если одно и то же
+    изображение стоит у трёх и более новостей источника, это не снимок
+    события. Лучше эмодзи-заглушка, честно говорящая «фото нет», чем логотип,
+    притворяющийся фотографией.
+    """
+    from collections import Counter
+    seen = Counter((it.get("source", ""), it.get("imageUrl", ""))
+                   for it in items if (it.get("imageUrl") or "").startswith("http"))
+    logos = {pair for pair, n in seen.items() if n >= 3}
+    if not logos:
+        return
+    for it in items:
+        if (it.get("source", ""), it.get("imageUrl", "")) in logos:
+            it["imageUrl"] = ""
+    names = sorted({src for src, _ in logos})
+    print(f"  🏷 Логотип вместо фото убран у: {', '.join(names)}")
+
+
+def enrich_missing_images(items, budget=450, workers=16):
     """Достаёт фотографию со страницы статьи для новостей, где её нет в ленте.
 
     RSS часто приходит без картинки, а сайт почти всегда кладёт og:image —
@@ -3510,6 +3541,7 @@ def main():
     print("📝 Дозаполняем короткие описания...")
     enrich_short_summaries(all_news)
     enrich_missing_images(all_news)
+    drop_repeated_images(all_news)
 
     # Новости, у которых текста нет и взять его негде (Al Jazeera, Sky Sports,
     # Marca, Bloomberg отдают статью только после выполнения скриптов —
