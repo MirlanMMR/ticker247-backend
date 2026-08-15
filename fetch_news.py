@@ -798,16 +798,21 @@ def check_radio_stations(stations, workers=8, timeout=10):
     with ThreadPoolExecutor(max_workers=workers) as pool:
         verdicts = list(pool.map(alive, stations))
 
-    live = [st for st, ok in zip(stations, verdicts) if ok]
     dead = [st for st, ok in zip(stations, verdicts) if not ok]
     if dead:
         print("  📻 Молчат: " + ", ".join(d["name"] for d in dead))
-    if len(live) < len(stations) / 2:
+
+    # Молчащую станцию НЕ выбрасываем, а помечаем. Выброшенная исчезает из
+    # списка без следа, и человек не понимает, куда делось радио, которое он
+    # слушал вчера. С меткой станция остаётся на месте, но кнопка серая и не
+    # нажимается — а как только эфир вернётся, снова оживёт сама
+    if len(dead) > len(stations) / 2:
         print(f"  📻 Не отвечает {len(dead)} из {len(stations)} — похоже на нашу сеть, "
-              f"список оставляем целиком")
-        return stations
-    print(f"  📻 В эфире {len(live)} из {len(stations)}")
-    return live
+              f"метки не ставим")
+        return [{**st, "live": True} for st in stations]
+
+    print(f"  📻 В эфире {len(stations) - len(dead)} из {len(stations)}")
+    return [{**st, "live": bool(ok)} for st, ok in zip(stations, verdicts)]
 
 
 
