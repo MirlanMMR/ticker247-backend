@@ -173,6 +173,21 @@ RSS_SOURCES = [
     {"url": "https://eco.sapo.pt/feed/", "source": "ECO", "category": "MONEY", "priority": 0, "quota": 3, "scope": "pool", "lang": "pt"},
     {"url": "https://www.jornaldenegocios.pt/rss", "source": "Jornal de Negócios", "category": "MONEY", "priority": 0, "quota": 3, "scope": "pool", "lang": "pt"},
 
+    # -- Испанский пул: местных было 7 из 68 --------------------------------
+    # Та же болезнь, что и в португальском: своих изданий мало, мировая лента
+    # заливает остальное. Мексика - домашняя страна пула, её издания местные.
+    # Проверено живьём 15.08.2026
+    {"url": "https://www.jornada.com.mx/rss/edicion.xml", "source": "La Jornada", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "es"},
+    {"url": "https://www.eleconomista.com.mx/rss/ultimas-noticias", "source": "El Economista MX", "category": "MONEY", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
+    {"url": "https://expansion.mx/rss", "source": "Expansión MX", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
+    {"url": "https://www.reforma.com/rss/portada.xml", "source": "Reforma", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "es"},
+    {"url": "https://www.eldiario.es/rss/", "source": "eldiario.es", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://www.lavanguardia.com/rss/home.xml", "source": "La Vanguardia", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://api2.rtve.es/rss/temas_noticias.xml", "source": "RTVE", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml", "source": "El Mundo", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://www.semana.com/arc/outboundfeeds/rss/", "source": "Semana CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://www.diariolibre.com/rss/portada.xml", "source": "Diario Libre DO", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "es"},
+
     {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "es"},
     {"url": "https://www.infobae.com/arc/outboundfeeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
@@ -311,7 +326,8 @@ LOCAL_DOMAINS = {
            "politico.com", "marketwatch.com", "apnews.com", "usatoday.com", "axios.com",
            "latimes.com", "seattletimes.com", "nypost.com", "cbsnews.com", "upi.com"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
-           "proceso.com.mx", "elfinanciero.com.mx", "reforma.com"],
+           "proceso.com.mx", "elfinanciero.com.mx", "reforma.com",
+           "eleconomista.com.mx", "expansion.mx"],
     "pt": ["globo.com", "uol.com.br", "folha.uol.com.br", "estadao.com.br",
            "band.uol.com.br", "r7.com", "cnnbrasil.com.br", "agenciabrasil.ebc.com.br",
            "metropoles.com", "poder360.com.br", "gazetadopovo.com.br",
@@ -348,7 +364,9 @@ POOL_DOMAINS = {
     "en": ["thehindu.com", "smh.com.au", "irishtimes.com", "nzherald.co.nz",
            "rte.ie", "globalnews.ca", "abc.net.au", "punchng.com",
            "jamaica-gleaner.com", "straitstimes.com"],
-    "es": ["elpais.com", "abc.es", "marca.com", "clarin.com", "lanacion.com.ar",
+    "es": ["eldiario.es", "lavanguardia.com", "rtve.es", "elmundo.es",
+           "semana.com", "diariolibre.com",
+           "elpais.com", "abc.es", "marca.com", "clarin.com", "lanacion.com.ar",
            "infobae.com", "eltiempo.com", "emol.com", "latercera.com",
            "elcomercio.pe", "rpp.pe", "eluniverso.com", "elnacional.com",
            "prensalibre.com", "elsalvador.com", "nacion.com", "elobservador.com.uy",
@@ -677,11 +695,12 @@ YOUTUBE_CHANNELS = {
 # зашитый в приложении — правя один, правь и второй
 RADIO_STATIONS = [
     # ru: нейтральных новостных радио почти не осталось, поэтому деловые
-    # Азаттык — кыргызская служба Радио Свобода, речевая и новостная. Круглосуточный
-    # эфир у них есть, но спрятан: на сайте нет ни ссылки, ни плеера, адрес находится
-    # только через переадресацию azattyk.org/live -> /live/audio/73. Поток HLS, играет
-    # благодаря модулю media3-exoplayer-hls
-    {"name": "Азаттык",         "url": "https://rferl-ingest.akamaized.net/hls/live/2121749/axia01/master.m3u8", "pool": "ru", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "KG"},
+    # Азаттык (кыргызская служба Радио Свобода) НЕ взят, хотя поток живой и
+    # официальный: вещают они не круглосуточно, и между передачами в эфире
+    # часами крутится заставка «This is Radio Free Europe, Prague». Станция,
+    # повторяющая одну фразу, для слушателя не лучше тишины.
+    # Поток, если понадобится вернуться:
+    # https://rferl-ingest.akamaized.net/hls/live/2121749/axia01/master.m3u8
 
     # Кыргыз радиосу убрано: сервер вещания ОТРК отвечает, но эфира на нём нет
     # ни одного — ни kyrgyzradio, ни 1radio. Государственное радио ушло из
@@ -1991,7 +2010,7 @@ _MODEL_IN_USE = GEMINI_MODEL
 # 6 — сброс памяти после починки одностороннего кэша: за время, пока
 # одобрения не запоминались, а отказы копились, накопилось 9264 записи, почти
 # сплошь отказы. Оставить их значит тащить чёрный список ещё двое суток
-RULES_VERSION = 6
+RULES_VERSION = 7
 
 AI_CACHE = {}
 # Разобранные ИИ страницы: адрес → текст новости. Без этой памяти мы платили
@@ -2286,6 +2305,20 @@ priority=2 — события региона {pool['region']}:
   · авария — срочно при жертвах или эвакуации, а не при одном пострадавшем
   · пожар — срочно, если горит город или эвакуируют людей, а не сарай
   · заявление политика — срочно, если объявлено решение, а не мнение
+
+СРОЧНО — ДЛЯ КОГО? Прежде чем поставить URGENT мировой новости, спроси не
+"громко ли это", а "касается ли это нашего читателя". Событие внутри одной
+страны бывает первой полосой у себя дома и пустым звуком за её пределами.
+Читателю в Бишкеке присылали "Срочно: Луиджи Манджоне признаёт вину по
+федеральному делу" — он не знает этого имени и не обязан знать.
+  · URGENT мировой новости — только если последствия выходят за границы
+    страны события: война, обвал рынков, крупная катастрофа, пандемия,
+    решение, меняющее правила для всех, гибель мирового лидера
+  · внутренняя политика, суды, отставки, скандалы и происшествия одной
+    страны — категория NEWS, priority=0-1, БЕЗ URGENT, каким бы громким это
+    ни было у себя дома
+  · для местных новостей и новостей стран пула правило прежнее: там читатель
+    свой, и порог срочности ниже
 
 СПОРТ ЧУЖОГО ПРОСТРАНСТВА. Вид спорта, которым в странах пула не занимаются
 и не смотрят, удаляй целиком: крикет и регби для испано- и португалоязычных,
