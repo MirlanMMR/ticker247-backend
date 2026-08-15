@@ -1633,6 +1633,11 @@ def drop_repeated_images(items):
     print(f"  🏷 Логотип вместо фото убран у: {', '.join(names)}")
 
 
+# Признак уменьшенной копии в адресе. Держим снаружи: нужен и при отборе
+# кандидатов, и внутри, когда решаем, годится ли найденное на странице
+_THUMBNAIL_URL = re.compile(r"og_thumbnail|thumb|/small[-_/]|_150x|_300x|/preview/", re.I)
+
+
 def enrich_missing_images(items, budget=450, workers=16):
     """Достаёт фотографию со страницы статьи для новостей, где её нет в ленте.
 
@@ -1655,7 +1660,12 @@ def enrich_missing_images(items, budget=450, workers=16):
     targets = []
     seen_urls = set()
     for item in items:
-        if item.get("imageUrl"):
+        # Берём и тех, у кого картинка ЕСТЬ, но это миниатюра: на весь экран
+        # такая разваливается в мыло. El Tiempo и El Economista кладут
+        # уменьшенную копию прямо в ленту («og_thumbnail» в адресе), и дотяжка
+        # мимо них проходила — она искала только пустые карточки
+        img_now = item.get("imageUrl") or ""
+        if img_now and not _THUMBNAIL_URL.search(img_now):
             continue
         url = item.get("url", "")
         if not url.startswith("http") or "t.me" in url or "telegram." in url:
@@ -1724,7 +1734,7 @@ def enrich_missing_images(items, budget=450, workers=16):
 
     by_url = {}
     for item, img in zip(targets, results):
-        if img:
+        if img and not (item.get("imageUrl") and _THUMBNAIL_URL.search(img)):
             item["imageUrl"] = img
             by_url[item["url"]] = img
 
