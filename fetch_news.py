@@ -675,6 +675,52 @@ RADIO_STATIONS = [
     {"name": "Renascença",       "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_RENASCENCA_SC",                    "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5B85"},
 ]
 
+def check_radio_stations(stations, workers=8, timeout=10):
+    """Отсеивает станции, чей эфир молчит.
+
+    Станции умирают тихо: адрес отвечает 404 или не отвечает вовсе, а читатель
+    жмёт play и получает тишину — без единого признака, что дело не в его
+    интернете. Проверкой поймано пять мёртвых из двадцати, в том числе «Кыргыз
+    радиосу» (сервер вещания жив, но эфира на нём нет).
+
+    Берём первые байты потока: этого хватает, чтобы отличить живой эфир от
+    заглушки, и не качаем лишнего.
+
+    Если молчит больше половины списка — виноваты почти наверняка мы (сеть
+    раннера, а не двадцать станций разом), и тогда список идёт как есть:
+    оставить читателя совсем без радио хуже, чем показать пару нерабочих.
+    """
+    def alive(st):
+        try:
+            r = requests.get(st["url"], timeout=timeout, stream=True,
+                             headers={**BROWSER_HEADERS, "Range": "bytes=0-4000"})
+            ok = r.status_code in (200, 206)
+            ctype = (r.headers.get("Content-Type") or "").lower()
+            # Сервер вещания на месте, но вместо звука отдаёт страницу с ошибкой
+            if ok and ctype.startswith("text/"):
+                ok = False
+            r.close()
+            return ok
+        except Exception:
+            return False
+
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        verdicts = list(pool.map(alive, stations))
+
+    live = [st for st, ok in zip(stations, verdicts) if ok]
+    dead = [st for st, ok in zip(stations, verdicts) if not ok]
+    if dead:
+        print("  📻 Молчат: " + ", ".join(d["name"] for d in dead))
+    if len(live) < len(stations) / 2:
+        print(f"  📻 Не отвечает {len(dead)} из {len(stations)} — похоже на нашу сеть, "
+              f"список оставляем целиком")
+        return stations
+    print(f"  📻 В эфире {len(live)} из {len(stations)}")
+    return live
+
+
+
 # ─── Прямые эфиры ────────────────────────────────────────────────────────────
 # Круглосуточные трансляции для плиток «прямой эфир» в ленте.
 #
@@ -3108,7 +3154,7 @@ def main():
         # /viral идёт целиком и стёрла бы вложенный узел сразу после создания.
         # Узел внутри /viral, а не в /config, потому что права боевой базы
         # открывают на чтение только news и viral
-        "radio":    RADIO_STATIONS,
+        "radio":    check_radio_stations(RADIO_STATIONS),
         "updatedAt": int(datetime.now().timestamp() * 1000)
     })
     print(f"✅ YouTube: KG={len(viral_kg)}, RU={len(viral_ru)}, BR={len(viral_br)}, MX={len(viral_mx)}, GB={len(viral_gb)}, World={len(viral_world)}")
