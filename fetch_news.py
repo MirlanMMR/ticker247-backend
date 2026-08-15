@@ -82,6 +82,25 @@ RSS_SOURCES = [
     {"url": "https://www.independent.co.uk/news/world/rss", "source": "The Independent", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world"},
     {"url": "https://www.straitstimes.com/news/world/rss.xml", "source": "Straits Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
     {"url": "https://www.newsweek.com/rss", "source": "Newsweek", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
+    # ── Англоязычный мир, 15.08.2026 ────────────────────────────────────────
+    # Блок «Новости из» показывал 17 флагов, а изданий из этих стран не было
+    # вовсе — на весь пул выходило три новости уровня языкового пространства.
+    # Ленты проверены: текст отдают либо в описании, либо на странице
+    {"url": "https://www.rte.ie/feeds/rss/?index=/news/", "source": "RTÉ Ireland", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    {"url": "https://www.irishtimes.com/arc/outboundfeeds/feed-irish-news/", "source": "Irish Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    {"url": "https://globalnews.ca/feed/", "source": "Global News CA", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    {"url": "https://www.abc.net.au/news/feed/51120/rss.xml", "source": "ABC Australia", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    {"url": "https://www.smh.com.au/rss/feed.xml", "source": "SMH Australia", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    {"url": "https://www.thehindu.com/news/national/feeder/default.rss", "source": "The Hindu", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    {"url": "https://punchng.com/feed/", "source": "Punch Nigeria", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "en"},
+    {"url": "https://jamaica-gleaner.com/feed/rss.xml", "source": "Jamaica Gleaner", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "en"},
+
+    # США: были только общенациональные издания, а в стране 50 штатов —
+    # местный слой выходил из четырёх новостей
+    {"url": "https://www.latimes.com/local/rss2.0.xml", "source": "LA Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
+    {"url": "https://www.seattletimes.com/feed/", "source": "Seattle Times", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local", "lang": "en"},
+    {"url": "https://nypost.com/feed/", "source": "NY Post", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local", "lang": "en"},
+
     # Замена ушедшим (13.08.2026): страницы проверены, текст отдают —
     # CBS 2700 знаков, Time 7200, Fortune 9300
     {"url": "https://www.cbsnews.com/latest/rss/main", "source": "CBS News", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world"},
@@ -269,7 +288,8 @@ LOCAL_DOMAINS = {
     "ru": ["kaktus.media", "sputnik.kg", "vb.kg", "knews.kg", "gezitter.org",
            "kabar.kg", "akipress.com", "24.kg", "turmush.kg", "super.kg", "economist.kg"],
     "en": ["nytimes.com", "npr.org", "nbcnews.com", "cnn.com", "washingtonpost.com",
-           "politico.com", "marketwatch.com", "apnews.com", "usatoday.com", "axios.com"],
+           "politico.com", "marketwatch.com", "apnews.com", "usatoday.com", "axios.com",
+           "latimes.com", "seattletimes.com", "nypost.com", "cbsnews.com", "upi.com"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com"],
     "pt": ["globo.com", "uol.com.br", "folha.uol.com.br", "estadao.com.br",
@@ -303,7 +323,9 @@ POOL_DOMAINS = {
     # BBC, Guardian, Sky, Reuters, Al Jazeera сюда НЕ вносить: формально они
     # британские, но по сути это мировая лента, и она кормит все пулы. Запри их
     # в английском — остальные три пула останутся без мировой повестки
-    "en": ["thehindu.com", "smh.com.au", "irishtimes.com", "nzherald.co.nz"],
+    "en": ["thehindu.com", "smh.com.au", "irishtimes.com", "nzherald.co.nz",
+           "rte.ie", "globalnews.ca", "abc.net.au", "punchng.com",
+           "jamaica-gleaner.com", "straitstimes.com"],
     "es": ["elpais.com", "abc.es", "marca.com", "clarin.com", "lanacion.com.ar",
            "infobae.com", "eltiempo.com", "emol.com", "latercera.com",
            "elcomercio.pe", "rpp.pe", "eluniverso.com", "elnacional.com",
