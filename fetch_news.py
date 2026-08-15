@@ -3665,14 +3665,22 @@ def main():
     # Приметы «своих за границей»: слова, по которым чужая местная новость
     # может оказаться новостью про нашего читателя. Ищем на всех языках сразу —
     # статья написана на языке своего источника, а не нашего пула
+    # Ищем ЛЮДЕЙ, а не страну: упоминание государства встречается в каждой
+    # второй мировой новости, и по нему мост тащил бы что попало. Связь должна
+    # быть в гражданах — «киргизстанец», «американец», «гражданин США»
     BRIDGE_MARKERS = {
-        "ru": ("кыргыз", "киргиз", "бишкек", "kyrgyz", "kirghiz", "bishkek",
-               "quirguiz", "kirguis"),
-        "en": ("американ", "сша", "estadounidense", "eeuu", "ee. uu.",
-               "norte-americano", "americano dos estados", "u.s. citizen",
-               "american citizen"),
-        "es": ("мексикан", "mexicano", "méxico", "mexicana", "mexicano dos"),
-        "pt": ("бразиль", "brasileiro", "brasileira", "brasil"),
+        "ru": ("кыргызстан", "киргизстан", "кыргызстанк", "киргиз",
+               "kyrgyz national", "kyrgyz citizen", "kyrgyz man", "kyrgyz woman",
+               "kyrgyz driver", "from kyrgyzstan", "ciudadano kirguís",
+               "cidadão quirguiz"),
+        "en": ("американец", "американка", "американцы", "гражданин сша",
+               "гражданка сша", "citizen of the united states",
+               "estadounidense", "ciudadano estadounidense",
+               "cidadão americano", "norte-americano"),
+        "es": ("мексиканец", "мексиканка", "гражданин мексики", "mexican national",
+               "mexican citizen", "ciudadano mexicano", "cidadão mexicano"),
+        "pt": ("бразилец", "бразильянка", "гражданин бразилии", "brazilian national",
+               "brazilian citizen", "ciudadano brasileño", "cidadão brasileiro"),
     }
     bridged = 0
 
@@ -3693,8 +3701,16 @@ def main():
         # по-прежнему ИИ, он же поставит полку и приоритет
         if scope != "world":
             hay = (item.get("title", "") + " " + item.get("summary", "")[:300]).lower()
+            # В свой же пул новость не «перевозим»: она туда попадёт обычным
+            # путём ниже. Прежняя проверка смотрела на source_lang, а он есть
+            # не у всех источников — и киргизстанские новости приезжали в
+            # русский пул вторым экземпляром
+            own = source_lang if source_lang in lang_groups else (
+                "ru" if detected_lang in CYRILLIC_LANGS else
+                "es" if detected_lang == "es" else
+                "pt" if detected_lang == "pt" else "en")
             for target, markers in BRIDGE_MARKERS.items():
-                if target == source_lang or bridged >= 20:
+                if target == own or bridged >= 20:
                     continue
                 if any(m in hay for m in markers):
                     lang_groups[target].append(dict(item))
