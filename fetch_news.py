@@ -1698,7 +1698,7 @@ def enrich_missing_images(items, budget=450, workers=16):
         # уменьшенную копию прямо в ленту («og_thumbnail» в адресе), и дотяжка
         # мимо них проходила — она искала только пустые карточки
         img_now = item.get("imageUrl") or ""
-        if img_now and not _THUMBNAIL_URL.search(img_now):
+        if img_now and not (_THUMBNAIL_URL.search(img_now) or item.get("imageLowRes")):
             continue
         url = item.get("url", "")
         if not url.startswith("http") or "t.me" in url or "telegram." in url:
@@ -1816,6 +1816,7 @@ def fetch_rss(source):
                 continue
 
             image = None
+            low_res = False
             enc = item_el.find("enclosure")
             if enc is not None and "image" in (enc.get("type") or ""):
                 image = upscale_known_cdn(enc.get("url"))
@@ -1854,6 +1855,14 @@ def fetch_rss(source):
                         best, best_w = url_img, score
                 if best:
                     image = upscale_known_cdn(best)
+                    # Мелкая копия из ленты — не повод довольствоваться ею.
+                    # Пока мы вовсе не читали media-теги, картинки брались со
+                    # страницы и были крупными; научившись их читать, мы стали
+                    # брать у BBC миниатюру 240 точек вместо снимка 1024.
+                    # Помечаем такие, чтобы дотяжка заменила их со страницы —
+                    # правило общее, не про одну лишь BBC
+                    if best_w and best_w < 600 and "1024" not in image:
+                        low_res = True
 
             item_lang = source.get("lang") or lang
             # Исключение из «источник надёжнее детектора»: кириллица против
@@ -1869,7 +1878,7 @@ def fetch_rss(source):
 
             items.append({
                 "title": title, "url": link, "summary": summary,
-                "imageUrl": image, "source": source["source"],
+                "imageUrl": image, "imageLowRes": low_res, "source": source["source"],
                 "category": source["category"], "source_category": source["category"],
                 "priority": source["priority"],
                 # Язык: явный язык источника надёжнее детектора
