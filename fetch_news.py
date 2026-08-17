@@ -272,7 +272,7 @@ RSS_SOURCES = [
     # КГ / ЦА — локальные для RU пула
     # ════════════════════════════════════════════════════
     {"url": "https://24.kg/rss/", "source": "24.kg", "category": "NEWS", "priority": 2, "quota": 12, "scope": "local"},
-    {"url": "https://kabar.kg/rss/", "source": "Kabar.kg", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
+    {"url": "https://kabar.kg/rss.xml", "source": "Kabar.kg", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
     {"url": "https://akipress.com/rss/news.rss", "source": "AKIpress", "category": "NEWS", "priority": 2, "quota": 12, "scope": "local"},
     {"url": "https://kaktus.media/?rss=1", "source": "Kaktus.media", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
     {"url": "https://sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
@@ -285,7 +285,7 @@ RSS_SOURCES = [
     {"url": "https://www.zakon.kz/rss.xml", "source": "Zakon.kz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
 
     # Узбекистан
-    {"url": "https://kun.uz/rss/", "source": "Kun.uz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
+    {"url": "https://kun.uz/news/rss?lang=ru", "source": "Kun.uz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
 
     # РОССИЯ — scope=world: местные новости РФ не должны попадать в блок
     # «Местные» пользователей других стран русского пула (КГ, УЗ, KZ и т.д.)
@@ -460,11 +460,9 @@ RETIRED_SOURCES = [
     # Проверено из GitHub Actions 17.08.2026: ни одна из этих лент не дала за
     # неделю ни одной новости. Кыргызстанские и казахстанские особенно обидны —
     # из-за них местный блок держался на трёх источниках
-    "kabar.kg",                 # 404 по всем адресам, что нашлись
-    "vb.kg/rss",                # 404
-    "zakon.kz",                 # 404
-    "kun.uz",                   # 404
-    "tengrinews.kz",            # не отвечает вовсе
+    "vb.kg/rss",                # 404, ленту с сайта убрали
+    "zakon.kz",                 # 404, ленту с сайта убрали
+    "tengrinews.kz",            # не отвечает ни из дома, ни из GitHub
     "super.kg",                 # 404
     "rsport.ria.ru",            # 404
     "cosmo.ru",                 # 404
