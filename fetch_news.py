@@ -3192,6 +3192,16 @@ def meets_standard(item, lang):
     return True, None, notes
 
 
+# Начало текста, выдающее подпись к ролику, а не новость. Проверяем именно
+# НАЧАЛО: фраза «лучшие моменты» внутри большого репортажа — обычные слова
+QC_VIDEO_CAPTION = re.compile(
+    r"^\s*(highlights of|highlights from|watch:|video:|"
+    r"лучшие моменты|обзор матча|смотрите видео|видео:|"
+    r"melhores momentos|veja o vídeo|"
+    r"lo más destacado|los mejores momentos|resumen del partido)",
+    re.I)
+
+
 def quality_gate(items, lang):
     """Правит и отсеивает новости перед публикацией. Возвращает годные."""
     kept, dropped = [], []
@@ -3205,6 +3215,16 @@ def quality_gate(items, lang):
         # 1. Заглушка вместо статьи — снимаем с эфира
         if any(m in low for m in QC_STUB_MARKERS):
             dropped.append((item, "заглушка вместо текста"))
+            continue
+
+        # 1б. Подпись к видеонарезке вместо новости.
+        #
+        # Заголовок обещает событие («Уильямс проиграла Аранго»), а в тексте —
+        # «Лучшие моменты матча»: это подпись к ролику, а не новость. Читать
+        # нечего, смотреть у нас негде. У Sky Sports таких девять из двадцати,
+        # но правило общее: так делают все спортивные ленты
+        if QC_VIDEO_CAPTION.match(body.strip()):
+            dropped.append((item, "подпись к видеонарезке вместо новости"))
             continue
 
         # 2. Служебные строки внутри текста — вырезаем построчно
