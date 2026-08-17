@@ -274,7 +274,7 @@ RSS_SOURCES = [
     {"url": "https://24.kg/rss/", "source": "24.kg", "category": "NEWS", "priority": 2, "quota": 12, "scope": "local"},
     {"url": "https://kabar.kg/rss/", "source": "Kabar.kg", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
     {"url": "https://akipress.com/rss/news.rss", "source": "AKIpress", "category": "NEWS", "priority": 2, "quota": 12, "scope": "local"},
-    {"url": "https://kaktus.media/rss.xml", "source": "Kaktus.media", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
+    {"url": "https://kaktus.media/?rss=1", "source": "Kaktus.media", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
     {"url": "https://sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://www.vb.kg/rss.xml", "source": "Вечерний Бишкек", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://knews.kg/feed/", "source": "Knews.kg", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
@@ -457,6 +457,25 @@ RETIRED_SOURCES = [
                         # а не событие. Наше правило об инфоповоде выбрасывало
                         # почти всё, что он присылал, а обложки он рисует сам —
                         # узорная заставка с заголовком вместо фотографии
+    # Проверено из GitHub Actions 17.08.2026: ни одна из этих лент не дала за
+    # неделю ни одной новости. Кыргызстанские и казахстанские особенно обидны —
+    # из-за них местный блок держался на трёх источниках
+    "kabar.kg",                 # 404 по всем адресам, что нашлись
+    "vb.kg/rss",                # 404
+    "zakon.kz",                 # 404
+    "kun.uz",                   # 404
+    "tengrinews.kz",            # не отвечает вовсе
+    "super.kg",                 # 404
+    "rsport.ria.ru",            # 404
+    "cosmo.ru",                 # 404
+    "tourprom.ru",              # 404
+    # Google закрыл ленты трендов — 404 по всем странам разом
+    "trendingsearches/daily/rss",
+    # Отдают роботам 403/406/202 и ни одной новости за неделю
+    "newsweek.com/rss",
+    "politico.com/rss",
+    "seattletimes.com/feed",
+    "noticias.uol.com.br/ultnot",
     # Португальский пул, проверено 15.08.2026: ленты не отдают материалов
     "www.publico.pt/rss",           # пустой ответ 202, без единого материала
     "rss.uol.com.br/feed/geral",    # 403 роботам; у UOL рабочий адрес другой

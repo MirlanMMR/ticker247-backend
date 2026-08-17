@@ -13,10 +13,14 @@ Actions по расписанию (см. .github/workflows/check_sources.yml).
 import sys
 import requests
 
-from fetch_news import RSS_SOURCES, BROWSER_HEADERS
+from fetch_news import RSS_SOURCES, BROWSER_HEADERS, RETIRED_SOURCES
 
 def collect_rss_urls():
-    return [(src["source"], src["url"]) for src in RSS_SOURCES if src.get("url", "").startswith("http")]
+    # Отставленные не проверяем: они мертвы намеренно, и еженедельный отчёт
+    # о них — шум, из-за которого перестают читать весь отчёт
+    return [(src["source"], src["url"]) for src in RSS_SOURCES
+            if src.get("url", "").startswith("http")
+            and not any(dead in src["url"].lower() for dead in RETIRED_SOURCES)]
 
 def check_url(name, url):
     try:
