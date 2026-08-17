@@ -3198,7 +3198,8 @@ QC_VIDEO_CAPTION = re.compile(
     r"^\s*(highlights of|highlights from|watch:|video:|"
     r"лучшие моменты|обзор матча|смотрите видео|видео:|"
     r"melhores momentos|veja o vídeo|"
-    r"lo más destacado|los mejores momentos|resumen del partido)",
+    r"lo más destacado|lo destacado|los mejores momentos|"
+    r"resumen del partido|destacados d)",
     re.I)
 
 
@@ -3223,7 +3224,11 @@ def quality_gate(items, lang):
         # «Лучшие моменты матча»: это подпись к ролику, а не новость. Читать
         # нечего, смотреть у нас негде. У Sky Sports таких девять из двадцати,
         # но правило общее: так делают все спортивные ленты
-        if QC_VIDEO_CAPTION.match(body.strip()):
+        # Смотрим и на перевод, и на ОРИГИНАЛ. Перевод каждый раз чуть другой
+        # («Highlights of the Super League game» стало «Lo destacado del
+        # partido» — без «más», и правило промахнулось), а оригинал постоянен
+        orig_body = (item.get("origSummary") or "").strip()
+        if QC_VIDEO_CAPTION.match(body.strip()) or QC_VIDEO_CAPTION.match(orig_body):
             dropped.append((item, "подпись к видеонарезке вместо новости"))
             continue
 
