@@ -1424,6 +1424,11 @@ _PAGE_NOISE = ("this video can not be played", "published ", "getty images",
                # window) twitter (opens in new window)…» вместо текста новости
                "(opens in new window)", "add axios as your preferred source",
                "as your preferred source", "see more of our stories on google",
+               # Straits Times шлёт вместо новости приглашение подписаться и
+               # служебные строки дат: «Sign up now: Get ST's newsletters
+               # delivered to your inbox», «Published Aug 15», «Updated Aug 15»
+               "sign up now:", "newsletters delivered to your inbox",
+               "get st's newsletters", "subscribe to read", "read this subscriber",
                # Заглушки живых блогов: приходят с кодом 200 и нормальной
                # разметкой, поэтому проверка ответа их не ловит (Sky Sports)
                "blog is currently unavailable", "please try again later",
@@ -3135,6 +3140,15 @@ def translate_batch(items, target_lang):
 # Вырезаем строку целиком, а не всю новость: обычно это одна подпись среди
 # нормальных абзацев («Photographer: Bonnie Cash/UPI/Bloomberg»)
 QC_JUNK_LINES = [
+    # Служебные строки публикации: «Published Aug 15, 2026, 05:46 PM»,
+    # «Updated ...». Даты и так показаны под карточкой, в тексте они лишние
+    r"^\s*(published|updated)\s+[A-Z][a-z]{2}\s+\d{1,2},\s+\d{4}.*$",
+    r"^\s*(опубликовано|обновлено)\s+\d{1,2}\s+\S+\s+\d{4}.*$",
+    # Приглашение подписаться отдельной строкой. Ловим и в уже собранном
+    # тексте, а не только при разборе страницы: часть новостей приходит с
+    # этой строкой прямо из ленты
+    r"^.*\b(sign up now|newsletters? delivered to your inbox|subscribe to read|"
+    r"подпишитесь на (рассылку|нашу)|получайте новости на почту)\b.*$",
     r"^\s*photographer\s*:.*$",
     r"^\s*photo\s*:.*$",
     r"^\s*cr[ée]dito\s*,.*$",
