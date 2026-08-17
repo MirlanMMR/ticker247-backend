@@ -766,10 +766,14 @@ RADIO_STATIONS = [
     # Поток, если понадобится вернуться:
     # https://rferl-ingest.akamaized.net/hls/live/2121749/axia01/master.m3u8
 
-    # Кыргыз радиосу убрано: сервер вещания ОТРК отвечает, но эфира на нём нет
-    # ни одного — ни kyrgyzradio, ни 1radio. Государственное радио ушло из
-    # интернета. Кыргызстанские станции подбираем вручную: в открытой базе их
-    # всего восемь и все музыкальные
+    # Кыргыз радиосу — государственное радио, речевое и новостное.
+    #
+    # 15.08.2026 сервер ОТРК отвечал, но эфира на нём не было ни одного, и
+    # станцию пришлось убрать. 17.08 вещание вернулось: 63 слушателя онлайн.
+    # Оставляем в списке насовсем — если замолчит снова, часовая проверка
+    # погасит кнопку сама, и правка руками больше не понадобится.
+    # «Биринчи» по-прежнему не отвечает, «Миң кыял» музыкальное — не берём
+    {"name": "Кыргыз радиосу",  "url": "https://liveradio.utrk.kg/kyrgyzradio",  "pool": "ru", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "KG,KZ,UZ,TM"},
     {"name": "РБК",              "url": "https://rbcreg.hostingradio.ru/rbc32.aacp",                                  "pool": "ru", "colorFrom": "FF1F3A5F", "colorTo": "FF2E6CA8"},
     {"name": "Коммерсантъ FM",   "url": "https://kommersant77.hostingradio.ru:8085/kommersant128.mp3",                 "pool": "ru", "colorFrom": "FF4A2B1E", "colorTo": "FF8A5A3B"},
     {"name": "Бизнес FM",        "url": "https://bfm.hostingradio.ru:9075/fm",                                        "pool": "ru", "colorFrom": "FF1E3B32", "colorTo": "FF2F7A63"},
