@@ -1654,6 +1654,23 @@ def drop_repeated_images(items):
 _THUMBNAIL_URL = re.compile(r"og_thumbnail|thumb|/small[-_/]|_150x|_300x|/preview/", re.I)
 
 
+def upscale_known_cdn(url: str) -> str:
+    """Просит у издательского хранилища ту же картинку покрупнее.
+
+    Размер бывает зашит прямо в адрес, и тогда мелкую копию можно поменять на
+    большую, ничего не выдумывая. BBC отдаёт в ленте 240×135 — на весь экран
+    это мыло; тот же файл по адресу с 1024 приходит 1024×576. Проверено на
+    живых снимках: доступны и 1536, но 1024 хватает любому экрану при
+    разумном весе.
+    """
+    if not url:
+        return url
+    # BBC: /ace/standard/240/… и /news/240/…
+    url = re.sub(r"(ichef\.bbci\.co\.uk/(?:ace/standard|news)/)\d{2,4}/",
+                 r"\g<1>1024/", url)
+    return url
+
+
 def enrich_missing_images(items, budget=450, workers=16):
     """Достаёт фотографию со страницы статьи для новостей, где её нет в ленте.
 
@@ -1801,7 +1818,7 @@ def fetch_rss(source):
             image = None
             enc = item_el.find("enclosure")
             if enc is not None and "image" in (enc.get("type") or ""):
-                image = enc.get("url")
+                image = upscale_known_cdn(enc.get("url"))
             if not image:
                 # ElementTree НЕ находит <media:content> по имени с приставкой:
                 # для него тег зовётся «{http://search.yahoo.com/mrss/}content».
@@ -1836,7 +1853,7 @@ def fetch_rss(source):
                     if score > best_w:
                         best, best_w = url_img, score
                 if best:
-                    image = best
+                    image = upscale_known_cdn(best)
 
             item_lang = source.get("lang") or lang
             # Исключение из «источник надёжнее детектора»: кириллица против
