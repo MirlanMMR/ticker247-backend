@@ -487,7 +487,6 @@ RETIRED_SOURCES = [
     "kino-teatr.ru",        # отдаёт не XML
     "latercera.com",        # лента пустая
     "publico.pt",           # 403 и битый XML
-    "kun.uz",               # отдаёт HTML вместо ленты
     "trends.google.com",    # Google закрыл эти ленты, 404 во всех странах
     "aljazeera.net",    # арабская лента: тексты на арабском во всех пулах.
                         # Метки языка мало — слияние не трогает записи, уже
