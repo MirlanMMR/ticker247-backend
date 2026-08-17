@@ -1666,7 +1666,7 @@ def upscale_known_cdn(url: str) -> str:
     if not url:
         return url
     # BBC: /ace/standard/240/… и /news/240/…
-    url = re.sub(r"(ichef\.bbci\.co\.uk/(?:ace/standard|news)/)\d{2,4}/",
+    url = re.sub(r"(ichef\.bbci\.co\.uk/(?:ace/standard|ace/ws|news)/)\d{2,4}/",
                  r"\g<1>1024/", url)
     return url
 
