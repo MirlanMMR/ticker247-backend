@@ -1625,6 +1625,19 @@ def _is_home_source(item, lang) -> bool:
     return any(dom in url for dom in LOCAL_DOMAINS.get(lang, []))
 
 
+# Приметы домашней страны в тексте новости. Если они есть, событие наше, и
+# мировой полки ему не видать: «в Ноокатском районе», «в Бишкеке», «в
+# Кыргызстане» — это местная новость, как бы громко она ни звучала
+HOME_MARKERS = {
+    "ru": ("кыргызстан", "киргизия", "бишкек", "ош ", "иссык-куль", "чуйской",
+           "нарын", "талас", "джалал-абад", "баткен", "кыргызск"),
+    "en": ("united states", "u.s.", "america", "washington", "new york",
+           "california", "texas", "florida"),
+    "es": ("méxico", "mexico", "mexicano", "cdmx", "guadalajara", "monterrey"),
+    "pt": ("brasil", "brasileir", "são paulo", "rio de janeiro", "brasília"),
+}
+
+
 def _demote_foreign_local(item, lang):
     """Ставит новость на правильную полку, если «местная» ей не по праву."""
     if item.get("scope") != "local" or item.get("bridge"):
@@ -2946,6 +2959,16 @@ VIRAL=вирусное видео, NEWS=всё остальное
                         and not _is_home_source(item, lang)):
                     scope_fix.pop(i, None)
                 _demote_foreign_local(item, lang)
+                # Защита в обратную сторону: своё издание о своей стране не
+                # бывает мировой новостью. Кумай из Ноокатского района уехал
+                # в мировые именно так — ИИ переставил полку, а запрета не
+                # было. Если в новости прямо названа домашняя страна, мировой
+                # она стать не может
+                if i in scope_fix and scope_fix[i] == "world":
+                    hay = (item.get("title", "") + " " +
+                           (item.get("summary") or "")[:300]).lower()
+                    if any(m in hay for m in HOME_MARKERS.get(lang, ())):
+                        scope_fix.pop(i, None)
                 if i in scope_fix and scope_fix[i] != item.get("scope"):
                     print(f"  📐 [{lang}] {item.get('scope')}→{scope_fix[i]}: "
                           f"[{item.get('source','?')}] {item.get('title','')[:70]}")
