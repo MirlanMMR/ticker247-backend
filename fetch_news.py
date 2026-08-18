@@ -218,6 +218,17 @@ RSS_SOURCES = [
     {"url": "https://www.themarshallproject.org/rss/recent.rss", "source": "Marshall Project", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
     {"url": "https://www.propublica.org/feeds/propublica/main", "source": "ProPublica", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
 
+    # ── Родные языки соседей ────────────────────────────────────────────────
+    # Правило общее: у каждого народа, чьё издание мы подключим, читатель
+    # увидит новости на своём языке. Поле "native" помечает язык материала —
+    # приложение покажет такую новость только тому, у кого телефон на этом
+    # языке. Русскоязычному читателю чужой язык в ленту не попадёт.
+    # Добавить новый народ = одна строка здесь.
+    {"url": "https://kun.uz/news/rss?lang=uz", "source": "Kun.uz", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "ru", "native": "uz"},
+    {"url": "https://www.gazeta.uz/uz/rss/", "source": "Gazeta.uz", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "ru", "native": "uz"},
+    {"url": "https://egemen.kz/rss", "source": "Egemen Qazaqstan", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "ru", "native": "kk"},
+    {"url": "https://asiaplustj.info/tj/rss.xml", "source": "Asia-Plus", "category": "NEWS", "priority": 1, "quota": 3, "scope": "pool", "lang": "ru", "native": "tg"},
+
     {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "es"},
     {"url": "https://www.infobae.com/arc/outboundfeeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
@@ -1924,13 +1935,19 @@ def fetch_rss(source):
                     if best_w and best_w < 600 and "1024" not in image:
                         low_res = True
 
-            item_lang = source.get("lang") or lang
+            # Родной язык издания важнее языка пула: по нему приложение решит,
+            # кому эту новость показывать
+            item_lang = source.get("native") or source.get("lang") or lang
             # Исключение из «источник надёжнее детектора»: кириллица против
             # латиницы не путается, в отличие от испанского/португальского/
             # английского между собой. Vlast.kz помечен как «ru», но иногда
             # публикует материалы на английском — статичная метка это скрывала,
             # и needs_translation() считала статью уже переведённой
-            if item_lang in ("ru", "ky", "uk", "kk", "be", "bg", "sr", "mk", "uz", "tg"):
+            # Явную пометку "native" не трогаем: узбекский пишется латиницей,
+            # и проверка «латиница в кириллическом языке — ошибка» сбросила бы
+            # ему язык на русский, а с ним и весь смысл затеи
+            if not source.get("native") and item_lang in (
+                    "ru", "ky", "uk", "kk", "be", "bg", "sr", "mk", "uz", "tg"):
                 cyr = len(re.findall(r"[а-яё]", title + summary, re.I))
                 lat = len(re.findall(r"[a-z]{3,}", title + summary, re.I))
                 if cyr < 3 and lat >= 5:
