@@ -27,3 +27,12 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: python fetch_news.py
+
+      # Разбор ОПУБЛИКОВАННОЙ ленты по всем четырём пулам. Пользователь читает
+      # только русский — испанский, португальский и английский не проверял
+      # никто, и все находки приходили из одного пула. Проверка идёт после
+      # публикации, не роняет прогон при сбое и ничего не стоит: без ИИ
+      - name: Audit published feed
+        if: always()
+        continue-on-error: true
+        run: python feed_audit.py
