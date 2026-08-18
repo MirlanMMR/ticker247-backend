@@ -2999,6 +2999,15 @@ def needs_translation(item, pool):
 
     CYRILLIC = {"ru", "ky", "uk", "be", "bg", "sr", "mk", "kk", "uz", "tg"}
     if pool == "ru":
+        # Разнобой внутри одной новости: заголовок на одном языке, текст на
+        # другом. «Қазақстанның мұнай экспорты…» стоял над русским текстом —
+        # читатель спотыкается на первой строке. Кириллица кириллице рознь:
+        # ә, ғ, қ, ұ, һ, і есть в казахском и нет в русском
+        kz_only = set("әғқұhһі")
+        title_kz = any(c in kz_only for c in item.get("title", "").lower())
+        body_kz = any(c in kz_only for c in (item.get("summary", "") or "").lower()[:400])
+        if title_kz and not body_kz:
+            return True
         return lang not in CYRILLIC
     return lang != pool
 
