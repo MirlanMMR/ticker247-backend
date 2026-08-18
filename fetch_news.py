@@ -1434,6 +1434,10 @@ _PAGE_NOISE = ("this video can not be played", "published ", "getty images",
                # Bloomberg», «Crédito, YouTube/Miss Universe»
                "photographer:", "photo:", "crédito,", "credito,", "credit:",
                "фото:", "иллюстрация:", "illustration:",
+               # Подпись авторства, просочившаяся в текст: «Автором материала
+               # является K-News . K-News»
+               "автором материала является", "автор материала:",
+               "материал подготовлен редакцией",
                # Ряд кнопок «поделиться», который часть сайтов отдаёт обычным
                # абзацем: у Axios в ленту уходило «facebook (opens in new
                # window) twitter (opens in new window)…» вместо текста новости
@@ -1475,6 +1479,19 @@ def _page_body(url: str) -> str:
             return ""
         root = soup.find("article") or soup
         paras, seen = [], set()
+        # Таблицы забираем ПЕРВЫМИ: в новостях про цены, курсы и расписания
+        # вся суть именно в них. Раньше мы брали только абзацы, и читатель
+        # получал «цены на ГСМ такие:» — без единой цифры
+        for tbl in root.find_all("table")[:2]:
+            rows = []
+            for tr in tbl.find_all("tr")[:14]:
+                cells = [clean_text(td.get_text(" ", strip=True))
+                         for td in tr.find_all(["td", "th"])]
+                cells = [c for c in cells if c]
+                if len(cells) >= 2:
+                    rows.append(" — ".join(cells[:4]))
+            if len(rows) >= 2:
+                paras.append("\n".join(rows))
         for p in root.find_all("p"):
             t = clean_text(p.get_text(" ", strip=True))
             if len(t) < 60:                     # подписи, даты, крошки
@@ -1728,6 +1745,52 @@ def enrich_short_summaries(items, min_len=400, budget=150, workers=8):
     print(f"  📄 Дотянуто текстом со страницы: {done} из {len(targets)}")
 
 
+def drop_bilingual_twins(items):
+    """Одна новость, выпущенная изданием на двух языках.
+
+    Kabar и Sputnik KG публикуют материал по-русски и по-кыргызски. Для нас
+    это два разных заголовка, и обычная проверка на дубли их не видит —
+    сравнивать нечего, буквы разные. Зато совпадают ЛАТИНСКИЕ слова и числа:
+    «The Rolls», «The Beatles», «26», «1». По ним и опознаём.
+
+    Оставляем ту, где ЕСТЬ фотография: у кыргызской версии про музыкантов
+    снимка не было, и читатель видел эмодзи вместо The Beatles на переходе.
+    При равенстве оставляем на языке потока.
+    """
+    import collections
+    def signature(title):
+        lat = set(re.findall(r"[A-Za-z]{3,}", title))
+        nums = set(re.findall(r"\d{2,4}", title))
+        return lat | nums
+
+    groups = collections.defaultdict(list)
+    for it in items:
+        sig = signature(it.get("title", ""))
+        if len(sig) >= 2:
+            groups[(it.get("source", ""), frozenset(sig))].append(it)
+
+    dropped = 0
+    for (src, sig), group in groups.items():
+        if len(group) < 2:
+            continue
+        # разные события одного издания могут делить слова — проверяем время
+        group.sort(key=lambda x: x.get("publishedAt", 0))
+        if group[-1].get("publishedAt", 0) - group[0].get("publishedAt", 0) > 12 * 3600 * 1000:
+            continue
+        def rank(it):
+            has_photo = (it.get("imageUrl") or "").startswith("http")
+            cyr = len(re.findall(r"[а-яё]", it.get("title", ""), re.I))
+            return (has_photo, cyr)
+        best = max(group, key=rank)
+        for it in group:
+            if it is not best:
+                it["_twin_drop"] = True
+                dropped += 1
+    if dropped:
+        print(f"  👯 Двойники на двух языках: снято {dropped}")
+    return [it for it in items if not it.get("_twin_drop")]
+
+
 def drop_repeated_images(items):
     """Убирает логотип издания, выданный за фотографию новости.
 
@@ -1859,6 +1922,21 @@ def enrich_missing_images(items, budget=450, workers=16):
                   or soup.find("meta", attrs={"name": "og:image"})
                   or soup.find("meta", attrs={"name": "twitter:image"}))
             img = og.get("content") if og else None
+            # Своей картинки нет, но в статье есть ролик — берём его обложку.
+            # У новости про ДТП на странице стоял ролик с YouTube, а карточка
+            # у нас вышла с эмодзи вместо стопкадра
+            if not img:
+                import re as _re
+                vid = None
+                for tag in soup.find_all(["iframe", "a", "link"]):
+                    href = tag.get("src") or tag.get("href") or ""
+                    m = _re.search(r"(?:youtube\.com/(?:embed/|watch\?v=)|youtu\.be/)"
+                                   r"([A-Za-z0-9_-]{11})", href)
+                    if m:
+                        vid = m.group(1)
+                        break
+                if vid:
+                    img = f"https://img.youtube.com/vi/{vid}/maxresdefault.jpg"
             if img and (_SHARING_CARD.search(img) or _THUMB_IMAGE.search(img)):
                 # заголовок на картинке или миниатюра — ищем живое фото
                 img = _page_photo(soup) or img
@@ -4047,6 +4125,7 @@ def main():
     enrich_short_summaries(all_news)
     enrich_missing_images(all_news)
     drop_repeated_images(all_news)
+    all_news = drop_bilingual_twins(all_news)
 
     # Новости, у которых текста нет и взять его негде (Al Jazeera, Sky Sports,
     # Marca, Bloomberg отдают статью только после выполнения скриптов —
