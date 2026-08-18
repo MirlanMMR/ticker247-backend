@@ -4313,6 +4313,18 @@ def main():
                 print(f"  🔁 Повтор перевода {len(retry)} статей...")
                 for j in range(0, len(retry), 10):
                     translate_batch(retry[j:j+10], lang)
+            # Не переведённое в эфир не идёт. Полагаться на то, что их отсеет
+            # приложение, нельзя: узбекский и казахский пишутся латиницей и
+            # проходят его проверку алфавита насквозь — читатель видел в
+            # русской ленте «Prezident «Urganch – Xiva» pulli avtomobil...».
+            # Лучше лента короче на несколько новостей, чем со строкой,
+            # которую невозможно прочесть.
+            stuck = [x for x in filtered if needs_translation(x, lang)]
+            if stuck:
+                langs = Counter(x.get("language", "?") for x in stuck)
+                print(f"  🚫 Без перевода — снято с эфира: {len(stuck)} "
+                      + "(" + ", ".join(f"{k}×{v}" for k, v in langs.most_common()) + ")")
+                filtered = [x for x in filtered if x not in stuck]
         cats = {}
         for item in filtered:
             cats[item["category"]] = cats.get(item["category"], 0) + 1
