@@ -1560,6 +1560,40 @@ def _page_says_ad(soup) -> bool:
         return False
 
 
+# Страна издания по адресу. Нужна, чтобы полку считать относительно ЧИТАТЕЛЯ,
+# а не домашней страны пула: для казаха новость из Казахстана местная, хотя
+# домашняя страна русского пула — Кыргызстан.
+_COUNTRY_BY_DOMAIN = {
+    ".kg": "KG", ".kz": "KZ", ".uz": "UZ", ".tj": "TJ", ".tm": "TM",
+    ".ru": "RU", ".ua": "UA", ".by": "BY",
+    ".mx": "MX", ".ar": "AR", ".cl": "CL", ".pe": "PE", ".co": "CO",
+    ".ve": "VE", ".ec": "EC", ".gt": "GT", ".cr": "CR", ".do": "DO",
+    ".br": "BR", ".pt": "PT", ".ao": "AO", ".mz": "MZ",
+    ".es": "ES", ".ie": "IE", ".au": "AU", ".nz": "NZ", ".in": "IN",
+    ".ng": "NG", ".za": "ZA", ".jm": "JM", ".ca": "CA", ".sg": "SG",
+}
+_COUNTRY_BY_SOURCE = {
+    "24.kg": "KG", "Kaktus.media": "KG", "Kabar.kg": "KG", "AKIpress": "KG",
+    "Knews.kg": "KG", "Sputnik KG": "KG", "Turmush": "KG", "Economist.kg": "KG",
+    "Vlast.kz": "KZ", "Egemen Qazaqstan": "KZ",
+    "Kun.uz": "UZ", "Gazeta.uz": "UZ", "Podrobno.uz": "UZ",
+    "Asia-Plus": "TJ",
+}
+
+
+def country_of(item) -> str:
+    """Страна издания: по названию, если знаем, иначе по домену."""
+    src = item.get("source", "")
+    if src in _COUNTRY_BY_SOURCE:
+        return _COUNTRY_BY_SOURCE[src]
+    url = (item.get("url") or "").lower()
+    host = url.split("/")[2] if "://" in url else url
+    for suffix, code in _COUNTRY_BY_DOMAIN.items():
+        if host.endswith(suffix) or suffix + "/" in url:
+            return code
+    return ""
+
+
 def _is_home_source(item, lang) -> bool:
     """Издание домашней страны пула — только оно может дать МЕСТНУЮ новость.
 
@@ -1956,6 +1990,7 @@ def fetch_rss(source):
             items.append({
                 "title": title, "url": link, "summary": summary,
                 "imageUrl": image, "imageLowRes": low_res, "source": source["source"],
+                "country": "",   # проставим ниже, когда известен адрес
                 "category": source["category"], "source_category": source["category"],
                 "priority": source["priority"],
                 # Язык: явный язык источника надёжнее детектора
@@ -2353,11 +2388,21 @@ def filter_with_gemini(news_list, lang="ru"):
     pool_cache = AI_CACHE.setdefault(lang, {})
     if not isinstance(pool_cache, dict):
         pool_cache = AI_CACHE[lang] = {}
+    # Мировую новость все четыре пула судят порознь — и платим мы за неё
+    # четырежды. Между тем вопрос «есть ли тут событие» от языка не зависит:
+    # землетрясение остаётся землетрясением и для испанца, и для бразильца.
+    # Общая полка вердиктов для мировых экономит почти половину расхода
+    shared = AI_CACHE.setdefault("_world", {})
+    if not isinstance(shared, dict):
+        shared = AI_CACHE["_world"] = {}
 
     known_keep, to_ask = {}, []
     dropped_by_memory = 0
     for idx, item in enumerate(news_list):
-        v = pool_cache.get(_cache_key(item))
+        key = _cache_key(item)
+        v = pool_cache.get(key)
+        if v is None and item.get("scope") == "world":
+            v = shared.get(key)
         if isinstance(v, dict) and v.get("ts", 0) < AI_CACHE_MIN_TS:
             v = None            # запись из эпохи случайных вердиктов
         if isinstance(v, dict) and v.get("rules") != RULES_VERSION:
@@ -2412,8 +2457,14 @@ def filter_with_gemini(news_list, lang="ru"):
                         "category": verdict.get("category"),
                         "scope": verdict.get("scope"),
                     }
+                    # мировую кладём и в общую полку — другим пулам не
+                    # придётся спрашивать ИИ о том же самом
+                    if item.get("scope") == "world":
+                        shared[k] = dict(pool_cache[k])
             elif remember:
                 pool_cache[k] = {"keep": False, "ts": now, "rules": RULES_VERSION}
+                if item.get("scope") == "world":
+                    shared[k] = dict(pool_cache[k])
 
     print(f"  🧠 [{lang}] из памяти: {len(known_keep)} оставлено, "
           f"{dropped_by_memory} отсеяно | спрошено у ИИ: {len(to_ask)}")
@@ -2804,7 +2855,28 @@ VIRAL=вирусное видео, NEWS=всё остальное
         # раздувается мусором. Ошибка кричит в логе: полгода она молчала,
         # и мы не знали, что ленту всё это время набирала случайность
         import random
-        return random.sample(news_list, max(1, len(news_list) // 2))
+        # Случайная выборка была плохим запасным путём: без ИИ лента
+        # наполнялась чем попало. Отбираем по признакам, которые видно без
+        # понимания смысла: приоритет источника, свежесть, наличие фото,
+        # длина текста. Хуже ИИ, но осмысленно — а сегодня, когда деньги на
+        # ИИ кончились, это единственное, что стоит между читателем и хаосом
+        def _plain_score(it):
+            score = it.get("priority", 0) * 100
+            age_h = (datetime.now().timestamp() * 1000 - it.get("publishedAt", 0)) / 3600000
+            score += max(0, 48 - age_h)                       # свежесть
+            if (it.get("imageUrl") or "").startswith("http"):
+                score += 25                                   # с фотографией
+            body = it.get("summary") or ""
+            score += min(len(body) / 40.0, 25)                # с текстом, не огрызок
+            if len(it.get("title", "")) < 25:
+                score -= 20                                   # заголовок-обрубок
+            return score
+
+        keep_n = max(1, len(news_list) // 2)
+        ranked = sorted(news_list, key=_plain_score, reverse=True)[:keep_n]
+        print(f"  🧭 [{lang}] ИИ недоступен: отобрано по признакам, "
+              f"{len(ranked)} из {len(news_list)}")
+        return ranked
 
 # ════════════════════════════════════════════════════════════════════
 # Источники ПРИЛОЖЕНИЯ (Telegram/YouTube каналы, парсятся на устройстве).
