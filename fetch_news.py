@@ -1549,11 +1549,27 @@ def _page_says_ad(soup) -> bool:
         return False
 
 
-def _is_home_source(item, lang) -> str:
-    """Издание принадлежит домашней стране пула или его языковому пространству."""
+def _is_home_source(item, lang) -> bool:
+    """Издание домашней страны пула — только оно может дать МЕСТНУЮ новость.
+
+    Раньше сюда входили и издания языкового пространства, и новость про
+    алматинские парковки выходила в русском пуле под киргизским флагом.
+    Казахстанская новость важна и интересна, но она не местная: её полка —
+    «страны языка».
+    """
     url = (item.get("url") or "").lower()
-    domains = list(LOCAL_DOMAINS.get(lang, [])) + list(POOL_DOMAINS.get(lang, []))
-    return any(dom in url for dom in domains)
+    return any(dom in url for dom in LOCAL_DOMAINS.get(lang, []))
+
+
+def _demote_foreign_local(item, lang):
+    """Ставит новость на правильную полку, если «местная» ей не по праву."""
+    if item.get("scope") != "local" or item.get("bridge"):
+        return
+    if _is_home_source(item, lang):
+        return
+    url = (item.get("url") or "").lower()
+    in_pool = any(dom in url for dom in POOL_DOMAINS.get(lang, []))
+    item["scope"] = "pool" if in_pool else "world"
 
 
 def _looks_mangled(body: str) -> bool:
@@ -2747,10 +2763,12 @@ VIRAL=вирусное видео, NEWS=всё остальное
                         and not item.get("bridge")
                         and not _is_home_source(item, lang)):
                     scope_fix.pop(i, None)
+                _demote_foreign_local(item, lang)
                 if i in scope_fix and scope_fix[i] != item.get("scope"):
                     print(f"  📐 [{lang}] {item.get('scope')}→{scope_fix[i]}: "
                           f"[{item.get('source','?')}] {item.get('title','')[:70]}")
                     item["scope"] = scope_fix[i]
+                    _demote_foreign_local(item, lang)
                 filtered.append(item)
         if dropped_mismatch:
             print(f"  📰 [{lang}] заголовок не отвечает тексту: снято {dropped_mismatch}")
@@ -3317,7 +3335,9 @@ def meets_standard(item, lang):
 QC_WEATHER = re.compile(
     r"(погода|прогноз погоды|температура воздуха|сейчас \+?\-?\d+ ?°|"
     r"current weather|weather for|weather in|forecast for|"
-    r"el tiempo en|pronóstico del tiempo|previsão do tempo|clima em)",
+    r"el tiempo en|pronóstico del tiempo|previsão do tempo|clima em|"
+    # кыргызский, казахский, узбекский: «аба ырайы» — это и есть погода
+    r"аба ырайы|аптаптуу ысык|ауа райы|ob-havo|об-хаво)",
     re.I)
 
 # Ежедневный корм ради поисковых запросов: подсказки к головоломкам, ответы
