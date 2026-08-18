@@ -177,7 +177,9 @@ RSS_SOURCES = [
     # Та же болезнь, что и в португальском: своих изданий мало, мировая лента
     # заливает остальное. Мексика - домашняя страна пула, её издания местные.
     # Проверено живьём 15.08.2026
-    {"url": "https://www.jornada.com.mx/rss/edicion.xml", "source": "La Jornada", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "es"},
+    {"url": "https://www.elfinanciero.com.mx/rss/", "source": "El Financiero", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "es"},
+    {"url": "https://www.elsoldemexico.com.mx/rss.xml", "source": "El Sol de México", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.jornada.com.mx/rss/edicion.xml", "source": "La Jornada", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "es"},
     {"url": "https://www.eleconomista.com.mx/rss/ultimas-noticias", "source": "El Economista MX", "category": "MONEY", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
     {"url": "https://expansion.mx/rss", "source": "Expansión MX", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
     {"url": "https://www.reforma.com/rss/portada.xml", "source": "Reforma", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "es"},
@@ -234,11 +236,11 @@ RSS_SOURCES = [
     {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     # Латинская Америка
     {"url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/", "source": "La Nación AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
-    {"url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/", "source": "El Universal MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/", "source": "El Universal MX", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "es"},
     {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "es"},
     {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
     {"url": "https://www.abc.es/rss/feeds/abcPortada.xml", "source": "ABC.es", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
-    {"url": "https://www.excelsior.com.mx/rss/nacional.xml", "source": "Excelsior MX", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
+    {"url": "https://www.excelsior.com.mx/rss/nacional.xml", "source": "Excelsior MX", "category": "NEWS", "priority": 2, "quota": 7, "scope": "local", "lang": "es"},
     # Испаноязычная Америка — добавлено 12.08.2026. Ленты проверены живыми:
     # отдают настоящие статьи, не заглушки. Emol (Чили) и El Observador (Уругвай)
     # отброшены: первый рвёт соединение, второй отдаёт 403
