@@ -1,11 +1,12 @@
 import os
 import re
+import time
 import json
 import html
 from collections import Counter
 import requests
 import xml.etree.ElementTree as ET
-from datetime import datetime
+from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 import google.generativeai as genai
@@ -2346,6 +2347,55 @@ GEMINI_MODEL_FALLBACK = "gemini-flash-latest"
 # Счётчик расхода: раньше о цене узнавали, когда деньги кончались
 TOKENS = {"in": 0, "out": 0, "calls": 0}
 
+# Собственный потолок расхода, ниже остатка на счёте. Дважды деньги кончались
+# внезапно: 15.08 — сами не заметили, 18.08 — чужой человек тратил по украденному
+# ключу. Оба раза узнавали постфактум, со счёта. Теперь скрипт считает сам и,
+# упершись в потолок, перестаёт звать ИИ до конца месяца: лента продолжает
+# выходить на отборе по признакам (проверено — размеры и фото в порядке).
+# Меняется переменной AI_MONTHLY_BUDGET в настройках Actions.
+AI_BUDGET = float(os.environ.get("AI_MONTHLY_BUDGET", "8"))
+AI_SPENT_MONTH = 0.0      # потрачено с начала месяца, читается из базы
+AI_STOPPED = False        # потолок достигнут — ИИ не зовём вовсе
+
+
+def _spend_month_key() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m")
+
+
+def load_ai_spend():
+    """Поднимает из базы, сколько ИИ съел с начала месяца."""
+    global AI_SPENT_MONTH, AI_STOPPED
+    try:
+        AI_SPENT_MONTH = float(
+            db.reference(f"/ai_spend/{_spend_month_key()}/usd").get() or 0.0)
+    except Exception as e:
+        print(f"  ⚠️ Счётчик расхода не прочитан ({e}) — считаем с нуля")
+        AI_SPENT_MONTH = 0.0
+    AI_STOPPED = AI_SPENT_MONTH >= AI_BUDGET
+    share = AI_SPENT_MONTH / AI_BUDGET * 100 if AI_BUDGET else 0
+    print(f"💳 Расход ИИ за {_spend_month_key()}: ${AI_SPENT_MONTH:.2f} "
+          f"из ${AI_BUDGET:.2f} ({share:.0f}%)")
+    if AI_STOPPED:
+        print("::warning::Потолок расхода ИИ достигнут — лента выходит без ИИ. "
+              "Пополните счёт и поднимите AI_MONTHLY_BUDGET.")
+    elif share >= 75:
+        print(f"::warning::Израсходовано {share:.0f}% месячного бюджета ИИ")
+
+
+def save_ai_spend(run_cost: float):
+    """Прибавляет расход прогона к месячной копилке."""
+    try:
+        ref = db.reference(f"/ai_spend/{_spend_month_key()}")
+        ref.update({
+            "usd": round(AI_SPENT_MONTH + run_cost, 6),
+            "calls": int((db.reference(
+                f"/ai_spend/{_spend_month_key()}/calls").get() or 0)
+                + TOKENS["calls"]),
+            "updatedAt": int(time.time() * 1000),
+        })
+    except Exception as e:
+        print(f"  ⚠️ Счётчик расхода не сохранён: {e}")
+
 
 def _editorial_charter() -> str:
     """Постоянная память ИИ о нашем издании.
@@ -2377,6 +2427,9 @@ _CHARTER = None
 def ask_gemini(prompt: str) -> str:
     """Один запрос к ИИ с подсчётом токенов и запасной моделью."""
     global _MODEL_IN_USE
+    if AI_STOPPED:
+        raise RuntimeError(
+            f"потолок расхода ИИ ${AI_BUDGET:.2f} за {_spend_month_key()} достигнут")
     charter = _editorial_charter()
     try:
         model = genai.GenerativeModel(
@@ -4168,6 +4221,7 @@ def main():
 
     promote_global_stories(all_news)
 
+    load_ai_spend()
     load_ai_cache()
     load_page_bodies()
     load_translations()
@@ -4365,6 +4419,7 @@ def main():
     print(f"💰 Расход ИИ: {TOKENS['calls']} запросов, "
           f"{TOKENS['in']:,} входящих + {TOKENS['out']:,} исходящих токенов "
           f"≈ ${cost:.4f} за прогон (≈ ${cost * 24:.2f} в сутки при часовом графике)")
+    save_ai_spend(cost)
 
     # Публикуем имена редакторских каналов — приложение читает их отсюда,
     # смена канала не требует обновления приложения

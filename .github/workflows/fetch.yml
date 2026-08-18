@@ -26,6 +26,10 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          # Свой потолок расхода ИИ на месяц, в долларах. Держим ниже остатка
+          # на счёте: упершись в него, скрипт перестаёт звать ИИ, но ленту
+          # продолжает выпускать на отборе по признакам.
+          AI_MONTHLY_BUDGET: "8"
         run: python fetch_news.py
 
       # Разбор ОПУБЛИКОВАННОЙ ленты по всем четырём пулам. Пользователь читает
