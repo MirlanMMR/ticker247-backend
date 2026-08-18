@@ -2267,17 +2267,51 @@ GEMINI_MODEL_FALLBACK = "gemini-flash-latest"
 TOKENS = {"in": 0, "out": 0, "calls": 0}
 
 
+def _editorial_charter() -> str:
+    """Постоянная память ИИ о нашем издании.
+
+    У модели нет памяти между запросами: каждый начинается с чистого листа, а
+    то, что в чате выглядит памятью, — пересылка всей переписки заново. Значит
+    помнить должны мы. Этот текст (EDITORIAL.md) уходит СИСТЕМНОЙ ИНСТРУКЦИЕЙ
+    при каждом обращении: кто мы, кто нас читает, что считаем новостью, чего
+    добиваемся и на каких ошибках уже обожглись.
+
+    Правится вручную в EDITORIAL.md — это редакционная политика, а не код.
+    """
+    global _CHARTER
+    if _CHARTER is None:
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                   "EDITORIAL.md"), encoding="utf-8") as f:
+                _CHARTER = f.read()
+            print(f"  📜 Редакционная политика загружена: {len(_CHARTER)} знаков")
+        except Exception as e:
+            print(f"  ⚠️ EDITORIAL.md не прочитан ({e}) — работаем без неё")
+            _CHARTER = ""
+    return _CHARTER
+
+
+_CHARTER = None
+
+
 def ask_gemini(prompt: str) -> str:
     """Один запрос к ИИ с подсчётом токенов и запасной моделью."""
     global _MODEL_IN_USE
+    charter = _editorial_charter()
     try:
-        model = genai.GenerativeModel(_MODEL_IN_USE)
+        model = genai.GenerativeModel(
+            _MODEL_IN_USE,
+            system_instruction=charter or None,
+        )
         resp = model.generate_content(prompt)
     except Exception as e:
         if "not found" in str(e).lower() or "404" in str(e):
             print(f"  ⚠️ Модель {_MODEL_IN_USE} недоступна, беру {GEMINI_MODEL_FALLBACK}")
             _MODEL_IN_USE = GEMINI_MODEL_FALLBACK
-            model = genai.GenerativeModel(_MODEL_IN_USE)
+            model = genai.GenerativeModel(
+                _MODEL_IN_USE,
+                system_instruction=charter or None,
+            )
             resp = model.generate_content(prompt)
         else:
             raise
