@@ -1549,6 +1549,13 @@ def _page_says_ad(soup) -> bool:
         return False
 
 
+def _is_home_source(item, lang) -> str:
+    """Издание принадлежит домашней стране пула или его языковому пространству."""
+    url = (item.get("url") or "").lower()
+    domains = list(LOCAL_DOMAINS.get(lang, [])) + list(POOL_DOMAINS.get(lang, []))
+    return any(dom in url for dom in domains)
+
+
 def _looks_mangled(body: str) -> bool:
     """Признаки того, что мы потеряли смысл, а не просто дочитали до конца.
 
@@ -2223,7 +2230,7 @@ _MODEL_IN_USE = GEMINI_MODEL
 # 6 — сброс памяти после починки одностороннего кэша: за время, пока
 # одобрения не запоминались, а отказы копились, накопилось 9264 записи, почти
 # сплошь отказы. Оставить их значит тащить чёрный список ещё двое суток
-RULES_VERSION = 10
+RULES_VERSION = 11
 
 AI_CACHE = {}
 # Разобранные ИИ страницы: адрес → текст новости. Без этой памяти мы платили
@@ -2730,6 +2737,16 @@ VIRAL=вирусное видео, NEWS=всё остальное
                     # "Чёрная метка" — подозрение на скрытую рекламу/PR: живёт
                     # только до следующего часового прогона, а не обычные 24ч
                     item["expiresAt"] = int(datetime.now().timestamp() * 1000) + 75 * 60 * 1000
+                # «Местная» полка — только для своих. Португальская заметка,
+                # которую ИИ переставил в местные, вышла в русском пуле под
+                # киргизским флагом: читатель видит флаг своей страны на
+                # материале лиссабонской газеты. Чужому изданию местная полка
+                # закрыта — кроме новостей, перевезённых мостом («наши за
+                # границей»), для них это как раз и задумано
+                if (i in scope_fix and scope_fix[i] == "local"
+                        and not item.get("bridge")
+                        and not _is_home_source(item, lang)):
+                    scope_fix.pop(i, None)
                 if i in scope_fix and scope_fix[i] != item.get("scope"):
                     print(f"  📐 [{lang}] {item.get('scope')}→{scope_fix[i]}: "
                           f"[{item.get('source','?')}] {item.get('title','')[:70]}")
@@ -3290,6 +3307,49 @@ def meets_standard(item, lang):
     return True, None, notes
 
 
+# Погода и коммунальные сводки — не новости.
+#
+# «В Бишкеке сейчас +27°C. Текущая погода в городах Кыргызстана» ушло в
+# МИРОВЫЕ новости да ещё и переведённым на английский — читателю в Лондоне.
+# У погоды нет события: она меняется каждый час и ничего не сообщает. То же с
+# ежедневными сводками об отключениях света и воды: их место в справочнике, а
+# не в ленте.
+QC_WEATHER = re.compile(
+    r"(погода|прогноз погоды|температура воздуха|сейчас \+?\-?\d+ ?°|"
+    r"current weather|weather for|weather in|forecast for|"
+    r"el tiempo en|pronóstico del tiempo|previsão do tempo|clima em)",
+    re.I)
+
+# Ежедневный корм ради поисковых запросов: подсказки к головоломкам, ответы
+# на кроссворды, гороскопы. Forbes каждый день печатает «NYT Strands Hints,
+# Spangram, ответы», The Sun — гороскопы. Событий там нет и быть не может:
+# это тексты, написанные под запрос в поиске, а не под происшествие
+# Название игры само по себе не приговор: «создатель Wordle продал игру New
+# York Times» — настоящая новость. Приговор — сочетание игры со служебным
+# словом: подсказки, ответы, разбор на сегодня
+QC_FILLER_GAME = re.compile(r"(wordle|strands|spangram|connections|quordle|"
+                            r"кроссворд|судоку|головоломк)", re.I)
+QC_FILLER_SERVICE = re.compile(
+    r"(подсказк|ответы|ответ на|hints?\b|answers?\b|solution|"
+    r"на сегодня|today|за \d{1,2} \w+|,\s*\w+, \d{1,2})", re.I)
+# А это служебное само по себе, без всяких игр
+QC_FILLER_ALONE = re.compile(
+    r"(гороскоп|horóscopo|astrological forecast|"
+    r"результаты лотереи|lottery results|номера тиража)", re.I)
+
+
+def _is_daily_filler(text: str) -> bool:
+    if not text:
+        return False
+    if QC_FILLER_ALONE.search(text):
+        return True
+    # Название игры должно стоять В НАЧАЛЕ: служебные подсказки так и пишут
+    # («NYT Strands Hints…»), а в настоящей новости игра упоминается по ходу
+    # («Суд обязал компанию раскрыть ответы на кроссворды»)
+    head = text[:30]
+    return bool(QC_FILLER_GAME.search(head) and QC_FILLER_SERVICE.search(text))
+
+
 # Начало текста, выдающее подпись к ролику, а не новость. Проверяем именно
 # НАЧАЛО: фраза «лучшие моменты» внутри большого репортажа — обычные слова
 QC_VIDEO_CAPTION = re.compile(
@@ -3321,6 +3381,16 @@ def quality_gate(items, lang):
         #     размещение, а не новость
         if item.get("url") in AD_PAGES:
             dropped.append((item, "издание помечает материал рекламой"))
+            continue
+
+        # 1г. Ежедневный корм ради поиска: подсказки к играм, гороскопы
+        if _is_daily_filler(title) or _is_daily_filler(item.get("origTitle") or ""):
+            dropped.append((item, "подсказки к игре или гороскоп — не новость"))
+            continue
+
+        # 1в. Погода и коммунальные сводки: события нет, есть состояние
+        if QC_WEATHER.search(title) or QC_WEATHER.search((item.get("origTitle") or "")):
+            dropped.append((item, "погода — не новость"))
             continue
 
         # 1б. Подпись к видеонарезке вместо новости.
