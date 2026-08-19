@@ -375,7 +375,7 @@ LOCAL_DOMAINS = {
            "floridaphoenix.com", "ohiocapitaljournal.com", "michiganadvance.com", "georgiarecorder.com", "penncapital-star.com", "ncnewsline.com", "azmirror.com", "minnesotareformer.com", "coloradonewsline.com", "nevadacurrent.com", "virginiamercury.com", "missouriindependent.com"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com",
-           "eleconomista.com.mx", "expansion.mx", "elsoldemexico.com.mx"],
+           "eleconomista.com.mx", "expansion.mx", "elsoldemexico.com.mx", "oem.com.mx"],
     "pt": ["globo.com", "uol.com.br", "folha.uol.com.br", "estadao.com.br",
            "band.uol.com.br", "r7.com", "cnnbrasil.com.br", "agenciabrasil.ebc.com.br",
            "metropoles.com", "poder360.com.br", "gazetadopovo.com.br",
@@ -518,6 +518,7 @@ RETIRED_SOURCES = [
     "bloomberg.com",        # 403 Forbidden
     "skynews.com",          # 403, страница блокировки Akamai
     "marketwatch.com",      # 401 Forbidden
+    "excelsior.com.mx/rss/nacional.xml",   # пустая лента; рабочая — без .xml
 ]
 
 # Пулы, которые были включены и выключены: их ветки в /news надо подчистить
