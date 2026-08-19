@@ -4069,10 +4069,20 @@ def main():
     # viral_br    = fetch_youtube_viral("BR", 15)
     # viral_mx    = fetch_youtube_viral("MX", 15)
     # viral_gb    = fetch_youtube_viral("GB", 10)
-    ru_local, ru_world = collect_pool_videos("ru")
-    en_local, en_world = collect_pool_videos("en")
-    es_local, es_world = collect_pool_videos("es")
-    pt_local, pt_world = collect_pool_videos("pt")
+    # Сбор видео остановлен 19.08.2026: в приложении раздел убран, метод
+    # fetchViral() остался без единого вызова — сервер каждый час ходил в
+    # YouTube за роликами, которых никто не увидит. Тратились квота YouTube
+    # и минуты Actions.
+    #
+    # Узлы оставлены пустыми, а не удалены: их читают старые версии
+    # приложения, а обновляются не все и не сразу. Пустой список честнее
+    # исчезнувшего узла — старая версия покажет пустой раздел, а не
+    # позавчерашние ролики.
+    #
+    # Прямые эфиры и радио собираются по-прежнему: они лежат в том же узле
+    # /viral и приложением читаются.
+    ru_local = ru_world = en_local = en_world = []
+    es_local = es_world = pt_local = pt_world = []
 
     # Узлы оставлены прежними — приложение читает их по этим именам.
     # Местные каналы пула идут в «свой» узел, остальные — в мировой
