@@ -580,6 +580,24 @@ def load_firebase_config():
             if added:
                 names = ", ".join(s.get("source", "?") for s in added)
                 print(f"  ➕ Новые источники из кода: {len(added)} ({names})")
+            # Настройки известного источника берём ИЗ КОДА, а не из базы.
+            # 19.08 поднял мексиканцам квоты в файле — и ничего не изменилось:
+            # база хранит копию с прежними числами и молча выигрывает. Список
+            # изданий базой пополнять по-прежнему можно (ручная правка без
+            # выкладки), но квота, вес и полка живут в файле, где у них есть
+            # история и объяснение.
+            by_url = {(s.get("url") or "").lower(): s for s in RSS_SOURCES}
+            fixed = []
+            for s in from_db:
+                code = by_url.get((s.get("url") or "").lower())
+                if code:
+                    s = {**s, **{k: code[k] for k in
+                                 ("quota", "priority", "scope", "lang", "category")
+                                 if k in code}}
+                    fixed.append(s)
+                else:
+                    fixed.append(s)
+            from_db = fixed
             RSS_SOURCES = normalize_source_scopes(from_db + added)
             # Список берётся ИЗ БАЗЫ и полностью перекрывает зашитый в файле.
             # Из-за этого правки в коде однажды не дали никакого эффекта, а
