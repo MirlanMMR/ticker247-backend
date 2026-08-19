@@ -4072,8 +4072,13 @@ def main():
     viral_world_es = es_world
     viral_world_pt = pt_world
 
+    # Запись «вирусного» обёрнута попыткой намеренно: 19.08.2026 Firebase
+    # ответил Internal server error, исключение вышло наружу — и весь сбор
+    # новостей оборвался на второстепенном разделе. Видео, эфиры и радио
+    # приятны, но новости важнее: не записалось — идём дальше, в приложении
+    # останется прошлая выдача, а лента обновится.
     viral_ref = db.reference("/viral")
-    viral_ref.set({
+    viral_payload = {
         "kg":       viral_kg,
         "ru":       viral_ru,
         "kz":       viral_kz,
@@ -4091,7 +4096,17 @@ def main():
         # открывают на чтение только news и viral
         "radio":    check_radio_stations(RADIO_STATIONS),
         "updatedAt": int(datetime.now().timestamp() * 1000)
-    })
+    }
+    for attempt in (1, 2, 3):
+        try:
+            viral_ref.set(viral_payload)
+            break
+        except Exception as e:
+            if attempt == 3:
+                print(f"  ⚠️ Раздел «вирусное» не записан ({str(e)[:60]}) — "
+                      f"новости собираем дальше")
+            else:
+                time.sleep(3 * attempt)
     print(f"✅ YouTube: KG={len(viral_kg)}, RU={len(viral_ru)}, BR={len(viral_br)}, MX={len(viral_mx)}, GB={len(viral_gb)}, World={len(viral_world)}")
     all_news = []
     category_counts = {}
