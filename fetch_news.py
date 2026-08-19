@@ -1469,6 +1469,29 @@ _PAGE_NOISE = ("this video can not be played", "published ", "getty images",
                "inscreva-se", "weekly newsletter", "our newsletter",
                "toda la información de", "más noticias en")
 
+_CURRENCY_CODES = {"USD", "EUR", "RUB", "KZT", "UZS", "KGS", "GBP", "CNY", "TRY",
+                   "JPY", "BRL", "MXN", "ARS", "CLP", "COP", "INR", "AED"}
+
+
+def _is_sidebar_table(rows: list) -> bool:
+    """Таблица со страницы, но не из статьи — виджет сайта.
+
+    Таблицы мы берём ради сути: цены на ГСМ, расписание, результаты. Но на
+    странице висят и постоянные виджеты, и один такой пробрался читателю в
+    текст: новость 24.kg о квантовой телепортации начиналась строкой
+    «USD — 87.45 EUR — 101.76 RUB — 1.19 KZT — 0.18 UZS — 0.01», после
+    которой шли «Физики разработали...». Курсы валют у нас есть отдельной
+    строкой в приложении, в теле новости им делать нечего.
+
+    Признак виджета — короткие строки вида «код валюты — число». Настоящая
+    таблица из статьи так не выглядит: там есть слова.
+    """
+    money = sum(1 for r in rows
+                if re.match(r"^[A-Z]{3}\b", r)
+                and r.split(" — ")[0].strip() in _CURRENCY_CODES)
+    return money >= 2
+
+
 def _page_body(url: str) -> str:
     """Текст статьи со страницы: 2-4 первых абзаца, очищенных от разметки."""
     try:
@@ -1493,7 +1516,7 @@ def _page_body(url: str) -> str:
                 cells = [c for c in cells if c]
                 if len(cells) >= 2:
                     rows.append(" — ".join(cells[:4]))
-            if len(rows) >= 2:
+            if len(rows) >= 2 and not _is_sidebar_table(rows):
                 paras.append("\n".join(rows))
         for p in root.find_all("p"):
             t = clean_text(p.get_text(" ", strip=True))
@@ -2508,7 +2531,16 @@ def load_page_bodies():
     except Exception as e:
         print(f"  ⚠️ Память разобранных страниц недоступна: {e}")
         PAGE_BODY_CACHE = {}
-    print(f"  📄 Память разобранных страниц: {len(PAGE_BODY_CACHE)}")
+    # Разобранное однажды лежит здесь сутками, поэтому испорченный текст живёт
+    # дольше самой поломки: правка кода читателю не поможет, пока страница
+    # берётся из памяти. Выбрасываем всё, что начинается с курсов валют.
+    bad = [k for k, v in PAGE_BODY_CACHE.items()
+           if isinstance(v, dict)
+           and _is_sidebar_table(str(v.get("body", ""))[:120].split("\n")[:6])]
+    for k in bad:
+        PAGE_BODY_CACHE.pop(k, None)
+    print(f"  📄 Память разобранных страниц: {len(PAGE_BODY_CACHE)}"
+          + (f" (выброшено с курсами валют: {len(bad)})" if bad else ""))
 
 
 def save_page_bodies():
