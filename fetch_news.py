@@ -178,12 +178,13 @@ RSS_SOURCES = [
     # Та же болезнь, что и в португальском: своих изданий мало, мировая лента
     # заливает остальное. Мексика - домашняя страна пула, её издания местные.
     # Проверено живьём 15.08.2026
-    {"url": "https://www.elfinanciero.com.mx/rss/", "source": "El Financiero", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "es"},
-    {"url": "https://www.elsoldemexico.com.mx/rss.xml", "source": "El Sol de México", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "es"},
-    {"url": "https://www.jornada.com.mx/rss/edicion.xml", "source": "La Jornada", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "es"},
+    {"url": "https://www.elfinanciero.com.mx/rss/", "source": "El Financiero", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "es"},
+    {"url": "https://www.elsoldemexico.com.mx/rss.xml", "source": "El Sol de México", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "es"},
+    {"url": "https://www.jornada.com.mx/rss/edicion.xml", "source": "La Jornada", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "es"},
     {"url": "https://www.eleconomista.com.mx/rss/ultimas-noticias", "source": "El Economista MX", "category": "MONEY", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
-    {"url": "https://expansion.mx/rss", "source": "Expansión MX", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "es"},
-    {"url": "https://www.reforma.com/rss/portada.xml", "source": "Reforma", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "es"},
+    {"url": "https://expansion.mx/rss", "source": "Expansión MX", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "es"},
+    {"url": "https://www.excelsior.com.mx/rss/nacional", "source": "Excélsior", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "es"},
+    {"url": "https://www.reforma.com/rss/portada.xml", "source": "Reforma", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "es"},
     {"url": "https://www.eldiario.es/rss/", "source": "eldiario.es", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
     {"url": "https://www.lavanguardia.com/rss/home.xml", "source": "La Vanguardia", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
     {"url": "https://api2.rtve.es/rss/temas_noticias.xml", "source": "RTVE", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
@@ -374,7 +375,7 @@ LOCAL_DOMAINS = {
            "floridaphoenix.com", "ohiocapitaljournal.com", "michiganadvance.com", "georgiarecorder.com", "penncapital-star.com", "ncnewsline.com", "azmirror.com", "minnesotareformer.com", "coloradonewsline.com", "nevadacurrent.com", "virginiamercury.com", "missouriindependent.com"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com",
-           "eleconomista.com.mx", "expansion.mx"],
+           "eleconomista.com.mx", "expansion.mx", "elsoldemexico.com.mx"],
     "pt": ["globo.com", "uol.com.br", "folha.uol.com.br", "estadao.com.br",
            "band.uol.com.br", "r7.com", "cnnbrasil.com.br", "agenciabrasil.ebc.com.br",
            "metropoles.com", "poder360.com.br", "gazetadopovo.com.br",
