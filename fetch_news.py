@@ -4398,7 +4398,15 @@ def main():
         if cut:
             print(f"  ⚖️ Доля издателя ограничена [{lang}]: "
                   + ", ".join(f"{f} −{n}" for f, n in cut.most_common()))
+        # Куда деваются местные новости. Мексиканские издания дают на входе 24
+        # статьи, а до ленты доходят 7 — без этого разбора шаг потерь не найти
+        def _shelves(items):
+            c = Counter(x.get("scope", "?") for x in items)
+            return f"местных {c.get('local',0)}, своего языка {c.get('pool',0)}, мировых {c.get('world',0)}"
+        before = _shelves(filtered)
         filtered = capped[:max_items]
+        print(f"  📚 Полки [{lang}]: после ИИ — {before}; "
+              f"после отсечки до {max_items} — {_shelves(filtered)}")
         # Автоперевод: статьи не на языке пула переводим через Gemini
         # Батчи по 15 + один повтор для неудавшихся — падение батча не оставляет
         # половину пула на чужом языке (приложение фильтрует их из ленты)
