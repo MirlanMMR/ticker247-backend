@@ -4386,6 +4386,14 @@ def main():
             batch = group[i:i+80]
             filtered_batch = filter_with_gemini(batch, lang)
             filtered.extend(filtered_batch)
+        # Куда деваются новости домашних изданий. В испанском пуле мексиканские
+        # газеты дают два десятка статей, а до ленты доходит десяток — потери
+        # надо видеть поимённо, иначе лечим вслепую
+        home_in = Counter(x.get("source", "?") for x in group if _is_home_source(x, lang))
+        home_out = Counter(x.get("source", "?") for x in filtered if _is_home_source(x, lang))
+        if home_in:
+            parts = [f"{s} {home_out.get(s,0)}/{n}" for s, n in home_in.most_common()]
+            print(f"  🏠 Домашние издания [{lang}] (прошло/пришло): " + ", ".join(parts))
         # Удаляем новости старше 90 дней (требование Google Play News policy)
         cutoff = (datetime.now().timestamp() - 30 * 24 * 3600) * 1000
         filtered = [x for x in filtered if x.get("publishedAt", 0) >= cutoff]
