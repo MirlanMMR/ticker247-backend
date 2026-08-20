@@ -6,6 +6,7 @@ import json
 import html
 from collections import Counter
 import requests
+import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
@@ -2473,7 +2474,7 @@ GEMINI_MODEL = "gemini-flash-lite-latest"
 GEMINI_MODEL_FALLBACK = "gemini-flash-latest"
 
 # Счётчик расхода: раньше о цене узнавали, когда деньги кончались
-TOKENS = {"in": 0, "out": 0, "calls": 0}
+TOKENS = {"in": 0, "out": 0, "calls": 0, "qwen_in": 0, "qwen_out": 0}
 
 # Собственный потолок расхода, ниже остатка на счёте. Дважды деньги кончались
 # внезапно: 15.08 — сами не заметили, 18.08 — чужой человек тратил по украденному
@@ -2552,6 +2553,46 @@ def _editorial_charter() -> str:
 _CHARTER = None
 
 
+# Запасной поставщик ИИ. 20.08 потолок расходов заблокировал Gemini, и лента
+# полдня выходила вообще без ИИ — без сверки заголовков, без перевода, без
+# обзоров. Один поставщик означает, что его сбой становится нашим.
+#
+# Адрес зависит от рабочего пространства Alibaba, поэтому берётся из настроек:
+# QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL. Нет ключа — запасного пути просто нет,
+# и всё работает как раньше.
+QWEN_API_KEY = os.environ.get("QWEN_API_KEY", "")
+QWEN_BASE_URL = os.environ.get(
+    "QWEN_BASE_URL", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1")
+QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen-flash")
+
+
+def ask_qwen(prompt, charter_text: str = "") -> str:
+    """Запрос к Qwen. Тот же ответ, что и от Gemini, — строкой."""
+    if not QWEN_API_KEY:
+        raise RuntimeError("QWEN_API_KEY не задан")
+    messages = []
+    if charter_text:
+        messages.append({"role": "system", "content": charter_text})
+    # Картинки Qwen тоже понимает, но пока зовём его только на текст: на
+    # снимках мы проверяем деликатность, и менять там судью без замера нельзя
+    text = prompt if isinstance(prompt, str) else next(
+        (p for p in prompt if isinstance(p, str)), "")
+    messages.append({"role": "user", "content": text})
+    body = json.dumps({"model": QWEN_MODEL, "messages": messages,
+                       "temperature": 0.2}).encode()
+    req = urllib.request.Request(
+        f"{QWEN_BASE_URL.rstrip('/')}/chat/completions", data=body,
+        headers={"Content-Type": "application/json",
+                 "Authorization": f"Bearer {QWEN_API_KEY}"})
+    with urllib.request.urlopen(req, timeout=120) as r:
+        data = json.load(r)
+    usage = data.get("usage") or {}
+    TOKENS["qwen_in"] += usage.get("prompt_tokens", 0) or 0
+    TOKENS["qwen_out"] += usage.get("completion_tokens", 0) or 0
+    TOKENS["calls"] += 1
+    return (data["choices"][0]["message"]["content"] or "").strip()
+
+
 def ask_gemini(prompt, charter: bool = True) -> str:
     """Один запрос к ИИ с подсчётом токенов и запасной моделью.
 
@@ -2561,6 +2602,8 @@ def ask_gemini(prompt, charter: bool = True) -> str:
     """
     global _MODEL_IN_USE
     if AI_STOPPED:
+        if QWEN_API_KEY:
+            return ask_qwen(prompt, _editorial_charter() if charter else "")
         raise RuntimeError(
             f"потолок расхода ИИ ${AI_BUDGET:.2f} за {_spend_month_key()} достигнут")
     # Конституция (14 КБ) уходит НЕ с каждым запросом. 20.08 счёт показал
@@ -2586,6 +2629,11 @@ def ask_gemini(prompt, charter: bool = True) -> str:
             )
             resp = model.generate_content(prompt)
         else:
+            # Gemini недоступен — пробуем запасного поставщика. Тишина хуже
+            # чужой модели: без ИИ лента теряет сверку заголовков и перевод
+            if QWEN_API_KEY:
+                print(f"  ↪️ Gemini не ответил ({str(e)[:50]}), беру {QWEN_MODEL}")
+                return ask_qwen(prompt, charter)
             raise
     u = getattr(resp, "usage_metadata", None)
     if u:
@@ -5410,7 +5458,14 @@ def main():
     # Расход этого прогона. Цены Flash-Lite на 13.08.2026 — примерно $0.10 за
     # миллион входящих и $0.40 за миллион исходящих; считаем по ним, чтобы
     # видеть порядок суммы, а не точную копейку
-    cost = TOKENS["in"] / 1e6 * 0.10 + TOKENS["out"] / 1e6 * 0.40
+    # Gemini Flash-Lite: $0.10 за миллион входящих, $0.40 за исходящие.
+    # Qwen Flash дешевле втрое на входе — считаем отдельно, чтобы видеть, что
+    # экономия не выдумана
+    cost = (TOKENS["in"] / 1e6 * 0.10 + TOKENS["out"] / 1e6 * 0.40
+            + TOKENS["qwen_in"] / 1e6 * 0.03 + TOKENS["qwen_out"] / 1e6 * 0.30)
+    if TOKENS["qwen_in"]:
+        print(f"  ↪️ Через Qwen: {TOKENS['qwen_in']:,} входящих + "
+              f"{TOKENS['qwen_out']:,} исходящих токенов")
     print(f"💰 Расход ИИ: {TOKENS['calls']} запросов, "
           f"{TOKENS['in']:,} входящих + {TOKENS['out']:,} исходящих токенов "
           f"≈ ${cost:.4f} за прогон (≈ ${cost * 24:.2f} в сутки при часовом графике)")
