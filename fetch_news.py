@@ -1743,7 +1743,7 @@ def _ai_rescue_body(url: str, broken: str, soup) -> str:
             "фотогалерея или страница-заглушка), верни ровно: НЕТ_ТЕКСТА\n\n"
             f"Страница:\n{raw}"
         )
-        out = ask_gemini(prompt).strip()
+        out = ask_gemini(prompt, charter=False).strip()
         if out.startswith("НЕТ_ТЕКСТА") or len(out) < 120:
             out = ""
         PAGE_BODY_CACHE[key] = {"text": out, "ts": int(datetime.now().timestamp() * 1000)}
@@ -2474,7 +2474,7 @@ def _editorial_charter() -> str:
 _CHARTER = None
 
 
-def ask_gemini(prompt) -> str:
+def ask_gemini(prompt, charter: bool = True) -> str:
     """Один запрос к ИИ с подсчётом токенов и запасной моделью.
 
     Принимает строку или список частей — во втором случае среди них может быть
@@ -2485,7 +2485,13 @@ def ask_gemini(prompt) -> str:
     if AI_STOPPED:
         raise RuntimeError(
             f"потолок расхода ИИ ${AI_BUDGET:.2f} за {_spend_month_key()} достигнут")
-    charter = _editorial_charter()
+    # Конституция (14 КБ) уходит НЕ с каждым запросом. 20.08 счёт показал
+    # 204 тыс. входящих токенов за прогон при 8 тыс. исходящих: платили почти
+    # целиком за то, что отправляем, и 80% этого — редакционная политика,
+    # приложенная к сорока запросам подряд. Переводчику, разборщику страницы и
+    # взгляду на фотографию она не нужна: там нет решения «наша ли это
+    # новость». Она нужна там, где ИИ судит — отбор, роли в обзоре, полки.
+    charter = _editorial_charter() if charter else ""
     try:
         model = genai.GenerativeModel(
             _MODEL_IN_USE,
@@ -2554,7 +2560,7 @@ def _photo_is_graphic(url: str):
             "Ответь одним словом: ДА или НЕТ. Разбитая машина, пожар, полиция, "
             "техника без людей — это НЕТ.",
             {"mime_type": mime, "data": r.content},
-        ])
+        ], charter=False)
         return answer.strip().upper().startswith("ДА")
     except Exception:
         return None
@@ -3530,7 +3536,7 @@ def _gemini_translate(items, target_lang):
 {chr(10).join(numbered)}"""
 
     try:
-        text = ask_gemini(prompt)
+        text = ask_gemini(prompt, charter=False)
         if "```" in text:
             text = text.split("```")[1].replace("json", "").strip()
         data = json.loads(text)
@@ -3838,6 +3844,7 @@ def _story_block(item, role):
         "imageUrl": item.get("imageUrl", ""),
         "url": item.get("url", ""),
         "publishedAt": item.get("publishedAt", 0),
+        "scope": item.get("scope", ""),
     }
 
 
@@ -3941,9 +3948,15 @@ def build_press_review(items, lang):
                   f"(изданий {len({b['source'] for b in new_blocks})}, "
                   f"нужно {STORY_MIN_SOURCES})")
             return items, None
+        # Полка обзора — по большинству вошедших новостей. Безвиз с Китаем
+        # писали четыре кыргызстанских издания: для нашего читателя это
+        # МЕСТНАЯ новость, а не мировая, хотя обзор прессы принято считать
+        # приметой больших мировых тем
+        shelf = Counter(b.get("scope") for b in new_blocks if b.get("scope"))
         story = {
             "title": str(data.get("title", "")).strip()[:60],
             "scenario": str(data.get("scenario", "")).strip()[:40],
+            "scope": shelf.most_common(1)[0][0] if shelf else "world",
             "blocks": new_blocks[:STORY_MAX_BLOCKS],
             "createdAt": now,
             "updatedAt": now,
