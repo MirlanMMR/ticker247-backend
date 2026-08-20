@@ -3659,6 +3659,32 @@ def _wrong_alphabet(text: str, target_lang: str) -> bool:
     return cyr >= 5
 
 
+def _still_foreign(text: str, target: str) -> bool:
+    """Остался ли текст на чужом языке после «перевода».
+
+    21.08 читатель открыл новость Gazeta.uz: заголовок по-русски, пометка
+    «Переведено автоматически», а всё тело — по-узбекски. Перевод считал работу
+    сделанной, не глядя на результат, и наше правило «не переведённое не
+    публикуем» верило пометке.
+
+    Узбекская кириллица отличается от русской буквами ў, қ, ғ, ҳ; кыргызская —
+    ө, ү, ң. Ни одной из них в русском нет.
+    """
+    t = (text or "").lower()
+    if len(t) < 40:
+        return False
+    if target == "ru":
+        # Порог два, а не три: этих букв в русском нет вовсе, и даже пара —
+        # верный признак чужого языка
+        if sum(t.count(c) for c in "ўқғҳөүң") >= 2:
+            return True
+        cyr = len(re.findall(r"[а-яё]", t))
+        lat = len(re.findall(r"[a-z]{4,}", t))
+        return cyr < 10 and lat >= 8
+    # для латинских пулов чужой считаем кириллицу
+    return len(re.findall(r"[а-яё]", t)) >= 10
+
+
 def translate_batch(items, target_lang):
     """Переводит title и summary на язык пула.
 
@@ -3676,6 +3702,15 @@ def translate_batch(items, target_lang):
     def apply(item, title, summary, orig_title, orig_summary):
         if not title:
             return False
+        # Проверяем РЕЗУЛЬТАТ, а не факт вызова. Модель иногда возвращает
+        # исходный текст, а мы ставили пометку «переведено» и публиковали
+        if _still_foreign(summary, target_lang) or _still_foreign(title, target_lang):
+            fixed_t = _gtx_translate(title, target_lang)
+            fixed_s = _gtx_translate(summary, target_lang)
+            if fixed_t and not _still_foreign(fixed_t, target_lang):
+                title, summary = fixed_t, (fixed_s or summary)
+            else:
+                return False        # в эфир не пойдёт: правило о переводе
         item["title"] = title
         item["summary"] = summary or orig_summary
         item["language"] = target_lang
