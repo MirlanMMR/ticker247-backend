@@ -365,6 +365,76 @@ YOUTUBE_BLOCK_KEYWORDS = [
 #
 # Домашняя страна пула: ru → Кыргызстан, en → США, es → Мексика, pt → Бразилия.
 # Всё остальное — мировое, даже если написано на языке пула.
+# Страна издания. Нужна для главного правила, к которому мы идём: МЕСТНАЯ
+# новость — та, чья страна совпадает со страной ЧИТАТЕЛЯ, а не со страной,
+# назначенной домашней для всего пула. Сейчас португалец видит под заголовком
+# «Местные» бразильские новости, а аргентинец мексиканские: у пула одна
+# домашняя страна на всех.
+#
+# Размечаем по НАЗВАНИЮ издания, а не по домену: у Público и Diário de
+# Notícias общий адрес feedburner, и домен их не различает.
+SOURCE_COUNTRY = {
+    # США
+    "LA Times": "US", "Seattle Times": "US", "NY Post": "US", "NPR News": "US",
+    "NY Times": "US", "NBC News": "US", "CNN": "US", "Washington Post": "US",
+    "Politico": "US", "MarketWatch": "US", "Axios": "US", "CBS News": "US",
+    "UPI": "US", "Semafor": "US", "USA Today": "US", "AP News": "US",
+    "Florida Phoenix": "US", "Ohio Capital Journal": "US",
+    "Michigan Advance": "US", "Georgia Recorder": "US",
+    "Pennsylvania Capital-Star": "US", "NC Newsline": "US",
+    "Arizona Mirror": "US", "Minnesota Reformer": "US",
+    "Colorado Newsline": "US", "Nevada Current": "US",
+    "Virginia Mercury": "US", "Missouri Independent": "US",
+    "Texas Tribune": "US", "Mississippi Today": "US",
+    "Marshall Project": "US", "ProPublica": "US",
+    # Португалия и Бразилия
+    "Notícias ao Minuto": "PT", "Público": "PT", "Diário de Notícias": "PT",
+    "Observador": "PT", "RTP Notícias": "PT",
+    "Metrópoles": "BR", "Exame": "BR", "G1 Globo": "BR", "Folha de S.Paulo": "BR",
+    "Estadão": "BR", "CNN Brasil": "BR", "Agência Brasil": "BR",
+    "Poder360": "BR", "Gazeta do Povo": "BR", "InfoMoney": "BR",
+    # Испаноязычные
+    "Reforma": "MX", "El Universal MX": "MX", "La Jornada": "MX",
+    "El Financiero": "MX", "El Economista MX": "MX", "Expansión MX": "MX",
+    "Excélsior": "MX", "El Sol de México": "MX",
+    "La Vanguardia": "ES", "El País": "ES", "Marca": "ES",
+    "Semana CO": "CO", "El Tiempo CO": "CO", "Diario Libre DO": "DO",
+    "La Tercera CL": "CL", "El Universo EC": "EC", "El Nacional VE": "VE",
+    "Prensa Libre GT": "GT", "La Nación CR": "CR", "El Salvador": "SV",
+    "Clarín AR": "AR", "Infobae": "AR", "El Comercio PE": "PE",
+    # Англоязычное пространство
+    "Irish Times": "IE", "RTÉ Ireland": "IE", "The Hindu": "IN",
+    "Punch Nigeria": "NG", "Jamaica Gleaner": "JM", "ABC Australia": "AU",
+    "Global News CA": "CA", "Straits Times": "SG", "Sky Sports": "GB",
+    "BBC News": "GB", "BBC World": "GB", "BBC Sport": "GB",
+    # Кыргызстан и соседи
+    "AKIpress": "KG", "AKIpress Эко": "KG", "Gezitter": "KG",
+    "Kaktus.media": "KG", "Kabar.kg": "KG", "Knews.kg": "KG",
+    "24.kg": "KG", "Sputnik KG": "KG", "Turmush": "KG",
+    "Asia-Plus": "TJ", "Kun.uz": "UZ", "Gazeta.uz": "UZ",
+    "Vlast.kz": "KZ", "Tengrinews": "KZ",
+    "РБК": "RU", "РИА Новости": "RU", "Sports.ru": "RU",
+}
+
+# Домен верхнего уровня — когда издания нет в списке выше
+TLD_COUNTRY = {
+    "kg": "KG", "kz": "KZ", "uz": "UZ", "tj": "TJ", "ru": "RU", "ua": "UA",
+    "mx": "MX", "br": "BR", "pt": "PT", "es": "ES", "ar": "AR", "cl": "CL",
+    "co": "CO", "pe": "PE", "ec": "EC", "ve": "VE", "uk": "GB", "ie": "IE",
+    "au": "AU", "ca": "CA", "in": "IN", "ng": "NG", "za": "ZA", "sg": "SG",
+    "fr": "FR", "be": "BE", "ch": "CH", "ma": "MA", "sn": "SN", "ci": "CI",
+}
+
+
+def source_country(item) -> str:
+    """Страна издания. Пусто — значит международное, ничьё."""
+    name = (item.get("source") or "").strip()
+    if name in SOURCE_COUNTRY:
+        return SOURCE_COUNTRY[name]
+    host = re.sub(r"^https?://", "", item.get("url") or "").split("/")[0].lower()
+    return TLD_COUNTRY.get(host.rsplit(".", 1)[-1], "")
+
+
 LOCAL_DOMAINS = {
     "ru": ["kaktus.media", "sputnik.kg", "vb.kg", "knews.kg", "gezitter.org",
            "kabar.kg", "akipress.com", "24.kg", "turmush.kg", "super.kg", "economist.kg"],
@@ -2125,7 +2195,11 @@ def fetch_rss(source):
             items.append({
                 "title": title, "url": link, "summary": summary,
                 "imageUrl": image, "imageLowRes": low_res, "source": source["source"],
-                "country": "",   # проставим ниже, когда известен адрес
+                # Страна издания. Пока лежит про запас: приложение начнёт по ней
+                # считать местные новости с 29-й версии, и тогда португалец
+                # перестанет видеть бразильские заметки под заголовком
+                # «Местные», а аргентинец — мексиканские
+                "country": source_country({"source": source["source"], "url": link}),
                 "category": source["category"], "source_category": source["category"],
                 "priority": source["priority"],
                 # Язык: явный язык источника надёжнее детектора
