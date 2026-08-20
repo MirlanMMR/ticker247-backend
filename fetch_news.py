@@ -1,5 +1,6 @@
 import os
 import re
+import hashlib
 import time
 import json
 import html
@@ -2467,8 +2468,13 @@ def _editorial_charter() -> str:
 _CHARTER = None
 
 
-def ask_gemini(prompt: str) -> str:
-    """Один запрос к ИИ с подсчётом токенов и запасной моделью."""
+def ask_gemini(prompt) -> str:
+    """Один запрос к ИИ с подсчётом токенов и запасной моделью.
+
+    Принимает строку или список частей — во втором случае среди них может быть
+    картинка ({"mime_type": ..., "data": ...}): так мы спрашиваем модель о самом
+    снимке, а не о тексте вокруг него.
+    """
     global _MODEL_IN_USE
     if AI_STOPPED:
         raise RuntimeError(
@@ -2500,6 +2506,79 @@ def ask_gemini(prompt: str) -> str:
 
 
 _MODEL_IN_USE = GEMINI_MODEL
+
+
+# Происшествия: только у них имеет смысл смотреть на снимок. Проверять КАЖДУЮ
+# фотографию было бы и дорого, и незачем — на бирже и на футболе тел не бывает.
+_INCIDENT = re.compile(
+    "дтп|наезд|авари|сбил|столкновени|погиб|пострадав|ранен|труп|тело |"
+    "убийств|застрелил|стрельб|поножовщин|взрыв|пожар|обрушени|утонул|нападени|"
+    "теракт|расстрел|загорел|возгорани|"
+    "crash|collision|accident|shooting|stabbing|explosion|killed|injured|"
+    "victim|fatal|attack|wreck|"
+    "accidente|choque|atropell|tiroteo|apuñal|explosi|muert|herid|víctima|"
+    "acidente|colisão|tiroteio|esfaquea|explos|mort|ferid|vítima",
+    re.I)
+
+
+def _looks_incident(item) -> bool:
+    head = f"{item.get('title','')} {str(item.get('summary',''))[:200]}"
+    return bool(_INCIDENT.search(head))
+
+
+def _photo_is_graphic(url: str):
+    """Есть ли на снимке пострадавший человек. None — спросить не удалось.
+
+    Правило размытия судит о СНИМКЕ, а не о сюжете (см. SensitiveContent.kt в
+    приложении). До сих пор оно смотрело на слова: «окровавлен», «тела
+    погибших». Новость 19.08 «после ДТП водителя сначала признали пьяным, а
+    затем трезвым» таких слов не содержала, а на фотографии человек лежал под
+    машиной. Слова о снимке не знают ничего — поэтому показываем снимок.
+    """
+    try:
+        r = requests.get(url, timeout=10, headers=BROWSER_HEADERS)
+        if not r.ok or len(r.content) > 4_000_000:
+            return None
+        mime = r.headers.get("Content-Type", "image/jpeg").split(";")[0]
+        if not mime.startswith("image/"):
+            return None
+        answer = ask_gemini([
+            "Посмотри на фотографию. Виден ли на ней пострадавший человек: "
+            "тело, кровь, следы увечий, человек под машиной или под завалом? "
+            "Ответь одним словом: ДА или НЕТ. Разбитая машина, пожар, полиция, "
+            "техника без людей — это НЕТ.",
+            {"mime_type": mime, "data": r.content},
+        ])
+        return answer.strip().upper().startswith("ДА")
+    except Exception:
+        return None
+
+
+def mark_graphic_photos(items, lang):
+    """Ставит пометку тем новостям, у которых тяжёлый именно СНИМОК."""
+    shelf = AI_CACHE.setdefault("_images", {})
+    if not isinstance(shelf, dict):
+        shelf = AI_CACHE["_images"] = {}
+    asked = marked = 0
+    now = int(datetime.now().timestamp() * 1000)
+    for it in items:
+        url = it.get("imageUrl")
+        if not url or not _looks_incident(it):
+            continue
+        key = hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
+        v = shelf.get(key)
+        if not isinstance(v, dict):
+            verdict = _photo_is_graphic(url)
+            if verdict is None:
+                continue
+            v = shelf[key] = {"graphic": verdict, "ts": now}
+            asked += 1
+        if v.get("graphic"):
+            it["sensitiveImage"] = True
+            marked += 1
+    if asked or marked:
+        print(f"  🩸 Снимки происшествий [{lang}]: спрошено {asked}, "
+              f"под размытие {marked}")
 
 # Номер свода правил. Меняем его при КАЖДОЙ правке промпта — иначе память
 # вердиктов держит решения, принятые по старым правилам, двое суток, и новое
@@ -4257,6 +4336,17 @@ def main():
             scope = it.get("scope", "world")
             if scope in used_scopes:
                 continue
+            # Второй взгляд должен что-то ДОБАВЛЯТЬ. Правило про несколько
+            # версий события задумано ради разных ракурсов, но оно не
+            # спрашивало, чем именно второй лучше, — и рядом с полной заметкой
+            # вставала куцая, без снимка. Читатель видит не два взгляда, а одно
+            # и то же дважды, причём второй раз пустее (19.08: мужчина с
+            # младенцем просил деньги в мечети — дважды, одна без фото).
+            # Первый в списке уже лучший: сортировка выше ставит вперёд
+            # важность, снимок и длину текста.
+            if chosen and (not it.get("imageUrl")
+                           or len(it.get("summary") or "") < 200):
+                continue
             used_scopes.add(scope)
             chosen.append(it)
             if len(chosen) == MAX_ANGLES:
@@ -4526,6 +4616,9 @@ def main():
         print(f"  После AI: {len(filtered)} | {cats}")
         # Последний рубеж перед эфиром: чиним что можно, снимаем что нельзя
         filtered = quality_gate(filtered, lang)
+        # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
+        # фотографии, но только у новостей про происшествия
+        mark_graphic_photos(filtered, lang)
         db.reference(f"/news/{lang}").set({
             "items": filtered,
             "updatedAt": ts,
