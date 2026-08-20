@@ -3849,23 +3849,62 @@ STORY_MIN_SOURCES = 3               # меньше трёх изданий — �
 STORY_MAX_COUNT = 5
 
 
-def _story_block(item, role):
-    """Блок обзора: чужой заголовок, наша выжимка, их снимок, их имя.
+def _looks_kyrgyz(text: str) -> bool:
+    """Буквы, которых нет в русском. Поле language врёт: кыргызские заметки
+    Sputnik KG и Kabar приходят помеченными русскими."""
+    return any(c in text.lower() for c in "өүң")
+
+
+def _story_block(item, role, lang="ru"):
+    """Блок обзора: наша выжимка, снимок издания, его имя.
 
     Ничего нового здесь не пишется — ни единого слова. ИИ раздаёт роли, текст
-    берётся готовый. Поэтому обзор не делает нас автором: мы по-прежнему
-    отбираем и расставляем, а говорят издания.
+    берётся готовый. Поэтому обзор не делает нас автором: мы отбираем и
+    расставляем, а говорят издания.
+
+    Две правки 20.08, обе по живому разбору сюжета о безвизе с Китаем:
+
+    1. Текста берём до 700 знаков, а не 420. Заголовок Kaktus обещал «назвали
+       условие», выжимка в 207 знаков условия не содержала, а у Sputnik оно
+       было — и обрывалось ровно на нём: «бир гана шарты бар — жар…». Если
+       выжимка коротка, дотягиваем из разобранной страницы: она уже в памяти
+       и денег не стоит.
+
+    2. Обзор идёт НА ОДНОМ языке. Кыргызский абзац посреди русского сюжета
+       заставляет читателя спотыкаться, а главное — самое ценное оказывалось
+       непрочитанным только потому, что написано на другом языке. Переводим
+       бесплатным переводчиком, без квот и без счёта.
     """
     summary = str(item.get("summary") or "")
-    if len(summary) > 420:
-        cut = summary[:420]
-        # Конец предложения — точка после слова, а не после «г.р.» или «ул.»
+    if len(summary) < 320:
+        # Дотяжка из разобранной страницы: в выжимке часто только лид, а
+        # обещанная заголовком суть — во втором абзаце
+        body = ""
+        try:
+            cached = PAGE_BODY_CACHE.get(_cache_key({"url": item.get("url", "")}))
+            if isinstance(cached, dict):
+                body = str(cached.get("text") or "")
+        except Exception:
+            body = ""
+        if len(body) > len(summary):
+            summary = body
+    if len(summary) > 700:
+        cut = summary[:700]
         ends = [m.end() - 1 for m in re.finditer(r"[а-яёa-zà-ú]{3,}[.!?]\s", cut)]
-        summary = cut[:ends[-1] + 1] if ends and ends[-1] > 120 else cut
+        summary = cut[:ends[-1] + 1] if ends and ends[-1] > 200 else cut
+
+    title = str(item.get("title") or "")
+    if lang == "ru" and (_looks_kyrgyz(title) or _looks_kyrgyz(summary)):
+        title = _gtx_translate(title, "ru") or title
+        summary = _gtx_translate(summary, "ru") or summary
+    elif lang != "ru" and (item.get("language") or "").lower() not in (lang, ""):
+        title = _gtx_translate(title, lang) or title
+        summary = _gtx_translate(summary, lang) or summary
+
     return {
         "role": role,
         "source": item.get("source", ""),
-        "title": item.get("title", ""),
+        "title": title,
         "summary": summary,
         "imageUrl": item.get("imageUrl", ""),
         "url": item.get("url", ""),
@@ -3980,7 +4019,7 @@ def build_press_reviews(items, lang):
                 continue
             seen.add(fam)
             used.add(n - 1)
-            fresh.append(_story_block(it, str(b.get("role", "")).strip()))
+            fresh.append(_story_block(it, str(b.get("role", "")).strip(), lang))
         blocks = (base_blocks + fresh)[:STORY_MAX_BLOCKS]
         if len({b["source"] for b in blocks}) < STORY_MIN_SOURCES:
             for b in fresh:                      # не сложилось — вернём в ленту
@@ -4114,7 +4153,8 @@ def collapse_same_event(items, lang, stories=None):
                 "scenario": "тема",
                 "scope": shelf.most_common(1)[0][0] if shelf else "world",
                 "blocks": [_story_block(items[i],
-                                        "затравка" if k == 0 else "дополнение")
+                                        "затравка" if k == 0 else "дополнение",
+                                        lang)
                            for k, i in enumerate(picked)],
                 "createdAt": now_ms,
                 "updatedAt": now_ms,
