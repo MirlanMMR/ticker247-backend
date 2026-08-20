@@ -1559,7 +1559,13 @@ def _page_body(url: str) -> str:
                 continue
             seen.add(key)
             paras.append(t)
-            if sum(len(x) for x in paras) > 700:
+            # Набираем до 1400, а не до 700. Потолок ленты — 1300 знаков, он
+            # стоит ниже, при обрезке. Но сбор абзацев обрывался на 700, и до
+            # потолка текст не доходил НИКОГДА: 20.08 читатель открыл заметку
+            # о мошеннике в мечети и увидел половину, хотя на сайте она вся
+            # короче 1260. Берём с запасом — лишнее срежет общий предел по
+            # границе предложения.
+            if sum(len(x) for x in paras) > 1400:
                 break
         body = " ".join(paras).strip()
 
@@ -2561,6 +2567,11 @@ def mark_graphic_photos(items, lang):
         shelf = AI_CACHE["_images"] = {}
     asked = marked = 0
     now = int(datetime.now().timestamp() * 1000)
+    # Не больше восьми новых снимков за прогон на пул: картинка стоит дороже
+    # текста, а на счету 20.08 оставалось $2.51. Уже виденные кадры считаются
+    # бесплатно — вердикт лежит в памяти, поэтому предел бьёт только по
+    # новинкам. Что не успели спросить сегодня — спросим следующим прогоном.
+    ASK_LIMIT = 8
     for it in items:
         url = it.get("imageUrl")
         if not url or not _looks_incident(it):
@@ -2568,6 +2579,8 @@ def mark_graphic_photos(items, lang):
         key = hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
         v = shelf.get(key)
         if not isinstance(v, dict):
+            if asked >= ASK_LIMIT:
+                continue
             verdict = _photo_is_graphic(url)
             if verdict is None:
                 continue
@@ -3800,6 +3813,86 @@ QC_VIDEO_CAPTION = re.compile(
     re.I)
 
 
+def collapse_same_event(items, lang):
+    """Схлопывает пересказы ОДНОГО события, оставляя лучший.
+
+    Проверка на повторы сравнивает слова заголовков — и слепа там, где слова
+    разные. 20.08 в ленте стояло пять новостей о безвизовом Китае, три из них
+    по-кыргызски: «Кытайга визасыз» и «безвизовый въезд в Китай» не имеют ни
+    одного общего слова. Тот же случай был с интервью президента, которое
+    агентства разрезали на темы.
+
+    Словарём это не лечится: у пересказов одного события общего только смысл.
+    Поэтому спрашиваем ИИ — он и так читает каждую новость.
+
+    Осторожность троякая: просим объединять только ПОЛНЫЕ совпадения события,
+    при сомнении оставлять оба; не трогаем ленту, если ИИ молчит; и никогда не
+    снимаем больше пятой части — ошибка модели не должна опустошить выпуск.
+    """
+    if len(items) < 8:
+        return items
+    lines = [f"{i+1}. [{it.get('source','?')}] {it.get('title','')}"
+             for i, it in enumerate(items)]
+    prompt = (
+        "Ниже заголовки одного выпуска новостей. Найди группы, которые "
+        "рассказывают об ОДНОМ И ТОМ ЖЕ событии — даже если они на разных "
+        "языках или написаны разными словами.\n\n"
+        "ВАЖНО:\n"
+        "· Объединяй, только если событие буквально одно. Разные решения, "
+        "разные сроки, разные страны — это РАЗНЫЕ события.\n"
+        "· «30 дней на Хайнане» и «10 дней в Китае» — разные события.\n"
+        "· Сомневаешься — не объединяй.\n"
+        "· Разные темы одного интервью или заседания — одно событие.\n\n"
+        "Верни ТОЛЬКО JSON: список групп, каждая группа — список номеров. "
+        "Одиночные новости не включай. Пример: [[3,17],[8,9,25]]\n\n"
+        + "\n".join(lines))
+    try:
+        text = ask_gemini(prompt)
+        if "```" in text:
+            text = text.split("```")[1].replace("json", "").strip()
+        groups = json.loads(text)
+        if not isinstance(groups, list):
+            return items
+    except Exception as e:
+        print(f"  ⚠️ Группировка по событиям не удалась: {str(e)[:60]}")
+        return items
+
+    # Повтор на ДВУХ ЯЗЫКАХ — не повтор. Одна и та же новость по-русски и
+    # по-кыргызски служит разным читателям, и в двуязычной стране это скорее
+    # достоинство ленты. Поэтому в группе оставляем лучшую НА КАЖДОМ ЯЗЫКЕ.
+    #
+    # Поле language здесь бесполезно: все три кыргызские заметки о безвизовом
+    # Китае помечены русскими. Смотрим на буквы, которых в русском нет.
+    def _lang_of(it):
+        head = f"{it.get('title','')} {str(it.get('summary',''))[:200]}".lower()
+        if any(c in head for c in "өүң"):
+            return "ky"
+        return (it.get("language") or "?").lower()
+
+    drop = set()
+    for g in groups:
+        idxs = [n - 1 for n in g if isinstance(n, int) and 0 < n <= len(items)]
+        if len(idxs) < 2:
+            continue
+        by_lang = {}
+        for i in idxs:
+            by_lang.setdefault(_lang_of(items[i]), []).append(i)
+        for same_lang in by_lang.values():
+            best = max(same_lang, key=lambda i: (
+                items[i].get("priority", 0),
+                1 if items[i].get("imageUrl") else 0,
+                len(items[i].get("summary") or ""),
+            ))
+            drop.update(i for i in same_lang if i != best)
+    if len(drop) > len(items) // 5:
+        print(f"  ⚠️ ИИ предложил снять {len(drop)} из {len(items)} — "
+              f"слишком много, оставляем ленту как есть")
+        return items
+    if drop:
+        print(f"  🔗 Пересказы одного события [{lang}]: снято {len(drop)}")
+    return [it for i, it in enumerate(items) if i not in drop]
+
+
 def quality_gate(items, lang):
     """Правит и отсеивает новости перед публикацией. Возвращает годные."""
     kept, dropped = [], []
@@ -4616,6 +4709,8 @@ def main():
         print(f"  После AI: {len(filtered)} | {cats}")
         # Последний рубеж перед эфиром: чиним что можно, снимаем что нельзя
         filtered = quality_gate(filtered, lang)
+        # Пересказы одного события — их не видит проверка по словам
+        filtered = collapse_same_event(filtered, lang)
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)
