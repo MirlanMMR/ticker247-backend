@@ -3874,6 +3874,11 @@ def build_press_review(items, lang):
 
     if len(items) < 8:
         return items, old
+    # Обзор живёт сутки, а лента обновляется каждые два часа — пересобирать
+    # его каждый раз незачем. Трогаем не чаще раза в три часа: событие за
+    # два часа редко обрастает новым изданием, а запрос стоит денег.
+    if old and now - old.get("updatedAt", 0) < 3 * 3600 * 1000:
+        return items, old
 
     lines = [f"{i+1}. [{it.get('source','?')}] {it.get('title','')}"
              for i, it in enumerate(items)]
