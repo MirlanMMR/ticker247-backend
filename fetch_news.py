@@ -3992,6 +3992,36 @@ def _story_id(title: str) -> str:
     return hashlib.sha1(title.strip().lower().encode("utf-8")).hexdigest()[:10]
 
 
+def _tidy_stories(stories, lang):
+    """Приводит уже собранные обзоры в порядок. Денег не стоит.
+
+    20.08: предохранитель «не пересобирать чаще раза в три часа» берёг счёт, но
+    заодно держал в ленте двойного Ферстаппена и кыргызский абзац посреди
+    русского сюжета. Экономить надо на запросах к ИИ, а не на чистоте.
+    """
+    out = []
+    for st in stories:
+        if not isinstance(st, dict):
+            continue
+        blocks = _refresh_old_blocks(st.get("blocks", []), lang)
+        if len({b.get("source") for b in blocks}) < STORY_MIN_BIG:
+            continue
+        st = {**st, "blocks": _lead_first_reporter(blocks)}
+        twin = next((m for m in out if _same_story(st, m)), None)
+        if twin is None:
+            out.append(st)
+            continue
+        seen = {publisher_family(b.get("source", "")) for b in twin["blocks"]}
+        twin["blocks"] = _lead_first_reporter(
+            (twin["blocks"] + [b for b in st["blocks"]
+                               if publisher_family(b.get("source", "")) not in seen]
+             )[:STORY_MAX_BLOCKS])
+        if len(st.get("title", "")) < len(twin.get("title", "")):
+            twin["title"] = st["title"]
+        print(f"  🔗 Двойники обзора схлопнуты [{lang}]: «{twin['title'][:40]}»")
+    return out
+
+
 def build_press_reviews(items, lang):
     """Обзоры прессы: до трёх сюжетов, каждый — событие глазами изданий.
 
@@ -4016,6 +4046,7 @@ def build_press_reviews(items, lang):
         old = []
     old = [st for st in old
            if isinstance(st, dict) and now - st.get("createdAt", 0) < STORY_TTL_MS]
+    old = _tidy_stories(old, lang)      # чистка бесплатна и идёт каждый прогон
 
     if len(items) < 8:
         return items, old
