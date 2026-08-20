@@ -3859,8 +3859,9 @@ def _story_block(item, role):
     summary = str(item.get("summary") or "")
     if len(summary) > 420:
         cut = summary[:420]
-        idx = max(cut.rfind(". "), cut.rfind("! "), cut.rfind("? "))
-        summary = cut[:idx + 1] if idx > 120 else cut
+        # Конец предложения — точка после слова, а не после «г.р.» или «ул.»
+        ends = [m.end() - 1 for m in re.finditer(r"[а-яёa-zà-ú]{3,}[.!?]\s", cut)]
+        summary = cut[:ends[-1] + 1] if ends and ends[-1] > 120 else cut
     return {
         "role": role,
         "source": item.get("source", ""),
