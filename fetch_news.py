@@ -5071,7 +5071,19 @@ def main():
         # Удаляем новости старше 90 дней (требование Google Play News policy)
         cutoff = (datetime.now().timestamp() - 30 * 24 * 3600) * 1000
         filtered = [x for x in filtered if x.get("publishedAt", 0) >= cutoff]
-        filtered.sort(key=lambda x: x.get("priority", 0), reverse=True)
+        # Новость без снимка берём только если она срочная или важная — либо
+        # если без неё не набирается лента. Третьего не дано: карточка с
+        # эмодзи вместо фотографии выглядит как недогруженная страница, и
+        # читатель винит приложение, а не издание.
+        #
+        # Правило не запрет, а очередь: безфотографийные встают в хвост своей
+        # полки и попадают в эфир, когда впереди никого не осталось.
+        def _rank(x):
+            worthy = (x.get("priority", 0) >= 2
+                      or x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY")
+                      or bool(x.get("imageUrl")))
+            return (x.get("priority", 0), 1 if worthy else 0)
+        filtered.sort(key=_rank, reverse=True)
         max_items = 80 if lang == "ru" else 70
 
         # Ни одна редакция не занимает больше пятой части ленты.
