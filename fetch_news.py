@@ -1591,9 +1591,13 @@ def _page_body(url: str) -> str:
         # Прежние 700 обрывали материал ради экономии, которой никто не просил
         if len(body) > 1300:
             body = body[:1300]
-            idx = max(body.rfind(". "), body.rfind("! "), body.rfind("? "))
-            if idx > 150:
-                body = body[:idx + 1]
+            # Точка не всегда конец предложения: «1974 г.р.», «ул.», «им.».
+            # Обрезка по такой точке рвёт мысль на середине — именно так
+            # исчезло «оба погибли» из заметки о ДТП 20.08. Считаем концом
+            # только точку после слова из трёх букв и длиннее.
+            ends = [m.end() - 1 for m in re.finditer(r"[а-яёa-z]{3,}[.!?]\s", body)]
+            if ends and ends[-1] > 150:
+                body = body[:ends[-1] + 1]
         body = strip_tail(body)
 
         # Последний рубеж: машина сама признаётся, что потеряла смысл
@@ -2642,6 +2646,12 @@ def load_ai_cache():
     print(f"  🧠 Память вердиктов: {total} статей")
 
 
+# Момент, когда сбор текста перестал обрываться на 700 знаках (20.08.2026).
+# Всё, что разобрано раньше и подозрительно близко к прежнему пределу,
+# перечитываем заново.
+PAGE_BODY_CUT_FIX_TS = 1787220000000
+
+
 def load_page_bodies():
     global PAGE_BODY_CACHE
     try:
@@ -2654,11 +2664,22 @@ def load_page_bodies():
     # берётся из памяти. Выбрасываем всё, что начинается с курсов валют.
     bad = [k for k, v in PAGE_BODY_CACHE.items()
            if isinstance(v, dict)
-           and _is_sidebar_table(str(v.get("body", ""))[:120].split("\n")[:6])]
+           and _is_sidebar_table(str(v.get("text", ""))[:120].split("\n")[:6])]
     for k in bad:
         PAGE_BODY_CACHE.pop(k, None)
+    # Половинки эпохи предела в 700 знаков. Читатель 20.08 открыл заметку о
+    # ДТП в Казахстане и увидел «Двое граждан Кыргызстана — И.Г.В., 1963 г.р.,
+    # и Е.Е.Ю., 1974 г.р.» — на этом текст кончался, и то, что оба погибли,
+    # осталось за обрывом. Правка предела таким записям не поможет: страница
+    # берётся из памяти, а не со свежего разбора.
+    short = [k for k, v in PAGE_BODY_CACHE.items()
+             if isinstance(v, dict) and v.get("ts", 0) < PAGE_BODY_CUT_FIX_TS
+             and 600 < len(str(v.get("text", ""))) < 780]
+    for k in short:
+        PAGE_BODY_CACHE.pop(k, None)
     print(f"  📄 Память разобранных страниц: {len(PAGE_BODY_CACHE)}"
-          + (f" (выброшено с курсами валют: {len(bad)})" if bad else ""))
+          + (f" (выброшено с курсами валют: {len(bad)})" if bad else "")
+          + (f" (обрезанных по старому пределу: {len(short)})" if short else ""))
 
 
 def save_page_bodies():
@@ -3995,7 +4016,7 @@ def build_press_reviews(items, lang):
     return rest, result
 
 
-def collapse_same_event(items, lang):
+def collapse_same_event(items, lang, stories=None):
     """Схлопывает пересказы ОДНОГО события, оставляя лучший.
 
     Проверка на повторы сравнивает слова заголовков — и слепа там, где слова
@@ -4012,7 +4033,7 @@ def collapse_same_event(items, lang):
     снимаем больше пятой части — ошибка модели не должна опустошить выпуск.
     """
     if len(items) < 8:
-        return items
+        return items, stories if stories is not None else []
     lines = [f"{i+1}. [{it.get('source','?')}] {it.get('title','')}"
              for i, it in enumerate(items)]
     prompt = (
@@ -4034,10 +4055,10 @@ def collapse_same_event(items, lang):
             text = text.split("```")[1].replace("json", "").strip()
         groups = json.loads(text)
         if not isinstance(groups, list):
-            return items
+            return items, stories if stories is not None else []
     except Exception as e:
         print(f"  ⚠️ Группировка по событиям не удалась: {str(e)[:60]}")
-        return items
+        return items, stories if stories is not None else []
 
     # Повтор на ДВУХ ЯЗЫКАХ — не повтор. Одна и та же новость по-русски и
     # по-кыргызски служит разным читателям, и в двуязычной стране это скорее
@@ -4051,10 +4072,50 @@ def collapse_same_event(items, lang):
             return "ky"
         return (it.get("language") or "?").lower()
 
+    stories = stories if stories is not None else []
     drop = set()
     for g in groups:
         idxs = [n - 1 for n in g if isinstance(n, int) and 0 < n <= len(items)]
         if len(idxs) < 2:
+            continue
+        # Похожие новости не выбрасываем, а СОБИРАЕМ. Если об одном событии
+        # написали три разные редакции — это готовый обзор прессы, и удалять
+        # две из трёх значит терять то самое сравнение взглядов, ради которого
+        # обзор и затевался. Роли здесь простые, без ИИ: лучший рассказ —
+        # затравка, остальные дополняют.
+        fams = {}
+        for i in idxs:
+            fams.setdefault(publisher_family(items[i].get("source", "")), []).append(i)
+        if len(fams) >= STORY_MIN_SOURCES and len(stories) < STORY_MAX_COUNT:
+            picked = [max(v, key=lambda i: (
+                items[i].get("priority", 0),
+                1 if items[i].get("imageUrl") else 0,
+                len(items[i].get("summary") or ""),
+            )) for v in fams.values()]
+            picked.sort(key=lambda i: (
+                items[i].get("priority", 0),
+                1 if items[i].get("imageUrl") else 0,
+                len(items[i].get("summary") or ""),
+            ), reverse=True)
+            picked = picked[:STORY_MAX_BLOCKS]
+            title = str(items[picked[0]].get("title", ""))[:60]
+            now_ms = int(datetime.now().timestamp() * 1000)
+            shelf = Counter(items[i].get("scope") for i in picked
+                            if items[i].get("scope"))
+            stories.append({
+                "id": _story_id(title),
+                "title": title,
+                "scenario": "тема",
+                "scope": shelf.most_common(1)[0][0] if shelf else "world",
+                "blocks": [_story_block(items[i],
+                                        "затравка" if k == 0 else "дополнение")
+                           for k, i in enumerate(picked)],
+                "createdAt": now_ms,
+                "updatedAt": now_ms,
+            })
+            print(f"  📰 Похожие собраны в обзор [{lang}]: «{title[:40]}» "
+                  f"— {len(picked)} изданий")
+            drop.update(idxs)      # из ленты уходят: они теперь в обзоре
             continue
         by_lang = {}
         for i in idxs:
@@ -4066,13 +4127,13 @@ def collapse_same_event(items, lang):
                 len(items[i].get("summary") or ""),
             ))
             drop.update(i for i in same_lang if i != best)
-    if len(drop) > len(items) // 5:
+    if len(drop) > len(items) // 3:
         print(f"  ⚠️ ИИ предложил снять {len(drop)} из {len(items)} — "
               f"слишком много, оставляем ленту как есть")
-        return items
+        return items, stories
     if drop:
-        print(f"  🔗 Пересказы одного события [{lang}]: снято {len(drop)}")
-    return [it for i, it in enumerate(items) if i not in drop]
+        print(f"  🔗 Пересказы одного события [{lang}]: убрано из ленты {len(drop)}")
+    return [it for i, it in enumerate(items) if i not in drop], stories
 
 
 def quality_gate(items, lang):
@@ -4897,7 +4958,7 @@ def main():
         # значит просить его из пустоты
         filtered, stories = build_press_reviews(filtered, lang)
         # Пересказы одного события — их не видит проверка по словам
-        filtered = collapse_same_event(filtered, lang)
+        filtered, stories = collapse_same_event(filtered, lang, stories)
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)
