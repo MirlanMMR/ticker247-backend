@@ -3924,6 +3924,31 @@ _ETIQUETTE = re.compile(
     "saúda|parabeniz|agradec", re.I)
 
 
+def _lead_first_reporter(blocks):
+    """Затравка — тому, кто сообщил первым.
+
+    ИИ выбирал затравкой того, у кого текст полнее и снимок лучше. Но новость
+    добывает не тот, у кого красивее вёрстка: первенство — чужая работа, и
+    ставить вперёд опоздавшего значит её присваивать.
+
+    Осторожность: разницу считаем настоящей от четверти часа. Ленты изданий
+    врут во времени на минуты, и гоняться за секундами бессмысленно.
+    """
+    timed = [b for b in blocks if b.get("publishedAt")]
+    if len(timed) < 2:
+        return blocks
+    first = min(timed, key=lambda b: b["publishedAt"])
+    current = blocks[0]
+    if first is current:
+        return blocks
+    if current.get("publishedAt", 0) - first["publishedAt"] < 15 * 60 * 1000:
+        return blocks
+    rest = [b for b in blocks if b is not first]
+    if rest and str(current.get("role", "")).startswith("затравк"):
+        rest[0] = {**rest[0], "role": "дополнение"}
+    return [{**first, "role": "затравка"}] + rest
+
+
 def _same_story(a, b) -> bool:
     """Один ли это сюжет. 20.08 Ферстаппен оказался в ленте дважды: один обзор
     собрал ИИ, второй сложила автоматическая группировка похожих, и друг о
@@ -4025,6 +4050,8 @@ def build_press_reviews(items, lang):
         f"четыре. Потолок {STORY_MAX_COUNT}, но это предохранитель, а не цель. "
         f"Если подходящих тем нет, верни пустой список: лучше не собрать "
         f"обзор, чем собрать натянутый.\n\n"
+        f"ЗАТРАВКА — тому, кто сообщил ПЕРВЫМ, а не тому, у кого текст длиннее "
+        f"или снимок красивее. Первенство видно по времени публикации.\n"
         f"Роли: {roles}. Роль назначай, только если издание ей ДЕЙСТВИТЕЛЬНО "
         "соответствует; лишние роли не выдумывай. Одно издание — один блок.\n"
         "Блоки не должны повторять друг друга: каждый следующий добавляет то, "
@@ -4080,7 +4107,7 @@ def build_press_reviews(items, lang):
             if not role.startswith("затравк"):
                 used.add(n - 1)
             fresh.append(_story_block(it, role, lang))
-        blocks = (base_blocks + fresh)[:STORY_MAX_BLOCKS]
+        blocks = _lead_first_reporter((base_blocks + fresh)[:STORY_MAX_BLOCKS])
         big = any(items[i].get("priority", 0) >= 2 for i in used) or \
               any(b.get("role", "").startswith(("расхожден", "свидетель")) for b in blocks)
         need = STORY_MIN_BIG if big else STORY_MIN_SOURCES
@@ -4207,6 +4234,9 @@ def collapse_same_event(items, lang, stories=None):
                 len(items[i].get("summary") or ""),
             ), reverse=True)
             picked = picked[:STORY_MAX_BLOCKS]
+            # Первым сообщивший — первым и стоит: заслуга в том, чтобы добыть
+            # новость, а не в том, чтобы полнее её пересказать
+            picked.sort(key=lambda i: items[i].get("publishedAt") or 0)
             # Имя обзору даём из заголовка лучшей новости, но режем ПО СЛОВАМ:
             # «Ферстаппен продлил контракт с Red Bull д» — обрубок, а не имя
             head = str(items[picked[0]].get("title", ""))
