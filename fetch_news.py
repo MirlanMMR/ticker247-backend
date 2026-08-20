@@ -3842,7 +3842,11 @@ QC_VIDEO_CAPTION = re.compile(
 
 STORY_TTL_MS = 24 * 3600 * 1000     # обзор живёт сутки — он собирается постепенно
 STORY_MAX_BLOCKS = 7
-STORY_MIN_SOURCES = 3               # меньше трёх изданий — это не обзор прессы
+STORY_MIN_SOURCES = 3               # обычный порог: меньше трёх — не обзор
+# Для крупного события хватает и двух. 20.08 про атаку на Киев в русской ленте
+# писали только BBC и РБК — порог в три отсёк сюжет, который читателю нужнее
+# всех прочих. Бедность пула по международной теме не повод молчать.
+STORY_MIN_BIG = 2
 # Потолок, а не норма: сколько в дне настоящих сюжетов — столько и собираем.
 # В тихий день один, 20.08 их было сразу три (Киев, Трамп, безвиз с Китаем).
 # Пятёрка стоит здесь не как цель, а как предохранитель от натянутых тем.
@@ -3913,6 +3917,52 @@ def _story_block(item, role, lang="ru"):
     }
 
 
+_ETIQUETTE = re.compile(
+    "приветству|поприветствова|благодар|признательн|поздрав|"
+    "welcomes|congratulat|thanked|expressed gratitude|"
+    "saluda|felicit|agradec|"
+    "saúda|parabeniz|agradec", re.I)
+
+
+def _same_story(a, b) -> bool:
+    """Один ли это сюжет. 20.08 Ферстаппен оказался в ленте дважды: один обзор
+    собрал ИИ, второй сложила автоматическая группировка похожих, и друг о
+    друге они не знали."""
+    urls_a = {x.get("url") for x in a.get("blocks", []) if x.get("url")}
+    urls_b = {x.get("url") for x in b.get("blocks", []) if x.get("url")}
+    if len(urls_a & urls_b) >= 2:
+        return True
+    def words(st):
+        return {w[:4] for w in re.findall(r"[а-яёa-zà-ú]{4,}",
+                                          st.get("title", "").lower())}
+    wa, wb = words(a), words(b)
+    return bool(wa and wb and len(wa & wb) >= 2)
+
+
+def _refresh_old_blocks(blocks, lang):
+    """Приводит блоки прежних сборок к нынешним правилам.
+
+    Обзор живёт сутки, и блок, собранный утром, доживает до вечера таким, каким
+    был. 20.08 из-за этого кыргызский абзац остался кыргызским после того, как
+    правило «обзор на одном языке» уже работало, а заметка «Кыргызстан
+    приветствует решение Китая» — после того, как этикет объявлен не новостью.
+    Правило, применённое только к новому, — половина правила.
+    """
+    out = []
+    for b in blocks:
+        if not isinstance(b, dict):
+            continue
+        text = f"{b.get('title','')} {b.get('summary','')}"
+        if _ETIQUETTE.search(b.get("title", "")):
+            continue                      # вежливость вместо события
+        if lang == "ru" and _looks_kyrgyz(text):
+            b = {**b,
+                 "title": _gtx_translate(b.get("title", ""), "ru") or b.get("title", ""),
+                 "summary": _gtx_translate(b.get("summary", ""), "ru") or b.get("summary", "")}
+        out.append(b)
+    return out
+
+
 def _story_id(title: str) -> str:
     return hashlib.sha1(title.strip().lower().encode("utf-8")).hexdigest()[:10]
 
@@ -3980,6 +4030,10 @@ def build_press_reviews(items, lang):
         "Блоки не должны повторять друг друга: каждый следующий добавляет то, "
         "чего в предыдущих нет.\n"
         "Сценарий выбери один: хроника, спор о фактах, разные страны, тема.\n"
+        "Обзоры верни В ПОРЯДКЕ ЗНАЧИМОСТИ: сначала то, что затрагивает больше "
+        "людей и сильнее — война, катастрофа, крупная политика; потом спорт, "
+        "происшествия, частные темы; местные административные новости последними. "
+        "Читатель видит их в этом порядке и решает по первому.\n"
         f"Заголовок темы — назывной, 2-4 слова, без утверждений, на языке "
         f"пула ({lang}): «Атака на Киев», «Attack on Kyiv», «Ataque a Kiev». "
         f"Роли называй по-русски, как в списке выше, — читатель их не увидит.\n\n"
@@ -4003,7 +4057,7 @@ def build_press_reviews(items, lang):
     for pr in proposed[:STORY_MAX_COUNT]:
         title = str(pr.get("title", "")).strip()[:60]
         target = by_id.get(str(pr.get("id") or "").strip())
-        base_blocks = target.get("blocks", []) if target else []
+        base_blocks = _refresh_old_blocks(target.get("blocks", []), lang) if target else []
         # Сравниваем СЕМЬИ изданий, а не названия: BBC News и BBC Русская
         # служба — одна редакция, и два её блока в обзоре означают ровно тот
         # однобокий пересказ, от которого обзор должен спасать
@@ -4021,7 +4075,10 @@ def build_press_reviews(items, lang):
             used.add(n - 1)
             fresh.append(_story_block(it, str(b.get("role", "")).strip(), lang))
         blocks = (base_blocks + fresh)[:STORY_MAX_BLOCKS]
-        if len({b["source"] for b in blocks}) < STORY_MIN_SOURCES:
+        big = any(items[i].get("priority", 0) >= 2 for i in used) or \
+              any(b.get("role", "").startswith(("расхожден", "свидетель")) for b in blocks)
+        need = STORY_MIN_BIG if big else STORY_MIN_SOURCES
+        if len({b["source"] for b in blocks}) < need:
             for b in fresh:                      # не сложилось — вернём в ленту
                 used.discard(next(i for i, x in enumerate(items)
                                   if x.get("url") == b["url"]))
@@ -4043,7 +4100,9 @@ def build_press_reviews(items, lang):
     named = {st["id"] for st in result}
     for st in old:
         if st.get("id") not in named and len(result) < STORY_MAX_COUNT:
-            result.append(st)
+            fixed = _refresh_old_blocks(st.get("blocks", []), lang)
+            if len({b["source"] for b in fixed}) >= STORY_MIN_SOURCES:
+                result.append({**st, "blocks": fixed})
 
     if result:
         print(f"  📰 Обзоры прессы [{lang}]: "
@@ -4127,6 +4186,10 @@ def collapse_same_event(items, lang, stories=None):
         for i in idxs:
             fams.setdefault(publisher_family(items[i].get("source", "")), []).append(i)
         if len(fams) >= STORY_MIN_SOURCES and len(stories) < STORY_MAX_COUNT:
+            probe = {"title": str(items[idxs[0]].get("title", "")),
+                     "blocks": [{"url": items[i].get("url", "")} for i in idxs]}
+            if any(_same_story(probe, st) for st in stories):
+                continue        # об этом сюжете обзор уже есть
             picked = [max(v, key=lambda i: (
                 items[i].get("priority", 0),
                 1 if items[i].get("imageUrl") else 0,
@@ -4141,6 +4204,8 @@ def collapse_same_event(items, lang, stories=None):
             # Имя обзору даём из заголовка лучшей новости, но режем ПО СЛОВАМ:
             # «Ферстаппен продлил контракт с Red Bull д» — обрубок, а не имя
             head = str(items[picked[0]].get("title", ""))
+            if lang == "ru" and _looks_kyrgyz(head):
+                head = _gtx_translate(head, "ru") or head
             if len(head) > 52:
                 head = head[:52].rsplit(" ", 1)[0].rstrip(" ,:;—-") + "…"
             title = head
