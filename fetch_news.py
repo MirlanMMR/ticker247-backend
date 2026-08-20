@@ -3822,6 +3822,10 @@ QC_VIDEO_CAPTION = re.compile(
 STORY_TTL_MS = 24 * 3600 * 1000     # обзор живёт сутки — он собирается постепенно
 STORY_MAX_BLOCKS = 7
 STORY_MIN_SOURCES = 3               # меньше трёх изданий — это не обзор прессы
+# Потолок, а не норма: сколько в дне настоящих сюжетов — столько и собираем.
+# В тихий день один, 20.08 их было сразу три (Киев, Трамп, безвиз с Китаем).
+# Пятёрка стоит здесь не как цель, а как предохранитель от натянутых тем.
+STORY_MAX_COUNT = 5
 
 
 def _story_block(item, role):
@@ -3848,36 +3852,40 @@ def _story_block(item, role):
     }
 
 
-def build_press_review(items, lang):
-    """Обзор прессы: одно событие глазами нескольких изданий.
+def _story_id(title: str) -> str:
+    return hashlib.sha1(title.strip().lower().encode("utf-8")).hexdigest()[:10]
 
-    Задумка (20.08.2026): пять заметок об атаке на Киев — это не пять новостей,
-    а один сюжет. Показывать их подряд глупо, выбрасывать жалко. Собираем в
-    подборку, где у каждого издания своя роль: кто сообщил, кто дополнил, кто
-    разошёлся в цифрах, кто сделал вывод.
 
-    Мы НЕ пишем текст. ИИ только выбирает тему, сценарий и роли; всё
-    остальное — чужие заголовки и наши прежние выжимки.
+def build_press_reviews(items, lang):
+    """Обзоры прессы: до трёх сюжетов, каждый — событие глазами изданий.
 
-    Обзор живёт сутки и дополняется каждый прогон: событие разворачивается
-    часами, а лента обновляется чаще, чем приходят подробности.
+    Сперва обзор был один на пул, и 20.08 он забрал безвиз с Китаем, а Киев и
+    Трамп с угрозами остались рассыпанными по ленте. Сюжетов в дне бывает
+    несколько, поэтому обзор — не карточка, а раздел.
 
-    Возвращает (оставшиеся новости, обзор или None).
+    Мы НЕ пишем текст. ИИ выбирает темы, сценарии и роли; всё остальное —
+    чужие заголовки и наши прежние выжимки.
+
+    Обзор живёт сутки и дополняется: событие разворачивается часами, а лента
+    обновляется чаще, чем приходят подробности.
+
+    Возвращает (оставшиеся новости, список обзоров).
     """
     now = int(datetime.now().timestamp() * 1000)
     try:
-        old = db.reference(f"/news/{lang}/story").get() or None
+        old = db.reference(f"/news/{lang}/stories").get() or []
     except Exception:
-        old = None
-    if old and now - old.get("createdAt", 0) > STORY_TTL_MS:
-        old = None                      # вчерашний сюжет, начинаем заново
+        old = []
+    if not isinstance(old, list):
+        old = []
+    old = [st for st in old
+           if isinstance(st, dict) and now - st.get("createdAt", 0) < STORY_TTL_MS]
 
     if len(items) < 8:
         return items, old
-    # Обзор живёт сутки, а лента обновляется каждые два часа — пересобирать
-    # его каждый раз незачем. Трогаем не чаще раза в три часа: событие за
-    # два часа редко обрастает новым изданием, а запрос стоит денег.
-    if old and now - old.get("updatedAt", 0) < 3 * 3600 * 1000:
+    # Пересобираем не чаще раза в три часа: обзор живёт сутки, а запрос стоит
+    # денег. За два часа сюжет редко обрастает новым изданием
+    if old and all(now - st.get("updatedAt", 0) < 3 * 3600 * 1000 for st in old):
         return items, old
 
     lines = [f"{i+1}. [{it.get('source','?')}] {it.get('title','')}"
@@ -3886,104 +3894,105 @@ def build_press_review(items, lang):
              "официальная реакция, предыстория, вывод, взгляд другой стороны, "
              "отклик у нас, опровержение, деталь")
     if old:
-        # Показываем ИИ, что в обзоре УЖЕ есть. Без этого он дополнял тему
-        # изданием, пересказывающим ровно то же самое, и обзор превращался в
-        # то, от чего мы уходили, — одну новость несколько раз подряд
         have = "\n".join(
-            f"   · [{b.get('source')}] {b.get('role')}: {b.get('title','')[:90]}"
-            for b in old.get("blocks", []))
-        task = (f"Уже собран обзор на тему «{old.get('title')}» "
-                f"(сценарий: {old.get('scenario','')}). В нём уже есть:\n"
-                f"{have}\n\n"
-                f"Найди среди новостей ниже те, что относятся к ЭТОЙ ЖЕ теме и "
-                f"добавляют НОВОЕ — подробность, цифру, реакцию, вывод, "
-                f"расхождение с уже сказанным. Пересказ того, что в обзоре уже "
-                f"есть, не добавляй. Если добавить нечего, верни пустой список.")
+            f"   [{st.get('id')}] «{st.get('title')}» — уже есть: "
+            + ", ".join(f"{b.get('source')} ({b.get('role')})"
+                        for b in st.get("blocks", []))
+            for st in old)
+        known = (f"Уже собраны обзоры:\n{have}\n\n"
+                 f"Новости, относящиеся к ним, добавляй в тот же обзор, указав "
+                 f"его id, и только если они добавляют НОВОЕ — подробность, "
+                 f"цифру, реакцию, вывод, расхождение. Пересказ уже сказанного "
+                 f"не добавляй.\n\n")
     else:
-        task = ("Найди тему, о которой пишут сразу несколько РАЗНЫХ изданий, "
-                "и собери из них обзор прессы. Если такой темы нет — верни "
-                "пустой список блоков. Лучше не собрать обзор, чем собрать "
-                "натянутый.")
+        known = ""
     prompt = (
-        "Ты редактор новостного агрегатора. " + task + "\n\n"
+        "Ты редактор новостного агрегатора. " + known +
+        f"Найди в списке ниже темы, о которых пишут сразу НЕСКОЛЬКО РАЗНЫХ "
+        f"изданий, и собери обзоры прессы. Сколько в этом выпуске настоящих "
+        f"сюжетов — столько и собери: в тихий день один, в насыщенный три-"
+        f"четыре. Потолок {STORY_MAX_COUNT}, но это предохранитель, а не цель. "
+        f"Если подходящих тем нет, верни пустой список: лучше не собрать "
+        f"обзор, чем собрать натянутый.\n\n"
         f"Роли: {roles}. Роль назначай, только если издание ей ДЕЙСТВИТЕЛЬНО "
         "соответствует; лишние роли не выдумывай. Одно издание — один блок.\n"
         "Блоки не должны повторять друг друга: каждый следующий добавляет то, "
-        "чего в предыдущих нет. Два пересказа одного и того же — оставь один.\n"
+        "чего в предыдущих нет.\n"
         "Сценарий выбери один: хроника, спор о фактах, разные страны, тема.\n"
-        f"Заголовок темы — назывной, 2-4 слова, без утверждений, и "
-        f"ОБЯЗАТЕЛЬНО на языке пула ({lang}): для ru «Атака на Киев», для en "
-        f"«Attack on Kyiv», для es «Ataque a Kiev», для pt «Ataque a Kiev». "
-        f"Роли называй по-русски, как в списке выше — это служебные слова, "
-        f"читатель их не увидит.\n\n"
+        f"Заголовок темы — назывной, 2-4 слова, без утверждений, на языке "
+        f"пула ({lang}): «Атака на Киев», «Attack on Kyiv», «Ataque a Kiev». "
+        f"Роли называй по-русски, как в списке выше, — читатель их не увидит.\n\n"
         "Верни ТОЛЬКО JSON:\n"
-        '{"title": "...", "scenario": "...", '
-        '"blocks": [{"n": 3, "role": "затравка"}, {"n": 17, "role": "расхождение"}]}\n\n'
+        '{"stories": [{"id": "abc1234567 или пусто для новой", "title": "...", '
+        '"scenario": "...", "blocks": [{"n": 3, "role": "затравка"}]}]}\n\n'
         "НОВОСТИ:\n" + "\n".join(lines))
     try:
         text = ask_gemini(prompt)
         if "```" in text:
             text = text.split("```")[1].replace("json", "").strip()
         data = json.loads(text)
-        blocks = data.get("blocks") or []
+        proposed = data.get("stories") or []
     except Exception as e:
-        print(f"  ⚠️ Обзор прессы не собран: {str(e)[:60]}")
+        print(f"  ⚠️ Обзоры прессы не собраны: {str(e)[:60]}")
         return items, old
 
-    used, new_blocks = set(), []
-    seen_sources = {publisher_family(b.get("source", ""))
-                    for b in (old or {}).get("blocks", [])}
-    for b in blocks:
-        n = b.get("n")
-        if not isinstance(n, int) or not (0 < n <= len(items)):
+    by_id = {st.get("id"): st for st in old}
+    used = set()
+    result = []
+    for pr in proposed[:STORY_MAX_COUNT]:
+        title = str(pr.get("title", "")).strip()[:60]
+        target = by_id.get(str(pr.get("id") or "").strip())
+        base_blocks = target.get("blocks", []) if target else []
+        # Сравниваем СЕМЬИ изданий, а не названия: BBC News и BBC Русская
+        # служба — одна редакция, и два её блока в обзоре означают ровно тот
+        # однобокий пересказ, от которого обзор должен спасать
+        seen = {publisher_family(b.get("source", "")) for b in base_blocks}
+        fresh = []
+        for b in pr.get("blocks", []):
+            n = b.get("n")
+            if not isinstance(n, int) or not (0 < n <= len(items)) or n - 1 in used:
+                continue
+            it = items[n - 1]
+            fam = publisher_family(it.get("source", ""))
+            if fam in seen:
+                continue
+            seen.add(fam)
+            used.add(n - 1)
+            fresh.append(_story_block(it, str(b.get("role", "")).strip()))
+        blocks = (base_blocks + fresh)[:STORY_MAX_BLOCKS]
+        if len({b["source"] for b in blocks}) < STORY_MIN_SOURCES:
+            for b in fresh:                      # не сложилось — вернём в ленту
+                used.discard(next(i for i, x in enumerate(items)
+                                  if x.get("url") == b["url"]))
             continue
-        it = items[n - 1]
-        # Сравниваем СЕМЬИ изданий, а не названия: 20.08 в обзоре оказались
-        # «BBC News» и «BBC Русская служба» —два блока одной редакции, то есть
-        # ровно тот однобокий пересказ, от которого обзор должен спасать
-        fam = publisher_family(it.get("source", ""))
-        if fam in seen_sources:
-            continue
-        seen_sources.add(fam)
-        used.add(n - 1)
-        new_blocks.append(_story_block(it, str(b.get("role", "")).strip()))
-
-    if old:
-        if not new_blocks:
-            return items, old                  # сюжет жив, но новостей по нему нет
-        merged = (old.get("blocks", []) + new_blocks)[:STORY_MAX_BLOCKS]
-        shelf = Counter(b.get("scope") for b in merged if b.get("scope"))
-        story = {**old, "blocks": merged, "updatedAt": now,
-                 "scope": shelf.most_common(1)[0][0] if shelf else
-                          old.get("scope", "world")}
-        print(f"  📰 Обзор прессы [{lang}] «{story['title']}»: "
-              f"+{len(new_blocks)}, всего {len(merged)}")
-    else:
-        if len({b["source"] for b in new_blocks}) < STORY_MIN_SOURCES:
-            print(f"  📰 Обзор прессы [{lang}]: подходящей темы нет "
-                  f"(изданий {len({b['source'] for b in new_blocks})}, "
-                  f"нужно {STORY_MIN_SOURCES})")
-            return items, None
-        # Полка обзора — по большинству вошедших новостей. Безвиз с Китаем
-        # писали четыре кыргызстанских издания: для нашего читателя это
-        # МЕСТНАЯ новость, а не мировая, хотя обзор прессы принято считать
-        # приметой больших мировых тем
-        shelf = Counter(b.get("scope") for b in new_blocks if b.get("scope"))
-        story = {
-            "title": str(data.get("title", "")).strip()[:60],
-            "scenario": str(data.get("scenario", "")).strip()[:40],
+        shelf = Counter(b.get("scope") for b in blocks if b.get("scope"))
+        result.append({
+            "id": (target or {}).get("id") or _story_id(title or str(now)),
+            "title": title or (target or {}).get("title", ""),
+            "scenario": str(pr.get("scenario", "")).strip()[:40]
+                        or (target or {}).get("scenario", ""),
             "scope": shelf.most_common(1)[0][0] if shelf else "world",
-            "blocks": new_blocks[:STORY_MAX_BLOCKS],
-            "createdAt": now,
+            "blocks": blocks,
+            "createdAt": (target or {}).get("createdAt", now),
             "updatedAt": now,
-        }
-        print(f"  📰 Обзор прессы [{lang}] «{story['title']}» "
-              f"({story['scenario']}): {len(story['blocks'])} изданий")
+        })
 
-    # Вошедшее в обзор из ленты убираем: иначе читатель увидит одно и то же
-    # дважды — в подборке наверху и карточками ниже
+    # Уцелевшие прежние обзоры, которых ИИ не назвал, оставляем жить: сюжет не
+    # исчезает оттого, что за два часа о нём не написали заново
+    named = {st["id"] for st in result}
+    for st in old:
+        if st.get("id") not in named and len(result) < STORY_MAX_COUNT:
+            result.append(st)
+
+    if result:
+        print(f"  📰 Обзоры прессы [{lang}]: "
+              + "; ".join(f"«{st['title']}» {len(st['blocks'])} изд."
+                          for st in result))
+    else:
+        print(f"  📰 Обзоры прессы [{lang}]: подходящих тем нет")
+
     rest = [it for i, it in enumerate(items) if i not in used]
-    return rest, story
+    return rest, result
 
 
 def collapse_same_event(items, lang):
@@ -4886,7 +4895,7 @@ def main():
         # об одном событии написали несколько изданий. Сначала выбросить все
         # версии кроме лучшей, а потом просить обзор — как и вышло 20.08 —
         # значит просить его из пустоты
-        filtered, story = build_press_review(filtered, lang)
+        filtered, stories = build_press_reviews(filtered, lang)
         # Пересказы одного события — их не видит проверка по словам
         filtered = collapse_same_event(filtered, lang)
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
@@ -4897,8 +4906,8 @@ def main():
             "updatedAt": ts,
             "count": len(filtered),
         }
-        if story:
-            payload["story"] = story
+        if stories:
+            payload["stories"] = stories
         db.reference(f"/news/{lang}").set(payload)
         print(f"  ✅ /news/{lang} сохранено")
         all_filtered.extend(filtered)
