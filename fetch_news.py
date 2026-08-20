@@ -3676,7 +3676,9 @@ def _still_foreign(text: str, target: str) -> bool:
     if target == "ru":
         # Порог два, а не три: этих букв в русском нет вовсе, и даже пара —
         # верный признак чужого языка
-        if sum(t.count(c) for c in "ўқғҳөүң") >= 2:
+        # ў қ ғ ҳ — узбекский и таджикский, ө ү ң — кыргызский и казахский,
+        # ӯ ҷ ӣ — таджикский. Ни одной из них в русском нет
+        if sum(t.count(c) for c in "ўқғҳөүңӯҷӣ") >= 2:
             return True
         cyr = len(re.findall(r"[а-яё]", t))
         lat = len(re.findall(r"[a-z]{4,}", t))
@@ -4170,10 +4172,11 @@ def _tidy_stories(stories, lang):
         if len({b.get("source") for b in blocks}) < STORY_MIN_BIG:
             continue
         title = st.get("title", "")
-        if lang == "ru" and _looks_kyrgyz(title):
-            # Имя автоматического обзора берётся из заголовка первой новости и
-            # оставалось кыргызским: «Салыктарды катталган жери боюнча…»
-            title = _gtx_translate(title, "ru") or title
+        # Имя автоматического обзора берётся из заголовка первой новости и
+        # оставалось на её языке: «Салыктарды катталган жери боюнча…» в русской
+        # ленте, «Контракт Ферстаппена с Red Bull» — в испанской
+        if _still_foreign(title, lang) or (lang == "ru" and _looks_kyrgyz(title)):
+            title = _gtx_translate(title, lang) or title
         st = {**st, "title": title,
               "blocks": _fold_echoes(_lead_first_reporter(blocks))}
         twin = next((m for m in out if _same_story(st, m)), None)
@@ -4462,8 +4465,8 @@ def collapse_same_event(items, lang, stories=None):
             # Имя обзору даём из заголовка лучшей новости, но режем ПО СЛОВАМ:
             # «Ферстаппен продлил контракт с Red Bull д» — обрубок, а не имя
             head = str(items[picked[0]].get("title", ""))
-            if lang == "ru" and _looks_kyrgyz(head):
-                head = _gtx_translate(head, "ru") or head
+            if _still_foreign(head, lang) or (lang == "ru" and _looks_kyrgyz(head)):
+                head = _gtx_translate(head, lang) or head
             if len(head) > 52:
                 head = head[:52].rsplit(" ", 1)[0].rstrip(" ,:;—-") + "…"
             title = head
