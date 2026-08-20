@@ -3914,6 +3914,12 @@ def _story_block(item, role, lang="ru"):
         "url": item.get("url", ""),
         "publishedAt": item.get("publishedAt", 0),
         "scope": item.get("scope", ""),
+        # Своё ли это издание для пула. Нужно для первенства: маленький
+        # киргизстанский сайт, быстро перепечатавший агентство, открывал
+        # бразильцу сюжет про Трампа, а BBC и CBS шли следом. Первенство —
+        # награда за добытую новость, и соревноваться должны те, кто в одной
+        # лиге: издания языкового пространства читателя
+        "own": bool(item.get("scope") in ("local", "pool")),
     }
 
 
@@ -3937,7 +3943,10 @@ def _lead_first_reporter(blocks):
     timed = [b for b in blocks if b.get("publishedAt")]
     if len(timed) < 2:
         return blocks
-    first = min(timed, key=lambda b: b["publishedAt"])
+    # Соревнуются издания одной лиги: сначала свои для этого пула, и лишь
+    # если своих нет — все подряд
+    own = [b for b in timed if b.get("own")]
+    first = min(own or timed, key=lambda b: b["publishedAt"])
     current = blocks[0]
     if first is current:
         return blocks
@@ -3977,6 +3986,10 @@ def _refresh_old_blocks(blocks, lang):
     for b in blocks:
         if not isinstance(b, dict):
             continue
+        if "own" not in b:
+            # У блоков прежних сборок признака нет: восстанавливаем по полке,
+            # она у нас уже проставлена (местная и «своего языка» — свои)
+            b = {**b, "own": b.get("scope") in ("local", "pool")}
         text = f"{b.get('title','')} {b.get('summary','')}"
         if _ETIQUETTE.search(b.get("title", "")):
             continue                      # вежливость вместо события
