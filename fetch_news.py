@@ -3911,8 +3911,11 @@ def build_press_review(items, lang):
         "Блоки не должны повторять друг друга: каждый следующий добавляет то, "
         "чего в предыдущих нет. Два пересказа одного и того же — оставь один.\n"
         "Сценарий выбери один: хроника, спор о фактах, разные страны, тема.\n"
-        "Заголовок темы — назывной, 2-4 слова, без утверждений: "
-        "«Атака на Киев», «Трамп и Иран».\n\n"
+        f"Заголовок темы — назывной, 2-4 слова, без утверждений, и "
+        f"ОБЯЗАТЕЛЬНО на языке пула ({lang}): для ru «Атака на Киев», для en "
+        f"«Attack on Kyiv», для es «Ataque a Kiev», для pt «Ataque a Kiev». "
+        f"Роли называй по-русски, как в списке выше — это служебные слова, "
+        f"читатель их не увидит.\n\n"
         "Верни ТОЛЬКО JSON:\n"
         '{"title": "...", "scenario": "...", '
         '"blocks": [{"n": 3, "role": "затравка"}, {"n": 17, "role": "расхождение"}]}\n\n'
@@ -3928,15 +3931,20 @@ def build_press_review(items, lang):
         return items, old
 
     used, new_blocks = set(), []
-    seen_sources = {b.get("source") for b in (old or {}).get("blocks", [])}
+    seen_sources = {publisher_family(b.get("source", ""))
+                    for b in (old or {}).get("blocks", [])}
     for b in blocks:
         n = b.get("n")
         if not isinstance(n, int) or not (0 < n <= len(items)):
             continue
         it = items[n - 1]
-        if it.get("source") in seen_sources:   # одно издание — один блок
+        # Сравниваем СЕМЬИ изданий, а не названия: 20.08 в обзоре оказались
+        # «BBC News» и «BBC Русская служба» —два блока одной редакции, то есть
+        # ровно тот однобокий пересказ, от которого обзор должен спасать
+        fam = publisher_family(it.get("source", ""))
+        if fam in seen_sources:
             continue
-        seen_sources.add(it.get("source"))
+        seen_sources.add(fam)
         used.add(n - 1)
         new_blocks.append(_story_block(it, str(b.get("role", "")).strip()))
 
@@ -3944,7 +3952,10 @@ def build_press_review(items, lang):
         if not new_blocks:
             return items, old                  # сюжет жив, но новостей по нему нет
         merged = (old.get("blocks", []) + new_blocks)[:STORY_MAX_BLOCKS]
-        story = {**old, "blocks": merged, "updatedAt": now}
+        shelf = Counter(b.get("scope") for b in merged if b.get("scope"))
+        story = {**old, "blocks": merged, "updatedAt": now,
+                 "scope": shelf.most_common(1)[0][0] if shelf else
+                          old.get("scope", "world")}
         print(f"  📰 Обзор прессы [{lang}] «{story['title']}»: "
               f"+{len(new_blocks)}, всего {len(merged)}")
     else:
