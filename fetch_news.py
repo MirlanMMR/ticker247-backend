@@ -3930,6 +3930,42 @@ _ETIQUETTE = re.compile(
     "saúda|parabeniz|agradec", re.I)
 
 
+def _fold_echoes(blocks):
+    """Один текст на всех, кто сообщил то же самое.
+
+    20.08 читатель увидел «Добавляет BBC World» — и следом тот же текст другими
+    словами. Роль обещала дополнение, а его не было.
+
+    Такие издания не выбрасываем: три редакции, сказавшие одно и то же, —
+    это подтверждение факта, и читателю оно ценно. Но целого абзаца они не
+    стоят. Их имена приписываются к тому блоку, который они повторяют:
+    «Первым сообщил Knews.kg · то же: BBC World, CBS News».
+    """
+    def words(t):
+        return {w[:5] for w in re.findall(r"[а-яёa-zà-ú]{5,}", (t or "").lower())}
+
+    kept = []
+    for b in blocks:
+        wb = words(b.get("summary"))
+        twin = None
+        for k in kept:
+            wk = words(k.get("summary"))
+            # 0.45, а не 0.6: пересказы бывают вольными. «США нанесут удары»
+            # и «США введут меры» — одна и та же новость разными словами, и
+            # порог в 0.6 их не роднил
+            if wb and wk and len(wb & wk) / min(len(wb), len(wk)) >= 0.45:
+                twin = k
+                break
+        if twin is not None and b.get("source"):
+            also = [x for x in str(twin.get("also", "")).split(" · ") if x]
+            if b["source"] not in also:
+                also.append(b["source"])
+            twin["also"] = " · ".join(also)
+        else:
+            kept.append(dict(b))
+    return kept
+
+
 def _lead_first_reporter(blocks):
     """Затравка — тому, кто сообщил первым.
 
@@ -4024,7 +4060,8 @@ def _tidy_stories(stories, lang):
             # Имя автоматического обзора берётся из заголовка первой новости и
             # оставалось кыргызским: «Салыктарды катталган жери боюнча…»
             title = _gtx_translate(title, "ru") or title
-        st = {**st, "title": title, "blocks": _lead_first_reporter(blocks)}
+        st = {**st, "title": title,
+              "blocks": _fold_echoes(_lead_first_reporter(blocks))}
         twin = next((m for m in out if _same_story(st, m)), None)
         if twin is None:
             out.append(st)
@@ -4156,7 +4193,8 @@ def build_press_reviews(items, lang):
             if not role.startswith("затравк"):
                 used.add(n - 1)
             fresh.append(_story_block(it, role, lang))
-        blocks = _lead_first_reporter((base_blocks + fresh)[:STORY_MAX_BLOCKS])
+        blocks = _fold_echoes(
+            _lead_first_reporter((base_blocks + fresh)[:STORY_MAX_BLOCKS]))
         big = any(items[i].get("priority", 0) >= 2 for i in used) or \
               any(b.get("role", "").startswith(("расхожден", "свидетель")) for b in blocks)
         need = STORY_MIN_BIG if big else STORY_MIN_SOURCES
