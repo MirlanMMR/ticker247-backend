@@ -3659,6 +3659,33 @@ def _wrong_alphabet(text: str, target_lang: str) -> bool:
     return cyr >= 5
 
 
+# Падежные промахи машинного перевода. Форма существует, но не после этого
+# предлога: «в бою» верно, «о бою» — нет, нужно «о бое». Машина выбирает по
+# частотности и на таких парах мажет. Список короткий и растёт по находкам
+# читателя: 21.08 — «ведёт переговоры о бою».
+_CASE_FIXES = [
+    (r"\bо бою\b", "о бое"),
+    (r"\bо краю\b", "о крае"),
+    (r"\bо строю\b", "о строе"),
+    (r"\bо полку\b(?! Игорев)", "о полке"),
+    (r"\bо саду\b", "о саде"),
+    (r"\bо лесу\b", "о лесе"),
+    (r"\bо снегу\b", "о снеге"),
+    (r"\bо берегу\b", "о береге"),
+    (r"\bо мосту\b", "о мосте"),
+    (r"\bо порту\b", "о порте"),
+]
+
+
+def fix_russian_cases(text: str) -> str:
+    """Правит падежные промахи перевода. Дёшево и без ИИ."""
+    if not text:
+        return text
+    for wrong, right in _CASE_FIXES:
+        text = re.sub(wrong, right, text, flags=re.I)
+    return text
+
+
 def _still_foreign(text: str, target: str) -> bool:
     """Остался ли текст на чужом языке после «перевода».
 
@@ -3713,6 +3740,9 @@ def translate_batch(items, target_lang):
                 title, summary = fixed_t, (fixed_s or summary)
             else:
                 return False        # в эфир не пойдёт: правило о переводе
+        if target_lang == "ru":
+            title = fix_russian_cases(title)
+            summary = fix_russian_cases(summary)
         item["title"] = title
         item["summary"] = summary or orig_summary
         item["language"] = target_lang
