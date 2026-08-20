@@ -4072,8 +4072,14 @@ def build_press_reviews(items, lang):
             if fam in seen:
                 continue
             seen.add(fam)
-            used.add(n - 1)
-            fresh.append(_story_block(it, str(b.get("role", "")).strip(), lang))
+            role = str(b.get("role", "")).strip()
+            # Затравка остаётся в ленте на своей полке. Это, как правило,
+            # главная новость дня; убирая её, мы обедняли «Местные» и
+            # «Мировые» и рисковали: читатель, пролиставший обзор не глядя,
+            # не увидел бы её вовсе. Остальные взгляды живут только в обзоре
+            if not role.startswith("затравк"):
+                used.add(n - 1)
+            fresh.append(_story_block(it, role, lang))
         blocks = (base_blocks + fresh)[:STORY_MAX_BLOCKS]
         big = any(items[i].get("priority", 0) >= 2 for i in used) or \
               any(b.get("role", "").startswith(("расхожден", "свидетель")) for b in blocks)
@@ -4226,7 +4232,8 @@ def collapse_same_event(items, lang, stories=None):
             })
             print(f"  📰 Похожие собраны в обзор [{lang}]: «{title[:40]}» "
                   f"— {len(picked)} изданий")
-            drop.update(idxs)      # из ленты уходят: они теперь в обзоре
+            # Лучший остаётся в ленте — он и есть затравка обзора
+            drop.update(i for i in idxs if i != picked[0])
             continue
         by_lang = {}
         for i in idxs:
