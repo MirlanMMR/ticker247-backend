@@ -4006,7 +4006,12 @@ def _tidy_stories(stories, lang):
         blocks = _refresh_old_blocks(st.get("blocks", []), lang)
         if len({b.get("source") for b in blocks}) < STORY_MIN_BIG:
             continue
-        st = {**st, "blocks": _lead_first_reporter(blocks)}
+        title = st.get("title", "")
+        if lang == "ru" and _looks_kyrgyz(title):
+            # Имя автоматического обзора берётся из заголовка первой новости и
+            # оставалось кыргызским: «Салыктарды катталган жери боюнча…»
+            title = _gtx_translate(title, "ru") or title
+        st = {**st, "title": title, "blocks": _lead_first_reporter(blocks)}
         twin = next((m for m in out if _same_story(st, m)), None)
         if twin is None:
             out.append(st)
