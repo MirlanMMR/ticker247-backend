@@ -4007,10 +4007,8 @@ def _story_block(item, role, lang="ru"):
         summary = cut[:ends[-1] + 1] if ends and ends[-1] > 200 else cut
 
     title = str(item.get("title") or "")
-    if lang == "ru" and (_looks_kyrgyz(title) or _looks_kyrgyz(summary)):
-        title = _gtx_translate(title, "ru") or title
-        summary = _gtx_translate(summary, "ru") or summary
-    elif lang != "ru" and (item.get("language") or "").lower() not in (lang, ""):
+    if (_still_foreign(summary, lang) or _still_foreign(title, lang)
+            or (lang == "ru" and (_looks_kyrgyz(title) or _looks_kyrgyz(summary)))):
         title = _gtx_translate(title, lang) or title
         summary = _gtx_translate(summary, lang) or summary
 
@@ -4138,10 +4136,17 @@ def _refresh_old_blocks(blocks, lang):
         text = f"{b.get('title','')} {b.get('summary','')}"
         if _ETIQUETTE.search(b.get("title", "")):
             continue                      # вежливость вместо события
-        if lang == "ru" and _looks_kyrgyz(text):
-            b = {**b,
-                 "title": _gtx_translate(b.get("title", ""), "ru") or b.get("title", ""),
-                 "summary": _gtx_translate(b.get("summary", ""), "ru") or b.get("summary", "")}
+        # Чужой для пула текст переводим — любой, не только кыргызский.
+        # 21.08 в АНГЛИЙСКОМ обзоре стояли русские абзацы от Knews.kg: прежняя
+        # проверка смотрела только на кыргызские буквы в русском пуле, а
+        # «чужой язык» бывает в любом пуле и любой.
+        if _still_foreign(text, lang) or (lang == "ru" and _looks_kyrgyz(text)):
+            t = _gtx_translate(b.get("title", ""), lang)
+            sm = _gtx_translate(b.get("summary", ""), lang)
+            if t and not _still_foreign(t, lang):
+                b = {**b, "title": t, "summary": sm or b.get("summary", "")}
+            else:
+                continue        # перевести не вышло — блок в обзор не идёт
         out.append(b)
     return out
 
