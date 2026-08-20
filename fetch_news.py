@@ -4137,6 +4137,27 @@ def build_press_reviews(items, lang):
             if len({b["source"] for b in fixed}) >= STORY_MIN_SOURCES:
                 result.append({**st, "blocks": fixed})
 
+    # Схлопываем двойников В ИТОГОВОМ списке, а не только при появлении.
+    # 20.08 Ферстаппен висел в ленте двумя обзорами: запрет на новые дубли уже
+    # работал, но эти два лежали в базе и просто переносились из прогона в
+    # прогон. Правило, применённое только к новому, — половина правила.
+    merged = []
+    for st in result:
+        twin = next((m for m in merged if _same_story(st, m)), None)
+        if twin is None:
+            merged.append(st)
+            continue
+        seen = {publisher_family(b.get("source", "")) for b in twin["blocks"]}
+        add = [b for b in st.get("blocks", [])
+               if publisher_family(b.get("source", "")) not in seen]
+        twin["blocks"] = _lead_first_reporter(
+            (twin["blocks"] + add)[:STORY_MAX_BLOCKS])
+        # Имя оставляем то, что короче: длинное обычно — обрубок заголовка
+        if len(st.get("title", "")) < len(twin.get("title", "")):
+            twin["title"] = st["title"]
+        print(f"  🔗 Двойники обзора схлопнуты [{lang}]: «{twin['title'][:40]}»")
+    result = merged
+
     if result:
         print(f"  📰 Обзоры прессы [{lang}]: "
               + "; ".join(f"«{st['title']}» {len(st['blocks'])} изд."
