@@ -3926,6 +3926,9 @@ def build_press_review(items, lang):
               f"+{len(new_blocks)}, всего {len(merged)}")
     else:
         if len({b["source"] for b in new_blocks}) < STORY_MIN_SOURCES:
+            print(f"  📰 Обзор прессы [{lang}]: подходящей темы нет "
+                  f"(изданий {len({b['source'] for b in new_blocks})}, "
+                  f"нужно {STORY_MIN_SOURCES})")
             return items, None
         story = {
             "title": str(data.get("title", "")).strip()[:60],
@@ -4839,15 +4842,16 @@ def main():
         print(f"  После AI: {len(filtered)} | {cats}")
         # Последний рубеж перед эфиром: чиним что можно, снимаем что нельзя
         filtered = quality_gate(filtered, lang)
+        # Обзор прессы собираем ДО схлопывания повторов: он и живёт тем, что
+        # об одном событии написали несколько изданий. Сначала выбросить все
+        # версии кроме лучшей, а потом просить обзор — как и вышло 20.08 —
+        # значит просить его из пустоты
+        filtered, story = build_press_review(filtered, lang)
         # Пересказы одного события — их не видит проверка по словам
         filtered = collapse_same_event(filtered, lang)
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)
-        # Обзор прессы: одно событие глазами нескольких изданий. Живёт сутки и
-        # дорастает каждый прогон, поэтому собирается ПОСЛЕ всех чисток —
-        # берём из того же, что увидит читатель
-        filtered, story = build_press_review(filtered, lang)
         payload = {
             "items": filtered,
             "updatedAt": ts,
