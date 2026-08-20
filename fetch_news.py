@@ -4098,7 +4098,12 @@ def collapse_same_event(items, lang, stories=None):
                 len(items[i].get("summary") or ""),
             ), reverse=True)
             picked = picked[:STORY_MAX_BLOCKS]
-            title = str(items[picked[0]].get("title", ""))[:60]
+            # Имя обзору даём из заголовка лучшей новости, но режем ПО СЛОВАМ:
+            # «Ферстаппен продлил контракт с Red Bull д» — обрубок, а не имя
+            head = str(items[picked[0]].get("title", ""))
+            if len(head) > 52:
+                head = head[:52].rsplit(" ", 1)[0].rstrip(" ,:;—-") + "…"
+            title = head
             now_ms = int(datetime.now().timestamp() * 1000)
             shelf = Counter(items[i].get("scope") for i in picked
                             if items[i].get("scope"))
