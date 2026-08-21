@@ -2012,7 +2012,13 @@ def enrich_missing_images(items, budget=450, workers=16):
     # /images/sharing/article/…. В ленте читатель видел одну и ту же фразу
     # дважды — крупным текстом сверху и ещё раз на снимке. Настоящее фото при
     # этом лежит на той же странице
-    _SHARING_CARD = re.compile(r"/images/sharing/|/sharing/|/social[-_/]|og[-_]image|share[-_]card", re.I)
+    # Карточка для соцсетей — картинка с ВПЕЧАТАННЫМ заголовком. У ria.ru это
+    # /images/sharing/article/…, у gazeta.uz — имя файла, кончающееся на «_og»:
+    # рядом лежит тот же снимок с «_b», уже без текста. Читатель видел русский
+    # заголовок над узбекским, напечатанным прямо на фотографии (21.08.2026).
+    _SHARING_CARD = re.compile(
+        r"/images/sharing/|/sharing/|/social[-_/]|og[-_]image|share[-_]card"
+        r"|_og\.(jpe?g|png|webp)|/og/|[?&]og=|1200x630", re.I)
     # Миниатюра вместо снимка: часть изданий отдаёт в og:image уменьшенную
     # копию (у El Tiempo прямо «og_thumbnail» в адресе, у CBS «/thumbnail»).
     # На весь экран она разваливается в мыло, поэтому ищем на странице
