@@ -4035,7 +4035,12 @@ QC_VIDEO_CAPTION = re.compile(
     re.I)
 
 
-STORY_TTL_MS = 24 * 3600 * 1000     # обзор живёт сутки — он собирается постепенно
+STORY_TTL_MS = 24 * 3600 * 1000     # предельный срок жизни обзора
+# Сюжет живёт, пока о нём ПИШУТ. 21.08 читатель открыл ленту и увидел
+# «Трамп всё ещё угрожает Ирану» вторые сутки, Ферстаппена, который давно
+# никому не интересен, и Киев с устаревшим числом погибших. Обзор, к которому
+# шесть часов не прибавилось ни строки, — уже не сюжет, а вчерашняя газета.
+STORY_STALE_MS = 6 * 3600 * 1000
 STORY_MAX_BLOCKS = 7
 STORY_MIN_SOURCES = 3               # обычный порог: меньше трёх — не обзор
 # Для крупного события хватает и двух. 20.08 про атаку на Киев в русской ленте
@@ -4300,15 +4305,29 @@ def build_press_reviews(items, lang):
         old = []
     if not isinstance(old, list):
         old = []
-    old = [st for st in old
-           if isinstance(st, dict) and now - st.get("createdAt", 0) < STORY_TTL_MS]
+    def _alive(st):
+        if not isinstance(st, dict):
+            return False
+        if now - st.get("createdAt", 0) >= STORY_TTL_MS:
+            return False
+        # Пока новое не приходило — считаем от рождения
+        return now - st.get("freshAt", st.get("createdAt", 0)) < STORY_STALE_MS
+
+    retired = [st for st in old if isinstance(st, dict) and not _alive(st)]
+    if retired:
+        print("  🗞 Обзоры отжили [%s]: %s" % (
+            lang, "; ".join(f"«{x.get('title','')[:28]}»" for x in retired)))
+    old = [st for st in old if _alive(st)]
     old = _tidy_stories(old, lang)      # чистка бесплатна и идёт каждый прогон
 
     if len(items) < 8:
         return items, old
     # Пересобираем не чаще раза в три часа: обзор живёт сутки, а запрос стоит
     # денег. За два часа сюжет редко обрастает новым изданием
-    if old and all(now - st.get("updatedAt", 0) < 3 * 3600 * 1000 for st in old):
+    young = any(now - st.get("freshAt", st.get("createdAt", 0)) < 2 * 3600 * 1000
+                for st in old)
+    if old and not young and all(
+            now - st.get("updatedAt", 0) < 3 * 3600 * 1000 for st in old):
         return items, old
 
     lines = [f"{i+1}. [{it.get('source','?')}] {it.get('title','')}"
@@ -4414,6 +4433,7 @@ def build_press_reviews(items, lang):
             "blocks": blocks,
             "createdAt": (target or {}).get("createdAt", now),
             "updatedAt": now,
+            "freshAt": now if fresh else (target or {}).get("freshAt", now),
         })
 
     # Уцелевшие прежние обзоры, которых ИИ не назвал, оставляем жить: сюжет не
@@ -4568,6 +4588,7 @@ def collapse_same_event(items, lang, stories=None):
                            for k, i in enumerate(picked)],
                 "createdAt": now_ms,
                 "updatedAt": now_ms,
+                "freshAt": now_ms,
             })
             print(f"  📰 Похожие собраны в обзор [{lang}]: «{title[:40]}» "
                   f"— {len(picked)} изданий")
