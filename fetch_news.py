@@ -2018,7 +2018,7 @@ def enrich_missing_images(items, budget=450, workers=16):
     # заголовок над узбекским, напечатанным прямо на фотографии (21.08.2026).
     _SHARING_CARD = re.compile(
         r"/images/sharing/|/sharing/|/social[-_/]|og[-_]image|share[-_]card"
-        r"|_og\.(jpe?g|png|webp)|/og/|[?&]og=|1200x630", re.I)
+        r"|_og\.(jpe?g|png|webp)|/og/|[?&]og=|imagemeta/", re.I)
     # Миниатюра вместо снимка: часть изданий отдаёт в og:image уменьшенную
     # копию (у El Tiempo прямо «og_thumbnail» в адресе, у CBS «/thumbnail»).
     # На весь экран она разваливается в мыло, поэтому ищем на странице
@@ -4693,6 +4693,14 @@ def _sentences(t: str):
     return [x for x in out if x]
 
 
+_HANGING_WORDS = {
+    "и", "а", "но", "или", "что", "как", "для", "при", "над", "под", "из", "за",
+    "на", "в", "с", "о", "у", "к", "по", "the", "of", "and", "for", "with",
+    "from", "that", "de", "la", "el", "los", "las", "del", "que", "em", "no",
+    "na", "do", "da", "dos", "das",
+}
+
+
 def polish_summary(text: str) -> str:
     """Снимает служебное начало и не оставляет фразу оборванной."""
     t = (text or "").strip()
@@ -4723,13 +4731,23 @@ def polish_summary(text: str) -> str:
     if cut and cut < len(parts):
         parts = parts[cut:]
     t = re.sub(r"\s{2,}", " ", " ".join(parts)).strip()
+    # Зазывалки в конце: «Подробности от Kaktus.media», «Читать далее»
+    t = re.sub(r"[.\s]*(?:Подробности(?:\s+\w+){0,3}|Читать далее|Подробнее"
+               r"|Read more|Leia mais|Leer más)\s*[.:…]*\s*$", "", t, flags=re.I).strip()
     # Оборванная на полуслове фраза: возвращаемся к последнему целому
-    # предложению. Треть ленты кончалась многоточием в никуда, а издания
-    # обрезают описания по своим правилам, не по нашим
+    # предложению. Издания обрезают описания по своим правилам, не по нашим
     if t and t[-1] not in ".!?…»\"'":
         ends = [m.end() - 1 for m in re.finditer(r"[а-яёa-zà-ú]{3,}[.!?]\s", t + " ")]
-        if ends and ends[-1] >= 80:
+        last = t.split()[-1] if t.split() else ""
+        # Настоящий обрыв виден по хвосту: одна буква, инициал или предлог —
+        # «…inside the Edward J». А Kaktus просто не ставит точку в конце
+        # законченной фразы, и рубить её незачем — довольно точки
+        dangling = (len(last.strip(".,")) <= 2
+                    or last.lower() in _HANGING_WORDS)
+        if dangling and ends and ends[-1] >= 80:
             t = t[:ends[-1] + 1]
+        elif not dangling:
+            t += "."
     return t.strip()
 
 
