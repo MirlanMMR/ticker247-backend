@@ -4587,6 +4587,40 @@ def collapse_same_event(items, lang, stories=None):
     return [it for i, it in enumerate(items) if i not in drop], stories
 
 
+URGENT_MAX = 2                      # больше двух «срочно» разом — это шум
+URGENT_MAX_AGE_MS = 3 * 3600 * 1000  # старше трёх часов будить поздно
+
+
+def cap_urgent(items, lang):
+    """Оставляет не больше двух срочных, и только свежие.
+
+    21.08 в английской ленте висело пять «срочно», среди них — отчёт о
+    прошлогоднем взрыве и сообщение семичасовой давности. Метка, которой врут,
+    перестаёт работать тогда, когда беда настоящая.
+
+    Порядок отбора: сначала своё (местное ближе, чем чужое), потом свежее.
+    Снятые с «срочно» из ленты не исчезают — просто перестают будить.
+    """
+    now = int(datetime.now().timestamp() * 1000)
+    urgent = [x for x in items if x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY")]
+    if not urgent:
+        return items
+    shelf_rank = {"local": 0, "pool": 1, "world": 2}
+    keep = sorted(
+        [x for x in urgent if now - x.get("publishedAt", 0) <= URGENT_MAX_AGE_MS],
+        key=lambda x: (shelf_rank.get(x.get("scope"), 3), -x.get("publishedAt", 0)),
+    )[:URGENT_MAX]
+    kept_urls = {x.get("url") for x in keep}
+    demoted = 0
+    for x in urgent:
+        if x.get("url") not in kept_urls:
+            x["category"] = "NEWS"
+            demoted += 1
+    if demoted:
+        print(f"  🔕 Срочность снята [{lang}]: {demoted}, осталось {len(keep)}")
+    return items
+
+
 def quality_gate(items, lang):
     """Правит и отсеивает новости перед публикацией. Возвращает годные."""
     kept, dropped = [], []
@@ -5415,6 +5449,8 @@ def main():
         print(f"  После AI: {len(filtered)} | {cats}")
         # Последний рубеж перед эфиром: чиним что можно, снимаем что нельзя
         filtered = quality_gate(filtered, lang)
+        # Порог срочности: не больше двух и только свежие
+        filtered = cap_urgent(filtered, lang)
         # Обзор прессы собираем ДО схлопывания повторов: он и живёт тем, что
         # об одном событии написали несколько изданий. Сначала выбросить все
         # версии кроме лучшей, а потом просить обзор — как и вышло 20.08 —
