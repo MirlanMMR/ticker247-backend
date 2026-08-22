@@ -5713,7 +5713,10 @@ def main():
     # Мировые новости (scope=world) идут во ВСЕ пулы.
     # Локальные (scope=local) — только в пул по языку статьи.
     CYRILLIC_LANGS = {"ru", "ky", "uk", "be", "bg", "sr", "mk"}
-    lang_groups = {"ru": [], "en": [], "es": [], "pt": []}
+    # Пулы берём из ACTIVE_POOLS, а не перечисляем здесь: 22.08 французские
+    # источники уже работали, а лента не собиралась — статьи Le Monde уходили
+    # в английский пул, потому что этот словарь про французский не знал
+    lang_groups = {pool: [] for pool in ACTIVE_POOLS}
     ALL_POOLS = list(lang_groups.keys())
 
     # Приметы «своих за границей»: слова, по которым чужая местная новость
@@ -5794,6 +5797,8 @@ def main():
                 lang_groups["es"].append(item)
             elif detected_lang == "pt":
                 lang_groups["pt"].append(item)
+            elif detected_lang == "fr" and "fr" in lang_groups:
+                lang_groups["fr"].append(item)
             else:
                 lang_groups["en"].append(item)
 
