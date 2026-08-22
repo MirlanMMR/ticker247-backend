@@ -43,8 +43,14 @@ jobs:
           # Без ключа всё работает как раньше, с ключом — Gemini перестаёт быть
           # единственной точкой отказа.
           QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
-          QWEN_BASE_URL: "https://ws-5xpki3b7m657pswb.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
-          QWEN_MODEL: "qwen-flash"
+          # Поставщик — Groq, а не Alibaba: у Alibaba для ключа требуют
+          # привязать карту, а мы после утечки 18.08 решили карт в облаках
+          # без нужды не оставлять. У Groq доступ бесплатный и без карты:
+          # 30 запросов в минуту, 14 400 в сутки — для запасного пути, который
+          # включается лишь когда молчит Gemini, с запасом.
+          # Имя переменной осталось историческим.
+          QWEN_BASE_URL: "https://api.groq.com/openai/v1"
+          QWEN_MODEL: "openai/gpt-oss-120b"
         run: python fetch_news.py
 
       # Разбор ОПУБЛИКОВАННОЙ ленты по всем четырём пулам. Пользователь читает
