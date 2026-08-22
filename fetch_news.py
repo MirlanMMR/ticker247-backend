@@ -2571,6 +2571,13 @@ _CHARTER = None
 # уже создан, и ломать его переименованием ради красоты не стоит. Поставщик за
 # год может смениться трижды, поэтому переменная названа по РОЛИ — запасной
 # путь, — а не по имени модели, которая в ней сегодня.
+# Запасной поставщик бесплатный, а бесплатное считает токены строже: у Groq
+# 8 000 токенов в минуту, и наша обычная порция в 80 новостей с конституцией
+# (9 тыс. токенов) не влезает в ОДИН запрос. Поэтому в запасном режиме порции
+# мельче, а конституция идёт коротким изложением.
+FALLBACK_MODE = False               # включается, когда Gemini недоступен
+FALLBACK_CHUNK = 20
+
 FALLBACK_API_KEY = (os.environ.get("AI_FALLBACK_KEY")
                     or os.environ.get("GROQ_API_KEY")
                     or os.environ.get("QWEN_API_KEY", ""))
@@ -2582,13 +2589,42 @@ FALLBACK_MODEL = (os.environ.get("AI_FALLBACK_MODEL")
                   or "openai/gpt-oss-120b")
 
 
+def _fallback_call(req, tries: int = 3):
+    """Запрос с ожиданием при минутном пределе.
+
+    Бесплатный уровень считает токены в минуту, и на нашей череде запросов он
+    неизбежно упирается. Правильный ответ на «слишком часто» — подождать,
+    а не отказаться: лента собирается раз в два часа, минута роли не играет.
+    """
+    for attempt in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=180) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or attempt == tries - 1:
+                raise
+            body = ""
+            try:
+                body = e.read().decode("utf-8", "ignore")
+            except Exception:
+                pass
+            m = re.search(r"try again in ([0-9.]+)s", body)
+            wait = min(float(m.group(1)) + 1, 45) if m else 20
+            print(f"  ⏳ Запасной поставщик просит подождать {wait:.0f} с")
+            time.sleep(wait)
+    raise RuntimeError("запасной поставщик недоступен")
+
+
 def ask_fallback(prompt, charter_text: str = "") -> str:
     """Запрос к запасному поставщику. Тот же ответ, что и от Gemini, — строкой."""
     if not FALLBACK_API_KEY:
         raise RuntimeError("FALLBACK_API_KEY не задан")
     messages = []
     if charter_text:
-        messages.append({"role": "system", "content": charter_text})
+        # Бесплатный уровень считает каждый токен, а конституция весит четыре
+        # тысячи. Берём её начало — там определения полок и правило инфоповода,
+        # то есть самое нужное для суждения
+        messages.append({"role": "system", "content": charter_text[:2500]})
     # Картинки запасной поставщик тоже понимает, но зовём его только на
     # текст: на
     # снимках мы проверяем деликатность, и менять там судью без замера нельзя
@@ -2608,8 +2644,7 @@ def ask_fallback(prompt, charter_text: str = "") -> str:
                  "User-Agent": "Ticker247/1.0 (+https://mirlanmmr.github.io/ticker247/)",
                  "Accept": "application/json"})
     try:
-        with urllib.request.urlopen(req, timeout=120) as r:
-            data = json.load(r)
+        data = _fallback_call(req)
     except urllib.error.HTTPError as e:
         # Тело ответа объясняет отказ («model not found», «terms not
         # accepted», «rate limit»), а без него остаётся только гадать —
@@ -2660,6 +2695,8 @@ def ask_gemini(prompt, charter: bool = True) -> str:
     global _MODEL_IN_USE
     if AI_STOPPED:
         if FALLBACK_API_KEY:
+            global FALLBACK_MODE
+            FALLBACK_MODE = True
             return ask_fallback(prompt, _editorial_charter() if charter else "")
         raise RuntimeError(
             f"потолок расхода ИИ ${AI_BUDGET:.2f} за {_spend_month_key()} достигнут")
@@ -2689,6 +2726,7 @@ def ask_gemini(prompt, charter: bool = True) -> str:
             # Gemini недоступен — пробуем запасного поставщика. Тишина хуже
             # чужой модели: без ИИ лента теряет сверку заголовков и перевод
             if FALLBACK_API_KEY:
+                globals()["FALLBACK_MODE"] = True
                 print(f"  ↪️ Gemini не ответил ({str(e)[:50]}), беру запасного: {FALLBACK_MODEL}")
                 return ask_fallback(prompt, charter)
             raise
@@ -2944,8 +2982,9 @@ def filter_with_gemini(news_list, lang="ru"):
     if to_ask:
         asked_items = [it for _, it in to_ask]
         out = []
-        for start in range(0, len(asked_items), GEMINI_CHUNK):
-            out.extend(_filter_chunk(asked_items[start:start + GEMINI_CHUNK], lang))
+        chunk = FALLBACK_CHUNK if FALLBACK_MODE else GEMINI_CHUNK
+        for start in range(0, len(asked_items), chunk):
+            out.extend(_filter_chunk(asked_items[start:start + chunk], lang))
         kept_keys = {_cache_key(x) for x in out}
         now = int(datetime.now().timestamp() * 1000)
         remember = not _LAST_CHUNK_FELL_BACK
