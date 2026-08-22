@@ -2619,6 +2619,13 @@ def ask_fallback(prompt, charter_text: str = "") -> str:
             detail = e.read().decode("utf-8", "ignore")[:200].replace("\n", " ")
         except Exception:
             pass
+        if e.code == 401:
+            # Ключ не показываем, но длина и начало — не секрет и сразу
+            # объясняют, целиком ли он скопирован
+            k = FALLBACK_API_KEY
+            detail += f" | ключ: {len(k)} знаков, начинается с «{k[:4]}»"
+            if k != k.strip():
+                detail += ", ПО КРАЯМ ПРОБЕЛЫ"
         raise RuntimeError(f"запасной поставщик {e.code}: {detail}") from None
     usage = data.get("usage") or {}
     TOKENS["fallback_in"] += usage.get("prompt_tokens", 0) or 0
