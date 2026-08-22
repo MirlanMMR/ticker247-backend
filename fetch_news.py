@@ -38,6 +38,7 @@ TELEGRAM_CHANNELS = {
     "en": "@t247feed_en",
     "es": "@t247feed_es",
     "pt": "@t247feed_pt",
+    "fr": "@t247feed_fr",
 }
 
 genai.configure(api_key=GEMINI_API_KEY)
