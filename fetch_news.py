@@ -7,6 +7,7 @@ import html
 from collections import Counter
 import requests
 import urllib.request
+import urllib.error
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
@@ -2600,8 +2601,19 @@ def ask_fallback(prompt, charter_text: str = "") -> str:
         f"{FALLBACK_BASE_URL.rstrip('/')}/chat/completions", data=body,
         headers={"Content-Type": "application/json",
                  "Authorization": f"Bearer {FALLBACK_API_KEY}"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        data = json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            data = json.load(r)
+    except urllib.error.HTTPError as e:
+        # Тело ответа объясняет отказ («model not found», «terms not
+        # accepted», «rate limit»), а без него остаётся только гадать —
+        # 22.08 полчаса ушло на «403 Forbidden» без единой подробности
+        detail = ""
+        try:
+            detail = e.read().decode("utf-8", "ignore")[:200].replace("\n", " ")
+        except Exception:
+            pass
+        raise RuntimeError(f"запасной поставщик {e.code}: {detail}") from None
     usage = data.get("usage") or {}
     TOKENS["fallback_in"] += usage.get("prompt_tokens", 0) or 0
     TOKENS["fallback_out"] += usage.get("completion_tokens", 0) or 0
