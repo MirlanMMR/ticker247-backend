@@ -4708,6 +4708,20 @@ URGENT_MAX = 2                      # больше двух «срочно» р�
 URGENT_MAX_AGE_MS = 3 * 3600 * 1000  # старше трёх часов будить поздно
 
 
+# Разбор, объяснение и прейскурант срочными не бывают никогда. 22.08 читателя
+# разбудило «Мост слишком далеко? Почему связь с Сицилией остаётся мечтой» и
+# «Определены цены на билеты на закрытие Игр кочевников».
+_NEVER_URGENT = re.compile(
+    # Вопрос в заголовке — где угодно, а не только в конце: «Мост слишком
+    # далеко? Почему связь с Сицилией остаётся мечтой»
+    # «как» намеренно нет: «Как сообщает МЧС, сошёл сель» — обычный зачин
+    # новости, а не разбор
+    r"\?|\bпочему\b|\bзачем\b|^что известно|^что значит"
+    r"|определены цены|сколько стоит|прейскурант|цены на билеты"
+    r"|^why\b|^how\b|^what\b|ticket prices|price list"
+    r"|^por qué|^cómo|precios de|^porque|^como|preços", re.I)
+
+
 def cap_urgent(items, lang):
     """Оставляет не больше двух срочных, и только свежие.
 
@@ -4720,6 +4734,19 @@ def cap_urgent(items, lang):
     """
     now = int(datetime.now().timestamp() * 1000)
     urgent = [x for x in items if x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY")]
+    if not urgent:
+        return items
+    # Сначала снимаем то, что срочным не бывает по природе: вопрос в
+    # заголовке — это разбор, «определены цены» — это справка
+    natural = 0
+    for x in list(urgent):
+        if _NEVER_URGENT.search(str(x.get("title", "")).strip()):
+            x["category"] = "NEWS"
+            urgent.remove(x)
+            natural += 1
+    if natural:
+        print(f"  🔕 Не срочные по природе [{lang}]: {natural} "
+              f"(вопрос в заголовке, цены, разбор)")
     if not urgent:
         return items
     shelf_rank = {"local": 0, "pool": 1, "world": 2}
@@ -4758,7 +4785,13 @@ _DATELINE = [
 _CREDIT = re.compile(
     r"Getty Images|Europa Press|Divulgação|/AFP|/EFE|/Reuters|\(Photo|\(Foto|\(Фото"
     r"|Photo by|Foto:|Фото:|Axios Visuals|Chart:|^Data:"
-    r"|This article originally appeared|Esta nota apareci[oó] originalmente", re.I)
+    r"|This article originally appeared|Esta nota apareci[oó] originalmente"
+    # Подписка на рассылку и анонс вещания вместо новости: The Independent
+    # начинал текст с «Я хотел бы получать по электронной почте информацию о
+    # предложениях», BBC Sport — с расписания эфира
+    r"|хотел бы получать по электронной почте|уведомление о конфиденциальности"
+    r"|Sign up to our|newsletter|Прочтите наше уведомление"
+    r"|будет доступно на BBC|will be available on BBC|каждую субботу в \d", re.I)
 
 
 # Подпись под снимком без слова «фото»: «Брэди О'Рурк держит табличку…»,
