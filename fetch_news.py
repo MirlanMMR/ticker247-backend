@@ -898,6 +898,19 @@ YOUTUBE_CHANNELS = {
 # играли Cadena SER, COPE, Renascença, BBC и NPR. Список отсюда ПЕРЕКРЫВАЕТ
 # зашитый в приложении — правя один, правь и второй
 RADIO_STATIONS = [
+    # ─── Французский пул (22.08.2026) ──────────────────────────────────────
+    # Здесь правило «новости хотя бы дважды в час» выполняется с запасом:
+    # France Info — круглосуточная новостная станция, новости каждые четверть
+    # часа. Все потоки проверены живьём. Страны проставлены, чтобы бельгийцу
+    # первой предлагалась RTBF, а квебекцу — Radio-Canada.
+    {"name": "France Info", "url": "https://icecast.radiofrance.fr/franceinfo-midfi.mp3", "pool": "fr", "colorFrom": "FF1B2A4A", "colorTo": "FF2E5FA3", "countries": ""},
+    {"name": "France Inter", "url": "https://icecast.radiofrance.fr/franceinter-midfi.mp3", "pool": "fr", "colorFrom": "FF2A1B4A", "colorTo": "FF5B3EA3", "countries": ""},
+    {"name": "France Culture", "url": "https://icecast.radiofrance.fr/franceculture-midfi.mp3", "pool": "fr", "colorFrom": "FF3A2A1B", "colorTo": "FF8A5B2E", "countries": ""},
+    {"name": "RFI Monde", "url": "https://rfimonde64k.ice.infomaniak.ch/rfimonde-64.mp3", "pool": "fr", "colorFrom": "FF1B3A2A", "colorTo": "FF2E8A5B", "countries": ""},
+    {"name": "RTBF La Première", "url": "https://radios.rtbf.be/laprem1ere-128.mp3", "pool": "fr", "colorFrom": "FF4A1B2A", "colorTo": "FFA33E5B", "countries": "BE"},
+    {"name": "RTS La 1ère", "url": "https://stream.srg-ssr.ch/m/la-1ere/mp3_128", "pool": "fr", "colorFrom": "FF1B3A4A", "colorTo": "FF2E7AA3", "countries": "CH"},
+    {"name": "Radio-Canada Première", "url": "https://rcavliveaudio.akamaized.net/hls/live/2006635/M-6A_MTL/master.m3u8", "pool": "fr", "colorFrom": "FF4A2A1B", "colorTo": "FFA35B2E", "countries": "CA"},
+
     # ru: нейтральных новостных радио почти не осталось, поэтому деловые
     # Азаттык (кыргызская служба Радио Свобода) НЕ взят, хотя поток живой и
     # официальный: вещают они не круглосуточно, и между передачами в эфире
