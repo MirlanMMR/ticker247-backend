@@ -4316,6 +4316,40 @@ def _lead_first_reporter(blocks):
     return [{**first, "role": "затравка"}] + rest
 
 
+def _fits_story(block_title: str, story_title: str, lead_title: str,
+                lead_summary: str = "") -> bool:
+    """Относится ли блок к теме обзора.
+
+    22.08 в обзоре «US-Canada tariffs» оказались иск об имени Трампа, стройка
+    бального зала и сокращение водозабора из Колорадо: ИИ собрал мешок «всё
+    про США», а не сюжет. Просьба «объединяй только одно событие» помогает не
+    всегда, поэтому проверяем сами.
+
+    Правило простое: блок должен делить с названием темы или с затравкой хотя
+    бы одно значимое слово. Сравниваем по началам слов — «tariffs» и «tariff»,
+    «Канаде» и «Канада» должны считаться одним.
+    """
+    def stems(t):
+        return {w[:5] for w in re.findall(r"[а-яёa-zà-ú]{4,}", (t or "").lower())
+                if w not in _STORY_STOP}
+    b = stems(block_title)
+    if not b:
+        return True                      # нечего проверять — не выбрасываем
+    # Текст затравки берём тоже: в заголовках одно и то же называют разными
+    # словами — «Оттава» вместо «Канады», «пошлины» вместо «тарифов»
+    return bool(b & (stems(story_title) | stems(lead_title)
+                     | stems(lead_summary[:400])))
+
+
+_STORY_STOP = {
+    "после", "перед", "через", "около", "более", "менее", "может", "будет",
+    "стало", "стали", "сообщает", "заявил", "также", "этого", "может",
+    "says", "said", "will", "with", "from", "that", "this", "have", "after",
+    "into", "about", "than", "their", "would", "could", "первый", "новый",
+    "para", "como", "sobre", "entre", "desde", "hasta", "mais", "pelo",
+}
+
+
 def _same_story(a, b) -> bool:
     """Один ли это сюжет. 20.08 Ферстаппен оказался в ленте дважды: один обзор
     собрал ИИ, второй сложила автоматическая группировка похожих, и друг о
@@ -4390,8 +4424,20 @@ def _tidy_stories(stories, lang):
         # ленте, «Контракт Ферстаппена с Red Bull» — в испанской
         if _still_foreign(title, lang) or (lang == "ru" and _looks_kyrgyz(title)):
             title = _gtx_translate(title, lang) or title
-        st = {**st, "title": title,
-              "blocks": _fold_echoes(_lead_first_reporter(blocks))}
+        blocks = _lead_first_reporter(blocks)
+        if blocks:
+            lead_t = blocks[0].get("title", "")
+            lead_s = blocks[0].get("summary", "")
+            kept = [blocks[0]] + [b for b in blocks[1:]
+                                  if _fits_story(b.get("title", ""), title,
+                                                 lead_t, lead_s)]
+            if len(kept) < len(blocks):
+                print(f"  ✂️ Из обзора «{title[:28]}» убрано не по теме: "
+                      f"{len(blocks) - len(kept)}")
+            blocks = kept
+        if len({b.get("source") for b in blocks}) < STORY_MIN_BIG:
+            continue
+        st = {**st, "title": title, "blocks": _fold_echoes(blocks)}
         twin = next((m for m in out if _same_story(st, m)), None)
         if twin is None:
             out.append(st)
@@ -4528,8 +4574,16 @@ def build_press_reviews(items, lang):
             fam = publisher_family(it.get("source", ""))
             if fam in seen:
                 continue
-            seen.add(fam)
             role = str(b.get("role", "")).strip()
+            # Блок не о том — не берём. Затравку не проверяем: она и задаёт тему
+            lead_title = (base_blocks[0].get("title", "") if base_blocks
+                          else (fresh[0]["title"] if fresh else ""))
+            lead_sum = (base_blocks[0].get("summary", "") if base_blocks
+                        else (fresh[0]["summary"] if fresh else ""))
+            if (base_blocks or fresh) and not _fits_story(
+                    it.get("title", ""), title, lead_title, lead_sum):
+                continue
+            seen.add(fam)
             # Затравка остаётся в ленте на своей полке. Это, как правило,
             # главная новость дня; убирая её, мы обедняли «Местные» и
             # «Мировые» и рисковали: читатель, пролиставший обзор не глядя,
