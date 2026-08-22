@@ -2480,7 +2480,7 @@ GEMINI_MODEL = "gemini-flash-lite-latest"
 GEMINI_MODEL_FALLBACK = "gemini-flash-latest"
 
 # Счётчик расхода: раньше о цене узнавали, когда деньги кончались
-TOKENS = {"in": 0, "out": 0, "calls": 0, "qwen_in": 0, "qwen_out": 0}
+TOKENS = {"in": 0, "out": 0, "calls": 0, "fallback_in": 0, "fallback_out": 0}
 
 # Собственный потолок расхода, ниже остатка на счёте. Дважды деньги кончались
 # внезапно: 15.08 — сами не заметили, 18.08 — чужой человек тратил по украденному
@@ -2563,38 +2563,47 @@ _CHARTER = None
 # полдня выходила вообще без ИИ — без сверки заголовков, без перевода, без
 # обзоров. Один поставщик означает, что его сбой становится нашим.
 #
-# Адрес зависит от рабочего пространства Alibaba, поэтому берётся из настроек:
-# QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL. Нет ключа — запасного пути просто нет,
+# Адрес и модель берутся из настроек:
+# FALLBACK_BASE_URL, FALLBACK_API_KEY, FALLBACK_MODEL. Нет ключа — запасного пути просто нет,
 # и всё работает как раньше.
-QWEN_API_KEY = os.environ.get("QWEN_API_KEY", "")
-QWEN_BASE_URL = os.environ.get(
-    "QWEN_BASE_URL", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1")
-QWEN_MODEL = os.environ.get("QWEN_MODEL", "qwen-flash")
+# Имена AI_FALLBACK_*. Прежние QWEN_* понимаются тоже: секрет с этим именем
+# уже создан, и ломать его переименованием ради красоты не стоит. Поставщик за
+# год может смениться трижды, поэтому переменная названа по РОЛИ — запасной
+# путь, — а не по имени модели, которая в ней сегодня.
+FALLBACK_API_KEY = (os.environ.get("AI_FALLBACK_KEY")
+                    or os.environ.get("QWEN_API_KEY", ""))
+FALLBACK_BASE_URL = (os.environ.get("AI_FALLBACK_URL")
+                     or os.environ.get("QWEN_BASE_URL")
+                     or "https://api.groq.com/openai/v1")
+FALLBACK_MODEL = (os.environ.get("AI_FALLBACK_MODEL")
+                  or os.environ.get("QWEN_MODEL")
+                  or "openai/gpt-oss-120b")
 
 
-def ask_qwen(prompt, charter_text: str = "") -> str:
-    """Запрос к Qwen. Тот же ответ, что и от Gemini, — строкой."""
-    if not QWEN_API_KEY:
-        raise RuntimeError("QWEN_API_KEY не задан")
+def ask_fallback(prompt, charter_text: str = "") -> str:
+    """Запрос к запасному поставщику. Тот же ответ, что и от Gemini, — строкой."""
+    if not FALLBACK_API_KEY:
+        raise RuntimeError("FALLBACK_API_KEY не задан")
     messages = []
     if charter_text:
         messages.append({"role": "system", "content": charter_text})
-    # Картинки Qwen тоже понимает, но пока зовём его только на текст: на
+    # Картинки запасной поставщик тоже понимает, но зовём его только на
+    # текст: на
     # снимках мы проверяем деликатность, и менять там судью без замера нельзя
     text = prompt if isinstance(prompt, str) else next(
         (p for p in prompt if isinstance(p, str)), "")
     messages.append({"role": "user", "content": text})
-    body = json.dumps({"model": QWEN_MODEL, "messages": messages,
+    body = json.dumps({"model": FALLBACK_MODEL, "messages": messages,
                        "temperature": 0.2}).encode()
     req = urllib.request.Request(
-        f"{QWEN_BASE_URL.rstrip('/')}/chat/completions", data=body,
+        f"{FALLBACK_BASE_URL.rstrip('/')}/chat/completions", data=body,
         headers={"Content-Type": "application/json",
-                 "Authorization": f"Bearer {QWEN_API_KEY}"})
+                 "Authorization": f"Bearer {FALLBACK_API_KEY}"})
     with urllib.request.urlopen(req, timeout=120) as r:
         data = json.load(r)
     usage = data.get("usage") or {}
-    TOKENS["qwen_in"] += usage.get("prompt_tokens", 0) or 0
-    TOKENS["qwen_out"] += usage.get("completion_tokens", 0) or 0
+    TOKENS["fallback_in"] += usage.get("prompt_tokens", 0) or 0
+    TOKENS["fallback_out"] += usage.get("completion_tokens", 0) or 0
     TOKENS["calls"] += 1
     return (data["choices"][0]["message"]["content"] or "").strip()
 
@@ -2608,8 +2617,8 @@ def ask_gemini(prompt, charter: bool = True) -> str:
     """
     global _MODEL_IN_USE
     if AI_STOPPED:
-        if QWEN_API_KEY:
-            return ask_qwen(prompt, _editorial_charter() if charter else "")
+        if FALLBACK_API_KEY:
+            return ask_fallback(prompt, _editorial_charter() if charter else "")
         raise RuntimeError(
             f"потолок расхода ИИ ${AI_BUDGET:.2f} за {_spend_month_key()} достигнут")
     # Конституция (14 КБ) уходит НЕ с каждым запросом. 20.08 счёт показал
@@ -2637,9 +2646,9 @@ def ask_gemini(prompt, charter: bool = True) -> str:
         else:
             # Gemini недоступен — пробуем запасного поставщика. Тишина хуже
             # чужой модели: без ИИ лента теряет сверку заголовков и перевод
-            if QWEN_API_KEY:
-                print(f"  ↪️ Gemini не ответил ({str(e)[:50]}), беру {QWEN_MODEL}")
-                return ask_qwen(prompt, charter)
+            if FALLBACK_API_KEY:
+                print(f"  ↪️ Gemini не ответил ({str(e)[:50]}), беру запасного: {FALLBACK_MODEL}")
+                return ask_fallback(prompt, charter)
             raise
     u = getattr(resp, "usage_metadata", None)
     if u:
@@ -5630,13 +5639,15 @@ def main():
     # миллион входящих и $0.40 за миллион исходящих; считаем по ним, чтобы
     # видеть порядок суммы, а не точную копейку
     # Gemini Flash-Lite: $0.10 за миллион входящих, $0.40 за исходящие.
-    # Qwen Flash дешевле втрое на входе — считаем отдельно, чтобы видеть, что
-    # экономия не выдумана
+    # Запасного считаем отдельно и по его ценам (gpt-oss-120b у Groq —
+    # $0.15 и $0.60 за миллион): счёт должен показывать правду, а не
+    # усреднённую выдумку
     cost = (TOKENS["in"] / 1e6 * 0.10 + TOKENS["out"] / 1e6 * 0.40
-            + TOKENS["qwen_in"] / 1e6 * 0.03 + TOKENS["qwen_out"] / 1e6 * 0.30)
-    if TOKENS["qwen_in"]:
-        print(f"  ↪️ Через Qwen: {TOKENS['qwen_in']:,} входящих + "
-              f"{TOKENS['qwen_out']:,} исходящих токенов")
+            + TOKENS["fallback_in"] / 1e6 * 0.03 + TOKENS["fallback_out"] / 1e6 * 0.30)
+    if TOKENS["fallback_in"]:
+        print(f"  ↪️ Через запасного ({FALLBACK_MODEL}): "
+              f"{TOKENS['fallback_in']:,} входящих + "
+              f"{TOKENS['fallback_out']:,} исходящих токенов")
     print(f"💰 Расход ИИ: {TOKENS['calls']} запросов, "
           f"{TOKENS['in']:,} входящих + {TOKENS['out']:,} исходящих токенов "
           f"≈ ${cost:.4f} за прогон (≈ ${cost * 24:.2f} в сутки при часовом графике)")
