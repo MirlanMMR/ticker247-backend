@@ -2627,7 +2627,9 @@ def ask_fallback(prompt, charter_text: str = "") -> str:
                 lreq = urllib.request.Request(
                     f"{FALLBACK_BASE_URL.rstrip('/')}/models",
                     headers={"Authorization": f"Bearer {FALLBACK_API_KEY}",
-                             "User-Agent": "Ticker247/1.0"})
+                             "User-Agent": "Ticker247/1.0 (+https://mirlanmmr.github.io/ticker247/)",
+                             "Accept": "application/json",
+                             "Content-Type": "application/json"})
                 with urllib.request.urlopen(lreq, timeout=30) as lr:
                     names = [m.get("id") for m in json.load(lr).get("data", [])]
                 detail += " | доступны: " + ", ".join(filter(None, names))[:300]
