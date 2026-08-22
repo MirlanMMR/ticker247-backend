@@ -4424,17 +4424,25 @@ def _tidy_stories(stories, lang):
         # ленте, «Контракт Ферстаппена с Red Bull» — в испанской
         if _still_foreign(title, lang) or (lang == "ru" and _looks_kyrgyz(title)):
             title = _gtx_translate(title, lang) or title
-        blocks = _lead_first_reporter(blocks)
-        if blocks:
-            lead_t = blocks[0].get("title", "")
-            lead_s = blocks[0].get("summary", "")
-            kept = [blocks[0]] + [b for b in blocks[1:]
-                                  if _fits_story(b.get("title", ""), title,
-                                                 lead_t, lead_s)]
+        # Опора — ТЕМА, а не первый блок: 22.08 затравкой обзора «US-Canada
+        # tariffs» стоял иск об имени Трампа, и проверка «похож ли на затравку»
+        # пропускала стройку бального зала, зато выбрасывала Канаду. Испорченной
+        # оказалась сама затравка.
+        if blocks and title:
+            anchor = max(blocks, key=lambda b: len(
+                {w[:5] for w in re.findall(r"[а-яёa-zà-ú]{4,}",
+                                           (b.get("title", "") + " " +
+                                            str(b.get("summary", ""))[:300]).lower())}
+                & {w[:5] for w in re.findall(r"[а-яёa-zà-ú]{4,}", title.lower())}))
+            kept = [b for b in blocks
+                    if _fits_story(b.get("title", ""), title,
+                                   anchor.get("title", ""),
+                                   str(anchor.get("summary", "")))]
             if len(kept) < len(blocks):
                 print(f"  ✂️ Из обзора «{title[:28]}» убрано не по теме: "
                       f"{len(blocks) - len(kept)}")
             blocks = kept
+        blocks = _lead_first_reporter(blocks)
         if len({b.get("source") for b in blocks}) < STORY_MIN_BIG:
             continue
         st = {**st, "title": title, "blocks": _fold_echoes(blocks)}
