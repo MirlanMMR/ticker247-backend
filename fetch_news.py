@@ -2600,7 +2600,13 @@ def ask_fallback(prompt, charter_text: str = "") -> str:
     req = urllib.request.Request(
         f"{FALLBACK_BASE_URL.rstrip('/')}/chat/completions", data=body,
         headers={"Content-Type": "application/json",
-                 "Authorization": f"Bearer {FALLBACK_API_KEY}"})
+                 "Authorization": f"Bearer {FALLBACK_API_KEY}",
+                 # Cloudflare у Groq режет запросы по подписи клиента:
+                 # стандартная библиотека Python представляется
+                 # «Python-urllib», и в ответ приходит 403 с кодом 1010.
+                 # Представляемся обычным клиентом
+                 "User-Agent": "Ticker247/1.0 (+https://mirlanmmr.github.io/ticker247/)",
+                 "Accept": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=120) as r:
             data = json.load(r)
