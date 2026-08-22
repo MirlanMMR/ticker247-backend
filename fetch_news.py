@@ -1611,10 +1611,35 @@ def _page_body(url: str) -> str:
                     rows.append(" — ".join(cells[:4]))
             if len(rows) >= 2 and not _is_sidebar_table(rows):
                 paras.append("\n".join(rows))
-        for p in root.find_all("p"):
+        # Берём и <li>: перечни улиц, домов и рейсов живут в списках, а не в
+        # абзацах. Короткие строки по-прежнему отбрасываем как подписи и
+        # крошки — КРОМЕ тех, что идут сразу после двоеточия. 22.08 читатель
+        # открыл «движение ограничено на следующих улицах:» и не увидел ни
+        # одной улицы: перечень состоял из строк короче шестидесяти знаков.
+        expecting_list = False
+        listed = 0
+        # Слова навигации: у части сайтов статья свёрстана списками, и в тот
+        # же список попадают «Главная», «Все новости», «Спецпроекты»
+        _NAV = {"главная", "все новости", "спецпроекты", "контакты", "реклама",
+                "полезное", "call-центр", "подписка", "архив", "поиск"}
+        for p in root.find_all(["p", "li"]):
             t = clean_text(p.get_text(" ", strip=True))
-            if len(t) < 60:                     # подписи, даты, крошки
+            if not t:
                 continue
+            # <li> в сотни знаков — это контейнер вёрстки, а не пункт списка:
+            # у Kaktus в таком лежит вся статья целиком, и она задвоила бы текст
+            if p.name == "li" and len(t) > 600:
+                continue
+            if t.lower().strip(" ·—-") in _NAV:
+                continue
+            if len(t) < 60:
+                if expecting_list and listed < 15 and len(t) > 2:
+                    paras.append(t)
+                    listed += 1
+                    continue
+                continue
+            expecting_list = t.rstrip().endswith(":")
+            listed = 0
             low = t.lower()
             if any(n in low for n in _PAGE_NOISE):
                 continue
@@ -1631,6 +1656,7 @@ def _page_body(url: str) -> str:
                 continue
             seen.add(key)
             paras.append(t)
+            expecting_list = t.rstrip().endswith(":")
             # Набираем до 1400, а не до 700. Потолок ленты — 1300 знаков, он
             # стоит ниже, при обрезке. Но сбор абзацев обрывался на 700, и до
             # потолка текст не доходил НИКОГДА: 20.08 читатель открыл заметку
