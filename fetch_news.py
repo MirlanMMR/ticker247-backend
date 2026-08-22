@@ -4722,6 +4722,47 @@ _NEVER_URGENT = re.compile(
     r"|^por qué|^cómo|precios de|^porque|^como|preços", re.I)
 
 
+# Страны языкового пространства каждого пула. Издание соседней страны, пишущее
+# о своей стране, — это полка «своего языка», а не «мировые»: 22.08 новость
+# Kun.uz об институте цифровой безопасности в Узбекистане стояла среди мировых.
+POOL_COUNTRIES = {
+    "ru": {"KZ", "UZ", "TJ", "RU", "UA", "BY", "AM", "AZ", "GE", "MD", "TM"},
+    "en": {"GB", "IE", "CA", "AU", "NZ", "IN", "NG", "ZA", "JM", "SG"},
+    "es": {"ES", "AR", "CO", "PE", "CL", "EC", "VE", "GT", "CR", "SV", "DO", "UY", "PY", "BO", "PA", "HN", "NI", "CU"},
+    "pt": {"PT", "AO", "MZ", "CV", "GW", "ST", "TL"},
+}
+
+# Городская повседневность: отключения, перекрытия, ремонты. ИИ иногда метит
+# их спортом или деньгами, и читатель видит трофей вместо новости о дороге
+_UTILITY = re.compile(
+    r"ограничен\w* движени|перекр\w+ (?:движени|улиц|дорог)|отключ\w+ (?:свет|вод|газ|электро)"
+    r"|ремонт (?:дорог|улиц|моста)|movimiento restringido|corte de (?:agua|luz)"
+    r"|road closure|traffic restriction|water outage|power outage", re.I)
+
+
+def fix_scope_and_category(items, lang):
+    """Правит две ошибки разметки, которые видит читатель.
+
+    Полка: издание соседней страны о своей стране — «свой язык», не «мир».
+    Категория: перекрытая улица — не спорт, каким бы ни было решение ИИ.
+    """
+    space = POOL_COUNTRIES.get(lang, set())
+    moved = recat = 0
+    for x in items:
+        country = x.get("country") or ""
+        if x.get("scope") == "world" and country and country in space:
+            x["scope"] = "pool"
+            moved += 1
+        head = f"{x.get('title','')} {str(x.get('summary',''))[:120]}"
+        if _UTILITY.search(head) and x.get("category") in ("SPORT", "STARS", "TECH", "MONEY", "CULTURE"):
+            x["category"] = "KG" if x.get("scope") == "local" else "NEWS"
+            recat += 1
+    if moved or recat:
+        print(f"  📐 Разметка [{lang}]: полка исправлена у {moved}, "
+              f"категория у {recat}")
+    return items
+
+
 def cap_urgent(items, lang):
     """Оставляет не больше двух срочных, и только свежие.
 
@@ -5709,6 +5750,7 @@ def main():
         filtered = quality_gate(filtered, lang)
         # Порог срочности: не больше двух и только свежие
         filtered = cap_urgent(filtered, lang)
+        filtered = fix_scope_and_category(filtered, lang)
         # Обзор прессы собираем ДО схлопывания повторов: он и живёт тем, что
         # об одном событии написали несколько изданий. Сначала выбросить все
         # версии кроме лучшей, а потом просить обзор — как и вышло 20.08 —
