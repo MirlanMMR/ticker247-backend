@@ -2619,6 +2619,20 @@ def ask_fallback(prompt, charter_text: str = "") -> str:
             detail = e.read().decode("utf-8", "ignore")[:200].replace("\n", " ")
         except Exception:
             pass
+        if e.code == 400 and "not found" in detail.lower():
+            # Спрашиваем у самого сервера, какие модели у него есть, — это
+            # быстрее и честнее, чем гадать по документации: 22.08 «grok-4-fast»
+            # и «grok-4.1-fast» оказались устаревшими именами
+            try:
+                lreq = urllib.request.Request(
+                    f"{FALLBACK_BASE_URL.rstrip('/')}/models",
+                    headers={"Authorization": f"Bearer {FALLBACK_API_KEY}",
+                             "User-Agent": "Ticker247/1.0"})
+                with urllib.request.urlopen(lreq, timeout=30) as lr:
+                    names = [m.get("id") for m in json.load(lr).get("data", [])]
+                detail += " | доступны: " + ", ".join(filter(None, names))[:300]
+            except Exception as le:
+                detail += f" | список моделей не получен: {str(le)[:60]}"
         if e.code == 401:
             # Ключ не показываем, но длина и начало — не секрет и сразу
             # объясняют, целиком ли он скопирован
