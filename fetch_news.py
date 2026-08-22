@@ -4846,6 +4846,42 @@ _UTILITY = re.compile(
     r"|road closure|traffic restriction|water outage|power outage", re.I)
 
 
+# Как страна называется в новости — на языках наших пулов
+_COUNTRY_WORDS = {
+    "KZ": ("казахстан", "kazakh", "kazajistán", "cazaquistão"),
+    "UZ": ("узбекистан", "uzbek", "uzbekistán", "uzbequistão"),
+    "TJ": ("таджикистан", "tajik", "tayikistán", "tajiquistão"),
+    "RU": ("росси", "russia", "rusia", "rússia"),
+    "UA": ("украин", "ukrain", "ucrania", "ucrânia"),
+    "GB": ("британ", "britain", "british", "uk ", "англи", "reino unido"),
+    "IE": ("ирланди", "ireland", "irish", "irlanda"),
+    "CA": ("канад", "canada", "canadian", "canadá"),
+    "AU": ("австрали", "australia", "australian"),
+    "IN": ("инди", "india", "indian"),
+    "NG": ("нигери", "nigeria", "nigerian"),
+    "ZA": ("южной африк", "south africa"),
+    "SG": ("сингапур", "singapore"),
+    "ES": ("испани", "spain", "spanish", "españa"),
+    "AR": ("аргентин", "argentina", "argentino"),
+    "CO": ("колумби", "colombia"),
+    "PE": ("перу", "peru", "perú"),
+    "CL": ("чили", "chile"),
+    "MX": ("мексик", "mexico", "méxico"),
+    "PT": ("португал", "portugal", "português"),
+    "BR": ("бразил", "brazil", "brasil"),
+    "AO": ("ангол", "angola"),
+    "MZ": ("мозамбик", "moçambique", "mozambique"),
+}
+
+
+def _mentions_country(text: str, code: str) -> bool:
+    words = _COUNTRY_WORDS.get(code)
+    if not words:
+        return True          # страны не знаем — ведём себя как прежде
+    low = text.lower()
+    return any(w in low for w in words)
+
+
 def fix_scope_and_category(items, lang):
     """Правит две ошибки разметки, которые видит читатель.
 
@@ -4856,7 +4892,13 @@ def fix_scope_and_category(items, lang):
     moved = recat = 0
     for x in items:
         country = x.get("country") or ""
-        if x.get("scope") == "world" and country and country in space:
+        head = f"{x.get('title','')} {str(x.get('summary',''))[:200]}"
+        # Понижаем, только если новость О САМОЙ этой стране. Прежнее правило
+        # переводило в «свои» ЛЮБУЮ заметку издания из языкового пространства,
+        # и BBC про Газу становилась британской новостью: в английском пуле
+        # мировых осталось двенадцать из двадцати с лишним
+        if (x.get("scope") == "world" and country and country in space
+                and _mentions_country(head, country)):
             x["scope"] = "pool"
             moved += 1
         head = f"{x.get('title','')} {str(x.get('summary',''))[:120]}"
