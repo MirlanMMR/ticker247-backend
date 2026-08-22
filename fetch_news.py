@@ -2571,6 +2571,7 @@ _CHARTER = None
 # год может смениться трижды, поэтому переменная названа по РОЛИ — запасной
 # путь, — а не по имени модели, которая в ней сегодня.
 FALLBACK_API_KEY = (os.environ.get("AI_FALLBACK_KEY")
+                    or os.environ.get("GROQ_API_KEY")
                     or os.environ.get("QWEN_API_KEY", ""))
 FALLBACK_BASE_URL = (os.environ.get("AI_FALLBACK_URL")
                      or os.environ.get("QWEN_BASE_URL")
