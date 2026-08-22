@@ -2937,7 +2937,7 @@ def mark_graphic_photos(items, lang):
 # чтобы обещание нигде не разошлось с делом: 22.08 в описании Play стояло
 # «каждый час», а собирали мы раз в два часа с 18 августа.
 # МЕНЯТЬ ВМЕСТЕ С cron в .github/workflows/fetch.yml
-REFRESH_MINUTES = 120
+REFRESH_MINUTES = 60
 
 # Версия приложения, опубликованная в Play. Поднимать вместе с versionCode
 APP_LATEST_CODE = 29
