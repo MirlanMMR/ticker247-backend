@@ -5319,6 +5319,11 @@ def post_to_telegram(items: list, channel: str = TELEGRAM_CHANNEL, lang: str = "
     # иначе архив в канале растёт бесконечно. Требует, чтобы бот был
     # админом канала с правом "Удаление сообщений".
     all_messages = msg_ref.get() or {}
+    # Firebase отдаёт СПИСОК вместо словаря, когда ключи оказываются подряд
+    # идущими числами. 22.08 на этом рухнул весь прогон: «list object has no
+    # attribute items», и пулы после упавшего не собрались вовсе
+    if isinstance(all_messages, list):
+        all_messages = {str(i): v for i, v in enumerate(all_messages) if v}
     msg_cutoff = int(datetime.now().timestamp()) - 30 * 86400
     old_messages = {k: v for k, v in all_messages.items()
                      if isinstance(v, dict) and v.get("ts", 0) < msg_cutoff}
@@ -5882,7 +5887,13 @@ def main():
         channel = TELEGRAM_CHANNELS.get(lang)
         if channel:
             print(f"📤 Постим [{lang}] в {channel}...")
-            post_to_telegram(filtered, channel=channel, lang=lang)
+            try:
+                post_to_telegram(filtered, channel=channel, lang=lang)
+            except Exception as e:
+                # Телеграм — витрина, а не лента. Его сбой не должен уносить
+                # с собой сбор новостей: 22.08 ошибка в архиве канала оборвала
+                # прогон, и пулы после испанского остались вчерашними
+                print(f"  ⚠️ Телеграм [{lang}] не отработал: {str(e)[:80]}")
 
     # Пул выключили — убираем его ветку. Иначе у того, кто уже выбрал этот
     # язык, приложение будет вечно показывать последнюю выдачу перед
