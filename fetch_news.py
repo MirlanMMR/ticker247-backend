@@ -880,7 +880,11 @@ RADIO_STATIONS = [
     # Оставляем в списке насовсем — если замолчит снова, часовая проверка
     # погасит кнопку сама, и правка руками больше не понадобится.
     # «Биринчи» по-прежнему не отвечает, «Миң кыял» музыкальное — не берём
-    {"name": "Кыргыз радиосу",  "url": "https://liveradio.utrk.kg/kyrgyzradio",  "pool": "ru", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "KG,KZ,UZ,TM"},
+    # «Кыргыз радиосу» и «Биринчи» убраны 22.08.2026: домен liveradio.utrk.kg
+    # удалён целиком — NXDOMAIN и у Google, и у Cloudflare, а это не сбой
+    # эфира, а исчезновение имени. Вещатель переехал на ktrk.kg и потока там
+    # не выкладывает. Речевой станции Кыргызстана у нас снова нет; живы только
+    # музыкальные: Кыргызстан Обондору, Сүйүнчү FM, Радио Тумар FM.
     {"name": "РБК",              "url": "https://rbcreg.hostingradio.ru/rbc32.aacp",                                  "pool": "ru", "colorFrom": "FF1F3A5F", "colorTo": "FF2E6CA8"},
     {"name": "Коммерсантъ FM",   "url": "https://kommersant77.hostingradio.ru:8085/kommersant128.mp3",                 "pool": "ru", "colorFrom": "FF4A2B1E", "colorTo": "FF8A5A3B"},
     {"name": "Бизнес FM",        "url": "https://bfm.hostingradio.ru:9075/fm",                                        "pool": "ru", "colorFrom": "FF1E3B32", "colorTo": "FF2F7A63"},
