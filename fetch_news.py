@@ -259,6 +259,15 @@ RSS_SOURCES = [
     {"url": "https://www.letemps.ch/articles.rss", "source": "Le Temps", "category": "NEWS", "priority": 1, "quota": 6, "scope": "pool", "lang": "fr"},
     {"url": "https://www.jeuneafrique.com/feed/", "source": "Jeune Afrique", "category": "NEWS", "priority": 2, "quota": 8, "scope": "pool", "lang": "fr"},
     {"url": "https://www.rfi.fr/fr/rss", "source": "RFI", "category": "NEWS", "priority": 2, "quota": 8, "scope": "pool", "lang": "fr"},
+    # Областные и общенациональные издания добавлены 22.08.2026: местных
+    # французских новостей выходило семь из семидесяти. Le Monde и Le Figaro
+    # много пишут о мире, и мы честно считаем это мировой повесткой — значит
+    # домашнюю ленту должны наполнять те, кто пишет о самой Франции.
+    {"url": "https://feeds.leparisien.fr/leparisien/rss", "source": "Le Parisien", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "fr"},
+    {"url": "https://www.ladepeche.fr/rss.xml", "source": "La Dépêche", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
+    {"url": "https://www.francebleu.fr/rss/a-la-une.xml", "source": "France Bleu", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
+    {"url": "https://www.nicematin.com/rss", "source": "Nice-Matin", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local", "lang": "fr"},
+    {"url": "https://www.nouvelobs.com/rss.xml", "source": "L'Obs", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
     {"url": "https://www.france24.com/fr/rss", "source": "France 24 FR", "category": "NEWS", "priority": 2, "quota": 10, "scope": "world", "lang": "fr"},
     {"url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/", "source": "El Universal MX", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "es"},
     {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "es"},
@@ -431,6 +440,8 @@ SOURCE_COUNTRY = {
     # Франкоязычные
     "Le Monde": "FR", "Le Figaro": "FR", "Franceinfo": "FR", "20 Minutes": "FR",
     "Ouest-France": "FR", "L'Express": "FR", "France 24 FR": "FR",
+    "Le Parisien": "FR", "La Dépêche": "FR", "France Bleu": "FR",
+    "Nice-Matin": "FR", "L'Obs": "FR",
     "RTBF": "BE", "Radio-Canada": "CA", "Le Devoir": "CA", "Le Temps": "CH",
     "Jeune Afrique": "SN", "RFI": "FR",
     # Кыргызстан и соседи
@@ -477,7 +488,9 @@ LOCAL_DOMAINS = {
     # читателю в Дакаре или Брюсселе подставит само приложение по его стране
     # (CountryNewsFetcher), поэтому список здесь — про Францию
     "fr": ["lemonde.fr", "lefigaro.fr", "20minutes.fr", "ouest-france.fr",
-           "lexpress.fr", "liberation.fr", "leparisien.fr", "franceinfo.fr"],
+           "lexpress.fr", "liberation.fr", "leparisien.fr", "franceinfo.fr",
+           "francetvinfo.fr", "ladepeche.fr", "francebleu.fr", "nicematin.com",
+           "nouvelobs.com"],
     "pt": ["globo.com", "uol.com.br", "folha.uol.com.br", "estadao.com.br",
            "band.uol.com.br", "r7.com", "cnnbrasil.com.br", "agenciabrasil.ebc.com.br",
            "metropoles.com", "poder360.com.br", "gazetadopovo.com.br",
