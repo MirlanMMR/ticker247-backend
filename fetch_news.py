@@ -513,6 +513,15 @@ LOCAL_DOMAINS = {
 # почти не подключено, и блок у них пустует. Решено не спешить: лента и так
 # полная, пустого блока читатель не видит. Добавляем по мере появления
 # стабильных и качественных источников, а не ради заполнения.
+# Мировые вещатели: у них есть страна, но повестка планетарная. Их нельзя
+# запирать в пул родной страны — остальные останутся без мировых новостей.
+WORLD_OUTLETS = {
+    "BBC News", "BBC World", "BBC Sport", "BBC Русская служба", "BBC Mundo",
+    "Reuters", "Al Jazeera", "Deutsche Welle", "France 24 FR", "RFI",
+    "AP News", "Bloomberg", "Guardian Sport", "The Guardian", "Fortune",
+    "Semafor", "Time", "The Independent",
+}
+
 POOL_DOMAINS = {
     # Русскоязычные издания — здесь, а не в мировых. Иначе их тексты уходят в
     # английскую, испанскую и португальскую ленты и переводятся машиной: читатель
@@ -664,9 +673,23 @@ def normalize_source_scopes(sources):
         # пространство. bbc.com попадает и в POOL_DOMAINS(en), и в mundo(es) —
         # но "bbc.com/mundo" длиннее и проверяется на том же уровне, поэтому
         # язык источника решает, к какому пулу его относить
-        if any(dom in url for doms in LOCAL_DOMAINS.values() for dom in doms):
+        if s.get("source", "") in WORLD_OUTLETS:
+            # Мировые вещатели остаются мировыми, хотя страна у них есть:
+            # запри BBC в английском пуле — и остальные останутся без мировой
+            # повестки
+            want = "world"
+        elif any(dom in url for doms in LOCAL_DOMAINS.values() for dom in doms):
             want = "local"
         elif any(dom in url for doms in POOL_DOMAINS.values() for dom in doms):
+            want = "pool"
+        elif any(SOURCE_COUNTRY.get(s.get("source", "")) in space
+                 for space in POOL_COUNTRIES.values()):
+            # Издание не в списках, но страна его известна и входит в чьё-то
+            # языковое пространство — значит новость региональная, а не
+            # мировая. 22.08 русская лента Kun.uz числилась мировой, и авария
+            # с узбекистанцами в Казахстане ушла во французский пул,
+            # переведённая на французский. «Мир» не должен быть свалкой
+            # неопознанных изданий: мировое расходится по ВСЕМ пулам
             want = "pool"
         else:
             want = "world"
