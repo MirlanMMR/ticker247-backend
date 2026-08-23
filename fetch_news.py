@@ -3029,61 +3029,65 @@ _MODEL_IN_USE = GEMINI_MODEL
 # короткую шапку рядом со списком новостей, — но это правка самого промпта, а
 # менять разом и кэш, и текст нельзя: потом не поймёшь, из-за чего изменились
 # решения модели.
-GEMINI_CACHES = {}              # пул -> CachedContent
+GEMINI_CACHES = {}              # ключ -> CachedContent
 GEMINI_CACHE_TTL = 900          # прогон длится 4 минуты, берём с запасом
-GEMINI_CACHE_OFF = False        # выключается при первой же неудаче, до конца прогона
+# Выключатель ПОКЛЮЧЕВОЙ, а не общий. Кэшей теперь два вида: по одному на пул
+# для второго этапа и один общий для первого. Общий выключатель означал бы,
+# что сбой одного гасит другой — а причины у них разные (у первого этапа свой
+# устав и свой размер блока)
+GEMINI_CACHE_OFF = set()
 
 
-def _gemini_cache_for(pool: str, preamble: str):
-    """Кэш неизменной части для пула. None — работаем как раньше.
+def _gemini_cache_for(key: str, preamble: str, charter_text: str = None):
+    """Кэш неизменной части. None — работаем как раньше.
 
     Кэш — ускоритель, а не опора: любая неудача здесь молча возвращает нас на
     прежний путь. Лента дороже экономии.
     """
-    global GEMINI_CACHE_OFF
-    if GEMINI_CACHE_OFF or FALLBACK_MODE or not GEMINI_API_KEY:
+    if key in GEMINI_CACHE_OFF or FALLBACK_MODE or not GEMINI_API_KEY:
         return None
-    if pool in GEMINI_CACHES:
-        return GEMINI_CACHES[pool]
+    if key in GEMINI_CACHES:
+        return GEMINI_CACHES[key]
     try:
         from google.generativeai import caching
         cc = caching.CachedContent.create(
             model=_MODEL_IN_USE,
-            display_name=f"ticker247-filter-{pool}",
-            system_instruction=_editorial_charter(),
+            display_name=f"ticker247-{key}",
+            system_instruction=charter_text or _editorial_charter(),
             contents=[preamble],
             ttl=timedelta(seconds=GEMINI_CACHE_TTL),
         )
-        GEMINI_CACHES[pool] = cc
+        GEMINI_CACHES[key] = cc
         size = getattr(getattr(cc, "usage_metadata", None), "total_token_count", 0)
-        print(f"  ♻️ Кэш заведён [{pool}]: {size:,} токенов")
+        print(f"  ♻️ Кэш заведён [{key}]: {size:,} токенов")
         return cc
     except Exception as e:
         # Причин может быть три: псевдоним модели не годится для кэша,
         # блок меньше минимального размера, метод недоступен в этой версии
         # SDK. Все три лечатся по-разному, поэтому текст ошибки печатаем
         # целиком — иначе следующий раз будем гадать так же, как сегодня
-        GEMINI_CACHE_OFF = True
-        print(f"  ⚠️ Кэш недоступен, работаем как раньше: {str(e)[:300]}")
+        GEMINI_CACHE_OFF.add(key)
+        print(f"  ⚠️ Кэш [{key}] недоступен, работаем как раньше: {str(e)[:300]}")
         return None
 
 
-def ask_gemini_cached(pool: str, preamble: str, tail: str) -> str:
+def ask_gemini_cached(key: str, preamble: str, tail: str, charter=True) -> str:
     """Запрос, у которого неизменная часть лежит в кэше, а меняется только хвост.
 
     Не вышло — склеиваем обратно и идём обычным путём. Снаружи разницы нет.
     """
-    cc = _gemini_cache_for(pool, preamble)
+    charter_text = (_editorial_charter() if charter is True
+                    else charter if isinstance(charter, str) else None)
+    cc = _gemini_cache_for(key, preamble, charter_text)
     if cc is None:
-        return ask_gemini(preamble + tail)
+        return ask_gemini(preamble + tail, charter=charter)
     try:
         model = genai.GenerativeModel.from_cached_content(cached_content=cc)
         resp = model.generate_content(tail)
     except Exception as e:
-        global GEMINI_CACHE_OFF
-        GEMINI_CACHE_OFF = True
-        print(f"  ⚠️ Кэш не подключился, работаем как раньше: {str(e)[:200]}")
-        return ask_gemini(preamble + tail)
+        GEMINI_CACHE_OFF.add(key)
+        print(f"  ⚠️ Кэш [{key}] не подключился, работаем как раньше: {str(e)[:200]}")
+        return ask_gemini(preamble + tail, charter=charter)
     u = getattr(resp, "usage_metadata", None)
     if u:
         TOKENS["in"] += getattr(u, "prompt_token_count", 0) or 0
@@ -3361,8 +3365,11 @@ def _cull_chunk_loop(news_list, lang="ru"):
         titles = [f"{n + 1}. [{x.get('source', '?')}] {x.get('title', '')}"
                   for n, x in enumerate(part)]
         try:
-            text = ask_gemini(_CULL_PROMPT + chr(10).join(titles),
-                              charter=_editorial_cull_charter())
+            # Ключ один на все пулы: и промпт отсева, и его устав от пула не
+            # зависят — вопрос «новость или мусор» одинаков для всех.
+            # Второму этапу так нельзя, там в тексте назван пул
+            text = ask_gemini_cached("cull", _CULL_PROMPT, chr(10).join(titles),
+                                     charter=_editorial_cull_charter())
             asked += 1
             if "```" in text:
                 text = text.split("```")[1].replace("json", "").strip()
