@@ -2820,6 +2820,34 @@ FALLBACK_MODEL = (os.environ.get("AI_FALLBACK_MODEL")
                   or "openai/gpt-oss-120b")
 
 
+_CULL_CHARTER = None
+
+
+def _editorial_cull_charter() -> str:
+    """Устав ПЕРВОГО этапа — только правила отсева мусора (EDITORIAL_CULL.md).
+
+    Устав разделён надвое 23.08.2026. Полный весит 3 554 токена, и большая
+    его часть — полки, приоритеты, калибровка срочности — первому этапу не
+    нужна вовсе: там решается один вопрос, новость это или мусор. Урезанный
+    весит 1 515 токенов, то есть вдвое с лишним дешевле.
+
+    Граница между файлами проведена по смыслу: «что не новость» здесь, «как
+    размечать» — в EDITORIAL.md. Пересекаться они не должны, иначе правило
+    поправят в одном файле и забудут в другом.
+    """
+    global _CULL_CHARTER
+    if _CULL_CHARTER is None:
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                   "EDITORIAL_CULL.md"), encoding="utf-8") as f:
+                _CULL_CHARTER = f.read()
+            print(f"  📜 Устав отсева загружен: {len(_CULL_CHARTER)} знаков")
+        except Exception as e:
+            print(f"  ⚠️ EDITORIAL_CULL.md не прочитан ({e}), беру полный устав")
+            _CULL_CHARTER = _editorial_charter()
+    return _CULL_CHARTER
+
+
 def _fallback_call(req, tries: int = 3):
     """Запрос с ожиданием при минутном пределе.
 
@@ -2916,7 +2944,7 @@ def ask_fallback(prompt, charter_text: str = "") -> str:
     return (data["choices"][0]["message"]["content"] or "").strip()
 
 
-def ask_gemini(prompt, charter: bool = True) -> str:
+def ask_gemini(prompt, charter=True) -> str:
     """Один запрос к ИИ с подсчётом токенов и запасной моделью.
 
     Принимает строку или список частей — во втором случае среди них может быть
@@ -2937,7 +2965,12 @@ def ask_gemini(prompt, charter: bool = True) -> str:
     # приложенная к сорока запросам подряд. Переводчику, разборщику страницы и
     # взгляду на фотографию она не нужна: там нет решения «наша ли это
     # новость». Она нужна там, где ИИ судит — отбор, роли в обзоре, полки.
-    charter = _editorial_charter() if charter else ""
+    # charter: True — полный устав, False — без устава, строка — свой устав
+    # (первому этапу отсева нужен урезанный, EDITORIAL_CULL.md)
+    if charter is True:
+        charter = _editorial_charter()
+    elif not isinstance(charter, str):
+        charter = ""
     try:
         model = genai.GenerativeModel(
             _MODEL_IN_USE,
@@ -3268,6 +3301,130 @@ def save_ai_cache():
         print(f"  🧠 Память вердиктов сохранена: {sum(len(v) for v in cleaned.values())}")
     except Exception as e:
         print(f"  ⚠️ Память вердиктов не сохранилась: {e}")
+
+
+# ─── ЭТАП 1: дешёвый отсев ─────────────────────────────────────────────────
+#
+# ПОКА РАБОТАЕТ ВХОЛОСТУЮ: помечает, но ничего не удаляет. Смысл холостого
+# прогона в том, что ошибка первого этапа необратима — выброшенная новость до
+# второго этапа не дойдёт и в ленту не вернётся. Прежде чем дать ему право
+# удалять, надо своими глазами сравнить его решения с решениями нынешнего
+# единого промпта. Сравнение печатает _cull_dry_report.
+#
+# Переключатель боевого режима — CULL_DRY_RUN. Менять только после разбора
+# лога по русскому пулу: остальные четыре проверить некому.
+CULL_DRY_RUN = True
+CULL_CHUNK = 120        # заголовки короткие, порция может быть втрое больше,
+                        # чем у второго этапа: меньше порций — меньше накладных
+
+_CULL_PROMPT = """Ты первичный фильтр новостного агрегатора Ticker 24/7.
+
+Твоя ЕДИНСТВЕННАЯ задача — отсеять то, что новостью не является. Ты НЕ
+размечаешь рубрики, НЕ определяешь срочность, НЕ выбираешь полку, НЕ
+переводишь. Один вопрос по каждому пункту: это новость или мусор?
+
+Ты видишь только заголовок и название издания. Этого достаточно, чтобы
+опознать рекламу, гороскоп, прямую трансляцию или пересказ передачи, — и
+недостаточно, чтобы судить о содержании статьи. СОМНЕВАЕШЬСЯ — ОСТАВЛЯЙ:
+пропущенный мусор разберёт следующий этап, а выброшенная новость не вернётся.
+
+Верни ТОЛЬКО JSON, без пояснений и без текста вокруг:
+{"drop": [2, 7, 15]}
+
+Если отсеивать нечего — верни {"drop": []}.
+
+НОВОСТИ:
+"""
+
+
+def _cull_chunk_loop(news_list, lang="ru"):
+    """ЭТАП 1. В холостом режиме только проставляет `_cull_drop_candidate`.
+
+    Список возвращается НЕТРОНУТЫМ — ни одна новость отсюда не исчезает,
+    пока CULL_DRY_RUN. Это главное свойство функции, и менять его следует
+    одним осознанным движением, а не попутно.
+    """
+    if not news_list:
+        return news_list
+    marked, asked = 0, 0
+    for i in range(0, len(news_list), CULL_CHUNK):
+        part = news_list[i:i + CULL_CHUNK]
+        titles = [f"{n + 1}. [{x.get('source', '?')}] {x.get('title', '')}"
+                  for n, x in enumerate(part)]
+        try:
+            text = ask_gemini(_CULL_PROMPT + chr(10).join(titles),
+                              charter=_editorial_cull_charter())
+            asked += 1
+            if "```" in text:
+                text = text.split("```")[1].replace("json", "").strip()
+            drop = json.loads(text).get("drop", [])
+        except Exception as e:
+            # Отказ первого этапа не должен стоить нам ленты: молча идём
+            # дальше, второй этап отсеет всё сам, как и делал до сих пор
+            print(f"  ⚠️ Этап 1 [{lang}] не ответил, порция пропущена: {str(e)[:90]}")
+            continue
+        for n in drop:
+            try:
+                idx = int(n) - 1
+            except (TypeError, ValueError):
+                continue
+            if 0 <= idx < len(part):
+                part[idx]["_cull_drop_candidate"] = True
+                marked += 1
+
+    mode = "холостой" if CULL_DRY_RUN else "боевой"
+    print(f"  🧪 Этап 1 ({mode}) [{lang}]: помечено {marked} из {len(news_list)} "
+          f"за {asked} запросов")
+    if CULL_DRY_RUN:
+        return news_list
+    return [x for x in news_list if not x.get("_cull_drop_candidate")]
+
+
+def _cull_dry_report(before, after, lang):
+    """Сравнивает решения этапа 1 с решениями нынешнего единого промпта.
+
+    `before` — что пошло в отбор, `after` — что дожило до ленты. Разница между
+    ними и есть приговор нынешнего конвейера, с которым мы сверяемся.
+
+    Две колонки ошибок, и они неравноценны:
+      · ЛОЖНОЕ СРАБАТЫВАНИЕ — этап 1 выбросил бы то, что дошло до ленты. Это
+        дорогая ошибка: в бою новость исчезла бы безвозвратно. Читать в первую
+        очередь.
+      · ПРОПУСК — этап 1 оставил то, что конвейер потом забраковал. Дешёвая
+        ошибка: мы лишь заплатили за разбор мусора, читатель ничего не заметил.
+    """
+    # Сличаем по адресу статьи, а не по id() объекта: конвейер местами
+    # пересобирает словари, и тождество объектов ненадёжно
+    survived = {x.get("url") for x in after if x.get("url")}
+    false_drops = [x for x in before
+                   if x.get("_cull_drop_candidate") and x.get("url") in survived]
+    misses = [x for x in before
+              if not x.get("_cull_drop_candidate") and x.get("url") not in survived]
+
+    total = len(before) or 1
+    print(f"\n  ── Этап 1, холостая сверка [{lang}] ─────────────────────────")
+    print(f"     на входе {len(before)}, дожило до ленты {len(after)}")
+    print(f"     ложных срабатываний: {len(false_drops)} "
+          f"({len(false_drops) * 100 // total}%) — выбросил бы живое")
+    print(f"     пропусков мусора:    {len(misses)} "
+          f"({len(misses) * 100 // total}%) — не узнал мусор")
+
+    if lang != "ru":
+        return          # подробности только по русскому: остальное читать некому
+
+    if false_drops:
+        print(f"\n     ❗ ВЫБРОСИЛ БЫ ЗРЯ ({len(false_drops)}) — это цена ошибки:")
+        for x in false_drops[:25]:
+            print(f"        [{x.get('source', '?')}] {str(x.get('title', ''))[:96]}")
+        if len(false_drops) > 25:
+            print(f"        … и ещё {len(false_drops) - 25}")
+    if misses:
+        print(f"\n     ○ не узнал мусор ({len(misses)}) — это только деньги:")
+        for x in misses[:25]:
+            print(f"        [{x.get('source', '?')}] {str(x.get('title', ''))[:96]}")
+        if len(misses) > 25:
+            print(f"        … и ещё {len(misses) - 25}")
+    print("  ─────────────────────────────────────────────────────────────\n")
 
 
 def _rule_cull(items, lang="?"):
@@ -6127,6 +6284,12 @@ def main():
         if not group:
             continue
         print(f"\n🌐 [{lang.upper()}] {len(group)} статей → Gemini...")
+
+        # ЭТАП 1 — здесь, а не внутри filter_with_gemini: та зовётся порциями
+        # по 80, и порция отсева никогда не набралась бы до своих 120
+        group = _cull_chunk_loop(group, lang)
+        cull_input = list(group)     # слепок для холостой сверки
+
         filtered = []
         for i in range(0, len(group), 80):
             batch = group[i:i+80]
@@ -6259,6 +6422,10 @@ def main():
         for _x in filtered:
             _x["summary"] = polish_summary(_x.get("summary", ""))
         filtered = quality_gate(filtered, lang)
+        # Сверяем ЗДЕСЬ, а не перед записью в базу: дальше ленту режет
+        # ограничение по объёму (80 новостей на пул), и снятое им — не
+        # мусор, а просто лишнее. Считать его пропуском этапа 1 нечестно
+        _cull_dry_report(cull_input, filtered, lang)
         # Порог срочности: не больше двух и только свежие
         filtered = cap_urgent(filtered, lang)
         filtered = fix_scope_and_category(filtered, lang)
