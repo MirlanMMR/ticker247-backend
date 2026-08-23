@@ -3203,8 +3203,8 @@ def mark_graphic_photos(items, lang):
 REFRESH_MINUTES = 60
 
 # Версия приложения, опубликованная в Play. Поднимать вместе с versionCode
-APP_LATEST_CODE = 29
-APP_LATEST_NAME = "1.7.5"
+APP_LATEST_CODE = 30
+APP_LATEST_NAME = "1.7.6"
 
 RULES_VERSION = 11
 
