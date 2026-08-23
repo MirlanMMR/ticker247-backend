@@ -12,6 +12,11 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
+from textcut import trim_to_boundary, _looks_blocked
+try:
+    import trafilatura
+except ImportError:          # библиотеки нет — работаем на своём разборе
+    trafilatura = None
 import google.generativeai as genai
 import firebase_admin
 from firebase_admin import credentials, db
@@ -1596,16 +1601,12 @@ def extract_full_summary(item_el) -> str:
     if title and text.startswith(title):
         text = text[len(title):].lstrip(" .,—-")
 
-    # Берём до 600 символов, но обрезаем по последнему полному предложению
-    if len(text) > 600:
-        text = text[:600]
-        for sep in (". ", "! ", "? ", ".\n"):
-            idx = text.rfind(sep)
-            if idx > 100:
-                text = text[:idx + 1]
-                break
-
-    return text.strip()
+    # Берём до 600 знаков по границе предложения. Прежде здесь перебирались
+    # разделители по очереди: сначала «. », и только если такой точки не
+    # нашлось — «! » и «? ». Порядок означал, что текст с восклицанием в конце
+    # резался по более ранней точке, а не по ближайшей границе. Правило
+    # обрезки теперь одно на весь конвейер.
+    return trim_to_boundary(text, 600).strip()
 
 # Служебный мусор новостных страниц — строки, которые нельзя тащить в summary
 _PAGE_NOISE = ("this video can not be played", "published ", "getty images",
@@ -1672,8 +1673,49 @@ def _is_sidebar_table(rows: list) -> bool:
     return money >= 2
 
 
+PAGE_BODY_LIMIT = 1300   # полторы страницы читалки — столько человек
+                         # проглядывает без утомительной прокрутки
+
+
+def _trafilatura_body(raw_html: bytes) -> str:
+    """Основной разбор статьи — библиотекой, а не своими правилами.
+
+    Почему перешли (замер 23.08.2026 на тридцати живых страницах всех пяти
+    пулов): библиотека даёт больше текста почти везде и нигде не даёт меньше.
+    24.kg 1097 → 2329 знаков, Le Figaro 799 → 1553, Infobae 672 → 4885,
+    Agência Brasil 1170 → 5416. Коротких текстов меньше — значит реже зовём
+    платную дотяжку enrich_short_summaries и платное спасение _ai_rescue_body.
+
+    Наш собственный обход абзацев остался запасным ходом: в нём накоплено
+    то, чего библиотека не знает, — таблицы с ценами на топливо, перечни улиц
+    в <li> после двоеточия, контейнер Kaktus со всей статьёй внутри одного
+    элемента.
+
+    Передаём именно байты, а не .text: кодировку определит парсер. На .text
+    французские страницы приходили в мохибейке («Ã©» вместо «é»).
+    """
+    if trafilatura is None:
+        return ""
+    try:
+        out = trafilatura.extract(
+            raw_html,
+            include_tables=True,      # цены, курсы и расписания живут в таблицах
+            include_comments=False,   # ветки комментариев — не статья
+            include_images=False,
+            favor_precision=True,     # лучше недобрать, чем притащить меню
+            deduplicate=True,
+        ) or ""
+    except Exception:
+        return ""
+    # Библиотека размечает абзацы и пункты списков переводами строк — их
+    # сохраняем: на них держатся перечни улиц и таблицы цен. Схлопываем
+    # только пустые строки и лишние пробелы внутри строк
+    lines = [re.sub(r"[ \t]+", " ", ln).strip() for ln in out.splitlines()]
+    return "\n".join(ln for ln in lines if ln).strip()
+
+
 def _page_body(url: str) -> str:
-    """Текст статьи со страницы: 2-4 первых абзаца, очищенных от разметки."""
+    """Текст статьи со страницы. Библиотека основным ходом, свой разбор — запасным."""
     try:
         r = requests.get(url, timeout=8, headers=BROWSER_HEADERS)
         if not r.ok:
@@ -1683,6 +1725,22 @@ def _page_body(url: str) -> str:
         if _page_says_ad(soup):
             AD_PAGES.add(url)
             return ""
+
+        body = _trafilatura_body(r.content)
+        # Библиотека честно достаёт основной текст страницы, но не знает, что
+        # перед ней не статья, а заслон. Проверка обязательна именно здесь
+        if _looks_blocked(body):
+            return ""
+        if len(body) >= 200:
+            body = trim_to_boundary(body, PAGE_BODY_LIMIT)
+            body = strip_tail(body)
+            if _looks_mangled(body):
+                fixed = _ai_rescue_body(url, body, soup)
+                if fixed:
+                    return fixed
+            return body
+
+        # Дальше — прежний собственный разбор: библиотека не справилась
         root = soup.find("article") or soup
         paras, seen = [], set()
         # Таблицы забираем ПЕРВЫМИ: в новостях про цены, курсы и расписания
@@ -1781,18 +1839,7 @@ def _page_body(url: str) -> str:
                 if len(body) >= 200:
                     break
 
-        # 1300, а не 700: столько вмещают полторы страницы читалки — ровно тот
-        # объём, который человек проглядывает без утомительной прокрутки.
-        # Прежние 700 обрывали материал ради экономии, которой никто не просил
-        if len(body) > 1300:
-            body = body[:1300]
-            # Точка не всегда конец предложения: «1974 г.р.», «ул.», «им.».
-            # Обрезка по такой точке рвёт мысль на середине — именно так
-            # исчезло «оба погибли» из заметки о ДТП 20.08. Считаем концом
-            # только точку после слова из трёх букв и длиннее.
-            ends = [m.end() - 1 for m in re.finditer(r"[а-яёa-z]{3,}[.!?]\s", body)]
-            if ends and ends[-1] > 150:
-                body = body[:ends[-1] + 1]
+        body = trim_to_boundary(body, PAGE_BODY_LIMIT)
         body = strip_tail(body)
 
         # Последний рубеж: машина сама признаётся, что потеряла смысл
@@ -4326,10 +4373,9 @@ def _story_block(item, role, lang="ru"):
             body = ""
         if len(body) > len(summary):
             summary = body
-    if len(summary) > 700:
-        cut = summary[:700]
-        ends = [m.end() - 1 for m in re.finditer(r"[а-яёa-zà-ú]{3,}[.!?]\s", cut)]
-        summary = cut[:ends[-1] + 1] if ends and ends[-1] > 200 else cut
+    # Прежде здесь при неудаче текст резался ровно по семисотому знаку —
+    # посреди слова. Единое правило вместо третьей самописной копии
+    summary = trim_to_boundary(summary, 700)
 
     title = str(item.get("title") or "")
     if (_still_foreign(summary, lang) or _still_foreign(title, lang)
