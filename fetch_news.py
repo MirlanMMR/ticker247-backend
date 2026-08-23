@@ -3823,7 +3823,12 @@ VIRAL=вирусное видео, NEWS=всё остальное
         keep = [i-1 for i in result.get("keep", [])]
         urgent = set(i-1 for i in result.get("urgent", []))
         important = set(i-1 for i in result.get("important", []))
-        recategorize = {int(k)-1: v for k, v in result.get("recategorize", {}).items()}
+        # Рубрику чистим от пробелов и приводим к верхнему регистру: 23.08 во
+        # французском пуле завелась рубрика " NEWS" с ведущим пробелом — для
+        # приложения это отдельная рубрика, то есть лишняя пустая вкладка
+        recategorize = {int(k) - 1: str(v).strip().upper()
+                        for k, v in result.get("recategorize", {}).items()
+                        if str(v).strip()}
         ad_suspects = set(i-1 for i in result.get("ad_suspects", []))
         # Заголовок обещает то, чего в тексте нет. Такие снимаем с эфира:
         # заголовок — единственное, что видно в ленте, и если он врёт,
