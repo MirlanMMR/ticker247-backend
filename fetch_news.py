@@ -2965,6 +2965,12 @@ def ask_gemini(prompt, charter: bool = True) -> str:
     if u:
         TOKENS["in"] += getattr(u, "prompt_token_count", 0) or 0
         TOKENS["out"] += getattr(u, "candidates_token_count", 0) or 0
+        # Сколько из входящих Gemini взял из своего кэша. Неизменная часть
+        # запроса — устав и текст промпта — весит 8000 токенов и уходит по
+        # два десятка раз за прогон; если кэш срабатывает, она стоит вчетверо
+        # дешевле. Без этого счётчика мы не знаем, работает ли он вообще
+        TOKENS["cached"] = TOKENS.get("cached", 0) + (
+            getattr(u, "cached_content_token_count", 0) or 0)
     TOKENS["calls"] += 1
     return resp.text.strip()
 
@@ -6175,6 +6181,10 @@ def main():
     print(f"💰 Расход ИИ: {TOKENS['calls']} запросов, "
           f"{TOKENS['in']:,} входящих + {TOKENS['out']:,} исходящих токенов "
           f"≈ ${cost:.4f} за прогон (≈ ${cost * 24:.2f} в сутки при часовом графике)")
+    _cached = TOKENS.get("cached", 0)
+    if TOKENS["in"]:
+        print(f"  ♻️ Из кэша Gemini: {_cached:,} входящих токенов "
+              f"({_cached * 100 // TOKENS['in']}%)")
     save_ai_spend(cost)
 
     # Публикуем имена редакторских каналов — приложение читает их отсюда,
