@@ -255,7 +255,6 @@ RSS_SOURCES = [
     {"url": "https://www.lefigaro.fr/rss/figaro_actualites.xml", "source": "Le Figaro", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "fr"},
     {"url": "https://www.francetvinfo.fr/titres.rss", "source": "Franceinfo", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "fr"},
     {"url": "https://www.20minutes.fr/feeds/rss-une.xml", "source": "20 Minutes", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
-    {"url": "https://www.ouest-france.fr/rss/une", "source": "Ouest-France", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
     {"url": "https://www.lexpress.fr/rss/alaune.xml", "source": "L'Express", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
     {"url": "https://rss.rtbf.be/article/rss/highlight_rtbfinfo_info.xml", "source": "RTBF", "category": "NEWS", "priority": 2, "quota": 8, "scope": "pool", "lang": "fr"},
     {"url": "https://ici.radio-canada.ca/rss/4159", "source": "Radio-Canada", "category": "NEWS", "priority": 2, "quota": 8, "scope": "pool", "lang": "fr"},
@@ -454,7 +453,7 @@ SOURCE_COUNTRY = {
     "BBC News": "GB", "BBC World": "GB", "BBC Sport": "GB",
     # Франкоязычные
     "Le Figaro": "FR", "Franceinfo": "FR", "20 Minutes": "FR",
-    "Ouest-France": "FR", "L'Express": "FR", "France 24 FR": "FR",
+    "L'Express": "FR", "France 24 FR": "FR",
     "La Dépêche": "FR", "France Bleu": "FR",
     "Nice-Matin": "FR", "L'Obs": "FR",
     "BFMTV": "FR", "Sud Ouest": "FR", "La Tribune": "FR",
@@ -503,7 +502,7 @@ LOCAL_DOMAINS = {
     # Домашняя страна французского пула — Франция. Но местные новости
     # читателю в Дакаре или Брюсселе подставит само приложение по его стране
     # (CountryNewsFetcher), поэтому список здесь — про Францию
-    "fr": ["lefigaro.fr", "20minutes.fr", "ouest-france.fr",
+    "fr": ["lefigaro.fr", "20minutes.fr",
            "lexpress.fr", "liberation.fr", "franceinfo.fr",
            "francetvinfo.fr", "ladepeche.fr", "francebleu.fr", "nicematin.com",
            "nouvelobs.com", "bfmtv.com", "sudouest.fr", "latribune.fr"],
@@ -625,6 +624,7 @@ RETIRED_SOURCES = [
     # парсер должен быть надёжным, а не зависеть от капризов Cloudflare
     "lemonde.fr",               # 403 на всех статьях: «трафик опознан как робот»
     "leparisien.fr",            # 403 «Access Denied», и RSS без текста вовсе
+    "ouest-france.fr",          # 403 на статьях, RSS даёт 157 знаков — пустышка
     "vb.kg/rss",                # 404, ленту с сайта убрали
     "zakon.kz",                 # 404, ленту с сайта убрали
     "tengrinews.kz",            # не отвечает ни из дома, ни из GitHub
