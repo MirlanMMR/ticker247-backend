@@ -9,7 +9,7 @@ import requests
 import urllib.request
 import urllib.error
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 from textcut import trim_to_boundary, _looks_blocked
@@ -2978,6 +2978,100 @@ def ask_gemini(prompt, charter: bool = True) -> str:
 _MODEL_IN_USE = GEMINI_MODEL
 
 
+# ─── Явный кэш неизменной части запроса ────────────────────────────────────
+#
+# Замер 23.08.2026: неизменная часть запроса отбора — устав (3 554 токена) и
+# текст самого промпта (4 454) — весит 8 008 токенов и уходит по два десятка
+# раз за прогон. Это 79% всех входящих токенов: одна и та же инструкция,
+# отправленная девятнадцать раз.
+#
+# Неявный кэш Gemini у нас не срабатывает вовсе — счётчик показал ровно ноль
+# попаданий. Google включает его для 2.5 Flash и старше, flash-lite в списке
+# поддерживаемых не значится. Явный кэш для flash-lite доступен и стоит в
+# десять раз дешевле обычного входа: $0.01 против $0.10 за миллион.
+#
+# Кэш заводится СВОЙ НА КАЖДЫЙ ПУЛ: в тексте промпта пул назван по имени
+# («редактор пула RU», «регион», «домашняя страна»), поэтому общего для всех
+# пулов текста сейчас нет. Сделать его общим можно, вынеся эти подстановки в
+# короткую шапку рядом со списком новостей, — но это правка самого промпта, а
+# менять разом и кэш, и текст нельзя: потом не поймёшь, из-за чего изменились
+# решения модели.
+GEMINI_CACHES = {}              # пул -> CachedContent
+GEMINI_CACHE_TTL = 900          # прогон длится 4 минуты, берём с запасом
+GEMINI_CACHE_OFF = False        # выключается при первой же неудаче, до конца прогона
+
+
+def _gemini_cache_for(pool: str, preamble: str):
+    """Кэш неизменной части для пула. None — работаем как раньше.
+
+    Кэш — ускоритель, а не опора: любая неудача здесь молча возвращает нас на
+    прежний путь. Лента дороже экономии.
+    """
+    global GEMINI_CACHE_OFF
+    if GEMINI_CACHE_OFF or FALLBACK_MODE or not GEMINI_API_KEY:
+        return None
+    if pool in GEMINI_CACHES:
+        return GEMINI_CACHES[pool]
+    try:
+        from google.generativeai import caching
+        cc = caching.CachedContent.create(
+            model=_MODEL_IN_USE,
+            display_name=f"ticker247-filter-{pool}",
+            system_instruction=_editorial_charter(),
+            contents=[preamble],
+            ttl=timedelta(seconds=GEMINI_CACHE_TTL),
+        )
+        GEMINI_CACHES[pool] = cc
+        size = getattr(getattr(cc, "usage_metadata", None), "total_token_count", 0)
+        print(f"  ♻️ Кэш заведён [{pool}]: {size:,} токенов")
+        return cc
+    except Exception as e:
+        # Причин может быть три: псевдоним модели не годится для кэша,
+        # блок меньше минимального размера, метод недоступен в этой версии
+        # SDK. Все три лечатся по-разному, поэтому текст ошибки печатаем
+        # целиком — иначе следующий раз будем гадать так же, как сегодня
+        GEMINI_CACHE_OFF = True
+        print(f"  ⚠️ Кэш недоступен, работаем как раньше: {str(e)[:300]}")
+        return None
+
+
+def ask_gemini_cached(pool: str, preamble: str, tail: str) -> str:
+    """Запрос, у которого неизменная часть лежит в кэше, а меняется только хвост.
+
+    Не вышло — склеиваем обратно и идём обычным путём. Снаружи разницы нет.
+    """
+    cc = _gemini_cache_for(pool, preamble)
+    if cc is None:
+        return ask_gemini(preamble + tail)
+    try:
+        model = genai.GenerativeModel.from_cached_content(cached_content=cc)
+        resp = model.generate_content(tail)
+    except Exception as e:
+        global GEMINI_CACHE_OFF
+        GEMINI_CACHE_OFF = True
+        print(f"  ⚠️ Кэш не подключился, работаем как раньше: {str(e)[:200]}")
+        return ask_gemini(preamble + tail)
+    u = getattr(resp, "usage_metadata", None)
+    if u:
+        TOKENS["in"] += getattr(u, "prompt_token_count", 0) or 0
+        TOKENS["out"] += getattr(u, "candidates_token_count", 0) or 0
+        TOKENS["cached"] = TOKENS.get("cached", 0) + (
+            getattr(u, "cached_content_token_count", 0) or 0)
+    TOKENS["calls"] += 1
+    return resp.text.strip()
+
+
+def drop_gemini_caches():
+    """Снимает кэши после прогона: хранение оплачивается по времени."""
+    for pool, cc in list(GEMINI_CACHES.items()):
+        try:
+            cc.delete()
+        except Exception:
+            pass          # не удалилось — истечёт само через GEMINI_CACHE_TTL
+        GEMINI_CACHES.pop(pool, None)
+
+
+
 # Происшествия: только у них имеет смысл смотреть на снимок. Проверять КАЖДУЮ
 # фотографию было бы и дорого, и незачем — на бирже и на футболе тел не бывает.
 _INCIDENT = re.compile(
@@ -3176,6 +3270,48 @@ def save_ai_cache():
         print(f"  ⚠️ Память вердиктов не сохранилась: {e}")
 
 
+def _rule_cull(items, lang="?"):
+    """ЭТАП 0: бесплатный отсев по правилам — ДО того, как звать ИИ.
+
+    Эти четыре правила годами жили в quality_gate, то есть срабатывали ПОСЛЕ
+    отбора. Мы платили модели за разбор гороскопов, прогнозов погоды,
+    заглушек и материалов, которые издание само пометило рекламой, — а потом
+    выбрасывали их сами, детерминированно и бесплатно.
+
+    Здесь нет ни одного нового правила: те же регулярки, тот же список
+    рекламных страниц. Изменился только момент вызова.
+
+    В quality_gate они НАМЕРЕННО оставлены вторым рубежом. Во-первых, сюда
+    новость приходит до перевода, а туда — после, и текст к тому времени
+    другой. Во-вторых, дублирующая проверка ничего не стоит, а страхует от
+    правки, которая однажды переставит стадии местами.
+    """
+    kept, why = [], Counter()
+    for item in items:
+        title = (item.get("title") or "").strip()
+        low = (item.get("summary") or "").strip().lower()
+
+        if any(m in low for m in QC_STUB_MARKERS):
+            why["заглушка вместо текста"] += 1
+            continue
+        if item.get("url") in AD_PAGES:
+            why["издание помечает рекламой"] += 1
+            continue
+        if _is_daily_filler(title):
+            why["гороскоп или подсказка к игре"] += 1
+            continue
+        if QC_WEATHER.search(title):
+            why["погода"] += 1
+            continue
+        kept.append(item)
+
+    if why:
+        total = sum(why.values())
+        parts = ", ".join(f"{k} {v}" for k, v in why.most_common())
+        print(f"  🧹 Этап 0 [{lang}]: отсеяно {total} до ИИ ({parts})")
+    return kept
+
+
 def filter_with_gemini(news_list, lang="ru"):
     """Прогоняет пул через ИИ порциями и склеивает результат.
 
@@ -3183,6 +3319,11 @@ def filter_with_gemini(news_list, lang="ru"):
     Порядок исходного списка сохраняется: и те, что вернулись из памяти, и те,
     что судили сейчас, встают на свои места.
     """
+    if not news_list:
+        return news_list
+
+    # ЭТАП 0 — бесплатный отсев прежде всего, чтобы не платить за гороскопы
+    news_list = _rule_cull(news_list, lang)
     if not news_list:
         return news_list
 
@@ -3292,7 +3433,9 @@ def _filter_chunk(news_list, lang="ru"):
     ]
 
     pool = POOL_CONFIG.get(lang, POOL_CONFIG["en"])
-    prompt = f"""Ты редактор пула «{lang.upper()}» новостного агрегатора Ticker 24/7.
+    # Промпт разделён надвое: неизменная часть уходит в кэш и оплачивается
+    # вдесятеро дешевле, меняется только список заголовков в хвосте
+    preamble = f"""Ты редактор пула «{lang.upper()}» новостного агрегатора Ticker 24/7.
 Аудитория: читатели на {pool['language_name']} языке, регион: {pool['region']}.
 
 ═══ ПРАВИЛО №1 — ЯЗЫК ═══
@@ -3537,13 +3680,13 @@ VIRAL=вирусное видео, NEWS=всё остальное
 {{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}, "ad_suspects": [3], "title_mismatch": [6], "scope_fix": {{"5": "world", "9": "local"}}}}
 
 НОВОСТИ:
-{chr(10).join(titles)}"""
+"""
 
     try:
         # Псевдоним, а не конкретная версия: Google отключает старые модели
         # без предупреждения (так умерла gemini-2.0-flash), и тогда фильтр молча
         # уходит в запасной вариант — 60 случайных статей вместо отбора
-        text = ask_gemini(prompt)
+        text = ask_gemini_cached(lang, preamble, chr(10).join(titles))
         if "```" in text:
             text = text.split("```")[1].replace("json", "").strip()
         result = json.loads(text)
@@ -6181,6 +6324,7 @@ def main():
     print(f"💰 Расход ИИ: {TOKENS['calls']} запросов, "
           f"{TOKENS['in']:,} входящих + {TOKENS['out']:,} исходящих токенов "
           f"≈ ${cost:.4f} за прогон (≈ ${cost * 24:.2f} в сутки при часовом графике)")
+    drop_gemini_caches()
     _cached = TOKENS.get("cached", 0)
     if TOKENS["in"]:
         print(f"  ♻️ Из кэша Gemini: {_cached:,} входящих токенов "
