@@ -3436,7 +3436,14 @@ def _cull_dry_report(before, after, lang):
         print(f"\n  ── Этап 1, что выброшено [{lang}] ───────────────────────")
         print(f"     на входе {len(before)}, снято этапом 1: {len(removed)} "
               f"({len(removed) * 100 // total}%), дожило до ленты {len(after)}")
-        if removed and lang == "ru":
+        # Подробности печатаем по русскому пулу (его читает человек) И по
+        # любому, где отсев зашкалил. 23.08 французский снял 34% против 9-23%
+        # у прочих — такое надо видеть поимённо, а не узнавать из жалобы на
+        # опустевшую ленту. Логи бесплатны, необратимый отсев дорог
+        loud = len(removed) * 100 // total >= 25
+        if removed and (lang == "ru" or loud):
+            if loud and lang != "ru":
+                print(f"     ⚠️ отсев выше обычного — показываю целиком:")
             for x in removed[:25]:
                 print(f"        [{x.get('source', '?')}] {str(x.get('title', ''))[:96]}")
             if len(removed) > 25:
