@@ -2015,6 +2015,31 @@ def _ai_rescue_body(url: str, broken: str, soup) -> str:
         return ""
 
 
+def _share_budget(targets, budget, what=""):
+    """Делит бюджет обхода страниц между пулами поровну, по кругу.
+
+    Списки собираются пул за пулом, поэтому простая отсечка первых `budget`
+    штук обделяет тех, кто собран позже, — целиком и молча.
+    """
+    if len(targets) <= budget:
+        return targets
+    buckets = {}
+    for it in targets:
+        buckets.setdefault(it.get("source_lang") or "??", []).append(it)
+    order, picked = list(buckets), []
+    while len(picked) < budget and any(buckets[k] for k in order):
+        for k in order:
+            if not buckets[k]:
+                continue
+            picked.append(buckets[k].pop(0))
+            if len(picked) >= budget:
+                break
+    share = Counter(t.get("source_lang") or "??" for t in picked)
+    print(f"  📄 Бюджет {what} {budget} на {len(targets)} штук, "
+          f"по пулам: {dict(sorted(share.items()))}")
+    return picked
+
+
 def enrich_short_summaries(items, min_len=400, budget=260, workers=12):
     """Дотягивает короткие описания текстом со страницы статьи.
 
@@ -2041,7 +2066,20 @@ def enrich_short_summaries(items, min_len=400, budget=260, workers=12):
             continue
         seen_urls.add(url)
         targets.append(item)
-    targets = targets[:budget]
+
+    # Бюджет делим между пулами ПО КРУГУ, а не отсекаем первых по списку.
+    #
+    # Было `targets[:budget]` — простая отсечка в порядке сбора. Кто собран
+    # позже, тому не доставалось ничего: 23.08.2026 французские новости вышли
+    # в среднем по 192 знака против 558 у переведённых, хотя те же источники
+    # на отдельном прогоне давали за 900. Бюджет к тому дню уже поднимали со
+    # 150 до 260 ровно по этой причине — и снова не хватило, потому что
+    # лечили число, а не порядок.
+    #
+    # По кругу справедливо при любом числе новостей: недостаёт не пулу
+    # целиком, а хвосту каждого пула поровну. И шестой пул ничего молча
+    # не сломает.
+    targets = _share_budget(targets, budget, "дотяжки")
     if not targets:
         return
 
@@ -2195,7 +2233,7 @@ def enrich_missing_images(items, budget=450, workers=16):
             continue
         seen_urls.add(url)
         targets.append(item)
-    targets = targets[:budget]
+    targets = _share_budget(targets, budget, "картинок")
     if not targets:
         return
 
