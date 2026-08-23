@@ -252,7 +252,6 @@ RSS_SOURCES = [
     # Бельгия, Швейцария, Квебек и франкоязычная Африка, где французский —
     # язык новостей для десятков миллионов человек. Все ленты проверены
     # живьём перед добавлением: отвечают, свежие, с картинками.
-    {"url": "https://www.lemonde.fr/rss/une.xml", "source": "Le Monde", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "fr"},
     {"url": "https://www.lefigaro.fr/rss/figaro_actualites.xml", "source": "Le Figaro", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "fr"},
     {"url": "https://www.francetvinfo.fr/titres.rss", "source": "Franceinfo", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "fr"},
     {"url": "https://www.20minutes.fr/feeds/rss-une.xml", "source": "20 Minutes", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
@@ -268,8 +267,19 @@ RSS_SOURCES = [
     # французских новостей выходило семь из семидесяти. Le Monde и Le Figaro
     # много пишут о мире, и мы честно считаем это мировой повесткой — значит
     # домашнюю ленту должны наполнять те, кто пишет о самой Франции.
-    {"url": "https://feeds.leparisien.fr/leparisien/rss", "source": "Le Parisien", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "fr"},
     {"url": "https://www.ladepeche.fr/rss.xml", "source": "La Dépêche", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
+    # Замена Le Monde и Le Parisien (23.08.2026). Оба отдавали 403 на каждой
+    # статье: Le Monde — «трафик опознан как робот», Le Parisien — «Access
+    # Denied». Воевать с антиботом не стали, парсер должен быть надёжным.
+    # Кандидаты отбирались замером, а не репутацией: средняя длина текста по
+    # шести свежим статьям каждого. Отброшены Le Soir и Les Echos (тоже
+    # «Access Denied»), Swissinfo и TV5Monde (адреса лент мертвы, 404 и 410),
+    # Journal de Montréal (заслон на всех шести).
+    {"url": "https://www.bfmtv.com/rss/news-24-7/", "source": "BFMTV", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "fr"},          # замер: 698
+    {"url": "https://www.sudouest.fr/rss.xml", "source": "Sud Ouest", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},            # замер: 917
+    {"url": "https://www.latribune.fr/feed.xml", "source": "La Tribune", "category": "MONEY", "priority": 1, "quota": 6, "scope": "local", "lang": "fr"},        # замер: 1013
+    {"url": "https://fr.africanews.com/feed/rss", "source": "Africanews FR", "category": "NEWS", "priority": 1, "quota": 8, "scope": "pool", "lang": "fr"},      # замер: 1033
+    {"url": "https://www.courrierinternational.com/feed/all/rss.xml", "source": "Courrier International", "category": "NEWS", "priority": 1, "quota": 6, "scope": "world", "lang": "fr"},  # замер: 1113
     {"url": "https://www.francebleu.fr/rss/a-la-une.xml", "source": "France Bleu", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
     {"url": "https://www.nicematin.com/rss", "source": "Nice-Matin", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local", "lang": "fr"},
     {"url": "https://www.nouvelobs.com/rss.xml", "source": "L'Obs", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
@@ -443,12 +453,13 @@ SOURCE_COUNTRY = {
     "Global News CA": "CA", "Straits Times": "SG", "Sky Sports": "GB",
     "BBC News": "GB", "BBC World": "GB", "BBC Sport": "GB",
     # Франкоязычные
-    "Le Monde": "FR", "Le Figaro": "FR", "Franceinfo": "FR", "20 Minutes": "FR",
+    "Le Figaro": "FR", "Franceinfo": "FR", "20 Minutes": "FR",
     "Ouest-France": "FR", "L'Express": "FR", "France 24 FR": "FR",
-    "Le Parisien": "FR", "La Dépêche": "FR", "France Bleu": "FR",
+    "La Dépêche": "FR", "France Bleu": "FR",
     "Nice-Matin": "FR", "L'Obs": "FR",
+    "BFMTV": "FR", "Sud Ouest": "FR", "La Tribune": "FR",
     "RTBF": "BE", "Radio-Canada": "CA", "Le Devoir": "CA", "Le Temps": "CH",
-    "Jeune Afrique": "SN", "RFI": "FR",
+    "Jeune Afrique": "SN", "RFI": "FR", "Africanews FR": "CI",
     # Кыргызстан и соседи
     "AKIpress": "KG", "AKIpress Эко": "KG", "Gezitter": "KG",
     "Kaktus.media": "KG", "Kabar.kg": "KG", "Knews.kg": "KG",
@@ -492,10 +503,10 @@ LOCAL_DOMAINS = {
     # Домашняя страна французского пула — Франция. Но местные новости
     # читателю в Дакаре или Брюсселе подставит само приложение по его стране
     # (CountryNewsFetcher), поэтому список здесь — про Францию
-    "fr": ["lemonde.fr", "lefigaro.fr", "20minutes.fr", "ouest-france.fr",
-           "lexpress.fr", "liberation.fr", "leparisien.fr", "franceinfo.fr",
+    "fr": ["lefigaro.fr", "20minutes.fr", "ouest-france.fr",
+           "lexpress.fr", "liberation.fr", "franceinfo.fr",
            "francetvinfo.fr", "ladepeche.fr", "francebleu.fr", "nicematin.com",
-           "nouvelobs.com"],
+           "nouvelobs.com", "bfmtv.com", "sudouest.fr", "latribune.fr"],
     "pt": ["globo.com", "uol.com.br", "folha.uol.com.br", "estadao.com.br",
            "band.uol.com.br", "r7.com", "cnnbrasil.com.br", "agenciabrasil.ebc.com.br",
            "metropoles.com", "poder360.com.br", "gazetadopovo.com.br",
@@ -555,7 +566,8 @@ POOL_DOMAINS = {
     # десятки миллионов читателей, для которых французский и есть язык новостей
     "fr": ["rtbf.be", "lesoir.be", "rts.ch", "letemps.ch", "radio-canada.ca",
            "lapresse.ca", "ledevoir.com", "jeuneafrique.com", "rfi.fr",
-           "lematin.ma", "seneweb.com", "aps.sn", "abidjan.net"],
+           "lematin.ma", "seneweb.com", "aps.sn", "abidjan.net",
+           "africanews.com"],
     "pt": ["publico.pt", "expresso.pt", "dn.pt", "observador.pt", "rtp.pt",
            "eco.sapo.pt", "jornaldenegocios.pt", "noticiasaominuto.com",
            "jornaldeangola.ao", "verangola.net", "opais.co.mz",
@@ -609,6 +621,10 @@ RETIRED_SOURCES = [
     # Проверено из GitHub Actions 17.08.2026: ни одна из этих лент не дала за
     # неделю ни одной новости. Кыргызстанские и казахстанские особенно обидны —
     # из-за них местный блок держался на трёх источниках
+    # Французские, 23.08.2026: антибот на каждой статье. Решено не воевать —
+    # парсер должен быть надёжным, а не зависеть от капризов Cloudflare
+    "lemonde.fr",               # 403 на всех статьях: «трафик опознан как робот»
+    "leparisien.fr",            # 403 «Access Denied», и RSS без текста вовсе
     "vb.kg/rss",                # 404, ленту с сайта убрали
     "zakon.kz",                 # 404, ленту с сайта убрали
     "tengrinews.kz",            # не отвечает ни из дома, ни из GitHub
