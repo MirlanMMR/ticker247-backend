@@ -3419,6 +3419,24 @@ def _cull_dry_report(before, after, lang):
               if not x.get("_cull_drop_candidate") and x.get("url") not in survived]
 
     total = len(before) or 1
+
+    # В БОЮ колонка ложных срабатываний бессмысленна: выброшенное этапом 1 до
+    # ленты дойти не может по определению, и она всегда покажет ноль. Поэтому
+    # в бою печатаем не сверку, а СПИСОК ВЫБРОШЕННОГО — то единственное, что
+    # тут стоит смотреть глазами
+    if not CULL_DRY_RUN:
+        removed = [x for x in before if x.get("_cull_drop_candidate")]
+        print(f"\n  ── Этап 1, что выброшено [{lang}] ───────────────────────")
+        print(f"     на входе {len(before)}, снято этапом 1: {len(removed)} "
+              f"({len(removed) * 100 // total}%), дожило до ленты {len(after)}")
+        if removed and lang == "ru":
+            for x in removed[:25]:
+                print(f"        [{x.get('source', '?')}] {str(x.get('title', ''))[:96]}")
+            if len(removed) > 25:
+                print(f"        … и ещё {len(removed) - 25}")
+        print("  ─────────────────────────────────────────────────────────────\n")
+        return
+
     print(f"\n  ── Этап 1, холостая сверка [{lang}] ─────────────────────────")
     print(f"     на входе {len(before)}, дожило до ленты {len(after)}")
     print(f"     ложных срабатываний: {len(false_drops)} "
