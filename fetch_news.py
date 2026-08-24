@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
-from textcut import trim_to_boundary, _looks_blocked
+from textcut import trim_to_boundary, _looks_blocked, strip_title_echo
 try:
     import trafilatura
 except ImportError:          # библиотеки нет — работаем на своём разборе
@@ -5654,9 +5654,13 @@ def quality_gate(items, lang):
             fixed["хвост"] += 1
             body = cleaned
 
-        # 4. Заголовок, продублированный первой строкой текста
-        if title and body.lower().startswith(title.lower()[:40]):
-            body = body[len(title):].lstrip(" .,—-:\n")
+        # 4. Заголовок, продублированный первой строкой текста.
+        #    Прежде здесь сравнивались первые СОРОК знаков заголовка, а
+        #    срезалась ВСЯ его длина — и нож уходил в живое, как только текст
+        #    после сороковой буквы расходился с заголовком. См. strip_title_echo
+        _echo = strip_title_echo(title, body)
+        if _echo != body:
+            body = _echo
             fixed["дубль заголовка"] += 1
 
         # 4б. Заголовок, повторённый ВНУТРИ текста — не в начале. 24.kg вставляет
