@@ -1131,6 +1131,43 @@ LIVE_CHANNELS = [
 LIVE_REFRESH_HOURS = 3
 
 
+def _live_check_pinned(pins: dict) -> dict:
+    """Проверяет разом, идут ли уже известные эфиры. Возвращает {videoId: снимок}.
+
+    Стоит ОДНУ единицу квоты на все каналы сразу — videos.list принимает до
+    пятидесяти идентификаторов через запятую. Для сравнения: search.list стоит
+    сто единиц ЗА КАЖДЫЙ канал.
+
+    Замер 24.08.2026: три канала опрашивались поиском восемь раз в сутки —
+    2400 единиц из 10000, почти четверть квоты на три ссылки. Девять каналов
+    стоили бы 7200. По этому пути девять каналов стоят 8 единиц в сутки.
+
+    Мы ведь не ищем эфир, а проверяем известный: у новостных каналов вещание
+    круглосуточное и идентификатор видео месяцами не меняется.
+    """
+    ids = [v for v in pins.values() if v]
+    if not ids or not YOUTUBE_API_KEY:
+        return {}
+    try:
+        r = requests.get(
+            "https://www.googleapis.com/youtube/v3/videos",
+            params={"part": "snippet", "id": ",".join(ids[:50]),
+                    "key": YOUTUBE_API_KEY},
+            timeout=15)
+        if not r.ok:
+            return {}
+        out = {}
+        for it in r.json().get("items", []):
+            sn = it.get("snippet", {})
+            # «live» — идёт прямо сейчас. «upcoming» и «none» не годятся:
+            # первое ещё не началось, второе уже закончилось и стало записью
+            if sn.get("liveBroadcastContent") == "live":
+                out[it.get("id")] = sn
+        return out
+    except Exception:
+        return {}
+
+
 def fetch_live_streams():
     """Ссылки на текущие эфиры для узла /viral/live.
 
@@ -1158,9 +1195,29 @@ def fetch_live_streams():
         print(f"  ⏭ Эфиры: обновлялись {age_h:.1f} ч назад, пропускаем (раз в {LIVE_REFRESH_HOURS} ч)")
         return existing
 
-    items = []
+    # Сначала дешёвая проверка уже известных эфиров: одна единица квоты на
+    # все каналы. Дорогой поиск останется только тем, кто пропал из эфира
+    pins = (existing.get("pins") or {}) if isinstance(existing, dict) else {}
+    alive = _live_check_pinned(pins)
+    if alive:
+        print(f"  ⚡ Эфиры по известным ссылкам: {len(alive)} за 1 единицу квоты")
+
+    items, new_pins, searched = [], dict(pins), 0
     for channel_id, name, pool in LIVE_CHANNELS:
+        vid = pins.get(channel_id)
+        if vid and vid in alive:
+            sn = alive[vid]
+            th = sn.get("thumbnails", {})
+            items.append({
+                "channelId": channel_id, "name": name, "pool": pool,
+                "videoId": vid,
+                "url": f"https://www.youtube.com/watch?v={vid}",
+                "title": (sn.get("title") or name).strip(),
+                "imageUrl": (th.get("high") or th.get("medium") or {}).get("url"),
+            })
+            continue
         try:
+            searched += 1
             r = requests.get(
                 "https://www.googleapis.com/youtube/v3/search",
                 params={
@@ -1201,15 +1258,17 @@ def fetch_live_streams():
                 "title": (snippet.get("title") or name).strip(),
                 "imageUrl": (thumbs.get("high") or thumbs.get("medium") or {}).get("url"),
             })
-            print(f"  ✓ Эфир {name}: {video_id}")
+            new_pins[channel_id] = video_id
+            print(f"  ✓ Эфир {name}: {video_id} (поиском, 100 единиц)")
         except Exception as e:
             print(f"  ✗ Эфир {name}: {e}")
 
     if not items:
         print("  · Эфиры: ничего не нашли, прежние ссылки оставляем как есть")
         return existing
-    print(f"✅ Эфиры обновлены: {len(items)}")
-    return {"items": items, "updatedAt": now_ms}
+    print(f"✅ Эфиры обновлены: {len(items)}, поиском искали {searched} "
+          f"(≈{searched * 100 + (1 if pins else 0)} единиц квоты)")
+    return {"items": items, "updatedAt": now_ms, "pins": new_pins}
 
 
 VIDEO_STOP_WORDS = (
