@@ -1123,13 +1123,72 @@ def check_radio_stations(stations, workers=8, timeout=10):
 #
 # Просмотры пользователей нашу квоту не тратят вообще — видео идёт от YouTube
 # напрямую. Квота уходит только на эти восемь запросов в сутки на канал.
+# Каналы прямых эфиров. Первое поле — либо идентификатор канала, либо
+# «собачка» (@france24): по ней YouTube отдаёт идентификатор за одну единицу
+# квоты, и мы его запоминаем. Собачки надёжнее — они на виду, их можно
+# проверить глазами, и они переживают смену внутреннего идентификатора.
+#
+# Если собачка не нашлась, канал молча пропускается, а в логе появляется
+# строка с его именем: список правится по логу, а не гаданием.
 LIVE_CHANNELS = [
-    ("UCoMdktPbSTixAyNGwb-UYkQ", "Sky News",           "en"),
-    ("UCNye-wNBqNL5ZzHSJj3l8Bg", "Al Jazeera English", "en"),
-    ("UCFzJjgVicCtFxJ5B0P_ei8A", "Euronews по-русски", "ru"),
+    # английский
+    ("UCoMdktPbSTixAyNGwb-UYkQ", "Sky News",            "en"),
+    ("UCNye-wNBqNL5ZzHSJj3l8Bg", "Al Jazeera English",  "en"),
+    ("@DWNews",                  "DW News",             "en"),
+    ("@euronews",                "Euronews",            "en"),
+    # русский
+    ("UCFzJjgVicCtFxJ5B0P_ei8A", "Euronews по-русски",  "ru"),
+    ("@currenttime",             "Настоящее Время",     "ru"),
+    ("@dw_russian",              "DW на русском",       "ru"),
+    # испанский
+    ("@dwespanol",               "DW Español",          "es"),
+    ("@euronewses",              "Euronews en español", "es"),
+    ("@FRANCE24Espanol",         "FRANCE 24 Español",   "es"),
+    ("@rtvenoticias",            "RTVE Noticias",       "es"),
+    # португальский
+    ("@dwbrasil",                "DW Brasil",           "pt"),
+    ("@euronewspt",              "Euronews em português", "pt"),
+    ("@CNNbrasil",               "CNN Brasil",          "pt"),
+    # французский
+    ("@FRANCE24",                "FRANCE 24",           "fr"),
+    ("@franceinfo",              "franceinfo",          "fr"),
+    ("@euronewsfr",              "euronews (français)", "fr"),
+    ("@BFMTV",                   "BFMTV",               "fr"),
 ]
 
 LIVE_REFRESH_HOURS = 3
+
+
+def _resolve_handle(handle: str, cache: dict) -> str:
+    """Идентификатор канала по «собачке». Одна единица квоты, потом из памяти.
+
+    Собачку (@france24) видно в адресе канала, её можно проверить глазами и
+    поправить, не заглядывая в код. Внутренний идентификатор вида
+    UCoMdktPbSTixAyNGwb-UYkQ проверить нельзя ничем, кроме запроса, — а
+    ошибиться в нём легко и заметить трудно.
+    """
+    key = f"handle:{handle.lower()}"
+    if cache.get(key):
+        return cache[key]
+    if not YOUTUBE_API_KEY:
+        return ""
+    try:
+        r = requests.get(
+            "https://www.googleapis.com/youtube/v3/channels",
+            params={"part": "id", "forHandle": handle.lstrip("@"),
+                    "key": YOUTUBE_API_KEY},
+            timeout=15)
+        if not r.ok:
+            return ""
+        items = r.json().get("items", [])
+        if not items:
+            return ""
+        cid = items[0].get("id") or ""
+        if cid:
+            cache[key] = cid
+        return cid
+    except Exception:
+        return ""
 
 
 def _live_check_pinned(pins: dict) -> dict:
@@ -1203,8 +1262,15 @@ def fetch_live_streams():
     if alive:
         print(f"  ⚡ Эфиры по известным ссылкам: {len(alive)} за 1 единицу квоты")
 
-    items, new_pins, searched = [], dict(pins), 0
-    for channel_id, name, pool in LIVE_CHANNELS:
+    items, new_pins, searched, unresolved = [], dict(pins), 0, []
+    for raw_id, name, pool in LIVE_CHANNELS:
+        if raw_id.startswith("@"):
+            channel_id = _resolve_handle(raw_id, new_pins)
+            if not channel_id:
+                unresolved.append(f"{name} ({raw_id})")
+                continue
+        else:
+            channel_id = raw_id
         vid = pins.get(channel_id)
         if vid and vid in alive:
             sn = alive[vid]
@@ -1264,6 +1330,8 @@ def fetch_live_streams():
         except Exception as e:
             print(f"  ✗ Эфир {name}: {e}")
 
+    if unresolved:
+        print(f"  ⚠️ Каналы не нашлись по собачке: {', '.join(unresolved)}")
     if not items:
         print("  · Эфиры: ничего не нашли, прежние ссылки оставляем как есть")
         return existing
