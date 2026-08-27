@@ -4,3 +4,4 @@ firebase-admin==6.5.0
 beautifulsoup4==4.12.3
 lxml>=6.1.1        # подняли с 5.2.1: trafilatura требует шестую
 trafilatura==2.2.0
+newspaper4k==0.9.6   # запасной разборщик статей, зовётся редко
