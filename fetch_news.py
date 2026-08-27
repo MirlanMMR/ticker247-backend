@@ -1136,24 +1136,29 @@ LIVE_CHANNELS = [
     ("UCNye-wNBqNL5ZzHSJj3l8Bg", "Al Jazeera English",  "en"),
     ("@DWNews",                  "DW News",             "en"),
     ("@euronews",                "Euronews",            "en"),
+    ("@ABCNews",                 "ABC News Live",       "en"),
     # русский
     ("UCFzJjgVicCtFxJ5B0P_ei8A", "Euronews по-русски",  "ru"),
-    ("@currenttime",             "Настоящее Время",     "ru"),
+    ("@currenttimetv",           "Настоящее Время",     "ru"),
     ("@dw_russian",              "DW на русском",       "ru"),
     # испанский
     ("@dwespanol",               "DW Español",          "es"),
     ("@euronewses",              "Euronews en español", "es"),
-    ("@FRANCE24Espanol",         "FRANCE 24 Español",   "es"),
+    ("@France24_es",             "FRANCE 24 Español",   "es"),
     ("@rtvenoticias",            "RTVE Noticias",       "es"),
+    ("@nmas",                    "N+",                  "es"),
     # португальский
     ("@dwbrasil",                "DW Brasil",           "pt"),
     ("@euronewspt",              "Euronews em português", "pt"),
     ("@CNNbrasil",               "CNN Brasil",          "pt"),
+    ("@jovempannews",            "Jovem Pan News",      "pt"),
+    ("@SICNoticias",             "SIC Notícias",        "pt"),
     # французский
     ("@FRANCE24",                "FRANCE 24",           "fr"),
     ("@franceinfo",              "franceinfo",          "fr"),
     ("@euronewsfr",              "euronews (français)", "fr"),
     ("@BFMTV",                   "BFMTV",               "fr"),
+    ("@LCI",                     "LCI",                 "fr"),
 ]
 
 LIVE_REFRESH_HOURS = 3
