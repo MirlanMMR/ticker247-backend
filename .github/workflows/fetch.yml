@@ -33,7 +33,9 @@ jobs:
       # Проверки идут ДО прогона: они без сети и ключей, занимают доли секунды,
       # а ломают сборку раньше, чем кривая правка успеет уехать в ленту
       - name: Unit tests
-        run: python test_trim.py
+        run: |
+          python test_trim.py
+          python test_extract.py
 
       - name: Run fetch script
         env:

@@ -13,6 +13,7 @@ from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 from textcut import trim_to_boundary, _looks_blocked, strip_title_echo
+from extract import extract_article
 try:
     import trafilatura
 except ImportError:          # библиотеки нет — работаем на своём разборе
@@ -1790,7 +1791,55 @@ def _trafilatura_body(raw_html: bytes) -> str:
 
 
 def _page_body(url: str) -> str:
-    """Текст статьи со страницы. Библиотека основным ходом, свой разбор — запасным."""
+    """Текст статьи: цепочка из extract.py, прежний разбор — последней ступенью.
+
+    Замер 24.08.2026 на сорока живых статьях: средняя длина 825 → 3512
+    знаков, пустых столько же, скорость 0.36 → 0.04 секунды на страницу.
+    Сработали: trafilatura 21 раз, json-ld 10, newspaper4k 6, прежний
+    разбор 1.
+
+    Прежний разбор зовётся ПО URL и качает страницу заново. Это лишний
+    запрос, но случается он раз на сорок страниц, а взамен та функция
+    остаётся нетронутой со всем накопленным в ней знанием. Переписывать её
+    ради экономии одного запроса — менять надёжное на быстрое.
+    """
+    try:
+        r = requests.get(url, timeout=8, headers=BROWSER_HEADERS)
+        if not r.ok:
+            return ""
+        soup = BeautifulSoup(r.content, "html.parser")
+        # Издание само пометило материал рекламой — дальше разбирать нечего
+        if _page_says_ad(soup):
+            AD_PAGES.add(url)
+            return ""
+
+        res = extract_article(
+            r.content, url,
+            extra_extractors=[("прежний разбор",
+                               lambda _h, _u: _page_body_legacy(url) or "")])
+        if not res.ok():
+            if res.notes:
+                print(f"  · Разбор не дался [{url[:48]}]: {'; '.join(res.notes[-2:])}")
+            return ""
+
+        body = strip_tail(trim_to_boundary(res.text, PAGE_BODY_LIMIT))
+        if _looks_mangled(body):
+            fixed = _ai_rescue_body(url, body, soup)
+            if fixed:
+                return fixed
+        return body
+    except Exception:
+        return ""
+
+
+def _page_body_legacy(url: str) -> str:
+    """ПРЕЖНИЙ разбор. Оставлен нетронутым и работает последней ступенью.
+
+    Здесь накоплено то, чего библиотеки не знают: таблицы с ценами на
+    топливо, перечни улиц в <li> после двоеточия, контейнер Kaktus со всей
+    статьёй внутри одного элемента, запасной og:description. На замере
+    24.08.2026 он выручил одну страницу из сорока — редко, но незаменимо.
+    """
     try:
         r = requests.get(url, timeout=8, headers=BROWSER_HEADERS)
         if not r.ok:
@@ -2099,7 +2148,7 @@ def _share_budget(targets, budget, what=""):
     return picked
 
 
-def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
+def enrich_short_summaries(items, min_len=400, budget=500, workers=8):
     """Дотягивает короткие описания текстом со страницы статьи.
 
     Мировые ленты дают одно предложение-затравку, и на экране это выглядит как
@@ -2113,7 +2162,18 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
     обычные запросы страниц, а минуты Actions у нас бесплатные. Платит она
     только временем прогона.
 
-    Двенадцать потоков, а не по очереди: раньше бюджет держали крошечным (25),
+    ВОСЕМЬ потоков, а не шестнадцать. 27.08.2026 прогон рухнул с
+    «corrupted size vs. prev_size while consolidating» и core dump — это не
+    исключение Python, а повреждение кучи в нативном коде. Виновник — lxml,
+    которым пользуется trafilatura: к вызовам из шестнадцати потоков разом он
+    не готов. Один сбой на тридцать прогонов, но сбой жёсткий: лента в этот
+    час не выходит вовсе.
+    Снижение вдвое уменьшает вероятность, но не убирает причину. Настоящее
+    лекарство — качать страницы потоками, а РАЗБИРАТЬ по очереди: сеть у нас
+    медленная, разбор быстрый (0.04 с на страницу), и последовательный разбор
+    пятисот страниц займёт двадцать секунд.
+
+    Потоки, а не по очереди: раньше бюджет держали крошечным (25),
     потому что каждая страница ждала предыдущую, и короткие новости оставались
     короткими — а эталон качества их потом снимал с эфира. Дотянуть лучше, чем
     выбросить.
