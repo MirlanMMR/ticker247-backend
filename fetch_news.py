@@ -1250,7 +1250,11 @@ def fetch_live_streams():
 
     now_ms = int(datetime.now().timestamp() * 1000)
     updated_at = existing.get("updatedAt", 0) if isinstance(existing, dict) else 0
-    if now_ms - updated_at < LIVE_REFRESH_HOURS * 3600 * 1000:
+    # Ручной запуск делает работу всегда — тем же правилом, что и проверка
+    # свежести ленты. Иначе, добавив канал, приходится ждать три часа, чтобы
+    # узнать, нашёлся ли он
+    forced = os.environ.get("FORCE_RUN") == "true"
+    if not forced and now_ms - updated_at < LIVE_REFRESH_HOURS * 3600 * 1000:
         age_h = (now_ms - updated_at) / 3600000
         print(f"  ⏭ Эфиры: обновлялись {age_h:.1f} ч назад, пропускаем (раз в {LIVE_REFRESH_HOURS} ч)")
         return existing
