@@ -1130,6 +1130,12 @@ def check_radio_stations(stations, workers=8, timeout=10):
 #
 # Если собачка не нашлась, канал молча пропускается, а в логе появляется
 # строка с его именем: список правится по логу, а не гаданием.
+# Каналы прямых эфиров. Все 45 ПРОВЕРЕНЫ ЖИВЬЁМ 28.08.2026: у каждого в тот
+# момент шла трансляция. Не «наверное вещает», а вещал.
+#
+# Собачку (@france24) видно в адресе канала и можно проверить глазами; числовой
+# идентификатор проверить нечем, кроме запроса, поэтому числами записаны только
+# два старожила, которые давно работают.
 LIVE_CHANNELS = [
     # английский
     ("UCoMdktPbSTixAyNGwb-UYkQ", "Sky News",            "en"),
@@ -1137,29 +1143,74 @@ LIVE_CHANNELS = [
     ("@DWNews",                  "DW News",             "en"),
     ("@euronews",                "Euronews",            "en"),
     ("@ABCNews",                 "ABC News Live",       "en"),
+    ("@NBCNews",                 "NBC News",            "en"),
+    ("@CBSNews",                 "CBS News",            "en"),
+    ("@Reuters",                 "Reuters",             "en"),
+    ("@markets",                 "Bloomberg TV",        "en"),
+    ("@itvnews",                 "ITV News",            "en"),
+    ("@GBNewsOnline",            "GB News",             "en"),
+    ("@LiveNOWFOX",              "LiveNOW from FOX",    "en"),
+    ("@ChannelNewsAsia",         "CNA",                 "en"),
+    ("@trtworld",                "TRT World",           "en"),
+    ("@WION",                    "WION",                "en"),
+    ("@africanews",              "Africanews",          "en"),
+    ("@abcnewsaustralia",        "ABC News Australia",  "en"),
     # русский
     ("UCFzJjgVicCtFxJ5B0P_ei8A", "Euronews по-русски",  "ru"),
     ("@currenttimetv",           "Настоящее Время",     "ru"),
-    ("@dw_russian",              "DW на русском",       "ru"),
+    # БЫЛО @dw_russian — такого канала нет, и DW на русском не появлялся
+    # НИ РАЗУ. Ошибка жила незамеченной, потому что «канал сегодня не вещает»
+    # и «канала не существует» в логе выглядели одинаково
+    ("@dwrussian",               "DW на русском",       "ru"),
+    ("@zhivoygvozd",             "Живой Гвоздь",        "ru"),
+    ("@popularpolitics",         "Популярная политика", "ru"),
+    ("@SVTVnews",                "SVTV",                "ru"),
     # испанский
     ("@dwespanol",               "DW Español",          "es"),
     ("@euronewses",              "Euronews en español", "es"),
     ("@France24_es",             "FRANCE 24 Español",   "es"),
     ("@rtvenoticias",            "RTVE Noticias",       "es"),
     ("@nmas",                    "N+",                  "es"),
+    ("@cnnee",                   "CNN en Español",      "es"),
+    ("@ntn24",                   "NTN24",               "es"),
+    ("@NoticiasCaracol",         "Noticias Caracol",    "es"),
+    ("@ElTiempo",                "El Tiempo",           "es"),
     # португальский
-    ("@dwbrasil",                "DW Brasil",           "pt"),
     ("@euronewspt",              "Euronews em português", "pt"),
     ("@CNNbrasil",               "CNN Brasil",          "pt"),
     ("@jovempannews",            "Jovem Pan News",      "pt"),
-    ("@SICNoticias",             "SIC Notícias",        "pt"),
+    ("@recordnews",              "Record News",         "pt"),
+    ("@SBTNews",                 "SBT News",            "pt"),
+    ("@tvcultura",               "TV Cultura",          "pt"),
+    ("@observadorpt",            "Observador",          "pt"),
     # французский
     ("@FRANCE24",                "FRANCE 24",           "fr"),
     ("@franceinfo",              "franceinfo",          "fr"),
     ("@euronewsfr",              "euronews (français)", "fr"),
     ("@BFMTV",                   "BFMTV",               "fr"),
     ("@LCI",                     "LCI",                 "fr"),
+    ("@CNEWS",                   "CNEWS",               "fr"),
 ]
+
+# УБРАНЫ 28.08.2026, обе записи не давали эфира никогда:
+#   @SICNoticias — канала с такой собачкой нет ни в одном написании
+#                  (перебрано пять вариантов), а не «временно не вещает»;
+#   @dwbrasil    — канал есть, круглосуточной трансляции нет.
+# Мёртвая запись не бесплатна: каждый прогон она тратила 100 единиц квоты на
+# поиск того, чего не существует.
+
+# СКОЛЬКО КАНАЛОВ ИСКАТЬ ПОИСКОМ ЗА ОДИН ПРОГОН.
+#
+# Проверка известной ссылки стоит 1 единицу на все каналы разом, а поиск
+# пропавшего эфира — 100 единиц ЗА КАЖДЫЙ. При 45 каналах и восьми прогонах в
+# сутки неудачный день (все трансляции разом сменили номера — так бывает после
+# сбоя у YouTube) стоил бы 36 000 единиц при суточном пределе 10 000. Лента
+# осталась бы не только без эфиров, но и без вирального: квота общая.
+#
+# Восемь поисков за прогон — это 800 единиц, худшие сутки 6400, и запас есть.
+# Пропавшие каналы найдутся не разом, а за два-три прогона; для эфира, который
+# и так обновляется раз в три часа, разница незаметна.
+LIVE_SEARCH_BUDGET = 8
 
 LIVE_REFRESH_HOURS = 3
 
@@ -1291,6 +1342,11 @@ def fetch_live_streams():
                 "title": (sn.get("title") or name).strip(),
                 "imageUrl": (th.get("high") or th.get("medium") or {}).get("url"),
             })
+            continue
+        # Ограничитель поиска: см. LIVE_SEARCH_BUDGET. Дошли до потолка —
+        # остальные каналы ждут следующего прогона, а не выедают квоту
+        if searched >= LIVE_SEARCH_BUDGET:
+            unresolved.append(f"{name} (отложен до следующего прогона)")
             continue
         try:
             searched += 1
