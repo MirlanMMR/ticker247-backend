@@ -14,7 +14,8 @@ from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 from feed_gate import gate as feed_gate
 from live_identity import verdict as identity_verdict
-from textcut import display_source, trim_to_boundary, _looks_blocked, strip_title_echo
+from textcut import (display_source, lead, trim_to_boundary,
+                     _looks_blocked, strip_title_echo)
 from extract import extract_article
 try:
     import trafilatura
@@ -5854,7 +5855,31 @@ _HANGING_WORDS = {
 
 
 def polish_summary(text: str) -> str:
-    """Снимает служебное начало и не оставляет фразу оборванной."""
+    """Чистит текст, СОХРАНЯЯ АБЗАЦЫ.
+
+    Раньше эта чистка была последним шагом перед публикацией и склеивала всё
+    через пробел: `" ".join(parts)`. Абзацы исчезали — 252 текста из 309 в
+    ленте 28.08.2026 оказались одним куском.
+
+    Из-за этого молча не работало правило, о котором мы договаривались:
+    «резать по концу абзаца». Абзацев в тексте не оставалось, и обрезка каждый
+    раз проваливалась на запасной путь — по концу предложения. Правило было
+    написано, покрыто проверками и мертво.
+
+    Теперь чистим КАЖДЫЙ абзац порознь и собираем обратно через пустую строку.
+    """
+    src = (text or "").strip()
+    if not src:
+        return src
+    paras = [p.strip() for p in re.split(r"\n\s*\n|\n", src) if p.strip()]
+    if len(paras) > 1:
+        cleaned = [_polish_one(p) for p in paras]
+        return "\n\n".join(p for p in cleaned if p).strip()
+    return _polish_one(src)
+
+
+def _polish_one(text: str) -> str:
+    """Снимает служебное начало и не оставляет фразу оборванной. Один абзац."""
     t = (text or "").strip()
     if not t:
         return t
@@ -6793,8 +6818,11 @@ def main():
         # Чистка текста: телеграфные зачины, подписи под снимками, кредиты
         # фотографов и оборванные на полуслове фразы. Треть ленты кончалась
         # многоточием в никуда, а начиналась подписью к фотографии
+        # Чистка, а следом — СКОЛЬКО ПОКАЗАТЬ. Мера — абзац, не знак:
+        # «я против замеров количеством знаков» (пользователь, 28.08.2026).
+        # Первые три абзаца, а если абзац один — четыре предложения.
         for _x in filtered:
-            _x["summary"] = polish_summary(_x.get("summary", ""))
+            _x["summary"] = lead(polish_summary(_x.get("summary", "")))
         filtered = quality_gate(filtered, lang)
         # Сверяем ЗДЕСЬ, а не перед записью в базу: дальше ленту режет
         # ограничение по объёму (80 новостей на пул), и снятое им — не
