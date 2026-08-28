@@ -48,6 +48,7 @@ jobs:
           python test_extract.py
           python test_storydedup.py
           python test_feed_gate.py
+          python test_live_identity.py
 
       - name: Run fetch script
         env:

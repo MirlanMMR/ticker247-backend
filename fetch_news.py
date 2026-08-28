@@ -13,6 +13,7 @@ from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 from feed_gate import gate as feed_gate
+from live_identity import verdict as identity_verdict
 from textcut import display_source, trim_to_boundary, _looks_blocked, strip_title_echo
 from extract import extract_article
 try:
@@ -1166,11 +1167,6 @@ LIVE_CHANNELS = [
     ("@zhivoygvozd",             "Живой Гвоздь",        "ru"),
     ("@popularpolitics",         "Популярная политика", "ru"),
     ("@SVTVnews",                "SVTV",                "ru"),
-    # Государственный вещатель — решение пользователя 28.08.2026. Остальные
-    # пять русских каналов зарубежные или независимые, и полка выходила
-    # односторонней. Мы не выбираем читателю, что думать: полка — это выбор,
-    # а выбор из одной стороны выбором не является
-    ("@ntv",                     "НТВ",                 "ru"),
     # испанский
     ("@dwespanol",               "DW Español",          "es"),
     ("@euronewses",              "Euronews en español", "es"),
@@ -1195,10 +1191,23 @@ LIVE_CHANNELS = [
     ("@euronewsfr",              "euronews (français)", "fr"),
     ("@BFMTV",                   "BFMTV",               "fr"),
     ("@LCI",                     "LCI",                 "fr"),
-    ("@CNEWS",                   "CNEWS",               "fr"),
 ]
 
-# УБРАНЫ 28.08.2026, обе записи не давали эфира никогда:
+# УБРАНЫ 28.08.2026 КАК САМОЗВАНЦЫ — обе записи мои же, того же дня:
+#   @ntv   → ТУРЕЦКИЙ NTV, а не русский НТВ. Читатель русского пула получил
+#            «NTV Canlı Yayın - Full HD İzle». Русский НТВ канал имеет, но
+#            круглосуточной трансляции не ведёт, поэтому замены нет.
+#   @CNEWS → ТАЙВАНЬСКИЙ CNEWS匯流新聞網, а не французский. Во французском пуле
+#            шло заседание тайбэйского городского совета. Верный французский
+#            @cnewsofficiel найден, но эфир там назывался «ersdfg» — мусорная
+#            или перехваченная трансляция, брать не стал.
+#
+# Ошибка одна на двоих: каналы добавлялись по «собачке», и проверялось, что
+# трансляция ИДЁТ, но не проверялось, ЧЕЙ это канал. Короткие имена вроде ntv,
+# cnews, abc заняты в десятке стран, и достаются тому, кто раньше пришёл.
+# Заслон поставлен в самом сборе эфиров — см. live_identity.
+#
+# УБРАНЫ РАНЕЕ, обе записи не давали эфира никогда:
 #   @SICNoticias — канала с такой собачкой нет ни в одном написании
 #                  (перебрано пять вариантов), а не «временно не вещает»;
 #   @dwbrasil    — канал есть, круглосуточной трансляции нет.
@@ -1394,6 +1403,17 @@ def fetch_live_streams():
             if not video_id:
                 continue
             thumbs = snippet.get("thumbnails", {})
+            # ЗАСЛОН ОТ САМОЗВАНЦЕВ. Совпадение «собачки» ничего не
+            # доказывает: короткие имена (ntv, cnews, abc) заняты в десятке
+            # стран, и достаются тому, кто раньше пришёл. 28.08 так в русский
+            # пул попал турецкий NTV, а во французский — тайваньский CNEWS.
+            # Сверяем имя канала и письмо в названии эфира — см. live_identity
+            why = identity_verdict(name, snippet.get("channelTitle") or "",
+                                   snippet.get("title") or "", pool)
+            if why:
+                print(f"  🚫 Эфир {name}: не тот канал — {why}")
+                continue
+
             items.append({
                 "channelId": channel_id,
                 "name": name,
