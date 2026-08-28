@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
-from textcut import trim_to_boundary, _looks_blocked, strip_title_echo
+from textcut import display_source, trim_to_boundary, _looks_blocked, strip_title_echo
 from extract import extract_article
 try:
     import trafilatura
@@ -6792,6 +6792,14 @@ def main():
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)
+        # Имя издания — на языке читателя этого пула. Во ВСЕХ четырёх нерусских
+        # пулах стояло «BBC Русская служба» кириллицей под переведённым
+        # заголовком; см. display_source
+        for it in filtered:
+            src = it.get("source", "")
+            shown = display_source(src, lang)
+            if shown != src:
+                it["source"] = shown
         payload = {
             "items": filtered,
             "updatedAt": ts,
