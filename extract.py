@@ -28,6 +28,7 @@
 Модуль не знает ни про Firebase, ни про ИИ: на входе байты, на выходе текст.
 Поэтому проверяется тестами без сети и ключей — см. test_extract.py
 """
+import html
 import json
 import re
 from dataclasses import dataclass, field
@@ -278,6 +279,59 @@ class BaseSanitizer:
         raise NotImplementedError
 
 
+class EntitySanitizer(BaseSanitizer):
+    """Разбирает HTML-подстановки и добивает уцелевшие теги.
+
+    Найдено 28.08 в опубликованной ленте: пять новостей из семи с замечаниями
+    несли читателю сырьё — &quot;, &nbsp;, &#39;, &apos; — а Sky Sports ещё и
+    открытый тег <p> прямо в тексте.
+
+    Почему так вышло: извлекатели отдают текст, уже вынутый из разметки, и
+    считается, что подстановки они разбирают сами. Разбирают — НО НЕ ВСЕГДА:
+    когда текст приходит из JSON-LD или из атрибута, он остаётся в исходном
+    виде, потому что через разметку не проходил вовсе. Именно французские
+    издания, где мы чаще берём JSON-LD, и дали четыре случая из семи.
+
+    ПОРЯДОК ВАЖЕН: это правило идёт ПЕРВЫМ. Остальные ищут слова в начале
+    строки, а «&quot;Подпишитесь» началом строки не выглядит.
+
+    Теги снимаем ПОСЛЕ разбора подстановок, а не до: &lt;p&gt; превращается в
+    <p> именно на этом шаге, и снятая раньше разметка его бы не увидела.
+    """
+    name = "HTML-подстановки"
+    _TAG = re.compile(r"<[^>]{1,200}>")
+
+    def apply(self, text: str) -> str:
+        out = html.unescape(text)
+        out = self._TAG.sub(" ", out)
+        # Неразрывный пробел выглядит как обычный, но ломает подсчёт слов и
+        # переносы; строке от него ни тепло ни холодно
+        out = out.replace("\xa0", " ").replace("\u200b", "")
+        out = re.sub(r"[ \t]{2,}", " ", out)
+        return out.strip()
+
+
+class PromoLineSanitizer(BaseSanitizer):
+    """Выбрасывает ОТДЕЛЬНЫЕ строки-зазывалки, не трогая статью.
+
+    «Subscribe to The Y'all — a weekly dispatch about the people, places and
+    policies defining Texas» — это врезка про рассылку ПОСРЕДИ материала, а не
+    его хвост. Хвостовое правило (FooterLinkSanitizer) её не берёт: оно режет
+    всё, что ниже, и, встретив такую врезку в середине, выбросило бы половину
+    статьи. Поэтому здесь снимаем строку и идём дальше.
+    """
+    name = "врезка про рассылку"
+    _RX = re.compile(
+        r"(subscribe to |sign up for |newsletter|inscrivez-vous|"
+        r"abonnez-vous|suscríb[ae]|assine (a )?newsletter|"
+        r"подпишитесь на (нашу |рассылку))", re.I)
+
+    def apply(self, text: str) -> str:
+        lines = [l for l in text.split("\n") if not self._RX.search(l)]
+        out = "\n".join(lines).strip()
+        return out if len(out) >= 200 else text
+
+
 class HeaderNoiseSanitizer(BaseSanitizer):
     """Срезает авторскую плашку ПЕРЕД первым абзацем.
 
@@ -334,7 +388,15 @@ class FooterLinkSanitizer(BaseSanitizer):
         return text
 
 
-SANITIZERS = [HeaderNoiseSanitizer(), CreditSanitizer(), FooterLinkSanitizer()]
+SANITIZERS = [
+    # ПЕРВЫМ — разбор подстановок и снятие тегов: остальные правила ищут слова
+    # в начале строки, а «&quot;Подпишитесь» началом строки не выглядит
+    EntitySanitizer(),
+    HeaderNoiseSanitizer(),
+    CreditSanitizer(),
+    PromoLineSanitizer(),
+    FooterLinkSanitizer(),
+]
 
 
 # ─── 5. Оценка качества ─────────────────────────────────────────────────────

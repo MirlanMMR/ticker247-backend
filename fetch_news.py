@@ -5183,19 +5183,13 @@ _STORY_STOP = {
 }
 
 
-def _same_story(a, b) -> bool:
-    """Один ли это сюжет. 20.08 Ферстаппен оказался в ленте дважды: один обзор
-    собрал ИИ, второй сложила автоматическая группировка похожих, и друг о
-    друге они не знали."""
-    urls_a = {x.get("url") for x in a.get("blocks", []) if x.get("url")}
-    urls_b = {x.get("url") for x in b.get("blocks", []) if x.get("url")}
-    if len(urls_a & urls_b) >= 2:
-        return True
-    def words(st):
-        return {w[:4] for w in re.findall(r"[а-яёa-zà-ú]{4,}",
-                                          st.get("title", "").lower())}
-    wa, wb = words(a), words(b)
-    return bool(wa and wb and len(wa & wb) >= 2)
+# Правило «один ли это сюжет» живёт в storydedup.py и покрыто проверками.
+# Вынесено туда 28.08.2026: оно стоит дорого в обе стороны — промахнётся в
+# одну, и обзор трижды расскажет об одном событии (так и вышло с Непалом);
+# промахнётся в другую, и склеит разные. Такому правилу нужны проверки, а
+# проверить что-либо внутри fetch_news.py нельзя: файл тянет за собой сеть,
+# ключи и базу.
+from storydedup import same_story as _same_story
 
 
 def _refresh_old_blocks(blocks, lang):

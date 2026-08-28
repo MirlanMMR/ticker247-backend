@@ -46,6 +46,7 @@ jobs:
         run: |
           python test_trim.py
           python test_extract.py
+          python test_storydedup.py
 
       - name: Run fetch script
         env:

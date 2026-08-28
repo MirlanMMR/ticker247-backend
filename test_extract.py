@@ -142,5 +142,51 @@ res2 = extract_article(DIRTY.encode(), "https://example.com/b")
 check("без json-ld доходит до разборщика", res2.ok(), True)
 check("плашка автора в итог не попала", "Иван Петров" in res2.text, False)
 
+# ─── HTML-подстановки и врезки: находки из ленты 28.08.2026 ─────────────────
+#
+# Все случаи взяты ИЗ ОПУБЛИКОВАННОЙ ЛЕНТЫ, не выдуманы. Пять новостей из семи
+# с замечаниями несли читателю сырьё: &quot;, &nbsp;, &#39;, &apos;, а Sky
+# Sports — открытый тег <p> прямо посреди текста.
+#
+# Почему так вышло: извлекатели отдают текст, уже вынутый из разметки, и
+# подстановки они разбирают сами — НО НЕ ВСЕГДА. Когда текст берётся из
+# JSON-LD или из атрибута, он через разметку не проходит вовсе и остаётся как
+# есть. Оттого четыре случая из семи — французские: там мы чаще берём JSON-LD.
+
+from extract import EntitySanitizer, PromoLineSanitizer, SANITIZERS
+
+_e = EntitySanitizer()
+check("кавычки-подстановки разобраны",
+      _e.apply('Aucune &quot;avancée&quot;.'), 'Aucune "avancée".')
+check("числовая подстановка разобрана",
+      _e.apply("d&#39;enquêter sur la mort"), "d'enquêter sur la mort")
+check("апостроф разобран",
+      _e.apply("casquette &apos;USA&apos;"), "casquette 'USA'")
+check("неразрывный пробел убран",
+      "\xa0" in _e.apply("requiere.&nbsp; Hansi"), False)
+check("сырой тег снят",
+      _e.apply("closes. <p>There are talks."), "closes. There are talks.")
+# Теги снимаются ПОСЛЕ разбора подстановок: до него их ещё нет
+check("двойное экранирование добито",
+      _e.apply("&lt;p&gt;Текст статьи."), "Текст статьи.")
+check("чистый текст не тронут",
+      _e.apply("Обычная строка без разметки."), "Обычная строка без разметки.")
+
+_body = ("Texas agriculture faces a new threat.\n"
+         "Subscribe to The Y’all — a weekly dispatch about Texas.\n"
+         + "Настоящий текст статьи продолжается и занимает место. " * 4)
+_out = PromoLineSanitizer().apply(_body)
+check("врезка про рассылку убрана", "Subscribe" in _out, False)
+check("статья при этом цела", len(_out) > 200 and "Texas agriculture" in _out, True)
+# Если после удаления почти ничего не осталось — правило отступает: строка
+# «подпишитесь» лучше, чем пустая новость
+check("короткий текст не выпотрошен",
+      PromoLineSanitizer().apply("Sign up for our newsletter."),
+      "Sign up for our newsletter.")
+
+# Порядок правил — не мелочь: остальные ищут слова в НАЧАЛЕ строки, а
+# «&quot;Подпишитесь» началом строки не выглядит
+check("подстановки разбираются первыми", SANITIZERS[0].name, "HTML-подстановки")
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
