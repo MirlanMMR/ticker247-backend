@@ -87,5 +87,62 @@ check("сюжет без блоков не роняет проверку",
 check("сюжет без заголовка не роняет проверку",
       same_story({"blocks": [{"url": "q.com/1"}]}, NORWAY), False)
 
+
+# ─── Третий признак: об одном ли говорят САМИ МАТЕРИАЛЫ ─────────────────────
+#
+# Нужен для сюжетов, собранных из РАЗНЫХ статей об одном событии и названных
+# по-разному. Случай из французского пула 28.08.2026: у «Catastrophe au Népal»
+# и «Crues meurtrières au Népal» нет ни общей статьи, ни двух общих слов в
+# названии — общее слово одно, «Népal». А блоки говорят об одном паводке.
+#
+# Пороги подобраны по живым данным: у этой пары 14 общих корней и 39%
+# пересечения, у ВСЕХ остальных пар во всех пяти пулах — не больше четырёх.
+
+def with_blocks(title, *block_titles):
+    """Сюжет с РАЗНЫМИ адресами у блоков.
+
+    Адреса обязаны быть уникальными для каждого сюжета: иначе сработает
+    правило общей ссылки, и третий признак так и останется непроверенным.
+    На этом я и споткнулся, когда писал проверку.
+    """
+    key = abs(hash(title))
+    return {"title": title,
+            "blocks": [{"url": f"{key}/{i}", "title": t}
+                       for i, t in enumerate(block_titles)]}
+
+
+NEPAL_A = with_blocks(
+    "Catastrophe au Népal",
+    "Crue dévastatrice au Népal : une centaine d'ouvriers disparus",
+    "Crue au Népal et au Tibet : les secours face à la montagne",
+    "Vidéo : Sur les traces de la crue éclair meurtrière au Népal",
+    "Rupture de glacier au Népal : les images vues de l'espace")
+NEPAL_B = with_blocks(
+    "Crues meurtrières au Népal : des ruptures de glacier",
+    "Crues meurtrières au Népal : des ruptures de glacier en cause",
+    "Crues meurtrières au Népal et au Tibet : au moins 550 morts",
+    "Inondations au Népal : plus de 500 morts, plus d'un millier disparus",
+    "Le Népal face aux crues : la montagne a lâché")
+IRAN = with_blocks(
+    "Guerre Iran-Etats-Unis",
+    "Six mois de guerre entre les Etats-Unis et l'Iran : que reste-t-il",
+    "Régime, capacités militaires, économie... L'Iran sort affaibli",
+    "Des milliers de morts, un chaos économique et une région instable")
+
+check("два непальских сюжета — одно событие", same_story(NEPAL_A, NEPAL_B))
+check("Непал и Иран — разные события", same_story(NEPAL_A, IRAN), False)
+check("Непал и Норвегия — разные события",
+      same_story(NEPAL_B, with_blocks("Le roi Harald",
+                                      "Le roi Harald de Norvège décède à 89 ans",
+                                      "Harald V, roi depuis plus de trente ans")), False)
+
+# Требуем и число, и долю: одно число обманывается длиной сюжета, доля —
+# короткими сюжетами
+check("короткий сюжет случайным пересечением не склеить",
+      same_story(with_blocks("Мелочь", "Одна короткая новость"),
+                 NEPAL_A), False)
+check("сюжет без блоков не роняет проверку",
+      same_story({"title": "Пусто"}, NEPAL_A), False)
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

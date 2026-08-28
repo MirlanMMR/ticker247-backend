@@ -42,4 +42,47 @@ def same_story(a, b) -> bool:
     if ua & ub:
         return True
     sa, sb = _stems(a), _stems(b)
-    return bool(sa and sb and len(sa & sb) >= 2)
+    if sa and sb and len(sa & sb) >= 2:
+        return True
+    return _blocks_agree(a, b)
+
+
+def _block_stems(story) -> set:
+    """Корни слов из заголовков ВСЕХ блоков сюжета."""
+    import re
+    out = set()
+    for b in story.get("blocks", []):
+        out |= {w[:4] for w in re.findall(r"[а-яёa-zà-ÿ]{4,}",
+                                          (b.get("title") or "").lower())}
+    return out
+
+
+# Пороги подобраны по живым данным 28.08.2026, не на глаз. Во французском пуле
+# «Catastrophe au Népal» и «Crues meurtrières au Népal» дали 14 общих корней и
+# 39% пересечения. Все ОСТАЛЬНЫЕ пары сюжетов во всех пяти пулах — не больше
+# ЧЕТЫРЁХ общих корней. Запас между «одно событие» и «разные» четырёхкратный,
+# и порог поставлен внутри этого запаса, ближе к нижнему краю настоящей пары.
+_BLOCK_COMMON_MIN = 8
+_BLOCK_SHARE_MIN = 0.25
+
+
+def _blocks_agree(a, b) -> bool:
+    """Об одном ли событии говорят САМИ МАТЕРИАЛЫ, а не имена сюжетов.
+
+    Третий и последний признак, нужен для сюжетов, собранных из РАЗНЫХ статей
+    об одном событии и названных по-разному. У «Catastrophe au Népal» и «Crues
+    meurtrières au Népal» нет ни общей статьи, ни двух общих слов в названии:
+    общее слово одно — «Népal». А блоки у них говорят об одном и том же
+    ледниковом паводке, и это видно.
+
+    Двух условий сразу — и числа общих корней, и доли — требуем не для
+    строгости. Одно число обманывается длиной: у сюжета из семи блоков корней
+    втрое больше, чем у сюжета из двух, и восемь общих там наберётся случайно.
+    Доля без числа обманывается наоборот, на коротких сюжетах.
+    """
+    sa, sb = _block_stems(a), _block_stems(b)
+    if not sa or not sb:
+        return False
+    common = sa & sb
+    share = len(common) / min(len(sa), len(sb))
+    return len(common) >= _BLOCK_COMMON_MIN and share >= _BLOCK_SHARE_MIN
