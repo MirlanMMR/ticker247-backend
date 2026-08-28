@@ -101,3 +101,62 @@ def gate(items, pool_lang):
             continue
         kept.append(good)
     return kept, dropped, fixed
+
+# ─── Одна редакция об одном событии — одна новость ──────────────────────────
+
+def _stems(title: str) -> set:
+    return {w[:4] for w in re.findall(r"[a-zà-ÿа-яё]{4,}", (title or "").lower())}
+
+
+def same_event(a: dict, b: dict) -> bool:
+    """Об одном ли событии эти две новости.
+
+    Порог подобран по живой ленте 28.08.2026: у настоящих пар (BBC Mundo и BBC
+    Brasil о смерти короля Норвегии; две заметки Kabar.kg об одной подготовке)
+    выходило 3 общих корня при половине пересечения. У разных новостей столько
+    не набиралось ни разу во всех пяти пулах.
+    """
+    sa, sb = _stems(a.get("title", "")), _stems(b.get("title", ""))
+    if not sa or not sb:
+        return False
+    common = sa & sb
+    return len(common) >= 3 and len(common) / min(len(sa), len(sb)) >= 0.5
+
+
+def _worth(item: dict) -> tuple:
+    """Какая из двух новостей лучше. Больше текста, есть фото, раньше вышла."""
+    return (1 if (item.get("imageUrl") or "").startswith("http") else 0,
+            len(item.get("summary") or ""),
+            -(item.get("publishedAt") or 0))
+
+
+def drop_family_repeats(items, family_of):
+    """Убирает вторую новость об одном событии ОТ ТОЙ ЖЕ РЕДАКЦИИ.
+
+    Найдено пользователем 28.08.2026 по снимку ленты: одно и то же фото короля
+    Норвегии дважды подряд — от BBC Mundo и BBC Brasil. Ссылки разные,
+    заголовки разные, редакция одна, событие одно.
+
+    ПОЧЕМУ ТОЛЬКО ВНУТРИ РЕДАКЦИИ, а не вообще между всеми. Две газеты об одном
+    событии — это не повтор, а разные взгляды; на них у нас построен обзор
+    прессы, и склеивать их в ленте значило бы обеднять её. А вот BBC Mundo и
+    BBC Brasil — это одна редакция на двух языках: взгляд один, и второй раз
+    его показывать незачем.
+
+    Из пары остаётся лучшая: с фотографией, длиннее и раньше вышедшая.
+    """
+    kept, dropped = [], []
+    for it in items:
+        fam = family_of(it.get("source", ""))
+        twin_i = next((i for i, k in enumerate(kept)
+                       if family_of(k.get("source", "")) == fam
+                       and same_event(k, it)), None)
+        if twin_i is None:
+            kept.append(it)
+            continue
+        if _worth(it) > _worth(kept[twin_i]):
+            dropped.append(kept[twin_i])
+            kept[twin_i] = it
+        else:
+            dropped.append(it)
+    return kept, dropped

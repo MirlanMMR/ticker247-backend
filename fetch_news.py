@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
-from feed_gate import gate as feed_gate
+from feed_gate import drop_family_repeats, gate as feed_gate
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
                      _looks_blocked, strip_title_echo)
@@ -6852,6 +6852,16 @@ def main():
         # Рубеж не заменяет извлечение и очистку — он ловит просочившееся.
         # 28.08 просочились подстановки: первая ступень цепочки (JSON-LD)
         # отдаёт текст, через разметку не проходивший, и они уцелевали.
+        # Одна редакция об одном событии — одна новость. BBC Mundo и BBC
+        # Brasil это одна редакция на двух языках: взгляд один, и показывать
+        # его дважды незачем. Разные ИЗДАНИЯ об одном событии не трогаем — на
+        # них построен обзор прессы
+        filtered, family_dups = drop_family_repeats(filtered, publisher_family)
+        if family_dups:
+            print(f"  👥 Повтор одной редакции [{lang}]: снято {len(family_dups)}")
+            for it in family_dups[:3]:
+                print(f"       · {it.get('source','?')}: {it.get('title','')[:52]}")
+
         filtered, dropped_bad, repaired = feed_gate(filtered, lang)
         if repaired:
             print(f"  🧽 Рубеж [{lang}]: починено {repaired}")

@@ -332,6 +332,48 @@ class PromoLineSanitizer(BaseSanitizer):
         return out if len(out) >= 200 else text
 
 
+class VideoPlaylistSanitizer(BaseSanitizer):
+    """Выбрасывает список роликов видеоплеера, принятый за текст статьи.
+
+    Найдено пользователем 28.08.2026 на NBC News. Вместо новости читатель
+    получил расписание:
+
+        Trump orders Lake Ontario renamed 'Lake America' 01:25.
+        Americans missing in deadly flood disaster 02:08.
+        Now PlayingPatient battles insurance over coverage 03:28.
+        UP NEXTJury deliberates in Lindsay Clancy murder trial 02:20.
+
+    Он назвал это программой передач, и это точное описание: страница с видео
+    отдаёт не статью, а плейлист. Извлекатель честно берёт самый текстовый
+    блок страницы — и на таких страницах им оказывается именно список.
+
+    Признак надёжный и не требует словаря: СТРОКИ, КОНЧАЮЩИЕСЯ ХРОНОМЕТРАЖЕМ
+    вида 01:25. У живого текста так не бывает. Двух таких строк довольно —
+    одна может оказаться цитатой со временем.
+
+    Слова «Now Playing» и «Up Next» проверяем тоже, но вторым признаком: они
+    английские, а плееры бывают и на других языках, хронометраж же везде один.
+    """
+    name = "плейлист видеоплеера"
+    _STAMP = re.compile(r"\d{1,2}:\d{2}\s*\.?\s*$")
+    _MARK = re.compile(r"(now playing|up next|watch:|см\. также видео)", re.I)
+
+    def apply(self, text: str) -> str:
+        lines = [l for l in text.split("\n") if l.strip()]
+        if not lines:
+            return text
+        stamped = sum(1 for l in lines if self._STAMP.search(l.strip()))
+        if stamped < 2 and not self._MARK.search(text):
+            return text
+        kept = [l for l in lines
+                if not self._STAMP.search(l.strip()) and not self._MARK.search(l)]
+        out = "\n".join(kept).strip()
+        # Если после чистки не осталось текста — значит вся «статья» и была
+        # плейлистом. Возвращаем пустоту: пусть решает оценка качества, ей
+        # виднее, звать ли следующий извлекатель
+        return out
+
+
 class HeaderNoiseSanitizer(BaseSanitizer):
     """Срезает авторскую плашку ПЕРЕД первым абзацем.
 
@@ -392,6 +434,7 @@ SANITIZERS = [
     # ПЕРВЫМ — разбор подстановок и снятие тегов: остальные правила ищут слова
     # в начале строки, а «&quot;Подпишитесь» началом строки не выглядит
     EntitySanitizer(),
+    VideoPlaylistSanitizer(),
     HeaderNoiseSanitizer(),
     CreditSanitizer(),
     PromoLineSanitizer(),
