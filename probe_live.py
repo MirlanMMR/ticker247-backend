@@ -1,0 +1,144 @@
+# -*- coding: utf-8 -*-
+"""Почасовой опрос каналов-кандидатов: когда они вещают.
+
+ЗАЧЕМ. 28.08.2026 я отбирал каналы одним замером — около девяти вечера по
+Бишкеку — и записывал в мёртвые всех, у кого в ту минуту не было эфира. Это
+неверно: пользователь заметил, что круглосуточность нам и не нужна. Лента
+обновляет эфиры раз в три часа и показывает то, что идёт СЕЙЧАС, поэтому канал
+с обычным дневным вещанием будет виден все свои часы.
+
+Требование «только 24/7» было удобно МНЕ — проверил один раз и готово, — но
+отсекло, скорее всего, все местные кыргызстанские каналы: в полночь они не
+вещают.
+
+Здесь опрос идёт КАЖДЫЙ ЧАС и копит расписание. За сутки станет видно, у кого
+эфир с утра до ночи, у кого только вечерний выпуск, а у кого нет вовсе.
+
+Ключ YouTube не нужен: страница /@канал/live отдаёт настоящий адрес
+трансляции, если она идёт. Значит, квота не тратится совсем.
+
+Итог копится в live_probe.csv, по строке на замер.
+"""
+import csv
+import os
+import re
+import sys
+import urllib.error
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
+
+# Кладём рядом с запуском, а не рядом с файлом: в Actions это корень
+# репозитория, и путь через __file__ там ничего не добавляет
+LOG = "live_probe.csv"
+
+UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                    "(KHTML, like Gecko) Chrome/126.0 Safari/537.36",
+      "Accept-Language": "en-US,en;q=0.9"}
+
+# Кандидаты: канал на YouTube ЕСТЬ, но в час проверки эфира не было. Держим их
+# здесь, а не в LIVE_CHANNELS: пока не знаем часов вещания, каждый тёмный канал
+# съедал бы поиск (100 единиц квоты) и вытеснял живых.
+CANDIDATES = [
+    # Кыргызстан — самое важное: в русском пуле сейчас НИ ОДНОГО местного
+    # канала, все шесть зарубежные. Для приложения, считающего Кыргызстан
+    # домом, это заметный пробел
+    ("@alatoo24", "Алатоо 24", "ru"),
+    ("@ntsofficial", "НТС", "ru"),
+    ("@ElTR", "ЭлТР", "ru"),
+    ("@piramidatv", "Пирамида", "ru"),
+    # Россия: круглосуточных трансляций у государственных вещателей нет, но
+    # вечерние выпуски могут идти живьём
+    ("@ntvru", "НТВ", "ru"),
+    ("@smotrim", "Смотрим", "ru"),
+    ("@tvcru", "ТВЦ", "ru"),
+    ("@vesti", "Вести", "ru"),
+    ("@RTVI", "RTVI", "ru"),
+    ("@tvrain", "Дождь", "ru"),
+    ("@radiosvoboda", "Радио Свобода", "ru"),
+    ("@theinsider", "The Insider", "ru"),
+    ("@belsat", "Белсат", "ru"),
+    ("@vottak", "Вот Так", "ru"),
+    ("@nexta_tv", "NEXTA", "ru"),
+    # Французский пул самый бедный — пять каналов
+    ("@Europe1", "Europe 1", "fr"),
+    ("@TV5MONDEInfo", "TV5MONDE Info", "fr"),
+    ("@cnewsofficiel", "CNEWS", "fr"),
+    ("@publicsenat", "Public Sénat", "fr"),
+    ("@LCP", "LCP", "fr"),
+    ("@RTBF", "RTBF", "fr"),
+    # Остальные пулы — добор до десяти
+    ("@CNNChile", "CNN Chile", "es"),
+    ("@laSextaNoticias", "laSexta", "es"),
+    ("@antena3noticias", "Antena 3", "es"),
+    ("@teleSURtv", "teleSUR", "es"),
+    ("@BandJornalismo", "Band Jornalismo", "pt"),
+    ("@cnnportugal", "CNN Portugal", "pt"),
+    ("@rtpnoticias", "RTP Notícias", "pt"),
+    ("@globonews", "GloboNews", "pt"),
+    ("@dwbrasil", "DW Brasil", "pt"),
+    ("@BloombergTelevision", "Bloomberg TV", "en"),
+    ("@Channel4News", "Channel 4 News", "en"),
+    ("@itvnews", "ITV News", "en"),
+]
+
+
+def probe(item):
+    handle, name, pool = item
+    try:
+        html = urllib.request.urlopen(
+            urllib.request.Request(f"https://www.youtube.com/{handle}/live", headers=UA),
+            timeout=25).read().decode("utf8", "ignore")
+    except urllib.error.HTTPError as e:
+        return handle, name, pool, f"нет канала {e.code}", ""
+    except Exception as e:
+        return handle, name, pool, type(e).__name__, ""
+    m = re.search(r'<link rel="canonical" href="https://www\.youtube\.com/watch\?v=([\w-]{11})"',
+                  html)
+    live = '"isLive":true' in html or '"liveBroadcastDetails"' in html
+    if m and live:
+        return handle, name, pool, "эфир", m.group(1)
+    return handle, name, pool, "нет эфира", ""
+
+
+def main():
+    now = datetime.now(timezone.utc)
+    rows = list(ThreadPoolExecutor(8).map(probe, CANDIDATES))
+
+    fresh = not os.path.exists(LOG)
+    with open(LOG, "a", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        if fresh:
+            w.writerow(["время UTC", "час по Бишкеку", "собачка", "название",
+                        "пул", "состояние", "видео"])
+        # Час по Бишкеку (UTC+6) записываем СРАЗУ: расписание нам нужно в том
+        # времени, в котором живёт читатель, а не в котором работает сервер
+        bishkek_hour = (now.hour + 6) % 24
+        for handle, name, pool, state, vid in rows:
+            w.writerow([now.strftime("%Y-%m-%d %H:%M"), bishkek_hour,
+                        handle, name, pool, state, vid])
+
+    live = [r for r in rows if r[3] == "эфир"]
+    print(f"Опрос кандидатов, {bishkek_hour}:00 по Бишкеку — в эфире {len(live)} из {len(rows)}")
+    for handle, name, pool, state, vid in sorted(live, key=lambda r: r[2]):
+        print(f"  ✅ [{pool}] {name} ({handle}) — {vid}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+
+# ─── ЗАЧЕМ ЭТО ДАЛЬШЕ ───────────────────────────────────────────────────────
+#
+# Расписание нужно не только чтобы НАЙТИ каналы, но и чтобы НЕ ИСКАТЬ ЗРЯ.
+#
+# Сейчас fetch_live_streams ищет пропавший эфир поиском — 100 единиц квоты за
+# канал. Для канала с дневным вещанием это значит, что каждую ночь мы платим за
+# поиск того, чего заведомо нет: восемь ночных прогонов по 100 единиц на каждый
+# такой канал.
+#
+# Когда наберётся неделя замеров, у каждого канала появятся ЧАСЫ ВЕЩАНИЯ, и
+# запись в LIVE_CHANNELS получит третье поле — окно. Дальше просто: вне окна
+# канал не ищем вовсе, только проверяем известную ссылку (1 единица на всех).
+#
+# Тогда десять каналов на пул станут дешевле нынешних пяти.
