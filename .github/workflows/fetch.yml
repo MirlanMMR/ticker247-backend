@@ -47,6 +47,7 @@ jobs:
           python test_trim.py
           python test_extract.py
           python test_storydedup.py
+          python test_feed_gate.py
 
       - name: Run fetch script
         env:
@@ -104,4 +105,12 @@ jobs:
       - name: Audit published feed
         if: always()
         continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          # Личный чат владельца для служебных оповещений — НЕ читательский
+          # канал. Проверка пишет туда, только когда замечаний заметно больше
+          # обычного: сообщение «всё как всегда» двадцать четыре раза в сутки
+          # перестанут читать ровно к тому дню, когда оно окажется важным.
+          # Нет секрета — проверка молчит и работает дальше.
+          TELEGRAM_ADMIN_CHAT: ${{ secrets.TELEGRAM_ADMIN_CHAT }}
         run: python feed_audit.py

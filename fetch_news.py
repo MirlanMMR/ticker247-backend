@@ -12,6 +12,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
+from feed_gate import gate as feed_gate
 from textcut import display_source, trim_to_boundary, _looks_blocked, strip_title_echo
 from extract import extract_article
 try:
@@ -6792,14 +6793,25 @@ def main():
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)
-        # Имя издания — на языке читателя этого пула. Во ВСЕХ четырёх нерусских
-        # пулах стояло «BBC Русская служба» кириллицей под переведённым
-        # заголовком; см. display_source
-        for it in filtered:
-            src = it.get("source", "")
-            shown = display_source(src, lang)
-            if shown != src:
-                it["source"] = shown
+
+        # ПОСЛЕДНИЙ РУБЕЖ. Чиним что можно, отсекаем что нельзя — см. feed_gate.
+        #
+        # Выбрасываем ТОЛЬКО непоправимое. Подстановки, теги и кириллица в
+        # имени издания чинятся тут же, и терять из-за них новость значит
+        # проделывать дыру в ленте на ровном месте. А текст на чужом языке
+        # чинить нечем: перевод стоит денег и времени, а здесь уже поздно.
+        #
+        # Рубеж не заменяет извлечение и очистку — он ловит просочившееся.
+        # 28.08 просочились подстановки: первая ступень цепочки (JSON-LD)
+        # отдаёт текст, через разметку не проходивший, и они уцелевали.
+        filtered, dropped_bad, repaired = feed_gate(filtered, lang)
+        if repaired:
+            print(f"  🧽 Рубеж [{lang}]: починено {repaired}")
+        if dropped_bad:
+            print(f"  🚫 Рубеж [{lang}]: снято непрочитаемых {len(dropped_bad)}")
+            for it in dropped_bad[:3]:
+                print(f"       · {it.get('source','?')}: {it.get('title','')[:56]}")
+
         payload = {
             "items": filtered,
             "updatedAt": ts,

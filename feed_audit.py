@@ -9,7 +9,9 @@
 Никакого ИИ: только признаки, которые видно машинным глазом.
 """
 import json
+import os
 import re
+import urllib.parse
 import urllib.request
 from collections import Counter, defaultdict
 
@@ -166,6 +168,7 @@ def audit_stories(pool):
 
 def main():
     total = 0
+    per_pool = {}
     print("\n🔍 РАЗБОР ОПУБЛИКОВАННОЙ ЛЕНТЫ")
     for pool in POOLS:
         try:
@@ -176,6 +179,7 @@ def main():
         found = audit(pool, items)
         n = sum(len(v) for v in found.values())
         total += n
+        per_pool[pool] = n
         scopes = Counter(i.get("scope") for i in items)
         head = (f"  [{pool}] {len(items)} новостей "
                 f"(местные {scopes.get('local',0)}, пул {scopes.get('pool',0)}, "
@@ -190,6 +194,51 @@ def main():
             for g in group[:2]:
                 print(f"         · {g.get('title','')[:70]}")
     print(f"  ИТОГО замечаний по всем пулам: {total}")
+    notify(total, per_pool)
+
+
+# Сколько замечаний считать обычным делом. Порог, а не ноль: часть замечаний
+# неустранима нами — «без фото» у La Jornada означает, что издание не даёт
+# фотографий, и молчать об этом каждый час незачем.
+#
+# 28.08.2026 после починки подстановок и имён изданий по всем пяти пулам
+# оставалось около десятка. Двадцать — заметный скачок, а не рябь.
+ALERT_ABOVE = 20
+
+
+def notify(total, per_pool):
+    """Пишет владельцу в Telegram, если замечаний заметно больше обычного.
+
+    ПОЧЕМУ НЕ КАЖДЫЙ ЧАС. Прогонов двадцать четыре в сутки; сообщение о том,
+    что всё как всегда, за неделю станет шумом, и его перестанут читать
+    ровно к тому дню, когда оно окажется важным.
+
+    ПИШЕМ В ЛИЧНЫЙ ЧАТ, а не в читательские каналы: это служебное сообщение,
+    читателю оно не адресовано. Адрес берётся из TELEGRAM_ADMIN_CHAT. Нет
+    адреса — молчим и работаем дальше: оповещение не должно ронять ленту.
+    """
+    token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat = os.environ.get("TELEGRAM_ADMIN_CHAT")
+    if not token or not chat:
+        return
+    if total <= ALERT_ABOVE:
+        print(f"  🔕 Замечаний {total} — в пределах обычного (порог {ALERT_ABOVE})")
+        return
+    lines = [f"⚠️ Лента: замечаний {total} (обычно до {ALERT_ABOVE})", ""]
+    for pool, n in sorted(per_pool.items(), key=lambda x: -x[1]):
+        if n:
+            lines.append(f"  {pool}: {n}")
+    lines += ["", "Подробности — в журнале прогона Actions."]
+    try:
+        urllib.request.urlopen(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            data=urllib.parse.urlencode({
+                "chat_id": chat, "text": "\n".join(lines),
+            }).encode(), timeout=20)
+        print(f"  📨 Оповещение отправлено: замечаний {total}")
+    except Exception as e:
+        # Молча продолжаем: не доставленное письмо не повод ронять прогон
+        print(f"  · Оповещение не ушло: {str(e)[:60]}")
 
 
 if __name__ == "__main__":
