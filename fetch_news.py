@@ -1144,20 +1144,30 @@ LIVE_CHANNELS = [
     ("UCoMdktPbSTixAyNGwb-UYkQ", "Sky News",            "en"),
     ("UCNye-wNBqNL5ZzHSJj3l8Bg", "Al Jazeera English",  "en"),
     ("@DWNews",                  "DW News",             "en"),
-    ("@euronews",                "Euronews",            "en"),
-    ("@ABCNews",                 "ABC News Live",       "en"),
     ("@NBCNews",                 "NBC News",            "en"),
     ("@CBSNews",                 "CBS News",            "en"),
     ("@Reuters",                 "Reuters",             "en"),
     ("@markets",                 "Bloomberg TV",        "en"),
     ("@itvnews",                 "ITV News",            "en"),
     ("@GBNewsOnline",            "GB News",             "en"),
-    ("@LiveNOWFOX",              "LiveNOW from FOX",    "en"),
     ("@ChannelNewsAsia",         "CNA",                 "en"),
     ("@trtworld",                "TRT World",           "en"),
-    ("@WION",                    "WION",                "en"),
-    ("@africanews",              "Africanews",          "en"),
-    ("@abcnewsaustralia",        "ABC News Australia",  "en"),
+    # ПОРОГ КАЧЕСТВА: 1080p В ПОТОКЕ, ИНАЧЕ КАНАЛ НЕ БЕРЁМ.
+    #
+    # Правило добыто замером 29.08 и выглядит странно, пока не увидишь цифры.
+    # Встраиваемому плееру YouTube качество не приказать — setPlaybackQuality
+    # он принимает молча и не слушается, — а выбирает он сам. И выходит так:
+    # есть у канала 1080p — плеер берёт 720p, картинка хорошая; потолок 720p —
+    # плеер валится в tiny, и это мыло при любом размере окна (проверено на
+    # 640 и 960 точках, разницы нет).
+    #
+    # Поэтому канал с потолком 720p бесполезен: он будет мылить всегда.
+    # Отсюда 29.08 убраны Euronews во ВСЕХ пяти пулах, ABC News Live, CBS,
+    # WION, Africanews, ABC News Australia, LiveNOW from FOX, N+ и CGTN на
+    # русском — последний прожил в списке час.
+    #
+    # ЧЕМ МЕРИТЬ: yt-dlp по адресу youtube.com/<канал>/live, поле height у
+    # форматов. Мерить можно только когда канал вещает.
     # русский
     # УБРАН 29.08 — НЕ ПРЯМОЙ ЭФИР. Канал круглосуточно крутит записи: в
     # кадре стоит его собственная плашка «REPLAY» с датой, и дата каждый раз
@@ -1180,19 +1190,15 @@ LIVE_CHANNELS = [
     # по-русски. Это государственный вещатель Китая — как «Настоящее Время» и
     # DW государственные с другой стороны; ставим сознательно, чтобы в русском
     # пуле было не одно направление взгляда. Пользователь 29.08 сам вспомнил
-    ("@CGTNRussian",             "CGTN на русском",     "ru"),
     # испанский
     ("@dwespanol",               "DW Español",          "es"),
-    ("@euronewses",              "Euronews en español", "es"),
     ("@France24_es",             "FRANCE 24 Español",   "es"),
     ("@rtvenoticias",            "RTVE Noticias",       "es"),
-    ("@nmas",                    "N+",                  "es"),
     ("@cnnee",                   "CNN en Español",      "es"),
     ("@ntn24",                   "NTN24",               "es"),
     ("@NoticiasCaracol",         "Noticias Caracol",    "es"),
     ("@ElTiempo",                "El Tiempo",           "es"),
     # португальский
-    ("@euronewspt",              "Euronews em português", "pt"),
     ("@CNNbrasil",               "CNN Brasil",          "pt"),
     ("@jovempannews",            "Jovem Pan News",      "pt"),
     ("@recordnews",              "Record News",         "pt"),
@@ -1202,7 +1208,6 @@ LIVE_CHANNELS = [
     # французский
     ("@FRANCE24",                "FRANCE 24",           "fr"),
     ("@franceinfo",              "franceinfo",          "fr"),
-    ("@euronewsfr",              "euronews (français)", "fr"),
     ("@BFMTV",                   "BFMTV",               "fr"),
     ("@LCI",                     "LCI",                 "fr"),
 ]
