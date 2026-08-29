@@ -7,8 +7,8 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from extract import (BeautifulSoup, CreditSanitizer, FooterLinkSanitizer,
-                     TranslationNoteSanitizer,
+from extract import (AgencyLeadSanitizer, BeautifulSoup, CreditSanitizer,
+                     FooterLinkSanitizer, TranslationNoteSanitizer,
                      HeaderNoiseSanitizer, QualityGate, Verdict,
                      extract_article, extract_jsonld, presanitize_dom)
 
@@ -257,6 +257,27 @@ check("похожая фраза внутри текста цела", _TN.apply(
 # Если после сноски почти ничего не остаётся — лучше как было, чем огрызок
 _SHORT = "Esta es una traducción de la BBC. El original está aquí. Breve."
 check("короткий остаток не режем", _TN.apply(_SHORT), _SHORT)
+
+# ─── выжимка агентства перед телеграфным зачином ───────────────────────────
+# Найдено пользователем 29.08.2026: заметка РИА про обезьян на Хайнане шла
+# дважды подряд — сперва три тезиса агентства, следом та же новость с зачина.
+_AL = AgencyLeadSanitizer()
+
+_RIA = ("Власти провинции Хайнань рекомендовали туристам не заходить глубоко в "
+        "тропические леса и охраняемые природные территории.\n\n"
+        "Туристам не следует вступать в конфликт с обезьянами.\n\n"
+        "ПЕКИН, 29 авг - РИА Новости. Власти китайской островной провинции "
+        "Хайнань рекомендовали туристам не заходить глубоко в тропические леса "
+        "и не вступать в конфликт с обезьянами, сообщает управление туризма.")
+check("выжимка перед зачином снята", _AL.apply(_RIA).startswith("ПЕКИН"), True)
+
+_PLAIN = ("ПЕКИН, 29 авг - РИА Новости. Власти провинции рекомендовали туристам "
+          "не заходить в леса и не вступать в конфликт с обезьянами, сообщает "
+          "управление туризма со ссылкой на специалистов заповедника.")
+check("зачин в начале не трогаем", _AL.apply(_PLAIN), _PLAIN)
+
+_NONE = "Обычная новость без зачина, просто текст про Хайнань и обезьян."
+check("текст без зачина цел", _AL.apply(_NONE), _NONE)
 
 print(f"\nпройдено {ok}, провалено {fail}")
 

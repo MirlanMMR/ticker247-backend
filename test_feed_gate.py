@@ -128,5 +128,36 @@ check("разные события одной редакции — обе ост
       ], _fam)[0]), 2)
 check("пустая лента переживается", drop_family_repeats([], _fam), ([], []))
 
+# ─── родная редакция важнее перевода ───────────────────────────────────────
+# 29.08.2026: в испанскую ленту пришла кража колье из венского музея от
+# РУССКОЙ службы Би-би-си при живой BBC Mundo — путь английский → русский →
+# испанский, да ещё со служебной сноской переводчика.
+_RU_BBC = {"source": "BBC Русская служба", "source_lang": "ru",
+           "title": "Ladrones roban un collar con 600 diamantes en Viena",
+           "summary": "x" * 900, "imageUrl": "http://i/1.jpg", "publishedAt": 100}
+_ES_BBC = {"source": "BBC Mundo", "source_lang": "es",
+           "title": "Roban un collar de 600 diamantes de un museo en Viena",
+           "summary": "y" * 300, "imageUrl": "http://i/2.jpg", "publishedAt": 200}
+_fam = lambda src: "bbc" if "BBC" in src else src
+
+_kept, _drop = drop_family_repeats([_RU_BBC, _ES_BBC], _fam, pool_lang="es")
+check("в испанском пуле остаётся BBC Mundo, а не русская служба",
+      [k["source"] for k in _kept], ["BBC Mundo"])
+
+# Язык главнее длины и фото — но только он: при одном языке всё как было
+_kept2, _ = drop_family_repeats([_ES_BBC, _RU_BBC], _fam, pool_lang="ru")
+check("в русском пуле остаётся русская служба",
+      [k["source"] for k in _kept2], ["BBC Русская служба"])
+
+# Родной версии нет — перевод лучше пустоты, новость не теряем
+_kept3, _ = drop_family_repeats([_RU_BBC], _fam, pool_lang="fr")
+check("без родной версии перевод остаётся",
+      [k["source"] for k in _kept3], ["BBC Русская служба"])
+
+# Разные ИЗДАНИЯ об одном событии — разные взгляды, их не трогаем
+_OTHER = dict(_RU_BBC, source="Reuters", source_lang="en")
+_kept4, _ = drop_family_repeats([_ES_BBC, _OTHER], _fam, pool_lang="es")
+check("разные издания об одном событии остаются оба", len(_kept4), 2)
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

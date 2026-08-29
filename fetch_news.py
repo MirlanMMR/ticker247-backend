@@ -6874,7 +6874,10 @@ def main():
         # Brasil это одна редакция на двух языках: взгляд один, и показывать
         # его дважды незачем. Разные ИЗДАНИЯ об одном событии не трогаем — на
         # них построен обзор прессы
-        filtered, family_dups = drop_family_repeats(filtered, publisher_family)
+        # Язык пула передаём не для порядка: из двух версий одной редакции
+        # берём ту, что написана на языке читателя, а не переведена с третьего
+        filtered, family_dups = drop_family_repeats(
+            filtered, publisher_family, pool_lang=lang)
         if family_dups:
             print(f"  👥 Повтор одной редакции [{lang}]: снято {len(family_dups)}")
             for it in family_dups[:3]:

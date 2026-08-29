@@ -123,14 +123,29 @@ def same_event(a: dict, b: dict) -> bool:
     return len(common) >= 3 and len(common) / min(len(sa), len(sb)) >= 0.5
 
 
-def _worth(item: dict) -> tuple:
-    """Какая из двух новостей лучше. Больше текста, есть фото, раньше вышла."""
-    return (1 if (item.get("imageUrl") or "").startswith("http") else 0,
+def _worth(item: dict, pool_lang: str = "") -> tuple:
+    """Какая из двух новостей лучше.
+
+    ПЕРВЫМ ДЕЛОМ — РОДНАЯ РЕДАКЦИЯ. Если издание пишет на языке пула, берём
+    его, а не перевод с третьего языка.
+
+    Найдено 29.08.2026: в испанскую ленту пришла заметка о краже колье из
+    венского музея — из РУССКОЙ службы Би-би-си, при живой BBC Mundo. Путь
+    вышел английский → русский → испанский, и вместе с ним доехала служебная
+    сноска «это перевод материала корреспондента Би-би-си». Смысл на двойном
+    переводе садится неизбежно, а спрашивать было не у кого: правило смотрело
+    на длину и фото, но не на язык.
+
+    Дальше как было: с фотографией, длиннее, раньше вышедшая.
+    """
+    native = 1 if (pool_lang and item.get("source_lang") == pool_lang) else 0
+    return (native,
+            1 if (item.get("imageUrl") or "").startswith("http") else 0,
             len(item.get("summary") or ""),
             -(item.get("publishedAt") or 0))
 
 
-def drop_family_repeats(items, family_of):
+def drop_family_repeats(items, family_of, pool_lang: str = ""):
     """Убирает вторую новость об одном событии ОТ ТОЙ ЖЕ РЕДАКЦИИ.
 
     Найдено пользователем 28.08.2026 по снимку ленты: одно и то же фото короля
@@ -154,7 +169,7 @@ def drop_family_repeats(items, family_of):
         if twin_i is None:
             kept.append(it)
             continue
-        if _worth(it) > _worth(kept[twin_i]):
+        if _worth(it, pool_lang) > _worth(kept[twin_i], pool_lang):
             dropped.append(kept[twin_i])
             kept[twin_i] = it
         else:
