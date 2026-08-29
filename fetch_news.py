@@ -241,9 +241,20 @@ RSS_SOURCES = [
     # приложение покажет такую новость только тому, у кого телефон на этом
     # языке. Русскоязычному читателю чужой язык в ленту не попадёт.
     # Добавить новый народ = одна строка здесь.
-    {"url": "https://kun.uz/news/rss?lang=uz", "source": "Kun.uz", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "ru", "native": "uz"},
-    {"url": "https://www.gazeta.uz/uz/rss/", "source": "Gazeta.uz", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "ru", "native": "uz"},
+    # Тоже русская редакция вместо узбекской — по той же причине, что у
+    # Gazeta.uz: издание УЖЕ пишет по-русски, и переводить его незачем
+    {"url": "https://kun.uz/news/rss?lang=ru", "source": "Kun.uz", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "ru"},
+    # БЕРЁМ РУССКУЮ РЕДАКЦИЮ, А НЕ УЗБЕКСКУЮ. Была заведена узбекская лента, и
+    # мы переводили то, что издание УЖЕ написало по-русски: лишний перевод на
+    # ровном месте, а смысл на нём садится. Найдено 29.08.2026 на заметке о
+    # шуме от стройки в Ташкенте. Русская лента отдаёт те же 20 записей
+    {"url": "https://www.gazeta.uz/ru/rss/", "source": "Gazeta.uz", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "ru"},
+    # ОСТАЁТСЯ КАЗАХСКОЙ: Egemen Qazaqstan — казахскоязычная газета, русской
+    # редакции у неё нет по определению (русскую нишу занимает другая газета)
     {"url": "https://egemen.kz/rss", "source": "Egemen Qazaqstan", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "ru", "native": "kk"},
+    # ОСТАЁТСЯ ТАДЖИКСКОЙ: русской ленты у издания нет. Проверено 29.08.2026
+    # по четырём вероятным адресам — все пусты. Переводим, потому что иначе
+    # Таджикистана в ленте не будет вовсе
     {"url": "https://asiaplustj.info/tj/rss.xml", "source": "Asia-Plus", "category": "NEWS", "priority": 1, "quota": 3, "scope": "pool", "lang": "ru", "native": "tg"},
 
     {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "es"},
