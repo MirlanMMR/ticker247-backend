@@ -32,9 +32,19 @@ from datetime import datetime, timezone
 # репозитория, и путь через __file__ там ничего не добавляет
 LOG = "live_probe.csv"
 
+# ПЕЧЕНЬЕ СОГЛАСИЯ ОБЯЗАТЕЛЬНО. Без него YouTube отдаёт не страницу канала, а
+# просьбу согласиться на печенье — вместе с кодом 303. Разбора у нас никакого:
+# «нет строчки про эфир» читается как «канал не вещает», и в ночном замере
+# 29.08 так молчали все тридцать кандидатов разом. Молчали они, может, и по
+# делу, но доверять тому замеру нельзя: мы смотрели не на ту страницу.
+#
+# SOCS — обычный ответ «решение принято», тот же, что ставит любой браузер
+# после нажатия кнопки. Ключ для него не нужен.
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                     "(KHTML, like Gecko) Chrome/126.0 Safari/537.36",
-      "Accept-Language": "en-US,en;q=0.9"}
+      "Accept-Language": "en-US,en;q=0.9",
+      "Cookie": "SOCS=CAISNQgQEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjQwMz"
+                "E3LjA5X3AwGgJlbiADGgYIgOvorwY"}
 
 # Кандидаты: канал на YouTube ЕСТЬ, но в час проверки эфира не было. Держим их
 # здесь, а не в LIVE_CHANNELS: пока не знаем часов вещания, каждый тёмный канал
@@ -65,13 +75,16 @@ CANDIDATES = [
     ("@TV5MONDEInfo", "TV5MONDE Info", "fr"),
     ("@cnewsofficiel", "CNEWS", "fr"),
     ("@publicsenat", "Public Sénat", "fr"),
-    ("@LCP", "LCP", "fr"),
+    # Было @LCP — 404. Настоящая собачка длиннее
+    ("@lcpan", "LCP", "fr"),
     ("@RTBF", "RTBF", "fr"),
     # Остальные пулы — добор до десяти
     ("@CNNChile", "CNN Chile", "es"),
     ("@laSextaNoticias", "laSexta", "es"),
     ("@antena3noticias", "Antena 3", "es"),
-    ("@teleSURtv", "teleSUR", "es"),
+    # Было @teleSURtv — 404. Живёт под @teleSUR, но прямого эфира
+    # там нет ни в один замер; держим в опросе, вдруг появится
+    ("@teleSUR", "teleSUR", "es"),
     ("@BandJornalismo", "Band Jornalismo", "pt"),
     ("@cnnportugal", "CNN Portugal", "pt"),
     ("@rtpnoticias", "RTP Notícias", "pt"),
