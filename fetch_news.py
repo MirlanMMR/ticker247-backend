@@ -350,7 +350,13 @@ RSS_SOURCES = [
     {"url": "https://kabar.kg/rss.xml", "source": "Kabar.kg", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
     {"url": "https://akipress.com/rss/news.rss", "source": "AKIpress", "category": "NEWS", "priority": 2, "quota": 12, "scope": "local"},
     {"url": "https://kaktus.media/?rss=1", "source": "Kaktus.media", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
-    {"url": "https://sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
+    # РУССКАЯ РЕДАКЦИЯ, А НЕ КЫРГЫЗСКАЯ. Была заведена кыргызская лента, и её
+    # материалы уходили читателю КАК ЕСТЬ: метка языка у записи стояла «ru»
+    # (её ставит настройка источника, а не текст), а рубеж качества для
+    # русского пула проверяет лишь наличие кириллицы — кыргызский на
+    # кириллице и проходит. 29.08 читатель получил заметку о медалях борцов
+    # целиком по-кыргызски. Русская лента отдаёт 100 записей вместо 100
+    {"url": "https://ru.sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://www.vb.kg/rss.xml", "source": "Вечерний Бишкек", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://knews.kg/feed/", "source": "Knews.kg", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://www.gezitter.org/rss/", "source": "Gezitter", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local"},
@@ -2454,6 +2460,14 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
     for item, body in zip(targets, bodies):
         if body and len(body) > len(item.get("summary", "")) + 80:
             item["summary"] = body
+            # МЕТКА «ТЕЛО СО СТРАНИЦЫ», а не из ленты. Без неё каждый раз
+            # приходится гадать: новость коротка по природе или мы до неё не
+            # дошли. Числом знаков это не различить — 29.08 в русском пуле
+            # рядом стояли аннотация Guardian на 103 знака (статьи нет вовсе,
+            # со страницы вынимается 26 тысяч) и заметка о золоте Жуманазаровой
+            # на 114 (событие названо, всё сказано). Резать по длине — значит
+            # выбросить вторую вместе с первой.
+            item["fromPage"] = True
             by_url[item["url"]] = body
             done += 1
     # Копии той же статьи в списке получают тот же текст
