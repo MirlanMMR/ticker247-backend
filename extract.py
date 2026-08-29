@@ -430,12 +430,59 @@ class FooterLinkSanitizer(BaseSanitizer):
         return text
 
 
+class TranslationNoteSanitizer(BaseSanitizer):
+    """Снимает примечание переводчика в начале материала.
+
+    Переводные редакции — Би-би-си по-русски, DW, Euronews — ставят первой
+    фразой «Это перевод материала корреспондента Би-би-си. Оригинал на
+    английском можно прочитать здесь». Это не новость, а служебная сноска, и
+    ссылки за словом «здесь» у нас всё равно нет.
+
+    Найдено 29.08.2026 в испанской ленте: заметка о краже колье из венского
+    музея начиналась словами «Esta es una traducción de un reportaje de un
+    corresponsal de la BBC. El original en inglés se puede consultar aquí» —
+    то есть сноску мы не вырезали, а ДОБРОСОВЕСТНО ПЕРЕВЕЛИ и показали
+    читателю обещание ссылки, которой нет.
+
+    Режем в оригинале, до перевода: после перевода фраза выглядит всякий раз
+    по-новому, и ловить её пришлось бы на пяти языках вместо двух. Тот же
+    урок, что с подписями к видеонарезкам 17.08.
+    """
+    name = "примечание переводчика"
+    _RX = re.compile(
+        r"^\s*(это перевод|этот материал.{0,20}перевод|"
+        r"this (is|article is) a translation|"
+        r"esta es una traducci[oó]n|este art[ií]culo es una traducci[oó]n|"
+        r"esta [eé] uma tradu[cç][aã]o|"
+        r"cet article est une traduction|ceci est une traduction)\b",
+        re.I)
+
+    def apply(self, text: str) -> str:
+        # Сноска — первое предложение, редко два. Дальше по тексту такая
+        # фраза уже часть материала, и трогать её нельзя
+        head, sep, tail = text.partition("\n")
+        if self._RX.match(head) and tail.strip():
+            return tail.strip()
+        # Бывает и одной строкой со всей заметкой — тогда режем по точке
+        if self._RX.match(text):
+            parts = re.split(r"(?<=[.!?])\s+", text, maxsplit=2)
+            rest = " ".join(parts[1:]).strip() if len(parts) > 1 else ""
+            # Вторая фраза — «оригинал можно прочитать здесь» — тоже сноска
+            if rest.lower().startswith((
+                    "оригинал", "the original", "el original",
+                    "o original", "l'original", "l’original")):
+                rest = " ".join(parts[2:]).strip() if len(parts) > 2 else ""
+            return rest if len(rest) >= 120 else text
+        return text
+
+
 SANITIZERS = [
     # ПЕРВЫМ — разбор подстановок и снятие тегов: остальные правила ищут слова
     # в начале строки, а «&quot;Подпишитесь» началом строки не выглядит
     EntitySanitizer(),
     VideoPlaylistSanitizer(),
     HeaderNoiseSanitizer(),
+    TranslationNoteSanitizer(),
     CreditSanitizer(),
     PromoLineSanitizer(),
     FooterLinkSanitizer(),

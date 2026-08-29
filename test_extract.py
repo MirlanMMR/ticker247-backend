@@ -8,6 +8,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from extract import (BeautifulSoup, CreditSanitizer, FooterLinkSanitizer,
+                     TranslationNoteSanitizer,
                      HeaderNoiseSanitizer, QualityGate, Verdict,
                      extract_article, extract_jsonld, presanitize_dom)
 
@@ -222,5 +223,41 @@ check("одна строка с временем не приговор",
 check("порядок: плейлист вторым, после подстановок",
       SANITIZERS[1].name, "плейлист видеоплеера")
 
+# ─── примечание переводчика ────────────────────────────────────────────────
+# Найдено 29.08.2026 в испанской ленте: сноску Би-би-си мы не вырезали, а
+# перевели вместе с новостью, и читатель получил обещание ссылки, которой нет.
+_TN = TranslationNoteSanitizer()
+
+_ES = ("Esta es una traducción de un reportaje de un corresponsal de la BBC. "
+       "El original en inglés se puede consultar aquí. En Viena se busca a dos "
+       "hombres que robaron de un museo un collar con más de 600 diamantes, "
+       "informó la policía el jueves por la tarde.")
+check("сноска Би-би-си по-испански снята", _TN.apply(_ES),
+      "En Viena se busca a dos hombres que robaron de un museo un collar con "
+      "más de 600 diamantes, informó la policía el jueves por la tarde.")
+
+_RU = ("Это перевод материала корреспондента Би-би-си. Оригинал на английском "
+       "можно прочитать здесь. В Вене идёт международный розыск двух мужчин, "
+       "укравших из музея колье с более чем 600 бриллиантами, сообщила полиция "
+       "в пятницу утром.")
+check("сноска Би-би-си по-русски снята", _TN.apply(_RU),
+      "В Вене идёт международный розыск двух мужчин, укравших из музея колье с "
+      "более чем 600 бриллиантами, сообщила полиция в пятницу утром.")
+
+check("сноска отдельным абзацем снята",
+      _TN.apply("This is a translation of a BBC correspondent's report.\n"
+                "Vienna police are hunting two men who stole a necklace."),
+      "Vienna police are hunting two men who stole a necklace.")
+
+# Та же фраза ВНУТРИ текста — часть материала, трогать нельзя: правило не
+# должно быть шире своей причины
+_INSIDE = "В Вене идёт розыск. Это перевод не при чём, фраза внутри."
+check("похожая фраза внутри текста цела", _TN.apply(_INSIDE), _INSIDE)
+
+# Если после сноски почти ничего не остаётся — лучше как было, чем огрызок
+_SHORT = "Esta es una traducción de la BBC. El original está aquí. Breve."
+check("короткий остаток не режем", _TN.apply(_SHORT), _SHORT)
+
 print(f"\nпройдено {ok}, провалено {fail}")
+
 sys.exit(1 if fail else 0)
