@@ -26,6 +26,11 @@ on:
     - cron: '0 * * * *'
     - cron: '30 * * * *'
 
+# Право на запись нужно одному шагу — тому, что складывает замеры вещания в
+# live_probe.csv. Лента живёт в Firebase и репозитория не касается
+permissions:
+  contents: write
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -115,3 +120,33 @@ jobs:
           # Нет секрета — проверка молчит и работает дальше.
           TELEGRAM_ADMIN_CHAT: ${{ secrets.TELEGRAM_ADMIN_CHAT }}
         run: python feed_audit.py
+
+      # ОПРОС КАНАЛОВ-КАНДИДАТОВ ЕДЕТ ЗДЕСЬ, А НЕ СВОИМ РАСПИСАНИЕМ.
+      #
+      # Своим прогоном он ходил час, и за ночь с 28 на 29.08 прошло три
+      # замера вместо восьми: расписание в Actions — пожелание, а не
+      # обещание, бесплатные прогоны запускают, когда свободно. Для
+      # расписания вещания это беда: дыры в шесть часов не отличить от
+      # «канал в это время молчал».
+      #
+      # Этот прогон ходит каждые полчаса и по делу, поэтому идёт ровно.
+      # Замер к нему прицепом: ключей не просит, минут почти не ест,
+      # ошибку глотает и ленту не роняет.
+      - name: Опрос каналов-кандидатов
+        if: always()
+        continue-on-error: true
+        run: python probe_live.py
+
+      - name: Сохранить замер
+        if: always()
+        continue-on-error: true
+        run: |
+          git config user.name  "ticker-probe"
+          git config user.email "noreply@github.com"
+          git add live_probe.csv
+          git diff --cached --quiet && { echo "изменений нет"; exit 0; }
+          git commit -m "probe: замер вещания $(date -u '+%Y-%m-%d %H:%M') UTC"
+          # Между прогонами кто-то мог выложить правки — подтягиваем и
+          # пробуем снова, а не роняем ленту из-за журнала замеров
+          git pull --rebase --autostash origin main || true
+          git push origin main || echo "не выложилось, замер уйдёт следующим"
