@@ -2679,6 +2679,10 @@ def enrich_missing_images(items, budget=450, workers=16):
     targets = _share_budget(targets, budget, "картинок")
     if not targets:
         return
+    # Считаем неудачи и говорим о них вслух. Молчаливый перехват уже дважды
+    # превращал внятную ошибку в загадку: сегодня — с кнопкой «Читать на
+    # сайте», а до того здесь же, с этими самыми снимками
+    _img_fail = []
 
     # Карточка для соцсетей — не фотография. РИА (и не только) кладёт в
     # og:image картинку с ВПЕЧАТАННЫМ заголовком: у ria.ru это
@@ -2721,8 +2725,29 @@ def enrich_missing_images(items, budget=450, workers=16):
 
     def fetch(item):
         try:
-            r = requests.get(item["url"], timeout=8, headers=BROWSER_HEADERS)
-            if not r.ok:
+            # ПЯТНАДЦАТЬ СЕКУНД И ВТОРАЯ ПОПЫТКА, А НЕ ВОСЕМЬ И ОДНА.
+            #
+            # Пользователь 30.08 усомнился: «думаю, проблема была в
+            # извлечении, а не в отсутствии фото». Проверка подтвердила — у
+            # Egemen Qazaqstan на странице лежит обычный og:image, наш же код
+            # находит его безошибочно. Значит, до страницы просто не дошли.
+            #
+            # Разгадка в расстоянии: я проверяю из Бишкека, а прогон идёт с
+            # американских машин GitHub, и для казахстанского сайта это другой
+            # конец света. Восьми секунд оттуда не хватает.
+            #
+            # Открытие страницы денег не стоит — это не запрос к ИИ, — так что
+            # платим временем, а не деньгами.
+            r = None
+            for attempt in (15, 15):
+                try:
+                    r = requests.get(item["url"], timeout=attempt,
+                                     headers=BROWSER_HEADERS)
+                    break
+                except Exception:
+                    continue
+            if r is None or not r.ok:
+                _img_fail.append(item.get("source", "?"))
                 return None
             soup = BeautifulSoup(r.content, "html.parser")
             og = (soup.find("meta", property="og:image")
@@ -2749,11 +2774,17 @@ def enrich_missing_images(items, budget=450, workers=16):
                 img = _page_photo(soup) or img
             return img if img and img.startswith("http") else None
         except Exception:
+            _img_fail.append(item.get("source", "?"))
             return None
 
     from concurrent.futures import ThreadPoolExecutor
     with ThreadPoolExecutor(max_workers=workers) as pool:
         results = list(pool.map(fetch, targets))
+
+    if _img_fail:
+        from collections import Counter as _C
+        top = ", ".join(f"{k}×{v}" for k, v in _C(_img_fail).most_common(4))
+        print(f"  📷 Страница не открылась у {len(_img_fail)} из {len(targets)}: {top}")
 
     by_url = {}
     for item, img in zip(targets, results):
