@@ -753,6 +753,28 @@ def normalize_source_scopes(sources):
     return sources
 
 
+# ─── ВЫВЕДЕННЫЕ ЛЕНТЫ ───────────────────────────────────────────────────────
+#
+# Список источников живёт В БАЗЕ, а код только ДОБАВЛЯЕТ незнакомые (см.
+# load_firebase_config). Значит, поменяв адрес ленты в файле, старую ты не
+# убрал: она осталась в базе и качается по-прежнему, а новая просто добавилась
+# рядом. Обе.
+#
+# Так 30.08.2026 и вышло: я перевёл Sputnik KG, Gazeta.uz и Kun.uz на русские
+# редакции, а кыргызская и узбекские продолжили идти — читатель по-прежнему
+# получал заметки по-кыргызски. Проверить это глазами нельзя: в файле всё
+# верно, беда в базе.
+#
+# Отсюда этот список: адреса, которые надо выкинуть при слиянии, даже если
+# база их помнит. Снятый источник иначе не снять вовсе.
+RETIRED_FEEDS = {
+    # заменены русскими редакциями тех же изданий 30.08.2026
+    "https://sputnik.kg/export/rss2/archive/index.xml",
+    "https://www.gazeta.uz/uz/rss/",
+    "https://kun.uz/news/rss?lang=uz",
+}
+
+
 def load_firebase_config():
     """Загружает конфиг из Firebase /config и обновляет глобальные переменные."""
     global RSS_SOURCES, BORING_KEYWORDS, YOUTUBE_BLOCK_KEYWORDS
@@ -792,6 +814,14 @@ def load_firebase_config():
                 else:
                     fixed.append(s)
             from_db = fixed
+            # Выведенные ленты выкидываем, даже если база их помнит
+            retired = [x for x in from_db
+                       if (x.get("url") or "").lower() in
+                       {u.lower() for u in RETIRED_FEEDS}]
+            if retired:
+                names = ", ".join(x.get("source", "?") for x in retired)
+                print(f"  ➖ Выведены из базы: {len(retired)} ({names})")
+                from_db = [x for x in from_db if x not in retired]
             RSS_SOURCES = normalize_source_scopes(from_db + added)
             # Список берётся ИЗ БАЗЫ и полностью перекрывает зашитый в файле.
             # Из-за этого правки в коде однажды не дали никакого эффекта, а
