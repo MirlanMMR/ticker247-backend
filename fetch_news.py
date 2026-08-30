@@ -5528,6 +5528,41 @@ _STORY_STOP = {
 from storydedup import same_story as _same_story
 
 
+def _collapse_twin_stories(stories, lang):
+    """Схлопывает обзоры об одном событии.
+
+    ПРИМЕНЯТЬ НАДО К ИТОГОВОМУ СПИСКУ, А НЕ ТОЛЬКО К НОВОМУ. 20.08 Ферстаппен
+    висел в ленте двумя обзорами: запрет на новые дубли уже работал, но эти
+    два лежали в базе и просто переносились из прогона в прогон. Правило,
+    применённое только к новому, — половина правила.
+
+    И ЗВАТЬ ЕЁ НАДО НА ВСЕХ ПУТЯХ. 30.08 в португальском пуле снова оказалось
+    два непальских обзора — «Inundações no Nepal» и «Número de mortos em
+    enchentes». Правило их узнавало: одиннадцать общих корней при пороге
+    восемь. Но пересборка обзоров идёт не каждый прогон (она стоит денег), и
+    на коротком пути прежние обзоры возвращались КАК ЕСТЬ, минуя схлопывание.
+    Двойники жили, пока не состарятся.
+
+    Оттого функция и вынесена: чтобы её нельзя было забыть на одной из веток.
+    """
+    merged = []
+    for st in stories:
+        twin = next((m for m in merged if _same_story(st, m)), None)
+        if twin is None:
+            merged.append(st)
+            continue
+        seen = {publisher_family(b.get("source", "")) for b in twin["blocks"]}
+        add = [b for b in st.get("blocks", [])
+               if publisher_family(b.get("source", "")) not in seen]
+        twin["blocks"] = _lead_first_reporter(
+            (twin["blocks"] + add)[:STORY_MAX_BLOCKS])
+        # Имя оставляем то, что короче: длинное обычно — обрубок заголовка
+        if len(st.get("title", "")) < len(twin.get("title", "")):
+            twin["title"] = st["title"]
+        print(f"  🔗 Двойники обзора схлопнуты [{lang}]: «{twin['title'][:40]}»")
+    return merged
+
+
 def _refresh_old_blocks(blocks, lang):
     """Приводит блоки прежних сборок к нынешним правилам.
 
@@ -5662,14 +5697,14 @@ def build_press_reviews(items, lang):
     old = _tidy_stories(old, lang)      # чистка бесплатна и идёт каждый прогон
 
     if len(items) < 8:
-        return items, old
+        return items, _collapse_twin_stories(old, lang)
     # Пересобираем не чаще раза в три часа: обзор живёт сутки, а запрос стоит
     # денег. За два часа сюжет редко обрастает новым изданием
     young = any(now - st.get("freshAt", st.get("createdAt", 0)) < 2 * 3600 * 1000
                 for st in old)
     if old and not young and all(
             now - st.get("updatedAt", 0) < 3 * 3600 * 1000 for st in old):
-        return items, old
+        return items, _collapse_twin_stories(old, lang)
 
     lines = [f"{i+1}. [{it.get('source','?')}] {it.get('title','')}"
              for i, it in enumerate(items)]
@@ -5795,25 +5830,7 @@ def build_press_reviews(items, lang):
                 result.append({**st, "blocks": fixed})
 
     # Схлопываем двойников В ИТОГОВОМ списке, а не только при появлении.
-    # 20.08 Ферстаппен висел в ленте двумя обзорами: запрет на новые дубли уже
-    # работал, но эти два лежали в базе и просто переносились из прогона в
-    # прогон. Правило, применённое только к новому, — половина правила.
-    merged = []
-    for st in result:
-        twin = next((m for m in merged if _same_story(st, m)), None)
-        if twin is None:
-            merged.append(st)
-            continue
-        seen = {publisher_family(b.get("source", "")) for b in twin["blocks"]}
-        add = [b for b in st.get("blocks", [])
-               if publisher_family(b.get("source", "")) not in seen]
-        twin["blocks"] = _lead_first_reporter(
-            (twin["blocks"] + add)[:STORY_MAX_BLOCKS])
-        # Имя оставляем то, что короче: длинное обычно — обрубок заголовка
-        if len(st.get("title", "")) < len(twin.get("title", "")):
-            twin["title"] = st["title"]
-        print(f"  🔗 Двойники обзора схлопнуты [{lang}]: «{twin['title'][:40]}»")
-    result = merged
+    result = _collapse_twin_stories(result, lang)
 
     if result:
         print(f"  📰 Обзоры прессы [{lang}]: "
