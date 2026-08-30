@@ -5406,7 +5406,7 @@ def _lead_first_reporter(blocks):
     """
     timed = [b for b in blocks if b.get("publishedAt")]
     if len(timed) < 2:
-        return blocks
+        return _order_and_dedup_roles(blocks)
     # Соревнуются издания одной лиги: сначала свои для этого пула, и лишь
     # если своих нет — все подряд.
     #
@@ -5426,13 +5426,49 @@ def _lead_first_reporter(blocks):
     first = min(league, key=lambda b: b["publishedAt"])
     current = blocks[0]
     if first is current:
-        return blocks
+        return _order_and_dedup_roles(blocks)
     if current.get("publishedAt", 0) - first["publishedAt"] < 15 * 60 * 1000:
-        return blocks
+        return _order_and_dedup_roles(blocks)
     rest = [b for b in blocks if b is not first]
-    if rest and str(current.get("role", "")).startswith("затравк"):
-        rest[0] = {**rest[0], "role": "дополнение"}
-    return [{**first, "role": "затравка"}] + rest
+    return _order_and_dedup_roles([{**first, "role": "затравка"}] + rest)
+
+
+def _order_and_dedup_roles(blocks):
+    """Порядок по времени и ровно одна затравка.
+
+    ДВЕ БЕДЫ, НАЙДЕННЫЕ ПОЛЬЗОВАТЕЛЕМ 30.08 ПО СНИМКУ ОБЗОРА «Саммит в
+    Центральной Азии».
+
+    1. «ПЕРВЫМ СООБЩИЛ» СТОЯЛО ДВАЖДЫ — сперва RFI, потом 24.kg. Роль
+       «затравка» превращается в эту подпись, а расставляет роли ИИ и вправе
+       назвать затравкой несколько блоков. Мы принудительно назначали только
+       ОДНУ, чужие не снимали. Первенство бывает одно: остальные дополняют.
+
+    2. ПОРЯДОК БЫЛ НЕ ХРОНОЛОГИЧЕСКИЙ. Обзор читается как рассказ о том, как
+       событие разворачивалось, и в нём естественно идти от раннего к
+       позднему: кто сказал первым, что добавилось потом. Порядок ИИ этого не
+       знал и ставил блоки как придётся.
+
+    Затравка остаётся первой всегда — она и есть самое раннее сообщение;
+    остальные выстраиваются по времени за ней. Блоки без времени идут в
+    конец: гадать за них не станем, но и терять их незачем.
+    """
+    if len(blocks) < 2:
+        return blocks
+    # Первый блок — всегда затравка. Обзор «Пожар на рынке» 30.08 начинался
+    # с «Добавляет 24.kg», хотя добавлять было ещё не к чему: роль пришла от
+    # ИИ, а он не знает, каким блок окажется по счёту
+    head, tail = {**blocks[0], "role": "затравка"}, list(blocks[1:])
+    fixed = []
+    for b in tail:
+        # Вторая затравка — это дополнение: первенство бывает одно
+        if str(b.get("role", "")).startswith("затравк"):
+            b = {**b, "role": "дополнение"}
+        fixed.append(b)
+    dated = [b for b in fixed if b.get("publishedAt")]
+    undated = [b for b in fixed if not b.get("publishedAt")]
+    dated.sort(key=lambda b: b["publishedAt"])
+    return [head] + dated + undated
 
 
 def _fits_story(block_title: str, story_title: str, lead_title: str,
