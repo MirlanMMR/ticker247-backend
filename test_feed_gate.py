@@ -159,5 +159,35 @@ _OTHER = dict(_RU_BBC, source="Reuters", source_lang="en")
 _kept4, _ = drop_family_repeats([_ES_BBC, _OTHER], _fam, pool_lang="es")
 check("разные издания об одном событии остаются оба", len(_kept4), 2)
 
+# ─── две редакции одного издания на разных языках ──────────────────────────
+# С 30.08 в русском пуле идут обе ленты Sputnik KG. Одну новость на двух
+# языках не показываем, а какую оставить — решает первенство.
+_SP_RU = {"source": "Sputnik KG", "source_lang": "ru", "publishedAt": 900,
+          "title": "Массовая драка произошла в Бишкеке",
+          "summary": "x" * 400, "imageUrl": "https://s.sputnik.kg/1042543486_0:252:4800.jpg"}
+_SP_KY = {"source": "Sputnik KG (кыргызча)", "source_lang": "ru", "native": "ky",
+          "publishedAt": 500,
+          "title": "Бишкекте массалык мушташ болуп, бир нече киши жабыркады",
+          "summary": "y" * 200, "imageUrl": "https://s.sputnik.kg/1042543486_0:67:2908.jpg"}
+_fam2 = lambda src: "sputnik" if "Sputnik" in src else src
+
+# Заголовки не делят ни одного корня — связывает их только снимок
+check("разноязычные версии связаны по снимку",
+      len(drop_family_repeats([_SP_RU, _SP_KY], _fam2, pool_lang="ru")[0]), 1)
+
+# Кыргызская вышла раньше — она и остаётся, хотя русская длиннее
+_kept5, _ = drop_family_repeats([_SP_RU, _SP_KY], _fam2, pool_lang="ru")
+check("остаётся тот, кто сообщил первым", _kept5[0].get("native"), "ky")
+
+# Если раньше вышла русская — остаётся она
+_SP_RU_FIRST = dict(_SP_RU, publishedAt=100)
+_kept6, _ = drop_family_repeats([_SP_KY, _SP_RU_FIRST], _fam2, pool_lang="ru")
+check("первенство решает в обе стороны", _kept6[0].get("source"), "Sputnik KG")
+
+# Разные снимки — разные события, обе остаются
+_OTHER_PHOTO = dict(_SP_KY, imageUrl="https://s.sputnik.kg/9999999_0:1:2.jpg")
+check("разные снимки не склеиваем",
+      len(drop_family_repeats([_SP_RU, _OTHER_PHOTO], _fam2, pool_lang="ru")[0]), 2)
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

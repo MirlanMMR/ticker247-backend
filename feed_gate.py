@@ -123,6 +123,38 @@ def same_event(a: dict, b: dict) -> bool:
     return len(common) >= 3 and len(common) / min(len(sa), len(sb)) >= 0.5
 
 
+# Языки, понятные читателю пула. Должен совпадать с CYRILLIC в
+# fetch_news.needs_translation и cyrillicLangs в приложении: расхождение этих
+# трёх списков уже подводило нас 19.08.
+_UNDERSTOOD = {"ru": {"ru", "ky", "uk", "be"}}
+
+_PHOTO_ID = re.compile(r"/(\d{6,})[_.]")
+
+
+def _same_photo(a: dict, b: dict) -> bool:
+    """Один и тот же снимок — значит, одно и то же событие.
+
+    ЗАЧЕМ. С 30.08 в русском пуле идут ОБЕ ленты Sputnik KG — русская и
+    кыргызская: кыргызский государственный язык, и новости на родном в
+    домашней ленте быть должны. Но одну новость на двух языках показывать
+    незачем.
+
+    Связать их по заголовкам нельзя: «Массовая драка произошла в Бишкеке» и
+    «Бишкекте массалык мушташ болуп...» не делят ни одного корня. Зато
+    редакция снимает событие один раз, и файл фотографии у обеих версий один.
+    Проверено на живых лентах: восемь совпадений из сорока, и все восемь —
+    настоящие пары.
+
+    Осторожность: сравниваем ТОЛЬКО внутри одной редакции (вызывается из
+    drop_family_repeats) и только по длинному номеру файла. Логотип издания,
+    который иногда приходит вместо снимка, отсеивается раньше — у него номера
+    нет, а если бы и был, чужую редакцию мы всё равно не тронем.
+    """
+    ia, ib = a.get("imageUrl") or "", b.get("imageUrl") or ""
+    ma, mb = _PHOTO_ID.search(ia), _PHOTO_ID.search(ib)
+    return bool(ma and mb and ma.group(1) == mb.group(1))
+
+
 def _worth(item: dict, pool_lang: str = "") -> tuple:
     """Какая из двух новостей лучше.
 
@@ -165,12 +197,44 @@ def drop_family_repeats(items, family_of, pool_lang: str = ""):
         fam = family_of(it.get("source", ""))
         twin_i = next((i for i, k in enumerate(kept)
                        if family_of(k.get("source", "")) == fam
-                       and same_event(k, it)), None)
+                       and (same_event(k, it) or _same_photo(k, it))), None)
         if twin_i is None:
             kept.append(it)
             continue
-        if _worth(it, pool_lang) > _worth(kept[twin_i], pool_lang):
-            dropped.append(kept[twin_i])
+        twin = kept[twin_i]
+        # ЯЗЫК ВЫБИРАЕТ ПЕРВЕНСТВО, А НЕ НАШЕ ПРЕДПОЧТЕНИЕ.
+        #
+        # С 30.08 в русском пуле идут обе ленты Sputnik KG — русская и
+        # кыргызская: кыргызский государственный язык, и новости на родном в
+        # домашней ленте быть должны. Но одну новость на двух языках
+        # показывать незачем, а какую из версий оставить — вопрос не вкуса.
+        #
+        # Сперва я поставил «государственный язык всегда вперёд».
+        # Пользователь 30.08 поправил: «может, выбор языка по первенству». Он
+        # прав, и это тот же принцип, что в обзоре прессы: кто сказал раньше,
+        # тот и сказал. Наше предпочтение сюда не относится.
+        #
+        # Правило действует только между РАЗНОЯЗЫЧНЫМИ версиями одной
+        # редакции. У одноязычных пар всё как было: с фотографией, длиннее,
+        # раньше вышедшая.
+        #
+        # И ТОЛЬКО КОГДА ОБЕ ВЕРСИИ ЧИТАТЕЛЮ ПОНЯТНЫ. Первенство решает между
+        # русской и кыргызской — их в домашнем пуле читают обе. А вот между
+        # BBC Mundo и русской службой Би-би-си в испанском пуле оно не решает
+        # ничего: испанец русского не читает, и там побеждает родная редакция,
+        # как бы рано ни вышла чужая. Проверка это ловит (тест «в испанском
+        # пуле остаётся BBC Mundo»).
+        la = (it.get("native") or it.get("source_lang") or "")
+        lb = (twin.get("native") or twin.get("source_lang") or "")
+        both_readable = la in _UNDERSTOOD.get(pool_lang, {pool_lang}) and \
+                        lb in _UNDERSTOOD.get(pool_lang, {pool_lang})
+        cross_lang = la != lb and both_readable
+        if cross_lang and it.get("publishedAt") and twin.get("publishedAt"):
+            better = it["publishedAt"] < twin["publishedAt"]
+        else:
+            better = _worth(it, pool_lang) > _worth(twin, pool_lang)
+        if better:
+            dropped.append(twin)
             kept[twin_i] = it
         else:
             dropped.append(it)

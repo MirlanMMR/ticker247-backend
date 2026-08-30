@@ -358,13 +358,25 @@ RSS_SOURCES = [
     {"url": "https://kabar.kg/rss.xml", "source": "Kabar.kg", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
     {"url": "https://akipress.com/rss/news.rss", "source": "AKIpress", "category": "NEWS", "priority": 2, "quota": 12, "scope": "local"},
     {"url": "https://kaktus.media/?rss=1", "source": "Kaktus.media", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
-    # РУССКАЯ РЕДАКЦИЯ, А НЕ КЫРГЫЗСКАЯ. Была заведена кыргызская лента, и её
-    # материалы уходили читателю КАК ЕСТЬ: метка языка у записи стояла «ru»
-    # (её ставит настройка источника, а не текст), а рубеж качества для
-    # русского пула проверяет лишь наличие кириллицы — кыргызский на
-    # кириллице и проходит. 29.08 читатель получил заметку о медалях борцов
-    # целиком по-кыргызски. Русская лента отдаёт 100 записей вместо 100
-    {"url": "https://ru.sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
+    # ДВЕ ЛЕНТЫ ОДНОГО ИЗДАНИЯ — РУССКАЯ И КЫРГЫЗСКАЯ. Это паритет, а не
+    # недосмотр.
+    #
+    # 29.08 я перевёл Sputnik с кыргызской ленты на русскую по рассуждению
+    # «издание уже пишет по-русски, зачем переводить». Для узбекских лент это
+    # верно, для СВОЕГО пула — нет: кыргызский государственный язык, русский
+    # официальный, и новости на родном в домашней ленте быть должны.
+    # Пользователь 30.08: «всё-таки мы Кыргызстан... новости на родном должны
+    # быть».
+    #
+    # Кыргызский мы и не переводим — он в списке понятных читателю ru-пула
+    # (см. needs_translation), и Кабар идёт как есть.
+    #
+    # Квота поделена пополам: восемь на двоих, а не по восемь каждой. Одну
+    # новость на двух языках не покажем — за этим следит правило «одна
+    # редакция об одном событии — одна новость» (drop_family_repeats), для
+    # того оно и написано.
+    {"url": "https://ru.sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local"},
+    {"url": "https://sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG (кыргызча)", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "ru", "native": "ky"},
     {"url": "https://www.vb.kg/rss.xml", "source": "Вечерний Бишкек", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://knews.kg/feed/", "source": "Knews.kg", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://www.gezitter.org/rss/", "source": "Gezitter", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local"},
@@ -769,9 +781,11 @@ def normalize_source_scopes(sources):
 # база их помнит. Снятый источник иначе не снять вовсе.
 RETIRED_FEEDS = {
     # заменены русскими редакциями тех же изданий 30.08.2026
-    "https://sputnik.kg/export/rss2/archive/index.xml",
     "https://www.gazeta.uz/uz/rss/",
     "https://kun.uz/news/rss?lang=uz",
+    # Кыргызская лента Sputnik ВЕРНУЛАСЬ 30.08 — см. RSS_SOURCES: в домашнем
+    # пуле новости на государственном языке должны быть, и это паритет, а не
+    # недосмотр. Узбекские остаются выведенными: узбекского читателя у нас нет
 }
 
 
