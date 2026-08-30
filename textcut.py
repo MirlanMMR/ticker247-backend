@@ -22,6 +22,58 @@ _SENTENCE_END = re.compile(
     r"[^\W\d_]{3,}[»\"'”’)\]]?[.!?…](?=[\s»\"'”’)\]]|$)", re.UNICODE)
 
 
+# ─── Перечни ───────────────────────────────────────────────────────────────
+#
+# Заметка Sputnik KG о медалях борцов вышла так: «Алтын алгандар:» — и одна
+# фамилия. Девушка с фотографии, выигравшая золото, в текст не попала: рез
+# пришёлся ВНУТРЬ перечня. Тот же класс, что «перечень улиц Бишкека оборван
+# на улице Д.» (15.08.2026).
+#
+# Перечень тем и отличается от прочего текста, что он либо целый, либо
+# бессмысленный: «золото взяли: Иванов» — это не сокращённая правда, а другая
+# и неверная. Поэтому если целиком он не влезает, честнее не начинать его
+# вовсе, оборвав текст перед зачином.
+
+# Строка перечня: «— Иванов, 87 кг», «· Иванов», «1. Иванов», «Иванов;»
+_LIST_ITEM = re.compile(r"^\s*(?:[-—–•·*]\s+|\d{1,2}[.)]\s+)|;\s*\.?\s*$")
+# Зачин перечня: строка, кончающаяся двоеточием
+_LIST_LEAD = re.compile(r":\s*\.?\s*$")
+
+
+def _list_start_before(text: str, cut: int) -> int | None:
+    """Начало перечня, внутрь которого попал рез, — или None.
+
+    Возвращает место, ДО которого текст можно оставить: сам зачин («Золото
+    взяли:») тоже уходит, потому что без списка он ничего не обещает.
+    """
+    head = text[:cut]
+    lines, pos = [], 0
+    for ln in head.split("\n"):
+        lines.append((pos, ln))
+        pos += len(ln) + 1
+    # Ищем последний зачин, за которым идут строки-пункты
+    for i in range(len(lines) - 1, -1, -1):
+        start, ln = lines[i]
+        if not _LIST_LEAD.search(ln):
+            continue
+        after = [x for _, x in lines[i + 1:] if x.strip()]
+        tail_lines = [x for x in text[cut:].split("\n") if x.strip()]
+        if not after:
+            # Зачин оказался ПОСЛЕДНЕЙ строкой: «Алтын алгандар:» — и обрыв.
+            # Обещание без исполнения хуже, чем его отсутствие: убираем зачин
+            if tail_lines and _LIST_ITEM.search(tail_lines[0]):
+                return start
+            return None
+        # Хотя бы одна строка после зачина выглядит пунктом — значит перечень
+        if any(_LIST_ITEM.search(x) for x in after):
+            # Обрываем ли мы его? Да, если после реза текст продолжается
+            # такими же пунктами
+            if tail_lines and _LIST_ITEM.search(tail_lines[0]):
+                return start
+        return None
+    return None
+
+
 def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
                      para_floor: float = 0.6) -> str:
     """Обрезает текст до limit знаков по ближайшей осмысленной границе.
@@ -65,12 +117,12 @@ def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
     # 1. Конец абзаца
     breaks = [m.start() for m in re.finditer(r"\n", window)]
     if breaks and breaks[-1] >= limit * para_floor:
-        return window[:breaks[-1]].strip()
+        return _whole_or_none(text, breaks[-1], limit, floor)
 
     # 2. Конец предложения
     ends = [m.end() for m in _SENTENCE_END.finditer(window)]
     if ends and ends[-1] >= limit * floor:
-        return window[:ends[-1]].strip()
+        return _whole_or_none(text, ends[-1], limit, floor)
 
     # 3. Конец слова
     cut = window[:limit].rsplit(" ", 1)[0].strip()
@@ -272,3 +324,17 @@ def lead(text: str, target: int = 700, max_paras: int = 5,
     if len(sents) <= 1:
         return text
     return take(sents, " ", max_sentences)
+
+
+def _whole_or_none(text: str, cut: int, limit: int, floor: float) -> str:
+    """Отдаёт текст до `cut`, но не обрывая перечень посередине.
+
+    Если рез попал внутрь списка, отступаем к его зачину. Отступать
+    бесконечно нельзя: если после отката остаётся меньше floor от лимита, от
+    новости не осталось бы ничего, и тогда лучше обычный рез — половина
+    перечня хуже целого, но пустота хуже половины.
+    """
+    start = _list_start_before(text, cut)
+    if start is not None and start >= limit * floor:
+        return text[:start].strip()
+    return text[:cut].strip()
