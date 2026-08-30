@@ -5266,9 +5266,22 @@ def _lead_first_reporter(blocks):
     if len(timed) < 2:
         return blocks
     # Соревнуются издания одной лиги: сначала свои для этого пула, и лишь
-    # если своих нет — все подряд
+    # если своих нет — все подряд.
+    #
+    # НО «СВОИ ВПЕРЁД» — ТОЛЬКО ДЛЯ СВОЕГО СЮЖЕТА.
+    #
+    # На мировом событии местное издание первым быть не может: оно
+    # перепечатывает. 30.08 обзор «Сделка по нефти» вышел с подписью «Первым
+    # сообщил Kaktus.media» — а Kaktus в самой статье ссылается на Axios.
+    # Пользователь: «не могут местные СМИ первыми сообщать о мировых
+    # новостях, они только перепечатывают чужие».
+    #
+    # Признак своего сюжета: своих изданий в обзоре хотя бы половина. Если
+    # своих меньшинство — событие чужое, и первенство разыгрывают все.
     own = [b for b in timed if b.get("own")]
-    first = min(own or timed, key=lambda b: b["publishedAt"])
+    home_story = len(own) * 2 > len(timed)
+    league = (own or timed) if home_story else timed
+    first = min(league, key=lambda b: b["publishedAt"])
     current = blocks[0]
     if first is current:
         return blocks
