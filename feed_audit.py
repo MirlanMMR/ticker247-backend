@@ -66,6 +66,38 @@ def load(pool):
     return [i for i in rows if isinstance(i, dict)]
 
 
+# ─── Пять пороков, найденных пользователем 30.08.2026 по снимкам ────────────
+#
+# Он прислал семь снимков и предложил прислать ещё десять. Присылать не нужно:
+# ошибки должна искать машина. Но проверить их по ленте задним числом нельзя —
+# за час она сменяется, и к моменту проверки виновников уже нет. Поэтому
+# проверки живут ЗДЕСЬ: разбор ходит сразу после публикации, и мимо него не
+# проскочит ничего.
+_CYR = re.compile(r"[а-яёА-ЯЁ]")
+_LAT = re.compile(r"[a-zA-Z]")
+# Служебные слова редакции, оставшиеся в тексте отдельной строкой
+_EDITORIAL = re.compile(r"(?:^|\n)\s*(Смотрим|Читайте|Напомним|Подробности)!?\s*$", re.M)
+# Перечень оборван: последняя строка — голый номер или текст кончается
+# двоеточием либо точкой с запятой
+_CUT_LIST = re.compile(r"(?:^|\n)\s*\d{1,2}[.)]\s*$")
+
+
+def _latin_share(t: str) -> float:
+    c, l = len(_CYR.findall(t)), len(_LAT.findall(t))
+    return l / max(1, c + l)
+
+
+def _head_repeated(body: str) -> bool:
+    """Начало текста встречается дальше по нему второй раз.
+
+    Так приходят заметки, где издание кладёт в ленту аннотацию, а потом тот же
+    материал целиком: iXBT, Sputnik, РИА. Читатель видит одно и то же дважды.
+    """
+    b = " ".join(body.split()).lower()
+    head = b[:50]
+    return len(head) == 50 and b.count(head) > 1
+
+
 def audit(pool, items):
     """Возвращает словарь: вид беды → список новостей."""
     bad = defaultdict(list)
@@ -99,6 +131,23 @@ def audit(pool, items):
             bad["аннотация вместо статьи"].append(i)
         if len(title) > 25 and body.lower().startswith(title.lower()[:25]):
             bad["заголовок в теле"].append(i)
+        # ── пять пороков со снимков 30.08 ──────────────────────────────
+        # Заголовок переведён, а текст остался на чужом письме. Пометка
+        # «Переведено» при этом врёт, и это хуже отсутствия перевода
+        if len(body) > 150:
+            if pool == "ru" and _latin_share(body) > 0.6:
+                bad["текст не переведён"].append(i)
+            elif pool in ("es", "pt", "fr") and len(_CYR.findall(body)) > 30:
+                bad["текст не переведён"].append(i)
+        if len(body) > 200 and _head_repeated(body):
+            bad["текст повторён"].append(i)
+        if _CUT_LIST.search(body) or body.rstrip().endswith((":", ";")):
+            bad["оборванный перечень"].append(i)
+        if re.search(r"[:,]\s*\.", body):
+            bad["склейка знаков"].append(i)
+        if _EDITORIAL.search(body):
+            bad["служебная строка"].append(i)
+
         if len(body) > 80:
             tail = body.rstrip()
             last = tail.split()[-1].lower().strip(".") if tail.split() else ""
