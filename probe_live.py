@@ -112,15 +112,52 @@ def probe(item):
             urllib.request.Request(f"https://www.youtube.com/{handle}/live", headers=UA),
             timeout=25).read().decode("utf8", "ignore")
     except urllib.error.HTTPError as e:
-        return handle, name, pool, f"нет канала {e.code}", ""
+        return handle, name, pool, f"нет канала {e.code}", "", 0
     except Exception as e:
-        return handle, name, pool, type(e).__name__, ""
+        return handle, name, pool, type(e).__name__, "", 0
     m = re.search(r'<link rel="canonical" href="https://www\.youtube\.com/watch\?v=([\w-]{11})"',
                   html)
     live = '"isLive":true' in html or '"liveBroadcastDetails"' in html
     if m and live:
-        return handle, name, pool, "эфир", m.group(1)
-    return handle, name, pool, "нет эфира", ""
+        return handle, name, pool, "эфир", m.group(1), _max_height(m.group(1))
+    return handle, name, pool, "нет эфира", "", 0
+
+
+def _max_height(video_id: str) -> int:
+    """Какое наибольшее разрешение вещает канал прямо сейчас.
+
+    ЗАЧЕМ ЗДЕСЬ, А НЕ ОТДЕЛЬНО. Встраиваемому плееру YouTube высокое качество
+    достаётся только там, где в потоке ЕСТЬ 1080p: есть — играет 720p, потолок
+    720p — валится в tiny при любом размере окна (проверено 29.08 на 640 и 960
+    точках). Значит, ладдер — главный признак пригодности канала.
+    
+    А измерить его можно ТОЛЬКО пока канал в эфире. Разовая проверка ловит
+    лишь круглосуточных: 30.08 из восьми кандидатов не вещал ни один, и
+    качество осталось неизвестным. Опрос же и так ходит каждые полчаса — ему
+    достаточно спросить заодно.
+
+    Молчим при любой беде: расписание важнее качества, и терять замер из-за
+    неудачного разбора незачем.
+    """
+    try:
+        import yt_dlp
+        # Свой пустой журнал: yt-dlp печатает ошибки мимо quiet, и в логе
+        # прогона они выглядят как поломка, хотя это обычное «канал сейчас
+        # между трансляциями»
+        class _Mute:
+            def debug(self, m): pass
+            def info(self, m): pass
+            def warning(self, m): pass
+            def error(self, m): pass
+        opts = {"quiet": True, "no_warnings": True, "skip_download": True,
+                "noplaylist": True, "socket_timeout": 25, "logger": _Mute()}
+        with yt_dlp.YoutubeDL(opts) as y:
+            info = y.extract_info(f"https://www.youtube.com/watch?v={video_id}",
+                                  download=False)
+        hs = [f.get("height") for f in info.get("formats", []) if f.get("height")]
+        return max(hs) if hs else 0
+    except Exception:
+        return 0
 
 
 def main():
@@ -132,18 +169,19 @@ def main():
         w = csv.writer(f)
         if fresh:
             w.writerow(["время UTC", "час по Бишкеку", "собачка", "название",
-                        "пул", "состояние", "видео"])
+                        "пул", "состояние", "видео", "качество"])
         # Час по Бишкеку (UTC+6) записываем СРАЗУ: расписание нам нужно в том
         # времени, в котором живёт читатель, а не в котором работает сервер
         bishkek_hour = (now.hour + 6) % 24
-        for handle, name, pool, state, vid in rows:
+        for handle, name, pool, state, vid, height in rows:
             w.writerow([now.strftime("%Y-%m-%d %H:%M"), bishkek_hour,
-                        handle, name, pool, state, vid])
+                        handle, name, pool, state, vid, height])
 
     live = [r for r in rows if r[3] == "эфир"]
     print(f"Опрос кандидатов, {bishkek_hour}:00 по Бишкеку — в эфире {len(live)} из {len(rows)}")
-    for handle, name, pool, state, vid in sorted(live, key=lambda r: r[2]):
-        print(f"  ✅ [{pool}] {name} ({handle}) — {vid}")
+    for handle, name, pool, state, vid, height in sorted(live, key=lambda r: r[2]):
+        mark = "годится" if height >= 1080 else (f"потолок {height}" if height else "качество не снято")
+        print(f"  ✅ [{pool}] {name} ({handle}) — {vid} · {mark}")
     return 0
 
 
