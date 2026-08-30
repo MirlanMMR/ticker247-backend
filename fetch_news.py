@@ -297,7 +297,15 @@ RSS_SOURCES = [
     {"url": "https://www.francebleu.fr/rss/a-la-une.xml", "source": "France Bleu", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
     {"url": "https://www.nicematin.com/rss", "source": "Nice-Matin", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local", "lang": "fr"},
     {"url": "https://www.nouvelobs.com/rss.xml", "source": "L'Obs", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "fr"},
-    {"url": "https://www.france24.com/fr/rss", "source": "France 24 FR", "category": "NEWS", "priority": 2, "quota": 10, "scope": "world", "lang": "fr"},
+    # КВОТА СНИЖЕНА С 10 ДО 5 (30.08.2026). France 24 отвечает нам 403 при
+    # любых заголовках браузера — проверено и на обычном пути, и на AMP, и
+    # через сторонний читатель, — поэтому его материалы выходят анонсом из
+    # ленты, а не статьёй. Само издание оставляем: по Африке и франкоязычному
+    # миру оно даёт то, чего у нас нет ни у кого (бои в Ниамее, наводнение в
+    # Непале пришли именно оттуда). Но десятка — самая большая квота среди
+    # источников без текста, и французский пул из-за неё копил больше всех
+    # карточек-обещаний
+    {"url": "https://www.france24.com/fr/rss", "source": "France 24 FR", "category": "NEWS", "priority": 2, "quota": 5, "scope": "world", "lang": "fr"},
     {"url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/", "source": "El Universal MX", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "es"},
     {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "es"},
     {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
