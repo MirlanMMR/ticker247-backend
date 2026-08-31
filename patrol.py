@@ -57,6 +57,32 @@ WINDOW = timedelta(minutes=90)
 MIN_OUTLETS = 3
 
 
+# Страница-хроника («EN DIRECT», «AO VIVO», «LIVE UPDATES») — не событие.
+# Она живёт сутками по одному адресу, а заголовок ей переписывают каждый час,
+# и вместе с ним обновляется publishedAt. Поэтому она НИКОГДА не выпадает из
+# окна дозора: в ночь на 31.08 пять таких страниц были единственной находкой
+# за десять проходов, и с правом будить читателя дозор слал бы одну и ту же
+# ссылку с новым заголовком каждые двенадцать минут.
+#
+# Метку ищем ТОЛЬКО В НАЧАЛЕ заголовка — так эти страницы и подписывают. Слово
+# «live» посреди фразы (Live Aid, концерт вживую) к хронике отношения не имеет,
+# и правило, ловящее его всюду, было бы шире своей причины.
+_LIVEBLOG_HEAD = re.compile(
+    r"^\W*(?:"
+    r"en\s+direct|direct|suivi\s+en\s+direct"          # фр.
+    r"|em\s+direto|ao\s+vivo"                          # порт.
+    r"|en\s+vivo|en\s+directo|minuto\s+a\s+minuto"    # исп.
+    r"|live(?:\s+updates|\s+blog|\s+news)?"            # англ.
+    r"|онлайн|прямая\s+трансляция|онлайн-трансляция|хроника"   # рус.
+    r")\W*[-–—:|]",
+    re.IGNORECASE,
+)
+
+
+def _is_liveblog(item) -> bool:
+    return bool(_LIVEBLOG_HEAD.match((item.get("title") or "").strip()))
+
+
 def _fresh(item) -> bool:
     ts = item.get("publishedAt") or 0
     if not ts:
@@ -84,15 +110,19 @@ def find_candidates():
     sources = [s for s in fn.RSS_SOURCES if (s.get("priority") or 0) >= 2]
     print(f"🔭 Дозор: смотрим {len(sources)} быстрых лент")
 
-    fresh = []
+    fresh, skipped = [], []
     for src in sources:
         try:
             for it in fn.fetch_rss(src):
-                if _fresh(it):
+                if _fresh(it) and not _is_liveblog(it):
                     fresh.append(it)
+                elif _fresh(it):
+                    skipped.append(it.get("title", "")[:70])
         except Exception as e:
             print(f"  ✗ {src.get('source','?')}: {type(e).__name__}")
     print(f"  свежее полутора часов: {len(fresh)}")
+    if skipped:
+        print(f"  ⏭ хроник пропущено: {len(skipped)} — {skipped[0]}")
 
     # Сбиваем в события. Считаем РЕДАКЦИИ, а не заметки: три текста одного
     # агентства — это одно сообщение, а не подтверждение
