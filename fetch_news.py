@@ -2044,17 +2044,40 @@ def _trafilatura_body(raw_html: bytes) -> str:
     return "\n".join(ln for ln in lines if ln).strip()
 
 
+# Почему не далась страница: коды отказа и имена исключений. Печатается
+# итогом после дотяжки — иначе отказы теряются поодиночке среди тысяч строк.
+_PAGE_FAIL = Counter()
+
+
 def _fetch_page(url: str) -> bytes:
     """Только качает страницу. Ни строчки разбора.
 
     Эта функция и есть та часть, которую безопасно звать из многих потоков:
     внутри чистый ввод-вывод, никаких нативных парсеров.
     """
-    try:
-        r = requests.get(url, timeout=8, headers=BROWSER_HEADERS)
-        return r.content if r.ok else b""
-    except Exception:
-        return b""
+    # СРОК И ПОВТОР. Было 8 секунд без повтора — и 31.08.2026 выяснилось,
+    # что из 434 страниц не давались 72. Проверка тех же адресов с домашней
+    # машины показала: половина из них отдаёт полный текст (Infobae — 7010
+    # знаков, El Economista — 3118, Knews.kg — 1373), а в ленте у них стояло
+    # по 180–290. То есть мы не дожидались, а не получали отказ.
+    #
+    # ОТКАЗ ОБЯЗАН НАЗВАТЬ СЕБЯ. Прежде и 403, и таймаут, и обрыв возвращались
+    # одинаковой пустотой, и различить «дверь закрыта» от «не дождались» было
+    # нельзя — а лечение у них разное: первое не лечится вовсе и требует
+    # честной подписи, второе лечится сроком. Это тот же молчащий catch, что
+    # уже трижды превращал у нас беду в загадку.
+    for попытка in (1, 2):
+        try:
+            r = requests.get(url, timeout=15, headers=BROWSER_HEADERS)
+            if r.ok:
+                return r.content
+            _PAGE_FAIL[f"код {r.status_code}"] += 1
+            return b""            # отказ сервера повтором не лечится
+        except Exception as e:
+            if попытка == 1:
+                continue          # сеть могла моргнуть — пробуем ещё раз
+            _PAGE_FAIL[type(e).__name__] += 1
+    return b""
 
 
 def _body_from_html(html: bytes, url: str) -> str:
@@ -2506,6 +2529,11 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
         pages = list(pool.map(lambda it: _fetch_page(it["url"]), targets))
 
     bodies = [_body_from_html(html, it["url"]) for it, html in zip(targets, pages)]
+
+    if _PAGE_FAIL:
+        сводка = ", ".join(f"{k} — {n}" for k, n in _PAGE_FAIL.most_common(6))
+        print(f"  🚪 Страницы не дались: {сводка}")
+        _PAGE_FAIL.clear()
 
     done = 0
     by_url = {}
