@@ -2048,6 +2048,15 @@ def _trafilatura_body(raw_html: bytes) -> str:
 # итогом после дотяжки — иначе отказы теряются поодиночке среди тысяч строк.
 _PAGE_FAIL = Counter()
 
+# Адрес → код отказа, если издание страницу не отдало. Живёт один прогон и
+# нужен затем, чтобы отличить «закрыто издателем» от «мы не дождались»: у
+# карточки от этого разная судьба, а у аудита — разное отношение.
+_PAGE_STATUS = {}
+
+# Коды, означающие «дверь закрыта для нас», а не «на сервере беда». Повтор
+# их не изменит, и завтрашний прогон получит то же самое.
+CLOSED_CODES = (401, 402, 403, 451)
+
 
 def _fetch_page(url: str) -> bytes:
     """Только качает страницу. Ни строчки разбора.
@@ -2072,6 +2081,7 @@ def _fetch_page(url: str) -> bytes:
             if r.ok:
                 return r.content
             _PAGE_FAIL[f"код {r.status_code}"] += 1
+            _PAGE_STATUS[url] = r.status_code
             return b""            # отказ сервера повтором не лечится
         except Exception as e:
             if попытка == 1:
@@ -2538,6 +2548,13 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
     done = 0
     by_url = {}
     for item, body in zip(targets, bodies):
+        # ЗАКРЫТО ИЗДАТЕЛЕМ. Не наша недоработка, а решение издания: 31.08.2026
+        # так отвечали RFI, France 24, Le Figaro и Axios. Карточка выходит
+        # анонсом сознательно — эти ленты приходят первыми и несут срочное,
+        # и терять скорость ради полноты мы не хотим. Отметка едет вместе с
+        # новостью, чтобы аудит не ругался вечно на то, что неустранимо.
+        if _PAGE_STATUS.get(item.get("url")) in CLOSED_CODES:
+            item["pageClosed"] = True
         if body and len(body) > len(item.get("summary", "")) + 80:
             item["summary"] = body
             # МЕТКА «ТЕЛО СО СТРАНИЦЫ», а не из ленты. Без неё каждый раз
