@@ -117,7 +117,14 @@ def probe(item):
         return handle, name, pool, type(e).__name__, "", 0
     m = re.search(r'<link rel="canonical" href="https://www\.youtube\.com/watch\?v=([\w-]{11})"',
                   html)
-    live = '"isLive":true' in html or '"liveBroadcastDetails"' in html
+    # ТОЛЬКО "isLive":true. Раньше сюда же годилось и одно наличие
+    # liveBroadcastDetails — а это поле остаётся в разметке НАВСЕГДА, даже у
+    # закончившейся трансляции. 03.09.2026 на нём поймался «Дождь»: страница
+    # /live отдала прошлый выпуск («Strike on Sochi port...») как канонический
+    # адрес, а мы честно записали бы «в эфире». isLive:true у той же страницы
+    # не было вовсе — ни true, ни false, ключа просто нет; у заведомо живых
+    # CNEWS и Euronews он стоит всегда. Единственный надёжный признак.
+    live = '"isLive":true' in html
     if m and live:
         return handle, name, pool, "эфир", m.group(1), _max_height(m.group(1))
     return handle, name, pool, "нет эфира", "", 0
