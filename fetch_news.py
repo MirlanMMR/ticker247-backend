@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
-from feed_gate import drop_family_repeats, gate as feed_gate
+from feed_gate import drop_family_repeats, gate as feed_gate, same_event
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
                      _looks_blocked, strip_title_echo)
@@ -6275,6 +6275,61 @@ def fix_scope_and_category(items, lang):
     return items
 
 
+# ─── СРОЧНОСТЬ ПО ЧИСЛУ ИЗДАНИЙ — ПОЛ, А НЕ ЗАМЕНА СУЖДЕНИЮ ИИ ──────────────
+#
+# План после выпуска 32, пункт 1: «Срочность по скорости, а не по списку».
+# ИИ решает по смыслу заголовка — и промахивается непредсказуемо: 03.09.2026
+# в английском пуле землетрясение в Папуа-Новой Гвинее осталось обычной
+# новостью, хотя испанский и французский в тот же час честно пометили его
+# URGENT. Дозор (patrol.py) уже считает так независимых редакций по
+# событию — тот же счётчик, перенесённый сюда, той же меркой, что уже
+# отбирает обзор прессы (same_event, publisher_family).
+#
+# ПОЛ, НЕ ПОТОЛОК: поднимаем только тех, кого ИИ не поднял сам — снижать
+# его собственное решение не смеем. Скорость говорит «событие настоящее»,
+# но не говорит «нужное нашему читателю» — этот вопрос остаётся за ИИ,
+# здесь только страхуем то, что он мог упустить.
+URGENT_MIN_OUTLETS = 3
+URGENT_EVENT_WINDOW_MS = 90 * 60 * 1000
+
+
+def urgent_floor_by_outlets(items, lang):
+    """category=URGENT машинным счётом, если независимых изданий три и
+    больше сообщили об одном событии за полтора часа, а ИИ промолчал.
+
+    Зовём ДО cap_urgent — поднятые здесь проходят тот же потолок в два
+    срочных и ту же сортировку по свежести, что и решения самого ИИ, без
+    особого статуса.
+    """
+    now = int(datetime.now().timestamp() * 1000)
+    fresh = [it for it in items
+             if now - it.get("publishedAt", 0) <= URGENT_EVENT_WINDOW_MS]
+    groups = []
+    for it in fresh:
+        for g in groups:
+            if same_event(g["lead"], it):
+                g["items"].append(it)
+                g["families"].add(publisher_family(it.get("source", "")))
+                break
+        else:
+            groups.append({"lead": it, "items": [it],
+                            "families": {publisher_family(it.get("source", ""))}})
+    promoted = []
+    for g in groups:
+        if len(g["families"]) < URGENT_MIN_OUTLETS:
+            continue
+        for it in g["items"]:
+            if it.get("category") != "URGENT":
+                it["category"] = "URGENT"
+                it["priority"] = max(it.get("priority", 0), 2)
+                promoted.append(it)
+    if promoted:
+        names = ", ".join(sorted({p.get("source", "?") for p in promoted})[:5])
+        print(f"  📡 Срочность по счёту изданий [{lang}]: {len(promoted)} "
+              f"({names})")
+    return items
+
+
 def cap_urgent(items, lang):
     """Оставляет не больше двух срочных, и только свежие.
 
@@ -7356,6 +7411,9 @@ def main():
         # ограничение по объёму (80 новостей на пул), и снятое им — не
         # мусор, а просто лишнее. Считать его пропуском этапа 1 нечестно
         _cull_dry_report(cull_input, filtered, lang)
+        # Пол снизу: три и больше изданий об одном событии — срочно машинным
+        # счётом, независимо от того, заметил ли это ИИ
+        filtered = urgent_floor_by_outlets(filtered, lang)
         # Порог срочности: не больше двух и только свежие
         filtered = cap_urgent(filtered, lang)
         filtered = fix_scope_and_category(filtered, lang)
