@@ -74,6 +74,60 @@ def _list_start_before(text: str, cut: int) -> int | None:
     return None
 
 
+# Оформлено как список, но списком новости не является — навигация издания,
+# кнопки «поделиться», ссылки на другие материалы. У них нет отношения к
+# этой новости, и добирать их сверх лимита незачем.
+_TRAILING_LIST_JUNK = re.compile(
+    r"читайте так|подробнее|по теме|смотрите также|поделит|источник\s*:|"
+    r"read (also|more)|related (articles?|posts?)|see also|share this|"
+    r"lee tambi[ée]n|leer m[áa]s|comparte esto|"
+    r"lire aussi|[àa] lire|partager cet|"
+    r"leia tamb[ée]m|compartilh",
+    re.I,
+)
+
+
+def _trailing_list(text: str, start: int, extra_limit: int = 600) -> str:
+    """Список сразу после `start`, если это НАСТОЯЩИЙ список — не в счёт лимита.
+
+    03.09.2026: список улиц с отключением света не влезал в основной объём,
+    и правило «зачин без списка — убираем» (см. _list_start_before) резало
+    ровно ту часть, ради которой жизненно важная новость и нужна. Список —
+    не проза: он либо влезает целиком (в разумных пределах), либо не
+    начинается вовсе. Добираем его СВЕРХ основного предела, отдельным более
+    щедрым потолком (extra_limit), а не долей от лимита прозы.
+
+    Строго: список принимается, только если КАЖДАЯ строка подряд от самого
+    начала — пункт (см. _LIST_ITEM), и ни одна не похожа на «читайте также»
+    или кнопку «поделиться». Один непохожий на пункт признак — и на этом
+    список кончается: лучше короче, чем с мусором на конце.
+    """
+    tail = text[start:]
+    if tail.startswith("\n"):
+        tail = tail[1:]
+    lines = tail.split("\n")
+    picked, used = [], 0
+    for ln in lines:
+        stripped = ln.strip()
+        if not stripped or _TRAILING_LIST_JUNK.search(ln):
+            break
+        # Последний пункт перечня по-русски и по-кыргызски принято закрывать
+        # точкой, а не точкой с запятой — «Иванов; Петров; Сидоров.». Строка
+        # без своего маркера, но идущая сразу за пунктом на «;» и кончающаяся
+        # точкой, — это ОН, а не новый абзац. Найдено на медалях 03.09.2026:
+        # без этой строки _trailing_list ровно повторял бы старую беду —
+        # отрезал бы последний пункт перечня, как улицу Д. и фото призёрши.
+        closes_enum = (picked and picked[-1].rstrip().endswith(";")
+                       and stripped.endswith("."))
+        if not (_LIST_ITEM.search(ln) or closes_enum):
+            break
+        if used + len(ln) > extra_limit:
+            break
+        picked.append(ln)
+        used += len(ln) + 1
+    return "\n".join(picked)
+
+
 def ensure_terminated(text: str) -> str:
     """Текст короче лимита, но обрублен уже ДО нас — страховка от этого.
 
@@ -100,8 +154,29 @@ def ensure_terminated(text: str) -> str:
     return (cut + "…") if cut else text
 
 
+def _finish_paragraph(text: str, cut: int, max_extra_sentences: int = 3) -> int:
+    """Досказывает абзац ЕЩЁ ДО ТРЁХ предложений сверх границы `cut`.
+
+    Резать посреди абзаца, когда за одним-двумя предложениями сразу следует
+    его конец, — обрывать мысль ради круглого числа знаков. Мера — не запас
+    символов, а количество предложений: абзац, как правило, укладывается в
+    одно-два, редко в три, и это и есть естественный предел добора.
+
+    Если абзац кончается раньше max_extra_sentences — останавливаемся на
+    его конце. Если предложений в остатке нет вовсе (`cut` уже у конца
+    абзаца) — возвращаем `cut` как есть.
+    """
+    para_end = text.find("\n", cut)
+    para_end = len(text) if para_end < 0 else para_end
+    rest = text[cut:para_end]
+    ends = [cut + m.end() for m in _SENTENCE_END.finditer(rest)]
+    if not ends:
+        return cut
+    return ends[min(max_extra_sentences, len(ends)) - 1]
+
+
 def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
-                     para_floor: float = 0.6) -> str:
+                     para_floor: float = 0.6, max_extra_sentences: int = 0) -> str:
     """Обрезает текст до limit знаков по ближайшей осмысленной границе.
 
     Границы по убыванию предпочтения:
@@ -148,7 +223,15 @@ def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
     # 2. Конец предложения
     ends = [m.end() for m in _SENTENCE_END.finditer(window)]
     if ends and ends[-1] >= limit * floor:
-        return _whole_or_none(text, ends[-1], limit, floor)
+        cut = ends[-1]
+        # ДОБОР ДО КОНЦА АБЗАЦА ПРЕДЛОЖЕНИЯМИ, А НЕ ЗНАКАМИ — только если
+        # звали с max_extra_sentences (тело статьи в читалке; короткие
+        # тексты вроде превью и уведомлений режутся строго по границе, как
+        # раньше). 03.09.2026: обсуждали запас «плюс сто знаков», отклонили —
+        # читателя интересует законченная мысль, а не число символов до неё.
+        if max_extra_sentences:
+            cut = _finish_paragraph(text, cut, max_extra_sentences)
+        return _whole_or_none(text, cut, limit, floor)
 
     # 3. Конец слова
     cut = window[:limit].rsplit(" ", 1)[0].strip()
@@ -355,12 +438,24 @@ def lead(text: str, target: int = 700, max_paras: int = 5,
 def _whole_or_none(text: str, cut: int, limit: int, floor: float) -> str:
     """Отдаёт текст до `cut`, но не обрывая перечень посередине.
 
-    Если рез попал внутрь списка, отступаем к его зачину. Отступать
-    бесконечно нельзя: если после отката остаётся меньше floor от лимита, от
-    новости не осталось бы ничего, и тогда лучше обычный рез — половина
-    перечня хуже целого, но пустота хуже половины.
+    Если рез попал внутрь списка, сперва пробуем ДОБРАТЬ его целиком сверх
+    лимита (см. _trailing_list) — список улиц с отключением света и есть та
+    польза, ради которой жизненно важная новость существует, обещание без
+    исполнения не годится. Не вышло (список — мусор, или его вовсе нет) —
+    тогда убираем зачин, как раньше. Отступать бесконечно нельзя: если после
+    отката остаётся меньше floor от лимита, от новости не осталось бы ничего,
+    и тогда лучше обычный рез — половина перечня хуже целого, но пустота
+    хуже половины.
     """
     start = _list_start_before(text, cut)
     if start is not None and start >= limit * floor:
+        rest = text[start:]
+        nl = rest.find("\n")
+        lead_end = start + (len(rest) if nl < 0 else nl + 1)
+        extra = _trailing_list(text, lead_end)
+        if extra:
+            return (text[:lead_end].rstrip() + "\n" + extra).strip()
         return text[:start].strip()
-    return text[:cut].strip()
+    base = text[:cut].strip()
+    extra = _trailing_list(text, cut)
+    return (base + "\n" + extra).strip() if extra else base

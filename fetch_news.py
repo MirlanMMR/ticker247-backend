@@ -2120,7 +2120,8 @@ def _body_from_html(html: bytes, url: str) -> str:
                 print(f"  · Разбор не дался [{url[:48]}]: {'; '.join(res.notes[-2:])}")
             return ""
 
-        body = strip_tail(trim_to_boundary(res.text, PAGE_BODY_LIMIT))
+        body = strip_tail(trim_to_boundary(res.text, PAGE_BODY_LIMIT,
+                                            max_extra_sentences=3))
         if _looks_mangled(body):
             fixed = _ai_rescue_body(url, body, soup)
             if fixed:
@@ -2164,7 +2165,7 @@ def _page_body_legacy(url: str) -> str:
         if _looks_blocked(body):
             return ""
         if len(body) >= 200:
-            body = trim_to_boundary(body, PAGE_BODY_LIMIT)
+            body = trim_to_boundary(body, PAGE_BODY_LIMIT, max_extra_sentences=3)
             body = strip_tail(body)
             if _looks_mangled(body):
                 fixed = _ai_rescue_body(url, body, soup)
@@ -2271,7 +2272,7 @@ def _page_body_legacy(url: str) -> str:
                 if len(body) >= 200:
                     break
 
-        body = trim_to_boundary(body, PAGE_BODY_LIMIT)
+        body = trim_to_boundary(body, PAGE_BODY_LIMIT, max_extra_sentences=3)
         body = strip_tail(body)
 
         # Последний рубеж: машина сама признаётся, что потеряла смысл
