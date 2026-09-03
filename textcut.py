@@ -74,6 +74,32 @@ def _list_start_before(text: str, cut: int) -> int | None:
     return None
 
 
+def ensure_terminated(text: str) -> str:
+    """Текст короче лимита, но обрублен уже ДО нас — страховка от этого.
+
+    03.09.2026: заметка Expansión MX обрывалась на «...es razonable» без
+    точки и без нашего многоточия — 832 знака при лимите PAGE_BODY_LIMIT в
+    1300. trim_to_boundary тут вообще не срабатывал: он режет только то, что
+    ДЛИННЕЕ лимита, а этот текст короче. Обрыв случился раньше, внутри
+    trafilatura — там же нашёлся и след: «Extranjeras.Para» без пробела
+    после точки, читальня наткнулась на встроенный элемент страницы (ссылку,
+    имя жирным) и не досчитала остаток — вероятно, упёрлась в подписной
+    блок и молча остановилась, ничего не сообщив.
+
+    Раз trim_to_boundary больше не единственная дверь для многоточия, сюда
+    заходит КАЖДЫЙ текст, включая короткие: см. вызов из самого
+    trim_to_boundary при len(text) <= limit.
+    """
+    text = (text or "").strip()
+    if not text or re.search(r"[.!?…»\"'”’)\]]$", text):
+        return text
+    ends = [m.end() for m in _SENTENCE_END.finditer(text)]
+    if ends and ends[-1] >= len(text) * 0.5:
+        return text[:ends[-1]].strip()
+    cut = text.rsplit(" ", 1)[0].strip()
+    return (cut + "…") if cut else text
+
+
 def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
                      para_floor: float = 0.6) -> str:
     """Обрезает текст до limit знаков по ближайшей осмысленной границе.
@@ -109,7 +135,7 @@ def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
     """
     text = (text or "").strip()
     if len(text) <= limit:
-        return text
+        return ensure_terminated(text)
     # Ищем в окне на один знак шире лимита: предложение, кончающееся ровно на
     # границе, — законная граница, терять его незачем
     window = text[:limit + 1]
