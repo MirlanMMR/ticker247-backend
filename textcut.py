@@ -35,7 +35,20 @@ _SENTENCE_END = re.compile(
 # вовсе, оборвав текст перед зачином.
 
 # Строка перечня: «— Иванов, 87 кг», «· Иванов», «1. Иванов», «Иванов;»
-_LIST_ITEM = re.compile(r"^\s*(?:[-—–•·*]\s+|\d{1,2}[.)]\s+)|;\s*\.?\s*$")
+# и места: «1-орун — …», «2-е место», «1st place», «1º lugar».
+# 07.09.2026 Kabar оборвал победителей армрестлинга после «1-орун»:
+# прежний шаблон ждал «1.» / «1)», а кыргызские и русские итоги пишут
+# «1-орун» / «1-е место». «3-сентябрда» сюда не попадает — там не место.
+_RANK = (
+    r"\d{1,2}[-–—](?:чи\s+)?(?:орун\w*|(?:[ео]е?\s+)?место)"
+    r"|\d{1,2}(?:st|nd|rd|th|º|o|er|re|ère)\s+(?:place|lugar)?"
+    r"|\d{1,2}\s+(?:место|орун|place|lugar)\b"
+)
+_LIST_ITEM = re.compile(
+    r"^\s*(?:[-—–•·*]\s+|\d{1,2}[.)]\s+|" + _RANK + r")"
+    r"|;\s*\.?\s*$",
+    re.I,
+)
 # Зачин перечня: строка, кончающаяся двоеточием
 _LIST_LEAD = re.compile(r":\s*\.?\s*$")
 
@@ -348,6 +361,103 @@ def strip_title_echo(title: str, body: str) -> str:
         return rest
     return body
 
+
+# ─── Служебный зачин до новости ─────────────────────────────────────────────
+#
+# 07.09.2026: статья Straits Times в читалке начиналась словами
+# «Подпишитесь сейчас: получайте информационные бюллетени ST на свой
+# почтовый ящик». Это перевод «Sign up now: Get ST's newsletters…».
+# Английскую фразу мы уже ловили точечно — после перевода правило молчало.
+#
+# Пользователь: не плодить фразы, а научиться отличать служебный мусор
+# от текста новости. Примета не в словах одного сайта, а в устройстве:
+# такое всегда стоит В НАЧАЛЕ и говорит с читателем про рассылку, почту
+# или дату публикации — а не про событие. Событие начинается следом
+# («АФИНЫ – Военный самолет…»).
+#
+# Два признака сразу: обращение подписаться/получать И канал доставки.
+# Одного мало: «президент подписал указ» и «компания запустила рассылку»
+# — живые новости.
+
+_SERVICE_ASK = re.compile(
+    r"(?i)\b(?:sign[\s-]?up|subscribe|get (?:st'?s|our|the)\b|"
+    r"подпиши(?:тесь|сь)|подписыва(?:йтесь|ться)|получайте|"
+    r"suscr[ií]b\w*|inscreva(?:-se)?|assine|"
+    r"abonnez(?:-vous)?|inscrivez(?:-vous)?|recevez)\b")
+
+_SERVICE_CHANNEL = re.compile(
+    r"(?i)\b(?:newsletters?|inbox|e-?mails?|"
+    r"бюллетен\w*|рассылк\w*|почтовый ящик|электронн\w*\s+почт\w*|уведомлен\w*|"
+    r"boletines?|bolet[ií]n(?:es)?|correo(?:s)?|bandeja de entrada|"
+    r"boletins?|caixa de entrada|"
+    r"lettres?\s+d['’]information|bo[iî]te de r[eé]ception|courriels?)\b")
+
+_SERVICE_META = re.compile(
+    r"(?i)^\s*(?:published|updated|опубликовано|обновлено|"
+    r"publicado|actualizado|atualizado|"
+    r"publi[eé]|mis à jour)\b")
+
+
+def is_service_lead(text: str) -> bool:
+    """Служебный кусок, а не начало новости.
+
+    Смешанный абзац («подпишитесь… АФИНЫ – …») не считаем служебным целиком:
+    в нём уже есть событие, зачин снимет нарезка по предложениям.
+    """
+    t = (text or "").strip()
+    if not t or len(t) > 280:
+        return False
+    if _SERVICE_META.match(t):
+        return True
+    if len(re.findall(r"[.!?…](?:\s+|$)", t)) > 1:
+        return False
+    return bool(_SERVICE_ASK.search(t) and _SERVICE_CHANNEL.search(t))
+
+
+def strip_leading_service(text: str) -> str:
+    """Снимает служебные абзацы и фразы только с начала текста.
+
+    Середину не трогаем: новость про запуск рассылки должна остаться.
+    Если после снятия ничего не осталось — возвращаем как было: пустая
+    карточка хуже приглашения подписаться.
+
+    Сначала режем по предложениям: иначе абзац «подпишитесь… АФИНЫ – …»
+    целиком выглядит служебным — в нём есть и рассылка, и новость.
+    """
+    src = (text or "").strip()
+    if not src:
+        return src
+    paras = [p.strip() for p in re.split(r"\n\s*\n|\n", src) if p.strip()]
+    kept, skipping = [], True
+    for p in paras:
+        if not skipping:
+            kept.append(p)
+            continue
+        peeled = _drop_leading_service_sentences(p)
+        if peeled:
+            kept.append(peeled)
+            skipping = False
+    return "\n\n".join(kept) if kept else src
+
+
+def _drop_leading_service_sentences(para: str) -> str:
+    parts, last = [], 0
+    for m in re.finditer(r"[.!?…](?:\s+|$)", para):
+        parts.append(para[last:m.end()].strip())
+        last = m.end()
+    tail = para[last:].strip()
+    if tail:
+        parts.append(tail)
+    if not parts:
+        return para
+    if len(parts) == 1:
+        return "" if is_service_lead(parts[0]) else para
+    i = 0
+    while i < len(parts) and is_service_lead(parts[i]):
+        i += 1
+    return " ".join(parts[i:]).strip()
+
+
 # ─── Имя издания на языке читателя ──────────────────────────────────────────
 
 _CYR = re.compile(r"[А-Яа-яЁё]")
@@ -414,16 +524,29 @@ def lead(text: str, target: int = 700, max_paras: int = 5,
         return text
 
     def take(units, joiner, cap):
-        out, total = [], 0
-        for u in units:
+        out, total, i = [], 0, 0
+        while i < len(units):
             # Первую единицу берём всегда: новость из одного длинного абзаца
             # иначе исчезла бы целиком
             if out and (total >= target or len(out) >= cap):
                 break
             # Подчищаем КАЖДУЮ единицу, а не только итог: издания оставляют
             # хвостовой пробел в конце абзаца, и он всплывал бы перед разрывом
-            out.append(u.strip())
-            total += len(u)
+            out.append(units[i].strip())
+            total += len(units[i])
+            i += 1
+        # Перечень либо целый, либо врёт. 07.09 Kabar: после «1-орун»
+        # ориентир уже был набран, и 2-е с 3-м местами остались за кадром.
+        extra = 0
+        while i < len(units) and extra < 600:
+            nxt = units[i].strip()
+            if not nxt or _TRAILING_LIST_JUNK.search(nxt):
+                break
+            if not _LIST_ITEM.search(nxt):
+                break
+            out.append(nxt)
+            extra += len(nxt) + 1
+            i += 1
         return joiner.join(p for p in out if p).strip()
 
     paras = [p.strip() for p in re.split(r"\n\s*\n|\n", text) if p.strip()]

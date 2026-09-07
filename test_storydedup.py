@@ -6,7 +6,7 @@
 """
 import sys
 
-from storydedup import same_story
+from storydedup import same_story, reviewed_extra_urls
 
 ok = fail = 0
 
@@ -143,6 +143,29 @@ check("короткий сюжет случайным пересечением �
                  NEPAL_A), False)
 check("сюжет без блоков не роняет проверку",
       same_story({"title": "Пусто"}, NEPAL_A), False)
+
+# ─── Что из обзора не должно возвращаться в ленту ───────────────────────────
+#
+# 07.09.2026 обзор «Выборы в Германии» уже стоял, а Independent, RFI и Semafor
+# из его блоков снова вышли отдельными карточками. Затравка остаётся на полке,
+# остальные адреса — нет.
+
+GERMANY = {
+    "title": "Выборы в Германии",
+    "blocks": [
+        {"url": "france24.com/afd", "source": "France 24"},
+        {"url": "rfi.fr/afd", "source": "RFI"},
+        {"url": "independent.co.uk/afd", "source": "The Independent"},
+    ],
+}
+check("из ленты уходят дополнения, затравка остаётся",
+      reviewed_extra_urls([GERMANY]),
+      {"rfi.fr/afd", "independent.co.uk/afd"})
+check("пустой список обзоров не роняет проверку",
+      reviewed_extra_urls([]), set())
+check("обзор из одного блока ничего не вычёркивает",
+      reviewed_extra_urls([{"title": "Один", "blocks": [{"url": "a.com/1"}]}]),
+      set())
 
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

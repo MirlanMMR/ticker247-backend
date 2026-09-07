@@ -19,6 +19,25 @@ def _stems(story) -> set:
                                       (story.get("title") or "").lower())}
 
 
+def reviewed_extra_urls(stories) -> set:
+    """Адреса блоков обзора кроме затравки.
+
+    Затравка остаётся карточкой на полке: пролиставший обзор не глядя
+    всё равно увидит событие. Остальные взгляды живут только в обзоре.
+    Если их снова выпустить в ленту, одно событие читается трижды —
+    как отдельная новость, как «ещё в мире» и как обзор.
+    """
+    extra = set()
+    for st in stories or []:
+        if not isinstance(st, dict):
+            continue
+        for b in (st.get("blocks") or [])[1:]:
+            url = (b or {}).get("url")
+            if url:
+                extra.add(url)
+    return extra
+
+
 def same_story(a, b) -> bool:
     """Один ли это сюжет.
 

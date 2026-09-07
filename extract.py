@@ -311,6 +311,20 @@ class EntitySanitizer(BaseSanitizer):
         return out.strip()
 
 
+class LeadingServiceSanitizer(BaseSanitizer):
+    """Снимает служебный зачин: рассылка, почта, строки «Published / Updated».
+
+    То же правило, что в textcut.strip_leading_service: мусор всегда стоит
+    в начале и отделён от новости. Здесь ловим оригинал, до перевода.
+    """
+    name = "служебный зачин"
+
+    def apply(self, text: str) -> str:
+        from textcut import strip_leading_service
+        out = strip_leading_service(text)
+        return out if len(out) >= 80 else text
+
+
 class PromoLineSanitizer(BaseSanitizer):
     """Выбрасывает ОТДЕЛЬНЫЕ строки-зазывалки, не трогая статью.
 
@@ -598,6 +612,7 @@ SANITIZERS = [
     RepeatedLeadSanitizer(),
     CreditSanitizer(),
     PromoLineSanitizer(),
+    LeadingServiceSanitizer(),
     FooterLinkSanitizer(),
 ]
 

@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 from feed_gate import drop_family_repeats, gate as feed_gate, same_event
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
-                     _looks_blocked, strip_title_echo)
+                     _looks_blocked, strip_title_echo, strip_leading_service)
 from extract import extract_article
 try:
     import trafilatura
@@ -112,7 +112,6 @@ RSS_SOURCES = [
     # США: были только общенациональные издания, а в стране 50 штатов —
     # местный слой выходил из четырёх новостей
     {"url": "https://www.latimes.com/local/rss2.0.xml", "source": "LA Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
-    {"url": "https://www.seattletimes.com/feed/", "source": "Seattle Times", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local", "lang": "en"},
     {"url": "https://nypost.com/feed/", "source": "NY Post", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local", "lang": "en"},
 
     # Замена ушедшим (13.08.2026): страницы проверены, текст отдают —
@@ -216,7 +215,6 @@ RSS_SOURCES = [
     {"url": "https://michiganadvance.com/feed/", "source": "Michigan Advance", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
     {"url": "https://georgiarecorder.com/feed/", "source": "Georgia Recorder", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
     {"url": "https://penncapital-star.com/feed/", "source": "Pennsylvania Capital-Star", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://ncnewsline.com/feed/", "source": "NC Newsline", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
     {"url": "https://azmirror.com/feed/", "source": "Arizona Mirror", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
     {"url": "https://minnesotareformer.com/feed/", "source": "Minnesota Reformer", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
     {"url": "https://coloradonewsline.com/feed/", "source": "Colorado Newsline", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
@@ -466,7 +464,7 @@ SOURCE_COUNTRY = {
     "UPI": "US", "Semafor": "US", "USA Today": "US", "AP News": "US",
     "Florida Phoenix": "US", "Ohio Capital Journal": "US",
     "Michigan Advance": "US", "Georgia Recorder": "US",
-    "Pennsylvania Capital-Star": "US", "NC Newsline": "US",
+    "Pennsylvania Capital-Star": "US",
     "Arizona Mirror": "US", "Minnesota Reformer": "US",
     "Colorado Newsline": "US", "Nevada Current": "US",
     "Virginia Mercury": "US", "Missouri Independent": "US",
@@ -536,7 +534,7 @@ LOCAL_DOMAINS = {
            "latimes.com", "seattletimes.com", "nypost.com", "cbsnews.com", "upi.com",
            "texastribune.org", "mississippitoday.org", "themarshallproject.org",
            "propublica.org",
-           "floridaphoenix.com", "ohiocapitaljournal.com", "michiganadvance.com", "georgiarecorder.com", "penncapital-star.com", "ncnewsline.com", "azmirror.com", "minnesotareformer.com", "coloradonewsline.com", "nevadacurrent.com", "virginiamercury.com", "missouriindependent.com"],
+           "floridaphoenix.com", "ohiocapitaljournal.com", "michiganadvance.com", "georgiarecorder.com", "penncapital-star.com", "azmirror.com", "minnesotareformer.com", "coloradonewsline.com", "nevadacurrent.com", "virginiamercury.com", "missouriindependent.com"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com",
            "eleconomista.com.mx", "expansion.mx", "elsoldemexico.com.mx", "oem.com.mx"],
@@ -679,6 +677,11 @@ RETIRED_SOURCES = [
     "newsweek.com/rss",
     "politico.com/rss",
     "seattletimes.com/feed",
+    "ncnewsline.com",           # 07.09.2026: лента с GitHub отвечает, но
+                                # два прогона подряд 2 материала не доходят
+                                # до английской полки — без текста или сразу
+                                # в отсев. Читателю Северной Каролины нечего
+                                # показать, держать пустую квоту незачем.
     "noticias.uol.com.br/ultnot",
     # Португальский пул, проверено 15.08.2026: ленты не отдают материалов
     "www.publico.pt/rss",           # пустой ответ 202, без единого материала
@@ -1079,13 +1082,26 @@ RADIO_STATIONS = [
     # Радио идёт ОТ СТРАНЫ, а не от языка: португальцу в Лиссабоне бразильское
     # радио чужое, испанцу — мексиканское. Отобраны новостные и разговорные,
     # музыкальные не берём. Проверены живьём 15.08.2026
-    {"name": "KQED",             "url": "https://streams.kqed.org/kqedradio",                                          "pool": "en", "colorFrom": "FF1B2A44", "colorTo": "FF35558C", "countries": "US"},
+    {"name": "KQED",             "url": "https://streams.kqed.org/kqedradio",                                          "pool": "en", "colorFrom": "FF1B2A44", "colorTo": "FF35558C", "countries": "US", "region": "US-CA"},
+    # Штатные речевые — только своему штату. Потоки проверены 07.09.2026 (https, звук).
+    # Национальные (NPR) остаются без region. Пока человек штат не указал — этих нет.
+    {"name": "KUT",              "url": "https://streams.kut.org/4426_128.mp3",                                         "pool": "en", "colorFrom": "FF3A2418", "colorTo": "FF8A5230", "countries": "US", "region": "US-TX"},
+    {"name": "KERA",             "url": "https://kera.streamguys1.com/keralive",                                        "pool": "en", "colorFrom": "FF1E3040", "colorTo": "FF3A6A82", "countries": "US", "region": "US-TX"},
+    {"name": "KUOW",             "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/KUOWFM_HIGH_MP3.mp3", "pool": "en", "colorFrom": "FF1A332C", "colorTo": "FF2F7A64", "countries": "US", "region": "US-WA"},
+    {"name": "WNYC",             "url": "https://fm939.wnyc.org/wnycfm",                                                "pool": "en", "colorFrom": "FF2A1C28", "colorTo": "FF6A3A58", "countries": "US", "region": "US-NY"},
+    {"name": "WBEZ",             "url": "https://stream.wbez.org/wbez128.mp3",                                          "pool": "en", "colorFrom": "FF1C2A38", "colorTo": "FF3A5A78", "countries": "US", "region": "US-IL"},
+    {"name": "WBUR",             "url": "https://fm909.wbur.org/wbur",                                                  "pool": "en", "colorFrom": "FF241E32", "colorTo": "FF4A3E70", "countries": "US", "region": "US-MA"},
+    {"name": "WHYY",             "url": "https://whyy.streamguys1.com/whyy-mp3",                                        "pool": "en", "colorFrom": "FF2C2418", "colorTo": "FF6A5838", "countries": "US", "region": "US-PA"},
+    {"name": "WUSF",             "url": "https://wusf.streamguys1.com/wusf",                                            "pool": "en", "colorFrom": "FF16343A", "colorTo": "FF2C6A74", "countries": "US", "region": "US-FL"},
+    {"name": "KJZZ",             "url": "https://kjzz.streamguys1.com/kjzz_mp3_128",                                    "pool": "en", "colorFrom": "FF3A2816", "colorTo": "FF7A542E", "countries": "US", "region": "US-AZ"},
+    {"name": "MPR News",         "url": "https://nis.stream.publicradio.org/nis.mp3",                                   "pool": "en", "colorFrom": "FF1A2E38", "colorTo": "FF3A6274", "countries": "US", "region": "US-MN"},
+    {"name": "Colorado Public Radio", "url": "https://stream1.cprnetwork.org/cpr1_aac",                                 "pool": "en", "colorFrom": "FF1E2838", "colorTo": "FF3E5878", "countries": "US", "region": "US-CO"},
     {"name": "Newstalk",         "url": "https://edge.audioxi.com/NT",                                                 "pool": "en", "colorFrom": "FF14331F", "colorTo": "FF2A6B3F", "countries": "IE"},
     {"name": "ABC News Radio",   "url": "https://abc.streamguys1.com/live/newsradio/icecast.audio",                     "pool": "en", "colorFrom": "FF1E2F45", "colorTo": "FF3B5F8A", "countries": "AU"},
     {"name": "ABC Radio National","url": "https://abc.streamguys1.com/live/rnnsw/icecast.audio",                        "pool": "en", "colorFrom": "FF2B2440", "colorTo": "FF564A80", "countries": "AU"},
 
     {"name": "RAC1",             "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/RAC_1.mp3", "pool": "es", "colorFrom": "FF3A2216", "colorTo": "FF7A4A2E", "countries": "ES"},
-    {"name": "88.9 Noticias",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/XHMFMAAC_SC.aac", "pool": "es", "colorFrom": "FF1F3A2E", "colorTo": "FF3E7A5C", "countries": "MX"},
+    {"name": "88.9 Noticias",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/XHMFMAAC_SC.aac", "pool": "es", "colorFrom": "FF1F3A2E", "colorTo": "FF3E7A5C", "countries": "MX", "region": "MX-NLE"},
     {"name": "El Destape Radio", "url": "https://ipanel.instream.audio/8004/stream",                                   "pool": "es", "colorFrom": "FF3A1F2C", "colorTo": "FF743E58", "countries": "AR"},
     {"name": "Cadena 3",         "url": "https://liveradio.mediainbox.net/radio3.mp3",                                 "pool": "es", "colorFrom": "FF33301A", "colorTo": "FF6B6234", "countries": "AR"},
     {"name": "RPP Noticias",     "url": "https://mdstrm.com/audio/5fab3416b5f9ef165cfab6e9/icecast.audio",             "pool": "es", "colorFrom": "FF3A1C1C", "colorTo": "FF783A3A", "countries": "PE"},
@@ -1105,7 +1121,7 @@ RADIO_STATIONS = [
     {"name": "Radio Nacional",   "url": "https://cdnhd.iblups.com/hls/0773874174fd4eba8bb9eff741d190dc.m3u8",         "pool": "es", "colorFrom": "FF3A1C2A", "colorTo": "FF783A54", "countries": "PE"},
     {"name": "Antena 1",         "url": "https://streaming-live.rtp.pt/liveradio/antena180a/playlist.m3u8",           "pool": "pt", "colorFrom": "FF1C3A32", "colorTo": "FF387A64", "countries": "PT"},
     {"name": "BandNews FM SP",   "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/BANDNEWSFM_SPAAC.m3u8", "pool": "pt", "colorFrom": "FF3A2016", "colorTo": "FF7A422E", "countries": "BR"},
-    {"name": "Rádio Gaúcha",     "url": "https://1132747t.ha.azioncdn.net/primary/gaucha_rbs.sdp/playlist.m3u8",      "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5474", "countries": "BR"},
+    {"name": "Rádio Gaúcha",     "url": "https://1132747t.ha.azioncdn.net/primary/gaucha_rbs.sdp/playlist.m3u8",      "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5474", "countries": "BR", "region": "BR-RS"},
 
     {"name": "BBC World Service","url": "https://stream.live.vc.bbcmedia.co.uk/bbc_world_service",                      "pool": "en", "colorFrom": "FF3B1F24", "colorTo": "FF8C2F39"},
     {"name": "NPR",              "url": "https://npr-ice.streamguys1.com/live.mp3",                                     "pool": "en", "colorFrom": "FF1D3247", "colorTo": "FF2E6B8F"},
@@ -1119,10 +1135,10 @@ RADIO_STATIONS = [
     {"name": "Radio UNAM",       "url": "https://tv.radiohosting.online:9486/stream",                                  "pool": "es", "colorFrom": "FF1F3A2E", "colorTo": "FF357E62"},
     {"name": "Caracol Radio",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CARACOL_RADIOAAC.aac","pool": "es", "colorFrom": "FF3D2A1F", "colorTo": "FF8A5B33"},
 
-    {"name": "BandNews FM",      "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/BANDNEWSFM_SP_ADP.aac","pool": "pt", "colorFrom": "FF1F3340", "colorTo": "FF2F6C88"},
-    {"name": "CBN São Paulo",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_SP_ADP.aac","pool": "pt", "colorFrom": "FF23302A", "colorTo": "FF3D7A5F"},
-    {"name": "CBN Rio",          "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_RJ_ADP.aac","pool": "pt", "colorFrom": "FF2B2438", "colorTo": "FF574A80"},
-    {"name": "Rádio Itatiaia",   "url": "https://8903.brasilstream.com.br/stream",                                     "pool": "pt", "colorFrom": "FF3A2622", "colorTo": "FF7E4C3D"},
+    {"name": "BandNews FM",      "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/BANDNEWSFM_SP_ADP.aac","pool": "pt", "colorFrom": "FF1F3340", "colorTo": "FF2F6C88", "countries": "BR"},
+    {"name": "CBN São Paulo",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_SP_ADP.aac","pool": "pt", "colorFrom": "FF23302A", "colorTo": "FF3D7A5F", "countries": "BR", "region": "BR-SP"},
+    {"name": "CBN Rio",          "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_RJ_ADP.aac","pool": "pt", "colorFrom": "FF2B2438", "colorTo": "FF574A80", "countries": "BR", "region": "BR-RJ"},
+    {"name": "Rádio Itatiaia",   "url": "https://8903.brasilstream.com.br/stream",                                     "pool": "pt", "colorFrom": "FF3A2622", "colorTo": "FF7E4C3D", "countries": "BR", "region": "BR-MG"},
     {"name": "Renascença",       "url": "https://22653.live.streamtheworld.com/RADIO_RENASCENCA_SC",                    "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5B85"},
 ]
 
@@ -1287,13 +1303,56 @@ LIVE_CHANNELS = [
     ("@jovempannews",            "Jovem Pan News",      "pt"),
     ("@recordnews",              "Record News",         "pt"),
     ("@SBTNews",                 "SBT News",            "pt"),
-    ("@tvcultura",               "TV Cultura",          "pt"),
+    ("@tvcultura",               "TV Cultura",          "pt", "BR-SP"),
     ("@observadorpt",            "Observador",          "pt"),
     # французский
     ("@FRANCE24",                "FRANCE 24",           "fr"),
     ("@franceinfo",              "franceinfo",          "fr"),
     ("@BFMTV",                   "BFMTV",               "fr"),
     ("@LCI",                     "LCI",                 "fr"),
+    # ДОБОР 07.09.2026. Круглосуточных новостных на YouTube мало — это
+    # пользователь и заметил, слушая «Настоящее Время» в машине. Нам не
+    # нужна вечность в эфире: лента раз в три часа показывает то, что
+    # идёт СЕЙЧАС. Берём новости и общественную политику — не музыку,
+    # не кино, не эстраду. Два выпуска в час уже эфир.
+    #
+    # CNEWS, Дождь, Public Sénat, TV5MONDE Info, CNN Chile — из почасового
+    # опроса: у CNEWS эфир был во всех 65 замерах, у Дождя в 16 (дневное
+    # окно), остальные реже, но это новости и дебаты. BBC News — тот же
+    # жанр, в опросе не было только потому, что его не держали кандидатом.
+    ("@tvrain",                  "Дождь",               "ru"),
+    ("@cnewsofficiel",           "CNEWS",               "fr"),
+    ("@TV5MONDEInfo",            "TV5MONDE Info",       "fr"),
+    ("@publicsenat",             "Public Sénat",        "fr"),
+    ("@CNNChile",                "CNN Chile",           "es"),
+    ("@BBCNews",                 "BBC News",            "en"),
+    # Штатные эфиры — только своему штату. Собачки сверены с названием канала
+    # 07.09.2026: @KTVU оказался «Gatolol», @WBZ — тайваньский блогер,
+    # @moscow24 — «В ОКРУГЕ». Короткие имена не берём. Не вещает сейчас —
+    # плитки нет, квота на поиск размазана по прогонам как у остальных.
+    ("@abc7",                    "ABC7",                "en", "US-CA"),
+    ("@abc7news",                "ABC7 News Bay Area",  "en", "US-CA"),
+    ("@abc7ny",                  "ABC7NY",              "en", "US-NY"),
+    ("@SpectrumNewsNY1",         "NY1",                 "en", "US-NY"),
+    ("@abc13houston",            "ABC13 Houston",       "en", "US-TX"),
+    ("@FOX4News",                "FOX 4 Dallas-Fort Worth", "en", "US-TX"),
+    ("@kxan_news",               "KXAN",                "en", "US-TX"),
+    ("@KING5Seattle",            "KING 5 Seattle",      "en", "US-WA"),
+    ("@abc7chicago",             "ABC 7 Chicago",       "en", "US-IL"),
+    ("@6abc",                    "6abc",                "en", "US-PA"),
+    ("@ABC15",                   "ABC15 Arizona",       "en", "US-AZ"),
+    ("@9NEWS",                   "9NEWS",               "en", "US-CO"),
+    ("@kare11",                  "KARE 11",             "en", "US-MN"),
+    ("@WFLANewsChannel8",        "WFLA News Channel 8", "en", "US-FL"),
+    ("@wsvn",                    "WSVN",                "en", "US-FL"),
+    ("@wcvb",                    "WCVB Channel 5 Boston","en", "US-MA"),
+    ("@rpcparana",               "RPC Paraná",          "pt", "BR-PR"),
+    ("@tvbahia",                 "TV Bahia",            "pt", "BR-BA"),
+    ("@multimedios",             "MULTIMEDIOS",         "es", "MX-NLE"),
+    ("@livemoscow24",            "Москва 24",           "ru", "RU-MOW"),
+    ("@78канал",                 "78Канал",             "ru", "RU-SPE"),
+    ("@tv9kannada",              "TV9 Kannada",         "en", "IN-KA"),
+    ("@News18TamilNadu",         "News18 Tamil Nadu",   "en", "IN-TN"),
 ]
 
 # УБРАНЫ 28.08.2026 КАК САМОЗВАНЦЫ — обе записи мои же, того же дня:
@@ -1448,7 +1507,9 @@ def fetch_live_streams():
         print(f"  ⚡ Эфиры по известным ссылкам: {len(alive)} за 1 единицу квоты")
 
     items, new_pins, searched, unresolved = [], dict(pins), 0, []
-    for raw_id, name, pool in LIVE_CHANNELS:
+    for row in LIVE_CHANNELS:
+        raw_id, name, pool = row[0], row[1], row[2]
+        region = (row[3] if len(row) > 3 else "") or ""
         if raw_id.startswith("@"):
             channel_id = _resolve_handle(raw_id, new_pins)
             if not channel_id:
@@ -1460,13 +1521,16 @@ def fetch_live_streams():
         if vid and vid in alive:
             sn = alive[vid]
             th = sn.get("thumbnails", {})
-            items.append({
+            item = {
                 "channelId": channel_id, "name": name, "pool": pool,
                 "videoId": vid,
                 "url": f"https://www.youtube.com/watch?v={vid}",
                 "title": (sn.get("title") or name).strip(),
                 "imageUrl": (th.get("high") or th.get("medium") or {}).get("url"),
-            })
+            }
+            if region:
+                item["region"] = region
+            items.append(item)
             continue
         # Ограничитель поиска: см. LIVE_SEARCH_BUDGET. Дошли до потолка —
         # остальные каналы ждут следующего прогона, а не выедают квоту
@@ -1525,6 +1589,7 @@ def fetch_live_streams():
                 "url": f"https://www.youtube.com/watch?v={video_id}",
                 "title": (snippet.get("title") or name).strip(),
                 "imageUrl": (thumbs.get("high") or thumbs.get("medium") or {}).get("url"),
+                **({"region": region} if region else {}),
             })
             new_pins[channel_id] = video_id
             print(f"  ✓ Эфир {name}: {video_id} (поиском, 100 единиц)")
@@ -3814,14 +3879,11 @@ REFRESH_MINUTES = 120
 
 # Версия приложения, опубликованная в Play. Поднимать вместе с versionCode.
 #
-# 34 / 1.7.10 одобрена 04.09.2026 — внеплановый выпуск, чинил краш на тапе
-# по ссылкам в диалоге «О приложении» и порез местных новостей до 2-3 штук.
-# До неё: 33 / 1.7.9 от 03.09; 32 / 1.7.8 от 30.08; тридцатая до читателей
-# не дошла — её заменили тридцать первой прямо на проверке, поэтому номер
-# 30 в Play занят, но у людей его нет. Объявлять надо то, что реально лежит
-# в магазине.
-APP_LATEST_CODE = 34
-APP_LATEST_NAME = "1.7.10"
+# 35 / 1.7.11 — полка региона, кинозал эфира, местные радио и ТВ.
+# До неё: 34 / 1.7.10 от 04.09; 33 / 1.7.9 от 03.09. Объявлять то, что
+# реально лежит в магазине. Следующая обязана быть 36.
+APP_LATEST_CODE = 35
+APP_LATEST_NAME = "1.7.11"
 
 # ⚠️ ПОДНИМАТЬ ПРИ КАЖДОЙ ПРАВКЕ ПРОМПТА ОТБОРА ИЛИ УСТАВА.
 #
@@ -5714,6 +5776,24 @@ _STORY_STOP = {
 # проверить что-либо внутри fetch_news.py нельзя: файл тянет за собой сеть,
 # ключи и базу.
 from storydedup import same_story as _same_story
+from storydedup import reviewed_extra_urls as _reviewed_extra_urls
+
+
+def _without_reviewed(items, stories):
+    """Убирает из ленты то, что уже разобрано в обзоре.
+
+    Нужно на коротком пути, когда пересборка обзоров пропускается: свежий
+    выпуск снова приносит те же статьи, а обзор про них уже есть. 07.09
+    «Выборы в Германии» висели и в обзоре, и тремя карточками в «Мировых».
+    """
+    extra = _reviewed_extra_urls(stories)
+    if not extra:
+        return items
+    kept = [it for it in items if it.get("url") not in extra]
+    n = len(items) - len(kept)
+    if n:
+        print(f"  📰 Из ленты убраны уже разобранные в обзоре: {n}")
+    return kept
 
 
 def _collapse_twin_stories(stories, lang):
@@ -5885,14 +5965,16 @@ def build_press_reviews(items, lang):
     old = _tidy_stories(old, lang)      # чистка бесплатна и идёт каждый прогон
 
     if len(items) < 8:
-        return items, _collapse_twin_stories(old, lang)
+        stories = _collapse_twin_stories(old, lang)
+        return _without_reviewed(items, stories), stories
     # Пересобираем не чаще раза в три часа: обзор живёт сутки, а запрос стоит
     # денег. За два часа сюжет редко обрастает новым изданием
     young = any(now - st.get("freshAt", st.get("createdAt", 0)) < 2 * 3600 * 1000
                 for st in old)
     if old and not young and all(
             now - st.get("updatedAt", 0) < 3 * 3600 * 1000 for st in old):
-        return items, _collapse_twin_stories(old, lang)
+        stories = _collapse_twin_stories(old, lang)
+        return _without_reviewed(items, stories), stories
 
     lines = [f"{i+1}. [{it.get('source','?')}] {it.get('title','')}"
              for i, it in enumerate(items)]
@@ -5952,7 +6034,7 @@ def build_press_reviews(items, lang):
         proposed = data.get("stories") or []
     except Exception as e:
         print(f"  ⚠️ Обзоры прессы не собраны: {str(e)[:60]}")
-        return items, old
+        return _without_reviewed(items, old), old
 
     by_id = {st.get("id"): st for st in old}
     used = set()
@@ -6110,8 +6192,22 @@ def collapse_same_event(items, lang, stories=None):
         if len(fams) >= STORY_MIN_SOURCES and len(stories) < STORY_MAX_COUNT:
             probe = {"title": str(items[idxs[0]].get("title", "")),
                      "blocks": [{"url": items[i].get("url", "")} for i in idxs]}
-            if any(_same_story(probe, st) for st in stories):
-                continue        # об этом сюжете обзор уже есть
+            match = next((st for st in stories if _same_story(probe, st)), None)
+            if match:
+                # Обзор уже есть — из ленты всё равно убираем лишние карточки.
+                # Голый continue оставлял их на полке: 07.09 Independent, RFI
+                # и Semafor про выборы в Германии вышли и в обзоре, и отдельно.
+                lead_url = (match.get("blocks") or [{}])[0].get("url")
+                keep = next((i for i in idxs if items[i].get("url") == lead_url),
+                            None)
+                if keep is None:
+                    keep = max(idxs, key=lambda i: (
+                        items[i].get("priority", 0),
+                        1 if items[i].get("imageUrl") else 0,
+                        len(items[i].get("summary") or ""),
+                    ))
+                drop.update(i for i in idxs if i != keep)
+                continue
             picked = [max(v, key=lambda i: (
                 items[i].get("priority", 0),
                 1 if items[i].get("imageUrl") else 0,
@@ -6448,7 +6544,7 @@ def polish_summary(text: str) -> str:
 
     Теперь чистим КАЖДЫЙ абзац порознь и собираем обратно через пустую строку.
     """
-    src = (text or "").strip()
+    src = strip_leading_service((text or "").strip())
     if not src:
         return src
     paras = [p.strip() for p in re.split(r"\n\s*\n|\n", src) if p.strip()]
@@ -6561,6 +6657,10 @@ def quality_gate(items, lang):
         body = re.sub(r"\n{3,}", "\n\n", body).strip()
         if body != before:
             fixed["служебные строки"] += 1
+        peeled = strip_leading_service(body)
+        if peeled != body:
+            body = peeled
+            fixed["служебный зачин"] += 1
 
         # 3. Хвост и обрыв на полуслове
         cleaned = strip_tail(body)
@@ -7426,6 +7526,7 @@ def main():
         filtered, stories = build_press_reviews(filtered, lang)
         # Пересказы одного события — их не видит проверка по словам
         filtered, stories = collapse_same_event(filtered, lang, stories)
+        filtered = _without_reviewed(filtered, stories)
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)

@@ -6,7 +6,9 @@
 """
 import sys, os, warnings
 warnings.filterwarnings("ignore"); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from textcut import trim_to_boundary as T, _looks_blocked as B, strip_title_echo as E
+from textcut import (trim_to_boundary as T, _looks_blocked as B,
+                     strip_title_echo as E, strip_leading_service as S,
+                     is_service_lead)
 
 ok = fail = 0
 def check(name, got, want):
@@ -186,6 +188,25 @@ check("зачин без списка тоже убираем",
 check("влезает целиком — отдаём целиком",
       "Тыныбекова" in T(_MEDALS, 400), True)
 
+# 07.09.2026: Kabar, армрестлинг. «1-орун» не был пунктом списка, lead()
+# набрал ориентир на первом месте и отрезал второе с третьим.
+_ARM = (
+    "Ысык-Көл, 05.09.26. /Кабар/. Кырчын жайлоосунда VI Дүйнөлүк "
+    "көчмөндөр оюндарынын алкагында армрестлинг боюнча мелдеш өттү. "
+    "18 өлкөнүн спортчулары эркектер жана аялдар арасында өз салмак "
+    "категорияларында сол жана оң кол менен күрөшүштү. "
+    "Жеңүүчүлөр аныкталды.\n"
+    "1-орун — Аделия Макарова (Россия)\n"
+    "2-орун — Айжан Садыкова (Кыргызстан)\n"
+    "3-орун — Мария Коваль (Казахстан)"
+)
+_arm = lead(_ARM, target=280, max_paras=3)
+check("1-орун не обрывает перечень",
+      "Макарова" in _arm and "Садыкова" in _arm and "Коваль" in _arm, True)
+check("дата 3-сентябрда — не пункт списка",
+      bool(__import__("textcut", fromlist=["_LIST_ITEM"])._LIST_ITEM.search(
+          "3-сентябрда мелдеш өттү.")), False)
+
 # Обычный текст без перечней правило не трогает
 _PLAIN = ("Первый абзац о событии, довольно длинный, чтобы его хватило.\n"
           "Второй абзац с подробностями и уточнениями от очевидцев.\n"
@@ -210,6 +231,46 @@ check("пустая строка не падает",
 
 check("trim_to_boundary страхует и текст короче лимита",
       T("Обрыв без точки в конце предложения тут", 1300).endswith("…"), True)
+
+# --- служебный зачин до новости (07.09.2026, Straits Times) ---
+#
+# Мусор всегда в начале и отделён от события. Ловим по смыслу во всех
+# пяти пулах, а не по одной английской фразе — иначе перевод её прячет.
+
+NEWS = ("АФИНЫ – Военный самолет F-4 Phantom разбился 5 сентября на базе "
+        "недалеко от Афин во время авиашоу, в результате чего погибли два пилота.")
+check("русский зачин ST снят",
+      S("Подпишитесь сейчас: получайте информационные бюллетени ST "
+        "на свой почтовый ящик.\n\n" + NEWS).startswith("АФИНЫ"), True)
+check("английский зачин ST снят",
+      S("Sign up now: Get ST's newsletters delivered to your inbox.\n\n"
+        "ATHENS – A Greek F-4 Phantom crashed during an airshow.").startswith("ATHENS"), True)
+check("испанский зачин снят",
+      S("Suscríbete ahora: recibe nuestros boletines en tu correo.\n\n"
+        "ATENAS – Un caza se estrelló.").startswith("ATENAS"), True)
+check("португальский зачин снят",
+      S("Inscreva-se: receba o boletim na sua caixa de entrada.\n\n"
+        "ATENAS – Um caça caiu.").startswith("ATENAS"), True)
+check("французский зачин снят",
+      S("Abonnez-vous: recevez nos lettres d'information.\n\n"
+        "ATHÈNES – Un chasseur s'est écrasé.").startswith("ATH"), True)
+check("даты публикации до новости сняты",
+      S("Опубликовано 06 сен 2026, 07:14\nОбновлено 6 сентября 2026 г., 10:46\n\n"
+        + NEWS).startswith("АФИНЫ"), True)
+check("зачин и новость в одном абзаце",
+      S("Sign up now: Get ST's newsletters delivered to your inbox. " + NEWS)
+      .startswith("АФИНЫ"), True)
+check("живую новость не трогаем", S(NEWS), NEWS)
+check("указ не путаем с подпиской",
+      S("Президент подписал указ о новых выплатах ветеранам."),
+      "Президент подписал указ о новых выплатах ветеранам.")
+check("рассылка как тема новости остаётся",
+      is_service_lead("Компания запустила рассылку для жителей города."), False)
+check("один служебный абзац не опустошает карточку",
+      S("Подпишитесь сейчас: получайте информационные бюллетени ST "
+        "на свой почтовый ящик."),
+      "Подпишитесь сейчас: получайте информационные бюллетени ST "
+      "на свой почтовый ящик.")
 
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

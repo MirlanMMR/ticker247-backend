@@ -77,7 +77,7 @@ CANDIDATES = [
     ("@smotrim", "Смотрим", "ru"),
     ("@tvcru", "ТВЦ", "ru"),
     ("@RTVI", "RTVI", "ru"),
-    ("@tvrain", "Дождь", "ru"),
+    # Дождь с 07.09 в LIVE_CHANNELS: дневное окно подтверждено опросом
     # БЫЛО @radiosvoboda, помечен ru — ошибка, найдена 03.09.2026: это
     # «Радіо Свобода» УКРАИНСКОЙ службы (1.81M подписчиков, украинское
     # написание в самом названии), а не русская редакция. Вышел бы в эфир —
@@ -97,13 +97,11 @@ CANDIDATES = [
     ("@BELARUS24TV", "Беларусь 24", "ru"),
     # Французский пул самый бедный — пять каналов
     ("@Europe1", "Europe 1", "fr"),
-    ("@TV5MONDEInfo", "TV5MONDE Info", "fr"),
-    ("@cnewsofficiel", "CNEWS", "fr"),
-    ("@publicsenat", "Public Sénat", "fr"),
+    # CNEWS, TV5MONDE Info, Public Sénat — с 07.09 в LIVE_CHANNELS
     # Было @LCP — 404. Настоящая собачка длиннее
     ("@RTBF", "RTBF", "fr"),
     # Остальные пулы — добор до десяти
-    ("@CNNChile", "CNN Chile", "es"),
+    # CNN Chile — с 07.09 в LIVE_CHANNELS
     ("@laSextaNoticias", "laSexta", "es"),
     ("@antena3noticias", "Antena 3", "es"),
     # Было @teleSURtv — 404. Живёт под @teleSUR, но прямого эфира
