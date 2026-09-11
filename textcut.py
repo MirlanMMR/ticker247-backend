@@ -21,6 +21,15 @@ import re
 _SENTENCE_END = re.compile(
     r"[^\W\d_]{3,}[»\"'”’)\]]?[.!?…](?=[\s»\"'”’)\]]|$)", re.UNICODE)
 
+# Висячий хвост анонса: издание обрезало фразу на предлоге. Само слово
+# убираем; живое последнее слово не трогаем — иначе обрыв на предпоследнем.
+_HANGING_TAIL = {
+    "и", "а", "но", "или", "что", "как", "для", "при", "над", "под", "из", "за",
+    "на", "в", "с", "о", "у", "к", "по", "the", "of", "and", "for", "with",
+    "from", "that", "de", "la", "el", "los", "las", "del", "que", "em", "no",
+    "na", "do", "da", "dos", "das",
+}
+
 
 # ─── Перечни ───────────────────────────────────────────────────────────────
 #
@@ -163,8 +172,16 @@ def ensure_terminated(text: str) -> str:
     ends = [m.end() for m in _SENTENCE_END.finditer(text)]
     if ends and ends[-1] >= len(text) * 0.5:
         return text[:ends[-1]].strip()
-    cut = text.rsplit(" ", 1)[0].strip()
-    return (cut + "…") if cut else text
+    # Раньше откусывали последнее слово и ставили многоточие. Анонс РБК
+    # и так обрывается изданием на полуфразе; второе откусывание давало
+    # обрыв на ПРЕДПОСЛЕДНЕМ слове. Висячий предлог убираем, живое слово
+    # оставляем и честно ставим многоточие.
+    last = text.split()[-1].lower().strip(".,;:—–-") if text.split() else ""
+    hanging = len(last) <= 2 or last in _HANGING_TAIL
+    if hanging:
+        cut = text.rsplit(" ", 1)[0].strip()
+        return (cut + "…") if cut else text
+    return text + "…"
 
 
 def _finish_paragraph(text: str, cut: int, max_extra_sentences: int = 3) -> int:
@@ -246,8 +263,14 @@ def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
             cut = _finish_paragraph(text, cut, max_extra_sentences)
         return _whole_or_none(text, cut, limit, floor)
 
-    # 3. Конец слова
-    cut = window[:limit].rsplit(" ", 1)[0].strip()
+    # 3. Конец слова. Неполное слово на границе лимита отбрасываем;
+    # висячий предлог тоже. Живое последнее слово оставляем.
+    cut = window[:limit].rstrip()
+    if limit < len(text) and not text[limit].isspace() and not text[limit - 1].isspace():
+        cut = cut.rsplit(" ", 1)[0].strip()
+    last = cut.split()[-1].lower().strip(".,;:—–-") if cut.split() else ""
+    if last in _HANGING_TAIL or (last and len(last) <= 2):
+        cut = cut.rsplit(" ", 1)[0].strip()
     return (cut + "…") if cut else window[:limit].strip()
 
 

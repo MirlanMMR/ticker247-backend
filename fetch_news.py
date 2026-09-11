@@ -17,6 +17,7 @@ from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
                      _looks_blocked, strip_title_echo, strip_leading_service)
 from extract import extract_article
+from state_outlets import STATE_RSS, STATE_RADIO
 try:
     import trafilatura
 except ImportError:          # библиотеки нет — работаем на своём разборе
@@ -111,8 +112,8 @@ RSS_SOURCES = [
 
     # США: были только общенациональные издания, а в стране 50 штатов —
     # местный слой выходил из четырёх новостей
-    {"url": "https://www.latimes.com/local/rss2.0.xml", "source": "LA Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
-    {"url": "https://nypost.com/feed/", "source": "NY Post", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local", "lang": "en"},
+    {"url": "https://www.latimes.com/local/rss2.0.xml", "source": "LA Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en", "region": "US-CA"},
+    {"url": "https://nypost.com/feed/", "source": "NY Post", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local", "lang": "en", "region": "US-NY"},
 
     # Замена ушедшим (13.08.2026): страницы проверены, текст отдают —
     # CBS 2700 знаков, Time 7200, Fortune 9300
@@ -176,7 +177,7 @@ RSS_SOURCES = [
     {"url": "https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/brasil/?outputType=xml", "source": "Estadão", "category": "NEWS", "priority": 2, "quota": 6, "scope": "local", "lang": "pt"},
     {"url": "https://www.metropoles.com/feed", "source": "Metrópoles", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
     {"url": "https://www.poder360.com.br/feed/", "source": "Poder360", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
-    {"url": "https://www.gazetadopovo.com.br/feed/rss/republica.xml", "source": "Gazeta do Povo", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt"},
+    {"url": "https://www.gazetadopovo.com.br/feed/rss/republica.xml", "source": "Gazeta do Povo", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "pt", "region": "BR-PR"},
     {"url": "https://rss.uol.com.br/feed/noticias.xml", "source": "UOL Notícias", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "pt"},
     {"url": "https://www.infomoney.com.br/feed/", "source": "InfoMoney", "category": "MONEY", "priority": 1, "quota": 3, "scope": "local", "lang": "pt"},
     {"url": "https://exame.com/feed/", "source": "Exame", "category": "MONEY", "priority": 1, "quota": 3, "scope": "local", "lang": "pt"},
@@ -210,17 +211,17 @@ RSS_SOURCES = [
     # Нью-Йорку. Из домашней сети пользователя эти ленты не открываются,
     # с серверов GitHub — все двенадцать, по сотне материалов каждая.
     # Фото в лентах нет, дотягиваем со страницы
-    {"url": "https://floridaphoenix.com/feed/", "source": "Florida Phoenix", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://ohiocapitaljournal.com/feed/", "source": "Ohio Capital Journal", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://michiganadvance.com/feed/", "source": "Michigan Advance", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://georgiarecorder.com/feed/", "source": "Georgia Recorder", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://penncapital-star.com/feed/", "source": "Pennsylvania Capital-Star", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://azmirror.com/feed/", "source": "Arizona Mirror", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://minnesotareformer.com/feed/", "source": "Minnesota Reformer", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://coloradonewsline.com/feed/", "source": "Colorado Newsline", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://nevadacurrent.com/feed/", "source": "Nevada Current", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://virginiamercury.com/feed/", "source": "Virginia Mercury", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
-    {"url": "https://missouriindependent.com/feed/", "source": "Missouri Independent", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en"},
+    {"url": "https://floridaphoenix.com/feed/", "source": "Florida Phoenix", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-FL"},
+    {"url": "https://ohiocapitaljournal.com/feed/", "source": "Ohio Capital Journal", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-OH"},
+    {"url": "https://michiganadvance.com/feed/", "source": "Michigan Advance", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-MI"},
+    {"url": "https://georgiarecorder.com/feed/", "source": "Georgia Recorder", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-GA"},
+    {"url": "https://penncapital-star.com/feed/", "source": "Pennsylvania Capital-Star", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-PA"},
+    {"url": "https://azmirror.com/feed/", "source": "Arizona Mirror", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-AZ"},
+    {"url": "https://minnesotareformer.com/feed/", "source": "Minnesota Reformer", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-MN"},
+    {"url": "https://coloradonewsline.com/feed/", "source": "Colorado Newsline", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-CO"},
+    {"url": "https://nevadacurrent.com/feed/", "source": "Nevada Current", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-NV"},
+    {"url": "https://virginiamercury.com/feed/", "source": "Virginia Mercury", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-VA"},
+    {"url": "https://missouriindependent.com/feed/", "source": "Missouri Independent", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-MO"},
 
     # -- Американские андердоги: некоммерческие редакции ---------------------
     # Мысль пользователя 15.08.2026: крупным изданиям мы не нужны, а этим —
@@ -228,8 +229,8 @@ RSS_SOURCES = [
     # для них уставная цель: материалы выходят под свободной лицензией с
     # прямой просьбой перепечатывать. Ни договариваться, ни опасаться претензий
     # не нужно. Заодно это шаг к четвёртому уровню — новостям штатов
-    {"url": "https://www.texastribune.org/feeds/main/", "source": "Texas Tribune", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en"},
-    {"url": "https://mississippitoday.org/feed/", "source": "Mississippi Today", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
+    {"url": "https://www.texastribune.org/feeds/main/", "source": "Texas Tribune", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local", "lang": "en", "region": "US-TX"},
+    {"url": "https://mississippitoday.org/feed/", "source": "Mississippi Today", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en", "region": "US-MS"},
     {"url": "https://www.themarshallproject.org/rss/recent.rss", "source": "Marshall Project", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
     {"url": "https://www.propublica.org/feeds/propublica/main", "source": "ProPublica", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
 
@@ -416,6 +417,7 @@ RSS_SOURCES = [
     {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=US", "source": "Тренды US", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "world"},
     {"url": "https://trends.google.com/trends/trendingsearches/daily/rss?geo=RU", "source": "Тренды RU", "category": "TRENDS", "priority": 0, "quota": 3, "scope": "world"},
 ]
+RSS_SOURCES += STATE_RSS
 
 BORING_KEYWORDS = [
     "заседание", "совещание", "пресс-конференция", "протокол",
@@ -470,6 +472,30 @@ SOURCE_COUNTRY = {
     "Virginia Mercury": "US", "Missouri Independent": "US",
     "Texas Tribune": "US", "Mississippi Today": "US",
     "Marshall Project": "US", "ProPublica": "US",
+    "Alabama Reflector": "US", "Alaska Beacon": "US", "Arkansas Advocate": "US",
+    "CalMatters": "US", "Connecticut Mirror": "US", "Honolulu Civil Beat": "US",
+    "Idaho Capital Sun": "US", "Capitol News Illinois": "US",
+    "Indiana Capital Chronicle": "US", "Iowa Capital Dispatch": "US",
+    "Kansas Reflector": "US", "Kentucky Lantern": "US",
+    "Louisiana Illuminator": "US", "Maine Morning Star": "US",
+    "Maryland Matters": "US", "CommonWealth Beacon": "US",
+    "Montana Free Press": "US", "Nebraska Examiner": "US",
+    "New Hampshire Bulletin": "US", "New Jersey Monitor": "US",
+    "Source New Mexico": "US", "NC Newsline": "US",
+    "North Dakota Monitor": "US", "Oklahoma Voice": "US",
+    "Oregon Capital Chronicle": "US", "Rhode Island Current": "US",
+    "South Carolina Daily Gazette": "US", "South Dakota Searchlight": "US",
+    "Tennessee Lookout": "US", "Utah News Dispatch": "US", "VTDigger": "US",
+    "Washington State Standard": "US", "West Virginia Watch": "US",
+    "Wisconsin Examiner": "US", "WyoFile": "US", "The DC Line": "US",
+    "Delaware Current": "US",
+    "Texas Observer": "US", "Houston Landing": "US", "San Antonio Report": "US",
+    "El Paso Matters": "US", "Fort Worth Report": "US", "Austin Monitor": "US",
+    "G1 São Paulo": "BR", "G1 Rio": "BR", "G1 Minas": "BR", "G1 Paraná": "BR",
+    "G1 Rio Grande do Sul": "BR", "G1 Bahia": "BR", "G1 Distrito Federal": "BR",
+    "G1 Pernambuco": "BR", "G1 Ceará": "BR", "G1 Santa Catarina": "BR",
+    "El Informador": "MX", "Indian Express Mumbai": "IN",
+    "The News Minute": "IN", "Фонтанка": "RU",
     # Португалия и Бразилия
     "Notícias ao Minuto": "PT", "Público": "PT", "Diário de Notícias": "PT",
     "Observador": "PT", "RTP Notícias": "PT",
@@ -534,7 +560,9 @@ LOCAL_DOMAINS = {
            "latimes.com", "seattletimes.com", "nypost.com", "cbsnews.com", "upi.com",
            "texastribune.org", "mississippitoday.org", "themarshallproject.org",
            "propublica.org",
-           "floridaphoenix.com", "ohiocapitaljournal.com", "michiganadvance.com", "georgiarecorder.com", "penncapital-star.com", "azmirror.com", "minnesotareformer.com", "coloradonewsline.com", "nevadacurrent.com", "virginiamercury.com", "missouriindependent.com"],
+           "floridaphoenix.com", "ohiocapitaljournal.com", "michiganadvance.com", "georgiarecorder.com", "penncapital-star.com", "azmirror.com", "minnesotareformer.com", "coloradonewsline.com", "nevadacurrent.com", "virginiamercury.com", "missouriindependent.com",
+           "alabamareflector.com", "alaskabeacon.com", "arkansasadvocate.com", "calmatters.org", "ctmirror.org", "civilbeat.org", "idahocapitalsun.com", "capitolnewsillinois.com", "indianacapitalchronicle.com", "iowacapitaldispatch.com", "kansasreflector.com", "kentuckylantern.com", "lailluminator.com", "mainemorningstar.com", "marylandmatters.org", "commonwealthbeacon.org", "montanafreepress.org", "nebraskaexaminer.com", "newhampshirebulletin.com", "newjerseymonitor.com", "sourcenm.com", "ncnewsline.com", "northdakotamonitor.com", "oklahomavoice.com", "oregoncapitalchronicle.com", "rhodeislandcurrent.com", "scdailygazette.com", "southdakotasearchlight.com", "tennesseelookout.com", "utahnewsdispatch.com", "vtdigger.org", "washingtonstatestandard.com", "westvirginiawatch.com", "wisconsinexaminer.com", "wyofile.com", "thedccline.org",
+           "texasobserver.org", "houstonlanding.org", "sanantonioreport.org", "elpasomatters.org", "fortworthreport.org", "austinmonitor.com"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com",
            "eleconomista.com.mx", "expansion.mx", "elsoldemexico.com.mx", "oem.com.mx"],
@@ -630,8 +658,11 @@ POOL_DOMAINS = {
 PUBLISHER_FAMILIES = {
     "bbc": ["BBC News", "BBC World", "BBC Sport", "BBC Русская служба",
             "BBC Mundo", "BBC Brasil"],
-    "cbn": ["CBN São Paulo", "CBN Rio"],
+    "cbn": ["CBN São Paulo", "CBN Rio", "CBN Recife"],
     "elpais": ["El País", "El País América"],
+    "g1": ["G1 Globo", "G1 São Paulo", "G1 Rio", "G1 Minas", "G1 Paraná",
+           "G1 Rio Grande do Sul", "G1 Bahia", "G1 Distrito Federal",
+           "G1 Pernambuco", "G1 Ceará", "G1 Santa Catarina"],
 }
 
 
@@ -834,7 +865,7 @@ def load_firebase_config():
                 code = by_url.get((s.get("url") or "").lower())
                 if code:
                     s = {**s, **{k: code[k] for k in
-                                 ("quota", "priority", "scope", "lang", "category")
+                                 ("quota", "priority", "scope", "lang", "category", "region")
                                  if k in code}}
                     fixed.append(s)
                 else:
@@ -1150,6 +1181,7 @@ RADIO_STATIONS = [
     {"name": "Rádio Itatiaia",   "url": "https://8903.brasilstream.com.br/stream",                                     "pool": "pt", "colorFrom": "FF3A2622", "colorTo": "FF7E4C3D", "countries": "BR", "region": "BR-MG"},
     {"name": "Renascença",       "url": "https://22653.live.streamtheworld.com/RADIO_RENASCENCA_SC",                    "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5B85"},
 ]
+RADIO_STATIONS += STATE_RADIO
 
 def check_radio_stations(stations, workers=8, timeout=10):
     """Отсеивает станции, чей эфир молчит.
@@ -3064,7 +3096,8 @@ def fetch_rss(source):
                 "language": item_lang,
                 "scope": source.get("scope", "world"),
                 "source_lang": source.get("lang"),
-                "publishedAt": parse_pub_date(item_el)
+                "publishedAt": parse_pub_date(item_el),
+                **({"region": source["region"]} if source.get("region") else {}),
             })
         return items
     except Exception as e:
@@ -3888,11 +3921,11 @@ REFRESH_MINUTES = 120
 
 # Версия приложения, опубликованная в Play. Поднимать вместе с versionCode.
 #
-# 35 / 1.7.11 — полка региона, кинозал эфира, местные радио и ТВ.
-# До неё: 34 / 1.7.10 от 04.09; 33 / 1.7.9 от 03.09. Объявлять то, что
-# реально лежит в магазине. Следующая обязана быть 36.
-APP_LATEST_CODE = 35
-APP_LATEST_NAME = "1.7.11"
+# 36 / 1.7.12 — эфир как телевизор во всех пулах, карусель только срочного, радио штата.
+# До неё: 35 / 1.7.11 от 07.09; 34 / 1.7.10 от 04.09. Объявлять то, что
+# реально лежит в магазине. Следующая обязана быть 37.
+APP_LATEST_CODE = 36
+APP_LATEST_NAME = "1.7.12"
 
 # ⚠️ ПОДНИМАТЬ ПРИ КАЖДОЙ ПРАВКЕ ПРОМПТА ОТБОРА ИЛИ УСТАВА.
 #
@@ -4737,6 +4770,12 @@ VIRAL=вирусное видео, NEWS=всё остальное
                         # правкой здесь: так его видно и так же легко вернуть
                         dropped_noevent += 1
                         continue
+                    # В холостом режиме остаётся в ленте, но не в карусели:
+                    # срочность и важность — про событие. Нет события —
+                    # нет места на витрине
+                    item["priority"] = 0
+                    if item.get("category") in ("URGENT", "URGENT_LOCAL_ONLY"):
+                        item["category"] = "NEWS"
                 # ПРИОРИТЕТ НАЗНАЧАЛИ, НО НЕ СНИМАЛИ — И В ЭТОМ БЫЛА БЕДА.
                 #
                 # Здесь стояли две строки: срочным двойку, важным единицу. А
@@ -4752,7 +4791,9 @@ VIRAL=вирусное видео, NEWS=всё остальное
                 # Важность — свойство НОВОСТИ, а не издания. Приоритет
                 # издания хорош как первая прикидка при сборе, но после
                 # разметки решает ИИ, и молчание тут значит «обычная».
-                if i in urgent:
+                if i in no_event:
+                    item["priority"] = 0
+                elif i in urgent:
                     item["priority"] = 2
                 elif i in important:
                     item["priority"] = 1
@@ -4774,7 +4815,8 @@ VIRAL=вирусное видео, NEWS=всё остальное
                     source_cat = item.get("source_category", item.get("category", "NEWS"))
                     allowed = SOURCE_CATEGORY_LOCK.get(source_cat)
                     if (allowed is None or new_cat in allowed) and validate_recat(new_cat, item.get("title", "")):
-                        item["category"] = new_cat
+                        if not (i in no_event and new_cat in ("URGENT", "URGENT_LOCAL_ONLY")):
+                            item["category"] = new_cat
                     # иначе — игнорируем переназначение Gemini
                 # ПОСЛЕ переназначения рубрики: ИИ и авторазметка оба могут
                 # поставить URGENT, а решает важность приоритет. Если новость не
@@ -6413,6 +6455,8 @@ def urgent_floor_by_outlets(items, lang):
              if now - it.get("publishedAt", 0) <= URGENT_EVENT_WINDOW_MS]
     groups = []
     for it in fresh:
+        if it.get("_no_event"):
+            continue
         for g in groups:
             if same_event(g["lead"], it):
                 g["items"].append(it)
@@ -6477,6 +6521,31 @@ def cap_urgent(items, lang):
             demoted += 1
     if demoted:
         print(f"  🔕 Срочность снята [{lang}]: {demoted}, осталось {len(keep)}")
+    return items
+
+
+def demote_no_event(items, lang):
+    """Без инфоповода можно оставить в ленте, в карусель — нельзя.
+
+    Холостой NOEVENT_DRY_RUN не удаляет карточку, но срочность и важность
+    всё равно снимаем: иначе интервью и «какие именно» остаются с
+    приоритетом издания и едут на витрину.
+    """
+    n = 0
+    for it in items:
+        if not it.get("_no_event"):
+            continue
+        changed = False
+        if it.get("priority", 0) >= 1:
+            it["priority"] = 0
+            changed = True
+        if it.get("category") in ("URGENT", "URGENT_LOCAL_ONLY"):
+            it["category"] = "NEWS"
+            changed = True
+        if changed:
+            n += 1
+    if n:
+        print(f"  🧪 без инфоповода сняты с карусели [{lang}]: {n}")
     return items
 
 
@@ -6602,14 +6671,20 @@ def _polish_one(text: str) -> str:
         ends = [m.end() - 1 for m in re.finditer(r"[а-яёa-zà-ú]{3,}[.!?]\s", t + " ")]
         last = t.split()[-1] if t.split() else ""
         # Настоящий обрыв виден по хвосту: одна буква, инициал или предлог —
-        # «…inside the Edward J». А Kaktus просто не ставит точку в конце
-        # законченной фразы, и рубить её незачем — довольно точки
+        # «…inside the Edward J». Точку на живом последнем слове не ставим:
+        # анонс РБК обрывается изданием, и точка делала обрыв видом конца фразы.
         dangling = (len(last.strip(".,")) <= 2
                     or last.lower() in _HANGING_WORDS)
         if dangling and ends and ends[-1] >= 80:
             t = t[:ends[-1] + 1]
-        elif not dangling:
-            t += "."
+        elif dangling:
+            t = t.rsplit(" ", 1)[0].strip()
+            if t and t[-1] not in ".!?…":
+                t += "…"
+        else:
+            # Точка здесь врала: анонс РБК обрывается изданием, а мы
+            # ставили точку на предпоследнем слове, будто фраза кончилась
+            t += "…"
     return t.strip()
 
 
@@ -7461,24 +7536,38 @@ def main():
         floors = {"local": int(max_items * 0.40),
                   "pool": int(max_items * 0.20),
                   "world": int(max_items * 0.30)}
+        # Штатные издания не делят 70 мест с национальными. Иначе техасец
+        # видит три карточки Tribune, а флоридские занимают слоты, которых
+        # ему на полке штата не показывают.
+        regionals = [x for x in capped if x.get("region")]
+        nationals = [x for x in capped if not x.get("region")]
         chosen, taken = [], set()
         for shelf, floor in floors.items():
-            for x in capped:
+            for x in nationals:
                 if len(chosen) >= max_items:
                     break
                 if x.get("scope") == shelf and id(x) not in taken \
                         and sum(1 for c in chosen if c.get("scope") == shelf) < floor:
                     chosen.append(x)
                     taken.add(id(x))
-        for x in capped:                      # остаток — по важности, как раньше
+        for x in nationals:
             if len(chosen) >= max_items:
                 break
             if id(x) not in taken:
                 chosen.append(x)
                 taken.add(id(x))
-        filtered = chosen
+        per_region, extra = Counter(), []
+        REGION_CAP, REGION_TOTAL = 10, 120
+        for x in regionals:
+            r = x.get("region")
+            if per_region[r] >= REGION_CAP or len(extra) >= REGION_TOTAL:
+                continue
+            extra.append(x)
+            per_region[r] += 1
+        filtered = chosen + extra
         print(f"  📚 Полки [{lang}]: после ИИ — {before}; "
-              f"после отсечки до {max_items} — {_shelves(filtered)}")
+              f"после отсечки до {max_items} — {_shelves(chosen)}; "
+              f"штатных +{len(extra)} ({len(per_region)} регионов)")
         # Автоперевод: статьи не на языке пула переводим через Gemini
         # Батчи по 15 + один повтор для неудавшихся — падение батча не оставляет
         # половину пула на чужом языке (приложение фильтрует их из ленты)
@@ -7527,6 +7616,7 @@ def main():
         filtered = urgent_floor_by_outlets(filtered, lang)
         # Порог срочности: не больше двух и только свежие
         filtered = cap_urgent(filtered, lang)
+        filtered = demote_no_event(filtered, lang)
         filtered = fix_scope_and_category(filtered, lang)
         # Обзор прессы собираем ДО схлопывания повторов: он и живёт тем, что
         # об одном событии написали несколько изданий. Сначала выбросить все
