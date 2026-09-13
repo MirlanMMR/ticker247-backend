@@ -2604,14 +2604,22 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
     выбросить.
     """
     targets, seen_urls = [], set()
+    skipped_live = 0
     for item in items:
         url = item.get("url", "")
         if len(item.get("summary", "")) >= min_len or not url.startswith("http"):
             continue
         if "t.me" in url or "telegram." in url or url in seen_urls:
             continue
+        # Живой блог не дотягиваем со страницы: там десятки постов, и разбор
+        # подставляет чужой. Остаётся аннотация RSS — короткая, зато честная.
+        if is_live_blog(item):
+            skipped_live += 1
+            continue
         seen_urls.add(url)
         targets.append(item)
+    if skipped_live:
+        print(f"  ⏭ Дотяжка: живых блогов пропущено {skipped_live}")
 
     # Бюджет делим между пулами ПО КРУГУ, а не отсекаем первых по списку.
     #
@@ -3945,7 +3953,8 @@ APP_LATEST_NAME = "1.7.12"
 #      Двух попыток хватило, чтобы понять — вопрос не в формулировке, а в
 #      том, что второй этап судит по заголовку. Возвращаться к этому только
 #      с телами статей и через холостую сверку.
-RULES_VERSION = 16
+# 17 — живой блог в правиле title_mismatch: заголовок про одно, пост про другое
+RULES_VERSION = 17
 
 AI_CACHE = {}
 # Разобранные ИИ страницы: адрес → текст новости. Без этой памяти мы платили
@@ -4567,6 +4576,11 @@ priority=2 — события региона {pool['region']}:
     способов», под которыми нет ни одного способа.
     Пользователь 30.08 о такой заметке: «статья-ловушка, уводит читателей на
     свой сайт».
+  · ЖИВОЙ БЛОГ, РАЗНЫЕ ПОСТЫ. Заголовок и фото про отказ Путина встретиться
+    с Зеленским в Майами — а текст про Дэна Дрисколла в Киеве. На одной
+    странице /live/ лежат десятки обновлений, и выхваченный абзац может
+    быть вообще про другое событие дня. Если герои заголовка в тексте не
+    появляются — это несовпадение.
     ВАЖНО: теперь под каждым заголовком ты видишь начало текста — раньше не
     видел, и проверить это было нечем. Смотри, отвечает ли текст на вопрос,
     который задал заголовок.
@@ -4807,6 +4821,14 @@ VIRAL=вирусное видео, NEWS=всё остальное
                 # её присвоил. Пуш «Срочно» ради приглашения задать вопрос
                 # журналистам подрывает доверие к самой пометке
                 if is_service_format(item) and (item["priority"] >= 2 or item.get("category") == "URGENT"):
+                    item["priority"] = 0
+                    if item.get("category") == "URGENT":
+                        item["category"] = "NEWS"
+                # Живой блог — не карусель. Срочность по формату не снимаем
+                # целиком (катастрофа бывает настоящей), но важность и URGENT
+                # убираем: иначе в шапке дня окажется случайный пост со страницы
+                if is_live_blog(item) and (item.get("priority", 0) >= 1
+                                           or item.get("category") == "URGENT"):
                     item["priority"] = 0
                     if item.get("category") == "URGENT":
                         item["category"] = "NEWS"
@@ -5066,6 +5088,22 @@ SERVICE_FORMAT_TITLE = (
     "en directo", "en vivo", "preguntas y respuestas",
     "ao vivo", "perguntas e respostas",
 )
+
+
+def is_live_blog(item) -> bool:
+    """Живой блог: одна страница, десятки постов подряд.
+
+    Заголовок RSS — про последний удар, фото — про Путина, а разбор страницы
+    выхватывает чужой абзац (Дрисколл в Киеве). В карусели это выглядит как
+    подлог. 13.09.2026, BBC /russian/live/… — заголовок про Майами/Путина,
+    текст про экс-министра армии США.
+
+    Адрес /live/ намеренно НЕ в SERVICE_FORMAT_MARKERS: живой блог о катастрофе
+    бывает настоящей новостью, и снимать с него срочность ради формата нельзя.
+    Здесь другое: не пускать в карусель и не подставлять случайный пост.
+    """
+    path = (item.get("url") or "").split("?", 1)[0].lower()
+    return "/live/" in path or path.rstrip("/").endswith("/live")
 
 
 def is_service_format(item):
@@ -6457,6 +6495,8 @@ def urgent_floor_by_outlets(items, lang):
     for it in fresh:
         if it.get("_no_event"):
             continue
+        if is_live_blog(it):
+            continue
         for g in groups:
             if same_event(g["lead"], it):
                 g["items"].append(it)
@@ -6733,6 +6773,39 @@ def quality_gate(items, lang):
         if QC_VIDEO_CAPTION.match(body.strip()) or QC_VIDEO_CAPTION.match(orig_body):
             dropped.append((item, "подпись к видеонарезке вместо новости"))
             continue
+
+        # 1д. ЖИВОЙ БЛОГ. Страница — лента обновлений. Заголовок RSS про одно
+        # событие, выхваченный абзац — про соседнее: Путин/Майами в шапке,
+        # Дрисколл в тексте (BBC, 13.09.2026). В карусель такое нельзя.
+        if is_live_blog(item):
+            if item.get("priority", 0) >= 1 or item.get("category") == "URGENT":
+                item["priority"] = 0
+                if item.get("category") == "URGENT":
+                    item["category"] = "NEWS"
+                fixed["живой блог без места в карусели"] += 1
+            # Имена/места из заголовка должны отозваться в тексте. Иначе это
+            # чужой пост с той же страницы. Короткие слова («война», «Украине»)
+            # слишком частые — берём от пяти букв.
+            def _stem(w):
+                return re.sub(r"[^\w]", "", w, flags=re.U).lower()
+            title_keys = {_stem(w) for w in title.split()
+                          if len(_stem(w)) >= 5}
+            body_l = body.lower()
+            orig_l = orig_body.lower()
+            if title_keys and not any(
+                k in body_l or k in orig_l for k in title_keys
+            ):
+                dropped.append((item, "живой блог: заголовок про одно, текст про другое"))
+                continue
+            # Аннотация RSS у BBC — одна фраза «последние новости…». Без
+            # дотяжки (мы её для /live/ отключили) читать нечего.
+            generic = (
+                "последние новости", "latest news", "live updates",
+                "últimas noticias", "últimas notícias", "dernières nouvelles",
+            )
+            if any(g in body_l for g in generic) and len(body) < 120:
+                dropped.append((item, "живой блог без текста статьи"))
+                continue
 
         # 2. Служебные строки внутри текста — вырезаем построчно
         before = body
