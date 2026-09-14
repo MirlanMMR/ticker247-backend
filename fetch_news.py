@@ -713,6 +713,48 @@ RETIRED_SOURCES = [
                                 # до английской полки — без текста или сразу
                                 # в отсев. Читателю Северной Каролины нечего
                                 # показать, держать пустую квоту незачем.
+    # Еженедельная проверка 14.09.2026: States Newsroom — Cloudflare 403
+    # с ноутбука и из Actions. Лента в эфир не попадает, проверка красная.
+    # ncnewsline.com уже выше. Живые в сети (не трогаем): CalMatters,
+    # CT Mirror, Civil Beat, Capitol News Illinois, CommonWealth Beacon,
+    # Montana Free Press, VTDigger, WyoFile, The DC Line.
+    "floridaphoenix.com",
+    "ohiocapitaljournal.com",
+    "michiganadvance.com",
+    "georgiarecorder.com",
+    "penncapital-star.com",
+    "azmirror.com",
+    "minnesotareformer.com",
+    "coloradonewsline.com",
+    "nevadacurrent.com",
+    "virginiamercury.com",
+    "missouriindependent.com",
+    "alabamareflector.com",
+    "alaskabeacon.com",
+    "arkansasadvocate.com",
+    "idahocapitalsun.com",
+    "indianacapitalchronicle.com",
+    "iowacapitaldispatch.com",
+    "kansasreflector.com",
+    "kentuckylantern.com",
+    "lailluminator.com",
+    "mainemorningstar.com",
+    "marylandmatters.org",
+    "nebraskaexaminer.com",
+    "newhampshirebulletin.com",
+    "newjerseymonitor.com",
+    "sourcenm.com",
+    "northdakotamonitor.com",
+    "oklahomavoice.com",
+    "oregoncapitalchronicle.com",
+    "rhodeislandcurrent.com",
+    "scdailygazette.com",
+    "southdakotasearchlight.com",
+    "tennesseelookout.com",
+    "utahnewsdispatch.com",
+    "washingtonstatestandard.com",
+    "westvirginiawatch.com",
+    "wisconsinexaminer.com",
     # Еженедельная проверка 07.09.2026: не 200 — в ленту не попадают
     "rsshub.app/apnews",        # AP через rsshub: 403
     "espn.com/espn/rss",        # 202, для проверки это не живая лента
