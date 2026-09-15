@@ -5283,6 +5283,11 @@ def _gemini_translate(items, target_lang):
     Hyundai Билл Гейтс», слепив двух разных людей в одного. ИИ понимает, что
     перед ним новость, держит имена, должности и падежи.
     """
+    # Потолок месяца исчерпан — ИИ и запасной поставщик только жгут квоту
+    # 429 и отдают битый JSON. translate_batch тогда сам пойдёт в GTX.
+    # 15.09.2026 ru: 33 мировых → после срыва перевода сняли 30, в базе 4.
+    if AI_STOPPED:
+        return None
     # Французского здесь не было с самого появления пула: в промпт уходило
     # «Переведи новости на fr язык», и модель угадывала по коду. Угадывала
     # чаще всего верно, но просить перевод кодом языка — значит однажды
@@ -5446,7 +5451,11 @@ def translate_batch(items, target_lang):
     from_memory = translated
     if pending:
         originals = [(it.get("title", ""), it.get("summary", "")) for it in pending]
-        result = _gemini_translate(pending, target_lang)
+        if AI_STOPPED:
+            print(f"  💸 ИИ на стопе — перевод {len(pending)} статей через GTX")
+            result = None
+        else:
+            result = _gemini_translate(pending, target_lang)
         now = int(datetime.now().timestamp() * 1000)
 
         for idx, item in enumerate(pending):
@@ -7656,6 +7665,17 @@ def main():
         # ему на полке штата не показывают.
         regionals = [x for x in capped if x.get("region")]
         nationals = [x for x in capped if not x.get("region")]
+        # Без ИИ английский мир часто не переводится и потом снимается.
+        # Уже на языке пула (BBC Русская и т.п.) тогда надёжнее: иначе
+        # полка мировых остаётся из пары карточек (ru, 15.09.2026).
+        if AI_STOPPED:
+            nationals = sorted(
+                nationals,
+                key=lambda x: (
+                    0 if not needs_translation(x, lang) else 1,
+                    -int(x.get("priority") or 0),
+                ),
+            )
         chosen, taken = [], set()
         for shelf, floor in floors.items():
             for x in nationals:
@@ -7671,6 +7691,7 @@ def main():
             if id(x) not in taken:
                 chosen.append(x)
                 taken.add(id(x))
+        leftover = [x for x in nationals if id(x) not in taken]
         per_region, extra = Counter(), []
         REGION_CAP, REGION_TOTAL = 10, 120
         for x in regionals:
@@ -7708,6 +7729,39 @@ def main():
                 print(f"  🚫 Без перевода — снято с эфира: {len(stuck)} "
                       + "(" + ", ".join(f"{k}×{v}" for k, v in langs.most_common()) + ")")
                 filtered = [x for x in filtered if x not in stuck]
+                # Дыры после снятия не оставляем пустыми. 15.09.2026 ru: было
+                # 33 мировых до перевода, после снятия — 4. Из остатка берём
+                # то, что уже на языке пула, сначала полки ниже пола.
+                nationals_now = [x for x in filtered if not x.get("region")]
+                regionals_now = [x for x in filtered if x.get("region")]
+                in_air = {id(x) for x in filtered}
+                ready = [x for x in leftover
+                         if id(x) not in in_air
+                         and not needs_translation(x, lang)]
+                ready.sort(key=lambda x: -int(x.get("priority") or 0))
+
+                def _on_shelf(shelf):
+                    return sum(1 for c in nationals_now if c.get("scope") == shelf)
+
+                filled = 0
+                while ready and len(nationals_now) < max_items:
+                    counts = {s: _on_shelf(s) for s in floors}
+                    under = [s for s in ("world", "pool", "local")
+                             if counts[s] < floors[s]
+                             and any(x.get("scope") == s for x in ready)]
+                    if under:
+                        want = under[0]
+                        pick = next(x for x in ready if x.get("scope") == want)
+                    else:
+                        pick = ready[0]
+                    nationals_now.append(pick)
+                    in_air.add(id(pick))
+                    ready = [x for x in ready if id(x) not in in_air]
+                    filled += 1
+                filtered = nationals_now + regionals_now
+                if filled:
+                    print(f"  🔄 Добор после срыва перевода: +{filled} "
+                          f"(уже на языке пула) → {_shelves(nationals_now)}")
         cats = {}
         for item in filtered:
             cats[item["category"]] = cats.get(item["category"], 0) + 1
