@@ -89,8 +89,8 @@ STATE_RSS = [
     _paper("https://westvirginiawatch.com/feed/", "West Virginia Watch", "US-WV"),
     _paper("https://wisconsinexaminer.com/feed/", "Wisconsin Examiner", "US-WI"),
     _paper("https://wyofile.com/feed/", "WyoFile", "US-WY"),
-    _paper("https://www.thedccline.org/feed/", "The DC Line", "US-DC"),
-    _paper("https://delawarecurrent.org/feed/", "Delaware Current", "US-DE"),
+    _paper("https://thedcline.org/feed/", "The DC Line", "US-DC"),
+    _paper("https://spotlightdelaware.org/feed/", "Spotlight Delaware", "US-DE"),
 
     # Техас. Tribune уже в общем списке; здесь городские некоммерческие —
     # Хьюстон, Даллас/Форт-Уэрт, Сан-Антонио, Эль-Пасо, Остин.
