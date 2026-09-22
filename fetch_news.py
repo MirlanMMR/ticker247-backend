@@ -214,17 +214,17 @@ RSS_SOURCES = [
     # States Newsroom здесь умер под Cloudflare 14.09.2026 (см. RETIRED_SOURCES
     # ниже) — заменено 22.09.2026 на местные телеканалы/газеты того же штата,
     # каждый URL проверен: код 200 и реальные <item> при разборе XML
-    {"url": "https://www.wctv.tv/arc/outboundfeeds/rss/", "source": "WCTV", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-FL"},
-    {"url": "https://www.cleveland.com/arc/outboundfeeds/rss/", "source": "Cleveland.com", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-OH"},
-    {"url": "https://www.bridgemi.com/feed", "source": "Bridge Michigan", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-MI"},
-    {"url": "https://saportareport.com/feed/", "source": "SaportaReport", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-GA"},
-    {"url": "https://www.pennlive.com/arc/outboundfeeds/rss/", "source": "PennLive", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-PA"},
-    {"url": "https://cronkitenews.azpbs.org/feed/", "source": "Cronkite News", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-AZ"},
-    {"url": "https://www.minnpost.com/feed/", "source": "MinnPost", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-MN"},
-    {"url": "https://coloradosun.com/feed/", "source": "The Colorado Sun", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-CO"},
-    {"url": "https://thenevadaindependent.com/feed", "source": "The Nevada Independent", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-NV"},
-    {"url": "https://cardinalnews.org/feed/", "source": "Cardinal News", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-VA"},
-    {"url": "https://www.kcur.org/feeds/rss.xml", "source": "KCUR", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-MO"},
+    {"url": "https://www.wctv.tv/arc/outboundfeeds/rss/", "source": "WCTV", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-FL"},
+    {"url": "https://www.cleveland.com/arc/outboundfeeds/rss/", "source": "Cleveland.com", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-OH"},
+    {"url": "https://www.bridgemi.com/feed", "source": "Bridge Michigan", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-MI"},
+    {"url": "https://saportareport.com/feed/", "source": "SaportaReport", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-GA"},
+    {"url": "https://www.pennlive.com/arc/outboundfeeds/rss/", "source": "PennLive", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-PA"},
+    {"url": "https://cronkitenews.azpbs.org/feed/", "source": "Cronkite News", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-AZ"},
+    {"url": "https://www.minnpost.com/feed/", "source": "MinnPost", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-MN"},
+    {"url": "https://coloradosun.com/feed/", "source": "The Colorado Sun", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-CO"},
+    {"url": "https://thenevadaindependent.com/feed", "source": "The Nevada Independent", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-NV"},
+    {"url": "https://cardinalnews.org/feed/", "source": "Cardinal News", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-VA"},
+    {"url": "https://www.kcur.org/feeds/rss.xml", "source": "KCUR", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-MO"},
 
     # -- Американские андердоги: некоммерческие редакции ---------------------
     # Мысль пользователя 15.08.2026: крупным изданиям мы не нужны, а этим —
