@@ -94,6 +94,27 @@ def unreadable(item: dict, pool_lang: str) -> bool:
     return own == 0 and alien >= 3
 
 
+TEASER_MAX = 400
+
+
+def closed_teaser(item: dict) -> bool:
+    """Анонс за закрытой дверью, и новость не срочная.
+
+    Издание статью не отдаёт (403, платная стена), у нас остались две строки
+    из ленты. Анонсы держали ради срочного: такие ленты приходят первыми
+    (решение 31.08.2026). Срочное и остаётся. А обычная заметка, которую
+    прочесть нельзя, — пустое место: «если не дают, зачем брать?»
+    (владелец, 23.09.2026, РБК о брате звезды «Реала»).
+    """
+    if not item.get("pageClosed"):
+        return False
+    if len(item.get("summary") or "") >= TEASER_MAX:
+        return False                     # начало статьи издание отдало
+    urgent = (item.get("priority") or 0) >= 2 or \
+        str(item.get("category") or "").startswith("URGENT")
+    return not urgent
+
+
 def gate(items, pool_lang):
     """Возвращает (что публикуем, что выбросили и почему, сколько починили)."""
     kept, dropped, fixed = [], [], 0
@@ -101,7 +122,7 @@ def gate(items, pool_lang):
         good = repair(it, pool_lang)
         if good != it:
             fixed += 1
-        if unreadable(good, pool_lang):
+        if unreadable(good, pool_lang) or closed_teaser(good):
             dropped.append(good)
             continue
         kept.append(good)

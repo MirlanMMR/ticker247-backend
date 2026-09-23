@@ -195,5 +195,19 @@ _HTTP = {"title": "Новая волна ударов", "source": "24.kg",
 check("фото по http → https", repair(_HTTP, "ru")["imageUrl"],
       "https://24.kg/files/media/473/473198.jpeg")
 
+from feed_gate import closed_teaser
+_RBC = {"title": "Брата экс-звезды мадридского «Реала» уволили из клуба MLS",
+        "summary": "Коротко." * 10, "pageClosed": True, "priority": 0,
+        "category": "SPORT"}
+check("закрытый короткий анонс снимается", closed_teaser(_RBC), True)
+check("закрытое, но срочное остаётся",
+      closed_teaser(dict(_RBC, priority=2)), False)
+check("закрытое с меткой URGENT остаётся",
+      closed_teaser(dict(_RBC, category="URGENT_LOCAL_ONLY")), False)
+check("начало статьи отдали — остаётся",
+      closed_teaser(dict(_RBC, summary="слово " * 100)), False)
+check("открытая короткая заметка остаётся",
+      closed_teaser(dict(_RBC, pageClosed=False)), False)
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

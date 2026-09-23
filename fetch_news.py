@@ -2295,6 +2295,11 @@ _PAGE_STATUS = {}
 # их не изменит, и завтрашний прогон получит то же самое.
 CLOSED_CODES = (401, 402, 403, 451)
 
+# Платная стена: страница отдаётся с кодом 200, но статья только подписчикам.
+# Издание само пишет это в разметке для поисковиков (L'Express, Reforma,
+# Estadão, LA Times — замер 23.09.2026)
+_PAYWALL_RX = re.compile(rb'"isAccessibleForFree"\s*:\s*"?false', re.I)
+
 
 def _fetch_page(url: str) -> bytes:
     """Только качает страницу. Ни строчки разбора.
@@ -2794,13 +2799,15 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
 
     done = 0
     by_url = {}
-    for item, body in zip(targets, bodies):
+    for item, body, html in zip(targets, bodies, pages):
         # ЗАКРЫТО ИЗДАТЕЛЕМ. Не наша недоработка, а решение издания: 31.08.2026
         # так отвечали RFI, France 24, Le Figaro и Axios. Карточка выходит
         # анонсом сознательно — эти ленты приходят первыми и несут срочное,
         # и терять скорость ради полноты мы не хотим. Отметка едет вместе с
         # новостью, чтобы аудит не ругался вечно на то, что неустранимо.
         if _PAGE_STATUS.get(item.get("url")) in CLOSED_CODES:
+            item["pageClosed"] = True
+        if html and _PAYWALL_RX.search(html):
             item["pageClosed"] = True
         if body and len(body) > len(item.get("summary", "")) + 80:
             item["summary"] = body
@@ -8000,7 +8007,7 @@ def main():
         if repaired:
             print(f"  🧽 Рубеж [{lang}]: починено {repaired}")
         if dropped_bad:
-            print(f"  🚫 Рубеж [{lang}]: снято непрочитаемых {len(dropped_bad)}")
+            print(f"  🚫 Рубеж [{lang}]: снято непрочитаемых и закрытых анонсов {len(dropped_bad)}")
             for it in dropped_bad[:3]:
                 print(f"       · {it.get('source','?')}: {it.get('title','')[:56]}")
 
