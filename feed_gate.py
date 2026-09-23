@@ -57,6 +57,11 @@ def repair(item: dict, pool_lang: str) -> dict:
         val = out.get(field)
         if isinstance(val, str) and (_ENTITY.search(val) or "<" in val):
             out[field] = _clean(val)
+    # Android по http картинку не грузит вовсе, и новость с фото выходит
+    # текстовой плиткой (24.kg, 23.09.2026). Попытка по https — единственный шанс
+    img = out.get("imageUrl")
+    if isinstance(img, str) and img.startswith("http://"):
+        out["imageUrl"] = "https://" + img[len("http://"):]
     src = out.get("source", "")
     if src:
         out["source"] = display_source(src, pool_lang)

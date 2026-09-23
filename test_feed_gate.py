@@ -189,5 +189,11 @@ _OTHER_PHOTO = dict(_SP_KY, imageUrl="https://s.sputnik.kg/9999999_0:1:2.jpg")
 check("разные снимки не склеиваем",
       len(drop_family_repeats([_SP_RU, _OTHER_PHOTO], _fam2, pool_lang="ru")[0]), 2)
 
+# Фото по http Android не покажет — рубеж переводит его на https
+_HTTP = {"title": "Новая волна ударов", "source": "24.kg",
+         "imageUrl": "http://24.kg/files/media/473/473198.jpeg"}
+check("фото по http → https", repair(_HTTP, "ru")["imageUrl"],
+      "https://24.kg/files/media/473/473198.jpeg")
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
