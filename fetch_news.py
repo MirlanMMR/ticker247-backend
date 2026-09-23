@@ -211,17 +211,20 @@ RSS_SOURCES = [
     # Нью-Йорку. Из домашней сети пользователя эти ленты не открываются,
     # с серверов GitHub — все двенадцать, по сотне материалов каждая.
     # Фото в лентах нет, дотягиваем со страницы
-    {"url": "https://floridaphoenix.com/feed/", "source": "Florida Phoenix", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-FL"},
-    {"url": "https://ohiocapitaljournal.com/feed/", "source": "Ohio Capital Journal", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-OH"},
-    {"url": "https://michiganadvance.com/feed/", "source": "Michigan Advance", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-MI"},
-    {"url": "https://georgiarecorder.com/feed/", "source": "Georgia Recorder", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-GA"},
-    {"url": "https://penncapital-star.com/feed/", "source": "Pennsylvania Capital-Star", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-PA"},
-    {"url": "https://azmirror.com/feed/", "source": "Arizona Mirror", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-AZ"},
-    {"url": "https://minnesotareformer.com/feed/", "source": "Minnesota Reformer", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-MN"},
-    {"url": "https://coloradonewsline.com/feed/", "source": "Colorado Newsline", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-CO"},
-    {"url": "https://nevadacurrent.com/feed/", "source": "Nevada Current", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-NV"},
-    {"url": "https://virginiamercury.com/feed/", "source": "Virginia Mercury", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-VA"},
-    {"url": "https://missouriindependent.com/feed/", "source": "Missouri Independent", "category": "NEWS", "priority": 0, "quota": 2, "scope": "local", "lang": "en", "region": "US-MO"},
+    # States Newsroom здесь умер под Cloudflare 14.09.2026 (см. RETIRED_SOURCES
+    # ниже) — заменено 22.09.2026 на местные телеканалы/газеты того же штата,
+    # каждый URL проверен: код 200 и реальные <item> при разборе XML
+    {"url": "https://www.wctv.tv/arc/outboundfeeds/rss/", "source": "WCTV", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-FL"},
+    {"url": "https://www.cleveland.com/arc/outboundfeeds/rss/", "source": "Cleveland.com", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-OH"},
+    {"url": "https://www.bridgemi.com/feed", "source": "Bridge Michigan", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-MI"},
+    {"url": "https://saportareport.com/feed/", "source": "SaportaReport", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-GA"},
+    {"url": "https://www.pennlive.com/arc/outboundfeeds/rss/", "source": "PennLive", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-PA"},
+    {"url": "https://cronkitenews.azpbs.org/feed/", "source": "Cronkite News", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-AZ"},
+    {"url": "https://www.minnpost.com/feed/", "source": "MinnPost", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-MN"},
+    {"url": "https://coloradosun.com/feed/", "source": "The Colorado Sun", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-CO"},
+    {"url": "https://thenevadaindependent.com/feed", "source": "The Nevada Independent", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-NV"},
+    {"url": "https://cardinalnews.org/feed/", "source": "Cardinal News", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-VA"},
+    {"url": "https://www.kcur.org/feeds/rss.xml", "source": "KCUR", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-MO"},
 
     # -- Американские андердоги: некоммерческие редакции ---------------------
     # Мысль пользователя 15.08.2026: крупным изданиям мы не нужны, а этим —
@@ -488,7 +491,7 @@ SOURCE_COUNTRY = {
     "Tennessee Lookout": "US", "Utah News Dispatch": "US", "VTDigger": "US",
     "Washington State Standard": "US", "West Virginia Watch": "US",
     "Wisconsin Examiner": "US", "WyoFile": "US", "The DC Line": "US",
-    "Delaware Current": "US",
+    "Spotlight Delaware": "US",
     "Texas Observer": "US", "Houston Landing": "US", "San Antonio Report": "US",
     "El Paso Matters": "US", "Fort Worth Report": "US", "Austin Monitor": "US",
     "G1 São Paulo": "BR", "G1 Rio": "BR", "G1 Minas": "BR", "G1 Paraná": "BR",
@@ -560,8 +563,8 @@ LOCAL_DOMAINS = {
            "latimes.com", "seattletimes.com", "nypost.com", "cbsnews.com", "upi.com",
            "texastribune.org", "mississippitoday.org", "themarshallproject.org",
            "propublica.org",
-           "floridaphoenix.com", "ohiocapitaljournal.com", "michiganadvance.com", "georgiarecorder.com", "penncapital-star.com", "azmirror.com", "minnesotareformer.com", "coloradonewsline.com", "nevadacurrent.com", "virginiamercury.com", "missouriindependent.com",
-           "alabamareflector.com", "alaskabeacon.com", "arkansasadvocate.com", "calmatters.org", "ctmirror.org", "civilbeat.org", "idahocapitalsun.com", "capitolnewsillinois.com", "indianacapitalchronicle.com", "iowacapitaldispatch.com", "kansasreflector.com", "kentuckylantern.com", "lailluminator.com", "mainemorningstar.com", "marylandmatters.org", "commonwealthbeacon.org", "montanafreepress.org", "nebraskaexaminer.com", "newhampshirebulletin.com", "newjerseymonitor.com", "sourcenm.com", "ncnewsline.com", "northdakotamonitor.com", "oklahomavoice.com", "oregoncapitalchronicle.com", "rhodeislandcurrent.com", "scdailygazette.com", "southdakotasearchlight.com", "tennesseelookout.com", "utahnewsdispatch.com", "vtdigger.org", "washingtonstatestandard.com", "westvirginiawatch.com", "wisconsinexaminer.com", "wyofile.com", "thedccline.org",
+           "wctv.tv", "cleveland.com", "bridgemi.com", "saportareport.com", "pennlive.com", "cronkitenews.azpbs.org", "minnpost.com", "coloradosun.com", "thenevadaindependent.com", "cardinalnews.org", "kcur.org",
+           "al.com", "adn.com", "arktimes.com", "calmatters.org", "ctmirror.org", "civilbeat.org", "ktvb.com", "capitolnewsillinois.com", "mirrorindy.org", "who13.com", "wibw.com", "wkyt.com", "wafb.com", "pressherald.com", "marylandreporter.com", "commonwealthbeacon.org", "montanafreepress.org", "1011now.com", "nhpr.org", "njspotlightnews.org", "santafenewmexican.com", "cardinalpine.com", "kfyrtv.com", "nondoc.com", "oregonlive.com", "wpri.com", "wistv.com", "keloland.com", "wpln.org", "ksl.com", "vtdigger.org", "cascadepbs.org", "wvgazettemail.com", "wisconsinwatch.org", "wyofile.com", "thedcline.org", "spotlightdelaware.org",
            "texasobserver.org", "houstonlanding.org", "sanantonioreport.org", "elpasomatters.org", "fortworthreport.org", "austinmonitor.com"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com",
@@ -708,16 +711,13 @@ RETIRED_SOURCES = [
     "newsweek.com/rss",
     "politico.com/rss",
     "seattletimes.com/feed",
-    "ncnewsline.com",           # 07.09.2026: лента с GitHub отвечает, но
-                                # два прогона подряд 2 материала не доходят
-                                # до английской полки — без текста или сразу
-                                # в отсев. Читателю Северной Каролины нечего
-                                # показать, держать пустую квоту незачем.
-    # Еженедельная проверка 14.09.2026: States Newsroom — Cloudflare 403
-    # с ноутбука и из Actions. Лента в эфир не попадает, проверка красная.
-    # ncnewsline.com уже выше. Живые в сети (не трогаем): CalMatters,
-    # CT Mirror, Civil Beat, Capitol News Illinois, CommonWealth Beacon,
-    # Montana Free Press, VTDigger, WyoFile, The DC Line.
+    # ncnewsline.com (Северная Каролина, 07.09.2026) и вся сеть States
+    # Newsroom — 37 доменов ниже (14.09.2026, Cloudflare 403 и с ноутбука, и
+    # из Actions) — заменены 22.09.2026 на местные телеканалы/газеты того же
+    # штата в state_outlets.py и fetch_news.py, каждый URL проверен: код 200
+    # и реальные <item> при разборе XML. Домены здесь больше не используются
+    # ни в одном источнике — держим ради истории, кто и почему был выведен.
+    "ncnewsline.com",
     "floridaphoenix.com",
     "ohiocapitaljournal.com",
     "michiganadvance.com",

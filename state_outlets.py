@@ -9,9 +9,16 @@
 Молчащую станцию часовая проверка погасит сама.
 """
 
-# Квота маленькая: ширина охвата, не объём. Одна-две новости со штата,
-# зато в каждом штате хоть кто-то есть.
-def _paper(url, source, region, quota=2, priority=0, lang="en"):
+# Квота на источник была маленькой (2) как раз ради широты охвата — но это
+# было ДО брони по региону (REGION_CAP/REGION_TOTAL в fetch_news.py), которая
+# и так не даёт одному штату вытеснить другой. Раз бронь уже держит охват,
+# маленькая квота на входе только вредит: 22.09.2026 сетевой репортаж Gray
+# Media (Атланта, Джорджия) разошёлся по филиалам в четырёх штатах — WCTV,
+# WKYT, WAFB, KFYR-TV, — дедуп законно оставил одну копию, а вторая кандидатура
+# на замену не нашлась, потому что квота=2 не оставила источнику запасных
+# новостей. Подняли до 10 — вровень с потолком REGION_CAP, — чтобы у дедупа
+# и ИИ-фильтра было из чего выбирать, а не только единственный вариант.
+def _paper(url, source, region, quota=10, priority=0, lang="en"):
     return {
         "url": url, "source": source, "category": "NEWS",
         "priority": priority, "quota": quota, "scope": "local",
@@ -52,45 +59,51 @@ def _color(name):
 # Mississippi Today, LA Times, NY Post, Gazeta do Povo, Metrópoles.
 
 STATE_RSS = [
-    # Остаток сети States Newsroom — некоммерческие редакции столиц штатов.
-    # Ленты WordPress /feed/, тот же шаблон, что у уже работающих двенадцати.
-    _paper("https://alabamareflector.com/feed/", "Alabama Reflector", "US-AL"),
-    _paper("https://alaskabeacon.com/feed/", "Alaska Beacon", "US-AK"),
-    _paper("https://arkansasadvocate.com/feed/", "Arkansas Advocate", "US-AR"),
+    # Остаток сети States Newsroom и не только — некоммерческие редакции и
+    # местные телеканалы/газеты столиц штатов.
+    # States Newsroom здесь умер под Cloudflare 14.09.2026 (403 и с ноутбука,
+    # и с GitHub Actions — см. RETIRED_SOURCES в fetch_news.py) — 22.09.2026
+    # заменено на местные издания того же штата, каждое проверено: код 200 и
+    # реальные <item> при разборе XML. Живыми из старой сети остались (не
+    # трогаем): CalMatters, CT Mirror, Civil Beat, Capitol News Illinois,
+    # CommonWealth Beacon, Montana Free Press, VTDigger, WyoFile, The DC Line.
+    _paper("https://www.al.com/arc/outboundfeeds/rss/", "AL.com", "US-AL"),
+    _paper("https://www.adn.com/arc/outboundfeeds/rss/", "Anchorage Daily News", "US-AK"),
+    _paper("https://www.arktimes.com/arkansas/Rss.xml", "Arkansas Times", "US-AR"),
     _paper("https://calmatters.org/feed/", "CalMatters", "US-CA"),
     _paper("https://ctmirror.org/feed/", "Connecticut Mirror", "US-CT"),
     _paper("https://www.civilbeat.org/feed/", "Honolulu Civil Beat", "US-HI"),
-    _paper("https://idahocapitalsun.com/feed/", "Idaho Capital Sun", "US-ID"),
+    _paper("https://www.ktvb.com/feeds/syndication/rss/news/local", "KTVB", "US-ID"),
     _paper("https://capitolnewsillinois.com/feed/", "Capitol News Illinois", "US-IL"),
-    _paper("https://indianacapitalchronicle.com/feed/", "Indiana Capital Chronicle", "US-IN"),
-    _paper("https://iowacapitaldispatch.com/feed/", "Iowa Capital Dispatch", "US-IA"),
-    _paper("https://kansasreflector.com/feed/", "Kansas Reflector", "US-KS"),
-    _paper("https://kentuckylantern.com/feed/", "Kentucky Lantern", "US-KY"),
-    _paper("https://lailluminator.com/feed/", "Louisiana Illuminator", "US-LA"),
-    _paper("https://mainemorningstar.com/feed/", "Maine Morning Star", "US-ME"),
-    _paper("https://www.marylandmatters.org/feed/", "Maryland Matters", "US-MD"),
+    _paper("https://mirrorindy.org/feed/", "Mirror Indy", "US-IN"),
+    _paper("https://who13.com/feed/", "WHO 13", "US-IA"),
+    _paper("https://www.wibw.com/arc/outboundfeeds/rss/", "WIBW", "US-KS"),
+    _paper("https://www.wkyt.com/arc/outboundfeeds/rss/", "WKYT", "US-KY"),
+    _paper("https://www.wafb.com/arc/outboundfeeds/rss/", "WAFB", "US-LA"),
+    _paper("https://www.pressherald.com/feed/", "Portland Press Herald", "US-ME"),
+    _paper("https://marylandreporter.com/feed/", "MarylandReporter.com", "US-MD"),
     _paper("https://commonwealthbeacon.org/feed/", "CommonWealth Beacon", "US-MA"),
     _paper("https://montanafreepress.org/feed/", "Montana Free Press", "US-MT"),
-    _paper("https://nebraskaexaminer.com/feed/", "Nebraska Examiner", "US-NE"),
-    _paper("https://newhampshirebulletin.com/feed/", "New Hampshire Bulletin", "US-NH"),
-    _paper("https://newjerseymonitor.com/feed/", "New Jersey Monitor", "US-NJ"),
-    _paper("https://sourcenm.com/feed/", "Source New Mexico", "US-NM"),
-    _paper("https://ncnewsline.com/feed/", "NC Newsline", "US-NC"),
-    _paper("https://northdakotamonitor.com/feed/", "North Dakota Monitor", "US-ND"),
-    _paper("https://oklahomavoice.com/feed/", "Oklahoma Voice", "US-OK"),
-    _paper("https://oregoncapitalchronicle.com/feed/", "Oregon Capital Chronicle", "US-OR"),
-    _paper("https://rhodeislandcurrent.com/feed/", "Rhode Island Current", "US-RI"),
-    _paper("https://scdailygazette.com/feed/", "South Carolina Daily Gazette", "US-SC"),
-    _paper("https://southdakotasearchlight.com/feed/", "South Dakota Searchlight", "US-SD"),
-    _paper("https://tennesseelookout.com/feed/", "Tennessee Lookout", "US-TN"),
-    _paper("https://utahnewsdispatch.com/feed/", "Utah News Dispatch", "US-UT"),
+    _paper("https://www.1011now.com/arc/outboundfeeds/rss/", "1011NOW", "US-NE"),
+    _paper("https://www.nhpr.org/rss.xml", "NHPR", "US-NH"),
+    _paper("https://njspotlightnews.org/feed/", "NJ Spotlight News", "US-NJ"),
+    _paper("https://www.santafenewmexican.com/search/?f=rss", "Santa Fe New Mexican", "US-NM"),
+    _paper("https://cardinalpine.com/feed/", "Cardinal & Pine", "US-NC"),
+    _paper("https://www.kfyrtv.com/arc/outboundfeeds/rss/", "KFYR-TV", "US-ND"),
+    _paper("https://nondoc.com/feed/", "NonDoc", "US-OK"),
+    _paper("https://www.oregonlive.com/arc/outboundfeeds/rss/", "The Oregonian", "US-OR"),
+    _paper("https://www.wpri.com/feed/", "WPRI", "US-RI"),
+    _paper("https://www.wistv.com/arc/outboundfeeds/rss/", "WIS-TV", "US-SC"),
+    _paper("https://www.keloland.com/feed/", "KELOLAND", "US-SD"),
+    _paper("https://wpln.org/feed/", "WPLN", "US-TN"),
+    _paper("https://www.ksl.com/rss/news", "KSL.com", "US-UT"),
     _paper("https://vtdigger.org/feed/", "VTDigger", "US-VT"),
-    _paper("https://washingtonstatestandard.com/feed/", "Washington State Standard", "US-WA"),
-    _paper("https://westvirginiawatch.com/feed/", "West Virginia Watch", "US-WV"),
-    _paper("https://wisconsinexaminer.com/feed/", "Wisconsin Examiner", "US-WI"),
+    _paper("https://cascadepbs.org/feed", "Cascade PBS", "US-WA"),
+    _paper("https://www.wvgazettemail.com/search/?f=rss", "Charleston Gazette-Mail", "US-WV"),
+    _paper("https://wisconsinwatch.org/feed/", "Wisconsin Watch", "US-WI"),
     _paper("https://wyofile.com/feed/", "WyoFile", "US-WY"),
-    _paper("https://www.thedccline.org/feed/", "The DC Line", "US-DC"),
-    _paper("https://delawarecurrent.org/feed/", "Delaware Current", "US-DE"),
+    _paper("https://thedcline.org/feed/", "The DC Line", "US-DC"),
+    _paper("https://spotlightdelaware.org/feed/", "Spotlight Delaware", "US-DE"),
 
     # Техас. Tribune уже в общем списке; здесь городские некоммерческие —
     # Хьюстон, Даллас/Форт-Уэрт, Сан-Антонио, Эль-Пасо, Остин.
