@@ -67,33 +67,87 @@ def _list_start_before(text: str, cut: int) -> int | None:
 
     Возвращает место, ДО которого текст можно оставить: сам зачин («Золото
     взяли:») тоже уходит, потому что без списка он ничего не обещает.
+
+    13.09.2026: Kabar, Азия оюндары. Зачин «тизмеси:», дальше подзаголовки
+    дисциплин «Грек-рим күрөшү:», «Бокс:» и пункты. Поиск с конца брал
+    ближайший «Бокс:» — откатывал только его, а греко-рим и вольная уже
+    попавшие в окно оставались. Перечень дисциплин либо весь, либо никакой.
     """
     head = text[:cut]
     lines, pos = [], 0
     for ln in head.split("\n"):
         lines.append((pos, ln))
         pos += len(ln) + 1
+
+    # Рез внутри строки-пункта (обрыв по слову на «— Спортчу…») — тоже
+    # середина перечня, даже когда хвост строки уже не похож на пункт
+    line_start = text.rfind("\n", 0, cut) + 1
+    line_end = text.find("\n", cut)
+    if line_end < 0:
+        line_end = len(text)
+    cut_line = text[line_start:line_end]
+    cut_inside_item = bool(
+        _LIST_ITEM.search(cut_line) or _list_subhead(cut_line)
+    )
+
+    def _tail_continues() -> bool:
+        if cut_inside_item:
+            return True
+        tail_lines = [x for x in text[cut:].split("\n") if x.strip()]
+        return bool(
+            tail_lines and (
+                _LIST_ITEM.search(tail_lines[0])
+                or _list_subhead(tail_lines[0])
+            )
+        )
+
     # Ищем последний зачин, за которым идут строки-пункты
     for i in range(len(lines) - 1, -1, -1):
         start, ln = lines[i]
         if not _LIST_LEAD.search(ln):
             continue
         after = [x for _, x in lines[i + 1:] if x.strip()]
-        tail_lines = [x for x in text[cut:].split("\n") if x.strip()]
         if not after:
             # Зачин оказался ПОСЛЕДНЕЙ строкой: «Алтын алгандар:» — и обрыв.
             # Обещание без исполнения хуже, чем его отсутствие: убираем зачин
-            if tail_lines and _LIST_ITEM.search(tail_lines[0]):
-                return start
+            if _tail_continues():
+                return _outer_list_lead(lines, i)
             return None
-        # Хотя бы одна строка после зачина выглядит пунктом — значит перечень
-        if any(_LIST_ITEM.search(x) for x in after):
-            # Обрываем ли мы его? Да, если после реза текст продолжается
-            # такими же пунктами
-            if tail_lines and _LIST_ITEM.search(tail_lines[0]):
-                return start
+        # Хотя бы одна строка после зачина — пункт или подзаголовок секции
+        if any(_LIST_ITEM.search(x) or _list_subhead(x) for x in after):
+            if _tail_continues():
+                return _outer_list_lead(lines, i)
         return None
     return None
+
+
+def _list_subhead(ln: str) -> bool:
+    """Подзаголовок внутри перечня: «Грек-рим күрөшү:», коротко и с двоеточием."""
+    s = (ln or "").strip()
+    return bool(s) and len(s) <= 80 and bool(_LIST_LEAD.search(s))
+
+
+def _outer_list_lead(lines: list, idx: int) -> int:
+    """Самый верхний зачин того же перечня — не подзаголовок секции.
+
+    От найденного зачина идём вверх, пока сверху только пункты и короткие
+    подзаголовки с двоеточием. Как только упираемся в обычный абзац —
+    берём самый ранний зачин в этом блоке.
+    """
+    top = idx
+    j = idx - 1
+    while j >= 0:
+        ln = lines[j][1].strip()
+        if not ln:
+            j -= 1
+            continue
+        if _LIST_ITEM.search(ln) or _list_subhead(ln):
+            if _list_subhead(ln):
+                top = j
+            j -= 1
+            continue
+        break
+    return lines[top][0]
 
 
 # Оформлено как список, но списком новости не является — навигация издания,
@@ -120,9 +174,12 @@ def _trailing_list(text: str, start: int, extra_limit: int = 600) -> str:
     щедрым потолком (extra_limit), а не долей от лимита прозы.
 
     Строго: список принимается, только если КАЖДАЯ строка подряд от самого
-    начала — пункт (см. _LIST_ITEM), и ни одна не похожа на «читайте также»
-    или кнопку «поделиться». Один непохожий на пункт признак — и на этом
-    список кончается: лучше короче, чем с мусором на конце.
+    начала — пункт (см. _LIST_ITEM) или короткий подзаголовок секции
+    («Бокс:»), и ни одна не похожа на «читайте также» или кнопку
+    «поделиться». Один непохожий на пункт признак — список кончился.
+
+    Если потолок extra_limit не вмещает оставшиеся пункты — возвращаем
+    пусто: частично отрезанный перечень хуже его отсутствия.
     """
     tail = text[start:]
     if tail.startswith("\n"):
@@ -141,10 +198,12 @@ def _trailing_list(text: str, start: int, extra_limit: int = 600) -> str:
         # отрезал бы последний пункт перечня, как улицу Д. и фото призёрши.
         closes_enum = (picked and picked[-1].rstrip().endswith(";")
                        and stripped.endswith("."))
-        if not (_LIST_ITEM.search(ln) or closes_enum):
+        subhead = _list_subhead(stripped)
+        if not (_LIST_ITEM.search(ln) or closes_enum or subhead):
             break
         if used + len(ln) > extra_limit:
-            break
+            # Ещё есть пункты, а места нет — целиком не влезло
+            return ""
         picked.append(ln)
         used += len(ln) + 1
     return "\n".join(picked)
@@ -177,7 +236,12 @@ def ensure_terminated(text: str) -> str:
     # обрыв на ПРЕДПОСЛЕДНЕМ слове. Висячий предлог убираем, живое слово
     # оставляем и честно ставим многоточие.
     last = text.split()[-1].lower().strip(".,;:—–-") if text.split() else ""
-    hanging = len(last) <= 2 or last in _HANGING_TAIL
+    # ЧИСЛО — НЕ ВИСЯЧИЙ ПРЕДЛОГ. Правило «короткое последнее слово откусываем»
+    # калечило перечни: «улица Тыныстанова, 55» превращалась в «улица
+    # Тыныстанова,…» — дом пропадал у последнего адреса в списке отключения
+    # воды (найдено 21.09.2026). Предлог короткий по природе, номер дома —
+    # по совпадению
+    hanging = (len(last) <= 2 and not last.isdigit()) or last in _HANGING_TAIL
     if hanging:
         cut = text.rsplit(" ", 1)[0].strip()
         return (cut + "…") if cut else text
@@ -206,16 +270,20 @@ def _finish_paragraph(text: str, cut: int, max_extra_sentences: int = 3) -> int:
 
 
 def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
-                     para_floor: float = 0.6, max_extra_sentences: int = 0) -> str:
+                     para_floor: float = 0.6, max_extra_sentences: int = 0,
+                     hard: bool = False) -> str:
     """Обрезает текст до limit знаков по ближайшей осмысленной границе.
 
     Границы по убыванию предпочтения:
-      1. КОНЕЦ АБЗАЦА — лучшая. Текст, оборванный посреди абзаца, читается
-         как обрубок, даже когда последняя фраза целая: мысль абзаца не
-         досказана. Берём абзац, только если он занимает хотя бы para_floor
-         от лимита, иначе ради ровного края потеряли бы половину новости.
+      1. КОНЕЦ АБЗАЦА — лучшая, но только если абзац заканчивается точкой
+         (или !?). Подзаголовок секции без точки («Девочка, которая…» на
+         24.kg) концом абзаца не считаем: иначе два нормальных абзаца и
+         обрубок с многоточием.
       2. Конец предложения — если подходящего абзаца нет.
       3. Конец слова с многоточием — если нет и предложения.
+
+    Итог всегда через ensure_terminated: режем только после точки (или
+    честного многоточия), не посреди фразы.
 
     Абзацы различимы потому, что разбор страницы сохраняет переводы строк.
     В тексте из одного абзаца (а таких в лентах большинство) правило само
@@ -232,6 +300,16 @@ def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
     этой сотни: формально по границе, а по существу потеря девяноста
     процентов новости.
 
+    hard — ЛИМИТ КАК СТЕНА, а не как мера. По умолчанию лимит мягкий: когда
+    границы в окне нет, мы выходим за него и дотягиваемся до ближайшей точки,
+    потому что читателю нужна законченная мысль, а не круглое число знаков.
+    Но часть вызовов кладёт текст НЕ ЧИТАТЕЛЮ, а в чужой API: в запрос к
+    Google-переводчику, в промпт модели. Там за лимитом стоит отказ сервиса, и
+    выходить за него нельзя. Для таких вызовов hard=True: режем по слову прямо
+    на границе. Мысль при этом рвётся — и это допустимо ровно потому, что
+    ЭТОТ текст никто не читает: его читает машина, а результат её работы
+    потом всё равно проходит ensure_terminated.
+
     Если подходящей границы нет вовсе, обрезаем по слову и ставим многоточие.
     Это честнее обрыва на полуслове: читатель видит, что текст продолжается, а
     не что издание не дописало. Многоточие заодно говорит и нашему же
@@ -245,10 +323,17 @@ def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
     # границе, — законная граница, терять его незачем
     window = text[:limit + 1]
 
-    # 1. Конец абзаца
+    # 1. Конец абзаца — но только если абзац ЗАКОНЧЕН точкой (или !?).
+    #    Иначе последний перевод строк в окне бывает подзаголовком без точки:
+    #    24.kg 13.09.2026, хореографы из Китая — два абзаца и хвост
+    #    «Девочка, которая согласилась ради самолета…». Подзаголовок секции
+    #    не предложение; режем по предыдущему абзацу, у которого точка есть.
     breaks = [m.start() for m in re.finditer(r"\n", window)]
-    if breaks and breaks[-1] >= limit * para_floor:
-        return _whole_or_none(text, breaks[-1], limit, floor)
+    done = [b for b in breaks
+            if b >= limit * para_floor
+            and re.search(r"[.!?…][»\"'”’)\]]?\s*$", text[:b])]
+    if done:
+        return ensure_terminated(_whole_or_none(text, done[-1], limit, floor))
 
     # 2. Конец предложения
     ends = [m.end() for m in _SENTENCE_END.finditer(window)]
@@ -261,17 +346,54 @@ def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
         # читателя интересует законченная мысль, а не число символов до неё.
         if max_extra_sentences:
             cut = _finish_paragraph(text, cut, max_extra_sentences)
-        return _whole_or_none(text, cut, limit, floor)
+        return ensure_terminated(_whole_or_none(text, cut, limit, floor))
 
-    # 3. Конец слова. Неполное слово на границе лимита отбрасываем;
-    # висячий предлог тоже. Живое последнее слово оставляем.
-    cut = window[:limit].rstrip()
-    if limit < len(text) and not text[limit].isspace() and not text[limit - 1].isspace():
-        cut = cut.rsplit(" ", 1)[0].strip()
-    last = cut.split()[-1].lower().strip(".,;:—–-") if cut.split() else ""
-    if last in _HANGING_TAIL or (last and len(last) <= 2):
-        cut = cut.rsplit(" ", 1)[0].strip()
-    return (cut + "…") if cut else window[:limit].strip()
+    # 3. ТРЕТЬЕЙ СТУПЕНИ БОЛЬШЕ НЕТ — и это решение владельца (21.09.2026):
+    # «резать абзацами и только после точки в конце предложения».
+    #
+    # Здесь резали по слову и ставили многоточие. Многоточие было честным
+    # признанием — читатель видел, что текст продолжается, — но резало оно
+    # всё равно посреди мысли. Законных мест для реза ровно два: конец абзаца
+    # и конец предложения. Нет ни того, ни другого в окне лимита — значит
+    # резать НЕГДЕ, а не «режем где придётся и извиняемся многоточием».
+    #
+    # Дотягиваемся до БЛИЖАЙШЕЙ точки за лимитом. Лимит здесь мера, а не
+    # стена: тот же довод уже принят в _finish_paragraph — «читателя
+    # интересует законченная мысль, а не число символов до неё».
+    # Сперва перечни — эта часть третьей ступени остаётся и после её отмены.
+    # Она про другое: рез пришёлся внутрь списка (Kabar, дисциплины через «;»
+    # без точек), и _whole_or_none решает — добрать список целиком или убрать
+    # зачин. Многоточия посередине там нет и не было.
+    cut_at = len(window[:limit].rstrip())
+    if _list_start_before(text, min(cut_at + 1, len(text))) is not None:
+        return ensure_terminated(_whole_or_none(text, cut_at, limit, floor))
+
+    # Стена: выходить за лимит нельзя — режем по слову прямо на границе.
+    # Читателю это не показывают (см. hard в описании)
+    if hard:
+        cut = window[:limit].rstrip()
+        if limit < len(text) and not text[limit].isspace() and not text[limit - 1].isspace():
+            cut = cut.rsplit(" ", 1)[0].strip()
+        return cut or window[:limit].strip()
+
+    tail = [m.end() for m in _SENTENCE_END.finditer(text) if m.end() > limit]
+    if tail:
+        return ensure_terminated(_whole_or_none(text, tail[0], limit, floor))
+    # Точки нет во всём тексте вовсе — это перечень без точек (список улиц с
+    # отключением воды: «улица Чуя, 132» строкой на адрес) или дамп таблицы.
+    # Резать не по чему: отдаём целиком. Замер 21.09.2026 на списке из 60
+    # адресов при лимите 800 — прежняя третья ступень оставляла 33 адреса из
+    # 60, то есть ровно ту половину пользы, ради которой новость существует.
+    #
+    # Потолок всё же нужен — не от списков, а от дампов страницы: у текста
+    # без единой точки нет естественного конца. Режем по границе СТРОКИ, а не
+    # слова: строка перечня — такая же целая единица, как предложение у прозы.
+    ceiling = limit * 4
+    if len(text) > ceiling:
+        head = text[:ceiling]
+        nl = head.rfind("\n")
+        return ensure_terminated(head[:nl].rstrip() if nl > limit else head.rstrip())
+    return ensure_terminated(text)
 
 
 # Страница-заслон вместо статьи: блокировка робота, требование подписки,
@@ -325,6 +447,42 @@ def _words(t: str) -> list:
             if w not in _STOPWORDS and len(w) > 2]
 
 
+# Кавычки разных начертаний при сравнении — одна и та же кавычка.
+# Резать по len(title), когда в тексте «ёлочки», а в заголовке ",
+# значит попасть внутрь имени в кавычках.
+_QUOTE_FOLD = str.maketrans("«»“”„‟‹›", '""""""""')
+
+
+def fold_quotes(s: str) -> str:
+    return (s or "").translate(_QUOTE_FOLD)
+
+
+def looks_cut_inside(text: str) -> bool:
+    """Текст начинается с обрубка внутри кавычек или на полуслове.
+
+    19.09.2026 Kaktus: заголовок «Концерт на "Бишкек Арене"…», в теле
+    читатель увидел «Арене". Об этом сообщили в ГУВД Бишкека.» — нож
+    прошёл по имени в кавычках и оставил закрывающую половину.
+    Такой зачин не бывает у целой заметки: живой текст не стартует
+    со слова и сразу закрывающей кавычки.
+    """
+    t = (text or "").lstrip()
+    if not t:
+        return False
+    if t[0] in "»”),];:":
+        return True
+    return bool(re.match(
+        r"^[^\s«\"“„]{1,40}[»\"”'][.!?…,;:\s]", t))
+
+
+def _title_prefix_len(title: str, body: str) -> int:
+    """Сколько знаков тела — дословный заголовок в начале, с учётом кавычек."""
+    ft, fb = fold_quotes(title).lower(), fold_quotes(body).lower()
+    if not ft or not fb.startswith(ft):
+        return 0
+    return len(title)
+
+
 def strip_title_echo(title: str, body: str) -> str:
     """Убирает заголовок, продублированный первой фразой текста.
 
@@ -349,12 +507,16 @@ def strip_title_echo(title: str, body: str) -> str:
     if not title or not body:
         return body
 
-    # 1. Точное совпадение — единственный случай, когда резать по длине безопасно
-    if body.lower().startswith(title.lower()):
-        rest = body[len(title):].lstrip(" .,—–-:\n")
-        # Кроме заголовка в тексте ничего нет — оставляем как есть: пустая
-        # карточка хуже повтора, а эталон качества снимет её сам, если пусто
-        return rest if len(rest) >= 20 else body
+    def _keep(rest: str) -> str:
+        if len(rest) < 20 or looks_cut_inside(rest):
+            return body
+        return rest
+
+    # 1. Точное совпадение — режем по длине совпавшего префикса, не заголовка
+    #    из другой строки: иначе кавычки «» vs " сдвигают нож внутрь имени.
+    n = _title_prefix_len(title, body)
+    if n:
+        return _keep(body[n:].lstrip(" .,—–-:\n"))
 
     # 2. Первая фраза пересказывает заголовок
     m = _SENTENCE_END.search(body[:400])
@@ -363,6 +525,8 @@ def strip_title_echo(title: str, body: str) -> str:
     first, rest = body[:m.end()], body[m.end():].lstrip()
     if not rest:
         return body          # кроме этой фразы ничего нет — оставляем
+    if looks_cut_inside(first) or looks_cut_inside(rest):
+        return body
 
     tw, fw = set(_words(title)), set(_words(first))
     if not tw or not fw:
@@ -381,7 +545,53 @@ def strip_title_echo(title: str, body: str) -> str:
     covers_title = len(tw & fw) >= max(3, int(len(tw) * 0.75))
     adds_little = len(fw - tw) <= 2
     if covers_title and adds_little:
-        return rest
+        return _keep(rest)
+    return body
+
+
+def strip_inner_title_echo(title: str, body: str) -> str:
+    """Убирает заголовок, повторённый внутри текста отдельным предложением.
+
+    24.kg вставляет между двумя одинаковыми фразами подпись к фото. Ищем
+    последовательность слов заголовка и вырезаем её, только если это
+    целое предложение: иначе имя в кавычках («Бишкек Арене») — часть
+    живой фразы, и нож оставляет «Арене".».
+    """
+    title = (title or "").strip()
+    body = (body or "").strip()
+    if not title or not body or len(title.split()) < 4:
+        return body
+
+    def norm_word(w):
+        return re.sub(r"[^\w]", "", w.lower(), flags=re.UNICODE)
+
+    title_tokens = [norm_word(w) for w in title.split() if norm_word(w)]
+    words = body.split()
+    norm_words = [norm_word(w) for w in words]
+    n = len(title_tokens)
+    if n < 4 or len(norm_words) < n:
+        return body
+
+    def _sentence_before(i: int) -> bool:
+        if i == 0:
+            return True
+        return bool(re.search(r"[.!?…][»\"'”’)\]]*$", words[i - 1]))
+
+    def _sentence_after(j: int) -> bool:
+        if j >= len(words):
+            return True
+        w = words[j]
+        return w[:1].isupper() or w[:1] in '"«“„'
+
+    for i in range(len(norm_words) - n + 1):
+        if norm_words[i:i + n] != title_tokens:
+            continue
+        if not _sentence_before(i) or not _sentence_after(i + n):
+            continue
+        out = re.sub(r"\s{2,}", " ", " ".join(words[:i] + words[i + n:])).strip()
+        if looks_cut_inside(out) or len(out) < 20:
+            return body
+        return out
     return body
 
 
@@ -415,10 +625,33 @@ _SERVICE_CHANNEL = re.compile(
     r"boletins?|caixa de entrada|"
     r"lettres?\s+d['’]information|bo[iî]te de r[eé]ception|courriels?)\b")
 
+# Paywall: «подпишись, чтобы читать дальше / все статьи». Не путать с
+# новостью про подписку на журнал — там нет «читать дальше».
+_SERVICE_GATE = re.compile(
+    r"(?i)\b(?:"
+    r"read (?:the )?(?:rest|full|more)|continue reading|full article|"
+    r"lire la suite|continuer(?:\s+à\s+lire)?|acc[eé]der à .{0,40}articles?|"
+    r"(?:seguir|continuar) leyendo|acceder a .{0,40}art[ií]culos|"
+    r"(?:continuar )?lendo|ler (?:a )?mat[eé]ria|acessar .{0,40}mat[eé]rias|"
+    r"читать далее|читать полностью|полная версия|для подписчик\w*"
+    r")\b")
+
 _SERVICE_META = re.compile(
     r"(?i)^\s*(?:published|updated|опубликовано|обновлено|"
     r"publicado|actualizado|atualizado|"
     r"publi[eé]|mis à jour)\b")
+
+# Плашка автора в хвосте: имя + должность, без точки новости.
+# 13.09.2026 Jeune Afrique — «Mathieu Olivier Rédacteur en chef…».
+# Ловим по должности во всех пулах, не по одной французской фразе.
+_AUTHOR_ROLE = re.compile(
+    r"(?i)\b(?:editor(?:-in-chief)?|deputy editor|staff writer|correspondent|"
+    r"reporter|journalist|investigat(?:or|ions?)|"
+    r"r[eé]dacteur(?:rice)?(?: en chef)?|grand reporter|"
+    r"redactor(?:a)?(?: jefe)?|corresponsal|periodista|"
+    r"redator(?:a)?(?:[- ]chefe)?|correspondente|jornalista|"
+    r"редактор|главный редактор|корреспондент|обозреватель|"
+    r"charg[eé]e? des investigations)\b")
 
 
 def is_service_lead(text: str) -> bool:
@@ -434,7 +667,48 @@ def is_service_lead(text: str) -> bool:
         return True
     if len(re.findall(r"[.!?…](?:\s+|$)", t)) > 1:
         return False
-    return bool(_SERVICE_ASK.search(t) and _SERVICE_CHANNEL.search(t))
+    if _SERVICE_ASK.search(t) and _SERVICE_CHANNEL.search(t):
+        return True
+    # Paywall CTA: «Abonnez-vous pour lire la suite…» — тоже служебное,
+    # даже без слова «newsletter»
+    return bool(_SERVICE_ASK.search(t) and _SERVICE_GATE.search(t))
+
+
+def is_service_tail(text: str) -> bool:
+    """Служебный хвост после тизера: paywall, «читайте также», плашка автора.
+
+    Устройство то же, что у зачина: мусор стоит с КРАЯ и говорит с читателем
+    про доступ к тексту, а не про событие. Слоган издания перед CTA короткий
+    и без цифр — его снимает strip_trailing_service рядом с CTA.
+    """
+    t = (text or "").strip()
+    if not t or len(t) > 320:
+        return False
+    if is_service_lead(t):
+        return True
+    if _AUTHOR_ROLE.search(t) and len(t) <= 140:
+        # Должность без точки конца новости — плашка, не абзац про редактора
+        if not re.search(r"[.!?…].*[.!?…]", t):
+            return True
+    return False
+
+
+def _is_short_slogan(text: str) -> bool:
+    """Короткий слоган перед paywall: «Bien s'informer, mieux décider».
+
+    Без списка слоганов: мало слов, нет цифр, нет второй точки — маркетинг,
+    не факт. Снимаем ТОЛЬКО если уже сняли служебный хвост рядом.
+    """
+    t = (text or "").strip()
+    if not t or len(t) > 90:
+        return False
+    if re.search(r"\d", t):
+        return False
+    if len(t.split()) > 12:
+        return False
+    if len(re.findall(r"[.!?…]", t)) > 1:
+        return False
+    return True
 
 
 def strip_leading_service(text: str) -> str:
@@ -463,6 +737,36 @@ def strip_leading_service(text: str) -> str:
     return "\n\n".join(kept) if kept else src
 
 
+def strip_trailing_service(text: str) -> str:
+    """Снимает служебный хвост: paywall, слоган, плашка автора.
+
+    13.09.2026 Jeune Afrique: после тизера — слоган, «подпишитесь читать
+    дальше», должность редактора. То же устройство у paywall в любом пуле.
+    Правило языконезависимое: режем с конца, пока абзацы служебные; короткий
+    слоган перед CTA снимаем только в паре с ним.
+    """
+    src = (text or "").strip()
+    if not src:
+        return src
+    paras = [p.strip() for p in re.split(r"\n\s*\n|\n", src) if p.strip()]
+    if len(paras) < 2:
+        # Один абзац: срезаем хвостовые служебные предложения
+        peeled = _drop_trailing_service_sentences(src)
+        return peeled if len(peeled) >= 80 else src
+    dropped_service = False
+    while len(paras) >= 2:
+        if is_service_tail(paras[-1]):
+            paras.pop()
+            dropped_service = True
+            continue
+        if dropped_service and _is_short_slogan(paras[-1]):
+            paras.pop()
+            continue
+        break
+    out = "\n\n".join(paras).strip()
+    return out if len(out) >= 80 else src
+
+
 def _drop_leading_service_sentences(para: str) -> str:
     parts, last = [], 0
     for m in re.finditer(r"[.!?…](?:\s+|$)", para):
@@ -479,6 +783,21 @@ def _drop_leading_service_sentences(para: str) -> str:
     while i < len(parts) and is_service_lead(parts[i]):
         i += 1
     return " ".join(parts[i:]).strip()
+
+
+def _drop_trailing_service_sentences(para: str) -> str:
+    parts, last = [], 0
+    for m in re.finditer(r"[.!?…](?:\s+|$)", para):
+        parts.append(para[last:m.end()].strip())
+        last = m.end()
+    tail = para[last:].strip()
+    if tail:
+        parts.append(tail)
+    if len(parts) < 2:
+        return "" if parts and is_service_tail(parts[0]) else para
+    while len(parts) >= 2 and is_service_tail(parts[-1]):
+        parts.pop()
+    return " ".join(parts).strip()
 
 
 # ─── Имя издания на языке читателя ──────────────────────────────────────────
@@ -587,21 +906,31 @@ def _whole_or_none(text: str, cut: int, limit: int, floor: float) -> str:
     Если рез попал внутрь списка, сперва пробуем ДОБРАТЬ его целиком сверх
     лимита (см. _trailing_list) — список улиц с отключением света и есть та
     польза, ради которой жизненно важная новость существует, обещание без
-    исполнения не годится. Не вышло (список — мусор, или его вовсе нет) —
-    тогда убираем зачин, как раньше. Отступать бесконечно нельзя: если после
-    отката остаётся меньше floor от лимита, от новости не осталось бы ничего,
-    и тогда лучше обычный рез — половина перечня хуже целого, но пустота
-    хуже половины.
+    исполнения не годится. Не вышло (список слишком длинный или мусор) —
+    убираем зачин целиком. Короткое вступление без перечня лучше, чем
+    полперечня дисциплин: Kabar 13.09.2026, Азия оюндары — «тизмеси:» и
+    обрезок по «Ок атуу».
+
+    floor оставляем только для случая, когда зачин — почти весь текст
+    (откатываться некуда): тогда уж обычный рез, чтобы не отдать пустоту.
     """
     start = _list_start_before(text, cut)
-    if start is not None and start >= limit * floor:
+    if start is not None:
         rest = text[start:]
         nl = rest.find("\n")
         lead_end = start + (len(rest) if nl < 0 else nl + 1)
         extra = _trailing_list(text, lead_end)
         if extra:
             return (text[:lead_end].rstrip() + "\n" + extra).strip()
-        return text[:start].strip()
+        head = text[:start].strip()
+        # Есть вступление до перечня — отдаём его, даже короче floor
+        if len(head) >= 80 or re.search(r"[.!?…]", head or ""):
+            return head
+        # Зачин почти в начале: откат оставил бы пустоту — обычный рез
+        if start < limit * floor:
+            pass
+        else:
+            return head
     base = text[:cut].strip()
     extra = _trailing_list(text, cut)
     return (base + "\n" + extra).strip() if extra else base

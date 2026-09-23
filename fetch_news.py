@@ -4,7 +4,7 @@ import hashlib
 import time
 import json
 import html
-from collections import Counter
+from collections import Counter, defaultdict
 import requests
 import urllib.request
 import urllib.error
@@ -14,8 +14,10 @@ from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 from feed_gate import drop_family_repeats, gate as feed_gate, same_event
 from live_identity import verdict as identity_verdict
-from textcut import (display_source, lead, trim_to_boundary,
-                     _looks_blocked, strip_title_echo, strip_leading_service)
+from textcut import (display_source, lead, trim_to_boundary, ensure_terminated,
+                     _looks_blocked, strip_title_echo, strip_inner_title_echo,
+                     looks_cut_inside, strip_leading_service,
+                     strip_trailing_service)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -112,8 +114,8 @@ RSS_SOURCES = [
 
     # США: были только общенациональные издания, а в стране 50 штатов —
     # местный слой выходил из четырёх новостей
-    {"url": "https://www.latimes.com/local/rss2.0.xml", "source": "LA Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "en", "region": "US-CA"},
-    {"url": "https://nypost.com/feed/", "source": "NY Post", "category": "NEWS", "priority": 0, "quota": 3, "scope": "local", "lang": "en", "region": "US-NY"},
+    {"url": "https://www.latimes.com/local/rss2.0.xml", "source": "LA Times", "category": "NEWS", "priority": 1, "quota": 10, "scope": "local", "lang": "en", "region": "US-CA"},
+    {"url": "https://nypost.com/feed/", "source": "NY Post", "category": "NEWS", "priority": 0, "quota": 10, "scope": "local", "lang": "en", "region": "US-NY"},
 
     # Замена ушедшим (13.08.2026): страницы проверены, текст отдают —
     # CBS 2700 знаков, Time 7200, Fortune 9300
@@ -190,7 +192,9 @@ RSS_SOURCES = [
     # -- Испанский пул: местных было 7 из 68 --------------------------------
     # Та же болезнь, что и в португальском: своих изданий мало, мировая лента
     # заливает остальное. Мексика - домашняя страна пула, её издания местные.
-    # Проверено живьём 15.08.2026
+    # Проверено живьём 15.08.2026. MX-квоты не режем: баланс полок — в
+    # сборке (пол/потолок + отбор по качеству), мир добираем у BBC Mundo /
+    # Infobae / El País.
     {"url": "https://www.elfinanciero.com.mx/rss/", "source": "El Financiero", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "es"},
     {"url": "https://www.elsoldemexico.com.mx/rss.xml", "source": "El Sol de México", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local", "lang": "es"},
     {"url": "https://www.jornada.com.mx/rss/edicion.xml", "source": "La Jornada", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local", "lang": "es"},
@@ -232,8 +236,8 @@ RSS_SOURCES = [
     # для них уставная цель: материалы выходят под свободной лицензией с
     # прямой просьбой перепечатывать. Ни договариваться, ни опасаться претензий
     # не нужно. Заодно это шаг к четвёртому уровню — новостям штатов
-    {"url": "https://www.texastribune.org/feeds/main/", "source": "Texas Tribune", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local", "lang": "en", "region": "US-TX"},
-    {"url": "https://mississippitoday.org/feed/", "source": "Mississippi Today", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en", "region": "US-MS"},
+    {"url": "https://www.texastribune.org/feeds/main/", "source": "Texas Tribune", "category": "NEWS", "priority": 1, "quota": 10, "scope": "local", "lang": "en", "region": "US-TX"},
+    {"url": "https://mississippitoday.org/feed/", "source": "Mississippi Today", "category": "NEWS", "priority": 1, "quota": 10, "scope": "local", "lang": "en", "region": "US-MS"},
     {"url": "https://www.themarshallproject.org/rss/recent.rss", "source": "Marshall Project", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
     {"url": "https://www.propublica.org/feeds/propublica/main", "source": "ProPublica", "category": "NEWS", "priority": 1, "quota": 3, "scope": "local", "lang": "en"},
 
@@ -259,11 +263,11 @@ RSS_SOURCES = [
     # Таджикистана в ленте не будет вовсе
     {"url": "https://asiaplustj.info/tj/rss.xml", "source": "Asia-Plus", "category": "NEWS", "priority": 1, "quota": 3, "scope": "pool", "lang": "ru", "native": "tg"},
 
-    {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "es"},
-    {"url": "https://www.infobae.com/arc/outboundfeeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
-    {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
-    # Латинская Америка
-    {"url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/", "source": "La Nación AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
+    {"url": "https://feeds.bbci.co.uk/mundo/rss/noticias/rss.xml", "source": "BBC Mundo", "category": "NEWS", "priority": 2, "quota": 8, "scope": "world", "lang": "es"},
+    {"url": "https://www.infobae.com/arc/outboundfeeds/rss/", "source": "Infobae", "category": "NEWS", "priority": 2, "quota": 8, "scope": "world", "lang": "es"},
+    {"url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "source": "El País", "category": "NEWS", "priority": 2, "quota": 8, "scope": "world", "lang": "es"},
+    # Латинская Америка — для мексиканца это полка «своего языка», не мир
+    {"url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/", "source": "La Nación AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "pool", "lang": "es"},
     # ─── Французский пул (заведён 22.08.2026) ──────────────────────────────
     # Домашняя страна — Франция. Языковое пространство шире европейского:
     # Бельгия, Швейцария, Квебек и франкоязычная Африка, где французский —
@@ -309,9 +313,9 @@ RSS_SOURCES = [
     # карточек-обещаний
     {"url": "https://www.france24.com/fr/rss", "source": "France 24 FR", "category": "NEWS", "priority": 2, "quota": 5, "scope": "world", "lang": "fr"},
     {"url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/", "source": "El Universal MX", "category": "NEWS", "priority": 2, "quota": 8, "scope": "local", "lang": "es"},
-    {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "es"},
-    {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
-    {"url": "https://www.abc.es/rss/feeds/abcPortada.xml", "source": "ABC.es", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world", "lang": "es"},
+    {"url": "https://www.eltiempo.com/rss/colombia.xml", "source": "El Tiempo CO", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "es"},
+    {"url": "https://www.clarin.com/rss/lo-ultimo/", "source": "Clarín AR", "category": "NEWS", "priority": 1, "quota": 5, "scope": "pool", "lang": "es"},
+    {"url": "https://www.abc.es/rss/feeds/abcPortada.xml", "source": "ABC.es", "category": "NEWS", "priority": 1, "quota": 6, "scope": "world", "lang": "es"},
     {"url": "https://www.excelsior.com.mx/rss/nacional.xml", "source": "Excelsior MX", "category": "NEWS", "priority": 2, "quota": 7, "scope": "local", "lang": "es"},
     # Испаноязычная Америка — добавлено 12.08.2026. Ленты проверены живыми:
     # отдают настоящие статьи, не заглушки. Emol (Чили) и El Observador (Уругвай)
@@ -497,8 +501,9 @@ SOURCE_COUNTRY = {
     "G1 São Paulo": "BR", "G1 Rio": "BR", "G1 Minas": "BR", "G1 Paraná": "BR",
     "G1 Rio Grande do Sul": "BR", "G1 Bahia": "BR", "G1 Distrito Federal": "BR",
     "G1 Pernambuco": "BR", "G1 Ceará": "BR", "G1 Santa Catarina": "BR",
-    "El Informador": "MX", "Indian Express Mumbai": "IN",
-    "The News Minute": "IN", "Фонтанка": "RU",
+    "El Informador": "MX", "El Norte": "MX", "Reforma Ciudad": "MX",
+    "Indian Express Mumbai": "IN", "The News Minute": "IN",
+    "The Hindu Chennai": "IN", "Фонтанка": "RU",
     # Португалия и Бразилия
     "Notícias ao Minuto": "PT", "Público": "PT", "Diário de Notícias": "PT",
     "Observador": "PT", "RTP Notícias": "PT",
@@ -1468,8 +1473,9 @@ LIVE_CHANNELS = [
 # осталась бы не только без эфиров, но и без вирального: квота общая.
 #
 # Восемь поисков за прогон — это 800 единиц, худшие сутки 6400, и запас есть.
-# Пропавшие каналы найдутся не разом, а за два-три прогона; для эфира, который
-# и так обновляется раз в три часа, разница незаметна.
+# С 13.09.2026 восьмёрка раздаётся по кругу пулов (слабые первыми), а не
+# сверху списка LIVE_CHANNELS: иначе EN забирал все поиски, fr сидел с двумя
+# плитками при живых BFMTV/LCI/CNEWS. Пропавшие найдутся за два-три прогона.
 #
 # НО ПРИ РУЧНОМ ЗАПУСКЕ ищем все. Восьмёрка бережёт квоту от неудачного дня,
 # который случается сам; ручной запуск случается, когда человек нарочно нажал
@@ -1514,12 +1520,27 @@ def _resolve_handle(handle: str, cache: dict) -> str:
         return ""
 
 
+def _live_video_pins(pins: dict) -> list:
+    """Только channelId → videoId. В том же словаре лежит кэш собачек
+    (`handle:@bfmtv` → UC…): это не видео, и videos.list их глотает впустую.
+    13.09.2026: из 117 ключей 74 были собачками — в пачку из 50 попадали
+    UC-идентификаторы, а живые BFMTV / LCI / CNEWS оставались без проверки.
+    """
+    out = []
+    for k, v in (pins or {}).items():
+        if not v or str(k).startswith("handle:"):
+            continue
+        # Видео YouTube — ровно 11 знаков; UC… канала длиннее
+        if len(str(v)) == 11:
+            out.append(str(v))
+    return out
+
+
 def _live_check_pinned(pins: dict) -> dict:
     """Проверяет разом, идут ли уже известные эфиры. Возвращает {videoId: снимок}.
 
-    Стоит ОДНУ единицу квоты на все каналы сразу — videos.list принимает до
-    пятидесяти идентификаторов через запятую. Для сравнения: search.list стоит
-    сто единиц ЗА КАЖДЫЙ канал.
+    Стоит ОДНУ единицу квоты на пачку до 50 id — videos.list. Для сравнения:
+    search.list стоит сто единиц ЗА КАЖДЫЙ канал.
 
     Замер 24.08.2026: три канала опрашивались поиском восемь раз в сутки —
     2400 единиц из 10000, почти четверть квоты на три ссылки. Девять каналов
@@ -1527,28 +1548,34 @@ def _live_check_pinned(pins: dict) -> dict:
 
     Мы ведь не ищем эфир, а проверяем известный: у новостных каналов вещание
     круглосуточное и идентификатор видео месяцами не меняется.
+
+    Пачек может быть несколько: каналов уже больше пятидесяти, и резать
+    список первой полусотней нельзя — хвост (часто FR/PT) никогда не
+    подтверждался бы дешёвой проверкой.
     """
-    ids = [v for v in pins.values() if v]
+    ids = _live_video_pins(pins)
     if not ids or not YOUTUBE_API_KEY:
         return {}
+    out = {}
     try:
-        r = requests.get(
-            "https://www.googleapis.com/youtube/v3/videos",
-            params={"part": "snippet", "id": ",".join(ids[:50]),
-                    "key": YOUTUBE_API_KEY},
-            timeout=15)
-        if not r.ok:
-            return {}
-        out = {}
-        for it in r.json().get("items", []):
-            sn = it.get("snippet", {})
-            # «live» — идёт прямо сейчас. «upcoming» и «none» не годятся:
-            # первое ещё не началось, второе уже закончилось и стало записью
-            if sn.get("liveBroadcastContent") == "live":
-                out[it.get("id")] = sn
+        for i in range(0, len(ids), 50):
+            batch = ids[i:i + 50]
+            r = requests.get(
+                "https://www.googleapis.com/youtube/v3/videos",
+                params={"part": "snippet", "id": ",".join(batch),
+                        "key": YOUTUBE_API_KEY},
+                timeout=15)
+            if not r.ok:
+                continue
+            for it in r.json().get("items", []):
+                sn = it.get("snippet", {})
+                # «live» — идёт прямо сейчас. «upcoming» и «none» не годятся:
+                # первое ещё не началось, второе уже закончилось и стало записью
+                if sn.get("liveBroadcastContent") == "live":
+                    out[it.get("id")] = sn
         return out
     except Exception:
-        return {}
+        return out
 
 
 def fetch_live_streams():
@@ -1560,6 +1587,12 @@ def fetch_live_streams():
 
     Если обновлять рано или не получилось — возвращает прежние данные, чтобы
     они не пропали при перезаписи /viral.
+
+    КВОТА (13.09.2026). Известные эфиры проверяем дёшево у всех пулов сразу
+    (videos.list, 1 единица на пачку). Дорогой поиск (100 единиц за канал)
+    идёт ПО КРУГУ: сначала пулы, у которых сейчас меньше живых плиток
+    (fr сегодня — двое при живых BFMTV/LCI/CNEWS), и сдвиг стартового пула
+    между прогонами, чтобы один бедный не забирал все восемь поисков навечно.
     """
     # Узел внутри /viral, а не отдельный /live: в правах боевой базы открыты
     # на чтение только news и viral, а отдельный узел пришлось бы открывать
@@ -1582,14 +1615,17 @@ def fetch_live_streams():
         print(f"  ⏭ Эфиры: обновлялись {age_h:.1f} ч назад, пропускаем (раз в {LIVE_REFRESH_HOURS} ч)")
         return existing
 
-    # Сначала дешёвая проверка уже известных эфиров: одна единица квоты на
-    # все каналы. Дорогой поиск останется только тем, кто пропал из эфира
+    # Сначала дешёвая проверка уже известных эфиров у ВСЕХ пулов
     pins = (existing.get("pins") or {}) if isinstance(existing, dict) else {}
     alive = _live_check_pinned(pins)
     if alive:
-        print(f"  ⚡ Эфиры по известным ссылкам: {len(alive)} за 1 единицу квоты")
+        n_batches = max(1, (len(_live_video_pins(pins)) + 49) // 50)
+        print(f"  ⚡ Эфиры по известным ссылкам: {len(alive)} "
+              f"(≈{n_batches} ед. квоты на все пулы)")
 
-    items, new_pins, searched, unresolved = [], dict(pins), 0, []
+    items, new_pins = [], dict(pins)
+    unresolved, need_search = [], {p: [] for p in ACTIVE_POOLS}
+
     for row in LIVE_CHANNELS:
         raw_id, name, pool = row[0], row[1], row[2]
         region = (row[3] if len(row) > 3 else "") or ""
@@ -1615,78 +1651,121 @@ def fetch_live_streams():
                 item["region"] = region
             items.append(item)
             continue
-        # Ограничитель поиска: см. LIVE_SEARCH_BUDGET. Дошли до потолка —
-        # остальные каналы ждут следующего прогона, а не выедают квоту
-        if searched >= LIVE_SEARCH_BUDGET:
-            unresolved.append(f"{name} (отложен до следующего прогона)")
-            continue
-        try:
-            searched += 1
-            r = requests.get(
-                "https://www.googleapis.com/youtube/v3/search",
-                params={
-                    "part": "snippet",
-                    "channelId": channel_id,
-                    "eventType": "live",
-                    "type": "video",
-                    "maxResults": 1,
-                    "key": YOUTUBE_API_KEY,
-                },
-                timeout=15,
-            )
-            if r.status_code == 403:
-                # Квота исчерпана — прекращаем совсем, чтобы не долбиться
-                # впустую. Старые ссылки остаются в базе: трансляция идёт
-                # сутками, и, скорее всего, они ещё рабочие
-                print("  ✗ Эфиры: квота YouTube исчерпана, оставляем прежние ссылки")
-                return existing
-            if not r.ok:
-                print(f"  ✗ Эфир {name}: HTTP {r.status_code}")
-                continue
-            found = r.json().get("items", [])
-            if not found:
-                print(f"  · Эфир {name}: сейчас не вещает")
-                continue
-            entry = found[0]
-            video_id = entry.get("id", {}).get("videoId")
-            snippet = entry.get("snippet", {})
-            if not video_id:
-                continue
-            thumbs = snippet.get("thumbnails", {})
-            # ЗАСЛОН ОТ САМОЗВАНЦЕВ. Совпадение «собачки» ничего не
-            # доказывает: короткие имена (ntv, cnews, abc) заняты в десятке
-            # стран, и достаются тому, кто раньше пришёл. 28.08 так в русский
-            # пул попал турецкий NTV, а во французский — тайваньский CNEWS.
-            # Сверяем имя канала и письмо в названии эфира — см. live_identity
-            why = identity_verdict(name, snippet.get("channelTitle") or "",
-                                   snippet.get("title") or "", pool)
-            if why:
-                print(f"  🚫 Эфир {name}: не тот канал — {why}")
-                continue
+        need_search.setdefault(pool, []).append(
+            (channel_id, name, pool, region))
 
-            items.append({
+    # Круг поиска: слабые пулы первыми, старт сдвигается после прошлого
+    # lastSearchPool. Иначе EN в начале LIVE_CHANNELS съедал все 8 поисков,
+    # а fr с двумя плитками так и оставался голодным.
+    alive_n = Counter(x.get("pool") for x in items)
+    pools_order = [p for p in ACTIVE_POOLS if need_search.get(p)]
+    pools_order.sort(key=lambda p: (alive_n.get(p, 0), ACTIVE_POOLS.index(p)))
+    last = (existing.get("lastSearchPool") if isinstance(existing, dict) else None)
+    if last in pools_order and len(pools_order) > 1:
+        i = pools_order.index(last)
+        pools_order = pools_order[i + 1:] + pools_order[:i + 1]
+    if pools_order:
+        print(f"  🔁 Поиск эфиров по пулам (слабые →): "
+              + ", ".join(f"{p}={alive_n.get(p, 0)}" for p in pools_order))
+
+    searched, last_search_pool = 0, last
+    queues = {p: list(need_search.get(p) or []) for p in pools_order}
+    deferred = []
+
+    def _search_one(channel_id, name, pool, region):
+        nonlocal searched, last_search_pool
+        searched += 1
+        last_search_pool = pool
+        r = requests.get(
+            "https://www.googleapis.com/youtube/v3/search",
+            params={
+                "part": "snippet",
                 "channelId": channel_id,
-                "name": name,
-                "pool": pool,
-                "videoId": video_id,
-                "url": f"https://www.youtube.com/watch?v={video_id}",
-                "title": (snippet.get("title") or name).strip(),
-                "imageUrl": (thumbs.get("high") or thumbs.get("medium") or {}).get("url"),
-                **({"region": region} if region else {}),
-            })
-            new_pins[channel_id] = video_id
-            print(f"  ✓ Эфир {name}: {video_id} (поиском, 100 единиц)")
-        except Exception as e:
-            print(f"  ✗ Эфир {name}: {e}")
+                "eventType": "live",
+                "type": "video",
+                "maxResults": 1,
+                "key": YOUTUBE_API_KEY,
+            },
+            timeout=15,
+        )
+        if r.status_code == 403:
+            return "quota"
+        if not r.ok:
+            print(f"  ✗ Эфир {name}: HTTP {r.status_code}")
+            return "err"
+        found = r.json().get("items", [])
+        if not found:
+            print(f"  · Эфир {name}: сейчас не вещает")
+            return "off"
+        entry = found[0]
+        video_id = entry.get("id", {}).get("videoId")
+        snippet = entry.get("snippet", {})
+        if not video_id:
+            return "off"
+        thumbs = snippet.get("thumbnails", {})
+        # ЗАСЛОН ОТ САМОЗВАНЦЕВ. Совпадение «собачки» ничего не
+        # доказывает: короткие имена (ntv, cnews, abc) заняты в десятке
+        # стран, и достаются тому, кто раньше пришёл. 28.08 так в русский
+        # пул попал турецкий NTV, а во французский — тайваньский CNEWS.
+        # Сверяем имя канала и письмо в названии эфира — см. live_identity
+        why = identity_verdict(name, snippet.get("channelTitle") or "",
+                               snippet.get("title") or "", pool)
+        if why:
+            print(f"  🚫 Эфир {name}: не тот канал — {why}")
+            return "wrong"
+        items.append({
+            "channelId": channel_id,
+            "name": name,
+            "pool": pool,
+            "videoId": video_id,
+            "url": f"https://www.youtube.com/watch?v={video_id}",
+            "title": (snippet.get("title") or name).strip(),
+            "imageUrl": (thumbs.get("high") or thumbs.get("medium") or {}).get("url"),
+            **({"region": region} if region else {}),
+        })
+        new_pins[channel_id] = video_id
+        print(f"  ✓ Эфир {name}: {video_id} (поиском, 100 единиц)")
+        return "ok"
 
-    if unresolved:
-        print(f"  ⚠️ Каналы не нашлись по собачке: {', '.join(unresolved)}")
+    try:
+        while searched < LIVE_SEARCH_BUDGET and any(queues.values()):
+            progressed = False
+            for pool in pools_order:
+                if searched >= LIVE_SEARCH_BUDGET:
+                    break
+                if not queues[pool]:
+                    continue
+                channel_id, name, pool, region = queues[pool].pop(0)
+                progressed = True
+                status = _search_one(channel_id, name, pool, region)
+                if status == "quota":
+                    print("  ✗ Эфиры: квота YouTube исчерпана, оставляем прежние ссылки")
+                    return existing
+            if not progressed:
+                break
+        for pool in pools_order:
+            for channel_id, name, pool, region in queues[pool]:
+                deferred.append(f"{name} (отложен до следующего прогона)")
+    except Exception as e:
+        print(f"  ✗ Эфиры: сбой поиска — {e}")
+
+    if unresolved or deferred:
+        print(f"  ⚠️ Каналы без эфира в этом прогоне: "
+              + ", ".join(unresolved + deferred[:12])
+              + ("…" if len(deferred) > 12 else ""))
     if not items:
         print("  · Эфиры: ничего не нашли, прежние ссылки оставляем как есть")
         return existing
+    pin_batches = max(1, (len(_live_video_pins(new_pins)) + 49) // 50) if alive else 0
     print(f"✅ Эфиры обновлены: {len(items)}, поиском искали {searched} "
-          f"(≈{searched * 100 + (1 if pins else 0)} единиц квоты)")
-    return {"items": items, "updatedAt": now_ms, "pins": new_pins}
+          f"(≈{searched * 100 + pin_batches} единиц квоты); "
+          f"круг → {last_search_pool or '—'}")
+    return {
+        "items": items,
+        "updatedAt": now_ms,
+        "pins": new_pins,
+        "lastSearchPool": last_search_pool or "",
+    }
 
 
 VIDEO_STOP_WORDS = (
@@ -2079,20 +2158,54 @@ def strip_boilerplate(text: str) -> str:
             text = (text[:idx] + text[idx + len(pattern):]).strip(" .,—-\n")
     return strip_tail(text)
 
+def _rss_local(tag) -> str:
+    """Имя тега без xmlns. Ленты с default xmlns (Фонтанка) иначе невидимы."""
+    if not isinstance(tag, str):
+        return ""
+    return tag.rsplit("}", 1)[-1].lower()
+
+
+def _rss_child_text(el, name: str) -> str:
+    want = name.lower()
+    for child in list(el):
+        if _rss_local(child.tag) != want:
+            continue
+        text = "".join(child.itertext()).strip()
+        if text:
+            return text
+        # Atom: <link href="..."/> без текста
+        href = (child.get("href") or "").strip()
+        if href:
+            return href
+    return ""
+
+
+def _rss_items(root, limit: int):
+    out = []
+    for el in root.iter():
+        if _rss_local(el.tag) == "item":
+            out.append(el)
+            if len(out) >= limit:
+                break
+    return out
+
+
 def extract_full_summary(item_el) -> str:
     """Извлекаем полный текст до логической точки — не обрезаем на полуслове"""
-    # Пробуем content:encoded — там обычно полная статья
-    ns = {"content": "http://purl.org/rss/1.0/modules/content/"}
-    full = item_el.findtext("content:encoded", namespaces=ns) or ""
+    # content:encoded — локальное имя «encoded»; findtext с xmlns ломается
+    # на лентах с default namespace (Фонтанка zen-news).
+    full = ""
+    for child in list(item_el):
+        if _rss_local(child.tag) == "encoded":
+            full = "".join(child.itertext())
+            break
     if not full:
-        full = item_el.findtext("description", "") or ""
+        full = _rss_child_text(item_el, "description")
 
     text = strip_boilerplate(clean_text(full))
 
-    # Убираем дубль заголовка в начале текста (частая проблема 24.kg и др.)
-    title = clean_text(item_el.findtext("title", ""))
-    if title and text.startswith(title):
-        text = text[len(title):].lstrip(" .,—-")
+    title = clean_text(_rss_child_text(item_el, "title"))
+    text = strip_title_echo(title, text)
 
     # Берём до 600 знаков по границе предложения. Прежде здесь перебирались
     # разделители по очереди: сначала «. », и только если такой точки не
@@ -3035,7 +3148,7 @@ def parse_pub_date(item_el) -> int:
     Без этого статья-расследование недельной давности выглядела как
     "опубликована только что" — получала бонус за свежесть в оценке
     важности и попадала в hero-карусель как будто это горячая новость."""
-    raw = item_el.findtext("pubDate", "").strip()
+    raw = _rss_child_text(item_el, "pubDate")
     if raw:
         try:
             dt = parsedate_to_datetime(raw)
@@ -3051,9 +3164,9 @@ def fetch_rss(source):
             return []
         root = ET.fromstring(r.content)
         items = []
-        for item_el in root.findall(".//item")[:source.get("quota", 5)]:
-            title = clean_text(item_el.findtext("title", "").strip())
-            link = item_el.findtext("link", "").strip()
+        for item_el in _rss_items(root, source.get("quota", 5)):
+            title = clean_text(_rss_child_text(item_el, "title"))
+            link = _rss_child_text(item_el, "link")
             summary = extract_full_summary(item_el)
             lang = detect_language(title + " " + summary)
 
@@ -3066,7 +3179,11 @@ def fetch_rss(source):
 
             image = None
             low_res = False
-            enc = item_el.find("enclosure")
+            enc = None
+            for child in list(item_el):
+                if _rss_local(child.tag) == "enclosure":
+                    enc = child
+                    break
             if enc is not None and "image" in (enc.get("type") or ""):
                 image = upscale_known_cdn(enc.get("url"))
             if not image:
@@ -3971,11 +4088,11 @@ REFRESH_MINUTES = 120
 
 # Версия приложения, опубликованная в Play. Поднимать вместе с versionCode.
 #
-# 36 / 1.7.12 — эфир как телевизор во всех пулах, карусель только срочного, радио штата.
-# До неё: 35 / 1.7.11 от 07.09; 34 / 1.7.10 от 04.09. Объявлять то, что
-# реально лежит в магазине. Следующая обязана быть 37.
-APP_LATEST_CODE = 36
-APP_LATEST_NAME = "1.7.12"
+# 37 / 1.7.13 — эфир landscape/theater, радио штата в бандле.
+# До неё: 36 / 1.7.12; 35 / 1.7.11 от 07.09; 34 / 1.7.10 от 04.09. Объявлять то, что
+# реально лежит в магазине. Следующая обязана быть 38.
+APP_LATEST_CODE = 37
+APP_LATEST_NAME = "1.7.13"
 
 # ⚠️ ПОДНИМАТЬ ПРИ КАЖДОЙ ПРАВКЕ ПРОМПТА ОТБОРА ИЛИ УСТАВА.
 #
@@ -3996,7 +4113,10 @@ APP_LATEST_NAME = "1.7.12"
 #      том, что второй этап судит по заголовку. Возвращаться к этому только
 #      с телами статей и через холостую сверку.
 # 17 — живой блог в правиле title_mismatch: заголовок про одно, пост про другое
-RULES_VERSION = 17
+# 18 — шов RepeatedLead / обрезка после точки / перечень дисциплин целиком
+# 19 — анонс гаджета с ценой в заголовке = витрина (iXBT OmniBook HP)
+# 20 — протокольная хроника (чиновник на церемонии) = не новость, все пулы
+RULES_VERSION = 20
 
 AI_CACHE = {}
 # Разобранные ИИ страницы: адрес → текст новости. Без этой памяти мы платили
@@ -4352,6 +4472,12 @@ def _rule_cull(items, lang="?"):
         if QC_WEATHER.search(title):
             why["погода"] += 1
             continue
+        if QC_GADGET_LAUNCH.search(title):
+            why["анонс гаджета с ценой"] += 1
+            continue
+        if _is_protocol_chronicle(title):
+            why["протокольная хроника"] += 1
+            continue
         kept.append(item)
 
     if why:
@@ -4663,9 +4789,11 @@ priority=2 — события региона {pool['region']}:
 
 ═══ ПРАВИЛО №4 — ПОДОЗРЕНИЕ НА СКРЫТУЮ РЕКЛАМУ ═══
 Явную рекламу сняли до тебя. Но если что-то всё же похоже на промо — единственный
-герой материала бренд, перечислены тарифы или условия, — не удаляй, а добавь
-номер в "ad_suspects". Такие новости получат короткий срок жизни и сами исчезнут
-при следующем обновлении. Это подстраховка, а не наказание: ошибиться не страшно.
+герой материала бренд, перечислены тарифы или условия, анонс одной модели
+гаджета с ценой и характеристиками («выпустила ноутбук … стоит от …») —
+не удаляй, а добавь номер в "ad_suspects". Такие новости получат короткий срок
+жизни и сами исчезнут при следующем обновлении. Это подстраховка, а не
+наказание: ошибиться не страшно.
 
 ═══ КАТЕГОРИИ ═══
 URGENT=экстренное — событие, а не тенденция: землетрясение, война, теракт,
@@ -4728,6 +4856,11 @@ VIRAL=вирусное видео, NEWS=всё остальное
   · подборка советов, инструкция, «как выбрать», «десять способов»
   · анонс будущего («на следующей неделе состоится») без самого события
   · пересказ чужой передачи или подкаста
+  · протокольная хроника: чиновник приехал, открыл, засеял, принял участие,
+    посетил заставу, посмотрел спартакиаду — и больше ничего не изменилось.
+    То же во всех пулах. Открытие завода с рабочими местами или первые
+    банкноты нового номинала — событие; «принял участие в открытии» без
+    последствий — нет
 
 НЕ помечай:
   · назывной анонс, за которым событие ВИДНО В ТЕКСТЕ. Французские и
@@ -5322,7 +5455,11 @@ def _gemini_translate(items, target_lang):
                  "pt": "португальский", "fr": "французский"}
     numbered = []
     for i, it in enumerate(items, 1):
-        numbered.append(f"{i}. ЗАГОЛОВОК: {it.get('title','')}\n   ТЕКСТ: {(it.get('summary') or '')[:900]}")
+        # Резать исходник счётчиком знаков нельзя: ИИ получал обрубок
+        # посреди слова и честно переводил обрубок. Граница — та же, что у
+        # всего остального текста в проекте (правило 23.08: одна обрезка)
+        src_text = trim_to_boundary(it.get("summary") or "", 900, hard=True)
+        numbered.append(f"{i}. ЗАГОЛОВОК: {it.get('title','')}\n   ТЕКСТ: {src_text}")
 
     prompt = f"""Переведи новости на {LANG_NAME.get(target_lang, target_lang)} язык.
 
@@ -5349,11 +5486,47 @@ def _gemini_translate(items, target_lang):
         out = []
         for i in range(1, len(items) + 1):
             row = data.get(str(i)) or {}
-            out.append((row.get("title", "").strip(), row.get("summary", "").strip()))
+            # ПЕРЕВОД ТОЖЕ ОБРЫВАЕТСЯ. Замер 20.09.2026 по всем пулам: из 19
+            # текстов, кончавшихся вообще без знака препинания, 13 были
+            # переведёнными. ensure_terminated написан 03.09 ровно от этой
+            # беды, но путь перевода его не звал — единственный из всех
+            out.append((
+                row.get("title", "").strip(),
+                ensure_terminated(row.get("summary", "").strip()),
+            ))
         return out
     except Exception as e:
         print(f"  ⚠️ Перевод через ИИ не удался: {str(e)[:80]}")
         return None
+
+
+# ПЕРЕВОД ИДЁТ ПОРЦИЯМИ, И ПОРЦИЯ ЗДЕСЬ МАЛЕНЬКАЯ.
+#
+# У отбора порция 60, у первичного сита 120 — там модель отвечает вердиктом в
+# пару слов. Перевод же обязан ВЫДАТЬ заголовок и всё тело на каждую новость:
+# это самая тяжёлая по ответу работа во всём сборе. Порции у неё не было вовсе
+# — в один запрос уходил весь пул, до семидесяти статей разом.
+#
+# Модель не отказывалась: она молча УКЛАДЫВАЛАСЬ в свой ответ, пересказывая.
+# Замер 20.09.2026 по 96 переведённым новостям, у которых сохранён оригинал:
+# 84 потеряли больше пятой части текста, медиана сохранности 46%, худший
+# случай 1649 знаков → 129 (7%). В промпте при этом прямым текстом стоит «Не
+# сокращай и не пересказывай» — просьба не спасает, когда не хватает места.
+TRANSLATE_CHUNK = 10
+
+
+def _lost_text(translated: str, original: str) -> bool:
+    """Это уже не перевод, а пересказ — текст усох слишком сильно.
+
+    Перевод меняет длину: романские языки длиннее английского, русский длиннее
+    его же процентов на десять. Но вдвое текст не укорачивается ни при каком
+    языке — значит модель пересказала. Такой ответ отбрасываем так же, как
+    ответ не на том языке, и отдаём тело бесплатному переводчику: он
+    переводит дословно и ничего не сокращает.
+    """
+    if not original or not translated:
+        return False
+    return len(translated) < len(original) * 0.6
 
 
 def _wrong_alphabet(text: str, target_lang: str) -> bool:
@@ -5481,7 +5654,15 @@ def translate_batch(items, target_lang):
             print(f"  💸 ИИ на стопе — перевод {len(pending)} статей через GTX")
             result = None
         else:
-            result = _gemini_translate(pending, target_lang)
+            # Порциями, а не всем пулом разом: иначе модель ужимает текст,
+            # чтобы уложиться в один ответ (см. TRANSLATE_CHUNK)
+            result = []
+            for start in range(0, len(pending), TRANSLATE_CHUNK):
+                part_items = pending[start:start + TRANSLATE_CHUNK]
+                part = _gemini_translate(part_items, target_lang)
+                result.extend(part if part else [("", "")] * len(part_items))
+            if not any(t for t, _ in result):
+                result = None
         now = int(datetime.now().timestamp() * 1000)
 
         for idx, item in enumerate(pending):
@@ -5497,6 +5678,12 @@ def translate_batch(items, target_lang):
             if t and _wrong_alphabet(t, target_lang):
                 t = s_ = ""
 
+            # Тело усохло вдвое и больше — модель пересказала, а не перевела.
+            # Заголовок при этом обычно нормальный, поэтому отбрасываем только
+            # тело: ниже его переведёт GTX, дословно
+            if s_ and _lost_text(s_, os_):
+                s_ = ""
+
             if not t:
                 # Запасной путь: бесплатный переводчик, как раньше
                 t = _gtx_translate(ot[:300], target_lang) or ""
@@ -5505,7 +5692,8 @@ def translate_batch(items, target_lang):
                 # ИИ вернул заголовок, но не текст — такое случается, и раньше
                 # мы молча оставляли английское тело под русским заголовком,
                 # да ещё и запоминали эту пару на двое суток
-                s_ = _gtx_translate(os_[:800], target_lang) or ""
+                s_ = ensure_terminated(
+                    _gtx_translate(trim_to_boundary(os_, 800, hard=True), target_lang) or "")
                 time.sleep(0.15)
             if apply(item, t, s_, ot, os_):
                 translated += 1
@@ -5615,6 +5803,8 @@ def meets_standard(item, lang):
     # эталон следит лишь за тем, чтобы карточка не оказалась пустой
     if not item.get("notifyOnly") and len(body) < 40:
         return False, "текста нет вовсе", notes
+    if looks_cut_inside(body):
+        return False, "текст оборван внутри кавычек", notes
 
     url = item.get("url") or ""
     if not url.startswith("http"):
@@ -5671,6 +5861,77 @@ QC_FILLER_SERVICE = re.compile(
 QC_FILLER_ALONE = re.compile(
     r"(гороскоп|horóscopo|astrological forecast|"
     r"результаты лотереи|lottery results|номера тиража)", re.I)
+
+# Анонс одной модели гаджета с ценником в заголовке — витрина, не новость.
+# iXBT 13.09.2026: «HP выпустила … OmniBook … стоит от 1000 долларов».
+# Без цены не трогаем: «Apple представила iPhone» может быть событием дня.
+QC_GADGET_LAUNCH = re.compile(
+    r"(?:выпустила|представила|представлен[аоы]?|launched|unveiled|announces?)\b"
+    r".{0,70}"
+    r"(?:ноутбук|смартфон|планшет|наушник|видеокарт|монитор|телевизор|"
+    r"laptop|smartphone|tablet|headphones?|gpu|monitor)\b"
+    r".{0,90}"
+    r"(?:стоит|цена|from\s+\$|от\s+\$|от\s+\d|\$\s*\d|доллар|руб|€|евро|yuan)",
+    re.I,
+)
+
+# Протокольная хроника: единственный факт — чиновник на церемонии.
+# 13.09.2026 ru: газон в Кырчыне, «принял участие в открытии», визит на
+# заставу, спартакиада учителей. Устройство одно во всех пулах — не список
+# кыргызских слов.
+QC_PROTOCOL_CHRONICLE = re.compile(
+    r"(?i)(?:"
+    # «принял участие в открытии X» — герой визита, не самого объекта
+    r"(?:принял(?:а|и)?|принимал(?:а|и)?)\s+участие\s+в\s+открытии"
+    r"|participat\w{0,12}\s+(?:in|à|a|en)\s+(?:the\s+)?"
+    r"(?:opening|inauguration|ouverture|inaugura[cç][aã]o|inauguración)"
+    r"|a\s+participé\s+à\s+(?:l['’])?ouverture"
+    r"|asist(?:ió|ieron)\s+a\s+la\s+inauguración"
+    r"|participou\s+d[ae]\s+inaugura"
+    r"|attends?\s+(?:a\s+)?ribbon[\s-]?cutting"
+    r"|\ba\s+inaugur[eé]\b"
+    r"|\binaugurat(?:ed|ed)\b"
+    # церемониальный газон / посев на празднике
+    r"|(?:газон|gazon|césped|gramado|lawn).{0,50}"
+    r"(?:себил|засе|посея|semis|sembr|seed|semé)"
+    r"|(?:себил|засеял\w*|посеял\w*|sembr\w*).{0,40}"
+    r"(?:газон|gazon|césped|lawn)"
+    # спартакиада / sports day сотрудников как единственная тема
+    r"|спартакиад\w*"
+    r"|(?:enseignant|teacher|сотрудник\w*|работник\w*|кызматкер|"
+    r"funcionár\w*|employé\w*).{0,50}"
+    r"(?:спартакиад|sports?\s+day|journée\s+sportive|olimpiada\s+deportiva)"
+    # визит на заставу / outpost без другого факта в заголовке
+    r"|(?:застава|border\s+(?:post|outpost)|poste[\s-](?:frontière|fronteira))"
+    r".{0,30}$"
+    r"|(?:катчысы|секретарь\s+совбеза|national\s+security\s+adviser|"
+    r"secretario\s+de\s+seguridad).{0,80}"
+    r"(?:застава|барды|посетил|visited|visitó|visité)"
+    r")"
+)
+
+
+def _is_protocol_chronicle(text: str) -> bool:
+    """Чиновник на церемонии — и больше ничего.
+
+    Не путать с открытием завода/моста/школы без «принял участие»: там
+    событие — объект, а не визит. Не путать с новостью, где после визита
+    названо решение или цифра последствий — тогда в заголовке обычно есть
+    и то и другое; сомнение оставляем ИИ.
+    """
+    t = (text or "").strip()
+    if not t or not QC_PROTOCOL_CHRONICLE.search(t):
+        return False
+    # Защита: если рядом явное последствие — не режем правилом
+    if re.search(
+        r"(?i)\b(?:завод|фабрик|мост|больниц|школ|рабоч\w*\s+мест|"
+        r"factory|bridge|hospital|jobs?|empleo|usines?|"
+        r"банкнот|тоннел|контрабанд|приговор|погиб|жертв|"
+        r"million|миллион|млн)\b",
+        t,
+    ):
+        return False
+    return True
 
 
 def _is_daily_filler(text: str) -> bool:
@@ -6459,7 +6720,16 @@ _NEVER_URGENT = re.compile(
 # Kun.uz об институте цифровой безопасности в Узбекистане стояла среди мировых.
 POOL_COUNTRIES = {
     "ru": {"KZ", "UZ", "TJ", "RU", "UA", "BY", "AM", "AZ", "GE", "MD", "TM"},
-    "en": {"GB", "IE", "CA", "AU", "NZ", "IN", "NG", "ZA", "JM", "SG"},
+    # MX в английском пуле — не опечатка. Страна может состоять в двух пулах,
+    # и Канада состоит тут же во французском: её читают и по-английски, и
+    # по-французски. С Мексикой то же самое с другой стороны — её новости
+    # нужны читателю в США, а читает он их по-английски.
+    #
+    # Повод (21.09.2026): полка «Новости из» для калифорнийца состояла из
+    # Ирландии, Сингапура и Ямайки — стран, с которыми США связывает только
+    # язык. Мексика же граничит, это первый торговый партнёр, а Калифорния
+    # на 40% латиноамериканская. Соседей в ленте не было, а Сингапур был.
+    "en": {"GB", "IE", "CA", "AU", "NZ", "IN", "NG", "ZA", "JM", "SG", "MX"},
     "es": {"ES", "AR", "CO", "PE", "CL", "EC", "VE", "GT", "CR", "SV", "DO", "UY", "PY", "BO", "PA", "HN", "NI", "CU"},
     "pt": {"PT", "AO", "MZ", "CV", "GW", "ST", "TL"},
     "fr": {"BE", "CH", "CA", "SN", "CI", "MA", "TN", "DZ", "CD", "CM", "ML",
@@ -6798,7 +7068,7 @@ def polish_summary(text: str) -> str:
 
     Теперь чистим КАЖДЫЙ абзац порознь и собираем обратно через пустую строку.
     """
-    src = strip_leading_service((text or "").strip())
+    src = strip_trailing_service(strip_leading_service((text or "").strip()))
     if not src:
         return src
     paras = [p.strip() for p in re.split(r"\n\s*\n|\n", src) if p.strip()]
@@ -6896,6 +7166,20 @@ def quality_gate(items, lang):
             dropped.append((item, "погода — не новость"))
             continue
 
+        # 1е. Анонс гаджета с ценой в заголовке — витрина (iXBT OmniBook HP)
+        if (QC_GADGET_LAUNCH.search(title)
+                or QC_GADGET_LAUNCH.search(item.get("origTitle") or "")):
+            dropped.append((item, "анонс гаджета с ценой — не новость"))
+            continue
+
+        # 1ж. Протокольная хроника: чиновник на церемонии без последствий.
+        # Домашние агентства заливают этим полку местных (газон, застава,
+        # «принял участие в открытии»). Правило одно на все пулы.
+        if (_is_protocol_chronicle(title)
+                or _is_protocol_chronicle(item.get("origTitle") or "")):
+            dropped.append((item, "протокольная хроника — не новость"))
+            continue
+
         # 1б. Подпись к видеонарезке вместо новости.
         #
         # Заголовок обещает событие («Уильямс проиграла Аранго»), а в тексте —
@@ -6954,6 +7238,10 @@ def quality_gate(items, lang):
         if peeled != body:
             body = peeled
             fixed["служебный зачин"] += 1
+        peeled = strip_trailing_service(body)
+        if peeled != body:
+            body = peeled
+            fixed["служебный хвост"] += 1
 
         # 3. Хвост и обрыв на полуслове
         cleaned = strip_tail(body)
@@ -7666,17 +7954,28 @@ def main():
         # снятый после него слепок не содержал бы выброшенного — сверка
         # показывала бы ноль расхождений всегда
         cull_input = list(group)
-        group = _cull_chunk_loop(group, lang)
+        # Штатные (region) — своя полка. Правило №1 второго этапа («региональное
+        # без общенационального значения — выкинь») как раз убивало Вайоминг,
+        # Халиско, Фонтанку: для пула это шум, для читателя штата — вся полка.
+        # Через ИИ-отбор «для кого пул» их не гоняем; остаётся этап 0 и quality_gate.
+        regionals_in = [x for x in group if x.get("region")]
+        nationals_in = [x for x in group if not x.get("region")]
+        if regionals_in:
+            print(f"  🗺️ Штатных в стороне [{lang}]: {len(regionals_in)} "
+                  f"(не судим правилом «для кого пул»)")
+        nationals_in = _cull_chunk_loop(nationals_in, lang)
+        regionals_kept = _rule_cull(regionals_in, lang)
 
         filtered = []
-        for i in range(0, len(group), 80):
-            batch = group[i:i+80]
+        for i in range(0, len(nationals_in), 80):
+            batch = nationals_in[i:i+80]
             filtered_batch = filter_with_gemini(batch, lang)
             filtered.extend(filtered_batch)
+        filtered.extend(regionals_kept)
         # Куда деваются новости домашних изданий. В испанском пуле мексиканские
         # газеты дают два десятка статей, а до ленты доходит десяток — потери
         # надо видеть поимённо, иначе лечим вслепую
-        home_in = Counter(x.get("source", "?") for x in group if _is_home_source(x, lang))
+        home_in = Counter(x.get("source", "?") for x in nationals_in if _is_home_source(x, lang))
         home_out = Counter(x.get("source", "?") for x in filtered if _is_home_source(x, lang))
         if home_in:
             parts = [f"{s} {home_out.get(s,0)}/{n}" for s, n in home_in.most_common()]
@@ -7726,70 +8025,155 @@ def main():
             c = Counter(x.get("scope", "?") for x in items)
             return f"местных {c.get('local',0)}, своего языка {c.get('pool',0)}, мировых {c.get('world',0)}"
         before = _shelves(filtered)
-        # Бронь для своих полок.
+        # Бронь и потолок полок — с умом, не «кто первый в списке».
         #
-        # Отсечка до max_items шла строго по весу издания и полку не замечала.
-        # Крупные мировые издания вытесняли местные новости: 19.08 в английском
-        # пуле после отбора было 48 местных, а в ленту попал 21 — 27 своих
-        # новостей выброшено ради мировых, которые читатель прочтёт где угодно.
-        # Это прямо противоречит нашей же политике: «местная ценнее мировой».
+        # Пол (floor): столько мест полка получает обязательно, если материал
+        # есть. Потолок (ceil): больше не берём, пока у других полок ещё есть
+        # достойные новости. Иначе остаток после полов забивают местные
+        # priority=2, и мир сжимается до девяти (es, 13.09.2026: 28 local /
+        # 9 world при живых BBC Mundo и El País на входе).
         #
-        # Даём местным 40% ленты, языковому пространству 20%, остальное
-        # разыгрывается по важности между всеми. Это не квота, а ПОЛ: если
-        # местных мало (испанский пул — их десяток), никто не простаивает,
-        # свободные места забирают мировые, как и раньше.
-        # Пол нужен КАЖДОЙ полке, а не только местной: на проверке бронь для
-        # своих оставила английскому пулу восемь мировых новостей из тридцати
-        # восьми. Читатель приходит и за миром тоже — «Тикер 24/7» обещает три
-        # уровня, а не один. Сумма полов меньше ленты: остаток разыгрывается по
-        # важности, и там, где своих новостей много, они его и заберут.
-        floors = {"local": int(max_items * 0.40),
-                  "pool": int(max_items * 0.20),
-                  "world": int(max_items * 0.30)}
+        # Внутри полки берём лучшие: выше priority, есть фото, длиннее текст,
+        # срочные первыми. Режем и добираем по качеству, а не кастрируем MX
+        # квоты вслепую.
+        floors = {"local": int(max_items * 0.32),
+                  "pool": int(max_items * 0.18),
+                  "world": int(max_items * 0.32)}
+        ceilings = {"local": int(max_items * 0.42),
+                    "pool": int(max_items * 0.28),
+                    "world": int(max_items * 0.42)}
+
+        def _quality(x):
+            score = int(x.get("priority") or 0) * 10
+            if x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY"):
+                score += 8
+            if x.get("imageUrl"):
+                score += 3
+            body = x.get("summary") or x.get("text") or ""
+            if len(body) >= 500:
+                score += 3
+            elif len(body) >= 250:
+                score += 1
+            # Без ИИ английский мир часто не переводится и потом снимается.
+            # Уже на языке пула (BBC Русская и т.п.) тогда надёжнее: иначе
+            # полка мировых остаётся из пары карточек (ru, 15.09.2026).
+            if AI_STOPPED and not needs_translation(x, lang):
+                score += 20
+            return score
+
         # Штатные издания не делят 70 мест с национальными. Иначе техасец
         # видит три карточки Tribune, а флоридские занимают слоты, которых
-        # ему на полке штата не показывают.
+        # ему на полке штата не показывают. До 10 на регион — полка штата
+        # читается как местные (13.09.2026: пяти для Флориды мало; правило
+        # одно на все штаты).
         regionals = [x for x in capped if x.get("region")]
         nationals = [x for x in capped if not x.get("region")]
-        # Без ИИ английский мир часто не переводится и потом снимается.
-        # Уже на языке пула (BBC Русская и т.п.) тогда надёжнее: иначе
-        # полка мировых остаётся из пары карточек (ru, 15.09.2026).
-        if AI_STOPPED:
-            nationals = sorted(
-                nationals,
-                key=lambda x: (
-                    0 if not needs_translation(x, lang) else 1,
-                    -int(x.get("priority") or 0),
-                ),
-            )
-        chosen, taken = [], set()
-        for shelf, floor in floors.items():
-            for x in nationals:
-                if len(chosen) >= max_items:
-                    break
-                if x.get("scope") == shelf and id(x) not in taken \
-                        and sum(1 for c in chosen if c.get("scope") == shelf) < floor:
-                    chosen.append(x)
-                    taken.add(id(x))
+        by_shelf = {"local": [], "pool": [], "world": []}
         for x in nationals:
-            if len(chosen) >= max_items:
-                break
-            if id(x) not in taken:
+            by_shelf.setdefault(x.get("scope") or "world", []).append(x)
+        for shelf in by_shelf:
+            by_shelf[shelf].sort(key=_quality, reverse=True)
+
+        chosen, taken = [], set()
+        # 1. Пол: лучшие с каждой полки
+        for shelf, floor in floors.items():
+            for x in by_shelf.get(shelf, [])[:floor]:
+                if id(x) in taken:
+                    continue
                 chosen.append(x)
                 taken.add(id(x))
+        # 2. Остаток: сначала дотягиваем полки ниже пола, потом лучшие
+        #    без превышения потолка
         leftover = [x for x in nationals if id(x) not in taken]
-        per_region, extra = Counter(), []
-        REGION_CAP, REGION_TOTAL = 10, 120
-        for x in regionals:
+        leftover.sort(key=_quality, reverse=True)
+
+        def _count(shelf):
+            return sum(1 for c in chosen if c.get("scope") == shelf)
+
+        while len(chosen) < max_items and leftover:
+            counts = {s: _count(s) for s in floors}
+            under = [s for s in floors if counts[s] < floors[s]
+                     and any(x.get("scope") == s for x in leftover)]
+            if under:
+                under.sort(key=lambda s: floors[s] - counts[s], reverse=True)
+                want = under[0]
+                pick = next(x for x in leftover if x.get("scope") == want)
+            else:
+                pick = next(
+                    (x for x in leftover
+                     if counts.get(x.get("scope"), 0)
+                     < ceilings.get(x.get("scope"), max_items)),
+                    None,
+                )
+                if pick is None:
+                    # Все у потолка — берём лучшее, что осталось
+                    pick = leftover[0]
+            chosen.append(pick)
+            taken.add(id(pick))
+            leftover = [x for x in leftover if id(x) not in taken]
+
+        # Тематические рубрики не должны съедать ленту. 13.09.2026 ru: TECH
+        # занял ~30% (шахматы, суд, возвращение мигрантов). Потолок один на
+        # все пулы — лишнее уступает лучшим с других рубрик.
+        theme_ceil = {
+            "TECH": max(4, int(max_items * 0.12)),
+            "STARS": max(2, int(max_items * 0.08)),
+            "FASHION": max(2, int(max_items * 0.06)),
+        }
+        for cat, lim in theme_ceil.items():
+            in_cat = [x for x in chosen if x.get("category") == cat]
+            if len(in_cat) <= lim:
+                continue
+            in_cat.sort(key=_quality)  # худшие первыми
+            cut = in_cat[: len(in_cat) - lim]
+            for x in cut:
+                chosen.remove(x)
+                taken.discard(id(x))
+                leftover.append(x)
+            leftover.sort(key=_quality, reverse=True)
+            print(f"  🎛️ Рубрика {cat} [{lang}]: {len(in_cat)} → {lim}")
+            while len(chosen) < max_items and leftover:
+                pick = next(
+                    (x for x in leftover
+                     if x.get("category") not in theme_ceil
+                     or sum(1 for c in chosen if c.get("category") == x.get("category"))
+                     < theme_ceil.get(x.get("category"), max_items)),
+                    None,
+                )
+                if pick is None:
+                    break
+                chosen.append(pick)
+                taken.add(id(pick))
+                leftover = [x for x in leftover if id(x) not in taken]
+
+        per_region, extra, taken_reg = Counter(), [], set()
+        # Сначала пол: у каждого региона свои карточки, иначе TX/CA по качеству
+        # забивают REGION_TOTAL, а Вайоминг остаётся с нулём (13.09.2026).
+        REGION_FLOOR, REGION_CAP, REGION_TOTAL = 3, 10, 400
+        by_reg = defaultdict(list)
+        for x in sorted(regionals, key=_quality, reverse=True):
+            by_reg[x.get("region")].append(x)
+        for r, xs in by_reg.items():
+            for x in xs[:REGION_FLOOR]:
+                if len(extra) >= REGION_TOTAL:
+                    break
+                extra.append(x)
+                taken_reg.add(id(x))
+                per_region[r] += 1
+        for x in sorted(regionals, key=_quality, reverse=True):
+            if id(x) in taken_reg:
+                continue
             r = x.get("region")
             if per_region[r] >= REGION_CAP or len(extra) >= REGION_TOTAL:
                 continue
             extra.append(x)
+            taken_reg.add(id(x))
             per_region[r] += 1
         filtered = chosen + extra
         print(f"  📚 Полки [{lang}]: после ИИ — {before}; "
               f"после отсечки до {max_items} — {_shelves(chosen)}; "
-              f"штатных +{len(extra)} ({len(per_region)} регионов)")
+              f"штатных +{len(extra)} ({len(per_region)} регионов, "
+              f"пол {REGION_FLOOR}/потолок {REGION_CAP})")
         # Автоперевод: статьи не на языке пула переводим через Gemini
         # Батчи по 15 + один повтор для неудавшихся — падение батча не оставляет
         # половину пула на чужом языке (приложение фильтрует их из ленты)
@@ -7817,14 +8201,16 @@ def main():
                 filtered = [x for x in filtered if x not in stuck]
                 # Дыры после снятия не оставляем пустыми. 15.09.2026 ru: было
                 # 33 мировых до перевода, после снятия — 4. Из остатка берём
-                # то, что уже на языке пула, сначала полки ниже пола.
+                # то, что уже на языке пула (перевод не нужен), сначала полки
+                # ниже пола, потом до max_items. Штатные (region) не трогаем —
+                # leftover и так только национальные.
                 nationals_now = [x for x in filtered if not x.get("region")]
                 regionals_now = [x for x in filtered if x.get("region")]
                 in_air = {id(x) for x in filtered}
                 ready = [x for x in leftover
                          if id(x) not in in_air
                          and not needs_translation(x, lang)]
-                ready.sort(key=lambda x: -int(x.get("priority") or 0))
+                ready.sort(key=_quality, reverse=True)
 
                 def _on_shelf(shelf):
                     return sum(1 for c in nationals_now if c.get("scope") == shelf)

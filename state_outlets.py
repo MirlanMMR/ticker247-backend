@@ -103,34 +103,42 @@ STATE_RSS = [
     _paper("https://wisconsinwatch.org/feed/", "Wisconsin Watch", "US-WI"),
     _paper("https://wyofile.com/feed/", "WyoFile", "US-WY"),
     _paper("https://thedcline.org/feed/", "The DC Line", "US-DC"),
+    # Delaware Current: домен delawarecurrent.org сдох (NXDOMAIN, 13.09.2026).
     _paper("https://spotlightdelaware.org/feed/", "Spotlight Delaware", "US-DE"),
 
     # Техас. Tribune уже в общем списке; здесь городские некоммерческие —
     # Хьюстон, Даллас/Форт-Уэрт, Сан-Антонио, Эль-Пасо, Остин.
-    _paper("https://www.texasobserver.org/feed/", "Texas Observer", "US-TX", quota=3, priority=1),
-    _paper("https://houstonlanding.org/feed/", "Houston Landing", "US-TX", quota=3, priority=1),
-    _paper("https://sanantonioreport.org/feed/", "San Antonio Report", "US-TX", quota=2),
-    _paper("https://elpasomatters.org/feed/", "El Paso Matters", "US-TX", quota=2),
-    _paper("https://fortworthreport.org/feed/", "Fort Worth Report", "US-TX", quota=2),
-    _paper("https://www.austinmonitor.com/feed/", "Austin Monitor", "US-TX", quota=2),
+    # Квота у каждого умеренная: на штат всё равно REGION_CAP=10.
+    _paper("https://www.texasobserver.org/feed/", "Texas Observer", "US-TX", quota=5, priority=1),
+    _paper("https://houstonlanding.org/feed/", "Houston Landing", "US-TX", quota=5, priority=1),
+    _paper("https://sanantonioreport.org/feed/", "San Antonio Report", "US-TX", quota=4),
+    _paper("https://elpasomatters.org/feed/", "El Paso Matters", "US-TX", quota=4),
+    _paper("https://fortworthreport.org/feed/", "Fort Worth Report", "US-TX", quota=4),
+    _paper("https://www.austinmonitor.com/feed/", "Austin Monitor", "US-TX", quota=4),
 
     # Бразилия: ленты G1 по штатам. Национальный G1 остаётся без region.
-    _paper("https://g1.globo.com/rss/g1/sp/sao-paulo/", "G1 São Paulo", "BR-SP", quota=3, lang="pt"),
-    _paper("https://g1.globo.com/rss/g1/rj/rio-de-janeiro/", "G1 Rio", "BR-RJ", quota=3, lang="pt"),
-    _paper("https://g1.globo.com/rss/g1/mg/minas-gerais/", "G1 Minas", "BR-MG", quota=2, lang="pt"),
-    _paper("https://g1.globo.com/rss/g1/pr/parana/", "G1 Paraná", "BR-PR", quota=2, lang="pt"),
-    _paper("https://g1.globo.com/rss/g1/rs/rio-grande-do-sul/", "G1 Rio Grande do Sul", "BR-RS", quota=2, lang="pt"),
-    _paper("https://g1.globo.com/rss/g1/ba/bahia/", "G1 Bahia", "BR-BA", quota=2, lang="pt"),
-    _paper("https://g1.globo.com/rss/g1/df/distrito-federal/", "G1 Distrito Federal", "BR-DF", quota=2, lang="pt"),
-    _paper("https://g1.globo.com/rss/g1/pe/pernambuco/", "G1 Pernambuco", "BR-PE", quota=2, lang="pt"),
-    _paper("https://g1.globo.com/rss/g1/ce/ceara/", "G1 Ceará", "BR-CE", quota=2, lang="pt"),
-    _paper("https://g1.globo.com/rss/g1/sc/santa-catarina/", "G1 Santa Catarina", "BR-SC", quota=2, lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/sp/sao-paulo/", "G1 São Paulo", "BR-SP", lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/rj/rio-de-janeiro/", "G1 Rio", "BR-RJ", lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/mg/minas-gerais/", "G1 Minas", "BR-MG", lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/pr/parana/", "G1 Paraná", "BR-PR", lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/rs/rio-grande-do-sul/", "G1 Rio Grande do Sul", "BR-RS", lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/ba/bahia/", "G1 Bahia", "BR-BA", lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/df/distrito-federal/", "G1 Distrito Federal", "BR-DF", lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/pe/pernambuco/", "G1 Pernambuco", "BR-PE", lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/ce/ceara/", "G1 Ceará", "BR-CE", lang="pt"),
+    _paper("https://g1.globo.com/rss/g1/sc/santa-catarina/", "G1 Santa Catarina", "BR-SC", lang="pt"),
 
-    # Мексика, Индия, Россия — по сильной региональной редакции, не сеть.
-    _paper("https://www.informador.mx/rss/jalisco.xml", "El Informador", "MX-JAL", quota=3, lang="es"),
-    _paper("https://indianexpress.com/section/cities/mumbai/feed/", "Indian Express Mumbai", "IN-MH", quota=2),
-    _paper("https://www.thenewsminute.com/rss.xml", "The News Minute", "IN-KA", quota=2),
-    _paper("https://www.fontanka.ru/fontanka.rss", "Фонтанка", "RU-SPE", quota=3, lang="ru"),
+    # Мексика, Индия, Россия — сильные городские/штатные редакции.
+    # Ленты сверены 13.09.2026 (HTTP 200, есть item).
+    _paper("https://www.informador.mx/rss/jalisco.xml", "El Informador", "MX-JAL", lang="es"),
+    _paper("https://www.elnorte.com/rss/portada.xml", "El Norte", "MX-NLE", lang="es"),
+    _paper("https://www.reforma.com/rss/ciudad.xml", "Reforma Ciudad", "MX-CMX", lang="es"),
+    _paper("https://indianexpress.com/section/cities/mumbai/feed/", "Indian Express Mumbai", "IN-MH"),
+    _paper("https://www.thenewsminute.com/feed", "The News Minute", "IN-KA"),
+    _paper("https://www.thehindu.com/news/cities/chennai/feeder/default.rss", "The Hindu Chennai", "IN-TN"),
+    # Фонтанка: старый fontanka.rss — 404; zen-news с default xmlns
+    # читается через _rss_items (локальное имя тега).
+    _paper("https://www.fontanka.ru/rss-feeds/zen-news.xml", "Фонтанка", "RU-SPE", lang="ru"),
 ]
 
 
@@ -165,6 +173,26 @@ STATE_RADIO = [
     _radio("Vermont Public", "https://vpr.streamguys1.com/vpr64.aac", "US-VT"),
     _radio("VPM News", "https://playerservices.streamtheworld.com/api/livestream-redirect/WCVEFM.mp3", "US-VA"),
     _radio("West Virginia Public Broadcasting", "https://wvpublic.streamguys1.com/wvpb256k.aac", "US-WV"),
+    # Добор пустых штатов (потоки проверены 13.09.2026). Новостные/разговорные.
+    _radio("Wyoming Public Radio", "https://wyoming-public-ice.streamguys1.com/WPR128MP3", "US-WY"),
+    _radio("OPB", "https://stream5.opb.org/radio.mp3", "US-OR"),
+    _radio("WUNC", "https://wunc-ice.streamguys1.com/wunc-128-mp3", "US-NC"),
+    _radio("WABE", "https://playerservices.streamtheworld.com/api/livestream-redirect/WABEFM_HD1.mp3", "US-GA"),
+    _radio("WUWM", "https://www.tundracast.stream:3040/mount3", "US-WI"),
+    _radio("WFYI", "https://wfyi-iad.streamguys1.com/live", "US-IN"),
+    _radio("Iowa Public Radio News", "https://news-stream.iowapublicradio.org/News.mp3", "US-IA"),
+    _radio("Kansas Public Radio", "https://streaming.kansaspublicradio.org:8001/kpr1", "US-KS"),
+    _radio("WFPL", "https://lpm.streamguys1.com/wfpl-aac", "US-KY"),
+    _radio("Nebraska Public Media", "https://playerservices.streamtheworld.com/api/livestream-redirect/KUCVFM.mp3", "US-NE"),
+    _radio("Connecticut Public", "https://playerservices.streamtheworld.com/api/livestream-redirect/WNPRFM.mp3", "US-CT"),
+    _radio("Delaware Public Media", "https://playerservices.streamtheworld.com/api/livestream-redirect/WDDEFM.mp3", "US-DE"),
+    _radio("Hawaii Public Radio", "https://khpr.streamguys1.com/khpr2", "US-HI"),
+    _radio("Prairie Public", "https://playerservices.streamtheworld.com/api/livestream-redirect/KCNDFM.mp3", "US-ND"),
+    _radio("South Dakota Public Broadcasting", "https://playerservices.streamtheworld.com/api/livestream-redirect/KUSDFM.mp3", "US-SD"),
+    _radio("Capital Public Radio", "https://playerservices.streamtheworld.com/api/livestream-redirect/KXJZ.mp3", "US-CA"),
+    _radio("WTOP", "https://playerservices.streamtheworld.com/api/livestream-redirect/WTOPFM.mp3", "US-DC"),
+    _radio("WBAP", "https://playerservices.streamtheworld.com/api/livestream-redirect/WBAPAMAAC.aac", "US-TX"),
+    _radio("NWPB News", "https://nwpb.streamguys1.com/nwprnews-aac-128-icy", "US-WA"),
     # Бразилия и Мексика — городские разговорные, не музыка.
     _radio("CBN Recife", "https://video09.logicahost.com.br/cbnrecife/cbnrecife/playlist.m3u8", "BR-PE", pool="pt"),
     _radio("El Heraldo Guadalajara", "https://stream.radiojar.com/21h1m4cch8nwv", "MX-JAL", pool="es"),

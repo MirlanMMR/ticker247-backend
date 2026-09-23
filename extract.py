@@ -428,7 +428,13 @@ class CreditSanitizer(BaseSanitizer):
 
 
 class FooterLinkSanitizer(BaseSanitizer):
-    """Снимает хвост: «Читайте также», «Подпишитесь», «Следите за нами»."""
+    """Снимает служебный хвост: «читайте также», paywall, плашка автора.
+
+    13.09.2026 Jeune Afrique: после тизера — слоган, призыв подписаться
+    читать дальше, должность редактора. Правило общее на все пулы — см.
+    textcut.strip_trailing_service: по устройству хвоста, не по слогану
+    одного сайта.
+    """
     name = "хвост со ссылками"
     _RX = re.compile(
         r"^\s*(читайте также|подпишитесь|следите за нами|read more|"
@@ -436,7 +442,11 @@ class FooterLinkSanitizer(BaseSanitizer):
         r"lea también|siga-nos|leia também|voir aussi)\b", re.I)
 
     def apply(self, text: str) -> str:
-        lines = text.split("\n")
+        from textcut import strip_trailing_service
+        out = strip_trailing_service(text or "")
+        if out != (text or "") and len(out) >= 80:
+            return out
+        lines = (text or "").split("\n")
         for i, ln in enumerate(lines):
             if self._RX.match(ln):
                 head = "\n".join(lines[:i]).strip()
@@ -568,6 +578,18 @@ class RepeatedLeadSanitizer(BaseSanitizer):
     # Шов: строчная буква, пробел, прописная — и ни одного знака конца
     # предложения между ними. Так выглядит место склейки лида с материалом
     _SEAM = re.compile(r"(?<=[а-яёa-z]) (?=[А-ЯЁA-Z])")
+    # Перед швом не должно стоять служебное слово: иначе режем середину
+    # фразы. Kaktus 13.09.2026: заголовок + дата + «Иран получил от Китая…»
+    # — шов на «от Китая», и начало становилось «Китая спутниковые…»
+    _TAIL_PREP = frozenset({
+        "а", "и", "но", "или", "же", "ли", "бы", "не", "ни",
+        "в", "во", "к", "ко", "с", "со", "у", "о", "об", "обо", "за",
+        "на", "по", "от", "из", "для", "при", "без", "про", "над", "под",
+        "через", "между", "около", "перед", "после", "среди",
+        "of", "to", "in", "on", "for", "at", "by", "from", "with",
+        "the", "a", "an", "and", "or", "but", "as", "into", "onto",
+        "about", "over", "under",
+    })
 
     def apply(self, text: str) -> str:
         body = " ".join((text or "").split())
@@ -599,10 +621,15 @@ class RepeatedLeadSanitizer(BaseSanitizer):
             # скотомогильников (ям Беккари)» резало на «Беккари) и 39…»
             if prefix.count("(") > prefix.count(")"):
                 continue
+            last = re.findall(r"[^\W\d_]+", prefix)
+            if not last or last[-1].lower() in self._TAIL_PREP:
+                continue
             # И тот же смысл идёт дальше: три значимых слова из лида
-            # встречаются в начале материала
+            # встречаются в начале материала целиком, не как подстрока
+            # («получил» внутри «получили» — не считается)
             words = {w.lower() for w in re.findall(r"[^\W\d_]{5,}", prefix)}
-            again = sum(1 for w in words if w in tail[:400].lower())
+            tail_words = set(re.findall(r"[^\W\d_]{5,}", tail[:400].lower()))
+            again = sum(1 for w in words if w in tail_words)
             if again >= 3:
                 return tail.strip()
         return text
