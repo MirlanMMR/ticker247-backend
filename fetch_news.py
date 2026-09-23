@@ -1210,11 +1210,12 @@ RADIO_STATIONS = [
     {"name": "Times Radio",      "url": "https://timesradio.wireless.radio/stream",                                    "pool": "en", "colorFrom": "FF22303C", "colorTo": "FF44637D"},
 
     {"name": "Cadena SER",       "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3","pool": "es", "colorFrom": "FF3A2036", "colorTo": "FF7C3F6E"},
-    {"name": "COPE",             "url": "https://flucast13-h-cloud.flumotion.com/cope/net1.mp3",                        "pool": "es", "colorFrom": "FF20303A", "colorTo": "FF3F6C82"},
     {"name": "Catalunya Informació","url": "https://shoutcast.ccma.cat/ccma/catalunyainformacioHD.mp3",                "pool": "es", "colorFrom": "FF33291C", "colorTo": "FF7A6134"},
-    {"name": "W Radio",          "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/WRADIOAAC.aac","pool": "es", "colorFrom": "FF2A1F3D", "colorTo": "FF5C3F87"},
-    {"name": "El Heraldo Radio", "url": "https://stream.radiojar.com/ce31v3yah8nwv",                                   "pool": "es", "colorFrom": "FF3A1F2A", "colorTo": "FF7E3F5C"},
-    {"name": "Radio UNAM",       "url": "https://tv.radiohosting.online:9486/stream",                                  "pool": "es", "colorFrom": "FF1F3A2E", "colorTo": "FF357E62"},
+    # 22.09.2026: колумбийская студия под общим именем (icy-url wradio.com.co)
+    # показывалась всему es-пулу и путала мексиканцев музыкой не по теме —
+    # привязана к Колумбии. COPE (400), El Heraldo Radio (radiojar, 404) и
+    # Radio UNAM (жива, но культурная/музыкальная, не новостная) — убраны.
+    {"name": "W Radio",          "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/WRADIOAAC.aac","pool": "es", "colorFrom": "FF2A1F3D", "colorTo": "FF5C3F87", "countries": "CO"},
     {"name": "Caracol Radio",    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CARACOL_RADIOAAC.aac","pool": "es", "colorFrom": "FF3D2A1F", "colorTo": "FF8A5B33"},
 
     {"name": "BandNews FM",      "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/BANDNEWSFM_SP_ADP.aac","pool": "pt", "colorFrom": "FF1F3340", "colorTo": "FF2F6C88", "countries": "BR"},
@@ -1222,6 +1223,71 @@ RADIO_STATIONS = [
     {"name": "CBN Rio",          "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_RJ_ADP.aac","pool": "pt", "colorFrom": "FF2B2438", "colorTo": "FF574A80", "countries": "BR", "region": "BR-RJ"},
     {"name": "Rádio Itatiaia",   "url": "https://8903.brasilstream.com.br/stream",                                     "pool": "pt", "colorFrom": "FF3A2622", "colorTo": "FF7E4C3D", "countries": "BR", "region": "BR-MG"},
     {"name": "Renascença",       "url": "https://22653.live.streamtheworld.com/RADIO_RENASCENCA_SC",                    "pool": "pt", "colorFrom": "FF1E2A3A", "colorTo": "FF3C5B85"},
+
+    # ─── Добор по странам (22.09.2026) ─────────────────────────────────────
+    # Цель: при открытии в любой стране пула — своя станция, не только общий
+    # фолбэк. Отбор тот же: серьёзные вещатели, без музыки/религии/
+    # ретрансляторов чужого контента под местной вывеской. Только https.
+    # ru
+    {"name": "Радіо Свобода (Україна)", "url": "https://rferl-ingest.akamaized.net/hls/live/2121754/axia07/master.m3u8", "pool": "ru", "colorFrom": "FF1A2A4A", "colorTo": "FF2F5AA6", "countries": "UA"},
+    {"name": "Радыё Свабода (Беларусь)", "url": "https://rferl-ingest.akamaized.net/hls/live/2121757/axia10/master.m3u8", "pool": "ru", "colorFrom": "FF3A1F1F", "colorTo": "FF7A2F2F", "countries": "BY"},
+    {"name": "Ազատություն (Армения)", "url": "https://rferl-ingest.akamaized.net/hls/live/2121750/axia02/master.m3u8", "pool": "ru", "colorFrom": "FF2A1F3A", "colorTo": "FF5A3F8A", "countries": "AM"},
+    {"name": "Azadlıq Radiosu (Азербайджан)", "url": "https://rferl-ingest.akamaized.net/hls/live/2121744/axia15/master.m3u8", "pool": "ru", "colorFrom": "FF1F3A3A", "colorTo": "FF2F7A7A", "countries": "AZ"},
+    {"name": "Радио Азаттык (Таджикистан)", "url": "https://rferl-ingest.akamaized.net/hls/live/2121756/axia09/master.m3u8", "pool": "ru", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "TJ"},
+    {"name": "რადიო თავისუფლება (Грузия)", "url": "https://rferl-ingest.akamaized.net/hls/live/2121758/axia11/master.m3u8", "pool": "ru", "colorFrom": "FF3A2A1F", "colorTo": "FF8A5A2F", "countries": "GE"},
+    {"name": "Europa Liberă (Молдова)", "url": "https://rferl-ingest.akamaized.net/hls/live/2121763/axia18/master.m3u8", "pool": "ru", "colorFrom": "FF2A3A1F", "colorTo": "FF5A8A2F", "countries": "MD"},
+    # en
+    {"name": "LBC News London", "url": "https://icecast.thisisdax.com/LBCNewsLondonMP3", "pool": "en", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "GB"},
+    {"name": "BBC Radio London", "url": "https://as-hls-ww-live.akamaized.net/pool_98137350/live/ww/bbc_london/bbc_london.isml/bbc_london-audio=96000.norewind.m3u8", "pool": "en", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "GB"},
+    {"name": "Nigeria Info FM Lagos", "url": "https://nigeriainfofmlagos993-atunwadigital.streamguys1.com/nigeriainfofmlagos993", "pool": "en", "colorFrom": "FF3A2A1E", "colorTo": "FF7A4A2F", "countries": "NG"},
+    {"name": "SAfm", "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/SAFM.mp3", "pool": "en", "colorFrom": "FF23303A", "colorTo": "FF3D6B7A", "countries": "ZA"},
+    {"name": "CapeTalk", "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/CAPE_TALK.mp3", "pool": "en", "colorFrom": "FF23303A", "colorTo": "FF3D6B7A", "countries": "ZA"},
+    {"name": "Radio 702", "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/FM702.mp3", "pool": "en", "colorFrom": "FF23303A", "colorTo": "FF3D6B7A", "countries": "ZA"},
+    {"name": "RJR News (RJR 94 FM)", "url": "https://stream.zeno.fm/ebqnzkvyv9duv", "pool": "en", "colorFrom": "FF2F2A1E", "colorTo": "FF7A5B2F", "countries": "JM"},
+    {"name": "Nationwide 90FM", "url": "https://stream.zeno.fm/a3wmsfazfv5tv", "pool": "en", "colorFrom": "FF2F2A1E", "colorTo": "FF7A5B2F", "countries": "JM"},
+    {"name": "Newstalk 93 FM", "url": "https://newstalk93fm.radioca.st/stream", "pool": "en", "colorFrom": "FF2F2A1E", "colorTo": "FF7A5B2F", "countries": "JM"},
+    {"name": "CNA938", "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/938NOW.mp3", "pool": "en", "colorFrom": "FF1E2A3A", "colorTo": "FF2F5B7A", "countries": "SG"},
+    {"name": "Money FM 89.3", "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/MONEY_893.mp3", "pool": "en", "colorFrom": "FF1E2A3A", "colorTo": "FF2F5B7A", "countries": "SG"},
+    # es
+    {"name": "Radio Quito", "url": "https://streamingecuador.net:8332/radioquito", "pool": "es", "colorFrom": "FF2B3A34", "colorTo": "FF3F6B57", "countries": "EC"},
+    {"name": "Emisoras Unidas", "url": "https://stream.zenolive.com/tfcgfdag9ueuv", "pool": "es", "colorFrom": "FF2B2F3A", "colorTo": "FF3F4E7A", "countries": "GT"},
+    {"name": "Radio Columbia", "url": "https://s2.radio.co/s83b86382e/listen", "pool": "es", "colorFrom": "FF223A2B", "colorTo": "FF2E6B45", "countries": "CR"},
+    {"name": "Radio Cadena YSKL", "url": "https://media.dominiocreativo.com:8000/radioyskl", "pool": "es", "colorFrom": "FF3A2E2B", "colorTo": "FF7A5A3F", "countries": "SV"},
+    {"name": "Radio Carve", "url": "https://icecast15.innovanexo.com:9000/radiocarve850.mp3", "pool": "es", "colorFrom": "FF352B3A", "colorTo": "FF5F3F7A", "countries": "UY"},
+    {"name": "Radio Sarandí", "url": "https://radiolatina.live:10977/sarandi", "pool": "es", "colorFrom": "FF2B333A", "colorTo": "FF3F587A", "countries": "UY"},
+    {"name": "Radio Fides", "url": "https://usa7.fastcast4u.com/proxy/grflores?mp=/1", "pool": "es", "colorFrom": "FF2B3A31", "colorTo": "FF3F7A5E", "countries": "BO"},
+    {"name": "RPC Radio", "url": "https://s9.stweb.tv/thinkindot-fast-3/live/playlist.m3u8", "pool": "es", "colorFrom": "FF3A2B36", "colorTo": "FF7A3F62", "countries": "PA"},
+    {"name": "Radio Corporación", "url": "https://stream.zeno.fm/gwkd66k0a7duv", "pool": "es", "colorFrom": "FF3A2B2E", "colorTo": "FF7A3F52", "countries": "NI"},
+    {"name": "Radio Reloj", "url": "https://icecast.teveo.cu/b3jbfThq", "pool": "es", "colorFrom": "FF2B2E3A", "colorTo": "FF3F4E78", "countries": "CU"},
+    {"name": "RCR 750 AM (Radio Caracas Radio)", "url": "https://stream.zeno.fm/6nbsqurulvtuv", "pool": "es", "colorFrom": "FF7A1F1F", "colorTo": "FFB33A3A", "countries": "VE"},
+    {"name": "Z101 Digital FM", "url": "https://streaming.z101digital.com/z101", "pool": "es", "colorFrom": "FF1E3A6F", "colorTo": "FF2F6BAA", "countries": "DO"},
+    {"name": "Radio Ñandutí", "url": "https://sc.host-live.com:10945/stream", "pool": "es", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "PY"},
+    {"name": "Radio Nacional de Honduras", "url": "https://stream.zeno.fm/mb5f69fk0d0uv", "pool": "es", "colorFrom": "FF4A2F6F", "colorTo": "FF7A5BAA", "countries": "HN"},
+    # pt
+    {"name": "RNA Canal A", "url": "https://paineldj5.com.br:20087/stream", "pool": "pt", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "AO"},
+    {"name": "RNA Internacional", "url": "https://live.paineldj.com.br/proxy/rnangola?mp=/stream", "pool": "pt", "colorFrom": "FF203320", "colorTo": "FF3D8A5C", "countries": "AO"},
+    {"name": "Miramar FM", "url": "https://nl.digitalrm.pt:8150/stream", "pool": "pt", "colorFrom": "FF2B2118", "colorTo": "FF6B4226", "countries": "MZ"},
+    {"name": "RCV - Rádio de Cabo Verde", "url": "https://a8.my-control-panel.com:8670/radio.mp3", "pool": "pt", "colorFrom": "FF1B2A4A", "colorTo": "FF3B5998", "countries": "CV"},
+    {"name": "Rádio Nacional da Guiné-Bissau", "url": "https://sp0.redeaudio.com:10918/;", "pool": "pt", "colorFrom": "FF3A1F1F", "colorTo": "FF7A2E2E", "countries": "GW"},
+    # fr
+    {"name": "RTS RSI (Radio Sénégal International)", "url": "https://10gb1.acangroup.org:8000/rsi", "pool": "fr", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "SN"},
+    {"name": "iRadio Sénégal", "url": "https://listen.radioking.com/radio/822561/stream/891586", "pool": "fr", "colorFrom": "FF17342A", "colorTo": "FF278F6C", "countries": "SN"},
+    {"name": "Life Radio Côte d'Ivoire", "url": "https://cast4.asurahosting.com/proxy/life/stream", "pool": "fr", "colorFrom": "FF5A3418", "colorTo": "FF9C5A28", "countries": "CI"},
+    {"name": "Radio Jam", "url": "https://listen.radioking.com/radio/61201/stream/98566", "pool": "fr", "colorFrom": "FF4A2A10", "colorTo": "FFB06A20", "countries": "CI"},
+    {"name": "Médi1 Radio", "url": "https://cdn.live.easybroadcast.io/live/83_medi1radio-maghreb_8s9i4bn/playlist.m3u8", "pool": "fr", "colorFrom": "FF5A1620", "colorTo": "FF9C2A3A", "countries": "MA"},
+    {"name": "Atlantic Radio Maroc", "url": "https://atlantic-sonic.nindohost.net:9300/stream", "pool": "fr", "colorFrom": "FF401018", "colorTo": "FF80202C", "countries": "MA"},
+    {"name": "Mosaïque FM", "url": "https://radio.mosaiquefm.net/mosalive", "pool": "fr", "colorFrom": "FF4A1420", "colorTo": "FF821F38", "countries": "TN"},
+    {"name": "Express FM", "url": "https://expressfm.ice.infomaniak.ch/expressfm-64.mp3", "pool": "fr", "colorFrom": "FF381018", "colorTo": "FF6E1E2E", "countries": "TN"},
+    {"name": "Algérie Chaîne 3", "url": "https://radiochaine3.ice.infomaniak.ch/chaine3.mp3", "pool": "fr", "colorFrom": "FF163D2E", "colorTo": "FF2A6B4E", "countries": "DZ"},
+    {"name": "Radio Algérie Internationale", "url": "https://radiointernationale.ice.infomaniak.ch/internationale.mp3", "pool": "fr", "colorFrom": "FF10302A", "colorTo": "FF1F5C4E", "countries": "DZ"},
+    {"name": "Top Congo FM", "url": "https://topcongofm2.ice.infomaniak.ch/topcongofm2-64.mp3", "pool": "fr", "colorFrom": "FF102238", "colorTo": "FF1E4468", "countries": "CD"},
+    {"name": "RTB - Radiodiffusion Télévision du Burkina", "url": "https://misty-smoke-beb9.armandkiendre.workers.dev", "pool": "fr", "colorFrom": "FF4A3010", "colorTo": "FF8A5A20", "countries": "BF"},
+    {"name": "ORTB Radio Bénin (La Nationale)", "url": "https://listen.radioking.com/radio/47608/stream/84430", "pool": "fr", "colorFrom": "FF1E3A2F", "colorTo": "FF2F7A5B", "countries": "BJ"},
+    {"name": "ORTB Radio Parakou", "url": "https://listen.radioking.com/radio/51919/stream/88927", "pool": "fr", "colorFrom": "FF2B2417", "colorTo": "FF7A5B2F", "countries": "BJ"},
+    {"name": "Scoop FM Haïti", "url": "https://studio.sitegenial.com/8006/stream", "pool": "fr", "colorFrom": "FF241E3A", "colorTo": "FF5B2F7A", "countries": "HT"},
+    {"name": "RTL Radio Lëtzebuerg", "url": "https://sc.rtl.lu/rtl", "pool": "fr", "colorFrom": "FF1E2A3A", "colorTo": "FF2F5B7A", "countries": "LU"},
+    {"name": "Radio 100,7", "url": "https://stream.100komma7.lu/100komma7/live/mp3/128/stream.mp3", "pool": "fr", "colorFrom": "FF2A1E3A", "colorTo": "FF6B3F8C", "countries": "LU"},
+    {"name": "Radio Monaco", "url": "https://radiomonaco.ice.infomaniak.ch/radiomonaco-128.mp3", "pool": "fr", "colorFrom": "FF3A1E24", "colorTo": "FF7A2F44", "countries": "MC"},
 ]
 RADIO_STATIONS += STATE_RADIO
 

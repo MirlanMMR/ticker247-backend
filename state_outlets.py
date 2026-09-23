@@ -167,9 +167,10 @@ STATE_RADIO = [
     _radio("West Virginia Public Broadcasting", "https://wvpublic.streamguys1.com/wvpb256k.aac", "US-WV"),
     # Бразилия и Мексика — городские разговорные, не музыка.
     _radio("CBN Recife", "https://video09.logicahost.com.br/cbnrecife/cbnrecife/playlist.m3u8", "BR-PE", pool="pt"),
-    _radio("El Heraldo Guadalajara", "https://stream.radiojar.com/21h1m4cch8nwv", "MX-JAL", pool="es"),
-    _radio("El Heraldo Monterrey", "https://stream.radiojar.com/951bffq8h8nwv", "MX-NLE", pool="es"),
+    # El Heraldo Guadalajara/Monterrey и Radio Fórmula Tijuana убраны
+    # 22.09.2026: весь куст ссылок на stream.radiojar.com лёг меньше чем за
+    # сутки после добавления (id потоков там недолговечны и перевыпускаются),
+    # источник больше не используется.
     _radio("W Radio Monterrey", "https://streaming.servicioswebmx.com/8214/stream", "MX-NLE", pool="es"),
-    _radio("Radio Fórmula Tijuana", "https://stream.radiojar.com/nce1peen3p8uv", "MX-BCN", pool="es"),
     _radio("Радио Зенит", "https://radiozenit.hostingradio.ru:8015/radiozenit128.mp3", "RU-SPE", pool="ru"),
 ]
