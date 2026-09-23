@@ -1288,6 +1288,15 @@ RADIO_STATIONS = [
     {"name": "RTL Radio Lëtzebuerg", "url": "https://sc.rtl.lu/rtl", "pool": "fr", "colorFrom": "FF1E2A3A", "colorTo": "FF2F5B7A", "countries": "LU"},
     {"name": "Radio 100,7", "url": "https://stream.100komma7.lu/100komma7/live/mp3/128/stream.mp3", "pool": "fr", "colorFrom": "FF2A1E3A", "colorTo": "FF6B3F8C", "countries": "LU"},
     {"name": "Radio Monaco", "url": "https://radiomonaco.ice.infomaniak.ch/radiomonaco-128.mp3", "pool": "fr", "colorFrom": "FF3A1E24", "colorTo": "FF7A2F44", "countries": "MC"},
+    # Второй заход 23.09.2026 — 4 из оставшихся 8 стран. ST/TL (pt) и
+    # NE/MG (fr) по-прежнему без рабочего https-потока серьёзного вещателя.
+    {"name": "Radio Klédu", "url": "https://stream.zeno.fm/f38bxpt3v2quv", "pool": "fr", "colorFrom": "FF3A2E1F", "colorTo": "FF7A5C33", "countries": "ML"},
+    {"name": "LGF Talk", "url": "https://stream.zeno.fm/xirmzwnnpintv", "pool": "fr", "colorFrom": "FF1F2E3A", "colorTo": "FF335C7A", "countries": "GN"},
+    {"name": "Radio Lomé", "url": "https://stream.zeno.fm/umeg0b00hyduv", "pool": "fr", "colorFrom": "FF2E1F3A", "colorTo": "FF5C337A", "countries": "TG"},
+    # Мешанный жанр (icy-genre: African music,news,art and culture,talk,
+    # education) — община-радио с ощутимой новостной/разговорной долей,
+    # не чисто музыкальная станция.
+    {"name": "Mmuock Community Radio", "url": "https://a7.asurahosting.com/listen/mmuock_community_radio_/radio.mp3", "pool": "fr", "colorFrom": "FF1F3A28", "colorTo": "FF337A4E", "countries": "CM"},
 ]
 RADIO_STATIONS += STATE_RADIO
 
