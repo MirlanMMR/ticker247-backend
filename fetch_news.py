@@ -4004,6 +4004,11 @@ AI_CACHE = {}
 # четыре раза вместо одного
 PAGE_BODY_CACHE = {}
 PAGE_BODY_TTL_MS = 48 * 3600 * 1000
+# Пилот 23.09.2026: ИИ-обрезка полки соседей (scope=pool) в русском пуле —
+# см. smart_trim(). Тот же смысл, что у PAGE_BODY_CACHE: не платить за одну
+# и ту же статью каждый час, пока она висит в ленте
+TRIM_CACHE = {}
+TRIM_CACHE_TTL_MS = 48 * 3600 * 1000
 # Была ли хоть одна порция без отбора: тогда запоминать вердикты нельзя
 _LAST_CHUNK_FELL_BACK = False
 AI_CACHE_TTL_MS = 48 * 3600 * 1000     # двое суток: сутки живёт новость + запас
@@ -4077,6 +4082,27 @@ def save_page_bodies():
         print(f"  📄 Память страниц сохранена: {len(cleaned)}")
     except Exception as e:
         print(f"  ⚠️ Память страниц не сохранена: {e}")
+
+
+def load_trim_cache():
+    global TRIM_CACHE
+    try:
+        TRIM_CACHE = db.reference("/ai_trim_cache").get() or {}
+    except Exception as e:
+        print(f"  ⚠️ Память ИИ-обрезки недоступна: {e}")
+        TRIM_CACHE = {}
+    print(f"  ✂️ Память ИИ-обрезки: {len(TRIM_CACHE)}")
+
+
+def save_trim_cache():
+    now = int(datetime.now().timestamp() * 1000)
+    cleaned = {k: v for k, v in TRIM_CACHE.items()
+               if isinstance(v, dict) and now - v.get("ts", 0) < TRIM_CACHE_TTL_MS}
+    try:
+        db.reference("/ai_trim_cache").set(cleaned)
+        print(f"  ✂️ Память ИИ-обрезки сохранена: {len(cleaned)}")
+    except Exception as e:
+        print(f"  ⚠️ Память ИИ-обрезки не сохранилась: {e}")
 
 
 def save_ai_cache():
@@ -6699,6 +6725,65 @@ _HANGING_WORDS = {
 }
 
 
+# ─── ИИ-ОБРЕЗКА ПОЛКИ СОСЕДЕЙ (ПИЛОТ) ──────────────────────────────────────
+#
+# polish_summary + lead ниже режут по ПРАВИЛУ: датлайн, кредит фотографа,
+# рекламный хвост — только то, что уже описано регулярным выражением. Издание
+# соседней страны пишет иначе, чем домашнее, и в правило попадает реже —
+# мусор остаётся. ИИ понимает смысл текста, а не форму, и должен вычищать
+# то, что правило не опознало.
+#
+# Решение 23.09.2026: включаем ТОЛЬКО для полки соседей (scope=pool) русского
+# пула — она самая грязная и заодно самая маленькая, значит и самый дешёвый
+# полигон. Оценка — около $1.5/мес при часовом графике; проверяем на practике,
+# сверяя счёт Google со счётчиком TOKENS ниже, прежде чем расширять на
+# остальные пулы и полки.
+#
+# Дороже правила, поэтому не переводим и не грузим редакционный устав
+# (charter=False) — тут не вопрос «наша ли это новость», а только чистка
+# текста.
+def smart_trim(item, target: int = 700):
+    """Просит ИИ вырезать осмысленный лид статьи, а не резать по правилу.
+
+    None — не получилось (нет текста, нет ответа, бюджет исчерпан, подозри-
+    тельный результат): вызывающий код должен упасть на механическую
+    обрезку (polish_summary + lead). Лента дороже эксперимента.
+    """
+    text = (item.get("summary") or "").strip()
+    if not text:
+        return None
+    key = _cache_key(item)
+    cached = TRIM_CACHE.get(key)
+    if isinstance(cached, dict) and cached.get("text"):
+        return cached["text"]
+    prompt = f"""Вот текст новости целиком. Вырежи из него ТОЛЬКО начало —
+такое, что можно было бы показать как краткое изложение — и убери служебный
+мусор, который сам не заметит человек, читающий бегло: подпись под фото, имя
+фотографа, датлайн агентства, повтор заголовка другими словами, рекламный
+хвост («подробнее на…», «читать далее»).
+
+Правила:
+- Бери целыми предложениями, не обрывай мысль на полуслове
+- Ориентир — около {target} знаков, но это не предел: важна законченная
+  мысль, а не счёт символов
+- Ничего не добавляй и не пересказывай своими словами — только вырезай лишнее
+  из оригинала, остальной текст оставляй дословно
+- Если мусора нет вовсе — верни начало текста как есть
+- Ответ — только сам текст результата, без кавычек и пояснений
+
+ТЕКСТ:
+{text[:4000]}"""
+    try:
+        out = ask_gemini(prompt, charter=False).strip().strip('"«»')
+    except Exception as e:
+        print(f"  ⚠️ ИИ-обрезка не сработала: {e}")
+        return None
+    if not out or len(out) > len(text) + 50 or len(out) < 30:
+        return None            # подозрительный ответ — не доверяем
+    TRIM_CACHE[key] = {"text": out, "ts": int(datetime.now().timestamp() * 1000)}
+    return out
+
+
 def polish_summary(text: str) -> str:
     """Чистит текст, СОХРАНЯЯ АБЗАЦЫ.
 
@@ -7471,6 +7556,7 @@ def main():
     load_ai_spend()
     load_ai_cache()
     load_page_bodies()
+    load_trim_cache()
     load_translations()
     print("🤖 Фильтруем через Gemini AI...")
 
@@ -7773,8 +7859,21 @@ def main():
         # Чистка, а следом — СКОЛЬКО ПОКАЗАТЬ. Мера — абзац, не знак:
         # «я против замеров количеством знаков» (пользователь, 28.08.2026).
         # Первые три абзаца, а если абзац один — четыре предложения.
+        # Полка соседей (scope=pool) русского пула — пилот smart_trim
+        # (см. там же, почему только она): ИИ режет по смыслу, остальные
+        # полки и пулы — по-прежнему правилом
+        trimmed_by_ai = 0
         for _x in filtered:
-            _x["summary"] = lead(polish_summary(_x.get("summary", "")))
+            smart = None
+            if lang == "ru" and _x.get("scope") == "pool":
+                smart = smart_trim(_x)
+            if smart:
+                _x["summary"] = smart
+                trimmed_by_ai += 1
+            else:
+                _x["summary"] = lead(polish_summary(_x.get("summary", "")))
+        if trimmed_by_ai:
+            print(f"  ✂️ [{lang}] ИИ-обрезка полки соседей: {trimmed_by_ai}")
         filtered = quality_gate(filtered, lang)
         # Сверяем ЗДЕСЬ, а не перед записью в базу: дальше ленту режет
         # ограничение по объёму (80 новостей на пул), и снятое им — не
@@ -7867,6 +7966,7 @@ def main():
 
     save_ai_cache()
     save_page_bodies()
+    save_trim_cache()
     save_translations()
 
     # Расход этого прогона. Цены Flash-Lite на 13.08.2026 — примерно $0.10 за
