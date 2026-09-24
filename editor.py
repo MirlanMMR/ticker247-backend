@@ -380,8 +380,8 @@ def summarize(results, lang):
         if not ok:
             r = notes[0].split(": ", 1)[-1]
             reasons[r] += 1
-            if len(examples) < 12:
-                examples.append(f"✗ {r}: [{it.get('source','?')}] {it.get('title','')[:70]}")
+            examples.append(f"✗ {r}: [{it.get('source','?')}] {it.get('title','')[:90]}"
+                            + (f" — {v.get('note')}" if v.get("note") else ""))
             continue
         for n in notes:
             if n.startswith("заголовок"):
@@ -394,11 +394,16 @@ def summarize(results, lang):
                 fixes["нужно другое фото"] += 1
             elif n.startswith("абзацы"):
                 fixes["текст сокращён до сути"] += 1
+                examples.append(f"✂️ [{it.get('source','?')}] {it.get('title','')[:60]} — {n}"
+                                + (f"; {v.get('note')}" if v.get("note") else ""))
             elif n == "срочность снята":
                 fixes["ложное «срочно» снято"] += 1
                 examples.append(f"🔕 [{it.get('source','?')}] {it.get('title','')[:70]}")
             elif n == "жизненно важное":
                 vital.append(it.get("title", "")[:70])
+        if v.get("_second"):
+            examples.append(f"🧑‍⚖️ второй редактор: [{it.get('source','?')}] "
+                            f"{it.get('title','')[:60]}")
         if v.get("_second"):
             fixes["перепроверено вторым"] += 1
     return reasons, fixes, examples, vital

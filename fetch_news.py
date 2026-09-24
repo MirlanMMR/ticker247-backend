@@ -7195,6 +7195,29 @@ EDITOR_PREAMBLE = ("Ниже карточки ленты. Реши по кажд
 EDITOR_CACHE = {}
 EDITOR_CACHE_TTL_MS = 36 * 3600 * 1000
 EDITOR_VITAL_MAX = 3
+# Отчёт редактора — в файл editor_report.md, его коммитит шаг «Сохранить
+# замер». Лог GitHub не годится: после отмены дозора он пропадал целиком
+# (24.09, первый прогон в тени — архив логов 22 байта).
+EDITOR_REPORT = []
+
+
+def _rep(line=""):
+    print(line)
+    EDITOR_REPORT.append(line)
+
+
+def save_editor_report():
+    if not EDITOR_REPORT:
+        return
+    head = (f"# Отчёт выпускающего редактора\n\n"
+            f"Прогон {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} UTC · "
+            f"режим {EDITOR_MODE} · модель {_MODEL_IN_USE}\n\n```\n")
+    try:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               "editor_report.md"), "w", encoding="utf-8") as f:
+            f.write(head + "\n".join(EDITOR_REPORT) + "\n```\n")
+    except Exception as e:
+        print(f"  ⚠️ Отчёт редактора не записан: {e}")
 
 
 def load_editor_cache():
@@ -7297,25 +7320,26 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
     results, asked, second = _editor_review(filtered, lang)
     reasons, fixes, examples, vital = ED.summarize(results, lang)
     tag = "ТЕНЬ, лента не тронута" if EDITOR_MODE != "live" else "В ЭФИРЕ"
-    print(f"  🗞 Редактор [{lang}] ({tag}): карточек {len(results)}, "
+    _rep()
+    _rep(f"  🗞 Редактор [{lang}] ({tag}): карточек {len(results)}, "
           f"спрошено {asked}, вторым {second}")
     if reasons:
-        print(f"     снял бы: " + ", ".join(f"{k} {n}" for k, n in reasons.most_common())
+        _rep(f"     снял бы: " + ", ".join(f"{k} {n}" for k, n in reasons.most_common())
               if EDITOR_MODE != "live" else
               f"     снято: " + ", ".join(f"{k} {n}" for k, n in reasons.most_common()))
     if fixes:
-        print("     починено: " + ", ".join(f"{k} {n}" for k, n in fixes.most_common()))
+        _rep("     починено: " + ", ".join(f"{k} {n}" for k, n in fixes.most_common()))
     if vital:
-        print("     жизненно важное: " + "; ".join(vital[:4]))
-    for e in examples[:12]:
-        print(f"       {e}")
+        _rep("     жизненно важное: " + "; ".join(vital[:4]))
+    for e in examples:
+        _rep(f"       {e}")
     if EDITOR_MODE != "live":
         dropped_n = sum(reasons.values())
         nat = sum(1 for x in filtered if not x.get("region")) - dropped_n
-        print(f"     лента: {len(filtered)}, снял бы {dropped_n}; "
+        _rep(f"     лента: {len(filtered)}, снял бы {dropped_n}; "
               f"до полной ({max_items}) не хватает {max(0, max_items - nat)} — "
               f"добор включится в режиме live")
-        print(f"     💰 редактор: ${current_run_cost() - cost0:.4f}")
+        _rep(f"     💰 редактор: ${current_run_cost() - cost0:.4f}")
         return filtered
 
     # ── В ЭФИРЕ: исполняем решения ──
@@ -7351,9 +7375,9 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
     vit = sorted([x for x in out if x.get("vital")], key=lambda x: -x.get("publishedAt", 0))
     for x in vit[EDITOR_VITAL_MAX:]:
         x["category"], x["vital"] = "NEWS", False
-    print(f"     лента: было {len(filtered)}, снято {len(dropped)}, добрано до полной {added}, "
+    _rep(f"     лента: было {len(filtered)}, снято {len(dropped)}, добрано до полной {added}, "
           f"стало {len(out)}; фото: взято у соседа {borrowed}, убрано чужих {cleared}")
-    print(f"     💰 редактор: ${current_run_cost() - cost0:.4f}")
+    _rep(f"     💰 редактор: ${current_run_cost() - cost0:.4f}")
     # Страховка: редактор снял слишком много и добрать не вышло — выходим
     # по-старому. Пустая лента хуже неотредактированной
     if len(out) < len(filtered) * 0.7:
@@ -8570,6 +8594,7 @@ def main():
     save_page_bodies()
     save_trim_cache()
     save_editor_cache()
+    save_editor_report()
     save_translations()
 
     # Расход этого прогона. Цены Flash-Lite на 13.08.2026 — примерно $0.10 за
