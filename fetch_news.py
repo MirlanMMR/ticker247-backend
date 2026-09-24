@@ -6920,8 +6920,12 @@ def carry_vital(items, lang):
     prev = prev if isinstance(prev, list) else list(prev.values())
     now = int(datetime.now().timestamp() * 1000)
     have = {x.get("url") for x in items}
+    # Возвращаем только то, что и сейчас проходит правило по словам: первый
+    # прогон в эфире (24.09) сохранил сюда три ложные пометки ИИ, и память
+    # таскала бы их в шторку ещё 14 часов
     back = [x for x in prev if isinstance(x, dict) and x.get("url") not in have
-            and now - x.get("publishedAt", 0) <= VITAL_MAX_AGE_MS]
+            and now - x.get("publishedAt", 0) <= VITAL_MAX_AGE_MS
+            and VITAL_LOCAL.search(f"{x.get('title', '')} {str(x.get('summary', ''))[:400]}")]
     if back:
         print(f"  🚰 Жизненно важное [{lang}] возвращено из прошлой выдачи: {len(back)}")
     return items + back

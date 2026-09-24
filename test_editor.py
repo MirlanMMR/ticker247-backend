@@ -74,13 +74,16 @@ check("закрытое, но срочное — выпускается", ok)
 water = {"title": "Бүгүн Бишкектин айрым райондорунда суу өчөт", "summary": "…",
          "scope": "local", "category": "KG"}
 ok, x, _ = ED.apply_verdict(water, {"publish": True, "vital": True, "vital_kind": "вода-свет-газ"},
-                            ["Суу өчөт."], [])
+                            ["Суу өчөт."], [], vital_ok=True)
 check("жизненно важное местное → URGENT", x["category"] == "URGENT" and x["vital"])
 ok, x, _ = ED.apply_verdict(dict(water, title="Автобус и катафалк столкнулись, двое погибли"),
                             {"publish": True, "vital": True, "vital_kind": "происшествие"}, ["x"], [])
 check("«жизненно важное» без вида из списка не принимается", x.get("category") != "URGENT")
 ok, x, _ = ED.apply_verdict(water, {"publish": True, "vital": True}, ["x"], [])
 check("«жизненно важное» без вида вовсе не принимается", x.get("category") != "URGENT")
+ok, x, _ = ED.apply_verdict(dict(water, title="Бесплатный проезд военным пенсионерам хотят дать"),
+                            {"publish": True, "vital": True, "vital_kind": "дороги-транспорт"}, ["x"], [])
+check("по умолчанию ИИ жизненно важное не ставит", x.get("category") != "URGENT")
 ok, x, _ = ED.apply_verdict(dict(water, scope="pool"), {"publish": True, "vital": True},
                             ["x"], [])
 check("жизненно важное чужой страны — не срочно", x.get("category") != "URGENT")
