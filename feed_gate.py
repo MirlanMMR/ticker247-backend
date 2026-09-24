@@ -50,6 +50,24 @@ def _clean(text: str) -> str:
     return re.sub(r"[ \t]{2,}", " ", out).strip()
 
 
+def balance_quotes(title: str) -> str:
+    """Потерянная открывающая «ёлочка» в начале заголовка.
+
+    Автоперевод теряет «, если название стоит первым: «Манчестер Юнайтед»
+    продает кусочки газона…» вышло как «Манчестер Юнайтед» продает…» —
+    закрывающая есть, открывающей нет (24.09.2026). Чиним, только если
+    закрывающая стоит в первых трёх словах и перед ней нет открывающей:
+    тогда название — начало заголовка, иначе не угадать, где оно начинается.
+    """
+    i = title.find("»")
+    if i <= 0 or "«" in title[:i]:
+        return title
+    head = title[:i]
+    if len(head.split()) > 3 or head.startswith(("«", '"')):
+        return title
+    return "«" + title
+
+
 def repair(item: dict, pool_lang: str) -> dict:
     """Чинит то, что чинится. Новость не теряется никогда."""
     out = dict(item)
@@ -57,6 +75,9 @@ def repair(item: dict, pool_lang: str) -> dict:
         val = out.get(field)
         if isinstance(val, str) and (_ENTITY.search(val) or "<" in val):
             out[field] = _clean(val)
+    t = out.get("title")
+    if isinstance(t, str):
+        out["title"] = balance_quotes(t)
     # Android по http картинку не грузит вовсе, и новость с фото выходит
     # текстовой плиткой (24.kg, 23.09.2026). Попытка по https — единственный шанс
     img = out.get("imageUrl")
