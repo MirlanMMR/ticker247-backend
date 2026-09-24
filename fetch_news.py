@@ -7455,6 +7455,15 @@ def drop_flat_placeholders(items, lang):
     return items
 
 
+def _trace(lang, stage, items):
+    """Путь полок по шагам — в отчёт редактора: где теряются новости.
+    24.09.2026 во французской ленте осталось 6 местных из 18, а редактор не
+    снял ни одной — терялись раньше, и без этой строки не видно где."""
+    c = Counter(x.get("scope") for x in items if not x.get("region"))
+    _rep(f"  🧭 [{lang}] {stage}: всего {sum(c.values())} — местных {c.get('local', 0)}, "
+         f"соседей {c.get('pool', 0)}, мира {c.get('world', 0)}")
+
+
 def run_editor(filtered, lang, leftover=(), max_items=70):
     """Выпускающий редактор над готовой лентой пула. См. editor.py."""
     if EDITOR_MODE == "off" or AI_STOPPED or not EDITOR_MD:
@@ -8539,6 +8548,7 @@ def main():
             extra.append(x)
             per_region[r] += 1
         filtered = chosen + extra
+        _trace(lang, "после отбора и отсечки полок", filtered)
         print(f"  📚 Полки [{lang}]: после ИИ — {before}; "
               f"после отсечки до {max_items} — {_shelves(chosen)}; "
               f"штатных +{len(extra)} ({len(per_region)} регионов)")
@@ -8639,6 +8649,7 @@ def main():
         if trimmed_by_ai:
             print(f"  ✂️ [{lang}] ИИ-обрезка: {trimmed_by_ai} из {len(filtered)}")
         filtered = quality_gate(filtered, lang)
+        _trace(lang, "после чистки текста", filtered)
         # Сверяем ЗДЕСЬ, а не перед записью в базу: дальше ленту режет
         # ограничение по объёму (80 новостей на пул), и снятое им — не
         # мусор, а просто лишнее. Считать его пропуском этапа 1 нечестно
@@ -8659,9 +8670,11 @@ def main():
         # версии кроме лучшей, а потом просить обзор — как и вышло 20.08 —
         # значит просить его из пустоты
         filtered, stories = build_press_reviews(filtered, lang)
+        _trace(lang, "после обзоров прессы", filtered)
         # Пересказы одного события — их не видит проверка по словам
         filtered, stories = collapse_same_event(filtered, lang, stories)
         filtered = _without_reviewed(filtered, stories)
+        _trace(lang, "после склейки пересказов", filtered)
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)
@@ -8690,6 +8703,7 @@ def main():
                 print(f"       · {it.get('source','?')}: {it.get('title','')[:52]}")
 
         filtered, dropped_bad, repaired = feed_gate(filtered, lang)
+        _trace(lang, "после рубежа", filtered)
         if repaired:
             print(f"  🧽 Рубеж [{lang}]: починено {repaired}")
         if dropped_bad:
@@ -8700,6 +8714,7 @@ def main():
         filtered = drop_flat_placeholders(filtered, lang)
         filtered = run_editor(filtered, lang, leftover=leftover,
                               max_items=max_items)
+        _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
         # и базе они не нужны: _full один весит больше всей карточки
         filtered = [{k: v for k, v in x.items() if not str(k).startswith("_")}
