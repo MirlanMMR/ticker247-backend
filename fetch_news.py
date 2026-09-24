@@ -7401,6 +7401,60 @@ def _editor_refill(out, dropped, filtered, lang, leftover, max_items, apply_all)
     return out, added
 
 
+# ─── ЗАГЛУШКА ИЗДАНИЯ ВМЕСТО СНИМКА ──────────────────────────────────────────
+#
+# Straits Times отдаёт на месте фото свой логотип «ST» — 6 КБ на кадре
+# 1140×760, одна заливка. Приложение ловило его по весу файла, но вес узнаёт
+# отдельным запросом с телефона читателя, с таймаутом 4 с — из Бишкека до
+# Сингапура запрос не укладывался, и логотип стоял обложкой (владелец,
+# 24.09.2026: «этот сайт устойчиво даёт заглушку, почему не действует
+# правило?»). Бэкенд проверяет один раз и для всех. Признак — плотность, а
+# не вес: у заглушки ~0.007 байта на пиксель, у живого снимка 24.kg — 0.083.
+FLAT_PLACEHOLDERS = set()
+_FLAT_CHECKED = {}
+
+
+def _is_flat_placeholder(url: str) -> bool:
+    if url in _FLAT_CHECKED:
+        return _FLAT_CHECKED[url]
+    verdict = False
+    try:
+        r = requests.get(url, timeout=10, headers=BROWSER_HEADERS, stream=True)
+        data = r.raw.read(12001, decode_content=True) if r.ok else b""
+        r.close()
+        if 0 < len(data) < 12000:
+            from io import BytesIO
+            from PIL import Image
+            w, h = Image.open(BytesIO(data)).size
+            verdict = w * h > 0 and len(data) / (w * h) < 0.02
+    except Exception:
+        verdict = False
+    _FLAT_CHECKED[url] = verdict
+    return verdict
+
+
+def drop_flat_placeholders(items, lang):
+    """Снимает заглушку-логотип с карточки: лучше без фото, чем с логотипом."""
+    from concurrent.futures import ThreadPoolExecutor
+    urls = sorted({x.get("imageUrl") for x in items
+                   if str(x.get("imageUrl") or "").startswith("http")})
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        flags = dict(zip(urls, pool.map(_is_flat_placeholder, urls)))
+    bad = {u for u, f in flags.items() if f}
+    FLAT_PLACEHOLDERS.update(bad)
+    n = 0
+    for x in items:
+        if x.get("imageUrl") in bad:
+            x["imageUrl"] = ""
+            x["_need_photo"] = True
+            n += 1
+    if n:
+        srcs = Counter(x.get("source", "?") for x in items if x.get("_need_photo"))
+        print(f"  🪧 Заглушка вместо фото [{lang}]: снята у {n} — "
+              + ", ".join(f"{k}×{v}" for k, v in srcs.most_common(4)))
+    return items
+
+
 def run_editor(filtered, lang, leftover=(), max_items=70):
     """Выпускающий редактор над готовой лентой пула. См. editor.py."""
     if EDITOR_MODE == "off" or AI_STOPPED or not EDITOR_MD:
@@ -7444,6 +7498,11 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
 
     out, dropped = apply_all(results)
     out, added = _editor_refill(out, dropped, filtered, lang, leftover, max_items, apply_all)
+    # Редактор мог выбрать ту же заглушку со страницы (og:image) — нельзя
+    for x in out:
+        if x.get("imageUrl") in FLAT_PLACEHOLDERS:
+            x["imageUrl"] = ""
+            x["_need_photo"] = True
     # Фото, которого требует редактор: берём у другого издания о том же
     # событии. Не нашли — лучше без фото, чем с чужим
     borrowed = cleared = 0
@@ -8638,6 +8697,7 @@ def main():
             for it in dropped_bad[:3]:
                 print(f"       · {it.get('source','?')}: {it.get('title','')[:56]}")
 
+        filtered = drop_flat_placeholders(filtered, lang)
         filtered = run_editor(filtered, lang, leftover=leftover,
                               max_items=max_items)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
