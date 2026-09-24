@@ -3839,7 +3839,13 @@ def ask_gemini(prompt, charter=True) -> str:
     u = getattr(resp, "usage_metadata", None)
     if u:
         TOKENS["in"] += getattr(u, "prompt_token_count", 0) or 0
-        TOKENS["out"] += getattr(u, "candidates_token_count", 0) or 0
+        # Размышления модели оплачиваются как исходящие, но в
+        # candidates_token_count не входят. Без них счётчик врал вниз:
+        # псевдоним «latest» может вести на думающую модель
+        TOKENS["out"] += ((getattr(u, "candidates_token_count", 0) or 0)
+                          + (getattr(u, "thoughts_token_count", 0) or 0))
+        TOKENS["thoughts"] = TOKENS.get("thoughts", 0) + (
+            getattr(u, "thoughts_token_count", 0) or 0)
         # Сколько из входящих Gemini взял из своего кэша. Неизменная часть
         # запроса — устав и текст промпта — весит 8000 токенов и уходит по
         # два десятка раз за прогон; если кэш срабатывает, она стоит вчетверо
@@ -3847,10 +3853,23 @@ def ask_gemini(prompt, charter=True) -> str:
         TOKENS["cached"] = TOKENS.get("cached", 0) + (
             getattr(u, "cached_content_token_count", 0) or 0)
     TOKENS["calls"] += 1
+    _note_model_version(resp)
     return resp.text.strip()
 
 
 _MODEL_IN_USE = GEMINI_MODEL
+
+# Какая модель на самом деле стоит за псевдонимом. Цены в current_run_cost()
+# — от Flash-Lite 2.5; если Google перевёл «latest» на другую модель, счёт
+# окажется неверным, и узнать об этом можно только отсюда
+MODEL_VERSIONS = set()
+
+
+def _note_model_version(resp):
+    v = getattr(resp, "model_version", None)
+    if v and v not in MODEL_VERSIONS:
+        MODEL_VERSIONS.add(v)
+        print(f"  🔎 Отвечает модель: {v} (просили {_MODEL_IN_USE})")
 
 
 # ─── Явный кэш неизменной части запроса ────────────────────────────────────
@@ -3933,10 +3952,17 @@ def ask_gemini_cached(key: str, preamble: str, tail: str, charter=True) -> str:
     u = getattr(resp, "usage_metadata", None)
     if u:
         TOKENS["in"] += getattr(u, "prompt_token_count", 0) or 0
-        TOKENS["out"] += getattr(u, "candidates_token_count", 0) or 0
+        # Размышления модели оплачиваются как исходящие, но в
+        # candidates_token_count не входят. Без них счётчик врал вниз:
+        # псевдоним «latest» может вести на думающую модель
+        TOKENS["out"] += ((getattr(u, "candidates_token_count", 0) or 0)
+                          + (getattr(u, "thoughts_token_count", 0) or 0))
+        TOKENS["thoughts"] = TOKENS.get("thoughts", 0) + (
+            getattr(u, "thoughts_token_count", 0) or 0)
         TOKENS["cached"] = TOKENS.get("cached", 0) + (
             getattr(u, "cached_content_token_count", 0) or 0)
     TOKENS["calls"] += 1
+    _note_model_version(resp)
     return resp.text.strip()
 
 
@@ -8070,7 +8096,10 @@ def main():
               f"{TOKENS['fallback_out']:,} исходящих токенов")
     print(f"💰 Расход ИИ: {TOKENS['calls']} запросов, "
           f"{TOKENS['in']:,} входящих + {TOKENS['out']:,} исходящих токенов "
-          f"≈ ${cost:.4f} за прогон (≈ ${cost * 24:.2f} в сутки при часовом графике)")
+          f"≈ ${cost:.4f} за прогон (≈ ${cost * 24 * 60 / REFRESH_MINUTES:.2f} "
+          f"в сутки при прогоне раз в {REFRESH_MINUTES} мин)")
+    if TOKENS.get("thoughts"):
+        print(f"  💭 Из исходящих — размышления модели: {TOKENS['thoughts']:,}")
     drop_gemini_caches()
     _cached = TOKENS.get("cached", 0)
     if TOKENS["in"]:
