@@ -57,6 +57,9 @@ check("выпущено", ok)
 check("текст — абзацы 1 и 2 дословно", x["summary"] == f"{P1}\n\n{P2}")
 check("опечатка в заголовке исправлена", x["title"].endswith("супертелеобъектив"))
 check("фото заменено на №2", x["imageUrl"] == ph[1]["url"])
+check("выбранное редактором фото помечено проверенным", x.get("photoChecked") is True)
+ok, x2, _ = ED.apply_verdict(item, {"publish": True, "photo": 0, "need_photo": True}, paras, ph)
+check("«нужно другое фото» — без пометки", not x2.get("photoChecked"))
 check("оригинал не тронут", item["title"].endswith("супертелеобъектива"))
 
 ok, x, _ = ED.apply_verdict(item, {"publish": True, "title": "Китайский флагман получит оптику"},

@@ -370,17 +370,34 @@ class VideoPlaylistSanitizer(BaseSanitizer):
     """
     name = "плейлист видеоплеера"
     _STAMP = re.compile(r"\d{1,2}:\d{2}\s*\.?\s*$")
+    # ЧАСЫ — НЕ ХРОНОМЕТРАЖ (24.09.2026). Статья Kaktus «в части Бишкека
+    # отключат свет» — это районы, ЧАСЫ и улицы: «09:30-12:00», «09:30-18:00».
+    # Строки кончались временем, их было больше двух — и чистильщик выбросил
+    # все часы отключений: читатель видел улицы, но не знал, когда. В
+    # плейлисте время стоит ПОСЛЕ названия ролика; часы работ — строка из
+    # одного времени или диапазон («09:30-12:00», «с 9:00 до 17:00»).
+    _TITLE_BEFORE = re.compile(r"[^\W\d_]{3,}")
+    _RANGE_END = re.compile(
+        r"(\d{1,2}[:.]\d{2}\s*[-–—]\s*|\b(до|по|to|until|till|hasta|a|à|jusqu'à|ate|até)\s+)"
+        r"\d{1,2}:\d{2}\s*\.?\s*$", re.I)
+
+    def _is_stamp(self, line: str) -> bool:
+        line = line.strip()
+        m = self._STAMP.search(line)
+        if not m or self._RANGE_END.search(line):
+            return False
+        return bool(self._TITLE_BEFORE.search(line[:m.start()]))
     _MARK = re.compile(r"(now playing|up next|watch:|см\. также видео)", re.I)
 
     def apply(self, text: str) -> str:
         lines = [l for l in text.split("\n") if l.strip()]
         if not lines:
             return text
-        stamped = sum(1 for l in lines if self._STAMP.search(l.strip()))
+        stamped = sum(1 for l in lines if self._is_stamp(l))
         if stamped < 2 and not self._MARK.search(text):
             return text
         kept = [l for l in lines
-                if not self._STAMP.search(l.strip()) and not self._MARK.search(l)]
+                if not self._is_stamp(l) and not self._MARK.search(l)]
         out = "\n".join(kept).strip()
         # Если после чистки не осталось текста — значит вся «статья» и была
         # плейлистом. Возвращаем пустоту: пусть решает оценка качества, ей

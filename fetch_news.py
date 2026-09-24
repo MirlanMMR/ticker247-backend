@@ -7502,6 +7502,12 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
                 kept.append(it)         # ИИ не ответил — карточка как была
                 continue
             ok, x, _notes = ED.apply_verdict(it, v, paras, photos)
+            # Жизненно важное — текст целиком. У отключения суть и есть
+            # список: районы, ЧАСЫ, улицы. 24.09.2026 редактор оставил из
+            # списка Kaktus «отключат свет» два пункта и выбросил районы —
+            # читатель не знал, касается ли это его улицы и когда
+            if ok and x.get("vital") and x.get("_full"):
+                x["summary"] = polish_summary(x["_full"])
             (kept if ok else dropped).append(x if ok else it)
         return kept, dropped
 
@@ -7512,6 +7518,7 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
         if x.get("imageUrl") in FLAT_PLACEHOLDERS:
             x["imageUrl"] = ""
             x["_need_photo"] = True
+            x.pop("photoChecked", None)
     # Фото, которого требует редактор: берём у другого издания о том же
     # событии. Не нашли — лучше без фото, чем с чужим
     borrowed = cleared = 0
@@ -7522,6 +7529,7 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
                       and same_event(x, y)), None)
         if donor:
             x["imageUrl"] = donor["imageUrl"]
+            x["photoChecked"] = bool(donor.get("photoChecked"))
             borrowed += 1
         else:
             x["imageUrl"] = ""

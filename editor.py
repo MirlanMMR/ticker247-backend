@@ -273,6 +273,13 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
             if not cand["flag"]:
                 x["imageUrl"] = cand["url"]
                 notes.append(f"фото: №{ph} вместо №1")
+    # Фото проверено: редактор видел снимки страницы с подписями и оставил
+    # или выбрал этот. Приложение такое фото своими правилами не заменяет
+    # (24.09.2026: оно подменило карточку Kaktus портретом из «По теме»)
+    chosen = ph if isinstance(ph, int) else 1
+    flagged = bool(photos) and 1 <= chosen <= len(photos) and photos[chosen - 1]["flag"]
+    if x.get("imageUrl") and not x.get("_need_photo") and not flagged:
+        x["photoChecked"] = True
     # «Срочно» — будит человека уведомлением. Редактор снимает ложное
     if (v.get("urgent") is False and x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY")
             and not x.get("vital")):
