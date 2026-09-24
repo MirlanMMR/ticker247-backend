@@ -181,15 +181,42 @@ def parse_verdicts(raw: str):
     return out
 
 
+_WORD = re.compile(r"[\w\-]+", re.U)
+
+
 def title_typo_fix(old: str, new: str):
-    """Правка заголовка — только опечатка, не переписка."""
+    """Правка заголовка — только опечатка, не переписка.
+
+    Первый прогон 24.09 показал, что сходства строк мало: ИИ «исправлял»
+    кавычки и заменил «MS NOW» на «MSNBC» — а MS NOW и есть новое имя канала.
+    Поэтому правка принимается, только если:
+      · слова те же по счёту и порядку, меняется не больше двух;
+      · каждое изменённое слово похоже на старое (одна-две буквы) и
+        начинается с той же буквы — окончание, пропущенная буква;
+      · слово не написано с заглавной (имена и названия не трогаем).
+    Правка одних знаков препинания не нужна — отвергаем.
+    """
     import difflib
-    new = (new or "").strip().strip('"«»')
+    new = (new or "").strip()
     if not new or new == old:
         return None
-    if difflib.SequenceMatcher(None, old, new).ratio() < 0.93:
+    a, b = _WORD.findall(old), _WORD.findall(new)
+    if a == b or len(a) != len(b):
         return None
-    return new
+    changed = [(x, y) for x, y in zip(a, b) if x != y]
+    if not changed or len(changed) > 2:
+        return None
+    for x, y in changed:
+        if x[:1] != y[:1] or x[:1].isupper() or abs(len(x) - len(y)) > 2:
+            return None
+        if difflib.SequenceMatcher(None, x.lower(), y.lower()).ratio() < 0.8:
+            return None
+    # подставляем изменённые слова в ИСХОДНЫЙ заголовок — его знаки и
+    # кавычки остаются как у издания
+    out = old
+    for x, y in changed:
+        out = re.sub(rf"(?<![\w-]){re.escape(x)}(?![\w-])", y, out, count=1)
+    return out if out != old else None
 
 
 def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=True):
@@ -233,6 +260,12 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=True):
             if not cand["flag"]:
                 x["imageUrl"] = cand["url"]
                 notes.append(f"фото: №{ph} вместо №1")
+    # «Срочно» — будит человека уведомлением. Редактор снимает ложное
+    if (v.get("urgent") is False and x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY")
+            and not x.get("vital")):
+        x["category"] = "NEWS"
+        x["priority"] = min(int(x.get("priority") or 0), 1)
+        notes.append("срочность снята")
     # жизненно важное — только о своей стране
     if vital_ok and v.get("vital") and x.get("scope") == "local":
         x["category"] = "URGENT"
@@ -315,6 +348,8 @@ def compact(v, paras, photos, now_ms):
     for k in ("need_photo", "vital", "_second"):
         if src.get(k) is True:
             v[k] = True
+    if src.get("urgent") is False:
+        v["urgent"] = False
     # Флаг «не выпускать» и фото №0 («годного нет») — это False и 0. Общий
     # фильтр «пустых» значений их выбросил бы (в Python 0 == False), и снятая
     # статья вернулась бы из памяти в эфир. Поэтому — явно
@@ -359,6 +394,9 @@ def summarize(results, lang):
                 fixes["нужно другое фото"] += 1
             elif n.startswith("абзацы"):
                 fixes["текст сокращён до сути"] += 1
+            elif n == "срочность снята":
+                fixes["ложное «срочно» снято"] += 1
+                examples.append(f"🔕 [{it.get('source','?')}] {it.get('title','')[:70]}")
             elif n == "жизненно важное":
                 vital.append(it.get("title", "")[:70])
         if v.get("_second"):

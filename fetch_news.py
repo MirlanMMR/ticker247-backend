@@ -3598,8 +3598,14 @@ def promote_global_stories(all_news):
 # 3.1 ($0.25/$1.50) и 3.5 ($0.30/$2.50), и псевдоним, судя по сумме, вёл на
 # одну из них. Запасная модель — тоже закреплённая, не «latest»: при сбое
 # основной цена остаётся известной, а не «какая выпадет».
-GEMINI_MODEL = "gemini-2.5-flash-lite"
-GEMINI_MODEL_FALLBACK = "gemini-3.1-flash-lite"
+#
+# Первый же прогон с закреплением показал: gemini-2.5-flash-lite нашему
+# ключу недоступна (404) — видимо, поэтому 13.08 и ушли на псевдоним. Значит,
+# весь месяц отвечала 3.1 Flash-Lite, а счёт вёлся по ценам 2.5: $0.079 за
+# прогон против насчитанных $0.03 — это и есть $0.87 в сутки со счёта.
+# Закрепляем то, что реально работает, с честной ценой.
+GEMINI_MODEL = "gemini-3.1-flash-lite"
+GEMINI_MODEL_FALLBACK = "gemini-2.5-flash"
 
 # Цены за миллион токенов: вход, исходящие, вход из кэша (платный тариф,
 # ai.google.dev/gemini-api/docs/pricing, 24.09.2026). Размышления модели
@@ -3938,7 +3944,10 @@ def ask_gemini(prompt, charter=True, model_name=None) -> str:
         )
         resp = model.generate_content(prompt)
     except Exception as e:
+        if model_name:
+            raise                # особая модель (второй редактор) — общий выбор не трогаем
         if "not found" in str(e).lower() or "404" in str(e):
+            print(f"::warning::Модель {_MODEL_IN_USE} недоступна, беру {GEMINI_MODEL_FALLBACK}")
             print(f"  ⚠️ Модель {_MODEL_IN_USE} недоступна, беру {GEMINI_MODEL_FALLBACK}")
             _MODEL_IN_USE = GEMINI_MODEL_FALLBACK
             model = genai.GenerativeModel(
@@ -6895,6 +6904,37 @@ def mark_vital_local(items, lang):
     return items
 
 
+def carry_vital(items, lang):
+    """Жизненно важное живёт свой срок, а не пока висит в RSS издания.
+
+    Лента каждый прогон собирается заново из RSS. 24.09 утренняя заметка
+    24.kg об отключении воды к обеду выпала из RSS издания — и из нашей
+    ленты вместе с ним, хотя вода всё ещё отключена. Поэтому отмеченное
+    жизненно важным хранится в /vital/<пул> и возвращается в ленту, пока не
+    истёк VITAL_MAX_AGE_MS.
+    """
+    try:
+        prev = db.reference(f"/vital/{lang}").get() or []
+    except Exception:
+        return items
+    prev = prev if isinstance(prev, list) else list(prev.values())
+    now = int(datetime.now().timestamp() * 1000)
+    have = {x.get("url") for x in items}
+    back = [x for x in prev if isinstance(x, dict) and x.get("url") not in have
+            and now - x.get("publishedAt", 0) <= VITAL_MAX_AGE_MS]
+    if back:
+        print(f"  🚰 Жизненно важное [{lang}] возвращено из прошлой выдачи: {len(back)}")
+    return items + back
+
+
+def save_vital(items, lang):
+    keep = [x for x in items if x.get("vital")]
+    try:
+        db.reference(f"/vital/{lang}").set(keep or None)
+    except Exception as e:
+        print(f"  ⚠️ /vital/{lang} не сохранён: {e}")
+
+
 def cap_urgent(items, lang):
     """Оставляет не больше двух срочных, и только свежие.
 
@@ -7055,14 +7095,9 @@ TRIM_VERSION = 2
 
 
 def _title_typo_fix(old: str, new: str):
-    """Принимает правку заголовка, только если это опечатка, а не переписка."""
-    import difflib
-    new = (new or "").strip().strip('"«»')
-    if not new or new == old:
-        return None
-    if difflib.SequenceMatcher(None, old, new).ratio() < 0.93:
-        return None           # ИИ переписал заголовок — не наше право
-    return new
+    """Правка заголовка — только опечатка. Правило одно на весь конвейер:
+    editor.title_typo_fix (там же — почему сходства строк мало)."""
+    return ED.title_typo_fix(old, new)
 
 
 def smart_trim(item, target: int = 700):
@@ -7148,7 +7183,7 @@ def smart_trim(item, target: int = 700):
 import editor as ED
 
 EDITOR_MODE = os.environ.get("EDITOR_MODE", "shadow").strip().lower() or "shadow"
-EDITOR_STRONG_MODEL = GEMINI_MODEL_FALLBACK      # рассуждает; для спорного
+EDITOR_STRONG_MODEL = "gemini-2.5-flash"         # рассуждает; для спорного
 try:
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "EDITOR.md"),
               encoding="utf-8") as _f:
@@ -7212,6 +7247,48 @@ def _prepare_reserve(cands, lang):
     return ready
 
 
+EDITOR_SHELF_SHARE = {"local": 0.40, "pool": 0.20, "world": 0.40}
+
+
+def _editor_refill(out, dropped, filtered, lang, leftover, max_items, apply_all):
+    """Добор до полной ленты — после ВСЕХ снятий, а не только своих.
+
+    24.09.2026: отбор доводил русскую ленту до 80, а потом её резали ещё
+    четыре шага — пересказы одного события (−9), обзоры прессы, повтор
+    редакции, закрытые анонсы (−6), — и добора после них не было: вышло 60.
+    Снимать легко, наполнять трудно — поэтому наполняем здесь, последним.
+    Кандидаты — запас полок (leftover), в тот же вид, что эфир, и через
+    того же редактора. Пересказы уже показанного не берём.
+    """
+    nat = [x for x in out if not x.get("region")]
+    need = max_items - len(nat)
+    if need <= 0 or not leftover:
+        return out, 0
+    seen = ({x.get("url") for x in out} | {x.get("url") for x in dropped}
+            | {x.get("url") for x in filtered})
+    have = Counter(x.get("scope") for x in nat)
+    gap = {k: max(0, round(max_items * v) - have.get(k, 0))
+           for k, v in EDITOR_SHELF_SHARE.items()}
+    pool = [x for x in leftover if x.get("url") not in seen and not x.get("region")
+            and not any(same_event(x, y) for y in out)]
+    pool.sort(key=lambda x: (-gap.get(x.get("scope"), 0), -int(x.get("priority") or 0)))
+    cands = _prepare_reserve([dict(x) for x in pool[:need * 2]], lang)
+    if not cands:
+        return out, 0
+    res, _, _ = _editor_review(cands, lang)
+    more, _ = apply_all(res)
+    more.sort(key=lambda x: -gap.get(x.get("scope"), 0))
+    added = 0
+    for x in more:
+        if added >= need:
+            break
+        if any(same_event(x, y) for y in out):
+            continue
+        out.append(x)
+        added += 1
+    return out, added
+
+
 def run_editor(filtered, lang, leftover=(), max_items=70):
     """Выпускающий редактор над готовой лентой пула. См. editor.py."""
     if EDITOR_MODE == "off" or AI_STOPPED or not EDITOR_MD:
@@ -7233,6 +7310,11 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
     for e in examples[:12]:
         print(f"       {e}")
     if EDITOR_MODE != "live":
+        dropped_n = sum(reasons.values())
+        nat = sum(1 for x in filtered if not x.get("region")) - dropped_n
+        print(f"     лента: {len(filtered)}, снял бы {dropped_n}; "
+              f"до полной ({max_items}) не хватает {max(0, max_items - nat)} — "
+              f"добор включится в режиме live")
         print(f"     💰 редактор: ${current_run_cost() - cost0:.4f}")
         return filtered
 
@@ -7248,23 +7330,7 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
         return kept, dropped
 
     out, dropped = apply_all(results)
-    # Добор: снятое заменяем из запаса той же полки. Снимать легко —
-    # наполнять трудно; пустое место в ленте хуже лишнего запроса
-    added = 0
-    if dropped and leftover:
-        in_air = {x.get("url") for x in out} | {x.get("url") for x in dropped}
-        want = Counter(x.get("scope") for x in dropped)
-        pool = [x for x in leftover if x.get("url") not in in_air and not x.get("region")]
-        pool.sort(key=lambda x: (0 if want.get(x.get("scope")) else 1,
-                                 -int(x.get("priority") or 0)))
-        cands = _prepare_reserve([dict(x) for x in pool[:len(dropped) * 2]], lang)
-        if cands:
-            res2, _, _ = _editor_review(cands, lang)
-            more, _ = apply_all(res2)
-            more.sort(key=lambda x: 0 if want.get(x.get("scope")) else 1)
-            for x in more[:len(dropped)]:
-                out.append(x)
-                added += 1
+    out, added = _editor_refill(out, dropped, filtered, lang, leftover, max_items, apply_all)
     # Фото, которого требует редактор: берём у другого издания о том же
     # событии. Не нашли — лучше без фото, чем с чужим
     borrowed = cleared = 0
@@ -7285,7 +7351,7 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
     vit = sorted([x for x in out if x.get("vital")], key=lambda x: -x.get("publishedAt", 0))
     for x in vit[EDITOR_VITAL_MAX:]:
         x["category"], x["vital"] = "NEWS", False
-    print(f"     лента: было {len(filtered)}, снято {len(dropped)}, добрано {added}, "
+    print(f"     лента: было {len(filtered)}, снято {len(dropped)}, добрано до полной {added}, "
           f"стало {len(out)}; фото: взято у соседа {borrowed}, убрано чужих {cleared}")
     print(f"     💰 редактор: ${current_run_cost() - cost0:.4f}")
     # Страховка: редактор снял слишком много и добрать не вышло — выходим
@@ -8410,6 +8476,7 @@ def main():
         filtered = urgent_floor_by_outlets(filtered, lang)
         # Порог срочности: не больше двух и только свежие
         filtered = cap_urgent(filtered, lang)
+        filtered = carry_vital(filtered, lang)
         filtered = mark_vital_local(filtered, lang)
         filtered = demote_no_event(filtered, lang)
         filtered = fix_scope_and_category(filtered, lang)
@@ -8471,6 +8538,7 @@ def main():
         if stories:
             payload["stories"] = stories
         db.reference(f"/news/{lang}").set(payload)
+        save_vital(filtered, lang)
         print(f"  ✅ /news/{lang} сохранено")
         # Записываем расход СРАЗУ, а не в конце прогона: убитое задание
         # унесёт с собой минуты работы, а не часы. См. flush_ai_spend
