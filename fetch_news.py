@@ -6951,6 +6951,49 @@ def save_vital(items, lang):
         print(f"  ⚠️ /vital/{lang} не сохранён: {e}")
 
 
+# ─── МАССОВАЯ ГИБЕЛЬ ЛЮДЕЙ ──────────────────────────────────────────────────
+#
+# 24.09.2026, владелец: «9 военнослужащих Казахстана утонули во время учений и
+# ещё 7 пропали — почему это не в срочном?». «Погибли» в признаках стояло
+# только для своей страны (URGENT_LOCAL_ONLY), а мировые признаки беды —
+# землетрясение, взрыв, теракт. Гибель на учениях, в воде, при крушении у
+# соседей проходила мимо обоих. Масштаб считаем по числу из заголовка: своя
+# страна и соседи — от пяти погибших или пропавших, дальний мир — от двадцати.
+_NUM_WORDS = {"двое": 2, "трое": 3, "четверо": 4, "пятеро": 5, "шестеро": 6,
+              "семеро": 7, "восемь": 8, "девять": 9, "десять": 10, "десятки": 20,
+              "сотни": 100, "dozens": 20, "hundreds": 100, "decenas": 20,
+              "centenas": 100, "dizaines": 20, "centaines": 100}
+_CASUALTY = re.compile(
+    r"(\d+|" + "|".join(_NUM_WORDS) + r")[^\d.!?]{0,40}?"
+    r"(погиб|утонул|жертв|пропал|скончал|killed|dead|died|drown|missing|victims?"
+    r"|muert|fallec|desaparec|mort[oa]s?|morreram|desaparecid|tués?|morts?|disparu)",
+    re.I)
+CASUALTY_NEAR, CASUALTY_FAR = 5, 20
+
+
+def mass_casualty_urgent(items, lang):
+    """Число погибших/пропавших в заголовке — выше порога → URGENT."""
+    lifted = []
+    for it in items:
+        if it.get("category") in ("URGENT", "URGENT_LOCAL_ONLY"):
+            continue
+        title = str(it.get("title", ""))
+        need = CASUALTY_NEAR if it.get("scope") in ("local", "pool") else CASUALTY_FAR
+        total = 0
+        for m in _CASUALTY.finditer(title):
+            w = m.group(1).lower()
+            n = int(w) if w.isdigit() else _NUM_WORDS.get(w, 0)
+            if n < 1000:            # не годы и не суммы
+                total += n
+        if total >= need:
+            it["category"] = "URGENT"
+            it["priority"] = max(int(it.get("priority") or 0), 2)
+            lifted.append(title[:60])
+    if lifted:
+        print(f"  🕯 Массовая гибель → срочно [{lang}]: " + "; ".join(lifted[:3]))
+    return items
+
+
 def cap_urgent(items, lang):
     """Оставляет не больше двух срочных, и только свежие.
 
@@ -8514,6 +8557,7 @@ def main():
         # Пол снизу: три и больше изданий об одном событии — срочно машинным
         # счётом, независимо от того, заметил ли это ИИ
         filtered = urgent_floor_by_outlets(filtered, lang)
+        filtered = mass_casualty_urgent(filtered, lang)
         # Порог срочности: не больше двух и только свежие
         filtered = cap_urgent(filtered, lang)
         filtered = carry_vital(filtered, lang)
