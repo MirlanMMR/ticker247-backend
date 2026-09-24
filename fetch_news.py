@@ -3397,6 +3397,20 @@ CATEGORY_KEYWORDS = {
     # только если новость про СТРАНУ читателя (scope=local), см. auto_categorize
     "URGENT_LOCAL_ONLY": [
         "отключение воды", "отключение света", "отключение электричества", "без воды", "без света",
+        # ЖИЗНЕННО ВАЖНОЕ ДЛЯ ЖИТЕЛЯ — наша фишка (владелец, 24.09.2026). В тот
+        # день 24.kg написал «Бүгүн Бишкектин айрым райондорунда суу өчөт» —
+        # сегодня в части Бишкека отключат воду. Ни в карусель, ни в шторку
+        # новость не попала: список знал только русские слова. Местные издания
+        # пишут и на госязыке — кыргызском, казахском, узбекском
+        "отключат воду", "отключат свет", "отключат газ", "отключение газа",
+        "подачу воды", "подача воды", "воды не будет", "света не будет", "без газа",
+        "суу өч", "суу берилбей", "жарык өч", "электр өч", "газ өч",
+        "жол жабыл", "кыймыл чектел",
+        "су өшір", "жарық өшір", "электр өшір", "газ өшір",
+        "suv o'chiril", "suv berilmay", "svet o'chiril", "elektr o'chiril", "gaz o'chiril",
+        "coupure d'eau", "coupure de courant", "coupure d'électricité", "panne d'électricité",
+        "corte de agua", "corte de luz", "sin agua", "sin luz", "apagón",
+        "falta de água", "sem água", "sem luz", "apagão", "corte de energia",
         "отключат", "веерные отключения", "аварийное отключение",
         "перекрыт", "перекрыли", "закрыт перевал", "дорога закрыта", "ДТП со смертельным",
         "столкновение", "авария на дороге",
@@ -3576,8 +3590,25 @@ def promote_global_stories(all_news):
 # волен вести куда угодно, и он привёл на модель примерно вдесятеро дороже
 # ожидаемой — десять долларов сгорели за сутки. Здесь цена известна заранее.
 # Если прикреплённой не окажется, падаем на псевдоним и громко сообщаем.
-GEMINI_MODEL = "gemini-flash-lite-latest"
-GEMINI_MODEL_FALLBACK = "gemini-flash-latest"
+#
+# 24.09.2026 — ЗАКРЕПЛЕНО СНОВА. С 13.08 здесь стоял псевдоним
+# gemini-flash-lite-latest — ровно то, от чего предостерегает абзац выше.
+# Счётчик считал по ценам 2.5 Flash-Lite ($0.10/$0.40), а со счёта уходило
+# $0.87 в сутки при насчитанных $0.37: у Google к тому времени были Flash-Lite
+# 3.1 ($0.25/$1.50) и 3.5 ($0.30/$2.50), и псевдоним, судя по сумме, вёл на
+# одну из них. Запасная модель — тоже закреплённая, не «latest»: при сбое
+# основной цена остаётся известной, а не «какая выпадет».
+GEMINI_MODEL = "gemini-2.5-flash-lite"
+GEMINI_MODEL_FALLBACK = "gemini-3.1-flash-lite"
+
+# Цены за миллион токенов: вход, исходящие, вход из кэша (платный тариф,
+# ai.google.dev/gemini-api/docs/pricing, 24.09.2026). Размышления модели
+# оплачиваются как исходящие
+GEMINI_PRICES = {
+    "gemini-2.5-flash-lite": (0.10, 0.40, 0.01),
+    "gemini-3.1-flash-lite": (0.25, 1.50, 0.025),
+    "gemini-2.5-flash": (0.30, 2.50, 0.03),
+}
 
 # Счётчик расхода: раньше о цене узнавали, когда деньги кончались
 TOKENS = {"in": 0, "out": 0, "calls": 0, "fallback_in": 0, "fallback_out": 0}
@@ -3632,9 +3663,11 @@ def current_run_cost() -> float:
     Пока разница не объяснена, относиться к этой сумме как к НИЖНЕЙ границе.
     """
     _cached_in = min(TOKENS.get("cached", 0), TOKENS["in"])
-    return ((TOKENS["in"] - _cached_in) / 1e6 * 0.10
-            + _cached_in / 1e6 * 0.01
-            + TOKENS["out"] / 1e6 * 0.40
+    p_in, p_out, p_cache = GEMINI_PRICES.get(_MODEL_IN_USE, GEMINI_PRICES[GEMINI_MODEL_FALLBACK])
+    return ((TOKENS["in"] - _cached_in) / 1e6 * p_in
+            + _cached_in / 1e6 * p_cache
+            + TOKENS["out"] / 1e6 * p_out
+            + TOKENS.get("x_cost", 0.0)
             + TOKENS.get("fallback_in", 0) / 1e6 * 0.03
             + TOKENS.get("fallback_out", 0) / 1e6 * 0.30)
 
@@ -6809,6 +6842,59 @@ def urgent_floor_by_outlets(items, lang):
     return items
 
 
+# ─── ЖИЗНЕННО ВАЖНОЕ ДЛЯ ЖИТЕЛЯ ─────────────────────────────────────────────
+#
+# Наша фишка: не «главное в мире», а то, что меняет день человека в его
+# городе — отключат воду, свет, газ; перекроют дорогу; закроют перевал.
+# 24.09.2026 владелец: «у нас в Бишкеке ожидается отключение воды, не вижу
+# об этом сообщений в карусели или в уведомлении в шторке». Новость в ленте
+# была (24.kg, «Бүгүн Бишкектин айрым райондорунда суу өчөт»), но:
+#   · слова-признаки знали только русский, а местные пишут и на госязыке;
+#   · признаки проверялись лишь у категории NEWS, а у 24.kg категория KG;
+#   · шторка будит только на URGENT, а местной ставился URGENT_LOCAL_ONLY;
+#   · «срочно» живёт три часа, а отключение, объявленное утром, важно весь
+#     день.
+# Здесь — один признак для всех этих мест. Только полка local: отключение
+# воды в Москве читателю из Бишкека не нужно.
+VITAL_LOCAL = re.compile(
+    r"отключ\w* (?:вод|свет|газ|электр|отоплен|горяч)|без (?:воды|света|газа)"
+    r"|(?:воды|света|газа) не будет|подач\w+ (?:воды|газа|тепла)"
+    r"|перекр\w+ (?:движени|улиц|дорог)|ограничен\w* движени|закрыт\w* перевал"
+    r"|суу (?:өч|берилбей)|жарык өч|электр\w* өч|газ өч|жол жабыл|кыймыл чектел"
+    r"|су өшір|жарық өшір|электр\w* өшір"
+    r"|suv (?:o'chiril|berilmay)|svet o'chiril|elektr\w* o'chiril|gaz o'chiril"
+    r"|coupure d'(?:eau|électricité)|coupure de courant|panne d'électricité"
+    r"|corte de (?:agua|luz)|sin (?:agua|luz)\b|apagón"
+    r"|falta de água|sem (?:água|luz)\b|apagão|corte de energia"
+    r"|water (?:outage|shutoff)|power (?:outage|cut)|boil[- ]water|road clos",
+    re.I)
+VITAL_MAX = 2
+VITAL_MAX_AGE_MS = 14 * 3600 * 1000   # объявили утром — важно до вечера
+
+
+def mark_vital_local(items, lang):
+    """Жизненно важное с полки local → URGENT: карусель и шторка."""
+    now = int(datetime.now().timestamp() * 1000)
+    found = []
+    for it in items:
+        if it.get("scope") != "local":
+            continue
+        if now - it.get("publishedAt", 0) > VITAL_MAX_AGE_MS:
+            continue
+        text = f"{it.get('title', '')} {str(it.get('summary', ''))[:400]}"
+        if VITAL_LOCAL.search(text):
+            found.append(it)
+    found.sort(key=lambda x: -x.get("publishedAt", 0))
+    for it in found[:VITAL_MAX]:
+        it["category"] = "URGENT"
+        it["priority"] = max(it.get("priority", 0), 2)
+        it["vital"] = True
+    if found:
+        print(f"  🚰 Жизненно важное [{lang}]: {len(found[:VITAL_MAX])} — "
+              + "; ".join(x.get("title", "")[:50] for x in found[:VITAL_MAX]))
+    return items
+
+
 def cap_urgent(items, lang):
     """Оставляет не больше двух срочных, и только свежие.
 
@@ -6820,7 +6906,9 @@ def cap_urgent(items, lang):
     Снятые с «срочно» из ленты не исчезают — просто перестают будить.
     """
     now = int(datetime.now().timestamp() * 1000)
-    urgent = [x for x in items if x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY")]
+    # Жизненно важное — своя квота и свой срок (см. mark_vital_local)
+    urgent = [x for x in items if x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY")
+              and not x.get("vital")]
     if not urgent:
         return items
     # Сначала снимаем то, что срочным не бывает по природе: вопрос в
@@ -6861,7 +6949,7 @@ def demote_no_event(items, lang):
     """
     n = 0
     for it in items:
-        if not it.get("_no_event"):
+        if not it.get("_no_event") or it.get("vital"):
             continue
         changed = False
         if it.get("priority", 0) >= 1:
@@ -7822,7 +7910,7 @@ def main():
     load_page_bodies()
     load_trim_cache()
     load_translations()
-    print("🤖 Фильтруем через Gemini AI...")
+    print(f"🤖 Фильтруем через Gemini AI ({_MODEL_IN_USE})...")
 
     # Мировые новости (scope=world) идут во ВСЕ пулы.
     # Локальные (scope=local) — только в пул по языку статьи.
@@ -8153,6 +8241,7 @@ def main():
         filtered = urgent_floor_by_outlets(filtered, lang)
         # Порог срочности: не больше двух и только свежие
         filtered = cap_urgent(filtered, lang)
+        filtered = mark_vital_local(filtered, lang)
         filtered = demote_no_event(filtered, lang)
         filtered = fix_scope_and_category(filtered, lang)
         # Обзор прессы собираем ДО схлопывания повторов: он и живёт тем, что
@@ -8255,7 +8344,7 @@ def main():
         print(f"  ↪️ Через запасного ({FALLBACK_MODEL}): "
               f"{TOKENS['fallback_in']:,} входящих + "
               f"{TOKENS['fallback_out']:,} исходящих токенов")
-    print(f"💰 Расход ИИ: {TOKENS['calls']} запросов, "
+    print(f"💰 Расход ИИ [{_MODEL_IN_USE}]: {TOKENS['calls']} запросов, "
           f"{TOKENS['in']:,} входящих + {TOKENS['out']:,} исходящих токенов "
           f"≈ ${cost:.4f} за прогон (≈ ${cost * 24 * 60 / REFRESH_MINUTES:.2f} "
           f"в сутки при прогоне раз в {REFRESH_MINUTES} мин)")
