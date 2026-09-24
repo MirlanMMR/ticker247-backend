@@ -58,6 +58,12 @@ check("текст — абзацы 1 и 2 дословно", x["summary"] == f"{
 check("опечатка в заголовке исправлена", x["title"].endswith("супертелеобъектив"))
 check("фото заменено на №2", x["imageUrl"] == ph[1]["url"])
 check("выбранное редактором фото помечено проверенным", x.get("photoChecked") is True)
+_body = [{"url": "https://ex.com/prof.jpg", "alt": "Почему образуются тромбы, объясняет профессор",
+          "where": "в статье", "flag": ""}]
+ok, x3, _ = ED.apply_verdict({"title": "25 сентября в части Бишкека отключат свет", "imageUrl": "u0"},
+                             {"publish": True, "photo": 2}, ["a"],
+                             [{"url": "u0", "alt": "", "where": "сейчас в карточке", "flag": ""}] + _body)
+check("снимок из тела с чужой подписью не берётся", x3["imageUrl"] == "u0")
 ok, x2, _ = ED.apply_verdict(item, {"publish": True, "photo": 0, "need_photo": True}, paras, ph)
 check("«нужно другое фото» — без пометки", not x2.get("photoChecked"))
 check("оригинал не тронут", item["title"].endswith("супертелеобъектива"))

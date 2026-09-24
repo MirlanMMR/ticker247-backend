@@ -184,6 +184,16 @@ def parse_verdicts(raw: str):
     return out
 
 
+def _stems5(text: str) -> set:
+    return {w[:5] for w in re.findall(r"[a-zà-ÿа-яёөүң]{5,}", (text or "").lower())}
+
+
+def caption_matches(caption: str, title: str) -> bool:
+    """Подпись снимка делит с заголовком ≥2 основы (одной мало: «Российский
+    блогер» и «задержание россиянина» делят «росси»)."""
+    return len(_stems5(caption) & _stems5(title)) >= 2
+
+
 _WORD = re.compile(r"[\w\-]+", re.U)
 
 
@@ -270,7 +280,11 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
                 notes.append("нужно другое фото")
         elif 1 <= ph <= len(photos) and ph != 1:
             cand = photos[ph - 1]
-            if not cand["flag"]:
+            # Лучше без фото, чем с чужим лицом: из тела статьи — только
+            # снимок, чья подпись говорит о том же, что заголовок
+            safe = cand["where"] in ("главное фото страницы", "обложка для соцсетей") or \
+                caption_matches(cand.get("alt", ""), x.get("title", ""))
+            if not cand["flag"] and cand["where"] != "ссылка на другую статью" and safe:
                 x["imageUrl"] = cand["url"]
                 notes.append(f"фото: №{ph} вместо №1")
     # Фото проверено: редактор видел снимки страницы с подписями и оставил

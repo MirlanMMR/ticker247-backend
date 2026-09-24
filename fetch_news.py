@@ -2968,6 +2968,21 @@ def enrich_feed_bodies(items, lang):
     print(f"  📄 [{lang}] Эфиру дотянуто со страницы: {got} из {len(short)}")
 
 
+def _stems5(text: str) -> set:
+    return {w[:5] for w in re.findall(r"[a-zà-ÿа-яёөүң]{5,}", (text or "").lower())}
+
+
+def _caption_matches(img, title: str) -> bool:
+    """Подпись снимка (alt/title/figcaption) делит с заголовком ≥2 основы."""
+    cap = " ".join(filter(None, [img.get("alt"), img.get("title")]))
+    fig = img.find_parent("figure")
+    if fig is not None:
+        fc = fig.find("figcaption")
+        if fc is not None:
+            cap += " " + fc.get_text(" ", strip=True)
+    return len(_stems5(cap) & _stems5(title)) >= 2
+
+
 def enrich_missing_images(items, budget=450, workers=16):
     """Достаёт фотографию со страницы статьи для новостей, где её нет в ленте.
 
@@ -3047,7 +3062,7 @@ def enrich_missing_images(items, budget=450, workers=16):
                     return True
         return False
 
-    def _page_photo(soup, page_url=""):
+    def _page_photo(soup, page_url="", title=""):
         """Настоящий снимок со страницы, когда og:image оказался карточкой.
 
         ПЕРВАЯ КАРТИНКА НА СТРАНИЦЕ — НЕ ЗНАЧИТ ФОТО СТАТЬИ. 24.09.2026 над
@@ -3085,6 +3100,14 @@ def enrich_missing_images(items, budget=450, workers=16):
             except ValueError:
                 pass
             if any(k in src.lower() for k in ("logo", "icon", "avatar", "banner", "pixel", "1x1")):
+                continue
+            # ЛУЧШЕ БЕЗ ФОТО, ЧЕМ С ЧУЖИМ ЛИЦОМ (владелец, 24.09.2026: «так и
+            # до суда недолго — кто-то оскорбится, сохранит скриншот»). Этот
+            # путь — запасной: главного фото страница не объявила. Берём
+            # картинку, только если её подпись говорит о том же, что заголовок.
+            # Иначе на новости о кокаине стоял блогер (РИА), на отключении
+            # света — врач из «По теме» (Kaktus)
+            if not _caption_matches(img, title):
                 continue
             return src
         return None
@@ -3137,7 +3160,7 @@ def enrich_missing_images(items, budget=450, workers=16):
                     img = f"https://img.youtube.com/vi/{vid}/maxresdefault.jpg"
             if img and (_SHARING_CARD.search(img) or _THUMB_IMAGE.search(img)):
                 # заголовок на картинке или миниатюра — ищем живое фото
-                img = _page_photo(soup, r.url or item["url"]) or img
+                img = _page_photo(soup, r.url or item["url"], item.get("title", "")) or img
             return img if img and img.startswith("http") else None
         except Exception:
             _img_fail.append(item.get("source", "?"))
