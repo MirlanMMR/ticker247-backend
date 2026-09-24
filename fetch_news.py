@@ -4544,7 +4544,7 @@ def _cull_chunk_loop(news_list, lang="ru"):
                 marked += 1
 
     mode = "холостой" if CULL_DRY_RUN else "боевой"
-    print(f"  🧪 Этап 1 ({mode}) [{lang}]: помечено {marked} из {len(news_list)} "
+    _rep(f"  🧪 Этап 1 ({mode}) [{lang}]: помечено {marked} из {len(news_list)} "
           f"за {asked} запросов")
     if CULL_DRY_RUN:
         return news_list
