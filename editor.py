@@ -25,11 +25,14 @@ from urllib.parse import urlsplit
 
 from bs4 import BeautifulSoup
 
-EDITOR_VERSION = 1
+EDITOR_VERSION = 2
 BATCH = 6                 # карточек в одном запросе
 MAX_PARAS = 14
 MAX_TEXT = 5000
 MAX_PHOTOS = 6
+
+VITAL_KINDS = {"вода-свет-газ", "дороги-транспорт", "стихия-погода", "здоровье",
+               "цены-на-необходимое", "документы-выплаты"}
 
 REASONS = {"реклама", "нет события", "анонс без сути", "закрыто", "мусор",
            "не для читателя"}
@@ -267,7 +270,11 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=True):
         x["priority"] = min(int(x.get("priority") or 0), 1)
         notes.append("срочность снята")
     # жизненно важное — только о своей стране
-    if vital_ok and v.get("vital") and x.get("scope") == "local":
+    # Первый прогон в тени (24.09) назвал «жизненно важным» ДТП с погибшими,
+    # курс песо, удар по Украине, штраф банку — десяток ложных уведомлений.
+    # Пометка принимается только с видом из закрытого списка
+    kind = str(v.get("vital_kind") or "").strip().lower()
+    if vital_ok and v.get("vital") and x.get("scope") == "local" and kind in VITAL_KINDS:
         x["category"] = "URGENT"
         x["priority"] = max(x.get("priority", 0), 2)
         x["vital"] = True
@@ -342,7 +349,7 @@ def compact(v, paras, photos, now_ms):
     Firebase платный. Из снимков храним только те, что нужны решению."""
     src = v
     v = {}
-    for k in ("reason", "paragraphs", "title", "note"):
+    for k in ("reason", "paragraphs", "title", "note", "vital_kind"):
         if src.get(k):
             v[k] = src[k]
     for k in ("need_photo", "vital", "_second"):
@@ -400,7 +407,7 @@ def summarize(results, lang):
                 fixes["ложное «срочно» снято"] += 1
                 examples.append(f"🔕 [{it.get('source','?')}] {it.get('title','')[:70]}")
             elif n == "жизненно важное":
-                vital.append(it.get("title", "")[:70])
+                vital.append(f"{it.get('title', '')[:70]} ({v.get('vital_kind')})")
         if v.get("_second"):
             examples.append(f"🧑‍⚖️ второй редактор: [{it.get('source','?')}] "
                             f"{it.get('title','')[:60]}")
