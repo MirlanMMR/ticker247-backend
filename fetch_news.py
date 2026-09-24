@@ -6994,6 +6994,36 @@ def mass_casualty_urgent(items, lang):
     return items
 
 
+# Режим ЧС в регионе ЧУЖОЙ страны — не срочно для всех (24.09.2026). Лента
+# одна на весь пул, а касается такой режим жителей того региона: «режим ЧС в
+# Краснодарском крае» стояла «СРОЧНО» у читателя в Бишкеке. Жителю региона
+# новость поднимает само приложение (VitalNews.isVitalFor по UserRegion).
+# Массовая гибель — не сюда: её поднимает mass_casualty_urgent.
+_EMERGENCY_REGIME = re.compile(
+    r"режим\w* (?:чс|чрезвычайн)|чрезвычайн\w+ (?:положени|ситуаци)|state of emergency"
+    r"|estado de (?:emergencia|excepci[oó]n|emerg[eê]ncia)|[ée]tat d'urgence", re.I)
+
+
+def demote_foreign_emergency(items, lang):
+    n = 0
+    for it in items:
+        if it.get("category") != "URGENT" or it.get("scope") == "local" or it.get("vital"):
+            continue
+        title = str(it.get("title", ""))
+        if not _EMERGENCY_REGIME.search(title):
+            continue
+        probe = {"title": title, "scope": it.get("scope"), "category": "NEWS"}
+        mass_casualty_urgent([probe], lang)
+        if probe["category"] == "URGENT":
+            continue
+        it["category"] = "NEWS"
+        it["priority"] = min(int(it.get("priority") or 0), 1)
+        n += 1
+    if n:
+        print(f"  🔕 ЧС в чужом регионе — не срочно для всех [{lang}]: {n}")
+    return items
+
+
 def cap_urgent(items, lang):
     """Оставляет не больше двух срочных, и только свежие.
 
@@ -8558,6 +8588,7 @@ def main():
         # счётом, независимо от того, заметил ли это ИИ
         filtered = urgent_floor_by_outlets(filtered, lang)
         filtered = mass_casualty_urgent(filtered, lang)
+        filtered = demote_foreign_emergency(filtered, lang)
         # Порог срочности: не больше двух и только свежие
         filtered = cap_urgent(filtered, lang)
         filtered = carry_vital(filtered, lang)

@@ -168,6 +168,20 @@ jobs:
       # только русский — испанский, португальский и английский не проверял
       # никто, и все находки приходили из одного пула. Проверка идёт после
       # публикации, не роняет прогон при сбое и ничего не стоит: без ИИ
+      # Отчёт редактора — вложением к прогону СРАЗУ после сбора ленты. Его
+      # можно скачать (gh run download -n editor-report), не дожидаясь конца
+      # дозора: лог GitHub до конца задания недоступен, а после отмены
+      # дозора однажды пропал целиком; коммит отчёта тоже однажды не дошёл
+      - name: Отчёт редактора
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: editor-report
+          path: editor_report.md
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Audit published feed
         if: always()
         continue-on-error: true
