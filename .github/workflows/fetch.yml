@@ -109,6 +109,9 @@ jobs:
       # Множитель «7–10×» из августа завышал страх. Ставим 20 — ниже гугловских
       # $25, с запасом, чтобы перевод непустых пулов (ru/es/pt/fr) не срывался.
       AI_MONTHLY_BUDGET: ${{ inputs.force_fallback && '0' || '20' }}
+      # Выпускающий редактор (editor.py): shadow — отчёт без правки ленты,
+      # live — в эфире, off — выключен. Тень — два-три прогона, не дольше
+      EDITOR_MODE: shadow
       # Запасной поставщик. Ключа пока нет — Alibaba держит новый аккаунт
       # под проверкой службы безопасности (ответ обещают за три дня).
       # Без ключа всё работает как раньше, с ключом — Gemini перестаёт быть
@@ -151,6 +154,7 @@ jobs:
           python test_storydedup.py
           python test_feed_gate.py
           python test_live_identity.py
+          python test_editor.py
 
       - name: Run fetch script
         run: python fetch_news.py

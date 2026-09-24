@@ -3904,7 +3904,7 @@ def ask_fallback(prompt, charter_text: str = "") -> str:
     return (data["choices"][0]["message"]["content"] or "").strip()
 
 
-def ask_gemini(prompt, charter=True) -> str:
+def ask_gemini(prompt, charter=True, model_name=None) -> str:
     """Один запрос к ИИ с подсчётом токенов и запасной моделью.
 
     Принимает строку или список частей — во втором случае среди них может быть
@@ -3933,7 +3933,7 @@ def ask_gemini(prompt, charter=True) -> str:
         charter = ""
     try:
         model = genai.GenerativeModel(
-            _MODEL_IN_USE,
+            model_name or _MODEL_IN_USE,
             system_instruction=charter or None,
         )
         resp = model.generate_content(prompt)
@@ -7136,6 +7136,167 @@ def smart_trim(item, target: int = 700):
     return out
 
 
+# ─── ВЫПУСКАЮЩИЙ РЕДАКТОР (editor.py, EDITOR.md) ────────────────────────────
+#
+# Режим — переменная EDITOR_MODE в настройках Actions:
+#   shadow — редактор решает и пишет отчёт, лента выходит по-старому
+#            (сверка: что он снял бы, что починил бы);
+#   live   — лента выходит так, как решил редактор, с добором взамен снятого;
+#   off    — не звать вовсе.
+# Договорённость 24.09.2026: тень — два-три прогона, не дольше. Прошлая тень
+# («нет инфоповода», NOEVENT_DRY_RUN) прожила месяц и никого не защитила.
+import editor as ED
+
+EDITOR_MODE = os.environ.get("EDITOR_MODE", "shadow").strip().lower() or "shadow"
+EDITOR_STRONG_MODEL = GEMINI_MODEL_FALLBACK      # рассуждает; для спорного
+try:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "EDITOR.md"),
+              encoding="utf-8") as _f:
+        EDITOR_MD = _f.read()
+except Exception:
+    EDITOR_MD = ""
+EDITOR_PREAMBLE = ("Ниже карточки ленты. Реши по каждой, как сказано в инструкции. "
+                   "Ответ — только JSON-массив.\n\n")
+EDITOR_CACHE = {}
+EDITOR_CACHE_TTL_MS = 36 * 3600 * 1000
+EDITOR_VITAL_MAX = 3
+
+
+def load_editor_cache():
+    global EDITOR_CACHE
+    try:
+        raw = db.reference("/editor_cache").get() or {}
+        # в Firebase ключ не может содержать «:» внутри пути — храним с «|»
+        EDITOR_CACHE = {k.replace("|", ":", 1): v for k, v in raw.items()}
+    except Exception as e:
+        print(f"  ⚠️ Память редактора недоступна: {e}")
+        EDITOR_CACHE = {}
+    print(f"  🗞 Память редактора: {len(EDITOR_CACHE)}")
+
+
+def save_editor_cache():
+    now = int(datetime.now().timestamp() * 1000)
+    keep = {k.replace(":", "|", 1): v for k, v in EDITOR_CACHE.items()
+            if isinstance(v, dict) and now - v.get("ts", 0) < EDITOR_CACHE_TTL_MS}
+    try:
+        db.reference("/editor_cache").set(keep)
+        print(f"  🗞 Память редактора сохранена: {len(keep)}")
+    except Exception as e:
+        print(f"  ⚠️ Память редактора не сохранилась: {e}")
+
+
+def _editor_review(items, lang):
+    cfg = POOL_CONFIG.get(lang, {})
+    header = ED.pool_header(lang, cfg.get("home", "?"), cfg.get("language_name", lang))
+    now = int(datetime.now().timestamp() * 1000)
+    return ED.review(
+        items, lang,
+        ask=lambda tail: ask_gemini_cached("editor", EDITOR_PREAMBLE, tail,
+                                           charter=EDITOR_MD),
+        ask_strong=lambda tail: ask_gemini(EDITOR_PREAMBLE + tail, charter=EDITOR_MD,
+                                           model_name=EDITOR_STRONG_MODEL),
+        fetch_html=_fetch_page, cache=EDITOR_CACHE, cache_key=_cache_key,
+        header=header, now_ms=now)
+
+
+def _prepare_reserve(cands, lang):
+    """Запасные карточки — в тот же вид, что эфир: текст, перевод, чистка."""
+    enrich_feed_bodies(cands, lang)
+    need = [x for x in cands if needs_translation(x, lang)]
+    for j in range(0, len(need), 10):
+        translate_batch(need[j:j + 10], lang)
+    ready = [x for x in cands if not needs_translation(x, lang)]
+    for x in ready:
+        x["_full"] = x.get("summary", "")
+        x["summary"] = lead(polish_summary(x.get("summary", "")))
+    return ready
+
+
+def run_editor(filtered, lang, leftover=(), max_items=70):
+    """Выпускающий редактор над готовой лентой пула. См. editor.py."""
+    if EDITOR_MODE == "off" or AI_STOPPED or not EDITOR_MD:
+        return filtered
+    cost0 = current_run_cost()
+    results, asked, second = _editor_review(filtered, lang)
+    reasons, fixes, examples, vital = ED.summarize(results, lang)
+    tag = "ТЕНЬ, лента не тронута" if EDITOR_MODE != "live" else "В ЭФИРЕ"
+    print(f"  🗞 Редактор [{lang}] ({tag}): карточек {len(results)}, "
+          f"спрошено {asked}, вторым {second}")
+    if reasons:
+        print(f"     снял бы: " + ", ".join(f"{k} {n}" for k, n in reasons.most_common())
+              if EDITOR_MODE != "live" else
+              f"     снято: " + ", ".join(f"{k} {n}" for k, n in reasons.most_common()))
+    if fixes:
+        print("     починено: " + ", ".join(f"{k} {n}" for k, n in fixes.most_common()))
+    if vital:
+        print("     жизненно важное: " + "; ".join(vital[:4]))
+    for e in examples[:12]:
+        print(f"       {e}")
+    if EDITOR_MODE != "live":
+        print(f"     💰 редактор: ${current_run_cost() - cost0:.4f}")
+        return filtered
+
+    # ── В ЭФИРЕ: исполняем решения ──
+    def apply_all(res):
+        kept, dropped = [], []
+        for it, v, paras, photos in res:
+            if not v:
+                kept.append(it)         # ИИ не ответил — карточка как была
+                continue
+            ok, x, _notes = ED.apply_verdict(it, v, paras, photos)
+            (kept if ok else dropped).append(x if ok else it)
+        return kept, dropped
+
+    out, dropped = apply_all(results)
+    # Добор: снятое заменяем из запаса той же полки. Снимать легко —
+    # наполнять трудно; пустое место в ленте хуже лишнего запроса
+    added = 0
+    if dropped and leftover:
+        in_air = {x.get("url") for x in out} | {x.get("url") for x in dropped}
+        want = Counter(x.get("scope") for x in dropped)
+        pool = [x for x in leftover if x.get("url") not in in_air and not x.get("region")]
+        pool.sort(key=lambda x: (0 if want.get(x.get("scope")) else 1,
+                                 -int(x.get("priority") or 0)))
+        cands = _prepare_reserve([dict(x) for x in pool[:len(dropped) * 2]], lang)
+        if cands:
+            res2, _, _ = _editor_review(cands, lang)
+            more, _ = apply_all(res2)
+            more.sort(key=lambda x: 0 if want.get(x.get("scope")) else 1)
+            for x in more[:len(dropped)]:
+                out.append(x)
+                added += 1
+    # Фото, которого требует редактор: берём у другого издания о том же
+    # событии. Не нашли — лучше без фото, чем с чужим
+    borrowed = cleared = 0
+    for x in out:
+        if not x.pop("_need_photo", False):
+            continue
+        donor = next((y for y in out if y is not x and y.get("imageUrl")
+                      and same_event(x, y)), None)
+        if donor:
+            x["imageUrl"] = donor["imageUrl"]
+            borrowed += 1
+        else:
+            x["imageUrl"] = ""
+            if not x.get("vital"):
+                x["priority"] = min(int(x.get("priority") or 0), 1)
+            cleared += 1
+    # Жизненно важного не больше трёх разом — иначе шторка превратится в шум
+    vit = sorted([x for x in out if x.get("vital")], key=lambda x: -x.get("publishedAt", 0))
+    for x in vit[EDITOR_VITAL_MAX:]:
+        x["category"], x["vital"] = "NEWS", False
+    print(f"     лента: было {len(filtered)}, снято {len(dropped)}, добрано {added}, "
+          f"стало {len(out)}; фото: взято у соседа {borrowed}, убрано чужих {cleared}")
+    print(f"     💰 редактор: ${current_run_cost() - cost0:.4f}")
+    # Страховка: редактор снял слишком много и добрать не вышло — выходим
+    # по-старому. Пустая лента хуже неотредактированной
+    if len(out) < len(filtered) * 0.7:
+        print(f"::warning::Редактор [{lang}] оставил {len(out)} из {len(filtered)} — "
+              f"лента выходит без него")
+        return filtered
+    return out
+
+
 def polish_summary(text: str) -> str:
     """Чистит текст, СОХРАНЯЯ АБЗАЦЫ.
 
@@ -7909,6 +8070,7 @@ def main():
     load_ai_cache()
     load_page_bodies()
     load_trim_cache()
+    load_editor_cache()
     load_translations()
     print(f"🤖 Фильтруем через Gemini AI ({_MODEL_IN_USE})...")
 
@@ -8221,7 +8383,14 @@ def main():
         # пулы — пока по правилу
         trimmed_by_ai = 0
         for _x in filtered:
+            # Полный текст — выпускающему редактору (editor.py): он сам выбирает
+            # абзацы. Перед записью в базу поле убирается
+            _x["_full"] = _x.get("summary", "")
             smart = None
+            if EDITOR_MODE == "live":
+                # Редактор выберет абзацы сам — не платим за обрезку дважды
+                _x["summary"] = lead(polish_summary(_x.get("summary", "")))
+                continue
             if lang == "ru":
                 smart = smart_trim(_x)
             if smart:
@@ -8287,6 +8456,13 @@ def main():
             for it in dropped_bad[:3]:
                 print(f"       · {it.get('source','?')}: {it.get('title','')[:56]}")
 
+        filtered = run_editor(filtered, lang, leftover=leftover,
+                              max_items=max_items)
+        # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
+        # и базе они не нужны: _full один весит больше всей карточки
+        filtered = [{k: v for k, v in x.items() if not str(k).startswith("_")}
+                    for x in filtered]
+
         payload = {
             "items": filtered,
             "updatedAt": ts,
@@ -8325,6 +8501,7 @@ def main():
     save_ai_cache()
     save_page_bodies()
     save_trim_cache()
+    save_editor_cache()
     save_translations()
 
     # Расход этого прогона. Цены Flash-Lite на 13.08.2026 — примерно $0.10 за
