@@ -3649,7 +3649,28 @@ GEMINI_PRICES = {
     "gemini-2.5-flash-lite": (0.10, 0.40, 0.01),
     "gemini-3.1-flash-lite": (0.25, 1.50, 0.025),
     "gemini-2.5-flash": (0.30, 2.50, 0.03),
+    "gemini-3.5-flash-lite": (0.30, 2.50, 0.03),
 }
+
+# ЗАПРОС — СВОЕЙ МОДЕЛИ, если под неё писалась инструкция (24.09.2026).
+# Первый этап отсева месяц работал на 3.5 Flash-Lite (за псевдонимом latest),
+# и его устав EDITORIAL_CULL.md подбирался под неё. Закрепили 3.1 ради цены —
+# отсев стал снимать в 2–3 раза больше (fr: 15% → 44%, es: 9% → 37%), ленты
+# похудели, французская местная полка опустела до 9 из 28. Модель сменили
+# без сверки отбора до и после — так делать нельзя. Отсев дешёвый (только
+# заголовки), поэтому возвращаем ему прежнюю модель; остальное — на 3.1.
+KEY_MODEL = {"cull": "gemini-3.5-flash-lite"}
+
+
+def _price_delta(model: str, tok_in: int, cached: int, tok_out: int) -> float:
+    """Разница цены запроса к особой модели против основной — в x_cost."""
+    if not model or model == _MODEL_IN_USE:
+        return 0.0
+    a = GEMINI_PRICES.get(model, GEMINI_PRICES[GEMINI_MODEL_FALLBACK])
+    b = GEMINI_PRICES.get(_MODEL_IN_USE, GEMINI_PRICES[GEMINI_MODEL_FALLBACK])
+    cached = min(cached, tok_in)
+    cost = lambda p: (tok_in - cached) / 1e6 * p[0] + cached / 1e6 * p[2] + tok_out / 1e6 * p[1]
+    return cost(a) - cost(b)
 
 # Счётчик расхода: раньше о цене узнавали, когда деньги кончались
 TOKENS = {"in": 0, "out": 0, "calls": 0, "fallback_in": 0, "fallback_out": 0}
@@ -4014,6 +4035,11 @@ def ask_gemini(prompt, charter=True, model_name=None) -> str:
         # дешевле. Без этого счётчика мы не знаем, работает ли он вообще
         TOKENS["cached"] = TOKENS.get("cached", 0) + (
             getattr(u, "cached_content_token_count", 0) or 0)
+        TOKENS["x_cost"] = TOKENS.get("x_cost", 0.0) + _price_delta(
+            model_name, getattr(u, "prompt_token_count", 0) or 0,
+            getattr(u, "cached_content_token_count", 0) or 0,
+            (getattr(u, "candidates_token_count", 0) or 0)
+            + (getattr(u, "thoughts_token_count", 0) or 0))
     TOKENS["calls"] += 1
     _note_model_version(resp)
     return resp.text.strip()
@@ -4074,7 +4100,7 @@ def _gemini_cache_for(key: str, preamble: str, charter_text: str = None):
     try:
         from google.generativeai import caching
         cc = caching.CachedContent.create(
-            model=_MODEL_IN_USE,
+            model=KEY_MODEL.get(key, _MODEL_IN_USE),
             display_name=f"ticker247-{key}",
             system_instruction=charter_text or _editorial_charter(),
             contents=[preamble],
@@ -4103,14 +4129,14 @@ def ask_gemini_cached(key: str, preamble: str, tail: str, charter=True) -> str:
                     else charter if isinstance(charter, str) else None)
     cc = _gemini_cache_for(key, preamble, charter_text)
     if cc is None:
-        return ask_gemini(preamble + tail, charter=charter)
+        return ask_gemini(preamble + tail, charter=charter, model_name=KEY_MODEL.get(key))
     try:
         model = genai.GenerativeModel.from_cached_content(cached_content=cc)
         resp = model.generate_content(tail)
     except Exception as e:
         GEMINI_CACHE_OFF.add(key)
         print(f"  ⚠️ Кэш [{key}] не подключился, работаем как раньше: {str(e)[:200]}")
-        return ask_gemini(preamble + tail, charter=charter)
+        return ask_gemini(preamble + tail, charter=charter, model_name=KEY_MODEL.get(key))
     u = getattr(resp, "usage_metadata", None)
     if u:
         TOKENS["in"] += getattr(u, "prompt_token_count", 0) or 0
@@ -4123,6 +4149,11 @@ def ask_gemini_cached(key: str, preamble: str, tail: str, charter=True) -> str:
             getattr(u, "thoughts_token_count", 0) or 0)
         TOKENS["cached"] = TOKENS.get("cached", 0) + (
             getattr(u, "cached_content_token_count", 0) or 0)
+        TOKENS["x_cost"] = TOKENS.get("x_cost", 0.0) + _price_delta(
+            KEY_MODEL.get(key), getattr(u, "prompt_token_count", 0) or 0,
+            getattr(u, "cached_content_token_count", 0) or 0,
+            (getattr(u, "candidates_token_count", 0) or 0)
+            + (getattr(u, "thoughts_token_count", 0) or 0))
     TOKENS["calls"] += 1
     _note_model_version(resp)
     return resp.text.strip()
