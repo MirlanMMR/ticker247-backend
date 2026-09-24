@@ -3182,6 +3182,35 @@ def parse_pub_date(item_el) -> int:
             pass
     return int(datetime.now().timestamp() * 1000)
 
+# ОДНО ИЗДАНИЕ НА ПОЛКУ — ДО ШЕСТНАДЦАТИ НОВОСТЕЙ (владелец, 24.09.2026).
+# Квота 2–3 придумана для полок, где изданий много и они делят место. Полка
+# штата или региона (G1 Bahia, Фонтанка, El Informador) держится на одном
+# издании, и там квота просто морила полку голодом: 2 новости на весь штат.
+# Если издание в своей полке одно — ему вся полка.
+SOLE_SOURCE_QUOTA = 16
+_SOLE = None
+
+
+def _sole_sources():
+    groups = {}
+    for s in RSS_SOURCES:
+        if not s.get("region"):
+            continue
+        k = (s.get("lang"), s.get("scope"), s.get("region"))
+        groups.setdefault(k, []).append(s["source"])
+    return {v[0] for v in groups.values() if len(v) == 1}
+
+
+def source_quota(source) -> int:
+    q = source.get("quota", 5)
+    global _SOLE
+    if _SOLE is None:
+        _SOLE = _sole_sources()
+    if source.get("source") in _SOLE:
+        return max(q, SOLE_SOURCE_QUOTA)
+    return q
+
+
 def fetch_rss(source):
     try:
         r = requests.get(source["url"], timeout=10, headers=BROWSER_HEADERS)
@@ -3189,7 +3218,7 @@ def fetch_rss(source):
             return []
         root = ET.fromstring(r.content)
         items = []
-        for item_el in root.findall(".//item")[:source.get("quota", 5)]:
+        for item_el in root.findall(".//item")[:source_quota(source)]:
             title = clean_text(item_el.findtext("title", "").strip())
             link = item_el.findtext("link", "").strip()
             summary = extract_full_summary(item_el)
@@ -8014,7 +8043,7 @@ def main():
                 taken.add(id(x))
         leftover = [x for x in nationals if id(x) not in taken]
         per_region, extra = Counter(), []
-        REGION_CAP, REGION_TOTAL = 10, 120
+        REGION_CAP, REGION_TOTAL = SOLE_SOURCE_QUOTA, 120
         for x in regionals:
             r = x.get("region")
             if per_region[r] >= REGION_CAP or len(extra) >= REGION_TOTAL:
