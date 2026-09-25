@@ -3661,6 +3661,45 @@ GEMINI_PRICES = {
 # заголовки), поэтому возвращаем ему прежнюю модель; остальное — на 3.1.
 KEY_MODEL = {"cull": "gemini-3.5-flash-lite"}
 
+# РАСХОД ПО ЭТАПАМ (25.09.2026). Прогон подорожал с ~$0.08 до ~$0.20, и
+# резать вслепую нельзя — сперва видеть, кто сколько ест. Запрос приписываем
+# этапу по имени функции, из которой он пришёл.
+STAGE_OF = {
+    "_cull_chunk_loop": "отсев (этап 1)", "_filter_chunk": "отбор (этап 2)",
+    "_gemini_translate": "перевод", "_editor_review": "редактор",
+    "_photo_is_graphic": "снимки происшествий", "build_press_reviews": "обзоры прессы",
+    "collapse_same_event": "склейка пересказов", "promote_global_stories": "мировые сюжеты",
+    "smart_trim": "ИИ-обрезка", "_ai_rescue_body": "спасение текста",
+}
+COST_BY_STAGE = Counter()
+CALLS_BY_STAGE = Counter()
+
+
+def _attribute(u, model):
+    import sys as _sys
+    f, stage = _sys._getframe(1), "прочее"
+    while f is not None:
+        if f.f_code.co_name in STAGE_OF:
+            stage = STAGE_OF[f.f_code.co_name]
+            break
+        f = f.f_back
+    p = GEMINI_PRICES.get(model or _MODEL_IN_USE, GEMINI_PRICES[GEMINI_MODEL_FALLBACK])
+    tin = getattr(u, "prompt_token_count", 0) or 0
+    cached = min(getattr(u, "cached_content_token_count", 0) or 0, tin)
+    tout = (getattr(u, "candidates_token_count", 0) or 0) + (getattr(u, "thoughts_token_count", 0) or 0)
+    COST_BY_STAGE[stage] += (tin - cached) / 1e6 * p[0] + cached / 1e6 * p[2] + tout / 1e6 * p[1]
+    CALLS_BY_STAGE[stage] += 1
+
+
+def report_cost_by_stage():
+    total = sum(COST_BY_STAGE.values())
+    if not total:
+        return
+    _rep("")
+    _rep(f"💰 Расход по этапам: всего ${total:.4f}")
+    for st, c in COST_BY_STAGE.most_common():
+        _rep(f"     {st}: ${c:.4f} ({c * 100 / total:.0f}%), запросов {CALLS_BY_STAGE[st]}")
+
 
 def _price_delta(model: str, tok_in: int, cached: int, tok_out: int) -> float:
     """Разница цены запроса к особой модели против основной — в x_cost."""
@@ -4040,6 +4079,7 @@ def ask_gemini(prompt, charter=True, model_name=None) -> str:
             getattr(u, "cached_content_token_count", 0) or 0,
             (getattr(u, "candidates_token_count", 0) or 0)
             + (getattr(u, "thoughts_token_count", 0) or 0))
+        _attribute(u, model_name)
     TOKENS["calls"] += 1
     _note_model_version(resp)
     return resp.text.strip()
@@ -4154,6 +4194,7 @@ def ask_gemini_cached(key: str, preamble: str, tail: str, charter=True) -> str:
             getattr(u, "cached_content_token_count", 0) or 0,
             (getattr(u, "candidates_token_count", 0) or 0)
             + (getattr(u, "thoughts_token_count", 0) or 0))
+        _attribute(u, KEY_MODEL.get(key))
     TOKENS["calls"] += 1
     _note_model_version(resp)
     return resp.text.strip()
@@ -8822,6 +8863,7 @@ def main():
     save_page_bodies()
     save_trim_cache()
     save_editor_cache()
+    report_cost_by_stage()
     save_editor_report()
     save_translations()
 
