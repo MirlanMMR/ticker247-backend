@@ -7478,8 +7478,14 @@ def _editor_refill(out, dropped, filtered, lang, leftover, max_items, apply_all)
            for k, v in EDITOR_SHELF_SHARE.items()}
     pool = [x for x in leftover if x.get("url") not in seen and not x.get("region")
             and not any(same_event(x, y) for y in out)]
-    pool.sort(key=lambda x: (-gap.get(x.get("scope"), 0), -int(x.get("priority") or 0)))
-    cands = _prepare_reserve([dict(x) for x in pool[:need * 2]], lang)
+    # ДЕШЕВЛЕ ДОБИРАТЬ (25.09.2026): добор брал вдвое больше кандидатов, и
+    # каждого переводил и давал редактору целиком — редактор и перевод съели
+    # две трети расхода ИИ. Теперь: сперва те, что уже на языке пула (перевод
+    # не нужен), запас 30% вместо 100%, не больше 30 за раз
+    pool.sort(key=lambda x: (1 if needs_translation(x, lang) else 0,
+                             -gap.get(x.get("scope"), 0), -int(x.get("priority") or 0)))
+    take = min(30, int(need * 1.3) + 2)
+    cands = _prepare_reserve([dict(x) for x in pool[:take]], lang)
     if not cands:
         return out, 0
     res, _, _ = _editor_review(cands, lang)
