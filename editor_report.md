@@ -1,277 +1,279 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-09-28 10:39 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-09-28 19:22 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [ru]: помечено 20 из 169 за 2 запросов
-  🧭 [ru] после отбора и отсечки полок: всего 80 — местных 32, соседей 15, мира 33
-  🧭 [ru] после чистки текста: всего 76 — местных 32, соседей 15, мира 29
-  🧭 [ru] после обзоров прессы: всего 74 — местных 32, соседей 15, мира 27
-  🧭 [ru] после склейки пересказов: всего 71 — местных 31, соседей 15, мира 25
-  🧭 [ru] после рубежа: всего 67 — местных 31, соседей 13, мира 23
+  🧪 Этап 1 (боевой) [ru]: помечено 25 из 195 за 2 запросов
+  🧭 [ru] после отбора и отсечки полок: всего 80 — местных 29, соседей 14, мира 37
+  🧭 [ru] после чистки текста: всего 80 — местных 29, соседей 14, мира 37
+  🧭 [ru] после обзоров прессы: всего 81 — местных 30, соседей 14, мира 37
+  🧭 [ru] после склейки пересказов: всего 75 — местных 29, соседей 13, мира 33
+  🧭 [ru] после рубежа: всего 71 — местных 29, соседей 13, мира 29
 
-  🗞 Редактор [ru] (В ЭФИРЕ): карточек 70, спрошено 58, вторым 0
-     снято: не для читателя 3, нет события 2, анонс без сути 1
-     починено: текст сокращён до сути 15, фото заменено 12, опечатка в заголовке 1, нужно другое фото 1
-       ✂️ [24.kg] Более ста километров обочин очистили от мусора дорожники Мин — абзацы 4/6; убрала хвост и повтор, отметила как важное
-       ✂️ [24.kg] Положение об этике искусственного интеллекта намерены примен — абзацы 4/5; убрала лишнее в конце
-       🖼 [Kaktus.media] Силовики обнаружили схрон оружия на месте таможенн — фото: №2 вместо №1
-       ✂️ [24.kg] На заседании комитета ЖК раскритиковали доклад Минздрава о т — абзацы 3/5; суть в первом, втором и пятом абзацах
-       ✂️ [24.kg] В Международный день глухих парк «Евразия» принял гостей из  — абзацы 2/3; убрала лишнее
-       ✂️ [24.kg] Педикулез, кариес, побеги. Омбудсмен о проблемах в Чуйской ш — абзацы 5/6; убрала 3-й абзац (не информативен)
-       ✏️ заголовок: «В Минздраве рассказали, сколько граждан с психическими заболеваниями стоят на учете в КР» → «В Минздраве рас
-       ✂️ [Kaktus.media] Комитет ЖК одобрил введение индексации зарплат — абзацы 3/4; убран дублирующий заголовок абзац
-       ✂️ [Kaktus.media] 34-летнюю женщину нашли убитой. Задержан ее муж — абзацы 6/8; убрал повтор заголовка
-       ✂️ [Kaktus.media] За 9 месяцев умерли 33 ребенка. Коллектив НИИХСТО просит про — абзацы 3/4; убрал повтор заголовка, vital: здоровье
-       ✗ анонс без сути: [Kabar.kg] Түшүм жыйноо өнөктүгү: буудай, арпа жана жүгөрүнүн түшүмү көбөйдү — текст обрывается, нет сути
-       ✂️ [Kabar.kg] Кыргызстанда коопсуз өрт өчүрүүчү каражаттар чыгарылууда — абзацы 3/4; убрал датлайн
-       ✂️ [Kabar.kg] Кыргызстан БУУда сот адилеттигин реформалоо тажрыйбасын бөлү — абзацы 3/4; убрал датлайн, лишний абзац
-       ✂️ [Sputnik KG] Что изменится в Географическом диктанте — 2026: новые правил — абзацы 4/6; Убран хвост, выбран актуальный снимок
-       🖼 [Sputnik KG] Что изменится в Географическом диктанте — 2026: но — фото: №2 вместо №1
-       🖼 [Sputnik KG] Временно снизить стоимость разрешения на тонировку — фото: №2 вместо №1
-       🖼 [Sputnik KG] Водитель служебного авто мэра Бишкека нарушил ПДД  — фото: №2 вместо №1
-       🖼 [Sputnik KG (кыргызча)] Жоокерлер талаада тамактанган күл азыктын 90%ын же — фото: №2 вместо №1
-       🖼 [Sputnik KG (кыргызча)] Бишкек мэринин кызматтык автоунаасына 64 миң сомдо — фото: №2 вместо №1
-       🖼 [Sputnik KG (кыргызча)] ЖККУ өлкөлөрүнүн чалгын топтору Россиядагы "Издөө- — фото: №2 вместо №1
-       ✂️ [Sports.ru] На бывшего игрока «Челси» напали вышибалы от агента. Разборк — абзацы 6/8; убран лишний вводный абзац, удалены ссылки
-       🖼 [Gazeta.uz] В детсаду Ахангарана трёхлетний ребёнок умер после — фото: №3 вместо №1
-       🖼 [Gazeta.uz] Водитель мотоцикла погиб в Ташкенте после столкнов — фото: №3 вместо №1
-       ✂️ [24.kg] Тажикстан БУУнун Коопсуздук кеңешинин туруктуу эмес мүчөлүгү — абзацы 4/9; снял хвост, нет фото
-       🖼 [BBC Русская служба] Президент Сербии объявил об отставке. После выборо — фото: №2 вместо №1
-       🖼 [BBC Русская служба] Сеул требует от Киева извинений за разглашение инф — фото: №2 вместо №1
-       ✂️ [BBC Русская служба] «Безответственность, халатность, показуха». Президент Казахс — абзацы 6/7; убрал дубль заголовка; выбрал подходящий снимок
-       🖼 [BBC Русская служба] «Безответственность, халатность, показуха». Презид — фото: №2 вместо №1
-       ✗ нет события: [Wired] Рынок труда наводнят ИИ-агенты, к чему никто не готов — это аналитическая статья (мнение), события нет
-       ✗ нет события: [Ars Technica] Как Смитсоновский институт стал новым фронтом в «культурной войне» Трампа — описание старой выставки, события нет
-       ✗ не для читателя: [El Informador] Маршруты общественного транспорта в Гвадалахаре, которые будут приостановлены из-за марша — Событие в Гвадалахаре, не для нашего читателя
-       ✗ не для читателя: [El Informador] Найдена мать семейства, пропавшая после наводнения в Тальпа-де-Альенде — Происшествие в Мексике, не для нашего читателя
-       ✗ не для читателя: [El Informador] Министерство народного образования (SEP): список муниципалитетов штата Халиско, где возобн — событие в Мексике, не касается читателя в КР
-       ✂️ [24.kg] В части Бишкека 29 сентября отключат воду — абзацы 4/5; убрал хвост про приложение
-     лента: было 70, снято 6, добрано до полной 16, стало 80; фото: взято у соседа 0, убрано чужих 1
-     💰 редактор: $0.0233
-  🧭 [ru] после редактора (в эфир): всего 80 — местных 30, соседей 13, мира 37
-  🧪 Этап 1 (боевой) [en]: помечено 147 из 753 за 7 запросов
-  🧭 [en] после отбора и отсечки полок: всего 70 — местных 17, соседей 5, мира 48
-  🧭 [en] после чистки текста: всего 61 — местных 14, соседей 5, мира 42
-  🧭 [en] после обзоров прессы: всего 54 — местных 12, соседей 6, мира 36
-  🧭 [en] после склейки пересказов: всего 48 — местных 11, соседей 5, мира 32
-  🧭 [en] после рубежа: всего 46 — местных 11, соседей 5, мира 30
+  🗞 Редактор [ru] (В ЭФИРЕ): карточек 71, спрошено 67, вторым 0
+     снято: нет события 2, не для читателя 1, реклама 1
+     починено: текст сокращён до сути 21, нужно другое фото 6, фото заменено 4
+       ✗ нет события: [Knews.kg] Необычный рекорд Льюиса Майли — спортивная статистика, события нет
+       🖼 [Sputnik KG (кыргызча)] Жогорку Кеңеште майыптыгы бар адамдарга ипотека бе — фото: №2 вместо №1
+       🖼 [Sputnik KG (кыргызча)] Миграция боюнча бир катар кызматтар Эмгек министрл — фото: №2 вместо №1
+       ✂️ [24.kg] ЦИК: Заявлений от желающих участвовать в президентских выбор — абзацы 2/3; убран лишний абзац; нет годного снимка
+       ✂️ [24.kg] Через ГИК жилье получили 573 человека с инвалидностью, еще 1 — абзацы 4/5; убран оценочный абзац; нет годного снимка
+       ✂️ [Kaktus.media] В Великобритании возле авиабазы США задержали пятерых по под — абзацы 6/8; убраны оценочные абзацы и ссылки
+       ✂️ [Kaktus.media] Иран заявил о готовности как к переговорам, так и к новой во — абзацы 4/8; Убрал хвост с повторами
+       ✂️ [Kaktus.media] В Кыргызстане предложили производить синтетическое дизтоплив — абзацы 5/7; Убрал повтор заголовка в тексте
+       ✂️ [Kaktus.media] Кабмин субсидирует бензин АИ-92, дизтопливо и газ для стабил — абзацы 5/6; Убрал повтор заголовка
+       ✂️ [Kaktus.media] В Бишкеке задержали начальника уголовного розыска ГОМ-8 — абзацы 4/5; Убрал повтор заголовка
+       🖼 [Kaktus.media] Нияз Мадиев назначен главой управления ГКНБ по Джа — фото: №2 вместо №1
+       ✂️ [Kaktus.media] Два землетрясения произошли в Узбекистане и Казахстане. В Кы — абзацы 5/6; убран повтор заголовка
+       ✂️ [Kabar.kg] Чүйдө индустриалдык парк жана Таласта мунай сактоочу жай кур — абзацы 3/5; выбраны абзацы с сутью
+       ✂️ [Kabar.kg] Күйүүчү май: Мамлекет тарабынан субсидия берүү уланууда — абзацы 3/4; информация о ценах на топливо
+       ✗ не для читателя: [Sputnik KG] Осень СВО – 2026: украинские дата-центры улетают в небытие — военная аналитика/статья
+       ✂️ [24.kg] Выпускница профлицея Бишкека получила награду чемпионата Wor — абзацы 4/5; нет фото
+       ✂️ [24.kg] Умерла мама омбудсмена народная артистка Тамара Джаманбаева — абзацы 6/7; нет фото
+       ✂️ [РИА Новости] Медведев: работа избиркомов в сложных условиях достойна уваж — абзацы 3/4; выбрал фото с подписью
+       ✂️ [Gazeta.uz] Президент наградил участников Всемирной шахматной и Парашахм — абзацы 2/6; убрал лишние подробности и список награжденных
+       ✂️ [Gazeta.uz] В Узбекистане хотят изменить порядок рассмотрения дел о секс — абзацы 2/3; убрал лишнее определение из 3 абзаца
+       ✂️ [Gazeta.uz] До 80% студентов старших курсов в Узбекистане хотят перевест — абзацы 4/5; убрал повтор и лишние детали
+       ✂️ [Gazeta.uz] В Узбекистане продолжат обновление школьных учебников, до 20 — абзацы 5/6; убрал заголовок-вставку, выбрал фото из статьи
+       ✂️ [Kun.uz] Столкновение Li 9 и BYD: в деле, где суд наделал больше шума — абзацы 6/7; переставил обстоятельства в начало
+       ✂️ [Kun.uz] Жавохир Синдаров объявлен лучшим шахматистом по версии FIDE. — абзацы 6/7; убрал список номинантов
+       ✗ нет события: [Axios] Пионеры в области ИИ предупреждают: «окно возможностей может закрыться», если ИИ начнет са — предупреждение, обсуждение рисков, нет события
+       🖼 [BBC Mundo] Венесуэла освободила десятки политзаключенных на ф — фото: №2 вместо №1
+       ✂️ [BBC Русская служба] Российские военные дважды за день атаковали центр Киева дрон — абзацы 4/6; убран повтор заголовка, выбран лучший снимок
+       ✗ реклама: [Wired] Лучшие внешние жесткие диски 2026 года: SanDisk, Samsung и другие — Подборка товаров.
+       ✂️ [Kabar.kg] Калыс-Ордо конушунда 1-октябрда суу өчөт — абзацы 2/3; перевод заголовка, убран повтор, vital
+     лента: было 71, снято 4, добрано до полной 13, стало 80; фото: взято у соседа 0, убрано чужих 6
+     💰 редактор: $0.0265
+  🧭 [ru] после редактора (в эфир): всего 80 — местных 27, соседей 13, мира 40
+  🧪 Этап 1 (боевой) [en]: помечено 176 из 722 за 7 запросов
+  🧭 [en] после отбора и отсечки полок: всего 70 — местных 25, соседей 14, мира 31
+  🧭 [en] после чистки текста: всего 66 — местных 21, соседей 14, мира 31
+  🧭 [en] после обзоров прессы: всего 60 — местных 19, соседей 15, мира 26
+  🧭 [en] после склейки пересказов: всего 53 — местных 14, соседей 14, мира 25
+  🧭 [en] после рубежа: всего 51 — местных 14, соседей 14, мира 23
 
-  🗞 Редактор [en] (В ЭФИРЕ): карточек 98, спрошено 68, вторым 0
-     снято: нет события 9
-     починено: текст сокращён до сути 34, фото заменено 11, нужно другое фото 7, ложное «срочно» снято 1
-       ✂️ [NPR News] What to know about the $810 million in spending canceled by  — абзацы 4/6; убрал хвост, снимок №1 без подписи, нужен поиск
-       ✂️ [NBC News] Right-wing conservatives push to shut down the last active J — абзацы 5/7; убрал хвост, выбрал снимок с подписью
-       ✗ нет события: [NPR News] Welcome to the 'Wild West' of AI in schools: Research is scarce, but experiments abound — это фичер-репортаж, не новостное событие
-       ✂️ [CBS News] Accused drug lord "The Spider" extradited to U.S. from Colom — абзацы 4/7; убрал рваный первый абзац, хвост
+  🗞 Редактор [en] (В ЭФИРЕ): карточек 105, спрошено 90, вторым 0
+     снято: нет события 15, мусор 1
+     починено: текст сокращён до сути 40, фото заменено 16, нужно другое фото 10, опечатка в заголовке 2, ложное «срочно» снято 1
+       ✂️ [CBS News] Trump announces plans for largest steel plant in U.S. histor — абзацы 4/6; Убрал повторы и хвост; выбрал снимок с подписью
+       ✂️ [NPR News] Prosecutors are reexamining a Cornell fraternity rape case.  — абзацы 4/6; Убрал повтор заголовка и ссылки на радио; фото нет
+       ✂️ [NPR News] Trump's immigration push has largely spared farms. Idaho dai — абзацы 3/5; Убрал повтор заголовка и «воду» про каньон
+       ✂️ [NPR News] What we know about the suspected U.K. terror plot. And, why  — абзацы 4/7; Убрал «сегодня в выпусках» и ссылки на радио
+       ✗ нет события: [NPR News] Trump aims to leave a physical legacy in D.C., bulldozing norms along the way — Это обзор-очерк, события нет
+       ✂️ [UPI] Andrew Bailey, FBI co-deputy director, resigns — абзацы 4/6; убран датлайн и лишние хвосты
        ✂️ [CNN] Dominion still has pending lawsuits against election deniers — абзацы 4/6; Убрал лишнее, выбрал снимок с героями события
-       ✂️ [Straits Times] Pope Leo urges concessions for peace as Ukraine war drags on — абзацы 4/6; убрал повтор заголовка и лишний хвост
-       ✂️ [SMH Australia] Teenager who died in horror crash had just won bronze at vol — абзацы 5/6; оставил только информативные абзацы
-       ✂️ [Global News CA] Conservatives propose eliminating tax on diesel sales until  — абзацы 4/5; убрал мусорный 1-й абзац и рекламные вставки
-       ✂️ [BBC World] Embattled Serbian president resigns, paving way for early el — абзацы 4/6; убрал обложку, оставил суть события
-       ✂️ [BBC World] Two mass shootings in South Africa leave 28 dead — абзацы 4/6; выбрал более подходящее фото, убрал хвост
-       ✂️ [CBS News] Iran says it's up to Trump to choose between war and diploma — абзацы 4/5; убрал опечатки в тексте (пропуски слов в абз. 3)
-       🖼 [BBC] Seoul demands apology from Kyiv for disclosing inf — фото: №2 вместо №1
-       🖼 [BBC] Kazakhstan president criticizes military and dismi — фото: №2 вместо №1
+       ✂️ [Straits Times] US to grant sanctions waiver for flights between Iran and Ir — абзацы 3/4; убран аналитический абзац 3
+       ✂️ [RTÉ Ireland] Father and daughter killed in Offaly workplace incident — абзацы 4/7; выбрано корректное фото с подписью
+       🖼 [RTÉ Ireland] Father and daughter killed in Offaly workplace inc — фото: №3 вместо №1
+       ✂️ [Global News CA] FBI issues $1M reward for man accused in Hardeep Singh Nijja — абзацы 5/7; выбрано корректное фото, убраны лишние детали
+       ✗ нет события: [ABC Australia] For Xi, America is no longer the centre of China's strategy — аналитический разбор, события нет
+       ✗ нет события: [ABC Australia] What North Korea is really building with new bridges to Russia and China — авторский материал-размышление, события нет
+       ✂️ [Sky Sports] 'I didn't leave my family to lose' - LeBron ready for Philly — абзацы 4/8; убрал хвосты, выбрал фото с Леброном
+       ✂️ [Sky Sports] World Grand Prix Darts LIVE! Littler in action on night one  — абзацы 2/3; убрал дату/время
+       ✂️ [Sky Sports] Leicestershire's points deduction for poor pitch reduced — абзацы 4/5; убрал мусорные блоки, привязал верное фото
+       🖼 [Sky Sports] O’Sullivan suffers another setback with Shenzhen O — фото: №2 вместо №1
+       🖼 [BBC Mundo] Details emerge on counter-terrorism operation near — фото: №2 вместо №1
+       ✂️ [Global News CA] Jackson woman’s hanging was ‘part of a staging’ after death, — абзацы 4/6; выбрал фото с родственницей, убрал 4 и 5 абзацы
+       ✂️ [NPR News] SpaceX's Starship launches on first orbital mission from Tex — абзацы 5/8; нет годных фото, убрал лишние детали
+       ✗ мусор: [NBC News] 8 Marines Injured in Previously Unreported Iranian Attack on Hormuz — в тексте только меню навигации и список других статей
+       🖼 [Straits Times] More than 50 members of Niger's security forces ki — фото - обложка, нужно искать новое
+       ✗ нет события: [Axios] "Window for action may close" if AI begins improving itself, AI pioneers warn — это аналитический прогноз/мнение
+       ✂️ [BBC News] UK tries to stop Trump's diesel export ban — абзацы 4/7; выбрал фото с героем, убрал хвост
+       ✂️ [BBC World] Seoul summons Ukraine envoy over North Korean prisoner-of-wa — абзацы 4/5; убрал повторы, выбрал фото по теме
        ✗ нет события: [Fortune] The U.S.-China relationship is on ‘tactical autopilot’ after the Xi-Trump summit. Maybe th — аналитика, события нет
-       ✂️ [BBC News] What we know about RAF Fairford counter-terror probe and the — абзацы 4/9; Убрал лишнее, выбрал информативное фото (карта)
-       ✂️ [BBC News] UK diesel price hits all-time high, RAC says — абзацы 4/7; Суть в ценах, убрал повторы и эмоциональные абзацы
-       ✂️ [BBC News] Thousands of illegal ghost plates on cars revealed by new ca — абзацы 4/6; Убрал анонс передачи, оставил суть проблемы
-       🖼 [BBC News] Thousands of illegal ghost plates on cars revealed — фото: №4 вместо №1
-       ✂️ [BBC News] Police block Protestant Orange Order from controversial para — абзацы 4/5; Убрал исторический контекст (п. 5), сфокусировался на событии
-       ✗ нет события: [BBC News] Inside Yemen's front-line city as Houthis battle for control — репортаж с места событий без нового инфоповода
-       ✂️ [BBC Sport] The four 'what next?' scenarios for Premier League after Man — абзацы 6/8; убрал затянутое вступление
-       ✂️ [TechCrunch] Truecaller takes its scam intelligence to the open web as it — абзацы 3/4; Убрал хвост про Lead generation
-       ✗ нет события: [Wired] AI Agents Are About to Flood the Workforce. No One’s Ready for It — Это колонка/рассуждение, нет фактологического события
-       ✗ нет события: [Ars Technica] How the Smithsonian became the latest front in Trump’s culture war — культурологический разбор, событие отсутствует
-       ✂️ [Sky Sports] Norris apologises for Colapinto comments following Azerbaija — абзацы 4/5; вырезан мусор, добавлен правильный снимок
-       🖼 [Guardian Sport] USC suspend Stephens for ‘disgusting’ late hit tha — фото: №2 вместо №1
-       ✗ нет события: [Fortune] Airbnb CEO Brian Chesky says he spends three hours a day on recruitment—and if his hiring  — это пересказ цитаты, события нет
-       ✂️ [UPI] South Korea probes possible North Korean mine in DMZ blast — абзацы 4/5; убран лишний абзац с уточнениями мнений
-       ✂️ [UPI] Israel revokes Dutch officials' credentials over settlement  — абзацы 4/5; убран хвост, выбраны абзацы по делу
-       ✂️ [The Independent] ‘Lightning rod’ AOC told to ‘stay away’ from swing states ah — абзацы 5/7; убраны сервисные абзацы, выбран подходящий снимок
-       ✂️ [The Independent] Ukraine-Russia war latest: Moscow planning more acts of sabo — абзацы 4/8; убраны сервисные абзацы, выбран актуальный снимок события
-       🖼 [The Independent] Ukraine-Russia war latest: Moscow planning more ac — фото: №6 вместо №1
-       ✂️ [The Independent] Australian woman who helped terminally ill husband die avoid — абзацы 5/9; убраны сервисные абзацы
-       🖼 [NY Post] Email spam filters cost GOP fundraisers estimated  — фото: №3 вместо №1
-       🔕 [NY Post] Email spam filters cost GOP fundraisers estimated $117M in donations l
-       ✂️ [NY Post] Rams run out of oxygen at Mile High in stunning second-half  — абзацы 7/9; убрано вступление, выбран снимок с участником матча
-       🖼 [NY Post] Rams run out of oxygen at Mile High in stunning se — фото: №4 вместо №1
-       ✂️ [Portland Press Herald] Power outages, downed trees surge across coast amid weekend  — абзацы 4/6; жизненно важное: шторм/отключения; исправлена срочность
-       ✗ нет события: [LA Times] More than $200 million spent fighting and supporting billionaire tax measure, and more to  — аналитика по налогам, не новость
+       ✂️ [BBC News] Mahmood signals rethink on migrants' right to remain — абзацы 5/6; убрал пояснительные абзацы, выбрал фото
+       ✗ нет события: [BBC News] Slipknot fans threaten boycott after Marilyn Manson announced as support act for UK show — реакция фанатов — это не событие
+       ✗ нет события: [BBC World] Inside Yemen's front-line city as Houthis battle for control — репортаж с места событий без нового инфоповода
+       ✂️ [BBC World] Iran court upholds lashes sentence for singer who performed  — абзацы 6/7; убрал мнение адвоката, выбрал фото
+       🖼 [BBC World] Iran court upholds lashes sentence for singer who  — фото: №3 вместо №1
+       ✂️ [BBC World] Nigerian attempts to break world record by dancing non-stop  — абзацы 5/8; убрал хвост с цитатой, выбрал фото с толпой
+       ✂️ [BBC Sport] Man City CEO 'defiant' over Premier League charges — абзацы 6/7; убрал описание сути обвинений, оставил суть заявления
+       ✂️ [BBC Sport] Konsa and O'Reilly doubts to face Czech Republic — абзацы 5/7; убрал подробности про ошибки игрока и замену, фото с игроками
+       🖼 [BBC Sport] Konsa and O'Reilly doubts to face Czech Republic — фото: №3 вместо №1
+       ✂️ [TechCrunch] Anthropic releases Sonnet 5.5, which it calls a significantl — абзацы 4/5; убрал абзац с историей модели, фото нет (автор/директор)
+       🖼 [Wired] Meta-Led Anti-Terrorism Group Faces Mass Resignati — фото: №2 вместо №1
+       ✂️ [Wired] These Extremists Are Running for Election in November — абзацы 3/4; убрал абзац-подводку к подборке, фото по теме
+       ✏️ заголовок в норме
+       ✏️ заголовок в норме
+       🔕 [AL.com] Couple killed in north Alabama home explosion were disabled veteran, ‘
+       ✂️ [LA Times] California couple accused of killing their son-in-law in par — абзацы 5/6; фото из статьи, убрал цитаты свидетелей
+       🖼 [LA Times] California couple accused of killing their son-in- — фото из статьи, убрал цитаты свидетелей
        ✂️ [LA Times] L.A. Olympics organizers limit some financial disclosures, a — абзацы 4/5; убрал хвост, выбрал фото с объекта
-       ✂️ [NY Post] Boston-bound Delta flight makes emergency landing in Portuga — абзацы 4/6; убрал хвост, фото с места событий
-       🖼 [NY Post] Boston-bound Delta flight makes emergency landing  — фото: №3 вместо №1
-       ✗ нет события: [KCUR] Missourians will vote again on abortion in November — информация о шоу, нет события
+       ✗ нет события: [LA Times] More than $200 million spent fighting and supporting billionaire tax measure, and more to  — аналитика по налогам, не новость
+       ✂️ [CalMatters] Cal Fire firefighters stand to gain significant raise under  — абзацы 5/6; выбрал фото с подписью, убрал дубль абзаца
+       🖼 [CalMatters] Cal Fire firefighters stand to gain significant ra — фото: №3 вместо №1
+       🖼 [CalMatters] Newsom signs new gun control laws, including one r — фото: №3 вместо №1
+       ✂️ [Capitol News Illinois] Prosecutor accused of misconduct in ‘Broadview Six’ case res — абзацы 4/6; убрал цитаты-самоповторы
        ✗ нет события: [VTDigger] Regulators wanted more transparency on Vermont’s medical education. Now they’re getting it — аналитическая статья, события нет
        ✂️ [VTDigger] UVM and Middlebury College announce tuition discounts — абзацы 4/5; важная новость об образовании, выбран качественный снимок
-       🖼 [WCTV] Mother charged with attempted murder after alleged — фото: №2 вместо №1
-       ✂️ [Portland Press Herald] Red Sox will face Yankees in prime time in wild-card series — абзацы 4/9; статья закрыта, взято главное, снимков нет
+       ✗ нет события: [KCUR] Missourians will vote again on abortion in November — информация о шоу, нет события
        ✂️ [LA Times] California donors have funded both sides of Democrats' prima — абзацы 3/6; оставлена суть исследования
-       ✂️ [LA Times] Over-tested and held back: California eases rules for studen — абзацы 3/4; важное изменение в школьной системе
-       ✂️ [NY Post] New York Public Library hosted author who compared Israel to — абзацы 3/6; убраны личные цитаты, оставлен факт события
-       ✂️ [NY Post] Theranos fraudster Elizabeth Holmes writes cryptic post from — абзацы 3/8; убран личный контент, оставлена суть сообщения
-       🖼 [NY Post] Theranos fraudster Elizabeth Holmes writes cryptic — фото: №4 вместо №1
-       ✂️ [NY Post] Pope Leo calls out ‘false compassion’ of medically assisted  — абзацы 2/5; убрал хвосты про Канаду, оставил суть выступления папы
-       ✂️ [NY Post] Texas delivery driver Donald Johnson’s viral $700K fundraise — абзацы 3/4; убрал невнятный первый абзац, выбрал фото с подписью
-       🖼 [NY Post] Texas delivery driver Donald Johnson’s viral $700K — фото: №3 вместо №1
-     лента: было 98, снято 9, добрано до полной 16, стало 105; фото: взято у соседа 2, убрано чужих 5
-     💰 редактор: $0.0239
-  🧭 [en] после редактора (в эфир): всего 56 — местных 10, соседей 5, мира 41
-  🧪 Этап 1 (боевой) [es]: помечено 58 из 230 за 2 запросов
+       🖼 [NY Post] Julia Child’s former Cambridge home — where she fi — фото: №4 вместо №1
+       🖼 [NY Post] Julia Child’s former Cambridge home — where she fi — фото дома
+       ✗ нет события: [NY Post] All the details on Taylor Swift’s ‘one-of-a-kind’ diamond ring from the VMAs 2026 — описание наряда и украшений
+       ✂️ [NY Post] AEW star Pac discovered slumped over in vehicle outside CAVA — абзацы 4/6; выбрал фото по теме
+       ✂️ [NY Post] AI agents could spark bank runs by yanking cash from low-pay — абзацы 4/5; убрал хвост
+       🖼 [NY Post] AI agents could spark bank runs by yanking cash fr — фото: №4 вместо №1
+       ✂️ [NY Post] Josh Hart trolls Jalen Brunson over ‘SNL’ performance — абзацы 4/8; убрал лишние подробности
+       🖼 [NY Post] Josh Hart trolls Jalen Brunson over ‘SNL’ performa — фото: №4 вместо №1
+       ✂️ [NY Post] Workers free kittens from shredder that could have ‘oblitera — абзацы 5/7; выбрал содержательное фото
+       ✗ нет события: [NY Post] NFL Week 4 early predictions: Patriots vs. Bills, Giants vs. Cardinals — прогнозы/ставки — не новостное событие
+       ✂️ [NY Post] Fame has ruined Cape Verde World Cup hero Vozinha’s life: ‘L — абзацы 5/8; выбрал фото по подписи, убрал лишнее
+       ✂️ [NY Post] Viral student from Florida-Ole Miss game outs herself as pre — абзацы 3/5; убрал вводный абзац и ссылки
+       🖼 [NY Post] Viral student from Florida-Ole Miss game outs hers — фото: №3 вместо №1
+       ✗ нет события: [CalMatters] Other states are rolling out free childcare for all families. Why not California? — аналитическая статья, события нет
+       ✗ нет события: [CalMatters] What will California’s next governor do about healthcare? Here are Becerra and Hilton’s pl — этот текст — подборка мнений, не конкретный план
+       ✗ нет события: [CalMatters] Undercover jailhouse stings have value. California shouldn’t abandon them — авторская колонка/мнение
+       ✂️ [Honolulu Civil Beat] Super El Niño Is Here. Are Cities Ready? — абзацы 3/5; убрал личное мнение автора и призывы
+       ✂️ [Honolulu Civil Beat] The Latest Challenge For Honolulu Police: Hire More Women — абзацы 4/6; заменил фото на подходящее с подписью
+       ✂️ [Honolulu Civil Beat] Slick New Ads Urge You To Vote For Better Roads. Here’s Who’ — абзацы 3/8; убрал повторы, мусор, авторов и рекламу
+       ✂️ [Honolulu Civil Beat] Protect Yourself: Scams Surge When Disaster Hits, Even In Ha — абзацы 2/4; убрал рекламу рассылки и призывы к поддержке
+       ✂️ [Montana Free Press] Lee Enterprises acquires Great Falls Tribune from USA Today  — абзацы 3/4; убрал лишние пробелы в первом абзаце и ссылки на другие статьи
+       🖼 [Montana Free Press] Lee Enterprises acquires Great Falls Tribune from  — фото: №4 вместо №1
+     лента: было 105, снято 16, добрано до полной 27, стало 116; фото: взято у соседа 1, убрано чужих 10
+     💰 редактор: $0.0342
+  🧭 [en] после редактора (в эфир): всего 70 — местных 13, соседей 12, мира 45
+  🧪 Этап 1 (боевой) [es]: помечено 33 из 245 за 3 запросов
   🧭 [es] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28
-  🧭 [es] после чистки текста: всего 66 — местных 26, соседей 14, мира 26
-  🧭 [es] после обзоров прессы: всего 62 — местных 26, соседей 12, мира 24
-  🧭 [es] после склейки пересказов: всего 55 — местных 23, соседей 10, мира 22
-  🧭 [es] после рубежа: всего 49 — местных 19, соседей 10, мира 20
+  🧭 [es] после чистки текста: всего 65 — местных 26, соседей 14, мира 25
+  🧭 [es] после обзоров прессы: всего 65 — местных 26, соседей 14, мира 25
+  🧭 [es] после склейки пересказов: всего 55 — местных 22, соседей 11, мира 22
+  🧭 [es] после рубежа: всего 51 — местных 19, соседей 10, мира 22
 
-  🗞 Редактор [es] (В ЭФИРЕ): карточек 52, спрошено 40, вторым 0
-     снято: нет события 7, мусор 1
-     починено: фото заменено 5, текст сокращён до сути 5, нужно другое фото 3
-       ✗ нет события: [El Universal MX] Cruz Azul refuerza inversiones en México — пресс-релиз компании о деятельности, не новость
-       ✗ нет события: [El Economista MX] Mexicanos son adictos a las ‘cocas’ ¿y a Mounjaro? — Колонка-рассуждение, новостного события нет.
-       🖼 [Expansión MX] Primark llega a México y su modelo de tiendas será — фото: №4 вместо №1
-       ✂️ [Reforma] Brilla Henry con triplete y América supera al Necaxa — абзацы 3/8; Итоги матча, выбрано фото из статьи.
-       ✗ нет события: [El Financiero] ‘Disputas pueden quitar el poder a Morena’, advierten los expertos — колонка эксперта, мнение без события
-       ✗ нет события: [El Financiero] Se quedan sin cazafantasmas: Carlos Trejo es el tercer eliminado de ‘La Granja VIP’ HOY — реалити-шоу, не является важной новостью
-       ✗ мусор: [El Sol de México] Taylor Swift supera a Beyoncé como la artista más premiada de los MTV VMA — текст не соответствует заголовку
-       ✂️ [El Tiempo CO] Fuerte temblor hoy en Colombia: SGC reportó sismo de 4,2 en  — абзацы 4/5; убрал хвост про Android, выбрал фото с подписью
-       🖼 [Diario Libre DO] Imponen prisión preventiva a ocho de los imputados — фото: №2 вместо №1
-       ✗ нет события: [Clarín AR] El calvario de Nada Itrab, la niña que fue secuestrada en España y sobrevivió a siete mese — история/интервью, актуального события нет
-       ✂️ [Marca] Van der Poel, pese a no ganar, reivindica el ciclismo sin pi — абзацы 2/6; выбрал фото с подиума
-       ✂️ [Marca] El gregario de Pogacar que salió de la sombra para vestirse  — абзацы 4/7; выбрал фото с подписью
-       ✂️ [Marca] 'La bola negra' rompe la taquilla: ya recauda más que la últ — абзацы 3/5; суть в цифрах кассовых сборов
-       🖼 [BBC] El presidente de Serbia anuncia su dimisión; Vučić — фото: №2 вместо №1
-       🖼 [BBC] «Irresponsabilidad, negligencia, ostentación»: el  — фото: №2 вместо №1
-       🖼 [Expansión MX] EU y China abrirán un "canal de comunicación" sobr — фото: №2 вместо №1
-       ✗ нет события: [Wired] Los agentes de IA están a punto de inundar la fuerza laboral y nadie está preparado — аналитическая статья, нет события
-       ✗ нет события: [Variety] Banijay Entertainment, tras fusionarse con All3 Media, presenta su catálogo para Mipcom 20 — реклама каталога компании
-     лента: было 52, снято 8, добрано до полной 23, стало 67; фото: взято у соседа 0, убрано чужих 5
-     💰 редактор: $0.0176
-  🧭 [es] после редактора (в эфир): всего 64 — местных 17, соседей 22, мира 25
-  🧪 Этап 1 (боевой) [pt]: помечено 62 из 285 за 3 запросов
-  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 24, соседей 14, мира 32
-  🧭 [pt] после чистки текста: всего 65 — местных 23, соседей 14, мира 28
-  🧭 [pt] после обзоров прессы: всего 62 — местных 23, соседей 13, мира 26
-  🧭 [pt] после склейки пересказов: всего 56 — местных 21, соседей 13, мира 22
-  🧭 [pt] после рубежа: всего 55 — местных 21, соседей 13, мира 21
+  🗞 Редактор [es] (В ЭФИРЕ): карточек 51, спрошено 46, вторым 0
+     снято: анонс без сути 2, нет события 1
+     починено: текст сокращён до сути 6, фото заменено 6, нужно другое фото 4
+       ✂️ [Reforma] Traslado terrestre de Ruffo fue orden del juez, dice CSP — абзацы 4/6; важная новость процесса, фото недоступно
+       ✂️ [Reforma] Atrae FGR por lavado a cliente de Samuel — абзацы 3/6; дело о коррупции, фото недоступно
+       ✂️ [El Financiero] Peso, ya: Tipo de cambio se acerca a las 18 unidades en nuev — абзацы 3/5; исправил опечатку в заголовке, убрал символы кодировки, нет фото
+       🖼 [El Economista MX] Morena designa a Elí Cervantes como coordinador en — фото: №5 вместо №1
+       🖼 [Expansión MX] Primark llega a México y su modelo de tiendas será — фото: №2 вместо №1
+       🖼 [Expansión MX] Aguinaldo 2026: cuándo se paga, cuánto te correspo — фото: №2 вместо №1
+       ✂️ [Reforma] No se le puede decir que no al Valencia.- Javier Aguirre — абзацы 5/10; суть в первых абзацах и дате дебюта
+       ✗ нет события: [El Financiero] Julión Álvarez cuenta cómo le quitaron la visa: ‘Los músicos estaban en el aeropuerto, les — прошлое событие, май 2025 года
+       ✗ анонс без сути: [El Sol de México] Hasta cinco grupos criminales se disputan Juchitán y zona del Istmo — обрывок статьи без фактов
+       ✂️ [El Sol de México] Fiscalía de Oaxaca investiga a seis autoridades municipales  — абзацы 2/3; убрал автора, исправил дубль заголовка
+       ✗ анонс без сути: [Prensa Libre GT] Fujimori se reunirá con Bukele en El Salvador: ¿Cuándo será la visita y qué temas abordará — Текст статьи отсутствует, только верстка виджетов
+       🖼 [La Nación AR] Se conocieron los audios del VAR de la Supercopa I — фото: №3 вместо №1
+       🖼 [El Comercio PE] Trump le preguntó a Xi Jinping si China quería com — фото: №5 вместо №1
+       ✂️ [El Sol de México] Trump trajo oro de Venezuela a EU, pero las refinerías se ni — абзацы 2/3; убрал повтор заголовка и EFE, нет подходящего фото
+       🖼 [BBC Sport] Dudas sobre la participación de Konsa y O'Reilly a — фото: №3 вместо №1
+     лента: было 51, снято 3, добрано до полной 22, стало 70; фото: взято у соседа 0, убрано чужих 7
+     💰 редактор: $0.0191
+  🧭 [es] после редактора (в эфир): всего 70 — местных 20, соседей 18, мира 32
+  🧪 Этап 1 (боевой) [pt]: помечено 47 из 314 за 3 запросов
+  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28
+  🧭 [pt] после чистки текста: всего 70 — местных 28, соседей 14, мира 28
+  🧭 [pt] после обзоров прессы: всего 70 — местных 28, соседей 14, мира 28
+  🧭 [pt] после склейки пересказов: всего 64 — местных 25, соседей 13, мира 26
+  🧭 [pt] после рубежа: всего 60 — местных 24, соседей 11, мира 25
 
-  🗞 Редактор [pt] (В ЭФИРЕ): карточек 85, спрошено 53, вторым 0
-     снято: нет события 6
-     починено: фото заменено 30, текст сокращён до сути 19, нужно другое фото 4
-       ✂️ [Folha de S.Paulo] Preço do petróleo dispara após Trump rejeitar oferta iranian — абзацы 3/4; убрал хвост с подробностями о Hormuz
-       ✂️ [Folha de S.Paulo] Impasse na gestão do fundo Zaftra ameaça atuação a uma seman — абзацы 4/5; убрал статистику фонда в конце
-       🖼 [Metrópoles] Operação da PM contra TCP no RJ tem baleados, apre — фото: №2 вместо №1
-       🖼 [G1 Globo] Bebê de 7 meses morre atropelado por carro da próp — фото: №2 вместо №1
-       🖼 [G1 Globo] Excesso de chuva deixa estradas rurais em lama e p — фото: №2 вместо №1
-       ✗ нет события: [Folha de S.Paulo] João, a democracia e a violência — это авторская колонка, а не новость
-       ✂️ [Folha de S.Paulo] CCiF propõe novo sistema orçamentário com foco na gestão de  — абзацы 3/4; суть предложения экспертов
-       🖼 [Agência Brasil] Famílias preservam tradição de Cosme e Damião no R — фото: №2 вместо №1
-       ✂️ [Metrópoles] Na Seleção pela 1ª vez, Breno Bidon agradece Corinthians: "M — абзацы 5/6; убрал хвост с ссылками
-       🖼 [Metrópoles] Na Seleção pela 1ª vez, Breno Bidon agradece Corin — фото: №2 вместо №1
-       🖼 [Metrópoles] Pedro Scooby explica fim com Cintia Dicker: "A águ — фото: №3 вместо №1
-       🖼 [Poder360] Ministro celebra decisão de Dino: “Perseguição rel — фото: №2 вместо №1
-       🖼 [Poder360] Site de acompanhantes oferece R$ 120 mi ao Corinth — фото: №2 вместо №1
-       🖼 [Poder360] Governo Lula: leia a agenda de ministros do govern — фото: №2 вместо №1
-       ✂️ [Exame] Nvidia cria plataforma para impedir 'fuga' de agentes de IA — абзацы 4/5; убрал подпись фото из текста
-       ✂️ [Exame] Lula deve perder 5 pontos no Nordeste ante 2022, mas Sudeste — абзацы 4/5; хвост: интервью, повторы. Фото: выбрал эксперта из статьи
+  🗞 Редактор [pt] (В ЭФИРЕ): карточек 91, спрошено 80, вторым 0
+     снято: нет события 3, реклама 1
+     починено: фото заменено 25, текст сокращён до сути 9, нужно другое фото 7
+       ✂️ [Folha de S.Paulo] Aliada de María Corina retorna à Venezuela e mobiliza apoiad — абзацы 5/6; Убран лишний абзац (3) про прошлое
+       ✂️ [Folha de S.Paulo] Secretários do MEC sob Jair Bolsonaro divulgam carta de apoi — абзацы 5/6; Убран абзац (3) о попытках связи с редакцией
+       ✗ нет события: [CNN Brasil] “Toda noite, os homens que eu mandei matar sentavam aos pés da minha cama”: ex-diretor de  — Это личная история/колонка, а не новостное событие
+       🖼 [Metrópoles] Filhote de onça-parda é resgatado em plantação de  — фото: №2 вместо №1
+       ✗ нет события: [BBC Brasil] 'Interferir na eleição do Brasil tende a sair pela culatra e Trump sabe disso', diz Ian Br — интервью-аналитика, нет конкретного события
        ✂️ [BBC Brasil] Por que Lula acusa Trump de tentar interferir na eleição a f — абзацы 5/6; убрал дубль заголовка. Фото: выбрал контекстное
        🖼 [BBC Brasil] Por que Lula acusa Trump de tentar interferir na e — фото: №2 вместо №1
-       ✂️ [BBC Brasil] Nossa Senhora Aparecida: como padroeira entrou na disputa en — абзацы 4/5; выбрано фото участников
-       🖼 [BBC Brasil] Nossa Senhora Aparecida: como padroeira entrou na  — фото: №2 вместо №1
-       ✂️ [BBC Brasil] Flávio diz que irã ao debate na Globo, o último antes do 1º  — абзацы 4/7; убраны лишние цитаты и хвост
-       🖼 [BBC Brasil] Flávio diz que irã ao debate na Globo, o último an — фото: №2 вместо №1
-       ✂️ [BBC Brasil] Flávio volta a aparecer à frente de Lula no 2º turno no Agre — абзацы 3/5; убрал инфографику/пояснения. Фото: выбрал график 2-го тура
-       ✂️ [Observador PT] PSP detém homem e localiza dois menores na Marinha Grande — абзацы 2/3; убран технический текст
-       🖼 [Observador PT] PSP detém homem e localiza dois menores na Marinha — фото: №5 вместо №1
-       ✂️ [Notícias ao Minuto] Fragmentação da banca europeia resulta de opções políticas — абзацы 3/4; убран абзац с мнением
-       🖼 [Notícias ao Minuto] Fragmentação da banca europeia resulta de opções p — фото: №3 вместо №1
-       ✂️ [Notícias ao Minuto] Garantia pública? JSD quer alargamento à construção de prime — абзацы 4/5; важная инициатива по жилью
-       🖼 [Notícias ao Minuto] Garantia pública? JSD quer alargamento à construçã — фото: №3 вместо №1
-       ✂️ [Notícias ao Minuto] Detido por suspeitas de agredir a mãe desde há 10 anos em Mo — абзацы 4/5; убран повтор заголовка
-       🖼 [Notícias ao Minuto] Detido por suspeitas de agredir a mãe desde há 10  — фото: №3 вместо №1
-       ✂️ [Notícias ao Minuto] Após marcha lenta, empresários das terraplanagens e Governo  — абзацы 3/5; убран хвост, выбрано фото с места
-       🖼 [Notícias ao Minuto] Após marcha lenta, empresários das terraplanagens  — фото: №5 вместо №1
-       ✂️ [RTP Notícias] Lisboa tem TVDE e Tuc-Tuc a mais, alerta Moedas — абзацы 2/4; убран повтор заголовка
-       ✗ нет события: [ECO] Lídia Neves reforça equipa da Deloitte Legal Telles — кадровое назначение (корпоративная новость)
-       🖼 [BBC] “Irresponsabilidade, negligência, ostentação”. Pre — фото: №2 вместо №1
-       ✂️ [Notícias ao Minuto] Pelo menos 3 mortos em travessia ilegal do Canal da Mancha — абзацы 3/6; убрал мусорные абзацы
-       🖼 [Notícias ao Minuto] Pelo menos 3 mortos em travessia ilegal do Canal d — фото: №3 вместо №1
-       ✗ нет события: [Variety] Submissões ao Oscar Internacional: Itália, França, Espanha, Polônia, Indonésia e outros pa — анонс списка, не новостное событие
-       ✗ нет события: [Variety] Florence Pugh se manifesta sobre caso de agressão sexual na Universidade Cornell: 'Precisa — интервью/заявление о событии двухлетней давности
-       ✗ нет события: [Variety] Banijay Entertainment, combinada com a All3 Media, revela programação para o Mipcom 2026,  — анонс участия в выставке, события нет
-       ✗ нет события: [Ars Technica] Como o Smithsonian se tornou a mais nova frente na guerra cultural de Trump — аналитический разбор выставки
-       ✂️ [BBC Brasil] Os protestos em massa em Madri provocados por despejo de ido — абзацы 3/4; убрал хвост, выбрал фото с подписью
-       🖼 [G1 Rio] O que se sabe sobre a morte de bombeiro e estudant — фото: №3 вместо №1
-       🖼 [G1 Bahia] Soldado da PM vítima de acidente de ônibus com 7 m — фото: №2 вместо №1
-       🖼 [G1 Pernambuco] Seca em lagoa revela fósseis de animais pré-histór — фото: №2 вместо №1
-       ✂️ [Gazeta do Povo] STF adia decisões sobre o Banco Master na reta final das ele — абзацы 2/4; статья закрыта, но суть в 1 и 3 абзацах
-       🖼 [Gazeta do Povo] Crise do STF trava investigações de corrupção com  — фото: №2 вместо №1
-       🖼 [G1 São Paulo] Sarney segue internado em hospital de SP após diag — фото: №2 вместо №1
-       🖼 [G1 Rio] 'CarnaLula': apoiadores de Lula fazem ato em Copac — фото: №2 вместо №1
+       ✂️ [BBC Brasil] Lula volta a ficar à frente de Flávio no 2º turno no Agregad — абзацы 3/5; Убрал хвост, выбрал фото с графиком опроса
+       🖼 [BBC Brasil] Eleições presidenciais: o que as pesquisas diziam  — фото: №6 вместо №1
+       ✂️ [BBC Brasil] De Aparecida à 'soberania' no altar: esquerda mobiliza catol — абзацы 5/6; Убрал вводный абзац, выбрал фото с героями
+       🖼 [BBC Brasil] De Aparecida à 'soberania' no altar: esquerda mobi — фото: №2 вместо №1
+       ✗ нет события: [Terra BR] ISO 9001 muda gestão da qualidade no setor funerário — Это рекламная статья о внедрении ISO в компании
+       ✗ реклама: [Terra BR] Interfit lança formato Select e amplia modelo CT Wellness — Материал продвигает бизнес-модель сети академий
+       🖼 [Notícias ao Minuto] Netanyahu nega ter sido avisado do 7 de Outubro po — фото: №3 вместо №1
+       🖼 [Notícias ao Minuto] Ex-PR guineense Embaló anuncia candidatura às pres — фото: №3 вместо №1
+       🖼 [Notícias ao Minuto] St. Julian's: Ação travou obras na Quinta dos Ingl — фото: №3 вместо №1
+       🖼 [BBC Sport] Konsa e O'Reilly são dúvidas para partida contra a — фото: №3 вместо №1
+       🖼 [G1 Minas] Ônibus que tombou no ES e deixou mortos partiu de  — фото: №2 вместо №1
+       🖼 [G1 Rio Grande do Sul] Incêndio que destruiu parte de fábrica em Santo Ân — фото: №2 вместо №1
+       ✂️ [Gazeta do Povo] Governo pede 72h a Fux para se manifestar sobre recurso das  — абзацы 3/4; убран повтор и ссылки в тексте
+       🖼 [Gazeta do Povo] Governo pede 72h a Fux para se manifestar sobre re — фото: №3 вместо №1
        🖼 [G1 Rio Grande do Sul] Caso João Couto Neto: Justiça mantém júri de médic — фото: №2 вместо №1
-       🖼 [G1 Distrito Federal] Candidato a deputado federal é preso por dano ao p — фото: №2 вместо №1
-       🖼 [G1 Pernambuco] Toffoli determina retirada da federação PSDB/Cidad — фото: №2 вместо №1
-       🖼 [G1 Santa Catarina] Cantor Rick: como voluntários a cavalo e 'legendár — фото: №3 вместо №1
-       🖼 [G1 Santa Catarina] Nascimento de elefante-marinho, restrito à Patagôn — фото: №3 вместо №1
-     лента: было 85, снято 6, добрано до полной 21, стало 100; фото: взято у соседа 0, убрано чужих 4
-     💰 редактор: $0.0231
-  🧭 [pt] после редактора (в эфир): всего 70 — местных 20, соседей 12, мира 38
-  🧪 Этап 1 (боевой) [fr]: помечено 52 из 232 за 2 запросов
-  🧭 [fr] после отбора и отсечки полок: всего 70 — местных 28, соседей 5, мира 37
-  🧭 [fr] после чистки текста: всего 65 — местных 27, соседей 4, мира 34
-  🧭 [fr] после обзоров прессы: всего 59 — местных 26, соседей 3, мира 30
-  🧭 [fr] после склейки пересказов: всего 49 — местных 19, соседей 2, мира 28
-  🧭 [fr] после рубежа: всего 46 — местных 19, соседей 1, мира 26
+       🖼 [G1 Distrito Federal] Candidato a deputado federal é preso por dano ao p — фото: №3 вместо №1
+       🖼 [G1 Ceará] Polícia faz operação contra grupo suspeito de exto — фото: №3 вместо №1
+       🖼 [G1 Santa Catarina] Cantor Rick: como voluntários a cavalo e 'legendár — фото: №2 вместо №1
+       🖼 [G1 Santa Catarina] Nascimento de elefante-marinho, restrito à Patagôn — фото: №2 вместо №1
+       🖼 [Gazeta do Povo] Gilmar acusa Mendonça de “jogar com o caos” e pede — фото: №3 вместо №1
+       🖼 [Gazeta do Povo] Governo recupera mais R$ 2,36 bi em precatórios e  — фото: №3 вместо №1
+       🖼 [G1 Distrito Federal] VÍDEO: carro pega fogo próximo ao Lago Paranoá, em — фото: №2 вместо №1
+       🖼 [G1 São Paulo] Morre homem baleado durante assalto na frente de d — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Propostas para habitação em SP: Tarcísio renova programas da — абзацы 3/4; убран лишний абзац, выбран снимок с подписью
+       🖼 [G1 São Paulo] Gestora de parque municipal de SP reuniu funcionár — фото: №2 вместо №1
+       ✂️ [G1 Rio] Rio Nature & Climate Week anuncia edição de 2027 no Rio de J — абзацы 2/5; убраны подписи к фото и лишние детали
+       🖼 [G1 Rio] 'Chutou as cachorras e apertou o meu pescoço': hom — фото: №2 вместо №1
+       ✂️ [G1 Rio] A vida de volta a pedaço da Baía de Guanabara: manguezal deg — абзацы 3/4; выбран снимок с подписью
+       🖼 [G1 Rio] A vida de volta a pedaço da Baía de Guanabara: man — фото: №2 вместо №1
+       🖼 [G1 Rio] Casal responsável por esquema de venda ilegal de a — фото: №2 вместо №1
+       🖼 [G1 Rio] Bandidos tomam ônibus escolares para fazer barrica — фото: №2 вместо №1
+     лента: было 91, снято 4, добрано до полной 14, стало 101; фото: взято у соседа 0, убрано чужих 9
+     💰 редактор: $0.0285
+  🧭 [pt] после редактора (в эфир): всего 70 — местных 30, соседей 15, мира 25
+  🧪 Этап 1 (боевой) [fr]: помечено 35 из 252 за 3 запросов
+  🧭 [fr] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28
+  🧭 [fr] после чистки текста: всего 70 — местных 28, соседей 14, мира 28
+  🧭 [fr] после обзоров прессы: всего 64 — местных 27, соседей 13, мира 24
+  🧭 [fr] после склейки пересказов: всего 55 — местных 22, соседей 11, мира 22
+  🧭 [fr] после рубежа: всего 55 — местных 22, соседей 11, мира 22
 
-  🗞 Редактор [fr] (В ЭФИРЕ): карточек 48, спрошено 38, вторым 0
-     снято: нет события 8
-     починено: текст сокращён до сути 15, фото заменено 10
-       ✂️ [Franceinfo] Procès de Rachida Dati : le Parquet national financier deman — абзацы 3/5; Убран повтор заголовка и призыв к лайву
-       ✂️ [Nice-Matin] « Ils nous ont dit de rentrer chez nous, ça devenait trop da — абзацы 6/8; Событие: беспорядки у лицея, выбрано фото с места
-       🖼 [Nice-Matin] « Ils nous ont dit de rentrer chez nous, ça devena — фото: №3 вместо №1
-       ✂️ [La Dépêche] RÉCIT. Guerre en Ukraine : "Ils nous considéraient comme des — абзацы 4/7; Убран мусор и ссылки
-       🖼 [La Dépêche] RÉCIT. Guerre en Ukraine : "Ils nous considéraient — фото: №4 вместо №1
-       ✂️ [L'Obs] Sénatoriales 2026 : le RN obtient un groupe, LFI fait son en — абзацы 4/5; Итоги выборов, убраны повторы
-       ✂️ [BFMTV] DIRECT. Visite du pape en France: à Metz, Léon XIV estime "q — абзацы 6/7; Убран мусор ('Lire l'article'), выбрано актуальное фото
-       ✂️ [Franceinfo] Mobilisation dans les lycées : Sébastien Lecornu tacle une " — абзацы 4/6; Убрал повторы и хвост
-       ✂️ [Franceinfo] Le youtubeur Greg Guillotin a été placé en garde à vue après — абзацы 4/5; Убрал лишнюю цитату и хвост
-       ✂️ [Franceinfo] L'accès à l'avortement de plus en plus difficile en France m — абзацы 4/5; Убрал лишнее, почистил от призывов
-       ✂️ [Franceinfo] La surprise Brandon McNulty, le festival Mathieu van der Poe — абзацы 4/5; Сменил снимок на профильный, убрал лишнее
-       ✗ нет события: [20 Minutes] « Arbres », « Noix », « Qui ? »… Comment la fachosphère contourne la censure en ligne avec — Разбор/статья, события нет
-       ✂️ [20 Minutes] La France a l’indice de criminalité le plus élevé d’Europe ? — абзацы 4/6; убрал хвост, выбрал фото с подписью
-       🖼 [20 Minutes] La France a l’indice de criminalité le plus élevé  — фото: №2 вместо №1
-       ✗ нет события: [L'Express] Espionnage, cyberattaques : face à la guerre économique, les entreprises doivent changer d — это аналитическая колонка, события нет
-       ✂️ [BFMTV] Thélyson Orélien de retour au Canada, sa tournée en France i — абзацы 3/4; убрал хвост
-       ✗ нет события: [La Dépêche] Miss France 2027 : découvrez les 31 candidates régionales en compétition pour succéder à H — подборка кандидаток, не новостное событие
-       ✂️ [La Dépêche] Leur fête de mariage a viré au drame : en arrivant au domain — абзацы 3/4; убрал мусор (ссылки), выбрал фото с подписью
-       🖼 [La Dépêche] Leur fête de mariage a viré au drame : en arrivant — фото: №3 вместо №1
-       🖼 [La Dépêche] TÉMOIGNAGE : "On est épuisés psychologiquement, on — фото: №3 вместо №1
-       ✂️ [La Dépêche] Le cortège du mariage vire au chaos : la maire fait interven — абзацы 4/6; убран лишний абзац, выбран снимок с подписью
-       🖼 [La Dépêche] Le cortège du mariage vire au chaos : la maire fai — фото: №4 вместо №1
-       ✂️ [Africanews FR] Kyiv et Odessa frappées par une vague de drones russes, de n — абзацы 3/5; убран фрагмент с началом текста, не имеющим контекста
-       🖼 [BBC] Le président serbe annonce sa démission. Vučić esp — фото: №2 вместо №1
-       🖼 [BBC] « Irresponsabilité, négligence, façade ». Le prési — фото: №2 вместо №1
-       ✂️ [France Bleu] Un naufrage d'exilés au large de Wissant fait au moins trois — абзацы 4/7; убрал повторы в 4 абзаце
-       🖼 [Sud Ouest] Défense : l’Europe veut déployer un mécanisme d’ur — фото: №2 вместо №1
-       🖼 [Sud Ouest] Suède : la cheffe des sociaux-démocrates Magdalena — фото: №2 вместо №1
-       ✗ нет события: [Courrier International] Freiner l’IA ne suffit pas, il faut stopper la recherche — мнение/аналитика, не новостное событие
-       ✗ нет события: [Wired] L'arrivée massive d'agents basés sur l'intelligence artificielle sur le marché du travail — аналитическая статья, нет конкретного события
-       ✗ нет события: [Variety] Florence Pugh s'exprime sur l'affaire d'agression sexuelle de l'Université Cornell : « Nou — реакция звезды в соцсетях на старую новость
-       ✗ нет события: [Variety] Banijay Entertainment, incluant All3 Media, dévoile son programme pour le Mipcom 2026, ave — анонс участия в выставке, нет события
-       ✗ нет события: [Ars Technica] Comment le Smithsonian est devenu le nouveau front de la guerre culturelle de Donald Trump — аналитическая статья об истории музея, события нет
-     лента: было 48, снято 8, добрано до полной 23, стало 63; фото: взято у соседа 0, убрано чужих 0
-     💰 редактор: $0.0193
-  🧭 [fr] после редактора (в эфир): всего 61 — местных 23, соседей 1, мира 37
+  🗞 Редактор [fr] (В ЭФИРЕ): карточек 55, спрошено 51, вторым 0
+     снято: нет события 5
+     починено: текст сокращён до сути 23, фото заменено 12, нужно другое фото 5
+       ✂️ [La Dépêche] Laura, 93 ans, à Toulouse : découvert endormi sur elle, un h — абзацы 2/3; Убрал «хвост», выбрал фото с подписью
+       🖼 [La Dépêche] Laura, 93 ans, à Toulouse : découvert endormi sur  — фото: №3 вместо №1
+       ✂️ [La Dépêche] RECAP. Jordan Bardella accusé d'écrits antisémites : message — абзацы 5/6; Убрал навигационный мусор
+       🖼 [La Dépêche] RECAP. Jordan Bardella accusé d'écrits antisémites — фото: №3 вместо №1
+       ✂️ [BFMTV] Léon XIV: le pape s'envole depuis l'aéroport de Metz vers Ro — абзацы 2/6; Убрал ссылки на другие статьи
+       🖼 [La Dépêche] Deux caravanes détruites dans un incendie : cette  — фото: №3 вместо №1
+       ✂️ [La Dépêche] "On n’a jamais vu une vitesse pareille" : un automobiliste f — абзацы 2/3; выбрал фото с подписью, убрал [2]
+       🖼 [La Dépêche] "On n’a jamais vu une vitesse pareille" : un autom — фото: №3 вместо №1
+       ✂️ [La Dépêche] Stade Toulousain : Jack II, roi du Top 14 ! Le troisième lig — абзацы 4/6; убрал линки и повторы, выбрал фото с подписью
+       🖼 [La Dépêche] Stade Toulousain : Jack II, roi du Top 14 ! Le tro — фото: №3 вместо №1
+       ✂️ [La Dépêche] Fabien Barthez : "Il est marqué par cette culture rugby"...  — абзацы 2/3; убрал [2], выбрал фото с подписью
+       🖼 [La Dépêche] Fabien Barthez : "Il est marqué par cette culture  — фото: №3 вместо №1
+       ✂️ [La Dépêche] Malgré une jambe dans le plâtre, le père de famille conduit  — абзацы 3/5; убрал линки и выноски, выбрал фото с подписью
+       🖼 [La Dépêche] Malgré une jambe dans le plâtre, le père de famill — фото: №3 вместо №1
+       ✗ нет события: [Nice-Matin] « Je suis fan des sprints » L’ancien pilote de F1 Franck Montagny approuve l’ajout d’une s — интервью, нет события
+       ✂️ [Nice-Matin] Un motard perd la vie après une collision avec un camion sur — абзацы 4/5; ДТП с перекрытием важного тоннеля.
+       ✗ нет события: [L'Obs] « Nous avons besoin d’histoires folles, de fiction » : Pauline Bayle présente sa version d — Интервью/портрет режиссера, события нет.
+       ✗ нет события: [L'Obs] Un retour aux sources du punk avec Elli Medeiros — Репортаж о музыкальном клубе, события нет.
+       ✂️ [L'Obs] Romain Pudal, sociologue et ancien pompier : « Le système fo — абзацы 2/4; Забастовка пожарных, марш в Париже.
+       ✗ нет события: [L'Obs] Forcer sa compagne à avorter est une violence conjugale — Аналитическая статья о насилии, события нет.
+       ✂️ [BFMTV] "Je suis anti-secte": au procès en appel du "gourou de la Vi — абзацы 5/6; Судебное заседание.
+       ✂️ [BFMTV] Grève du mardi 29 septembre: de "fortes perturbations" sont  — абзацы 4/5; Убрал хвост про забастовку госслужащих
+       ✂️ [BFMTV] Trois personnes jugées pendant trois semaines pour la tentat — абзацы 5/6; Убрал абзац про соцсети
+       ✂️ [Sud Ouest] Sénatoriales à Bordeaux : le « petit coup de pression » de l — абзацы 2/3; Убрал дубль и хвост, поставил фото с подписью
+       ✂️ [Sud Ouest] TotalEnergies : les raffineries européennes « tournent toute — абзацы 3/4; Убрал заголовок раздела, поставил фото с подписью
+       ✂️ [Le Devoir] Nouveaux bombardements meurtriers russes sur Kiev — абзацы 2/5; Оставил суть, убрал общие рассуждения
+       ✂️ [Le Devoir] Le gouvernement Trump va assouplir les normes d’économie de  — абзацы 3/4; Убрал абзац про Иран, не относящийся к теме
+       🖼 [Le Devoir] Le gouvernement Trump va assouplir les normes d’éc — фото: №2 вместо №1
+       ✂️ [RTBF] L'extrême droite enchaîne les rounds gagnants en France et s — абзацы 6/8; убран повтор заголовка и лишние детали
+       ✂️ [RTBF] "Je connais une personne en prison… Pourriez-vous la faire l — абзацы 5/6; убрана историческая справка
+       ✂️ [Radio-Canada] Duhaime lorgne des circonscriptions hors de la région de Qué — абзацы 9/10; исправлен заголовок (не соответствовал тексту), убран первый абзац
+       ✂️ [Radio-Canada] La cinéaste Anne Claire Poirier est décédée — абзацы 5/6; убрана прямая речь, не несущая фактологии
+       🖼 [Radio-Canada] La cinéaste Anne Claire Poirier est décédée — фото: №5 вместо №1
+       🖼 [Radio-Canada] Allégations de racisme policier à Montréal-Nord :  — фото: №4 вместо №1
+       🖼 [Straits Times] Plus de 50 membres des forces de sécurité nigérien — фото-обложка не подходит
+       ✗ нет события: [Axios] Les pionniers de l'IA avertissent que « la fenêtre d'action pourrait se refermer » si l'IA — аналитическое предупреждение, не событие
+       ✂️ [Le Figaro] Budget 2027 : faire payer les retraités, une mesure qui pour — абзацы 2/3; взяты доступные абзацы, фото-обложка не подходит
+       ✂️ [Le Figaro] Mesures d’économie, fiscalité, contribution des retraités et — абзацы 4/5; убрал хвост, фото-обложка не подходит
+       ✂️ [France Bleu] Aide grands rouleurs, prix du gaz, franchises médicales, APL — абзацы 5/6; убран повтор заголовка из текста
+       🖼 [BBC Sport] Incertitude autour de la participation de Konsa et — фото: №3 вместо №1
+     лента: было 55, снято 5, добрано до полной 20, стало 70; фото: взято у соседа 0, убрано чужих 9
+     💰 редактор: $0.0238
+  🧭 [fr] после редактора (в эфир): всего 70 — местных 24, соседей 11, мира 35
 
-💰 Расход по этапам: всего $0.2009
-     редактор: $0.0990 (49%), запросов 65
-     перевод: $0.0254 (13%), запросов 20
-     отбор (этап 2): $0.0231 (11%), запросов 17
-     отсев (этап 1): $0.0187 (9%), запросов 16
-     обзоры прессы: $0.0121 (6%), запросов 5
-     снимки происшествий: $0.0082 (4%), запросов 28
-     склейка пересказов: $0.0079 (4%), запросов 5
-     спасение текста: $0.0043 (2%), запросов 9
-     мировые сюжеты: $0.0022 (1%), запросов 1
+💰 Расход по этапам: всего $0.2421
+     редактор: $0.1268 (52%), запросов 79
+     отбор (этап 2): $0.0313 (13%), запросов 22
+     перевод: $0.0277 (11%), запросов 17
+     отсев (этап 1): $0.0190 (8%), запросов 18
+     обзоры прессы: $0.0123 (5%), запросов 5
+     снимки происшествий: $0.0088 (4%), запросов 30
+     склейка пересказов: $0.0082 (3%), запросов 5
+     спасение текста: $0.0057 (2%), запросов 9
+     мировые сюжеты: $0.0023 (1%), запросов 1
 ```
