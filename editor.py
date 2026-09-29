@@ -265,6 +265,16 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
     idx = sorted(set(idx))
     if idx and paras:
         body = "\n\n".join(paras[i - 1] for i in idx)
+        # Первый выбранный абзац — продолжение оборванной строки: заголовок на
+        # странице разбит переносом, редактор выбросил его начало как повтор, а
+        # хвост остался — «Премьер-лиге? Спустя два года…» (BBC, 29.09.2026).
+        # Обрывок до первой целой фразы снимаем, если после него есть что читать
+        prev = paras[idx[0] - 2].rstrip() if idx[0] > 1 else ""
+        if prev and prev[-1] not in ".!?…:;»\"”)":
+            m = re.search(r"[.!?…][»\"”)]?\s+", body[:300])
+            if m and len(body) - m.end() >= 80:
+                body = body[m.end():]
+                notes.append("начало с обрывка снято")
         if len(body) >= 40:
             if len(idx) < len(paras):
                 notes.append(f"абзацы {len(idx)}/{len(paras)}")
