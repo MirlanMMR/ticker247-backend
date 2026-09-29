@@ -1315,10 +1315,21 @@ def check_radio_stations(stations, workers=8, timeout=10):
     раннера, а не двадцать станций разом), и тогда список идёт как есть:
     оставить читателя совсем без радио хуже, чем показать пару нерабочих.
     """
+    # Представляемся ПЛЕЕРОМ приложения, а не браузером: сервер судит по этой
+    # строке. 29.09.2026 zeno.fm отвечал браузеру 401, а плееру «Ticker247» —
+    # звуком; RCR 750 (Венесуэла) стояла серой у всех, хотя играла бы.
+    # Строка — та же, что в RadioService.kt (setUserAgent)
+    player_headers = {"User-Agent": "Ticker247", "Range": "bytes=0-4000"}
+
     def alive(st):
+        # Второй заход перед приговором: поток отвечает не с первой секунды,
+        # а серая кнопка висит два часа до следующей проверки
+        return _alive_once(st) or _alive_once(st, timeout=timeout * 2)
+
+    def _alive_once(st, timeout=timeout):
         try:
             r = requests.get(st["url"], timeout=timeout, stream=True,
-                             headers={**BROWSER_HEADERS, "Range": "bytes=0-4000"})
+                             headers=player_headers)
             ok = r.status_code in (200, 206)
             ctype = (r.headers.get("Content-Type") or "").lower()
             # Важен адрес, на котором поток оказался ПОСЛЕ перенаправлений, а
