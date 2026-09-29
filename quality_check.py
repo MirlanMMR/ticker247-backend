@@ -1,7 +1,7 @@
 """
 Проверка качества лент — вместо скриншотов.
 
-Читает то, что видит человек в приложении (/news/{ru,en,es,pt} в Firebase),
+Читает то, что видит человек в приложении (/news/{ru,en,es,pt,fr} в Firebase),
 и проверяет каждую новость по правилам, до которых мы дошли за эти дни.
 Печатает сводку и худшие случаи с указанием, чем они плохи.
 
@@ -21,7 +21,7 @@ import urllib.request
 from collections import Counter, defaultdict
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app"
-POOLS = ["ru", "en", "es", "pt"]
+POOLS = ["ru", "en", "es", "pt", "fr"]
 
 # ── Признаки беды ────────────────────────────────────────────────────────────
 
