@@ -4378,13 +4378,29 @@ APP_LATEST_NAME = "1.7.12"
 #      вердикты без страны события пересуживаются (29.09)
 # 20 — национальные лиги (АПЛ, НБА…) — внутреннее дело страны лиги (29.09)
 # 21 — поле topic для каждой новости: «интересует / не интересует» (29.09)
-RULES_VERSION = 21
+# 22 — подтемы: culture/music, sport/boxing… (29.09)
+RULES_VERSION = 22
 
 # Темы новостей для «интересует / не интересует». Список общий с приложением
 # (TopicOf.SERVER_TOPICS) — новую тему добавлять в оба места
 NEWS_TOPICS = {
     "politics", "war", "incidents", "economy", "society", "health", "science",
     "tech", "culture", "stars", "education", "auto", "travel", "sport",
+}
+# Подтемы — там, где разбивка осмысленна (пользователь, 29.09.2026: «бокс
+# интересует, футбол нет» — и так же для культуры, технологий, здоровья…).
+# Тоже общие с приложением (TopicOf.SUBTOPICS)
+NEWS_SUBTOPICS = {
+    "sport": {"football", "boxing", "mma", "wrestling", "hockey", "basketball", "tennis",
+              "motorsport", "americanfootball", "baseball", "cricket", "darts", "chess",
+              "cycling", "golf", "volleyball", "athletics"},
+    "culture": {"cinema", "music", "books", "theatre", "art", "history", "tv"},
+    "tech": {"gadgets", "ai", "internet", "games", "software", "cybersecurity"},
+    "health": {"medicine", "epidemics", "nutrition", "fitness", "mental"},
+    "science": {"space", "climate", "nature", "research"},
+    "economy": {"prices", "currency", "markets", "companies", "crypto", "jobs", "taxes"},
+    "stars": {"celebrities", "fashion", "royals"},
+    "incidents": {"crime", "road", "fire", "disaster"},
 }
 
 AI_CACHE = {}
@@ -5179,6 +5195,20 @@ domestic, как бы громко ни писало издание.
 Сомневаешься между двумя — выбери ту, о чём ГЛАВНОЕ событие: «спортсмена
 задержали за драку» — incidents, «министр открыл стадион» — politics.
 
+У восьми тем есть подтема — пиши через косую черту, если она ясна:
+  sport/football, boxing, mma, wrestling, hockey, basketball, tennis,
+        motorsport, americanfootball, baseball, cricket, darts, chess,
+        cycling, golf, volleyball, athletics
+  culture/cinema, music, books, theatre, art, history, tv
+  tech/gadgets, ai, internet, games, software, cybersecurity
+  health/medicine, epidemics, nutrition, fitness, mental
+  science/space, climate, nature, research
+  economy/prices, currency, markets, companies, crypto, jobs, taxes
+  stars/celebrities, fashion, royals
+  incidents/crime, road, fire, disaster
+Пример: "culture/music", "sport/boxing", "economy/prices". Подтема неясна
+или её нет в списке — пиши одну тему: "culture". У остальных тем подтем нет.
+
 ═══ ЕСТЬ ЛИ СОБЫТИЕ — поле "no_event" ═══
 Под каждым заголовком ты видишь НАЧАЛО ТЕКСТА. Это новое: раньше у тебя были
 одни заголовки, и судить об этом было не по чему.
@@ -5201,7 +5231,7 @@ domestic, как бы громко ни писало издание.
 Это ПОМЕТКА, а не удаление: ничего не выбрасывай в "keep" по этой причине.
 
 Верни ТОЛЬКО JSON без объяснений:
-{{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}, "ad_suspects": [3], "title_mismatch": [6], "scope_fix": {{"5": "world", "9": "local"}}, "domestic": {{"12": "GB"}}, "topic": {{"1": "politics", "2": "sport"}}, "no_event": [8]}}
+{{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}, "ad_suspects": [3], "title_mismatch": [6], "scope_fix": {{"5": "world", "9": "local"}}, "domestic": {{"12": "GB"}}, "topic": {{"1": "politics", "2": "sport/boxing"}}, "no_event": [8]}}
 
 В "keep" перечисли номера, которые ОСТАЮТСЯ. Помни: удалять можно только по
 правилу №1 — новость не для читателя этого пула. Всё остальное оставляй.
@@ -5277,8 +5307,11 @@ domestic, как бы громко ни писало издание.
         topic = {}
         for k, v in (result.get("topic") or {}).items():
             t = str(v).strip().lower()
+            main, _, sub = t.partition("/")
+            if sub and sub not in NEWS_SUBTOPICS.get(main, ()):
+                t = main                  # подтема не из списка — берём тему
             try:
-                if t in NEWS_TOPICS:
+                if main in NEWS_TOPICS:
                     topic[int(k) - 1] = t
             except (TypeError, ValueError):
                 continue
