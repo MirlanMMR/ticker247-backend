@@ -4377,7 +4377,15 @@ APP_LATEST_NAME = "1.7.12"
 # 19 — поле domestic (чьё это внутреннее дело) и настройка французского пула:
 #      вердикты без страны события пересуживаются (29.09)
 # 20 — национальные лиги (АПЛ, НБА…) — внутреннее дело страны лиги (29.09)
-RULES_VERSION = 20
+# 21 — поле topic для каждой новости: «интересует / не интересует» (29.09)
+RULES_VERSION = 21
+
+# Темы новостей для «интересует / не интересует». Список общий с приложением
+# (TopicOf.SERVER_TOPICS) — новую тему добавлять в оба места
+NEWS_TOPICS = {
+    "politics", "war", "incidents", "economy", "society", "health", "science",
+    "tech", "culture", "stars", "education", "auto", "travel", "sport",
+}
 
 AI_CACHE = {}
 # Разобранные ИИ страницы: адрес → текст новости. Без этой памяти мы платили
@@ -4811,6 +4819,8 @@ def filter_with_gemini(news_list, lang="ru"):
             fresh["scope"] = v["scope"]
         if v.get("event_country"):
             fresh["event_country"] = v["event_country"]
+        if v.get("topic"):
+            fresh["topic"] = v["topic"]
         known_keep[idx] = fresh
 
     judged = {}
@@ -4848,6 +4858,7 @@ def filter_with_gemini(news_list, lang="ru"):
                         "category": verdict.get("category"),
                         "scope": verdict.get("scope"),
                         "event_country": verdict.get("event_country"),
+                        "topic": verdict.get("topic"),
                     }
                     # мировую кладём и в общую полку — другим пулам не
                     # придётся спрашивать ИИ о том же самом
@@ -5148,6 +5159,26 @@ domestic, как бы громко ни писало издание.
 
 Полку не меняй ради этого поля — где новость покажут, решит код по стране.
 
+═══ ТЕМА — поле "topic", для КАЖДОЙ новости ═══
+Читатель отмечает «интересует / не интересует», и мы запоминаем тему. Дай
+каждой новости ровно одну тему из списка:
+  politics — власть, выборы, законы, дипломатия, назначения
+  war — война, вооружённый конфликт, армия, теракт
+  incidents — ДТП, пожар, преступление, суд по уголовному делу, катастрофа
+  economy — деньги, цены, рынки, компании, бюджет, налоги, работа
+  society — городская жизнь, коммуналка, социальные вопросы, миграция, религия
+  health — медицина, болезни, здравоохранение
+  science — наука, космос, экология, климат, природа
+  tech — технологии, гаджеты, интернет, ИИ
+  culture — кино, музыка, книги, театр, искусство, история
+  stars — знаменитости, светская хроника, мода
+  education — школы, вузы, учёба
+  auto — автомобили, транспорт как товар
+  travel — туризм, путешествия, авиаперелёты для туристов
+  sport — любой спорт
+Сомневаешься между двумя — выбери ту, о чём ГЛАВНОЕ событие: «спортсмена
+задержали за драку» — incidents, «министр открыл стадион» — politics.
+
 ═══ ЕСТЬ ЛИ СОБЫТИЕ — поле "no_event" ═══
 Под каждым заголовком ты видишь НАЧАЛО ТЕКСТА. Это новое: раньше у тебя были
 одни заголовки, и судить об этом было не по чему.
@@ -5170,7 +5201,7 @@ domestic, как бы громко ни писало издание.
 Это ПОМЕТКА, а не удаление: ничего не выбрасывай в "keep" по этой причине.
 
 Верни ТОЛЬКО JSON без объяснений:
-{{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}, "ad_suspects": [3], "title_mismatch": [6], "scope_fix": {{"5": "world", "9": "local"}}, "domestic": {{"12": "GB"}}, "no_event": [8]}}
+{{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}, "ad_suspects": [3], "title_mismatch": [6], "scope_fix": {{"5": "world", "9": "local"}}, "domestic": {{"12": "GB"}}, "topic": {{"1": "politics", "2": "sport"}}, "no_event": [8]}}
 
 В "keep" перечисли номера, которые ОСТАЮТСЯ. Помни: удалять можно только по
 правилу №1 — новость не для читателя этого пула. Всё остальное оставляй.
@@ -5241,6 +5272,16 @@ domestic, как бы громко ни писало издание.
         # решает place_domestic_world() по пулу читателя. Вопрос «чьё это
         # дело» от языка не зависит, поэтому ответ живёт и в общей памяти
         # мировых вердиктов — пересуживать его в каждом пуле незачем
+        # Тема каждой новости — для «интересует / не интересует» в приложении.
+        # Список общий с приложением (TopicOf.SERVER_TOPICS); чужих слов не берём
+        topic = {}
+        for k, v in (result.get("topic") or {}).items():
+            t = str(v).strip().lower()
+            try:
+                if t in NEWS_TOPICS:
+                    topic[int(k) - 1] = t
+            except (TypeError, ValueError):
+                continue
         domestic = {}
         for k, v in (result.get("domestic") or {}).items():
             code = str(v).strip().upper()
@@ -5385,6 +5426,8 @@ domestic, как бы громко ни писало издание.
                     _demote_foreign_local(item, lang)
                 if i in domestic:
                     item["event_country"] = domestic[i]
+                if i in topic:
+                    item["topic"] = topic[i]
                 filtered.append(item)
         if dropped_mismatch:
             print(f"  📰 [{lang}] заголовок не отвечает тексту: снято {dropped_mismatch}")
