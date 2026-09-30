@@ -183,7 +183,8 @@ Ticker — это не только «главное в мире». Это то,
 ```
 
 Все поля: `publish`, `reason`, `paragraphs`, `title`, `photo`, `need_photo`,
-`vital`, `vital_kind`, `unsure`, `note`.
+`vital`, `vital_kind`, `unsure`, `note`, `curious` (только если заголовок потока
+просит: пробный режим «любопытное», на ленту не влияет).
 
 Для карточки, помеченной срочной, добавь `"urgent": false`, если срочность
 ложная.

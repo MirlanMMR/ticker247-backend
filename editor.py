@@ -162,9 +162,39 @@ def card_block(n: int, item: dict, paras, photos) -> str:
     return "\n".join(lines)
 
 
+# ТЕНЬ «любопытное» (30.09.2026): пул, где редактор дополнительно помечает
+# необычные истории. Лента от пометки НЕ меняется — она только попадает в
+# отчёт прогона, чтобы через неделю решить, нужна ли такая полоса. Включён
+# один ru: владелец читает его и не хочет переключать пул ради проверки
+SHADOW_CURIOUS_POOLS = {"ru"}
+
+CURIOUS_NOTE = (
+    "ДОПОЛНИТЕЛЬНО (пробный режим, на ленту не влияет): если история необычная "
+    "и от неё читатель скажет «надо же» — редкое, странное, удивительное или "
+    "смешное событие, с понятным первоисточником, без жертв, без рекламы и "
+    "пресс-релиза, — добавь в её объект `\"curious\": true`. Ставь и тогда, когда "
+    "снимаешь её как «нет события». Не ставь на обычные новости, политику, "
+    "происшествия, рекорды из пресс-релизов, светскую хронику. Обычно 0–3 "
+    "на весь поток.\n\n")
+
+
 def pool_header(lang: str, home: str, language_name: str) -> str:
-    return (f"Поток: {lang}. Домашняя страна читателя: {home}. "
+    head = (f"Поток: {lang}. Домашняя страна читателя: {home}. "
             f"Язык ленты: {language_name}.\n\n")
+    return head + (CURIOUS_NOTE if lang in SHADOW_CURIOUS_POOLS else "")
+
+
+def curious_list(results):
+    """Карточки, которые редактор назвал любопытными (тень, лента не меняется)."""
+    out = []
+    for it, v, _paras, _photos in results:
+        if v and v.get("curious") is True:
+            out.append({
+                "title": it.get("title", "")[:110], "source": it.get("source", "?"),
+                "url": it.get("url", ""), "published": v.get("publish", True) is not False,
+                "note": str(v.get("note") or "")[:60],
+            })
+    return out
 
 
 # ─── Ответ ────────────────────────────────────────────────────────────────
@@ -396,7 +426,7 @@ def compact(v, paras, photos, now_ms):
     for k in ("reason", "paragraphs", "title", "note", "vital_kind"):
         if src.get(k):
             v[k] = src[k]
-    for k in ("need_photo", "vital", "_second"):
+    for k in ("need_photo", "vital", "_second", "curious"):
         if src.get(k) is True:
             v[k] = True
     if src.get("urgent") is False:

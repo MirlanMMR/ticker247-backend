@@ -7807,6 +7807,12 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
         _rep("     починено: " + ", ".join(f"{k} {n}" for k, n in fixes.most_common()))
     if vital:
         _rep("     жизненно важное: " + "; ".join(vital[:4]))
+    if lang in ED.SHADOW_CURIOUS_POOLS:
+        cur = ED.curious_list(results)
+        _rep(f"     🎲 Любопытное [{lang}] (тень, лента не тронута): {len(cur)}")
+        for c in cur:
+            _rep(f"       🎲 {'в эфире' if c['published'] else 'снято'} · [{c['source']}] "
+                 f"{c['title']} · {c['url']}" + (f" — {c['note']}" if c["note"] else ""))
     for e in examples:
         _rep(f"       {e}")
     if EDITOR_MODE != "live":
