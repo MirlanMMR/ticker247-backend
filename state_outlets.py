@@ -165,6 +165,22 @@ STATE_RADIO = [
     _radio("Vermont Public", "https://vpr.streamguys1.com/vpr64.aac", "US-VT"),
     _radio("VPM News", "https://playerservices.streamtheworld.com/api/livestream-redirect/WCVEFM.mp3", "US-VA"),
     _radio("West Virginia Public Broadcasting", "https://wvpublic.streamguys1.com/wvpb256k.aac", "US-WV"),
+    # 30.09.2026: добавлены штаты без радио. Каждый поток проверен живым (аудио,
+    # https) и по icy-name узнан. Нет пока: HI, IN, OR, SD — подходящей речевой
+    # станции с https-потоком не нашлось.
+    _radio("KUAF", "https://war.streamguys1.com:7031/kuaf1", "US-AR"),
+    _radio("WNPR", "https://playerservices.streamtheworld.com/api/livestream-redirect/WNPRFM.mp3", "US-CT"),
+    _radio("WHYY", "https://whyy.streamguys1.com/whyy-mp3", "US-DE"),
+    _radio("WABE", "https://playerservices.streamtheworld.com/api/livestream-redirect/WABEFM_HD1_SC.mp3", "US-GA"),
+    _radio("Iowa Public Radio News", "https://news-stream.iowapublicradio.org/News.mp3", "US-IA"),
+    _radio("Radio Kansas", "https://audio-edge-w4d68.yul.o.radiomast.io/5567306a-66f6-4d8f-a399-520e2936e3a0", "US-KS"),
+    _radio("WKU Public Radio", "https://dal-wku-stream-1.neighborhoodca.com/stream", "US-KY"),
+    _radio("WUNC", "https://wunc-ice.streamguys1.com/wunc-128-mp3", "US-NC"),
+    _radio("Prairie Public", "https://playerservices.streamtheworld.com/api/livestream-redirect/KCNDFM.mp3", "US-ND"),
+    _radio("Nebraska Public Media News", "https://playerservices.streamtheworld.com/api/livestream-redirect/KUCVFM.mp3", "US-NE"),
+    _radio("New Jersey Public Radio", "https://fm939.wnyc.org/wnycfm-web", "US-NJ"),
+    _radio("Wisconsin Public Radio", "https://wpr-ice.streamguys1.com/wpr-ideas-mp3-64", "US-WI"),
+    _radio("Wyoming Public Radio", "https://wyoming-public-ice.streamguys1.com/WPR128MP3", "US-WY"),
     # Бразилия и Мексика — городские разговорные, не музыка.
     _radio("CBN Recife", "https://video09.logicahost.com.br/cbnrecife/cbnrecife/playlist.m3u8", "BR-PE", pool="pt"),
     # El Heraldo Guadalajara/Monterrey и Radio Fórmula Tijuana убраны
