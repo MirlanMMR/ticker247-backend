@@ -7674,12 +7674,27 @@ def _editor_refill(out, dropped, filtered, lang, leftover, max_items, apply_all)
     Кандидаты — запас полок (leftover), в тот же вид, что эфир, и через
     того же редактора. Пересказы уже показанного не берём.
     """
+    # 30.09.2026: за один заход берётся не больше 30 кандидатов, и после всех
+    # снятий этого не хватало — ru вышла 64 из 80, es 60, fr 59 из 70. Второй
+    # заход добирает остаток, если он больше 6; третьего нет — расход ИИ.
+    total = 0
+    _editor_refill_once.tried = set()
+    for _round in range(2):
+        out, n = _editor_refill_once(out, dropped, filtered, lang, leftover, max_items, apply_all)
+        total += n
+        nat_now = [x for x in out if not x.get("region")]
+        if n == 0 or max_items - len(nat_now) <= 6:
+            break
+    return out, total
+
+
+def _editor_refill_once(out, dropped, filtered, lang, leftover, max_items, apply_all):
     nat = [x for x in out if not x.get("region")]
     need = max_items - len(nat)
     if need <= 0 or not leftover:
         return out, 0
     seen = ({x.get("url") for x in out} | {x.get("url") for x in dropped}
-            | {x.get("url") for x in filtered})
+            | {x.get("url") for x in filtered} | _editor_refill_once.tried)
     have = Counter(x.get("scope") for x in nat)
     gap = {k: max(0, round(max_items * v) - have.get(k, 0))
            for k, v in EDITOR_SHELF_SHARE.items()}
@@ -7692,6 +7707,7 @@ def _editor_refill(out, dropped, filtered, lang, leftover, max_items, apply_all)
     pool.sort(key=lambda x: (1 if needs_translation(x, lang) else 0,
                              -gap.get(x.get("scope"), 0), -int(x.get("priority") or 0)))
     take = min(30, int(need * 1.3) + 2)
+    _editor_refill_once.tried |= {x.get("url") for x in pool[:take]}
     cands = _prepare_reserve([dict(x) for x in pool[:take]], lang)
     if not cands:
         return out, 0
