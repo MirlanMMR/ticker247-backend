@@ -83,6 +83,11 @@ def repair(item: dict, pool_lang: str) -> dict:
     img = out.get("imageUrl")
     if isinstance(img, str) and img.startswith("http://"):
         out["imageUrl"] = "https://" + img[len("http://"):]
+    from textcut import is_known_stub
+    if is_known_stub(out.get("imageUrl")):
+        out["imageUrl"] = ""
+        out["_need_photo"] = True
+        out.pop("photoChecked", None)
     src = out.get("source", "")
     if src:
         out["source"] = display_source(src, pool_lang)

@@ -6,6 +6,7 @@
 import sys
 
 from feed_gate import gate, repair, unreadable, is_video_page, foreign_video
+from textcut import is_known_stub, strip_known_stubs
 
 ok = fail = 0
 
@@ -231,6 +232,21 @@ check("видео на чужом языке (переведён заголов�
 check("то же видео на родном языке пула — остаётся", foreign_video(dict(_V, translated=False)), False)
 check("переведённая статья без видео — остаётся", foreign_video(dict(_V, url="https://x.com/n/1", origTitle="Plain")), False)
 check("gate выбрасывает чужое видео", len(gate([_V], "ru")[1]), 1)
+
+
+# 01.10.2026: известная заглушка Straits Times «ST» — не фото
+_STUB = ("https://cassette.sphdigital.com.sg/image/straitstimes/"
+         "4e77bf2f50f582021268b732c0c75bc468d09bd4549f5672fd2ca6140ad0dada")
+_REAL = ("https://cassette.sphdigital.com.sg/image/straitstimes/"
+         "42ca8dad087d8c70e229bbdb72d23c14b2e44fd11ab684a1d8414f22d431a551")
+check("заглушка ST узнаётся", is_known_stub(_STUB))
+check("настоящее фото того же издания — не заглушка", is_known_stub(_REAL), False)
+_r = repair({"title": "t", "summary": LONG_RU, "imageUrl": _STUB, "photoChecked": True, "source": "Straits Times"}, "en")
+check("рубеж снимает заглушку и просит другое фото", (_r["imageUrl"], _r.get("_need_photo"), "photoChecked" in _r), ("", True, False))
+_r2 = repair({"title": "t", "summary": LONG_RU, "imageUrl": _REAL, "source": "Straits Times"}, "en")
+check("рубеж настоящее фото не трогает", _r2["imageUrl"], _REAL)
+_items = strip_known_stubs([{"imageUrl": _STUB}, {"imageUrl": _REAL}], "en")
+check("финальная чистка: заглушка снята, фото осталось", (_items[0]["imageUrl"], _items[1]["imageUrl"]), ("", _REAL))
 
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

@@ -91,8 +91,9 @@ def page_photos(html: str, page_url: str, current: str = ""):
         if key in seen:
             return
         seen.add(key)
+        from textcut import is_known_stub
         flag = ("карточка с заголовком" if _CARD.search(url)
-                else "логотип/иконка" if _JUNK_IMG.search(url) else "")
+                else "логотип/иконка" if (_JUNK_IMG.search(url) or is_known_stub(url)) else "")
         photos.append({"url": url, "alt": (alt or "").strip()[:140],
                        "where": where, "flag": flag})
 

@@ -662,3 +662,39 @@ def final_start_guard(items, lang):
     if bad:
         print(f"  🧨 Начало текста после редактора починено у {bad} [{lang}]")
     return items
+
+
+# ─── Известные заглушки изданий ─────────────────────────────────────────────
+#
+# Straits Times на месте фото отдаёт свой логотип «ST» (белые буквы на синем,
+# 1140×760, 6 КБ). Картинки у них адресуются по содержимому, поэтому адрес у
+# заглушки ОДИН на все статьи (проверено 01.10.2026). Плотность (см.
+# drop_flat_placeholders) её ловит, но не во всех путях: заглушка возвращалась
+# через og:image страницы и через выбор редактора. Владелец: «они не особенные,
+# надо добавить их для распознавания и игнорировать». Дописывать сюда адреса
+# других изданий по мере находок.
+KNOWN_STUB_IMAGES = (
+    "cassette.sphdigital.com.sg/image/straitstimes/"
+    "4e77bf2f50f582021268b732c0c75bc468d09bd4549f5672fd2ca6140ad0dada",
+)
+
+
+def is_known_stub(url) -> bool:
+    u = url or ""
+    return any(s in u for s in KNOWN_STUB_IMAGES)
+
+
+def strip_known_stubs(items, lang=""):
+    """Снимает известную заглушку с карточки: лучше без фото, чем с логотипом.
+    Помечает _need_photo — код попробует взять снимок у другого издания."""
+    n = 0
+    for x in items:
+        if is_known_stub(x.get("imageUrl")):
+            x["imageUrl"] = ""
+            x["_need_photo"] = True
+            x.pop("photoChecked", None)
+            n += 1
+    if n:
+        print(f"  🪧 Известная заглушка издания [{lang}]: снята у {n}")
+    return items
+
