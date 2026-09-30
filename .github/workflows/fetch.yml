@@ -160,6 +160,7 @@ jobs:
           python test_feed_gate.py
           python test_live_identity.py
           python test_editor.py
+          python test_pipeline_start.py
 
       - name: Run fetch script
         run: python fetch_news.py

@@ -15,7 +15,8 @@ from bs4 import BeautifulSoup
 from feed_gate import drop_family_repeats, gate as feed_gate, same_event
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
-                     _looks_blocked, strip_title_echo, strip_leading_service)
+                     _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
+                     final_start_guard)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -7962,29 +7963,6 @@ def _polish_one(text: str) -> str:
     return t.strip()
 
 
-# Начало, которое предложением быть не может: строчная буква, многоточие,
-# знак препинания. Кавычка, скобка, тире диалога и цифра — законные начала
-# «iPhone», «eBay» начинаются со строчной законно: за ней сразу прописная
-_BAD_START = re.compile(r"^(?:[…,.;:)\]]|[a-zа-яёөүң](?![A-ZА-ЯЁ]))", re.U)
-_NEXT_SENTENCE = re.compile(r"[.!?…][»\"”)]?\s+(?=[«\"„(—–-]?\s?[A-ZА-ЯЁӨҮҢ0-9])", re.U)
-
-
-def sentence_start(body: str) -> str:
-    """Текст, начатый с полуфразы, — с первой целой фразы (29.09.2026).
-
-    Пользователь: «начало должно быть предложением». Обрывок снимаем, только
-    если после него остаётся что читать: пустая карточка хуже обрубка.
-    """
-    t = (body or "").lstrip()
-    if not t or not _BAD_START.match(t):
-        return body
-    m = _NEXT_SENTENCE.search(t[:500])
-    if not m:
-        return body
-    rest = t[m.end():].lstrip()
-    return rest if len(rest) >= 80 else body
-
-
 def quality_gate(items, lang):
     """Правит и отсеивает новости перед публикацией. Возвращает годные."""
     kept, dropped = [], []
@@ -9093,6 +9071,7 @@ def main():
         filtered = drop_flat_placeholders(filtered, lang)
         filtered = run_editor(filtered, lang, leftover=leftover,
                               max_items=max_items)
+        filtered = final_start_guard(filtered, lang)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
         # и базе они не нужны: _full один весит больше всей карточки

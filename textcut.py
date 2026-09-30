@@ -605,3 +605,48 @@ def _whole_or_none(text: str, cut: int, limit: int, floor: float) -> str:
     base = text[:cut].strip()
     extra = _trailing_list(text, cut)
     return (base + "\n" + extra).strip() if extra else base
+
+
+# Начало, которое предложением быть не может: строчная буква, многоточие,
+# знак препинания. Кавычка, скобка, тире диалога и цифра — законные начала
+# «iPhone», «eBay» начинаются со строчной законно: за ней сразу прописная
+_BAD_START = re.compile(r"^(?:[…,.;:)\]]|[a-zа-яёөүң](?![A-ZА-ЯЁ]))", re.U)
+_NEXT_SENTENCE = re.compile(r"[.!?…][»\"”)]?\s+(?=[«\"„(—–-]?\s?[A-ZА-ЯЁӨҮҢ0-9])", re.U)
+
+
+def sentence_start(body: str) -> str:
+    """Текст, начатый с полуфразы, — с первой целой фразы (29.09.2026).
+
+    Пользователь: «начало должно быть предложением». Обрывок снимаем, только
+    если после него остаётся что читать: пустая карточка хуже обрубка.
+    """
+    t = (body or "").lstrip()
+    if not t or not _BAD_START.match(t):
+        return body
+    m = _NEXT_SENTENCE.search(t[:500])
+    if not m:
+        return body
+    rest = t[m.end():].lstrip()
+    return rest if len(rest) >= 80 else body
+
+
+def final_start_guard(items, lang):
+    """ПОСЛЕДНИЙ взгляд на начало текста — после редактора, перед записью.
+
+    Контроль качества и последний рубеж работают ДО редактора, а редактор
+    выбирает абзацы и режет обрывки уже после них: итог не смотрел никто
+    (Kaktus про леса, 30.09.2026 — «гектаров. По данным…»). Чиним тем же
+    правилом, что контроль качества, и громко пишем в журнал: если сюда
+    что-то дошло, значит, где-то выше правило резало криво."""
+    bad = 0
+    for x in items:
+        s = x.get("summary") or ""
+        fixed = sentence_start(s)
+        if fixed != s:
+            x["summary"] = fixed
+            bad += 1
+            print(f"  🧨 Полуфраза в эфире [{lang}]: [{x.get('source','?')}] "
+                  f"{(x.get('title') or '')[:60]}")
+    if bad:
+        print(f"  🧨 Начало текста после редактора починено у {bad} [{lang}]")
+    return items
