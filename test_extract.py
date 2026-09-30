@@ -9,7 +9,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from extract import (AgencyLeadSanitizer, BeautifulSoup, CreditSanitizer,
                      RepeatedLeadSanitizer,
-                     FooterLinkSanitizer, TranslationNoteSanitizer,
+                     FooterLinkSanitizer, MidInsertSanitizer, TranslationNoteSanitizer,
                      HeaderNoiseSanitizer, QualityGate, Verdict,
                      extract_article, extract_jsonld, presanitize_dom)
 
@@ -108,6 +108,21 @@ check("кредит изображения убирается",
 check("хвост «Читайте также» отрезается",
       "Читайте также" in FooterLinkSanitizer().apply(
           ARTICLE + "\nЧитайте также\nДругая новость"), False)
+
+# 30.09.2026: реклама и «читайте также» стоят МЕЖДУ абзацами — концовка не теряется
+_P1 = "Власти республики сообщили, что в ближайшие дни цены на хлеб и"
+_P2 = "молоко вырастут из-за подорожания муки на мировом рынке, об этом говорится в сообщении ведомства."
+_P3 = "Министр добавил, что правительство готовит меры поддержки для малоимущих семей и фермеров региона."
+_MID = "\n".join([_P1, "Реклама", "Читайте также: В Бишкеке открылась выставка", "Ещё одна ссылка на статью", _P2, "\n" + _P3])
+_got = MidInsertSanitizer().apply(_MID)
+check("вставка между абзацами убрана", "Реклама" in _got or "Читайте также" in _got, False)
+check("концовка статьи после вставки не потеряна", _P3 in _got, True)
+check("предложение, разорванное вставкой, склеено", (_P1 + " " + _P2) in _got, True)
+check("вставка в самом конце — не наше дело (хвостом займётся другое правило)",
+      MidInsertSanitizer().apply(ARTICLE + "\nЧитайте также\nДругая новость"), ARTICLE + "\nЧитайте также\nДругая новость")
+check("обычный абзац со словом «по теме» внутри не трогаем",
+      MidInsertSanitizer().apply(_P2 + "\nЭксперты по теме отмечают рост цен, но не все согласны с оценкой министра и его коллег."),
+      _P2 + "\nЭксперты по теме отмечают рост цен, но не все согласны с оценкой министра и его коллег.")
 
 check("короткий текст хвостом не режем в ноль",
       FooterLinkSanitizer().apply("Читайте также\nещё"), "Читайте также\nещё")

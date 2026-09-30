@@ -444,6 +444,70 @@ class CreditSanitizer(BaseSanitizer):
         return "\n".join(l for l in text.split("\n") if not self._RX.match(l)).strip()
 
 
+class MidInsertSanitizer(BaseSanitizer):
+    """Вставки ПОСЕРЕДИНЕ статьи: «Реклама», «Читайте также: …», «По теме».
+
+    Многие сайты режут текст на абзацы и между ними ставят рекламу и ссылки на
+    другие статьи (30.09.2026, наблюдение владельца). Хвостовое правило
+    (FooterLinkSanitizer) видит первое «Читайте также» и отрезает ВСЁ, что
+    ниже — то есть вставка посреди статьи уносит её концовку, и текст выходит
+    коротким. Здесь иначе: убираем только саму вставку (строку-метку и стоящие
+    следом строки-заголовки), а абзацы статьи по обе стороны оставляем.
+
+    Предложение, разорванное вставкой («…цены на хлеб и» / [реклама] /
+    «молоко выросли»), склеиваем обратно.
+
+    Узко нарочно: метка — строка целиком, короткая, с известного слова.
+    Вставка в самом конце — не наше дело: после неё абзацев нет, её снимет
+    FooterLinkSanitizer вместе с хвостом.
+    """
+    name = "вставка между абзацами"
+    _MARK = re.compile(
+        r"^\s*(реклама|advertisement|advertising|sponsored(?: content)?|publicit[ée]|"
+        r"publicidad|publicidade|читайте также|читайте ещё|читайте еще|читайте далее|"
+        r"смотрите также|по теме|также по теме|см\. также|also read|read also|"
+        r"see also|related(?: articles?| stories)?|lire aussi|voir aussi|"
+        r"lea también|leia também)\b.{0,160}$", re.I)
+    _END = tuple(".!?…»\"”)")
+
+    def _is_paragraph(self, line: str) -> bool:
+        s = line.strip()
+        return len(s) >= 100 or (len(s) >= 50 and s.endswith(self._END))
+
+    def apply(self, text: str) -> str:
+        lines = text.split("\n")
+        out, i, n = [], 0, len(lines)
+        removed = False
+        while i < n:
+            ln = lines[i]
+            if len(ln) <= 200 and self._MARK.match(ln):
+                # строки-заголовки, идущие за меткой, — тоже вставка
+                j = i + 1
+                while j < n and j - i <= 5 and (not lines[j].strip() or (
+                        len(lines[j].strip()) <= 140
+                        and not self._is_paragraph(lines[j]))):
+                    j += 1
+                rest = [l for l in lines[j:] if l.strip()]
+                if any(self._is_paragraph(l) for l in rest):
+                    i = j
+                    removed = True
+                    continue
+            out.append(ln)
+            i += 1
+        if not removed:
+            return text
+        # склейка предложения, разорванного вставкой
+        merged = []
+        for ln in out:
+            if (merged and ln.strip() and merged[-1].strip()
+                    and merged[-1].rstrip()[-1] not in self._END + (":", ";")
+                    and ln.lstrip()[:1].islower()):
+                merged[-1] = merged[-1].rstrip() + " " + ln.lstrip()
+            else:
+                merged.append(ln)
+        return re.sub(r"\n{3,}", "\n\n", "\n".join(merged)).strip()
+
+
 class FooterLinkSanitizer(BaseSanitizer):
     """Снимает хвост: «Читайте также», «Подпишитесь», «Следите за нами»."""
     name = "хвост со ссылками"
@@ -677,6 +741,7 @@ SANITIZERS = [
     CreditSanitizer(),
     PromoLineSanitizer(),
     LeadingServiceSanitizer(),
+    MidInsertSanitizer(),
     FooterLinkSanitizer(),
 ]
 
