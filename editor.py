@@ -284,6 +284,10 @@ _ABBR = {"тыс", "млн", "млрд", "трлн", "руб", "коп", "дол
          "vs", "etc", "no", "inc", "ltd", "st", "mln", "bln", "min", "max"}
 
 
+# То же, что _BAD_START в fetch_news.py: начало, которое предложением быть не может
+_BAD_START = re.compile(r"^(?:[…,.;:)\]]|[a-zа-яёөүң](?![A-ZА-ЯЁ]))", re.U)
+
+
 def _orphan_end(body: str):
     """Позиция после конца первой ЦЕЛОЙ фразы в начале текста — или None.
     Конец — «.!?…», за ним пробел и заглавная буква (или цифра/кавычка), а
@@ -327,7 +331,11 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
         # целая первая фраза — не хвост: её срезать нельзя
         if prev and len(prev) >= 40 and prev[-1] not in ".!?…:;»\"”)":
             m = _orphan_end(body)
-            if m and m <= 40 and len(body) - m >= 80:
+            if m and m <= 40 and len(body) - m >= 80 and not _BAD_START.match(body[m:].lstrip()):
+                # и ещё: после среза начало обязано быть началом предложения
+                # (строчная буква, запятая, точка — нет). Контроль качества
+                # проверяет это ДО редактора, а срез идёт ПОСЛЕ него — без
+                # этой проверки итог не смотрел никто (Kaktus, 30.09.2026)
                 body = body[m:]
                 notes.append("начало с обрывка снято")
         if len(body) >= 40:
