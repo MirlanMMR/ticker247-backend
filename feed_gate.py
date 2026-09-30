@@ -115,6 +115,26 @@ def unreadable(item: dict, pool_lang: str) -> bool:
     return own == 0 and alien >= 3
 
 
+# Страница-видео на сайте издания: смотреть, а не читать. Признак — адрес
+# («/video/», «/videos/») или заголовок, оканчивающийся «– video» (Guardian, BBC).
+_VIDEO_PATH = re.compile(r"/(videos?|vid[eé]os?)/", re.I)
+_VIDEO_TITLE = re.compile(r"[–—-]\s*(video|vid[eé]o|v[ií]deo)\s*$", re.I)
+
+
+def is_video_page(item: dict) -> bool:
+    if _VIDEO_PATH.search(item.get("url") or ""):
+        return True
+    return bool(_VIDEO_TITLE.search(item.get("origTitle") or "")
+                or _VIDEO_TITLE.search(item.get("title") or ""))
+
+
+def foreign_video(item: dict) -> bool:
+    """Видео на чужом для пула языке. Заголовок мы перевели (translated), а
+    звук и субтитры остались чужими: читателю «Смотреть видео» ничего не даст.
+    Владелец, 01.10.2026: такое видео — для того пула, где язык родной."""
+    return bool(item.get("translated")) and is_video_page(item)
+
+
 TEASER_MAX = 400
 
 
@@ -143,7 +163,7 @@ def gate(items, pool_lang):
         good = repair(it, pool_lang)
         if good != it:
             fixed += 1
-        if unreadable(good, pool_lang) or closed_teaser(good):
+        if unreadable(good, pool_lang) or closed_teaser(good) or foreign_video(good):
             dropped.append(good)
             continue
         kept.append(good)

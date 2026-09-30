@@ -9064,7 +9064,7 @@ def main():
         if repaired:
             print(f"  🧽 Рубеж [{lang}]: починено {repaired}")
         if dropped_bad:
-            print(f"  🚫 Рубеж [{lang}]: снято непрочитаемых и закрытых анонсов {len(dropped_bad)}")
+            print(f"  🚫 Рубеж [{lang}]: снято непрочитаемых, закрытых анонсов и видео на чужом языке {len(dropped_bad)}")
             for it in dropped_bad[:3]:
                 print(f"       · {it.get('source','?')}: {it.get('title','')[:56]}")
 

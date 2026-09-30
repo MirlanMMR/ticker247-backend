@@ -5,7 +5,7 @@
 """
 import sys
 
-from feed_gate import gate, repair, unreadable
+from feed_gate import gate, repair, unreadable, is_video_page, foreign_video
 
 ok = fail = 0
 
@@ -217,6 +217,20 @@ check("целый заголовок не тронут", BQ("«Реал» обы
 check("закрывающая далеко от начала — не гадаем",
       BQ("Президент страны подписал закон о защите прав» и другие"),
       "Президент страны подписал закон о защите прав» и другие")
+
+
+# 01.10.2026: видео на чужом языке — не в этот пул; на родном — остаётся
+_V = {"title": "Украденное детство: как девочка из Газы обрела свободу в плавании",
+      "origTitle": "Robbed of a childhood: how one girl in Gaza found freedom in swimming – video",
+      "url": "https://www.theguardian.com/world/video/2026/sep/30/robbed-of-a-childhood-video",
+      "summary": LONG_RU, "translated": True}
+check("страница-видео узнаётся по адресу", is_video_page({"url": "https://x.com/world/video/1"}))
+check("страница-видео узнаётся по заголовку «– video»", is_video_page({"title": "Something – video", "url": "https://x.com/a"}))
+check("обычная статья — не видео", is_video_page({"title": "Обычная новость", "url": "https://x.com/news/1"}), False)
+check("видео на чужом языке (переведён заголовок) — снимается", foreign_video(_V))
+check("то же видео на родном языке пула — остаётся", foreign_video(dict(_V, translated=False)), False)
+check("переведённая статья без видео — остаётся", foreign_video(dict(_V, url="https://x.com/n/1", origTitle="Plain")), False)
+check("gate выбрасывает чужое видео", len(gate([_V], "ru")[1]), 1)
 
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
