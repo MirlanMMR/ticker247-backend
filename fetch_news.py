@@ -8890,12 +8890,19 @@ def main():
         leftover = [x for x in nationals if id(x) not in taken]
         per_region, extra = Counter(), []
         REGION_CAP, REGION_TOTAL = SOLE_SOURCE_QUOTA, 120
+        # По кругу, а не «кто первый в списке»: 30.09.2026 en — 364 местных
+        # на входе, потолок 120 выбирался подряд по порядку источников, и
+        # штаты из хвоста списка не получали ни одного места.
+        by_region = {}
         for x in regionals:
-            r = x.get("region")
-            if per_region[r] >= REGION_CAP or len(extra) >= REGION_TOTAL:
-                continue
-            extra.append(x)
-            per_region[r] += 1
+            by_region.setdefault(x.get("region"), []).append(x)
+        while len(extra) < REGION_TOTAL and any(by_region.values()):
+            for r, rows in by_region.items():
+                if rows and per_region[r] < REGION_CAP and len(extra) < REGION_TOTAL:
+                    extra.append(rows.pop(0))
+                    per_region[r] += 1
+                elif rows and per_region[r] >= REGION_CAP:
+                    rows.clear()
         filtered = chosen + extra
         _trace(lang, "после отбора и отсечки полок", filtered)
         print(f"  📚 Полки [{lang}]: после ИИ — {before}; "
