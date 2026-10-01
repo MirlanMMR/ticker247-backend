@@ -6492,6 +6492,9 @@ _STORY_STOP = {
 # ключи и базу.
 from storydedup import same_story as _same_story
 from storydedup import reviewed_extra_urls as _reviewed_extra_urls
+# Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
+# пул — правило и причина в editions.py, проверяется test_editions.py
+from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
 
 def _without_reviewed(items, stories):
@@ -8705,6 +8708,8 @@ def main():
     # в английский пул, потому что этот словарь про французский не знал
     lang_groups = {pool: [] for pool in ACTIVE_POOLS}
     ALL_POOLS = list(lang_groups.keys())
+    # Выпуски редакции не на языке пула, в пул не пущенные (счётчик для журнала)
+    other_editions_skipped = Counter()
 
     # Приметы «своих за границей»: слова, по которым чужая местная новость
     # может оказаться новостью про нашего читателя. Ищем на всех языках сразу —
@@ -8772,7 +8777,18 @@ def main():
         if scope == "world":
             # Каждому пулу — своя КОПИЯ: пулы переводят статьи на свой язык,
             # общий объект нельзя мутировать из четырёх мест
+            #
+            # Но не каждый выпуск редакции каждому пулу: если у BBC есть выпуск
+            # на языке пула, выпуски на других языках сюда не идут. Иначе
+            # русская лента получала BBC Mundo, переведённый с испанского,
+            # рядом с BBC Русской службой — одно событие по два-три раза
+            # (01.10.2026), а португальская — Русскую службу, переведённую
+            # на португальский. См. editions.py
             for pool in ALL_POOLS:
+                if not _edition_belongs_in_pool(
+                        item.get("source", ""), pool, PUBLISHER_FAMILIES):
+                    other_editions_skipped[pool] += 1
+                    continue
                 lang_groups[pool].append(dict(item))
         else:
             # Если источник явно помечен языком — доверяем ему
@@ -8788,6 +8804,10 @@ def main():
                 lang_groups["fr"].append(item)
             else:
                 lang_groups["en"].append(item)
+
+    if other_editions_skipped:
+        print("  🧬 Выпуски редакции не на языке пула в пул не пущены: "
+              + ", ".join(f"[{p}] −{n}" for p, n in other_editions_skipped.most_common()))
 
     ts = int(datetime.now().timestamp() * 1000)
     all_filtered = []
