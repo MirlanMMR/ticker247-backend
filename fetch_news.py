@@ -76,6 +76,29 @@ RSS_SOURCES = [
     {"url": "https://www.goal.com/feeds/en/news", "source": "Goal.com", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world"},
     {"url": "https://www.eurosport.com/rss/sport/rss.xml", "source": "Eurosport", "category": "SPORT", "priority": 1, "quota": 4, "scope": "world"},
 
+    # МИРОВОЕ ЛЮБОПЫТНОЕ (решение владельца 01.10.2026): тематические издания
+    # об удивительном — наука, природа, места, добрые новости. Идут во ВСЕ пулы
+    # копиями и переводятся на язык пула тем же путём, что и любое мировое
+    # (needs_translation → translate_batch, пометка «перевод» остаётся).
+    # Имена обязаны стоять в WORLD_OUTLETS: иначе normalize_source_scopes по
+    # стране издания сделал бы Futura-Sciences «французской», а Muy Interesante
+    # «испанской», и до чужих пулов они бы не доехали.
+    # Квоты малые, приоритет 0, чтобы не вытеснять настоящие новости; «Хорошие
+    # новости» (Good News Network) — под слоган приложения — приоритет 1.
+    # Все десять проверены живыми 01.10.2026: лента читается, статьи отдают
+    # текст. N+1 отпал (статьи отвечают 403), Indicator.ru и IFLScience — лент
+    # по адресу нет.
+    {"url": "https://www.goodnewsnetwork.org/feed/", "source": "Good News Network", "category": "NEWS", "priority": 1, "quota": 3, "scope": "world", "lang": "en"},
+    {"url": "https://www.positive.news/feed/", "source": "Positive.News", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "lang": "en"},
+    {"url": "https://www.atlasobscura.com/feeds/latest", "source": "Atlas Obscura", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "lang": "en"},
+    {"url": "https://www.mentalfloss.com/feed", "source": "Mental Floss", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "lang": "en"},
+    {"url": "https://www.smithsonianmag.com/rss/latest_articles/", "source": "Smithsonian Magazine", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "lang": "en"},
+    {"url": "https://www.nasa.gov/feed/", "source": "NASA", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "lang": "en"},
+    {"url": "https://naked-science.ru/feed", "source": "Naked Science", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "lang": "ru"},
+    {"url": "https://www.muyinteresante.com/feed", "source": "Muy Interesante", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "lang": "es"},
+    {"url": "https://super.abril.com.br/feed/", "source": "Superinteressante", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "lang": "pt"},
+    {"url": "https://www.futura-sciences.com/rss/actualites.xml", "source": "Futura-Sciences", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "lang": "fr"},
+
     # МИРОВЫЕ ТЕХНОЛОГИИ
     # Португалия осталась без изданий: Público и Expresso отдают 403, DN и JN
     # закрыли ленты. Эти два живы и текст дают (13.08.2026)
@@ -606,6 +629,10 @@ WORLD_OUTLETS = {
     "Reuters", "Al Jazeera", "Deutsche Welle", "France 24 FR", "RFI",
     "AP News", "Bloomberg", "Guardian Sport", "The Guardian", "Fortune",
     "Semafor", "Time", "The Independent",
+    # Мировое любопытное (см. RSS_SOURCES): расходится по всем пулам
+    "Good News Network", "Positive.News", "Atlas Obscura", "Mental Floss",
+    "Smithsonian Magazine", "NASA", "Naked Science", "Muy Interesante",
+    "Superinteressante", "Futura-Sciences",
 }
 
 POOL_DOMAINS = {
