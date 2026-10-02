@@ -7125,6 +7125,39 @@ URGENT_MIN_OUTLETS = 3
 URGENT_EVENT_WINDOW_MS = 90 * 60 * 1000
 
 
+def demote_foreign_urgent(items, lang):
+    """«Срочно» чужой страны — не срочно для читателя этого пула (02.10.2026).
+
+    Красный флаг на пляжах Халиско из-за урагана стоял «СРОЧНО» в русской ленте
+    у читателя в Бишкеке. Для Мексики это срочно, для Кыргызстана — нет. Лента
+    одна на пул, поэтому срочность считаем от страны читателя: издание из
+    страны, которая не дом пула и не входит в его языковое пространство,
+    «срочно» самостоятельно не ставит. Мировые вещатели не трогаем.
+
+    Вернуть срочность может только объективный признак: три независимых
+    издания (urgent_floor_by_outlets) или массовая гибель (mass_casualty_urgent)
+    — оба зовутся ПОСЛЕ этой функции. Мексиканскому читателю в испанском пуле
+    новость остаётся срочной: Мексика там — дом.
+    """
+    home = (POOL_CONFIG.get(lang) or {}).get("home_code", "")
+    space = POOL_COUNTRIES.get(lang, set())
+    n = 0
+    for it in items:
+        if it.get("category") != "URGENT" or it.get("vital") or it.get("scope") == "local":
+            continue
+        country = it.get("country") or ""
+        if not country or country == home or country in space:
+            continue
+        if it.get("source", "") in WORLD_OUTLETS:
+            continue
+        it["category"] = "NEWS"
+        it["priority"] = min(int(it.get("priority") or 0), 1)
+        n += 1
+    if n:
+        print(f"  🔕 «Срочно» чужой страны — не для читателя пула [{lang}]: {n}")
+    return items
+
+
 def urgent_floor_by_outlets(items, lang):
     """category=URGENT машинным счётом, если независимых изданий три и
     больше сообщили об одном событии за полтора часа, а ИИ промолчал.
@@ -9012,6 +9045,7 @@ def main():
         _cull_dry_report(cull_input, filtered, lang)
         # Пол снизу: три и больше изданий об одном событии — срочно машинным
         # счётом, независимо от того, заметил ли это ИИ
+        filtered = demote_foreign_urgent(filtered, lang)
         filtered = urgent_floor_by_outlets(filtered, lang)
         filtered = mass_casualty_urgent(filtered, lang)
         filtered = demote_foreign_emergency(filtered, lang)
