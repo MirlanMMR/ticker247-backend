@@ -299,5 +299,20 @@ check("подпись авторства Knews снята", S("Автором м
 check("подпись авторства с копирайтом снята", S("Автором материала является K-News. Любое копирование или частичное использование возможно по разрешению редакции K-News. " + _K), _K)
 check("подпись одна, без текста — не пустеем", S("Автором материала является K-News ."), "Автором материала является K-News .")
 
+# imageFocus: вертикальные фото режутся от верха (портрет Knews, 02.10.2026)
+from textcut import image_focus as IF, image_size_from_bytes as ISB
+check("вертикальное — top", IF(600, 1000), "top")
+check("горизонтальное — пусто", IF(1600, 900), "")
+check("квадрат — пусто", IF(800, 800), "")
+check("чуть вытянутое (4:5) — top", IF(800, 1000), "top")
+check("мусор — пусто", IF(None, 0), "")
+try:
+    from io import BytesIO
+    from PIL import Image
+    _b = BytesIO(); Image.new("RGB", (300, 520), "white").save(_b, "JPEG")
+    check("размер по началу файла", ISB(_b.getvalue()[:2000]) or ISB(_b.getvalue()), (300, 520))
+except ImportError:
+    pass
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

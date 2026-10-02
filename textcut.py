@@ -716,3 +716,38 @@ def strip_known_stubs(items, lang=""):
         print(f"  🪧 Известная заглушка издания [{lang}]: снята у {n}")
     return items
 
+
+
+# ─── Точка кадрирования для вертикальных фото ───────────────────────────────
+#
+# 02.10.2026: карточка в ленте режет снимок по центру. У вертикального кадра —
+# портрет задержанного, человек в рост — центр это торс, а лицо отрезано.
+# Приложение само размеров не знает до загрузки, а бэкенд их видит: читает
+# заголовок файла один раз и отдаёт подсказку imageFocus="top" (резать от
+# верха — голова остаётся в кадре). Для горизонтальных и квадратных поля нет:
+# центр им подходит, и приложение обходится умолчанием.
+PORTRAIT_RATIO = 1.15          # высота больше ширины хотя бы на 15%
+
+
+def image_focus(width, height):
+    """"top" для вертикального кадра, иначе пусто."""
+    try:
+        w, h = int(width), int(height)
+    except (TypeError, ValueError):
+        return ""
+    if w <= 0 or h <= 0:
+        return ""
+    return "top" if h >= w * PORTRAIT_RATIO else ""
+
+
+def image_size_from_bytes(data):
+    """Размер кадра по началу файла; None, если не разобрать."""
+    try:
+        from io import BytesIO
+        from PIL import ImageFile
+        parser = ImageFile.Parser()
+        parser.feed(bytes(data))
+        img = parser.image
+        return tuple(img.size) if img is not None else None
+    except Exception:
+        return None

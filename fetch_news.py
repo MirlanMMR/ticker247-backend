@@ -16,7 +16,8 @@ from feed_gate import drop_family_repeats, gate as feed_gate, same_event
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
-                     final_start_guard, strip_known_stubs, strip_byline_stamp)
+                     final_start_guard, strip_known_stubs, strip_byline_stamp,
+                     image_focus, image_size_from_bytes)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -7813,6 +7814,56 @@ def drop_flat_placeholders(items, lang):
     return items
 
 
+_FOCUS_CHECKED = {}
+
+
+def _focus_of_url(url: str) -> str:
+    """imageFocus для адреса: заголовка файла хватает, снимок целиком не качаем."""
+    if url in _FOCUS_CHECKED:
+        return _FOCUS_CHECKED[url]
+    focus = ""
+    try:
+        r = requests.get(url, timeout=8, headers=BROWSER_HEADERS, stream=True)
+        if r.ok:
+            data = b""
+            size = None
+            for chunk in r.iter_content(16384):
+                data += chunk
+                size = image_size_from_bytes(data)
+                if size or len(data) >= 262144:
+                    break
+            if size:
+                focus = image_focus(*size)
+        r.close()
+    except Exception:
+        focus = ""
+    _FOCUS_CHECKED[url] = focus
+    return focus
+
+
+def mark_image_focus(items, lang):
+    """Вертикальным фото — imageFocus="top": приложение режет от верха, а не
+    по центру, и лицо остаётся в кадре. Горизонтальным поля нет."""
+    from concurrent.futures import ThreadPoolExecutor
+    urls = sorted({x.get("imageUrl") for x in items
+                   if str(x.get("imageUrl") or "").startswith("http")})
+    if not urls:
+        return items
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        focus = dict(zip(urls, pool.map(_focus_of_url, urls)))
+    n = 0
+    for x in items:
+        f = focus.get(x.get("imageUrl"), "")
+        if f:
+            x["imageFocus"] = f
+            n += 1
+        else:
+            x.pop("imageFocus", None)
+    if n:
+        print(f"  🖼 Вертикальные фото [{lang}]: imageFocus=top у {n}")
+    return items
+
+
 def _trace(lang, stage, items):
     """Путь полок по шагам — в отчёт редактора: где теряются новости.
     24.09.2026 во французской ленте осталось 6 местных из 18, а редактор не
@@ -9107,6 +9158,7 @@ def main():
                               max_items=max_items)
         filtered = final_start_guard(filtered, lang)
         filtered = strip_known_stubs(filtered, lang)
+        filtered = mark_image_focus(filtered, lang)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
         # и базе они не нужны: _full один весит больше всей карточки
