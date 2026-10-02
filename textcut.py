@@ -449,6 +449,24 @@ def is_service_lead(text: str) -> bool:
     return bool(_SERVICE_ASK.search(t) and _SERVICE_CHANNEL.search(t))
 
 
+# Подпись авторства в начале текста: «Автором материала является K-News .
+# K-News. В Баткенской области…» (Knews.kg, 02.10.2026). Страница издания
+# отдаёт её первым абзацем, а полный текст с неё берётся ПОСЛЕ контроля
+# качества, поэтому прежняя чистка её не видела. Пробел перед точкой и
+# повтор названия — как у издания, терпим оба
+_BYLINE_STAMP = re.compile(
+    r"^\s*Автором материала является[^.\n]{0,40}\.(?:\s*[\w\-]{1,20}\s*\.)?\s*"
+    r"(?:Любое копирование или частичное использование[^.\n]{0,80}\.\s*)?",
+    re.I)
+
+
+def strip_byline_stamp(text: str) -> str:
+    """Снимает подпись авторства с начала текста; пустой остаток не оставляем."""
+    t = (text or "").strip()
+    out = _BYLINE_STAMP.sub("", t, count=1).strip()
+    return out if out else t
+
+
 def strip_leading_service(text: str) -> str:
     """Снимает служебные абзацы и фразы только с начала текста.
 
@@ -459,7 +477,7 @@ def strip_leading_service(text: str) -> str:
     Сначала режем по предложениям: иначе абзац «подпишитесь… АФИНЫ – …»
     целиком выглядит служебным — в нём есть и рассылка, и новость.
     """
-    src = (text or "").strip()
+    src = strip_byline_stamp(text)
     if not src:
         return src
     paras = [p.strip() for p in re.split(r"\n\s*\n|\n", src) if p.strip()]
@@ -653,7 +671,7 @@ def final_start_guard(items, lang):
     bad = 0
     for x in items:
         s = x.get("summary") or ""
-        fixed = sentence_start(s)
+        fixed = sentence_start(strip_byline_stamp(s))
         if fixed != s:
             x["summary"] = fixed
             bad += 1

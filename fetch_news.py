@@ -16,7 +16,7 @@ from feed_gate import drop_family_repeats, gate as feed_gate, same_event
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
-                     final_start_guard, strip_known_stubs)
+                     final_start_guard, strip_known_stubs, strip_byline_stamp)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -7657,7 +7657,7 @@ def _prepare_reserve(cands, lang):
         translate_batch(need[j:j + 10], lang)
     ready = [x for x in cands if not needs_translation(x, lang)]
     for x in ready:
-        x["_full"] = x.get("summary", "")
+        x["_full"] = strip_byline_stamp(x.get("summary", ""))
         x["summary"] = lead(polish_summary(x.get("summary", "")))
     return ready
 
@@ -8989,7 +8989,7 @@ def main():
         for _x in filtered:
             # Полный текст — выпускающему редактору (editor.py): он сам выбирает
             # абзацы. Перед записью в базу поле убирается
-            _x["_full"] = _x.get("summary", "")
+            _x["_full"] = strip_byline_stamp(_x.get("summary", ""))
             smart = None
             if EDITOR_MODE == "live":
                 # Редактор выберет абзацы сам — не платим за обрезку дважды
