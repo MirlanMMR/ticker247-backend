@@ -242,9 +242,106 @@ def audit_stories(pool):
     return pairs
 
 
+# ─── Охват по регионам ──────────────────────────────────────────────────────
+#
+# Полгода владелец не видел новостей штатов: 03.10.2026 нашлось, что общий
+# потолок 120 на 49 регионов оставлял по две карточки на штат. Аудит проверял
+# качество текстов, но НЕ ЧИСЛО новостей по регионам, поэтому провал не
+# замечался. Эта проверка считает именно его.
+MIN_REGION_ITEMS = 3          # меньше — вкладка региона считается пустой
+COVERAGE_ALERT_ABOVE = 8      # слабых регионов сверх этого — пишем владельцу
+
+# Сколько регионов предлагает приложение (StatePapers.kt, списки Choice).
+# Обновлять вместе с ним: разница с числом лент и есть дыра в источниках.
+APP_REGIONS = {"US": 51, "BR": 27, "IN": 36, "RU": 85, "MX": 32}
+
+
+def configured_regions():
+    """Регионы, у которых в бэкенде есть хотя бы одна лента: код → язык пула."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    out = {}
+    try:
+        from state_outlets import STATE_RSS
+        for r in STATE_RSS:
+            if r.get("region"):
+                out[r["region"]] = r.get("lang", "en")
+    except Exception:
+        pass
+    try:
+        with open(os.path.join(here, "fetch_news.py"), encoding="utf-8") as f:
+            for line in f:
+                m = re.search(r'"region": "([A-Z]{2}-[A-Z0-9]+)"', line)
+                if m:
+                    lg = re.search(r'"lang": "(\w+)"', line)
+                    out.setdefault(m.group(1), lg.group(1) if lg else "en")
+    except Exception:
+        pass
+    return out
+
+
+def coverage(pool_items):
+    """Новости по регионам. Возвращает (слабых всего, текст для оповещения)."""
+    cfg = configured_regions()
+    print("\n🗺  ОХВАТ ПО РЕГИОНАМ")
+    by_country = Counter(c.split("-")[0] for c in cfg)
+    for cc, want in APP_REGIONS.items():
+        have = by_country.get(cc, 0)
+        mark = "" if have >= want else f"  ⚠ лент нет у {want - have}"
+        print(f"  {cc}: регионов в приложении {want}, с лентами {have}{mark}")
+    thin_total, lines = 0, []
+    for pool, items in pool_items.items():
+        counts = Counter(i.get("region") for i in items if i.get("region"))
+        mine = sorted(c for c, lg in cfg.items() if lg == pool)
+        if not mine:
+            continue
+        thin = [c for c in mine if counts[c] < MIN_REGION_ITEMS]
+        thin_total += len(thin)
+        print(f"  [{pool}] регионов с лентами {len(mine)}, "
+              f"меньше {MIN_REGION_ITEMS} новостей: {len(thin)}")
+        if thin:
+            print("      " + ", ".join(f"{c.split('-')[1]} {counts[c]}" for c in thin))
+            lines.append(f"{pool}: {len(thin)} из {len(mine)} — "
+                         + ", ".join(c.split('-')[1] for c in thin[:25]))
+    try:
+        with urllib.request.urlopen(f"{DB}/viral/radio.json", timeout=60) as r:
+            radio = json.load(r)
+        rows = [x for x in (radio.values() if isinstance(radio, dict) else (radio or []))
+                if isinstance(x, dict) and x.get("region")]
+        live = {x["region"] for x in rows if x.get("live", True)}
+        print(f"  Радио: регионов с живой станцией {len(live)} "
+              f"(из {len(cfg)} с лентами; без станции: "
+              f"{', '.join(sorted(c.split('-')[1] for c in cfg if c not in live)[:30]) or 'нет'})")
+    except Exception as e:
+        print(f"  Радио не прочитано: {str(e)[:60]}")
+    return thin_total, lines
+
+
+def notify_coverage(thin_total, lines):
+    """Отдельное оповещение: охват не смешиваем с замечаниями к текстам."""
+    token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat = os.environ.get("TELEGRAM_ADMIN_CHAT")
+    if not token or not chat:
+        return
+    if thin_total <= COVERAGE_ALERT_ABOVE:
+        print(f"  🔕 Слабых регионов {thin_total} — в пределах обычного "
+              f"(порог {COVERAGE_ALERT_ABOVE})")
+        return
+    text = (f"🗺 Охват: регионов, где меньше {MIN_REGION_ITEMS} новостей — "
+            f"{thin_total} (обычно до {COVERAGE_ALERT_ABOVE})\n\n" + "\n".join(lines))
+    try:
+        urllib.request.urlopen(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            data=urllib.parse.urlencode({"chat_id": chat, "text": text}).encode(),
+            timeout=20)
+        print(f"  📨 Оповещение об охвате отправлено: {thin_total}")
+    except Exception as e:
+        print(f"  · Оповещение об охвате не ушло: {str(e)[:60]}")
+
+
 def main():
     total = 0
     per_pool = {}
+    pool_items = {}
     print("\n🔍 РАЗБОР ОПУБЛИКОВАННОЙ ЛЕНТЫ")
     for pool in POOLS:
         try:
@@ -252,6 +349,7 @@ def main():
         except Exception as e:
             print(f"  [{pool}] не прочитан: {e}")
             continue
+        pool_items[pool] = items
         found = audit(pool, items)
         # Виды с «ⓘ» — не замечания, а сведения: то, что мы знаем и приняли.
         # В счёт они не идут, иначе порог оповещения меряет не беду, а фон.
@@ -273,6 +371,8 @@ def main():
                 print(f"         · {g.get('title','')[:70]}")
     print(f"  ИТОГО замечаний по всем пулам: {total}")
     notify(total, per_pool)
+    thin_total, cov_lines = coverage(pool_items)
+    notify_coverage(thin_total, cov_lines)
 
 
 # Сколько замечаний считать обычным делом. Порог, а не ноль: часть замечаний
