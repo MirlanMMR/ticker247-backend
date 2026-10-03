@@ -88,16 +88,16 @@ RSS_SOURCES = [
     # Все десять проверены живыми 01.10.2026: лента читается, статьи отдают
     # текст. N+1 отпал (статьи отвечают 403), Indicator.ru и IFLScience — лент
     # по адресу нет.
-    {"url": "https://www.goodnewsnetwork.org/feed/", "source": "Good News Network", "category": "NEWS", "priority": 1, "quota": 3, "scope": "world", "lang": "en"},
-    {"url": "https://www.positive.news/feed/", "source": "Positive.News", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "lang": "en"},
-    {"url": "https://www.atlasobscura.com/feeds/latest", "source": "Atlas Obscura", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "lang": "en"},
-    {"url": "https://www.mentalfloss.com/feed", "source": "Mental Floss", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "lang": "en"},
-    {"url": "https://www.smithsonianmag.com/rss/latest_articles/", "source": "Smithsonian Magazine", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "lang": "en"},
-    {"url": "https://www.nasa.gov/feed/", "source": "NASA", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "lang": "en"},
-    {"url": "https://naked-science.ru/feed", "source": "Naked Science", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "lang": "ru"},
-    {"url": "https://www.muyinteresante.com/feed", "source": "Muy Interesante", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "lang": "es"},
-    {"url": "https://super.abril.com.br/feed/", "source": "Superinteressante", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "lang": "pt"},
-    {"url": "https://www.futura-sciences.com/rss/actualites.xml", "source": "Futura-Sciences", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "lang": "fr"},
+    {"url": "https://www.goodnewsnetwork.org/feed/", "source": "Good News Network", "category": "NEWS", "priority": 1, "quota": 3, "scope": "world", "interesting": True, "lang": "en"},
+    {"url": "https://www.positive.news/feed/", "source": "Positive.News", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "interesting": True, "lang": "en"},
+    {"url": "https://www.atlasobscura.com/feeds/latest", "source": "Atlas Obscura", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "interesting": True, "lang": "en"},
+    {"url": "https://www.mentalfloss.com/feed", "source": "Mental Floss", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "interesting": True, "lang": "en"},
+    {"url": "https://www.smithsonianmag.com/rss/latest_articles/", "source": "Smithsonian Magazine", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "interesting": True, "lang": "en"},
+    {"url": "https://www.nasa.gov/feed/", "source": "NASA", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "interesting": True, "lang": "en"},
+    {"url": "https://naked-science.ru/feed", "source": "Naked Science", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "interesting": True, "lang": "ru"},
+    {"url": "https://www.muyinteresante.com/feed", "source": "Muy Interesante", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "interesting": True, "lang": "es"},
+    {"url": "https://super.abril.com.br/feed/", "source": "Superinteressante", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "interesting": True, "lang": "pt"},
+    {"url": "https://www.futura-sciences.com/rss/actualites.xml", "source": "Futura-Sciences", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "interesting": True, "lang": "fr"},
 
     # МИРОВЫЕ ТЕХНОЛОГИИ
     # Португалия осталась без изданий: Público и Expresso отдают 403, DN и JN
@@ -3375,6 +3375,8 @@ def fetch_rss(source):
                 # «Местные», а аргентинец — мексиканские
                 "country": source_country({"source": source["source"], "url": link,
                                           "region": source.get("region")}),
+                # Блок «Интересное» в конце ленты: признак идёт от источника
+                **({"interesting": True} if source.get("interesting") else {}),
                 "category": source["category"], "source_category": source["category"],
                 "priority": source["priority"],
                 # Язык: явный язык источника надёжнее детектора
@@ -7069,6 +7071,46 @@ def _mentions_country(text: str, code: str) -> bool:
     return any(w in low for w in words)
 
 
+# Откуда «Интересное». Полка зависит от того, чьё издание, а не от темы:
+# американское — местное для читателя из США, кыргызскому читателю такое
+# приходит из мира (владелец, 03.10.2026)
+INTERESTING_ORIGIN = {
+    "Good News Network": "US", "Atlas Obscura": "US", "Mental Floss": "US",
+    "Smithsonian Magazine": "US", "NASA": "US", "Positive.News": "GB",
+    "Naked Science": "RU", "Muy Interesante": "ES",
+    "Superinteressante": "BR", "Futura-Sciences": "FR",
+}
+
+
+def place_interesting(items, lang):
+    """Полка «Интересного» по стране издания.
+
+      страна пула           → local
+      страна языка пула     → pool
+      всё остальное         → world
+    Остальные новости не трогает.
+    """
+    home = POOL_CONFIG.get(lang, {}).get("home_code")
+    space = POOL_COUNTRIES.get(lang, set())
+    moved = 0
+    for x in items:
+        if not x.get("interesting"):
+            continue
+        code = INTERESTING_ORIGIN.get(x.get("source", ""))
+        if not code:
+            continue
+        shelf = "local" if code == home else "pool" if code in space else "world"
+        if x.get("scope") != shelf:
+            x["scope"] = shelf
+            moved += 1
+        # Страна нужна приложению, чтобы сверить полку с читателем; у мировых
+        # она пуста — «ничьё»
+        x["country"] = code if shelf != "world" else ""
+    if moved:
+        print(f"  🎈 Интересное [{lang}]: полка выставлена у {moved}")
+    return items
+
+
 def place_domestic_world(items, lang):
     """Внутреннее дело одной страны — только туда, где эта страна своя.
 
@@ -9075,6 +9117,7 @@ def main():
         filtered = mark_vital_local(filtered, lang)
         filtered = demote_no_event(filtered, lang)
         filtered = fix_scope_and_category(filtered, lang)
+        filtered = place_interesting(filtered, lang)
         filtered = place_domestic_world(filtered, lang)
         # Обзор прессы собираем ДО схлопывания повторов: он и живёт тем, что
         # об одном событии написали несколько изданий. Сначала выбросить все
