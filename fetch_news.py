@@ -6191,8 +6191,13 @@ def meets_standard(item, lang):
     now = int(datetime.now().timestamp() * 1000)
     if published > now + FUTURE_TOLERANCE_MS:
         return False, "дата из будущего", notes
-    if published and now - published > 36 * 3600 * 1000:
-        return False, "старше полутора суток", notes
+    # Региональные издания пишут два-три материала в день: полутора суток
+    # им мало, и вкладка штата пустела (03.10.2026). Им — трое суток; тем, у
+    # кого пометка региона снята как у федеральных, остаются полторы
+    max_age_h = 72 if item.get("region") else 36
+    if published and now - published > max_age_h * 3600 * 1000:
+        return False, ("старше трёх суток" if item.get("region")
+                       else "старше полутора суток"), notes
 
     if item.get("scope") not in ("local", "pool", "world"):
         notes.append("уровень не проставлен")

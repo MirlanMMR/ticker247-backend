@@ -249,7 +249,6 @@ def audit_stories(pool):
 # качество текстов, но НЕ ЧИСЛО новостей по регионам, поэтому провал не
 # замечался. Эта проверка считает именно его.
 MIN_REGION_ITEMS = 3          # меньше — вкладка региона считается пустой
-COVERAGE_ALERT_ABOVE = 8      # слабых регионов сверх этого — пишем владельцу
 
 # Сколько регионов предлагает приложение (StatePapers.kt, списки Choice).
 # Обновлять вместе с ним: разница с числом лент и есть дыра в источниках.
@@ -414,30 +413,6 @@ def coverage(pool_items):
     return thin_total, lines
 
 
-def notify_coverage(thin_total, lines):
-    """Отдельное оповещение: охват не смешиваем с замечаниями к текстам."""
-    token = os.environ.get("TELEGRAM_BOT_TOKEN")
-    chat = os.environ.get("TELEGRAM_ADMIN_CHAT")
-    if not token or not chat:
-        return
-    if thin_total <= COVERAGE_ALERT_ABOVE:
-        print(f"  🔕 Слабых регионов {thin_total} — в пределах обычного "
-              f"(порог {COVERAGE_ALERT_ABOVE})")
-        return
-    text = (f"🗺 Охват: регионов, где меньше {MIN_REGION_ITEMS} новостей — "
-            f"{thin_total} (обычно до {COVERAGE_ALERT_ABOVE})\n\n" + "\n\n".join(lines))
-    if len(text) > 3900:
-        text = text[:3850] + "\n… (остальное — в журнале прогона Actions)"
-    try:
-        urllib.request.urlopen(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            data=urllib.parse.urlencode({"chat_id": chat, "text": text}).encode(),
-            timeout=20)
-        print(f"  📨 Оповещение об охвате отправлено: {thin_total}")
-    except Exception as e:
-        print(f"  · Оповещение об охвате не ушло: {str(e)[:60]}")
-
-
 def main():
     total = 0
     per_pool = {}
@@ -471,8 +446,10 @@ def main():
                 print(f"         · {g.get('title','')[:70]}")
     print(f"  ИТОГО замечаний по всем пулам: {total}")
     notify(total, per_pool)
-    thin_total, cov_lines = coverage(pool_items)
-    notify_coverage(thin_total, cov_lines)
+    # Охват только в журнал, без Telegram: владелец 03.10.2026 — сообщения всё
+    # равно пересылаются разработчику, а проверку можно запустить и прочитать
+    # самому (python feed_audit.py)
+    coverage(pool_items)
 
 
 # Сколько замечаний считать обычным делом. Порог, а не ноль: часть замечаний
