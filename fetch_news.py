@@ -594,7 +594,7 @@ LOCAL_DOMAINS = {
            "texastribune.org", "mississippitoday.org", "themarshallproject.org",
            "propublica.org",
            "wctv.tv", "cleveland.com", "bridgemi.com", "saportareport.com", "pennlive.com", "cronkitenews.azpbs.org", "minnpost.com", "coloradosun.com", "thenevadaindependent.com", "cardinalnews.org", "kcur.org",
-           "al.com", "adn.com", "arktimes.com", "calmatters.org", "ctmirror.org", "civilbeat.org", "ktvb.com", "capitolnewsillinois.com", "mirrorindy.org", "who13.com", "wibw.com", "11alive.com", "gpb.org", "wtoc.com", "walb.com", "wrdw.com", "wkyt.com", "wafb.com", "pressherald.com", "marylandreporter.com", "commonwealthbeacon.org", "montanafreepress.org", "1011now.com", "nhpr.org", "njspotlightnews.org", "santafenewmexican.com", "cardinalpine.com", "kfyrtv.com", "nondoc.com", "oregonlive.com", "wpri.com", "wistv.com", "keloland.com", "wpln.org", "ksl.com", "vtdigger.org", "cascadepbs.org", "wvgazettemail.com", "wisconsinwatch.org", "wyofile.com", "thedcline.org", "spotlightdelaware.org",
+           "al.com", "adn.com", "arktimes.com", "calmatters.org", "ctmirror.org", "civilbeat.org", "ktvb.com", "capitolnewsillinois.com", "mirrorindy.org", "who13.com", "wibw.com", "11alive.com", "missoulacurrent.com", "gpb.org", "wtoc.com", "walb.com", "wrdw.com", "10tv.com", "12news.com", "13newsnow.com", "5newsonline.com", "8newsnow.com", "9news.com", "abc4.com", "alaskasnewssource.com", "azfamily.com", "bangordailynews.com", "boisestatepublicradio.org", "brproud.com", "chicago.suntimes.com", "concordmonitor.com", "county17.com", "cowboystatedaily.com", "cpr.org", "deseret.com", "fox2now.com", "fox35orlando.com", "fox5dc.com", "fox5sandiego.com", "gothamist.com", "grandforksherald.com", "hawaiinewsnow.com", "inforum.com", "inquirer.com", "kare11.com", "kark.com", "kcrg.com", "kcur.org", "kdvr.com", "kens5.com", "kfor.com", "kfvs12.com", "kgw.com", "khon2.com", "king5.com", "klkntv.com", "kmvt.com", "kob.com", "kold.com", "kolotv.com", "kotatv.com", "kplctv.com", "krem.com", "kron4.com", "krqe.com", "ksdk.com", "ksfy.com", "ksn.com", "kstp.com", "ktuu.com", "ktva.com", "ktvz.com", "kvue.com", "kwch.com", "kxnet.com", "laist.com", "masslive.com", "mlive.com", "nbc4i.com", "news4jax.com", "news9.com", "newscentermaine.com", "nj.com", "nj1015.com", "oilcity.news", "opb.org", "post-gazette.com", "reviewjournal.com", "scpr.org", "sdnewswatch.org", "seattletimes.com", "sevendaysvt.com", "sltrib.com", "staradvertiser.com", "startribune.com", "syracuse.com", "texasstandard.org", "thebaltimorebanner.com", "thv11.com", "tmj4.com", "triblive.com", "unionleader.com", "vermontpublic.org", "wabi.tv", "waff.com", "wane.com", "wave3.com", "wavy.com", "wbal.com", "wbay.com", "wbir.com", "wboy.com", "wbrc.com", "wbur.org", "wcax.com", "wcia.com", "wcnc.com", "wdam.com", "wdbj7.com", "wearegreenbay.com", "weareiowa.com", "wect.com", "wfla.com", "wfmynews2.com", "wfpl.org", "wfsb.com", "wgntv.com", "wgrz.com", "whyy.org", "wishtv.com", "wkyc.com", "wlbt.com", "wlns.com", "wltx.com", "wowt.com", "wreg.com", "wsaz.com", "wsfa.com", "wsmv.com", "wspa.com", "wthr.com", "wtnh.com", "wtop.com", "wtva.com", "wusa9.com", "wvmetronews.com", "wwlp.com", "wwltv.com", "wzzm13.com", "wkyt.com", "wafb.com", "pressherald.com", "marylandreporter.com", "commonwealthbeacon.org", "montanafreepress.org", "1011now.com", "nhpr.org", "njspotlightnews.org", "santafenewmexican.com", "cardinalpine.com", "kfyrtv.com", "nondoc.com", "oregonlive.com", "wpri.com", "wistv.com", "keloland.com", "wpln.org", "ksl.com", "vtdigger.org", "cascadepbs.org", "wvgazettemail.com", "wisconsinwatch.org", "wyofile.com", "thedcline.org", "spotlightdelaware.org",
            "texasobserver.org", "houstonlanding.org", "sanantonioreport.org", "elpasomatters.org", "fortworthreport.org", "austinmonitor.com"],
     "es": ["eluniversal.com.mx", "milenio.com", "excelsior.com.mx", "jornada.com.mx",
            "proceso.com.mx", "elfinanciero.com.mx", "reforma.com",
@@ -710,6 +710,46 @@ PUBLISHER_FAMILIES = {
     "nexstar": ["WPRI", "WHO 13"],
     "tegna": ["KTVB", "11Alive"],
 }
+
+
+# Телеканалы по группам. Без этого общий сюжет группы, лежащий на станциях
+# разных штатов, считался подтверждением «разных изданий» и становился
+# федеральным (03.10.2026). Список по доменам; кто не указан — сам по себе.
+_NETWORK_DOMAINS = {
+    "gray": {"wsfa.com", "wbrc.com", "waff.com", "ktuu.com", "ktva.com", "alaskasnewssource.com",
+             "kold.com", "azfamily.com", "kplctv.com", "wafb.com", "wibw.com", "wkyt.com",
+             "lex18.com", "wave3.com", "wsmv.com", "live5news.com", "wistv.com", "wcax.com",
+             "wchstv.com", "wsaz.com", "kotatv.com", "wowt.com", "kolotv.com", "wect.com",
+             "wtoc.com", "walb.com", "wrdw.com", "kcrg.com", "hawaiinewsnow.com", "wfsb.com",
+             "wdam.com", "kwch.com", "kfvs12.com", "wbay.com", "wkow.com", "kmvt.com",
+             "wvue.com", "kgwn.tv", "ksfy.com", "wmbfnews.com", "kcbd.com", "wbko.com"},
+    "nexstar": {"ktla.com", "wfla.com", "kdvr.com", "kron4.com", "kxan.com", "krqe.com", "kfor.com",
+                "kxnet.com", "wspa.com", "wavy.com", "wric.com", "wgntv.com", "wane.com",
+                "wishtv.com", "fox2now.com", "8newsnow.com", "wkrn.com", "wreg.com", "wate.com",
+                "wwlp.com", "wtnh.com", "koin.com", "nbc4i.com", "wjtv.com", "kdvr.com", "wcia.com",
+                "wandtv.com", "ozarksfirst.com", "weareiowa.com", "wearegreenbay.com", "who13.com",
+                "wpri.com", "wjar.com", "kark.com", "brproud.com", "koaa.com", "abc4.com",
+                "wnbc.com", "wivb.com", "kxlh.com", "kxmb.com"},
+    "tegna": {"12news.com", "5newsonline.com", "thv11.com", "9news.com", "kare11.com", "ksdk.com",
+              "kgw.com", "king5.com", "krem.com", "wfaa.com", "khou.com", "kvue.com", "kens5.com",
+              "wwltv.com", "wcnc.com", "wfmynews2.com", "wltx.com", "wbir.com", "wkyc.com",
+              "wtol.com", "10tv.com", "wusa9.com", "wzzm13.com", "wgrz.com", "kfmb.com",
+              "newscentermaine.com", "11alive.com", "ktvb.com", "wtlv.com", "kvue.com"},
+    "hearst": {"kcra.com", "katv.com", "wlky.com", "wapt.com", "wbaltv.com", "wlwt.com", "wesh.com",
+               "kcci.com", "wisn.com", "channel3000.com", "koat.com", "kmbc.com", "ketv.com",
+               "wmur.com", "wmtw.com", "mynbc5.com", "wgal.com", "wtae.com", "kitv.com",
+               "wdsu.com", "wcvb.com", "wvtm13.com", "koco.com", "wxii12.com"},
+    "scripps": {"wxyz.com", "tmj4.com", "ktnv.com", "kivitv.com", "kmtv.com", "wptv.com", "wtvr.com",
+                "fox13now.com", "abc15.com", "kshb.com", "wews.com", "kgtv.com", "wcpo.com",
+                "krem.com", "wmar2news.com", "ktvq.com", "kjrh.com", "wftx.com", "wfts.com"},
+    "sinclair": {"komonews.com", "wgme.com", "wbff.com", "kutv.com", "wkef.com", "wsyx.com",
+                 "ksbw.com", "kuth.com", "wjla.com", "kdsm.com", "kmsp.com"},
+}
+for _r in STATE_RSS:
+    _d = re.sub(r"^https?://(www\.)?", "", _r["url"]).split("/")[0]
+    for _fam, _doms in _NETWORK_DOMAINS.items():
+        if _d in _doms and _r["source"] not in PUBLISHER_FAMILIES.get(_fam, []):
+            PUBLISHER_FAMILIES.setdefault(_fam, []).append(_r["source"])
 
 
 def publisher_family(source: str) -> str:
