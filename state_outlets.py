@@ -78,6 +78,13 @@ STATE_RSS = [
     _paper("https://mirrorindy.org/feed/", "Mirror Indy", "US-IN"),
     _paper("https://who13.com/feed/", "WHO 13", "US-IA"),
     _paper("https://www.wibw.com/arc/outboundfeeds/rss/", "WIBW", "US-KS"),
+    # Джорджия (03.10.2026, владелец: «в штате нет новостей» — был один
+    # SaportaReport, две карточки). Каждая лента проверена живой, 20–40 записей
+    _paper("https://www.11alive.com/feeds/syndication/rss/news", "11Alive", "US-GA"),
+    _paper("https://www.gpb.org/rss.xml", "Georgia Public Broadcasting", "US-GA"),
+    _paper("https://www.wtoc.com/arc/outboundfeeds/rss/?outputType=xml", "WTOC", "US-GA"),
+    _paper("https://www.walb.com/arc/outboundfeeds/rss/?outputType=xml", "WALB", "US-GA"),
+    _paper("https://www.wrdw.com/arc/outboundfeeds/rss/?outputType=xml", "WRDW", "US-GA"),
     _paper("https://www.wkyt.com/arc/outboundfeeds/rss/", "WKYT", "US-KY"),
     _paper("https://www.wafb.com/arc/outboundfeeds/rss/", "WAFB", "US-LA"),
     _paper("https://www.pressherald.com/feed/", "Portland Press Herald", "US-ME"),
