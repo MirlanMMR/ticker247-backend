@@ -138,6 +138,48 @@ STATE_RSS = [
     _paper("https://indianexpress.com/section/cities/mumbai/feed/", "Indian Express Mumbai", "IN-MH", quota=2),
     _paper("https://www.thenewsminute.com/rss.xml", "The News Minute", "IN-KA", quota=2),
     _paper("https://www.fontanka.ru/fontanka.rss", "Фонтанка", "RU-SPE", quota=3, lang="ru"),
+    # РОССИЯ: сеть городских порталов одного холдинга (Shkulev Media, ~55 сайтов
+    # на одной платформе) отдаёт ленту по ОДНОМУ адресу https://www.{сайт}/text/rss.xml —
+    # по 100 записей. Подсказка владельца 03.10.2026: «в регионах есть агрегаторы
+    # одного разработчика». Проверено живыми с обычного адреса; с серверов GitHub
+    # покажет первый прогон. Полку «Новости из» эти новости не заваливают: она
+    # берёт не больше трёх на страну.
+    _paper("https://www.14.ru/text/rss.xml", "14.ru — Якутск", "RU-SA", quota=8, lang="ru"),
+    _paper("https://www.26.ru/text/rss.xml", "26.ru — Ставрополь", "RU-STA", quota=8, lang="ru"),
+    _paper("https://www.29.ru/text/rss.xml", "29.ru — Архангельск", "RU-ARK", quota=8, lang="ru"),
+    _paper("https://www.35.ru/text/rss.xml", "35.ru — Вологда", "RU-VLG", quota=8, lang="ru"),
+    _paper("https://www.43.ru/text/rss.xml", "43.ru — Киров", "RU-KIR", quota=8, lang="ru"),
+    _paper("https://www.45.ru/text/rss.xml", "45.ru — Курган", "RU-KGN", quota=8, lang="ru"),
+    _paper("https://www.48.ru/text/rss.xml", "48.ru — Липецк", "RU-LIP", quota=8, lang="ru"),
+    _paper("https://www.51.ru/text/rss.xml", "51.ru — Мурманск", "RU-MUR", quota=8, lang="ru"),
+    _paper("https://www.53.ru/text/rss.xml", "53.ru — Великий Новгород", "RU-NGR", quota=8, lang="ru"),
+    _paper("https://www.56.ru/text/rss.xml", "56.ru — Оренбург", "RU-ORE", quota=8, lang="ru"),
+    _paper("https://www.59.ru/text/rss.xml", "59.ru — Пермь", "RU-PER", quota=8, lang="ru"),
+    _paper("https://www.60.ru/text/rss.xml", "60.ru — Псков", "RU-PSK", quota=8, lang="ru"),
+    _paper("https://www.62.ru/text/rss.xml", "62.ru — Рязань", "RU-RYA", quota=8, lang="ru"),
+    _paper("https://www.63.ru/text/rss.xml", "63.ru — Самара", "RU-SAM", quota=8, lang="ru"),
+    _paper("https://www.68.ru/text/rss.xml", "68.ru — Тамбов", "RU-TAM", quota=8, lang="ru"),
+    _paper("https://www.71.ru/text/rss.xml", "71.ru — Тула", "RU-TUL", quota=8, lang="ru"),
+    _paper("https://www.72.ru/text/rss.xml", "72.ru — Тюмень", "RU-TYU", quota=8, lang="ru"),
+    _paper("https://www.74.ru/text/rss.xml", "74.ru — Челябинск", "RU-CHE", quota=8, lang="ru"),
+    _paper("https://www.76.ru/text/rss.xml", "76.ru — Ярославль", "RU-YAR", quota=8, lang="ru"),
+    _paper("https://www.86.ru/text/rss.xml", "86.ru — Ханты-Мансийск", "RU-KHM", quota=8, lang="ru"),
+    _paper("https://www.89.ru/text/rss.xml", "89.ru — Салехард", "RU-YAN", quota=8, lang="ru"),
+    _paper("https://www.93.ru/text/rss.xml", "93.ru — Краснодар", "RU-KDA", quota=8, lang="ru"),
+    _paper("https://www.116.ru/text/rss.xml", "116.ru — Казань", "RU-TA", quota=8, lang="ru"),
+    _paper("https://www.161.ru/text/rss.xml", "161.ru — Ростов-на-Дону", "RU-ROS", quota=8, lang="ru"),
+    _paper("https://www.164.ru/text/rss.xml", "164.ru — Саратов", "RU-SAR", quota=8, lang="ru"),
+    _paper("https://www.173.ru/text/rss.xml", "173.ru — Ульяновск", "RU-ULY", quota=8, lang="ru"),
+    _paper("https://www.178.ru/text/rss.xml", "178.ru — Санкт-Петербург", "RU-SPE", quota=8, lang="ru"),
+    _paper("https://www.e1.ru/text/rss.xml", "e1.ru — Екатеринбург", "RU-SVE", quota=8, lang="ru"),
+    _paper("https://www.ngs.ru/text/rss.xml", "ngs.ru — Новосибирск", "RU-NVS", quota=8, lang="ru"),
+    _paper("https://www.ngs24.ru/text/rss.xml", "ngs24.ru — Красноярск", "RU-KYA", quota=8, lang="ru"),
+    _paper("https://www.ngs55.ru/text/rss.xml", "ngs55.ru — Омск", "RU-OMS", quota=8, lang="ru"),
+    _paper("https://www.nn.ru/text/rss.xml", "nn.ru — Нижний Новгород", "RU-NIZ", quota=8, lang="ru"),
+    _paper("https://www.ufa1.ru/text/rss.xml", "ufa1.ru — Уфа", "RU-BA", quota=8, lang="ru"),
+    _paper("https://www.v1.ru/text/rss.xml", "v1.ru — Волгоград", "RU-VGG", quota=8, lang="ru"),
+    _paper("https://www.chita.ru/text/rss.xml", "chita.ru — Чита", "RU-ZAB", quota=8, lang="ru"),
+    _paper("https://www.sochi1.ru/text/rss.xml", "sochi1.ru — Сочи", "RU-KDA", quota=8, lang="ru"),
 ]
 
 
