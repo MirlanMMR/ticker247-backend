@@ -375,7 +375,6 @@ RSS_SOURCES = [
     # tuoitre.vn/rss/thoi-su.rss
 
     # АРАБСКИЙ МИР (локальные для AR пула)
-    {"url": "https://www.aljazeera.net/rss", "source": "Al Jazeera Arabic", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "ar"},
 
     # ════════════════════════════════════════════════════
     # КГ / ЦА — локальные для RU пула
@@ -576,7 +575,14 @@ def source_country(item) -> str:
     if name in SOURCE_COUNTRY:
         return SOURCE_COUNTRY[name]
     host = re.sub(r"^https?://", "", item.get("url") or "").split("/")[0].lower()
-    return TLD_COUNTRY.get(host.rsplit(".", 1)[-1], "")
+    found = TLD_COUNTRY.get(host.rsplit(".", 1)[-1], "")
+    if found:
+        return found
+    # Региональные издания на .com/.org (WCTV, KSL, The Colorado Sun…): страна
+    # уже написана в region — «US-FL». Без этого у 36 из 75 местных новостей en
+    # поле country оставалось пустым, а пустая считалась «своей» молча
+    region = (item.get("region") or "").split("-")[0].upper()
+    return region if len(region) == 2 else ""
 
 
 LOCAL_DOMAINS = {
@@ -3367,7 +3373,8 @@ def fetch_rss(source):
                 # считать местные новости с 29-й версии, и тогда португалец
                 # перестанет видеть бразильские заметки под заголовком
                 # «Местные», а аргентинец — мексиканские
-                "country": source_country({"source": source["source"], "url": link}),
+                "country": source_country({"source": source["source"], "url": link,
+                                          "region": source.get("region")}),
                 "category": source["category"], "source_category": source["category"],
                 "priority": source["priority"],
                 # Язык: явный язык источника надёжнее детектора
