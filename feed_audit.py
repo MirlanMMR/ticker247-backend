@@ -276,7 +276,79 @@ def configured_regions():
                     out.setdefault(m.group(1), lg.group(1) if lg else "en")
     except Exception:
         pass
+    # Регион попадает и из радио/эфиров (MX-NLE и т.п.): там ленты нет и не
+    # должно быть — берём только страны, где приложение предлагает регион
+    return {c: lg for c, lg in out.items() if c.split("-")[0] in APP_REGIONS}
+
+
+def region_sources():
+    """Ленты по регионам: код региона → [(издание, адрес)]."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    out = {}
+    try:
+        from state_outlets import STATE_RSS
+        for r in STATE_RSS:
+            if r.get("region") and r.get("url"):
+                out.setdefault(r["region"], {})[r["source"]] = r["url"]
+    except Exception:
+        pass
+    try:
+        with open(os.path.join(here, "fetch_news.py"), encoding="utf-8") as f:
+            for line in f:
+                m = re.search(r'"url": "([^"]+)", "source": "([^"]+)".*?"region": "([A-Z]{2}-[A-Z0-9]+)"', line)
+                if m:
+                    out.setdefault(m.group(3), {}).setdefault(m.group(2), m.group(1))
+    except Exception:
+        pass
     return out
+
+
+def probe_feed(url):
+    """Что отвечает лента: ('ok', записей) или ('err', причина)."""
+    try:
+        req = urllib.request.Request(
+            url, headers={"User-Agent": "Mozilla/5.0 (compatible; Ticker247/1.0)"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            body = r.read(400000).decode("utf-8", "ignore")
+        return "ok", len(re.findall(r"<item[ >]|<entry[ >]", body))
+    except urllib.error.HTTPError as e:
+        return "err", f"код {e.code}"
+    except Exception as e:
+        return "err", (type(e).__name__)
+
+
+def diagnose(thin_codes):
+    """Причина слабости каждого региона. Три лекарства, а не одно сообщение:
+
+      • лента не отвечает  → менять адрес или источник;
+      • лента пуста        → источник замолчал, ждать или менять;
+      • лента жива, а до читателя не дошло → отсеяли наши фильтры (свежесть,
+        инфоповод, дубли): смотреть журнал прогона, а не искать источники.
+    """
+    import concurrent.futures as cf
+    srcs = region_sources()
+    jobs = [(c, name, url) for c in thin_codes for name, url in srcs.get(c, {}).items()]
+    results = {}
+    with cf.ThreadPoolExecutor(12) as ex:
+        for (c, name, url), res in zip(jobs, ex.map(lambda j: probe_feed(j[2]), jobs)):
+            results.setdefault(c, []).append((name, res))
+    verdict = {}
+    for c in thin_codes:
+        rows = results.get(c, [])
+        if not rows:
+            verdict[c] = ("нет ленты", "")
+            continue
+        live = [(n, r[1]) for n, r in rows if r[0] == "ok" and r[1] > 0]
+        empty = [n for n, r in rows if r[0] == "ok" and r[1] == 0]
+        dead = [(n, r[1]) for n, r in rows if r[0] == "err"]
+        if live:
+            verdict[c] = ("отсеяно фильтрами",
+                          ", ".join(f"{n} {k}" for n, k in live[:3]))
+        elif empty:
+            verdict[c] = ("лента пуста", ", ".join(empty[:3]))
+        else:
+            verdict[c] = ("не отвечает", ", ".join(f"{n} {why}" for n, why in dead[:3]))
+    return verdict
 
 
 def coverage(pool_items):
@@ -288,7 +360,7 @@ def coverage(pool_items):
         have = by_country.get(cc, 0)
         mark = "" if have >= want else f"  ⚠ лент нет у {want - have}"
         print(f"  {cc}: регионов в приложении {want}, с лентами {have}{mark}")
-    thin_total, lines = 0, []
+    thin_total, thin_all = 0, {}
     for pool, items in pool_items.items():
         counts = Counter(i.get("region") for i in items if i.get("region"))
         mine = sorted(c for c, lg in cfg.items() if lg == pool)
@@ -299,9 +371,35 @@ def coverage(pool_items):
         print(f"  [{pool}] регионов с лентами {len(mine)}, "
               f"меньше {MIN_REGION_ITEMS} новостей: {len(thin)}")
         if thin:
-            print("      " + ", ".join(f"{c.split('-')[1]} {counts[c]}" for c in thin))
-            lines.append(f"{pool}: {len(thin)} из {len(mine)} — "
-                         + ", ".join(c.split('-')[1] for c in thin[:25]))
+            print("      " + ", ".join(f"{c} {counts[c]}" for c in thin))
+            for c in thin:
+                thin_all[c] = counts[c]
+    lines = []
+    if thin_all:
+        verdict = diagnose(sorted(thin_all))
+        groups = {}
+        for c, (why, detail) in verdict.items():
+            groups.setdefault(why, []).append((c, detail))
+        print("  Причины:")
+        order = ["не отвечает", "лента пуста", "нет ленты", "отсеяно фильтрами"]
+        mark = {"не отвечает": "⛔", "лента пуста": "◻", "нет ленты": "➖",
+                "отсеяно фильтрами": "🧹"}
+        for why in order:
+            rows = groups.get(why)
+            if not rows:
+                continue
+            body = "; ".join(
+                f"{c} {thin_all[c]}" + (f" ({d})" if d else "")
+                for c, d in rows)
+            print(f"      {why}: {len(rows)} — {body}")
+            if why == "отсеяно фильтрами":
+                # в Telegram — только коды: лента жива, подробности в журнале,
+                # а у сообщения лимит 4096 знаков
+                short = ", ".join(f"{c} {thin_all[c]}" for c, _ in rows)
+                lines.append(f"{mark[why]} {why} ({len(rows)}) — лента жива, новости "
+                             f"режутся по пути (свежесть, инфоповод, дубли): {short}")
+            else:
+                lines.append(f"{mark[why]} {why} ({len(rows)}): {body}")
     try:
         with urllib.request.urlopen(f"{DB}/viral/radio.json", timeout=60) as r:
             radio = json.load(r)
@@ -327,7 +425,9 @@ def notify_coverage(thin_total, lines):
               f"(порог {COVERAGE_ALERT_ABOVE})")
         return
     text = (f"🗺 Охват: регионов, где меньше {MIN_REGION_ITEMS} новостей — "
-            f"{thin_total} (обычно до {COVERAGE_ALERT_ABOVE})\n\n" + "\n".join(lines))
+            f"{thin_total} (обычно до {COVERAGE_ALERT_ABOVE})\n\n" + "\n\n".join(lines))
+    if len(text) > 3900:
+        text = text[:3850] + "\n… (остальное — в журнале прогона Actions)"
     try:
         urllib.request.urlopen(
             f"https://api.telegram.org/bot{token}/sendMessage",
