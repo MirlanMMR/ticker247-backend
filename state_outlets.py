@@ -134,9 +134,9 @@ STATE_RSS = [
     _paper("https://g1.globo.com/rss/g1/sc/santa-catarina/", "G1 Santa Catarina", "BR-SC", quota=2, lang="pt"),
 
     # Мексика, Индия, Россия — по сильной региональной редакции, не сеть.
-    _paper("https://www.informador.mx/rss/jalisco.xml", "El Informador", "MX-JAL", quota=3, lang="es"),
-    _paper("https://indianexpress.com/section/cities/mumbai/feed/", "Indian Express Mumbai", "IN-MH", quota=2),
-    _paper("https://www.thenewsminute.com/rss.xml", "The News Minute", "IN-KA", quota=2),
+    # Индия и Мексика убраны 03.10.2026 (владелец): лент у 2 регионов из 36 и 32 —
+    # выбор региона там бессмыслен, а три одиноких издания (El Informador,
+    # Indian Express Mumbai, The News Minute) читателю ничего не давали.
     _paper("https://www.fontanka.ru/fontanka.rss", "Фонтанка", "RU-SPE", quota=3, lang="ru"),
     # РОССИЯ: сеть городских порталов одного холдинга (Shkulev Media, ~55 сайтов
     # на одной платформе) отдаёт ленту по ОДНОМУ адресу https://www.{сайт}/text/rss.xml —
