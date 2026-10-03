@@ -7226,6 +7226,38 @@ VITAL_MAX = 2
 VITAL_MAX_AGE_MS = 14 * 3600 * 1000   # объявили утром — важно до вечера
 
 
+# Штормовое предупреждение срочно ровно в свой час: «вечером 26 сентября
+# ожидается ветер до 20 м/с» к ночи устарело, а в недельном дайджесте это
+# чужой вчерашний прогноз. Рубрика URGENT остаётся — срок показа короткий
+WEATHER_ALERT = re.compile(
+    r"(штормов|шквал|ураган|порыв\w* ветра|усилени\w* ветра|сильн\w+ ветер|"
+    r"гололед|гололёд|метел|ливн|град\b|"
+    r"storm warning|weather warning|severe weather)", re.I)
+WEATHER_ALERT_TTL_MS = 12 * 3600 * 1000
+
+
+def expire_weather_alerts(items, lang):
+    """Срочное предупреждение о непогоде живёт WEATHER_ALERT_TTL_MS.
+
+    Срок считаем от публикации, а не от «сейчас»: лента собирается заново
+    каждый прогон, и отсчёт от «сейчас» уползал бы вместе с ним. Если у
+    заметки уже есть более ранний expiresAt — оставляем его.
+    """
+    n = 0
+    for it in items:
+        if it.get("category") not in ("URGENT", "URGENT_LOCAL_ONLY"):
+            continue
+        text = f"{it.get('title', '')} {str(it.get('summary', ''))[:400]}"
+        if not WEATHER_ALERT.search(text):
+            continue
+        born = it.get("publishedAt") or int(datetime.now().timestamp() * 1000)
+        until = born + WEATHER_ALERT_TTL_MS
+        it["expiresAt"] = min(it.get("expiresAt") or until, until)
+        n += 1
+    if n:
+        print(f"  🌬️ Предупреждения о непогоде [{lang}]: срок показа {WEATHER_ALERT_TTL_MS // 3600000} ч — {n}")
+    return items
+
 def mark_vital_local(items, lang):
     """Жизненно важное с полки local → URGENT: карусель и шторка."""
     now = int(datetime.now().timestamp() * 1000)
@@ -9066,6 +9098,7 @@ def main():
         filtered = cap_urgent(filtered, lang)
         filtered = carry_vital(filtered, lang)
         filtered = mark_vital_local(filtered, lang)
+        filtered = expire_weather_alerts(filtered, lang)
         filtered = demote_no_event(filtered, lang)
         filtered = fix_scope_and_category(filtered, lang)
         filtered = place_domestic_world(filtered, lang)
