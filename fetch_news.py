@@ -3850,6 +3850,28 @@ def _spend_month_key() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m")
 
 
+def month_pace() -> str:
+    """Расход по факту: сколько в сутки выходит за месяц на самом деле.
+
+    Раньше подпись множила цену прогона на число прогонов по РАСПИСАНИЮ
+    («раз в 120 мин» = 12 в сутки, $2.88). Но прогон идёт около двух часов,
+    GitHub запускает их реже, и по факту 4–5 в сутки — около $1. Подпись
+    пугала втрое выше правды (05.10.2026). Теперь — итог месяца по счётчику,
+    разделённый на прошедшее время.
+    """
+    import calendar
+    now = datetime.now(timezone.utc)
+    start = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    days = (now - start).total_seconds() / 86400
+    total = AI_SPENT_MONTH + max(0.0, current_run_cost() - _SPEND_FLUSHED)
+    if days < 2:
+        return f"За месяц ${total:.2f} за {days:.1f} сут. — для оценки в сутки мало данных"
+    per_day = total / days
+    dim = calendar.monthrange(now.year, now.month)[1]
+    return (f"За месяц ${total:.2f} за {days:.1f} сут. ≈ ${per_day:.2f} в сутки, "
+            f"прогноз месяца ≈ ${per_day * dim:.0f} (потолок ${AI_BUDGET:.0f})")
+
+
 def load_ai_spend():
     """Поднимает из базы, сколько ИИ съел с начала месяца."""
     global AI_SPENT_MONTH, AI_STOPPED
@@ -7936,6 +7958,10 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
     _rep()
     _rep(f"  🗞 Редактор [{lang}] ({tag}): карточек {len(results)}, "
           f"спрошено {asked}, вторым {second}")
+    _miss = getattr(ED.review, "last_misses", None)
+    if _miss:
+        _rep("     память не сработала: "
+             + ", ".join(f"{k} {n}" for k, n in sorted(_miss.items(), key=lambda x: -x[1])))
     if reasons:
         _rep(f"     снял бы: " + ", ".join(f"{k} {n}" for k, n in reasons.most_common())
               if EDITOR_MODE != "live" else
@@ -9344,8 +9370,8 @@ def main():
               f"{TOKENS['fallback_out']:,} исходящих токенов")
     print(f"💰 Расход ИИ [{_MODEL_IN_USE}]: {TOKENS['calls']} запросов, "
           f"{TOKENS['in']:,} входящих + {TOKENS['out']:,} исходящих токенов "
-          f"≈ ${cost:.4f} за прогон (≈ ${cost * 24 * 60 / REFRESH_MINUTES:.2f} "
-          f"в сутки при прогоне раз в {REFRESH_MINUTES} мин)")
+          f"≈ ${cost:.4f} за прогон")
+    print(f"  📆 {month_pace()}")
     if TOKENS.get("thoughts"):
         print(f"  💭 Из исходящих — размышления модели: {TOKENS['thoughts']:,}")
     drop_gemini_caches()

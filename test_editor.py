@@ -124,6 +124,21 @@ res, asked, _ = ED.review(items, "ru", ask=fake_ask, ask_strong=fake_strong,
                           fetch_html=lambda u: "", cache=cache,
                           cache_key=lambda it: it["url"], header="", now_ms=2)
 check("второй раз — из памяти, без запроса", asked == 0 and calls["n"] == 1)
+# причины промаха памяти (05.10.2026): новая / текст вырос / текст стал короче
+_k = lambda it: it["url"]
+_kw = dict(ask=fake_ask, ask_strong=fake_strong, fetch_html=lambda u: "",
+           cache_key=_k, header="", now_ms=5)
+_c = {}
+ED.review(items, "ru", cache=_c, **_kw)
+check("новая карточка — причина «новая»", ED.review.last_misses == {"новая": 1})
+ED.review(items, "ru", cache=_c, **_kw)
+check("попадание в память — промахов нет", ED.review.last_misses == {})
+longer = [dict(items[0], summary="Абзац один.\n\nДва.\n\nТри, новый абзац.")]
+ED.review(longer, "ru", cache=_c, **_kw)
+check("текст вырос — причина названа", ED.review.last_misses == {"текст вырос": 1})
+shorter = [dict(items[0], summary="Абзац.")]
+ED.review(shorter, "ru", cache=_c, **_kw)
+check("текст стал короче — причина названа", ED.review.last_misses == {"текст стал короче": 1})
 check("снятая статья из памяти остаётся снятой",
       ED.apply_verdict(items[0], res[0][1], ["a"], [])[0] is False)
 m = ED.compact({"publish": True, "photo": 0, "need_photo": True}, ["a"], [{"url": "u"}], 1)

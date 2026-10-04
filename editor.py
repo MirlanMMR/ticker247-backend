@@ -407,19 +407,34 @@ def review(items, lang, *, ask, ask_strong, fetch_html, cache, cache_key,
     → список (item, verdict, paras, photos); verdict None — ИИ не ответил.
     """
     from concurrent.futures import ThreadPoolExecutor
+    from collections import Counter
     dossiers = []
     todo = []
+    # Почему память не сработала. 05.10.2026: из памяти брались 13–36% карточек,
+    # а ПОЧЕМУ — не было видно: новая карточка (нормально) или та же статья с
+    # другим текстом (тогда платим за неё дважды)
+    misses = Counter()
     for it in items:
         paras = split_paragraphs(it.get("_full") or it.get("summary") or "")
         k = f"{lang}:{cache_key(it)}"
         c = cache.get(k)
+        n_now = sum(len(p) for p in paras)
         if (isinstance(c, dict) and c.get("v") == EDITOR_VERSION
-                and c.get("n") == sum(len(p) for p in paras)):
+                and c.get("n") == n_now):
             dossiers.append([it, c["verdict"], paras, c.get("photos") or []])
         else:
+            if not isinstance(c, dict):
+                misses["новая"] += 1
+            elif c.get("v") != EDITOR_VERSION:
+                misses["другая версия правил"] += 1
+            elif (c.get("n") or 0) < n_now:
+                misses["текст вырос"] += 1
+            else:
+                misses["текст стал короче"] += 1
             d = [it, None, paras, None]
             dossiers.append(d)
             todo.append(d)
+    review.last_misses = dict(misses)
     # страницы — только тем, кого спрашиваем
     with ThreadPoolExecutor(max_workers=16) as pool:
         htmls = list(pool.map(lambda d: fetch_html(d[0].get("url", "")) if
