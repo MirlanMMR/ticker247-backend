@@ -12,7 +12,8 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
-from feed_gate import drop_family_repeats, gate as feed_gate, same_event
+from feed_gate import (drop_family_repeats, gate as feed_gate, same_event,
+                       regions_agree, pick_regionals)
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
@@ -7915,8 +7916,13 @@ def _trace(lang, stage, items):
     24.09.2026 во французской ленте осталось 6 местных из 18, а редактор не
     снял ни одной — терялись раньше, и без этой строки не видно где."""
     c = Counter(x.get("scope") for x in items if not x.get("region"))
+    # Областные считаем отдельно: раньше строка их не видела вовсе, и потери
+    # областных новостей на этапах нигде не были заметны (04.10.2026)
+    reg = [x for x in items if x.get("region")]
+    regional = (f"; областных {len(reg)} в {len({x['region'] for x in reg})} регионах"
+                if reg else "")
     _rep(f"  🧭 [{lang}] {stage}: всего {sum(c.values())} — местных {c.get('local', 0)}, "
-         f"соседей {c.get('pool', 0)}, мира {c.get('world', 0)}")
+         f"соседей {c.get('pool', 0)}, мира {c.get('world', 0)}{regional}")
 
 
 def run_editor(filtered, lang, leftover=(), max_items=70):
@@ -8694,8 +8700,9 @@ def main():
     clusters = []
     for item in all_news:
         for c in clusters:
-            if (are_duplicates(item.get("title", ""), c[0].get("title", ""))
-                    or same_event_same_family(item, c[0])):
+            if ((are_duplicates(item.get("title", ""), c[0].get("title", ""))
+                    or same_event_same_family(item, c[0]))
+                    and regions_agree(item, c[0])):
                 c.append(item)
                 break
         else:
@@ -8712,6 +8719,9 @@ def main():
     deduped, angles = [], 0
     federal_n = 0
     syndicated_n = 0
+    syndicated_items = 0
+    sister_n = 0
+    regional_in = sum(1 for x in all_news if x.get("region"))
     for c in clusters:
         # ФЕДЕРАЛЬНАЯ ИЛИ МЕСТНАЯ (владелец, 03.10.2026: «если одну новость пишут
         # несколько больших изданий — она федеральная, если только региональные —
@@ -8733,9 +8743,20 @@ def main():
             elif len(_regs) > 1:
                 # одна сеть в нескольких областях — общая лента сети, не
                 # местная новость и не подтверждение: считаем одним голосом
-                # и в ленту не берём
                 syndicated_n += 1
-                continue
+                syndicated_items += sum(1 for x in c if x.get("region"))
+                if len(_regs) >= 3:
+                    # три области и больше — настоящая общая лента сети
+                    # (30 городских сайтов с одним текстом): в ленту не берём
+                    continue
+                # Две сестринские станции — событие настоящее (04.10: убийство
+                # в Ньюнане дали WCTV и WALB, и пара пропала целиком). Берём
+                # лучшую копию без пометки области: чья это новость, по
+                # заголовку не определить
+                for x in c:
+                    if x.get("region"):
+                        x["region"] = ""
+                sister_n += 1
         # Порядок выбора: важность → есть фото → длиннее текст. Раньше сортировали
         # только по важности, и из двух заметок о смерти китайского премьера
         # оставалась та, где 164 знака и нет снимка, а не та, где 450 и портрет
@@ -8779,7 +8800,12 @@ def main():
     if federal_n:
         print(f"  🏛 Федеральных событий (пометка региона снята): {federal_n}")
     if syndicated_n:
-        print(f"  🔁 Общая лента сетей (одна сеть, несколько областей) — не взято: {syndicated_n}")
+        print(f"  🔁 Общая лента сетей (одна сеть, несколько областей) — кучек {syndicated_n}, "
+              f"записей в них {syndicated_items}; две станции — взята лучшая копия: {sister_n}")
+    # Воронка областных: без неё потери видны лишь по итогу (04.10.2026)
+    regional_out = sum(1 for x in deduped if x.get("region"))
+    print(f"  🗺 Областные записи: на входе {regional_in}, после дедупликации "
+          f"с пометкой области {regional_out} в {len({x['region'] for x in deduped if x.get('region')})} регионах")
     all_news = deduped
 
     # Дозаполняем описания ОДИН раз, до разделения по пулам: мировая статья
@@ -9064,25 +9090,20 @@ def main():
                 chosen.append(x)
                 taken.add(id(x))
         leftover = [x for x in nationals if id(x) not in taken]
-        per_region, extra = Counter(), []
         # 03.10.2026, владелец полгода не видел новостей штатов: потолок 120 был
         # ОБЩИМ на все 49 регионов, то есть ~2 карточки на штат при квоте 16 на
         # источник — квота ничего не решала. 300 при круговом обходе — около
         # шести на штат; лента en вырастет примерно на 180 карточек (~270 КБ)
+        # 04.10.2026: устаревшее (старше 36 ч) отсеиваем ДО потолка — иначе из
+        # 300 мест около сотни занимали новости, которые рубеж потом снимал
+        # «старше полутора суток», и заменить их было некем. Круговой обход по
+        # областям, свежие вперёд — в feed_gate.pick_regionals (с тестом).
         REGION_CAP, REGION_TOTAL = SOLE_SOURCE_QUOTA, 300
-        # По кругу, а не «кто первый в списке»: 30.09.2026 en — 364 местных
-        # на входе, потолок 120 выбирался подряд по порядку источников, и
-        # штаты из хвоста списка не получали ни одного места.
-        by_region = {}
-        for x in regionals:
-            by_region.setdefault(x.get("region"), []).append(x)
-        while len(extra) < REGION_TOTAL and any(by_region.values()):
-            for r, rows in by_region.items():
-                if rows and per_region[r] < REGION_CAP and len(extra) < REGION_TOTAL:
-                    extra.append(rows.pop(0))
-                    per_region[r] += 1
-                elif rows and per_region[r] >= REGION_CAP:
-                    rows.clear()
+        extra, per_region, stale_regional = pick_regionals(
+            regionals, int(datetime.now().timestamp() * 1000),
+            REGION_CAP, REGION_TOTAL)
+        if stale_regional:
+            print(f"  🕰 Областных старше 36 ч отсеяно ДО потолка: {stale_regional}")
         filtered = chosen + extra
         _trace(lang, "после отбора и отсечки полок", filtered)
         print(f"  📚 Полки [{lang}]: после ИИ — {before}; "

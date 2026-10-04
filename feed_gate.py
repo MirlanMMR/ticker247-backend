@@ -311,3 +311,86 @@ def drop_family_repeats(items, family_of, pool_lang: str = ""):
         else:
             dropped.append(it)
     return kept, dropped
+
+
+# ─── Областные новости: склейка и отбор ─────────────────────────────────────
+#
+# 04.10.2026 разбор «сто новостей превращаются в ноль»: из 1994 областных
+# записей региональной новостью оставалось 905. Часть потерь — настоящие
+# сетевые ленты (30 городских сайтов несут один и тот же текст). Но склейка по
+# словам заголовка ещё и сливала РАЗНЫЕ события с шаблонным заголовком:
+# «Пожар в Новосибирске» с «Пожаром в Северодвинске», «Previsão do tempo para
+# Recife» с «…para São Gonçalo», «How to watch Ravens vs. Titans» с «Bengals vs.
+# Jaguars». А слитую в «сетевую» кучку выбрасывали целиком, вместе с настоящим
+# событием. Два предохранителя ниже.
+
+REGION_MAX_AGE_MS = 36 * 3600 * 1000
+
+
+def _proper_nouns(title: str) -> set:
+    """Слова с заглавной буквы — имена и названия (работает между языками)."""
+    words = (re.sub(r"[^\w\-]", "", w, flags=re.U) for w in (title or "").split())
+    return {w for w in words if len(w) > 2 and w[:1].isupper() and w.isalpha()}
+
+
+def _plain_title(title: str) -> str:
+    return re.sub(r"[\W_]+", " ", (title or "").lower(), flags=re.U).strip()
+
+
+def regions_agree(a: dict, b: dict) -> bool:
+    """Можно ли считать две новости ОДНИМ событием, если они из разных областей.
+
+    Разные области и похожий по словам заголовок — ещё не одно событие: так
+    выглядят шаблоны («прогноз погоды для …», «… голосует в …», «как смотреть
+    матч»). Событие одно, если заголовки совпадают слово в слово либо ВСЕ имена
+    и названия короткого заголовка есть в длинном. Нет имён — нет доказательств,
+    и через границу областей такие заголовки не склеиваем.
+
+    Внутри одной области (и у новостей без области) проверка ничего не меняет.
+    """
+    ra, rb = a.get("region"), b.get("region")
+    if not ra or not rb or ra == rb:
+        return True
+    ta, tb = a.get("title") or "", b.get("title") or ""
+    if _plain_title(ta) == _plain_title(tb):
+        return True
+    pa, pb = _proper_nouns(ta), _proper_nouns(tb)
+    small, big = (pa, pb) if len(pa) <= len(pb) else (pb, pa)
+    return bool(small) and small <= big
+
+
+def pick_regionals(regionals, now_ms: int, cap_per_region: int, total: int,
+                   max_age_ms: int = REGION_MAX_AGE_MS):
+    """Областные новости в ленту: по кругу между областями, СВЕЖИЕ вперёд.
+
+    Устаревшие отсеиваются ДО отбора, а не после. Раньше потолок (300) делили
+    все подряд, а правило «старше полутора суток» снимало лишнее уже на
+    рубеже: из 300 мест 101 занимали новости, которые потом пропадали, и
+    заменить их было некем. Внутри области — сначала важные, потом свежие.
+
+    Возвращает (отобранные, сколько взято по областям, сколько устарело).
+    """
+    stale = 0
+    queues = {}
+    ordered = sorted(
+        regionals,
+        key=lambda x: (-(x.get("priority") or 0), -(x.get("publishedAt") or 0)))
+    for x in ordered:
+        pub = x.get("publishedAt") or 0
+        if pub and now_ms - pub > max_age_ms:
+            stale += 1
+            continue
+        queues.setdefault(x.get("region"), []).append(x)
+    picked, per_region = [], {}
+    while len(picked) < total:
+        moved = False
+        for r, rows in queues.items():
+            if len(picked) >= total:
+                break
+            if rows and per_region.get(r, 0) < cap_per_region:
+                picked.append(rows.pop(0))
+                per_region[r] = per_region.get(r, 0) + 1
+                moved = True
+        if not moved:
+            break
+    return picked, per_region, stale

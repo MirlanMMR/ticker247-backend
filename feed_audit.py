@@ -341,8 +341,8 @@ def diagnose(thin_codes):
         empty = [n for n, r in rows if r[0] == "ok" and r[1] == 0]
         dead = [(n, r[1]) for n, r in rows if r[0] == "err"]
         if live:
-            verdict[c] = ("отсеяно фильтрами",
-                          ", ".join(f"{n} {k}" for n, k in live[:3]))
+            verdict[c] = ("не дошло до читателя",
+                          ", ".join(f"{n} (в ленте {k} записей)" for n, k in live[:3]))
         elif empty:
             verdict[c] = ("лента пуста", ", ".join(empty[:3]))
         else:
@@ -380,9 +380,9 @@ def coverage(pool_items):
         for c, (why, detail) in verdict.items():
             groups.setdefault(why, []).append((c, detail))
         print("  Причины:")
-        order = ["не отвечает", "лента пуста", "нет ленты", "отсеяно фильтрами"]
+        order = ["не отвечает", "лента пуста", "нет ленты", "не дошло до читателя"]
         mark = {"не отвечает": "⛔", "лента пуста": "◻", "нет ленты": "➖",
-                "отсеяно фильтрами": "🧹"}
+                "не дошло до читателя": "🧹"}
         for why in order:
             rows = groups.get(why)
             if not rows:
@@ -391,7 +391,7 @@ def coverage(pool_items):
                 f"{c} {thin_all[c]}" + (f" ({d})" if d else "")
                 for c, d in rows)
             print(f"      {why}: {len(rows)} — {body}")
-            if why == "отсеяно фильтрами":
+            if why == "не дошло до читателя":
                 # в Telegram — только коды: лента жива, подробности в журнале,
                 # а у сообщения лимит 4096 знаков
                 short = ", ".join(f"{c} {thin_all[c]}" for c, _ in rows)
