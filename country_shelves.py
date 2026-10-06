@@ -363,6 +363,13 @@ def run(only=None, pools=None, dry_run=True, no_ai=False, write=False):
             published += 1
     if write and cache:
         fn.db.reference("/meta/country_cache").set(cache)
+    if write:
+        # Расход ИИ этого шага — в общий месячный счёт, иначе потолок AI_MONTHLY_BUDGET
+        # не видел бы и этих денег
+        try:
+            fn.flush_ai_spend()
+        except Exception as e:
+            print(f"  ⚠️ расход ИИ не записан: {e}")
     t = fn.TOKENS
     cost = (t["in"] * 0.25 + t["out"] * 1.5) / 1_000_000       # gemini-3.1-flash-lite, $/млн
     print(f"🌍 Готово: полок {published}, карточек у ИИ {spent_items}; ИИ: {t['calls']} запросов, "

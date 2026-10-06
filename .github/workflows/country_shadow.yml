@@ -8,9 +8,6 @@ on:
       countries:
         description: "Страны через запятую (пусто — все)"
         default: "AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT"
-  # Временно: проверка до мержа в main (убрать после)
-  push:
-    branches: [feat/country-shelves-shadow]
 
 permissions:
   contents: read
