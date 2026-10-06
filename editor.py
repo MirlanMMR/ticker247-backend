@@ -301,6 +301,46 @@ def _orphan_end(body: str):
     return None
 
 
+# Сколько знаков отдаём читателю без перехода на сайт (то же, что PAGE_BODY_LIMIT
+# в fetch_news.py: полторы страницы читалки)
+KEEP_LIMIT = 1300
+_PROSE_MIN = 80
+_JUNK_PARA = re.compile(
+    r"^\s*(читайте также|читайте ещё|читайте еще|подписывайтесь|подписаться|"
+    r"фото\b|источник\b|реклама|по теме|read also|see also|subscribe)", re.I)
+
+
+def fill_selection(idx, paras, limit: int = KEEP_LIMIT):
+    """Редактор выбирает абзацы, но не вправе вырезать СЕРЕДИНУ статьи.
+
+    06.10.2026, Sputnik KG про Непал: из семи абзацев взяты [1, 3, 4] — второй,
+    с главными цифрами (12 электростанций, 1 455 погибших), сочтён
+    «второстепенным», и читатель получил 597 знаков вместо 1 570 на сайте.
+    Владелец: «это брак». Правило: (1) дыры между выбранными абзацами
+    заполняются, если в них настоящий текст; (2) после последнего выбранного
+    добираются следующие, пока помещаются в [limit] знаков. Мусорные абзацы
+    («читайте также», подписи) не берутся ни там, ни там.
+    """
+    if not idx or not paras:
+        return idx
+    def prose(i):
+        p = paras[i - 1]
+        return len(p) >= _PROSE_MIN and not _JUNK_PARA.match(p)
+    chosen = set(idx)
+    for i in range(min(idx), max(idx) + 1):
+        if i not in chosen and prose(i):
+            chosen.add(i)
+    total = sum(len(paras[i - 1]) for i in chosen)
+    for i in range(max(idx) + 1, len(paras) + 1):
+        if not prose(i):
+            break                      # дальше обычно хвост издания
+        if total + len(paras[i - 1]) > limit:
+            break
+        chosen.add(i)
+        total += len(paras[i - 1])
+    return sorted(chosen)
+
+
 def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
     """Исполняет решение на КОПИИ карточки. → (выпускать?, копия, заметки)."""
     x = dict(item)
@@ -318,7 +358,7 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
         return False, x, [f"снято: {reason}"]
     # текст — выбранные абзацы дословно
     idx = [i for i in v.get("paragraphs") or [] if isinstance(i, int) and 1 <= i <= len(paras)]
-    idx = sorted(set(idx))
+    idx = fill_selection(sorted(set(idx)), paras)
     if idx and paras:
         body = "\n\n".join(paras[i - 1] for i in idx)
         # Первый выбранный абзац — продолжение оборванной строки: заголовок на
