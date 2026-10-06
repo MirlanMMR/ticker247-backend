@@ -9285,7 +9285,8 @@ def main():
         # Близнецы: одна история дважды (тот же снимок, или два выпуска одной
         # редакции) — см. twins.py. Проверка ПОСЛЕ перевода: до него заголовки
         # на разных языках слов не делят (France 24 и France 24 FR, 06.10.2026)
-        filtered, _twin_pairs = drop_twins(filtered, publisher_family)
+        from editions import EDITION_LANG as _EDITION_LANG
+        filtered, _twin_pairs = drop_twins(filtered, publisher_family, frozenset(_EDITION_LANG))
         for _keep, _lose in _twin_pairs:
             print(f"  👯 [{lang}] близнец снят: «{_lose.get('title', '')[:50]}» "
                   f"({_lose.get('source')}) — оставлен ({_keep.get('source')})")

@@ -28,7 +28,6 @@ import urllib.request
 import ast
 
 from extract import extract_article
-from editions import EDITION_LANG
 from twins import drop_twins
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
@@ -106,7 +105,7 @@ def main():
     with cf.ThreadPoolExecutor(8) as ex:
         rows = [r for r in ex.map(check, items) if r]
     # близнецы: снятые drop_twins карточки считаем изъяном второго экземпляра
-    _, twin_pairs = drop_twins(items, families(), frozenset(EDITION_LANG))
+    _, twin_pairs = drop_twins(items, families())
     twin_urls = {lose["url"] for _, lose in twin_pairs}
     by_url = {x["url"]: x for x in items}
     for lose in twin_urls:

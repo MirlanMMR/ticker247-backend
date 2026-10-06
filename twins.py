@@ -9,8 +9,8 @@
   А) тот же снимок (адрес без размеров и параметров) + хотя бы одно общее слово
      заголовка. Одно слово обязательно: общая заставка издания (Reforma кладёт
      один снимок на разные новости) сама по себе близнецов не делает.
-  Б) РАЗНЫЕ выпуски одной редакции (France 24 и France 24 FR, BBC Mundo и BBC
-     Русская служба) + одни сутки + два и больше общих слов в заголовках; оба
+  Б) РАЗНЫЕ языковые выпуски одной редакции (France 24 и France 24 FR, BBC Mundo
+     и BBC Русская служба; список — editions.EDITION_LANG) + одни сутки + два и больше общих слов в заголовках; оба
      заголовка уже на языке пула. Два материала ОДНОГО выпуска сюда не попадают:
      G1 Santa Catarina в один день пишет про двух разных избранных депутатов, и
      слов у них общих много (проверено на живой ленте 06.10.2026).
@@ -37,7 +37,7 @@ def stems(title):
     return {w[:5] for w in re.split(r"[^\w]+", (title or "").lower()) if len(w) > 4}
 
 
-def are_twins(a, b, family=lambda s: s):
+def are_twins(a, b, family=lambda s: s, editions=frozenset()):
     if a.get("url") == b.get("url"):
         return False
     shared = stems(a.get("title")) & stems(b.get("title"))
@@ -45,7 +45,10 @@ def are_twins(a, b, family=lambda s: s):
     if ia and ia == ib and shared:
         return True
     sa, sb = a.get("source", ""), b.get("source", "")
-    if sa != sb and family(sa) == family(sb) and abs(a.get("publishedAt", 0) - b.get("publishedAt", 0)) <= WINDOW_MS:
+    # Б — только для известных ЯЗЫКОВЫХ выпусков (editions.EDITION_LANG). Сайты
+    # одной сети по областям (51.ru и 74.ru — «сирены» в разных областях) — разные
+    # новости, хотя слова общие: найдено на живой ленте 06.10.2026
+    if sa != sb and sa in editions and sb in editions and family(sa) == family(sb) and abs(a.get("publishedAt", 0) - b.get("publishedAt", 0)) <= WINDOW_MS:
         return len(shared) >= MIN_SHARED_B
     return False
 
@@ -55,7 +58,7 @@ def _rank(x):
             len(x.get("summary") or ""), -x.get("publishedAt", 0))
 
 
-def drop_twins(items, family=lambda s: s):
+def drop_twins(items, family=lambda s: s, editions=frozenset()):
     """→ (список без близнецов, [(оставлен, снят)])."""
     drop, pairs = set(), []
     for i, a in enumerate(items):
@@ -65,7 +68,7 @@ def drop_twins(items, family=lambda s: s):
             if j in drop:
                 continue
             b = items[j]
-            if b.get("category") in ("CURRENCY", "CRYPTO") or not are_twins(a, b, family):
+            if b.get("category") in ("CURRENCY", "CRYPTO") or not are_twins(a, b, family, editions):
                 continue
             keep, lose = (i, j) if _rank(a) >= _rank(b) else (j, i)
             drop.add(lose)
