@@ -13,8 +13,9 @@ Mundo, Brasil), но это одна редакция на разных язык
 Правило, которое не требует угадывать смысл: если у редакции есть выпуск на
 языке пула, выпуски на других языках в этот пул не идут. Русскому читателю —
 BBC Русская служба, испанскому — Mundo, португальскому — Brasil, английскому —
-News/World/Sport. Там, где выпуска на языке пула нет (французский), остаются
-все: выбирать не из чего.
+News/World/Sport. Там, где выпуска на языке пула нет (французский), остаются все: выбирать не из
+чего. Исключение — ONE_EDITION_FAMILIES (France 24): там остаётся английский
+(06.10.2026: «FRANCE 24» и «FRANCE 24 FR» выходили в русской ленте рядом).
 
 Вынесено отдельным модулем, чтобы проверять без сети и ключей.
 """
@@ -30,7 +31,16 @@ EDITION_LANG = {
     "BBC Русская служба": "ru",
     "BBC Mundo": "es",
     "BBC Brasil": "pt",
+    # France 24: английский и французский выпуски одной редакции. 06.10.2026 в
+    # русской ленте рядом лежали «FRANCE 24» и «FRANCE 24 FR» — одна история
+    # (Израиль и Газа, 7 октября), одно фото
+    "France 24": "en",
+    "France 24 FR": "fr",
 }
+
+
+# Семьи, где в пуле без «своего» выпуска остаётся только английский
+ONE_EDITION_FAMILIES = ("france24",)
 
 
 def edition_belongs_in_pool(source: str, pool: str, families: dict) -> bool:
@@ -46,4 +56,10 @@ def edition_belongs_in_pool(source: str, pool: str, families: dict) -> bool:
     native = {EDITION_LANG[s] for s in members if s in EDITION_LANG}
     if pool in native:
         return mine == pool
+    # Выпуска на языке пула нет. Для BBC во французском пуле остаются все
+    # (решение 01.10.2026), а для редакций из ONE_EDITION_FAMILIES — один,
+    # английский: оба выпуска переводятся на язык пула, а дубль по словам не
+    # ловится (06.10.2026: в русской ленте рядом «FRANCE 24» и «FRANCE 24 FR»)
+    if "en" in native and any(source in families.get(f, []) for f in ONE_EDITION_FAMILIES):
+        return mine == "en"
     return True
