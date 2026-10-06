@@ -701,6 +701,7 @@ PUBLISHER_FAMILIES = {
     "bbc": ["BBC News", "BBC World", "BBC Sport", "BBC Русская служба",
             "BBC Mundo", "BBC Brasil"],
     "cbn": ["CBN São Paulo", "CBN Rio", "CBN Recife"],
+    "france24": ["France 24", "France 24 FR"],
     "elpais": ["El País", "El País América"],
     "g1": ["G1 Globo", "G1 São Paulo", "G1 Rio", "G1 Minas", "G1 Paraná",
            "G1 Rio Grande do Sul", "G1 Bahia", "G1 Distrito Federal",
