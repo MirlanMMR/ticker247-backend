@@ -168,6 +168,7 @@ jobs:
           python test_pool_space.py
           python test_native_lang.py
           python test_shelves.py
+          python test_intent.py
 
       - name: Run fetch script
         run: python fetch_news.py

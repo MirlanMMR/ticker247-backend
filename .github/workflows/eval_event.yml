@@ -1,0 +1,25 @@
+name: Eval event definition
+
+# Ручной запуск: проверка определения «событие» на размеченных заголовках.
+# Стоит несколько центов, ленту и базу не трогает.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
+      AI_MONTHLY_BUDGET: '40'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Eval
+        run: python eval_event.py
