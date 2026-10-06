@@ -78,18 +78,18 @@ def _rank(x):
 def cap_native_share(items, pool_lang: str, share: float = 0.5):
     """На полке local родной язык — не больше [share] карточек (50/50).
 
-    Лишние снимаются из родного языка, слабейшие первыми (приоритет, затем
-    давность). → (список, [снятые]). Русскоязычные карточки не трогаем: цель —
-    не дать родному вытеснить русский, а не наоборот.
+    «Родной» — любой язык, кроме языка пула. Лишние снимаются из родного языка,
+    слабейшие первыми (приоритет, затем давность). → (список, [снятые]). Карточки на
+    языке пула не трогаем: цель — не дать родному вытеснить язык пула, а не наоборот.
+    Работает для всех пулов: русский + кыргызский, английский + французский (Канада),
+    французский + нидерландский (Бельгия).
     """
-    if pool_lang != "ru":
-        return items, []
     local = [x for x in items if x.get("scope") == "local"
              and x.get("category") not in ("CURRENCY", "CRYPTO")]
-    native = [x for x in local if x.get("language") not in (None, "", "ru", "unknown")]
-    russian = len(local) - len(native)
-    # n родных при r русских укладываются в долю: n / (n + r) ≤ share
-    allowed = int(share * russian / (1 - share)) if share < 1 else len(native)
+    native = [x for x in local if x.get("language") not in (None, "", pool_lang, "unknown")]
+    main_lang = len(local) - len(native)
+    # n родных при r основных укладываются в долю: n / (n + r) ≤ share
+    allowed = int(share * main_lang / (1 - share)) if share < 1 else len(native)
     if len(native) <= max(allowed, 0):
         return items, []
     drop = sorted(native, key=_rank)[:len(native) - max(allowed, 0)]
