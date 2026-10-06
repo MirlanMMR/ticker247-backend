@@ -1,0 +1,104 @@
+"""Сверка опубликованной ленты с источником — мера качества Ticker 24/7.
+
+Правило (CLAUDE.md проекта): качество карточки — это сверка со страницей издания,
+а не впечатление. Скрипт берёт живую ленту пула, открывает страницу каждой
+новости нашим же извлекателем (extract.py) и считает изъяны:
+
+  · neg    — заголовок потерял или добавил отрицание («так и не нашли» → «так и
+             нашли»). Сравнивается только если заголовок страницы на том же
+             алфавите, что карточка (переведённые заголовки не сверить по словам)
+  · short  — текст карточки короче половины того, что мы вправе показать
+             (min(страница, KEEP_LIMIT)), хотя на странице материал ≥ 900 знаков
+  · credit — вместо текста подпись к фото или служебная строка
+
+Запуск:   python quality_audit.py [--pool ru] [--max-bad-percent 5] [--json]
+Выход 1, если доля брака выше порога — для сравнения «до» и «после» правки.
+Только чтение: ничего не пишет ни в базу, ни в репозиторий.
+"""
+import argparse
+import concurrent.futures as cf
+import html
+import json
+import re
+import sys
+import urllib.request
+
+from extract import extract_article
+
+DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
+KEEP_LIMIT = 1300
+NEG = re.compile(r"\b(не|нет|ни|без|нельзя|not|no|never|sin|nunca|pas|jamais|não|nunca)\b", re.I)
+CREDIT = re.compile(r"^\s*(автор фото|подпись к фото|image source|image caption|photo credit)", re.I)
+
+
+def norm(t):
+    return re.sub(r"\s+", " ", html.unescape(t or "")).strip()
+
+
+def og_title(page):
+    m = (re.search(r'property=["\']og:title["\'][^>]*content=["\']([^"\']+)', page)
+         or re.search(r'content=["\']([^"\']+)["\'][^>]*property=["\']og:title', page))
+    return norm(m.group(1)) if m else None
+
+
+def script_of(t):
+    cyr = len(re.findall(r"[а-яё]", t.lower()))
+    lat = len(re.findall(r"[a-z]", t.lower()))
+    return "cyr" if cyr > lat else "lat"
+
+
+def check(x):
+    u = x["url"]
+    if "youtube" in u or "news.google" in u:
+        return None
+    try:
+        raw = urllib.request.urlopen(
+            urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=15).read()
+    except Exception:
+        return None                     # недоступную страницу не засчитываем ни за, ни против
+    page = raw.decode("utf-8", "ignore")
+    flaws = {}
+    card, theirs = norm(x["title"]), og_title(page)
+    if theirs and script_of(card) == script_of(theirs):
+        if len(NEG.findall(card)) != len(NEG.findall(theirs)):
+            flaws["neg"] = [card, theirs]
+    try:
+        res = extract_article(raw, u)
+        body = res.text if res.ok() else ""
+    except Exception:
+        body = ""
+    have, page_len = len(x.get("summary", "")), len(body)
+    if page_len >= 900 and have < 0.5 * min(page_len, KEEP_LIMIT):
+        flaws["short"] = [have, page_len]
+    if CREDIT.match(x.get("summary", "")):
+        flaws["credit"] = True
+    return {"source": x["source"], "title": card[:70], "flaws": flaws}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pool", default="ru")
+    ap.add_argument("--max-bad-percent", type=float, default=5.0)
+    ap.add_argument("--json", action="store_true")
+    a = ap.parse_args()
+    data = json.load(urllib.request.urlopen(DB.format(pool=a.pool)))
+    items = data if isinstance(data, list) else list(data.values())
+    with cf.ThreadPoolExecutor(8) as ex:
+        rows = [r for r in ex.map(check, items) if r]
+    bad = [r for r in rows if r["flaws"]]
+    pct = 100.0 * len(bad) / max(1, len(rows))
+    kinds = {k: sum(1 for r in bad if k in r["flaws"]) for k in ("neg", "short", "credit")}
+    if a.json:
+        print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad),
+                          "percent": round(pct, 1), "kinds": kinds, "rows": bad},
+                         ensure_ascii=False, indent=1))
+    else:
+        print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
+              f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}")
+        for r in bad:
+            print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
+    sys.exit(1 if pct > a.max_bad_percent else 0)
+
+
+if __name__ == "__main__":
+    main()
