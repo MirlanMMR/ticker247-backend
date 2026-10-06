@@ -11,7 +11,17 @@ import os
 import re
 import sys
 
-from fetch_news import ask_gemini
+import google.generativeai as genai
+
+# Модель та же, что в боевом отборе (fetch_news.GEMINI_MODEL). fetch_news не импортируем:
+# ему на импорте нужен доступ к Firebase, а проверке определения он не нужен
+MODEL = "gemini-3.1-flash-lite"
+genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+
+
+def ask_gemini(prompt, charter=False):
+    return genai.GenerativeModel(MODEL).generate_content(prompt).text
+
 
 GOLD = json.load(open("testdata/event_golden.json", encoding="utf-8"))
 OLD = open("testdata/event_definition_old.txt", encoding="utf-8").read()
