@@ -109,8 +109,9 @@ def label_language(item, pool, natives):
         if pool == "ru":
             return native_lang.detect_native(item) or "ru"
         return "ru"                                 # кириллица в чужом пуле — русский
-    cands = [pool] + [n for n in natives if n != pool]
-    guess = guess_latin_lang(text, cands)
+    # английский — всегда кандидат: англоязычные издания есть почти в каждой стране
+    cands = [pool] + [n for n in natives if n != pool] + ["en"]
+    guess = guess_latin_lang(text, list(dict.fromkeys(cands)))
     if guess:
         return guess
     # латиницей пишет и сам русский пул (румынский в Молдове, азербайджанский): тогда
@@ -228,6 +229,7 @@ def parse_verdict(raw, count, topics):
 
 
 def assemble(items, verdict, iso, pool, natives, limit=PER_COUNTRY):
+    accept = {pool, *natives}
     """Применяет вердикт и пост-обработку; → список карточек полки (не больше limit)."""
     kept = []
     for i, x in enumerate(items):
@@ -236,7 +238,13 @@ def assemble(items, verdict, iso, pool, natives, limit=PER_COUNTRY):
         x = dict(x)
         x["scope"] = "local"
         x["country"] = iso
-        x["language"] = label_language(x, pool, natives) or pool
+        lang = label_language(x, pool, natives)
+        # Жёсткий языковой фильтр: язык, которого читатель этой страны не читает, — не на
+        # полку, что бы ни ответил ИИ (Грузия: английские JAMnews и Civil.ge). Язык не
+        # определился — не наказываем
+        if lang is not None and lang not in accept:
+            continue
+        x["language"] = lang or pool
         x["priority"] = 2 if i in verdict["important"] else 1
         if i in verdict["urgent"]:
             x["category"] = "URGENT_LOCAL_ONLY"
@@ -355,7 +363,10 @@ def run(only=None, pools=None, dry_run=True, no_ai=False, write=False):
             published += 1
     if write and cache:
         fn.db.reference("/meta/country_cache").set(cache)
-    print(f"🌍 Готово: полок {published}, карточек у ИИ {spent_items}")
+    t = fn.TOKENS
+    cost = (t["in"] * 0.25 + t["out"] * 1.5) / 1_000_000       # gemini-3.1-flash-lite, $/млн
+    print(f"🌍 Готово: полок {published}, карточек у ИИ {spent_items}; ИИ: {t['calls']} запросов, "
+          f"{t['in']:,} входящих + {t['out']:,} исходящих токенов ≈ ${cost:.4f}")
 
 
 COUNTRY_NAMES = {

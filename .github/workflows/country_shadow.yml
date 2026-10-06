@@ -7,7 +7,7 @@ on:
     inputs:
       countries:
         description: "Страны через запятую (пусто — все)"
-        default: "MD,KZ,AM,CA,BE"
+        default: "AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT"
   # Временно: проверка до мержа в main (убрать после)
   push:
     branches: [feat/country-shelves-shadow]
@@ -34,4 +34,4 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - name: Сухой прогон (без записи в базу)
-        run: python country_shelves.py --dry-run --countries "${{ inputs.countries || 'AM,CA,GE' }}"
+        run: python country_shelves.py --dry-run --countries "${{ inputs.countries || 'AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT' }}"

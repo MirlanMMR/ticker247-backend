@@ -88,6 +88,10 @@ def cap_native_share(items, pool_lang: str, share: float = 0.5):
              and x.get("category") not in ("CURRENCY", "CRYPTO")]
     native = [x for x in local if x.get("language") not in (None, "", pool_lang, "unknown")]
     main_lang = len(local) - len(native)
+    # Нет карточек на языке пула — вытеснять нечего. У Армении обе ленты по-армянски,
+    # и потолок «родного не больше половины» снёс бы полку целиком (06.10.2026)
+    if main_lang == 0:
+        return items, []
     # n родных при r основных укладываются в долю: n / (n + r) ≤ share
     allowed = int(share * main_lang / (1 - share)) if share < 1 else len(native)
     if len(native) <= max(allowed, 0):

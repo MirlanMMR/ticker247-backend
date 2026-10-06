@@ -52,5 +52,7 @@ check("английский пул: французского не больше �
       sum(1 for x in kept_en if x["language"] == "fr") <= len(kept_en) / 2 and len(dropped_en) == 3)
 check("мировая на кыргызском потолком не задета",
       cap_native_share([ky_w] + [card(f"р{i}") for i in range(2)], "ru")[1] == [])
+check("нет карточек на языке пула — потолок ничего не снимает (Армения)",
+      cap_native_share([card(f"hy {i}", lang="hy") for i in range(5)], "ru")[1] == [])
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

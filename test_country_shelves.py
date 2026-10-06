@@ -82,5 +82,20 @@ mixed = [card(i, f"Русская {i}", 10 + i) for i in range(2)] + [card(10 + 
 shm = cs.assemble(mixed, {"keep": set(range(8)), "urgent": set(), "important": set(), "where": {}, "scale": {}, "topic": {}}, "KG", "ru", ["ky"])
 check("потолок 50/50: родной не больше половины", sum(1 for x in shm if x["language"] == "ky") <= len(shm) / 2)
 
+# Армения: обе ленты по-армянски — потолок 50/50 не должен снести всю полку
+am = [card(i, "Հայաստանում նոր դպրոց բացվեց", i, lang="hy") for i in range(5)]
+sham = cs.assemble(am, {"keep": set(range(5)), "urgent": set(), "important": set(), "where": {}, "scale": {}, "topic": {}}, "AM", "ru", ["hy"])
+check("Армения: полка из одного родного языка остаётся", len(sham) == 5)
+# Грузия: английский не читает местный читатель — не на полку
+ge = [card(0, "Georgia expelled around 3,300 foreign nationals as of October 2026 according to the data", 5),
+      card(1, "Сообщение по-русски об открытии школы в Тбилиси", 4)]
+shge = cs.assemble(ge, {"keep": {0, 1}, "urgent": set(), "important": set(), "where": {}, "scale": {}, "topic": {}}, "GE", "ru", ["ka"])
+check("Грузия: английский текст отфильтрован, русский остался", [x["title"][:7] for x in shge] == ["Сообщен"])
+check("английский определяется как en, а не ru (Грузия)",
+      cs.label_language(c("Georgia expelled around 3,300 foreign nationals as of October 2026 according to the data"), "ru", ["ka"]) == "en")
+ca = [card(i, f"The government has announced new measures for the families number {i}", i, lang="en") for i in range(4)]
+shca = cs.assemble(ca, {"keep": set(range(4)), "urgent": set(), "important": set(), "where": {}, "scale": {}, "topic": {}}, "CA", "fr", ["en", "fr"])
+check("fr/CA: английские карточки без французских остаются (читает оба языка)", len(shca) == 4)
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
