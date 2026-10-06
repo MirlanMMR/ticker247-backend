@@ -74,13 +74,19 @@ check("английскому не идёт Русская служба",
 
 # Французский: выпуска на его языке нет — остаются все, выбирать не из чего
 check("французскому остаются все выпуски BBC",
-      all(edition_belongs_in_pool(s, "fr", F) for s in EDITION_LANG))
+      all(edition_belongs_in_pool(s, "fr", F) for s in F["bbc"]))
 
 # Каждый выпуск идёт ровно в один из пулов с родным выпуском (и во французский)
 check("Русская служба: только ru и fr", pools_for("BBC Русская служба"), ["ru", "fr"])
 check("Mundo: только es и fr", pools_for("BBC Mundo"), ["es", "fr"])
 check("Brasil: только pt и fr", pools_for("BBC Brasil"), ["pt", "fr"])
 check("BBC World: только en и fr", pools_for("BBC World"), ["en", "fr"])
+
+# ─── France 24: английский и французский выпуски (06.10.2026, дубль в ru) ─
+check("France 24 в русском пуле — только английский",
+      pools_for("France 24"), ["ru", "en", "es", "pt"])
+check("France 24 FR — только во французский",
+      pools_for("France 24 FR"), ["fr"])
 
 # ─── Остальное не задето ────────────────────────────────────────────────
 check("Reuters (не из семьи) идёт во все пулы",
