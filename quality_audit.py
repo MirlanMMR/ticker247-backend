@@ -10,6 +10,8 @@
   · short  — текст карточки короче половины того, что мы вправе показать
              (min(страница, KEEP_LIMIT)), хотя на странице материал ≥ 900 знаков
   · credit — вместо текста подпись к фото или служебная строка
+  · twin   — второй экземпляр одной и той же истории в ленте (twins.py: тот же
+             снимок, либо разные выпуски одной редакции)
 
 Запуск:   python quality_audit.py [--pool ru] [--max-bad-percent 5] [--json]
 Выход 1, если доля брака выше порога — для сравнения «до» и «после» правки.
@@ -23,7 +25,11 @@ import re
 import sys
 import urllib.request
 
+import ast
+
 from extract import extract_article
+from editions import EDITION_LANG
+from twins import drop_twins
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
 KEEP_LIMIT = 1300
@@ -75,6 +81,20 @@ def check(x):
     return {"source": x["source"], "title": card[:70], "flaws": flaws}
 
 
+def families():
+    """PUBLISHER_FAMILIES из fetch_news.py без его импорта (нужны ключи и сеть)."""
+    try:
+        tree = ast.parse(open("fetch_news.py", encoding="utf-8").read())
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and any(
+                    isinstance(t, ast.Name) and t.id == "PUBLISHER_FAMILIES" for t in node.targets):
+                fam = ast.literal_eval(node.value)
+                return lambda s: next((k for k, m in fam.items() if s in m), s)
+    except Exception:
+        pass
+    return lambda s: s
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pool", default="ru")
@@ -85,16 +105,30 @@ def main():
     items = data if isinstance(data, list) else list(data.values())
     with cf.ThreadPoolExecutor(8) as ex:
         rows = [r for r in ex.map(check, items) if r]
+    # близнецы: снятые drop_twins карточки считаем изъяном второго экземпляра
+    _, twin_pairs = drop_twins(items, families(), frozenset(EDITION_LANG))
+    twin_urls = {lose["url"] for _, lose in twin_pairs}
+    by_url = {x["url"]: x for x in items}
+    for lose in twin_urls:
+        x = by_url.get(lose)
+        if x is None:
+            continue
+        row = next((r for r in rows if r["title"] == norm(x["title"])[:70]), None)
+        if row is None:
+            row = {"source": x["source"], "title": norm(x["title"])[:70], "flaws": {}}
+            rows.append(row)
+        row["flaws"]["twin"] = True
     bad = [r for r in rows if r["flaws"]]
     pct = 100.0 * len(bad) / max(1, len(rows))
-    kinds = {k: sum(1 for r in bad if k in r["flaws"]) for k in ("neg", "short", "credit")}
+    kinds = {k: sum(1 for r in bad if k in r["flaws"]) for k in ("neg", "short", "credit", "twin")}
     if a.json:
         print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad),
                           "percent": round(pct, 1), "kinds": kinds, "rows": bad},
                          ensure_ascii=False, indent=1))
     else:
         print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
-              f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}")
+              f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
+              f"дубль {kinds['twin']}")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
     sys.exit(1 if pct > a.max_bad_percent else 0)
