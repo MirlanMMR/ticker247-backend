@@ -2695,7 +2695,15 @@ def _is_home_source(item, lang) -> bool:
     «страны языка».
     """
     url = (item.get("url") or "").lower()
-    return any(dom in url for dom in LOCAL_DOMAINS.get(lang, []))
+    if any(dom in url for dom in LOCAL_DOMAINS.get(lang, [])):
+        return True
+    # Список доменов ведётся руками и отстаёт: «AKIpress Эко» живёт на
+    # eco.akipress.org, а в списке только akipress.com — и две кыргызские новости
+    # (Ак-Суйский район, Нарынская область) уехали в «Мировые» (06.10.2026).
+    # Издание, которое МЫ САМИ записали за страной пула (SOURCE_COUNTRY),
+    # домашнее, как бы ни назывался его адрес
+    home = POOL_CONFIG.get(lang, {}).get("home_code")
+    return bool(home) and SOURCE_COUNTRY.get(item.get("source", "")) == home
 
 
 def _demote_foreign_local(item, lang):
