@@ -2695,7 +2695,15 @@ def _is_home_source(item, lang) -> bool:
     «страны языка».
     """
     url = (item.get("url") or "").lower()
-    return any(dom in url for dom in LOCAL_DOMAINS.get(lang, []))
+    if any(dom in url for dom in LOCAL_DOMAINS.get(lang, [])):
+        return True
+    # Список доменов ведётся руками и отстаёт: «AKIpress Эко» живёт на
+    # eco.akipress.org, а в списке только akipress.com — и две кыргызские новости
+    # (Ак-Суйский район, Нарынская область) уехали в «Мировые» (06.10.2026).
+    # Издание, которое МЫ САМИ записали за страной пула (SOURCE_COUNTRY),
+    # домашнее, как бы ни назывался его адрес
+    home = POOL_CONFIG.get(lang, {}).get("home_code")
+    return bool(home) and SOURCE_COUNTRY.get(item.get("source", "")) == home
 
 
 def _demote_foreign_local(item, lang):
@@ -7116,7 +7124,11 @@ _NEVER_URGENT = re.compile(
 # о своей стране, — это полка «своего языка», а не «мировые»: 22.08 новость
 # Kun.uz об институте цифровой безопасности в Узбекистане стояла среди мировых.
 POOL_COUNTRIES = {
-    "ru": {"KZ", "UZ", "TJ", "RU", "UA", "BY", "AM", "AZ", "GE", "MD", "TM"},
+    # Украины здесь НЕТ (решение владельца 06.10.2026): в условиях войны оттуда
+    # идут только военные новости, и их стабильно освещают все мировые СМИ —
+    # это «Мировые», а не «Новости из». Внутренние дела Украины (мэрия, тарифы)
+    # по правилу place_domestic_world в русском пуле не показываются вовсе
+    "ru": {"KZ", "UZ", "TJ", "RU", "BY", "AM", "AZ", "GE", "MD", "TM"},
     "en": {"GB", "IE", "CA", "AU", "NZ", "IN", "NG", "ZA", "JM", "SG"},
     "es": {"ES", "AR", "CO", "PE", "CL", "EC", "VE", "GT", "CR", "SV", "DO", "UY", "PY", "BO", "PA", "HN", "NI", "CU"},
     "pt": {"PT", "AO", "MZ", "CV", "GW", "ST", "TL"},
