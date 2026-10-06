@@ -7,7 +7,6 @@ on:
   # Временно: чтобы проверить определение до мержа в main (убрать после)
   push:
     branches: [feat/event-whitelist]
-    paths: ['eval_event.py', 'testdata/event_golden.json', 'EDITORIAL.md']
 
 permissions:
   contents: read
