@@ -439,9 +439,20 @@ class CreditSanitizer(BaseSanitizer):
     _RX = re.compile(
         r"^\s*(источник изображени[яй]|фото|photo|image|getty|reuters|afp|epa|"
         r"credit|crédit|imagen|imagem)\s*[:—–-].{0,80}$", re.I)
+    # Служебные строки BBC стоят через ЗАПЯТУЮ, а не двоеточие: «Автор фото,
+    # AFP via Getty Images», «Подпись к фото, …», «Image source, Getty
+    # Images». 06.10.2026 в закладках лежала новость BBC, где от статьи
+    # остались только они — читатель видел подпись к фото вместо текста.
+    _BBC = re.compile(
+        r"^\s*(автор фото|подпись к фото|image source|image caption|photo credit|"
+        r"source de l.image|légende|fuente de la imagen|pie de foto|"
+        r"fonte da imagem|legenda)\s*[,:—–-].{0,200}$", re.I)
 
     def apply(self, text: str) -> str:
-        return "\n".join(l for l in text.split("\n") if not self._RX.match(l)).strip()
+        return "\n".join(
+            l for l in text.split("\n")
+            if not self._RX.match(l) and not self._BBC.match(l)
+        ).strip()
 
 
 class MidInsertSanitizer(BaseSanitizer):
