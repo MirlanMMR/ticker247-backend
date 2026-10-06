@@ -380,7 +380,10 @@ RSS_SOURCES = [
     # ════════════════════════════════════════════════════
     # КГ / ЦА — локальные для RU пула
     # ════════════════════════════════════════════════════
-    {"url": "https://24.kg/rss/", "source": "24.kg", "category": "NEWS", "priority": 2, "quota": 12, "scope": "local"},
+    # 24.kg снят 06.10.2026: лента отвечает 200 и держит 50 записей, но свежайшая
+    # от 4 октября (замер 06.10 в 11:40 по Бишкеку, когда у Kaktus, Knews,
+    # AKIpress и Sputnik новости были 5–20 минутной давности). Вернуть, когда
+    # издание оживит RSS; его тексты по-прежнему приходят в ленту через Telegram.
     {"url": "https://kabar.kg/rss.xml", "source": "Kabar.kg", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
     {"url": "https://akipress.com/rss/news.rss", "source": "AKIpress", "category": "NEWS", "priority": 2, "quota": 12, "scope": "local"},
     {"url": "https://kaktus.media/?rss=1", "source": "Kaktus.media", "category": "NEWS", "priority": 2, "quota": 10, "scope": "local"},
@@ -403,7 +406,8 @@ RSS_SOURCES = [
     # того оно и написано.
     {"url": "https://ru.sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local"},
     {"url": "https://sputnik.kg/export/rss2/archive/index.xml", "source": "Sputnik KG (кыргызча)", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "ru", "native": "ky"},
-    {"url": "https://www.vb.kg/rss.xml", "source": "Вечерний Бишкек", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
+    # vb.kg: адрес /rss.xml отдаёт 404, живой — /?rss (06.10.2026, свежайшая за 10 минут)
+    {"url": "https://www.vb.kg/?rss", "source": "Вечерний Бишкек", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://knews.kg/feed/", "source": "Knews.kg", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://www.gezitter.org/rss/", "source": "Gezitter", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local"},
 
