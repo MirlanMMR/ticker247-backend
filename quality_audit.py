@@ -122,7 +122,7 @@ def main():
         row["flaws"]["twin"] = True
     bad = [r for r in rows if r["flaws"]]
     pct = 100.0 * len(bad) / max(1, len(rows))
-    kinds = {k: sum(1 for r in bad if k in r["flaws"]) for k in ("neg", "short", "credit", "twin")}
+    kinds = {k: sum(1 for r in bad if k in r["flaws"]) for k in ("neg", "short", "credit", "twin", "lang")}
     if a.json:
         print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad),
                           "percent": round(pct, 1), "kinds": kinds, "rows": bad},
