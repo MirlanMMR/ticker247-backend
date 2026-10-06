@@ -10,6 +10,8 @@
   · short  — текст карточки короче половины того, что мы вправе показать
              (min(страница, KEEP_LIMIT)), хотя на странице материал ≥ 900 знаков
   · credit — вместо текста подпись к фото или служебная строка
+  · scope  — своя новость пула лежит в «Мировых» (страна карточки = дом пула,
+             полка world): AKIpress Эко с eco.akipress.org, 06.10.2026
   · twin   — второй экземпляр одной и той же истории в ленте (twins.py: тот же
              снимок, либо разные выпуски одной редакции)
 
@@ -33,6 +35,7 @@ from twins import drop_twins
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
 KEEP_LIMIT = 1300
+HOME = {"ru": "KG", "en": "US", "es": "MX", "pt": "BR", "fr": "FR"}
 NEG = re.compile(r"\b(не|нет|ни|без|нельзя|not|no|never|sin|nunca|pas|jamais|não|nunca)\b", re.I)
 CREDIT = re.compile(r"^\s*(автор фото|подпись к фото|image source|image caption|photo credit)", re.I)
 
@@ -53,7 +56,7 @@ def script_of(t):
     return "cyr" if cyr > lat else "lat"
 
 
-def check(x):
+def check(x, pool="ru"):
     u = x["url"]
     if "youtube" in u or "news.google" in u:
         return None
@@ -64,6 +67,8 @@ def check(x):
         return None                     # недоступную страницу не засчитываем ни за, ни против
     page = raw.decode("utf-8", "ignore")
     flaws = {}
+    if x.get("scope") == "world" and x.get("country") == HOME.get(pool):
+        flaws["scope"] = True
     card, theirs = norm(x["title"]), og_title(page)
     if theirs and script_of(card) == script_of(theirs):
         if len(NEG.findall(card)) != len(NEG.findall(theirs)):
@@ -104,7 +109,7 @@ def main():
     data = json.load(urllib.request.urlopen(DB.format(pool=a.pool)))
     items = data if isinstance(data, list) else list(data.values())
     with cf.ThreadPoolExecutor(8) as ex:
-        rows = [r for r in ex.map(check, items) if r]
+        rows = [r for r in ex.map(lambda x: check(x, a.pool), items) if r]
     # близнецы: снятые drop_twins карточки считаем изъяном второго экземпляра
     _, twin_pairs = drop_twins(items, families(), frozenset(EDITION_LANG))
     twin_urls = {lose["url"] for _, lose in twin_pairs}
@@ -120,7 +125,7 @@ def main():
         row["flaws"]["twin"] = True
     bad = [r for r in rows if r["flaws"]]
     pct = 100.0 * len(bad) / max(1, len(rows))
-    kinds = {k: sum(1 for r in bad if k in r["flaws"]) for k in ("neg", "short", "credit", "twin")}
+    kinds = {k: sum(1 for r in bad if k in r["flaws"]) for k in ("neg", "short", "credit", "twin", "scope")}
     if a.json:
         print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad),
                           "percent": round(pct, 1), "kinds": kinds, "rows": bad},
@@ -128,7 +133,7 @@ def main():
     else:
         print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
               f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
-              f"дубль {kinds['twin']}")
+              f"дубль {kinds['twin']}, не на своей полке {kinds['scope']}")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
     sys.exit(1 if pct > a.max_bad_percent else 0)

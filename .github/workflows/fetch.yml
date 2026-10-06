@@ -164,6 +164,7 @@ jobs:
           python test_pipeline_start.py
           python test_editions.py
           python test_twins.py
+          python test_home_source.py
 
       - name: Run fetch script
         run: python fetch_news.py
