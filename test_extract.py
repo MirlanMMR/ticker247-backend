@@ -105,6 +105,17 @@ check("кредит изображения убирается",
       "Autohome" in CreditSanitizer().apply(
           ARTICLE + "\nИсточник изображения: Autohome"), False)
 
+# 06.10.2026, BBC: «Автор фото, AFP via Getty Images» вместо текста новости
+check("подпись BBC «Автор фото, …» убирается",
+      "Автор фото" in CreditSanitizer().apply(
+          "Автор фото, AFP via Getty Images\n" + ARTICLE), False)
+check("подпись BBC «Подпись к фото, …» убирается",
+      "Подпись к фото" in CreditSanitizer().apply(
+          ARTICLE + "\nПодпись к фото, Украинские спасатели на месте обстрела"), False)
+check("абзац о фото внутри предложения не трогается",
+      "автор фото" in CreditSanitizer().apply(
+          "Редакция выяснила: автор фото, сделанного в 1990-м, жив.\n" + ARTICLE), True)
+
 check("хвост «Читайте также» отрезается",
       "Читайте также" in FooterLinkSanitizer().apply(
           ARTICLE + "\nЧитайте также\nДругая новость"), False)
