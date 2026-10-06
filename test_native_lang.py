@@ -1,4 +1,4 @@
-"""Кыргызский текст — только на местной полке (native_lang.py)."""
+"""Кыргызский текст помечается ky, не снимается (native_lang.py)."""
 import sys
 from native_lang import apply, looks_kyrgyz
 
@@ -20,16 +20,14 @@ check("русский не принят за кыргызский", not looks_ky
 check("слова без особых букв: «Кыргызстан менен Монголия … кызматташат» опознан по служебным словам",
       looks_kyrgyz(card("Кыргызстан менен Монголия медицина тармагында кызматташат жана алыс", "local")))
 
-kept, relab, dropped = apply([w, l, r], "ru")
-check("кыргызская мировая снята", dropped == [w] and w not in kept)
-check("кыргызская местная остаётся и помечена ky", l in kept and l["language"] == "ky")
-check("русская местная не тронута", r in kept and r["language"] == "ru")
-check("перемечено две (мировая и местная)", len(relab) == 2)
-
-pool_item = card("Кыргызстан менен Монголия медицина боюнча жана өнүктүрүү кызматташат", "pool")
-check("кыргызская на полке «Новости из» тоже снимается", apply([pool_item], "ru")[2] == [pool_item])
-check("в других пулах ничего не меняем", apply([w], "en") == ([w], [], []))
+kept, relab = apply([w, l, r], "ru")
+check("ничего не снимается: мировая на кыргызском остаётся", w in kept and l in kept and len(kept) == 3)
+check("кыргызские помечены ky (и мировая, и местная)", w["language"] == "ky" and l["language"] == "ky")
+check("русская местная не тронута", r["language"] == "ru")
+check("перемечено две", len(relab) == 2)
+check("уже помеченное ky не считается перемеченным", apply([card("Манас шаарында жаңы мектеп", "local", lang="ky")], "ru")[1] == [])
+check("в других пулах ничего не меняем", apply([card("Манас шаарында жаңы мектеп", "world")], "en")[1] == [])
 fin = card("USD 89", "world", cat="CURRENCY")
-check("финансовые карточки не трогаем", apply([fin], "ru")[0] == [fin])
+check("финансовые карточки не трогаем", apply([fin], "ru")[1] == [])
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
