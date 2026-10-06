@@ -9293,10 +9293,13 @@ def main():
                   f"({_lose.get('source')}) — оставлен ({_keep.get('source')})")
         # Кыргызский текст помечается ky по самому тексту (native_lang.py): иначе
         # Kabar.kg лежал с language=ru и показывался всем читателям русского пула
-        from native_lang import apply as _ky_apply
-        filtered, _ky_relabeled = _ky_apply(filtered, lang)
-        if _ky_relabeled:
-            print(f"  🇰🇬 [{lang}] кыргызский текст помечен ky: {len(_ky_relabeled)}")
+        from native_lang import apply as _native_apply, cap_native_share as _native_cap
+        filtered, _native_relabeled = _native_apply(filtered, lang)
+        # На «Местных» родной язык — не больше половины (правило владельца 06.10.2026)
+        filtered, _native_dropped = _native_cap(filtered, lang)
+        if _native_relabeled or _native_dropped:
+            print(f"  🌐 [{lang}] родной язык: помечено {len(_native_relabeled)}, "
+                  f"снято сверх 50/50 на «Местных» {len(_native_dropped)}")
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)

@@ -30,7 +30,7 @@ import ast
 
 from extract import extract_article
 from editions import EDITION_LANG
-from native_lang import looks_kyrgyz
+from native_lang import detect_native
 from twins import drop_twins
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
@@ -66,8 +66,9 @@ def check(x):
         return None                     # недоступную страницу не засчитываем ни за, ни против
     page = raw.decode("utf-8", "ignore")
     flaws = {}
-    if looks_kyrgyz(x) and x.get("language") != "ky":
-        flaws["lang"] = True            # кыргызский текст с чужой пометкой языка
+    native = detect_native(x)
+    if native and x.get("language") != native:
+        flaws["lang"] = True            # родной язык с чужой пометкой (ky/kk/uz/tg)
     card, theirs = norm(x["title"]), og_title(page)
     if theirs and script_of(card) == script_of(theirs):
         if len(NEG.findall(card)) != len(NEG.findall(theirs)):
@@ -124,6 +125,9 @@ def main():
         row["flaws"]["twin"] = True
     bad = [r for r in rows if r["flaws"]]
     pct = 100.0 * len(bad) / max(1, len(rows))
+    loc = [x for x in items if x.get("scope") == "local"]
+    nat = [x for x in loc if detect_native(x)]
+    share = 100.0 * len(nat) / max(1, len(loc))
     kinds = {k: sum(1 for r in bad if k in r["flaws"]) for k in ("neg", "short", "credit", "twin", "lang")}
     if a.json:
         print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad),
@@ -133,6 +137,7 @@ def main():
         print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
               f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
               f"дубль {kinds['twin']}, язык {kinds['lang']}")
+        print(f"    родной язык на «Местных»: {len(nat)} из {len(loc)} ({share:.0f}%, потолок 50%)")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
     sys.exit(1 if pct > a.max_bad_percent else 0)
