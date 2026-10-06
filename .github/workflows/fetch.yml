@@ -162,6 +162,8 @@ jobs:
           python test_live_identity.py
           python test_editor.py
           python test_pipeline_start.py
+          python test_editions.py
+          python test_twins.py
 
       - name: Run fetch script
         run: python fetch_news.py

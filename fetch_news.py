@@ -6598,6 +6598,7 @@ from storydedup import same_story as _same_story
 from storydedup import reviewed_extra_urls as _reviewed_extra_urls
 # Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
 # пул — правило и причина в editions.py, проверяется test_editions.py
+from twins import drop_twins
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
 
@@ -9281,6 +9282,13 @@ def main():
         filtered, stories = collapse_same_event(filtered, lang, stories)
         filtered = _without_reviewed(filtered, stories)
         _trace(lang, "после склейки пересказов", filtered)
+        # Близнецы: одна история дважды (тот же снимок, или два выпуска одной
+        # редакции) — см. twins.py. Проверка ПОСЛЕ перевода: до него заголовки
+        # на разных языках слов не делят (France 24 и France 24 FR, 06.10.2026)
+        filtered, _twin_pairs = drop_twins(filtered, publisher_family)
+        for _keep, _lose in _twin_pairs:
+            print(f"  👯 [{lang}] близнец снят: «{_lose.get('title', '')[:50]}» "
+                  f"({_lose.get('source')}) — оставлен ({_keep.get('source')})")
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)
