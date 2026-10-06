@@ -8683,6 +8683,44 @@ def main():
     print(f"\nПо категориям: {category_counts}")
     print(f"Всего: {len(all_news)} статей")
 
+    # Одна и та же фотография у разных изданий лежит по РАЗНЫМ адресам
+    # (пресс-снимок экстрадиции из Грузии, 06.10.2026: Kaktus, Knews и
+    # Вечерний Бишкек), так что сравнивать адреса бесполезно — сравниваем кадр.
+    # dHash 8x8: устойчив к пережатию и смене размера. Качаем лениво и только
+    # для пар, у которых уже есть общие слова в заголовке
+    _PHASH = {}
+
+    def photo_hash(url):
+        if not url or not str(url).startswith("http"):
+            return None
+        if url in _PHASH:
+            return _PHASH[url]
+        h = None
+        try:
+            from io import BytesIO
+            from PIL import Image
+            r = requests.get(url, timeout=8, headers=BROWSER_HEADERS)
+            if r.ok and len(r.content) < 5_000_000:
+                im = Image.open(BytesIO(r.content)).convert("L").resize((9, 8))
+                px = list(im.getdata())
+                h = 0
+                for row in range(8):
+                    for col in range(8):
+                        h = (h << 1) | (px[row * 9 + col] > px[row * 9 + col + 1])
+        except Exception:
+            h = None
+        _PHASH[url] = h
+        return h
+
+    def same_photo(a, b):
+        ua, ub = a.get("imageUrl"), b.get("imageUrl")
+        if not ua or not ub:
+            return False
+        if ua == ub:
+            return True
+        ha, hb = photo_hash(ua), photo_hash(ub)
+        return ha is not None and hb is not None and bin(ha ^ hb).count("1") <= 4
+
     # Дедупликация по схожести заголовков — убираем дубли об одном событии
     STOP_WORDS = {
         "в","на","и","с","по","из","за","от","к","о","об","не","что","как","для","при","до","он","она","они","это",
@@ -8712,6 +8750,9 @@ def main():
     name_freq = Counter()
     for _it in all_news:
         name_freq.update(proper_nouns(_it.get("title", "")))
+
+    def _stems(title):
+        return {w[:6] for w in title_words(title)}
 
     def are_duplicates(title1, title2):
         w1, w2 = title_words(title1), title_words(title2)
@@ -8758,7 +8799,9 @@ def main():
     for item in all_news:
         for c in clusters:
             if ((are_duplicates(item.get("title", ""), c[0].get("title", ""))
-                    or same_event_same_family(item, c[0]))
+                    or same_event_same_family(item, c[0])
+                    or (len(_stems(item.get("title", "")) & _stems(c[0].get("title", ""))) >= 2
+                        and same_photo(item, c[0])))
                     and regions_agree(item, c[0])):
                 c.append(item)
                 break
