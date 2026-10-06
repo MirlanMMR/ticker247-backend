@@ -22,5 +22,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-      - name: Eval
-        run: python eval_event.py
+      - name: Eval — набор с примерами из определения
+        run: python eval_event.py testdata/event_golden.json
+      - name: Eval — независимый набор (без совпадений с определением)
+        run: python eval_event.py testdata/event_holdout.json

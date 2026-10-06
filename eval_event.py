@@ -23,7 +23,9 @@ def ask_gemini(prompt, charter=False):
     return genai.GenerativeModel(MODEL).generate_content(prompt).text
 
 
-GOLD = json.load(open("testdata/event_golden.json", encoding="utf-8"))
+import sys as _s
+SET = _s.argv[1] if len(_s.argv) > 1 else "testdata/event_golden.json"
+GOLD = json.load(open(SET, encoding="utf-8"))
 OLD = open("testdata/event_definition_old.txt", encoding="utf-8").read()
 EDITORIAL = open("EDITORIAL.md", encoding="utf-8").read()
 a = EDITORIAL.index("## Что такое событие и новость")
