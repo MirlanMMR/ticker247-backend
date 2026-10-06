@@ -9291,6 +9291,13 @@ def main():
         for _keep, _lose in _twin_pairs:
             print(f"  👯 [{lang}] близнец снят: «{_lose.get('title', '')[:50]}» "
                   f"({_lose.get('source')}) — оставлен ({_keep.get('source')})")
+        # Кыргызский текст — только на местной полке (native_lang.py): язык
+        # определяется по тексту, а не по настройке пула, и не-местные снимаются
+        from native_lang import apply as _ky_apply
+        filtered, _ky_relabeled, _ky_dropped = _ky_apply(filtered, lang)
+        if _ky_relabeled or _ky_dropped:
+            print(f"  🇰🇬 [{lang}] кыргызский текст: помечено ky {len(_ky_relabeled)}, "
+                  f"снято вне местной полки {len(_ky_dropped)}")
         # Тяжёлый снимок под размытие: спрашиваем ИИ о самой
         # фотографии, но только у новостей про происшествия
         mark_graphic_photos(filtered, lang)

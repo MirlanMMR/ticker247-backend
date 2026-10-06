@@ -10,6 +10,7 @@
   · short  — текст карточки короче половины того, что мы вправе показать
              (min(страница, KEEP_LIMIT)), хотя на странице материал ≥ 900 знаков
   · credit — вместо текста подпись к фото или служебная строка
+  · lang   — кыргызский текст не помечен ky или лежит вне «Местных» (ru)
   · twin   — второй экземпляр одной и той же истории в ленте (twins.py: тот же
              снимок, либо разные выпуски одной редакции)
 
@@ -29,6 +30,7 @@ import ast
 
 from extract import extract_article
 from editions import EDITION_LANG
+from native_lang import looks_kyrgyz
 from twins import drop_twins
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
