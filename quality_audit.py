@@ -155,9 +155,10 @@ def main():
     vs = [shelf_verdict(x, hm, sp) for x in items if x.get("category") not in ("CURRENCY", "CRYPTO")]
     shelf_wrong, shelf_unknown = vs.count("suspect"), vs.count("unknown")
     shelf_known = len(vs) - shelf_unknown
+    new_fields = sum(1 for x in items if x.get("scale") and x.get("category") not in ("CURRENCY", "CRYPTO"))
     if a.json:
         print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad),
-                          "percent": round(pct, 1), "kinds": kinds, "shelf": {"known": shelf_known, "wrong": shelf_wrong, "total": len(vs)}, "rows": bad},
+                          "percent": round(pct, 1), "kinds": kinds, "shelf": {"known": shelf_known, "wrong": shelf_wrong, "total": len(vs), "where_scale": new_fields}, "rows": bad},
                          ensure_ascii=False, indent=1))
     else:
         print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
@@ -165,7 +166,8 @@ def main():
               f"дубль {kinds['twin']}, язык {kinds['lang']}, "
               f"не на своей полке {kinds['scope']}")
         print(f"    полки: страна события известна у {shelf_known} из {len(vs)} "
-              f"({100.0 * shelf_known / max(1, len(vs)):.0f}%), под подозрением {shelf_wrong} (верны лишь для мирового масштаба)")
+              f"({100.0 * shelf_known / max(1, len(vs)):.0f}%), под подозрением {shelf_wrong}; "
+              f"поля where+scale у {new_fields} из {len(vs)} ({100.0 * new_fields / max(1, len(vs)):.0f}%)")
         print(f"    родной язык на «Местных»: {len(nat)} из {len(loc)} ({share:.0f}%, потолок 50%)")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
