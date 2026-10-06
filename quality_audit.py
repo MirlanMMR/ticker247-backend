@@ -33,6 +33,7 @@ import ast
 from extract import extract_article
 from editions import EDITION_LANG
 from native_lang import detect_native
+from shelves import verdict as shelf_verdict
 from twins import drop_twins
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
@@ -91,6 +92,19 @@ def check(x, pool="ru"):
     return {"source": x["source"], "title": card[:70], "flaws": flaws}
 
 
+def pool_space(pool):
+    """POOL_COUNTRIES[pool] из fetch_news.py без импорта файла."""
+    try:
+        tree = ast.parse(open("fetch_news.py", encoding="utf-8").read())
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and any(
+                    isinstance(t, ast.Name) and t.id == "POOL_COUNTRIES" for t in node.targets):
+                return set(ast.literal_eval(node.value).get(pool, ()))
+    except Exception:
+        pass
+    return set()
+
+
 def families():
     """PUBLISHER_FAMILIES из fetch_news.py без его импорта (нужны ключи и сеть)."""
     try:
@@ -135,15 +149,23 @@ def main():
     share = 100.0 * len(nat) / max(1, len(loc))
     kinds = {k: sum(1 for r in bad if k in r["flaws"])
              for k in ("neg", "short", "credit", "twin", "lang", "scope")}
+    # Полки по стране события (shelves.py): сколько карточек можно проверить и
+    # сколько из проверяемых лежат не там
+    sp, hm = pool_space(a.pool), HOME.get(a.pool)
+    vs = [shelf_verdict(x, hm, sp) for x in items if x.get("category") not in ("CURRENCY", "CRYPTO")]
+    shelf_wrong, shelf_unknown = vs.count("suspect"), vs.count("unknown")
+    shelf_known = len(vs) - shelf_unknown
     if a.json:
         print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad),
-                          "percent": round(pct, 1), "kinds": kinds, "rows": bad},
+                          "percent": round(pct, 1), "kinds": kinds, "shelf": {"known": shelf_known, "wrong": shelf_wrong, "total": len(vs)}, "rows": bad},
                          ensure_ascii=False, indent=1))
     else:
         print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
               f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
               f"дубль {kinds['twin']}, язык {kinds['lang']}, "
               f"не на своей полке {kinds['scope']}")
+        print(f"    полки: страна события известна у {shelf_known} из {len(vs)} "
+              f"({100.0 * shelf_known / max(1, len(vs)):.0f}%), под подозрением {shelf_wrong} (верны лишь для мирового масштаба)")
         print(f"    родной язык на «Местных»: {len(nat)} из {len(loc)} ({share:.0f}%, потолок 50%)")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
