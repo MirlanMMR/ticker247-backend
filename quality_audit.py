@@ -130,7 +130,7 @@ def main():
     else:
         print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
               f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
-              f"дубль {kinds['twin']}")
+              f"дубль {kinds['twin']}, язык {kinds['lang']}")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
     sys.exit(1 if pct > a.max_bad_percent else 0)
