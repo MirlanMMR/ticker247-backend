@@ -5448,6 +5448,11 @@ no_event.
             print(f"  🛡 [{lang}] пометок «нет события» снято {len(blind)}: "
                   f"текста статьи у нас нет, судить не по чему")
             no_event -= blind
+        # «Интересное» — отдельная полка со своими правилами: любопытный факт, открытие,
+        # красивая история не событие по белому списку, но это ровно то, ради чего
+        # источники «интересного» и заведены. Белый список к ним не применяется
+        no_event = {i for i in no_event
+                    if not (0 <= i < len(news_list) and _is_interesting(news_list[i]))}
         if no_event:
             shown = 0
             mode = "холостой ход, не удаляем" if NOEVENT_DRY_RUN else "СНЯТЫ С ЭФИРА"
@@ -7243,6 +7248,12 @@ def _mentions_country(text: str, code: str) -> bool:
 # Откуда «Интересное». Полка зависит от того, чьё издание, а не от темы:
 # американское — местное для читателя из США, кыргызскому читателю такое
 # приходит из мира (владелец, 03.10.2026)
+def _is_interesting(item) -> bool:
+    """Карточка «интересного»: по признаку или по источнику (признак на пути в
+    ленту не у всех карточек доживает, источник — надёжнее)."""
+    return bool(item.get("interesting")) or item.get("source", "") in INTERESTING_ORIGIN
+
+
 INTERESTING_ORIGIN = {
     "Good News Network": "US", "Atlas Obscura": "US", "Mental Floss": "US",
     "Smithsonian Magazine": "US", "NASA": "US", "Positive.News": "GB",
@@ -9372,7 +9383,7 @@ def main():
         # Намерения («планируют», «собираются», «предложил») — не события:
         # метка noEvent, чтобы такое не шло в карусель, строку и шторку (intent.py)
         from intent import mark as _intent_mark
-        _intent_marked = _intent_mark(filtered, lang)
+        _intent_marked = _intent_mark(filtered, lang, skip=_is_interesting)
         if _intent_marked:
             print(f"  🗣 [{lang}] намерения (не события, не в карусель): {len(_intent_marked)}")
         if _native_relabeled or _native_dropped:

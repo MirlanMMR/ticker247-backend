@@ -183,5 +183,14 @@ _junk = [_p(1), "Читайте также: другая новость, кот�
 check("редактор: мусорный абзац в дыре не берётся", fill_selection([1, 3], _junk) == [1, 3])
 check("редактор: ничего не выбрано — ничего не придумываем", fill_selection([], _paras) == [])
 
+
+# 06.10.2026: «Интересное» не снимается по причине «нет события» (белый список к нему не применяется)
+_cur = {"url": "u", "title": "Скрытый храм в Перу", "summary": "Археологи показали храм.", "interesting": True,
+        "source": "Atlas Obscura", "category": "NEWS"}
+_ok, _x, _notes = ED.apply_verdict(_cur, {"publish": False, "reason": "нет события"}, ["Археологи показали храм."], [])
+check("интересное по «нет события» не снимается", _ok is True)
+_plain = dict(_cur, interesting=False, source="Kaktus.media")
+check("обычная карточка по «нет события» снимается", ED.apply_verdict(_plain, {"publish": False, "reason": "нет события"}, ["Текст."], [])[0] is False)
+
 print(f"пройдено {passed}, провалено {failed}")
 sys.exit(1 if failed else 0)

@@ -35,5 +35,9 @@ items = [c("Мэрия планирует построить парк"), c("Мэ
 check("mark помечает только намерения", [x.get("noEvent") for x in mark(items, "ru")] == [True])
 check("ничего не снимает", len(items) == 3)
 check("в других пулах не работает", mark([c("The mayor plans to build a park")], "en") == [])
+# «Интересное» не метим: любопытные факты — не события, но ради них источники заведены
+curious = [c("NASA планирует отправить зонд к далёкой комете", source="NASA")]
+check("skip: интересное не помечается", mark(curious, "ru", skip=lambda x: x.get("source") == "NASA") == [])
+check("без skip то же помечается", len(mark([c("NASA планирует отправить зонд к далёкой комете")], "ru")) == 1)
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

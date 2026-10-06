@@ -46,13 +46,19 @@ def is_intent(item) -> bool:
     return True
 
 
-def mark(items, lang):
-    """→ [помеченные]. Только русский пул; ничего не снимает."""
+def mark(items, lang, skip=None):
+    """→ [помеченные]. Только русский пул; ничего не снимает.
+
+    skip — предикат карточек, которых не трогаем («Интересное»: любопытные факты —
+    не события по белому списку, но ради них источники и заведены).
+    """
     if lang != "ru":
         return []
     marked = []
     for x in items:
         if x.get("category") in ("CURRENCY", "CRYPTO") or x.get("noEvent"):
+            continue
+        if skip is not None and skip(x):
             continue
         if is_intent(x):
             x["noEvent"] = True
