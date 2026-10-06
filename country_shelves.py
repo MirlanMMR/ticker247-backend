@@ -322,6 +322,10 @@ def run(only=None, pools=None, dry_run=True, no_ai=False, write=False):
         print(f"  ✓ {label}: собрано {len(items)}, новых для ИИ {len(fresh_items)}, "
               f"на полке {len(shelf)}")
         if dry_run:
+            kept_urls = {x.get("url") for x in shelf}
+            dropped = [x for x in merged if x.get("url") not in kept_urls]
+            for x in dropped[:10]:
+                print(f"       ✗ [{x.get('source')}] {label_language(x, pool, nat)} {x['title'][:80]}")
             for x in shelf[:3]:
                 print(f"       · [{x.get('source')}] {x.get('language')} {x['title'][:70]}")
         if write:
