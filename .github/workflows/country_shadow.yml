@@ -34,4 +34,4 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - name: Сухой прогон (без записи в базу)
-        run: python country_shelves.py --dry-run --countries "${{ inputs.countries || 'MD,KZ,AM,CA,BE' }}"
+        run: python country_shelves.py --dry-run --countries "${{ inputs.countries || 'AM,CA,GE' }}"

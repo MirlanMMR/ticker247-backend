@@ -320,6 +320,8 @@ def run(only=None, pools=None, dry_run=True, no_ai=False, write=False):
             spent_items += len(part)
             raw = fn.ask_gemini(build_prompt(names.get(iso, iso), iso, accept, part, topics))
             v = parse_verdict(raw, len(part), topics)
+            if dry_run and (v is None or not v["keep"]):
+                print(f"       🔎 {label}: ответ ИИ без keep: {(raw or '')[:500]!r}")
             if v is None:
                 print(f"  ⚠️ {label}: ответ ИИ не разобран — порция пропущена")
                 continue
