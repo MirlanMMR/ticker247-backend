@@ -10,6 +10,7 @@
   · short  — текст карточки короче половины того, что мы вправе показать
              (min(страница, KEEP_LIMIT)), хотя на странице материал ≥ 900 знаков
   · credit — вместо текста подпись к фото или служебная строка
+  · lang   — родной язык (ky/kk/uz/tg) с чужой пометкой языка (ru)
   · scope  — своя новость пула лежит в «Мировых» (страна карточки = дом пула,
              полка world): AKIpress Эко с eco.akipress.org, 06.10.2026
   · twin   — второй экземпляр одной и той же истории в ленте (twins.py: тот же
@@ -31,6 +32,7 @@ import ast
 
 from extract import extract_article
 from editions import EDITION_LANG
+from native_lang import detect_native
 from twins import drop_twins
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
@@ -67,6 +69,9 @@ def check(x, pool="ru"):
         return None                     # недоступную страницу не засчитываем ни за, ни против
     page = raw.decode("utf-8", "ignore")
     flaws = {}
+    native = detect_native(x)
+    if native and x.get("language") != native:
+        flaws["lang"] = True            # родной язык с чужой пометкой (ky/kk/uz/tg)
     if x.get("scope") == "world" and x.get("country") == HOME.get(pool):
         flaws["scope"] = True
     card, theirs = norm(x["title"]), og_title(page)
@@ -125,7 +130,11 @@ def main():
         row["flaws"]["twin"] = True
     bad = [r for r in rows if r["flaws"]]
     pct = 100.0 * len(bad) / max(1, len(rows))
-    kinds = {k: sum(1 for r in bad if k in r["flaws"]) for k in ("neg", "short", "credit", "twin", "scope")}
+    loc = [x for x in items if x.get("scope") == "local"]
+    nat = [x for x in loc if detect_native(x)]
+    share = 100.0 * len(nat) / max(1, len(loc))
+    kinds = {k: sum(1 for r in bad if k in r["flaws"])
+             for k in ("neg", "short", "credit", "twin", "lang", "scope")}
     if a.json:
         print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad),
                           "percent": round(pct, 1), "kinds": kinds, "rows": bad},
@@ -133,7 +142,9 @@ def main():
     else:
         print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
               f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
-              f"дубль {kinds['twin']}, не на своей полке {kinds['scope']}")
+              f"дубль {kinds['twin']}, язык {kinds['lang']}, "
+              f"не на своей полке {kinds['scope']}")
+        print(f"    родной язык на «Местных»: {len(nat)} из {len(loc)} ({share:.0f}%, потолок 50%)")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
     sys.exit(1 if pct > a.max_bad_percent else 0)
