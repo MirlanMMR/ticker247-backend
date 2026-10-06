@@ -4507,7 +4507,9 @@ APP_LATEST_NAME = "1.7.22"
 # 20 — национальные лиги (АПЛ, НБА…) — внутреннее дело страны лиги (29.09)
 # 21 — поле topic для каждой новости: «интересует / не интересует» (29.09)
 # 22 — подтемы: culture/music, sport/boxing… (29.09)
-RULES_VERSION = 22
+# 23 — поля where (страна КАЖДОЙ новости) и world/region (масштаб): пункт 1 плана
+#      docs/shelves_and_order.md, 06.10.2026. Старые вердикты пересуждаются один раз
+RULES_VERSION = 23
 
 # Темы новостей для «интересует / не интересует». Список общий с приложением
 # (TopicOf.SERVER_TOPICS) — новую тему добавлять в оба места
@@ -4963,6 +4965,9 @@ def filter_with_gemini(news_list, lang="ru"):
             fresh["scope"] = v["scope"]
         if v.get("event_country"):
             fresh["event_country"] = v["event_country"]
+        if v.get("scale"):
+            fresh["event_where"] = v.get("where")
+            fresh["scale"] = v["scale"]
         if v.get("topic"):
             fresh["topic"] = v["topic"]
         if v.get("adSuspect"):
@@ -5004,6 +5009,8 @@ def filter_with_gemini(news_list, lang="ru"):
                         "category": verdict.get("category"),
                         "scope": verdict.get("scope"),
                         "event_country": verdict.get("event_country"),
+                        "where": verdict.get("event_where"),
+                        "scale": verdict.get("scale"),
                         "topic": verdict.get("topic"),
                         "adSuspect": bool(verdict.get("adSuspect")),
                     }
@@ -5361,8 +5368,24 @@ domestic, как бы громко ни писало издание.
 
 Это ПОМЕТКА, а не удаление: ничего не выбрасывай в "keep" по этой причине.
 
+═══ ГДЕ СЛУЧИЛОСЬ И НАСКОЛЬКО ВАЖНО — поля "where", "world", "region" ═══
+Для КАЖДОЙ новости из списка (не только оставленных) вписывай в "where"
+двухбуквенный код страны (ISO), В КОТОРОЙ СЛУЧИЛОСЬ событие, — не страны
+издания. «Паводок в Непале» из киргизского издания — "NP". Событие в
+нескольких странах сразу, глобальная тема без страны (технологии, наука,
+мировая экономика) — "-".
+
+Масштаб события — двумя списками, остальные считаются местными:
+  "world"  — за ним следят далеко за пределами одного языкового пространства:
+             война, крупная катастрофа, мировая экономика, решение, меняющее
+             правила для многих стран, мировая знаменитость, мировой турнир
+  "region" — важно нескольким соседним странам, но не всему миру
+Всё остальное — рядовая жизнь страны: местная.
+Масштаб определяет не место, а размах: этап мирового первенства в маленькой
+стране — "world"; штраф жителю района — не "world", даже если пишут многие.
+
 Верни ТОЛЬКО JSON без объяснений:
-{{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}, "ad_suspects": [3], "title_mismatch": [6], "scope_fix": {{"5": "world", "9": "local"}}, "domestic": {{"12": "GB"}}, "topic": {{"1": "politics", "2": "sport/boxing"}}, "no_event": [8]}}
+{{"keep": [1,3,5], "urgent": [2], "important": [3,5], "recategorize": {{"4": "SPORT", "7": "TECH"}}, "ad_suspects": [3], "title_mismatch": [6], "scope_fix": {{"5": "world", "9": "local"}}, "domestic": {{"12": "GB"}}, "topic": {{"1": "politics", "2": "sport/boxing"}}, "no_event": [8], "where": {{"1": "KG", "2": "NP", "3": "-", "4": "KZ"}}, "world": [2], "region": [4]}}
 
 В "keep" перечисли номера, которые ОСТАЮТСЯ. Помни: удалять можно только по
 правилу №1 — новость не для читателя этого пула. Всё остальное оставляй.
@@ -5454,6 +5477,15 @@ domestic, как бы громко ни писало издание.
                     domestic[int(k) - 1] = code
             except (TypeError, ValueError):
                 continue
+        # Где случилось и какого масштаба — для КАЖДОЙ новости (shelves.py). Полку
+        # эти поля пока не меняют: они копят данные и замеряются quality_audit.py
+        # Новое поле не вправе ломать отбор: при любой неожиданности — как будто
+        # ИИ не ответил (карточки останутся без where/scale)
+        try:
+            where, scale = parse_where_scale(result, len(news_list))
+        except Exception as e:
+            print(f"  ⚠️ [{lang}] разбор where/scale не удался: {e}")
+            where, scale = {}, {}
 
         # Белый список: какие категории Gemini может назначать для каждого типа источника
         # Специализированные источники не меняют категорию — только NEWS-источники гибкие
@@ -5598,6 +5630,9 @@ domestic, как бы громко ни писало издание.
                     _demote_foreign_local(item, lang)
                 if i in domestic:
                     item["event_country"] = domestic[i]
+                if i in where:
+                    item["event_where"] = where[i]
+                    item["scale"] = scale[i]
                 if i in topic:
                     item["topic"] = topic[i]
                 filtered.append(item)
@@ -6608,6 +6643,7 @@ from storydedup import reviewed_extra_urls as _reviewed_extra_urls
 # Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
 # пул — правило и причина в editions.py, проверяется test_editions.py
 from twins import drop_twins
+from shelves import parse_where_scale
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
 

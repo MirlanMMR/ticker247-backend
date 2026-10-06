@@ -1,6 +1,6 @@
 """Решение о полке по стране события (shelves.py) — на сегодняшних ошибках."""
 import sys
-from shelves import shelf_expected, verdict
+from shelves import shelf_expected, verdict, parse_where_scale
 
 HOME = "KG"
 SPACE = {"KZ", "UZ", "TJ", "RU", "BY", "AM", "AZ", "GE", "MD", "TM"}   # без Украины (06.10.2026)
@@ -23,5 +23,29 @@ check("событие во Франции на local — под подозрен
       verdict(c(event_country="FR", scope="local"), HOME, SPACE) == "suspect")
 check("мост — всегда local", shelf_expected(c(bridge=True, event_country="TR"), HOME, SPACE) == "local")
 check("без страны события проверить нельзя", verdict(c(scope="world"), HOME, SPACE) == "unknown")
+
+# ─── Новые поля ИИ: where + scale ───────────────────────────────────────
+w = lambda **k: dict(k)
+check("мировой масштаб → world, где бы ни случилось",
+      shelf_expected(w(scale="world", event_where="KG"), HOME, SPACE) == "world")
+check("местный масштаб дома → local", shelf_expected(w(scale="local", event_where="KG"), HOME, SPACE) == "local")
+check("Нарын на world при местном масштабе — подозрение (теперь однозначно)",
+      verdict(w(scale="local", event_where="KG", scope="world"), HOME, SPACE) == "suspect")
+check("региональный масштаб в Казахстане → pool", shelf_expected(w(scale="region", event_where="KZ"), HOME, SPACE) == "pool")
+check("рядовое событие в Великобритании — чужое внутреннее дело: в ленте быть не должно",
+      verdict(w(scale="local", event_where="GB", scope="world"), HOME, SPACE) == "suspect")
+check("страна не названа, масштаб не мировой — проверить нельзя",
+      verdict(w(scale="local", event_where=None, scope="world"), HOME, SPACE) == "unknown")
+
+res = {"where": {"1": "kg", "2": "NP", "3": "-", "4": "Казахстан", "9": "US"},
+       "world": [2], "region": [4, "x"]}
+wh, sc = parse_where_scale(res, 4)
+check("страна приводится к верхнему регистру", wh[0] == "KG")
+check("«-» и не-ISO — это «страны нет» (None)", wh[2] is None and wh[3] is None)
+check("масштаб: world, region, остальные local", sc[1] == "world" and sc[3] == "region" and sc[0] == "local")
+check("номер вне списка новостей отбрасывается", 8 not in wh)
+check("карточка, о которой ИИ не сказал where, остаётся без масштаба",
+      parse_where_scale({"where": {"1": "KG"}}, 3)[1].get(1) is None)
+check("мусорный ответ не роняет разбор", parse_where_scale(None) == ({}, {}) and parse_where_scale({"where": "x"}) == ({}, {}))
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
