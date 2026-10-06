@@ -66,6 +66,8 @@ def check(x):
         return None                     # недоступную страницу не засчитываем ни за, ни против
     page = raw.decode("utf-8", "ignore")
     flaws = {}
+    if looks_kyrgyz(x) and x.get("language") != "ky":
+        flaws["lang"] = True            # кыргызский текст с чужой пометкой языка
     card, theirs = norm(x["title"]), og_title(page)
     if theirs and script_of(card) == script_of(theirs):
         if len(NEG.findall(card)) != len(NEG.findall(theirs)):
