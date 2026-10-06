@@ -347,6 +347,12 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
     notes = []
     publish = bool(v.get("publish", True))
     reason = str(v.get("reason") or "").strip().lower()
+    # «Интересное» (признак interesting) по причинам «нет события» и «анонс без
+    # сути» не снимаем: любопытный факт не событие по белому списку, но ради него
+    # источники и заведены (06.10.2026)
+    if not publish and item.get("interesting") and reason in ("нет события", "анонс без сути"):
+        publish = True
+        notes.append("интересное: белый список событий не применяется")
     if not publish:
         if reason not in REASONS:
             publish, reason = True, ""          # снять можно только по причине
