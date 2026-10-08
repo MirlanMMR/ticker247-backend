@@ -94,5 +94,13 @@ check("событие вне пула — не трогаем", HF(W(country="UZ
 _az = [W(country="", event_where="TJ", scale="region", source="Азаттык", title="Рахмон предложил НПЗ")]
 _out = FG(_az, "ru", SP | {"KG"}, home="KG")
 check("страж проставляет страну и полку", _out[0]["scope"] == "pool" and _out[0]["country"] == "TJ")
+# Каракалпакский активист (Азаттык): scope=pool, событие в UZ, страны издания нет → страна ставится (09.10.2026)
+_kk = [P(country="", event_where="UZ", scale="local", source="Азаттык", title="Активист Тажимуратов")]
+_out = FG(_kk, "ru", SP | {"KG"}, home="KG")
+check("pool без страны издания получает страну события", _out[0]["country"] == "UZ" and _out[0]["scope"] == "pool")
+_kk2 = [P(country="KZ", scale="local", source="s", title="t")]
+_kk3 = [dict(scope="local", country="", scale="local", source="s", title="t")]
+check("страны события нет — страну не выдумываем", FG(_kk3, "ru", SP | {"KG"}, home="KG")[0].get("country") == "")
+check("страна издания есть — не трогаем", FG(_kk2, "ru", SP | {"KG"}, home="KG")[0].get("country") == "KZ")
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
