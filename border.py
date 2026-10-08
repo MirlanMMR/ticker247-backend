@@ -20,7 +20,7 @@ import re
 from dull import is_dull
 from shelves import pool_shelf_fix, world_to_home_fix, POOL_HOME
 from topic_country import foreign_topic
-from textcut import ends_inside_quote, drop_trailing_heading, sentence_start, is_stub_summary
+from textcut import ends_inside_quote, drop_trailing_heading, sentence_start, is_stub_summary, has_foreign_script
 
 TITLE_FIT = 120
 _CREDIT = re.compile(r"^\s*(автор фото|подпись к фото|image source|image caption|photo credit|"
@@ -61,6 +61,10 @@ def _half_phrase_start(x, ctx):
     return bool(s) and sentence_start(s) != s
 
 
+def _foreign_script(x, ctx):
+    return has_foreign_script(x)
+
+
 def _stub_summary(x, ctx):
     return is_stub_summary(x)
 
@@ -78,6 +82,7 @@ REGISTRY = [
     ("J5", "заголовок длиннее карточки (>120)", _title_too_long, False),
     ("J8", "подпись к фото вместо текста", _credit_instead_of_text, True),
     ("J9", "текст начат с полуфразы", _half_phrase_start, True),
+    ("J18", "чужой алфавит без перевода (грузинский и др.)", _foreign_script, True),
     ("J15", "аннотация страницы-трансляции вместо текста", _stub_summary, True),
     ("J11", "ведомственное на «Местных» (>25% полки)", None, False),   # доля, см. control
 ]

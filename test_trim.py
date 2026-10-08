@@ -353,5 +353,15 @@ check("BBC live-заглушка опознана", STUB({"summary": "После
 check("обычный текст не заглушка", STUB({"summary": "Российские военные утром нанесли авиаудар по городу."}), False)
 check("заглушка снимается, остальное остаётся", len(DSTUB([{"summary": "Latest news, comment and video from the BBC"}, {"summary": "Real story."}], "en")), 1)
 
+from textcut import has_foreign_script as FS, drop_foreign_script as DFS
+check("грузинский заголовок опознан", FS({"title": "საქართველოს პრემიერ-მინისტრმა განაცხადა, რომ"}), True)
+check("армянский опознан", FS({"title": "Հայաստանի վարչապետը հայտարարել է"}), True)
+check("арабский опознан", FS({"title": "رئيس الوزراء يعلن عن قرار جديد"}), True)
+check("русский не чужой", FS({"title": "Премьер-министр Грузии заявил о новых мерах"}), False)
+check("кыргызский не чужой", FS({"title": "Жапаров Түркмөнстанга барды"}), False)
+check("латиница не чужая", FS({"title": "Prime minister announced new measures"}), False)
+check("1-2 иероглифа в русском тексте не считаем", FS({"title": "Фильм «Бэтмен» (蝙蝠侠) вышел в прокат в России"}), False)
+check("снимается только чужое", len(DFS([{"title": "საქართველოს პრემიერ-მინისტრმა განაცხადა"}, {"title": "Новость"}], "ru")), 1)
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
