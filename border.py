@@ -84,7 +84,7 @@ REGISTRY = [
     ("J9", "текст начат с полуфразы", _half_phrase_start, True),
     ("J18", "чужой алфавит без перевода (грузинский и др.)", _foreign_script, True),
     ("J15", "аннотация страницы-трансляции вместо текста", _stub_summary, True),
-    ("J11", "ведомственное на «Местных» (>25% полки)", None, False),   # доля, см. control
+    ("J11", "ведомственное на «Местных» (>15% полки)", None, False),   # доля, см. control
 ]
 
 
@@ -103,7 +103,7 @@ def control(items, lang, report=None):
     local = [x for x in items if x.get("scope") == "local" and not x.get("bridge")]
     dull = [x for x in local if _dull_local(x, ctx)]
     share = len(dull) / len(local) if local else 0
-    found["J11"] = dull if share > 0.25 else []
+    found["J11"] = dull if share > 0.15 else []
 
     print(f"  🛂 Пункт пропуска [{lang}]: " + (
         ", ".join(f"{c}={len(v)}" for c, v in found.items() if v) or "чисто"))
