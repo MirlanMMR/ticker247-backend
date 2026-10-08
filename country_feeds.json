@@ -267,12 +267,12 @@
  ],
  "GE": [
   {
-   "source": "JAMnews",
-   "url": "https://jam-news.net/feed/"
+   "source": "Netgazeti",
+   "url": "https://netgazeti.ge/feed/"
   },
   {
-   "source": "Civil.ge",
-   "url": "https://civil.ge/feed"
+   "source": "Publika",
+   "url": "https://publika.ge/feed/"
   }
  ],
  "GN": [
