@@ -182,5 +182,13 @@ check("длинный текст режется по слову с многот�
 check("заголовок, повторённый в тексте, не дублируется",
       " — " in event_lines([{"source": "s", "title": "Кража в Бишкеке", "summary": "Кража в Бишкеке: детали"}], 280)[0], False)
 
+# Один язык на событие, баланс 50/50 на «Местных» (09.10.2026)
+from storydedup import pick_group_language as PGL
+check("local: языка меньше — тот и берём", PGL(["ky", "ru"], {"ru": 9, "ky": 4}, "ru", True), "ky")
+check("local: ru меньше — берём ru", PGL(["ky", "ru"], {"ru": 3, "ky": 8}, "ru", True), "ru")
+check("local: поровну — язык потока", PGL(["ky", "ru"], {"ru": 5, "ky": 5}, "ru", True), "ru")
+check("не local — язык потока", PGL(["ky", "ru"], {"ru": 9, "ky": 1}, "ru", False), "ru")
+check("не local, потока в группе нет — первый", PGL(["ky"], {}, "ru", False), "ky")
+
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
