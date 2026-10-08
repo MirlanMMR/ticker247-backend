@@ -150,6 +150,104 @@ def _trailing_list(text: str, start: int, extra_limit: int = 600) -> str:
     return "\n".join(picked)
 
 
+# ─── Цитата не должна оставаться открытой ───────────────────────────────────
+#
+# 08.10.2026: BBC о ударе по Прилукам — текст кончался на «Удалось сбить только
+# часть. Рез по границе предложения был «законным», но пришёлся ВНУТРЬ слов
+# Зеленского: кавычка открыта, закрывающей нет, мысль оборвана. Тот же класс,
+# что перечень, оборванный посередине (_whole_or_none): граница предложения
+# годна, только если вне цитаты и вне списка. Правило одно и стоит в двух
+# местах: при обрезке (trim_to_boundary) и последним рубежом после редактора
+# (final_end_guard), потому что редактор тоже режет.
+def ends_inside_quote(text: str) -> bool:
+    """True, если в конце текста остаётся открытая цитата.
+
+    Парные знаки читаем стеком: «…» и “…” (англ./исп.), „…“ (нем./рус.
+    вложенные) — “ закрывает „ и открывает сам, если открытого „ нет. Прямая
+    кавычка " то открывает, то закрывает: открывает, если перед ней пробел,
+    начало или открывающий знак либо за ней сразу буква («chilling."The»).
+    Апостроф и одинарные ‘’ не берём: don't, l'état, 'L'Equipe' — не цитата."""
+    stack = []
+    straight = 0
+    n = len(text)
+    for i, ch in enumerate(text):
+        if ch in "«":
+            stack.append("«")
+        elif ch == "»":
+            if "«" in stack:
+                stack.reverse(); stack.remove("«"); stack.reverse()
+        elif ch == "„":
+            stack.append("„")
+        elif ch == "“":
+            if stack and stack[-1] == "„":
+                stack.pop()
+            else:
+                stack.append("“")
+        elif ch == "”":
+            if "“" in stack:
+                stack.reverse(); stack.remove("“"); stack.reverse()
+        elif ch == '"':
+            prev = text[i - 1] if i else " "
+            nxt = text[i + 1] if i + 1 < n else " "
+            opener = prev.isspace() or prev in "([—–-:" or (nxt.isalnum() and not prev.isalnum())
+            if opener:
+                straight += 1
+            elif straight:
+                straight -= 1
+    return bool(stack) or straight > 0
+
+
+# Подзаголовок на конце: BBC о Прилуках после правки цитат кончался на «Удар по
+# пятиэтажке в Прилуках» — это заголовок следующего раздела статьи, а текст под
+# ним в карточку не вошёл. Строка без знака в конце, короткая, после неё
+# (в оригинале) шёл абзац — не мысль, а вывеска. Тот же класс «рез по границе
+# абзаца годен, только если граница настоящая».
+_ENDS_SENTENCE = re.compile(r"[.!?…:»”\"')\]]$")
+
+
+def drop_trailing_heading(text: str) -> str:
+    """Снимает с конца многострочного текста подзаголовки (строки ≤ 90 знаков
+    без знака конца). Однострочный текст и последний абзац не трогаем."""
+    t = (text or "").rstrip()
+    while "\n" in t:
+        head, last = t.rsplit("\n", 1)
+        last = last.strip()
+        if last and len(last) <= 90 and not _ENDS_SENTENCE.search(last) and head.strip():
+            t = head.rstrip()
+        else:
+            break
+    return t
+
+
+def _with_closers(text: str, e: int) -> int:
+    """Конец предложения «…продолжим.» + закрывающая кавычка, идущая за точкой."""
+    while e < len(text) and text[e] in "»”\"')":
+        e += 1
+    return e
+
+
+def _quote_safe_cut(text: str, cut: int, floor_chars: int) -> int:
+    """Сдвигает рез так, чтобы он не попал внутрь цитаты.
+
+    Сначала пробуем досказать цитату (до 500 знаков вперёд, до конца
+    предложения, где кавычки закрыты), затем отступаем до последней границы
+    предложения вне цитаты. Не вышло ни то ни другое — возвращаем cut как есть:
+    пустая карточка хуже обрубка."""
+    if not ends_inside_quote(text[:cut]):
+        return cut
+    for m in _SENTENCE_END.finditer(text, cut, min(len(text), cut + 500)):
+        e = _with_closers(text, m.end())
+        if not ends_inside_quote(text[:e]):
+            return e
+    ends = [_with_closers(text, m.end()) for m in _SENTENCE_END.finditer(text, 0, cut)]
+    for e in reversed(ends):
+        if e < floor_chars:
+            break
+        if not ends_inside_quote(text[:e]):
+            return e
+    return cut
+
+
 def ensure_terminated(text: str) -> str:
     """Текст короче лимита, но обрублен уже ДО нас — страховка от этого.
 
@@ -248,7 +346,7 @@ def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
     # 1. Конец абзаца
     breaks = [m.start() for m in re.finditer(r"\n", window)]
     if breaks and breaks[-1] >= limit * para_floor:
-        return _whole_or_none(text, breaks[-1], limit, floor)
+        return drop_trailing_heading(_whole_or_none(text, breaks[-1], limit, floor))
 
     # 2. Конец предложения
     ends = [m.end() for m in _SENTENCE_END.finditer(window)]
@@ -261,7 +359,8 @@ def trim_to_boundary(text: str, limit: int, floor: float = 0.35,
         # читателя интересует законченная мысль, а не число символов до неё.
         if max_extra_sentences:
             cut = _finish_paragraph(text, cut, max_extra_sentences)
-        return _whole_or_none(text, cut, limit, floor)
+        cut = _quote_safe_cut(text, cut, int(limit * floor))
+        return drop_trailing_heading(_whole_or_none(text, cut, limit, floor))
 
     # 3. Конец слова. Неполное слово на границе лимита отбрасываем;
     # висячий предлог тоже. Живое последнее слово оставляем.
@@ -661,6 +760,38 @@ def final_start_guard(items, lang):
                   f"{(x.get('title') or '')[:60]}")
     if bad:
         print(f"  🧨 Начало текста после редактора починено у {bad} [{lang}]")
+    return items
+
+
+def final_end_guard(items, lang):
+    """ПОСЛЕДНИЙ взгляд на КОНЕЦ текста — парный к final_start_guard.
+
+    Если текст кончается внутри открытой цитаты, отступаем до последнего
+    предложения вне цитаты. Остаётся меньше 150 знаков — не трогаем (пустая
+    карточка хуже обрубка), но пишем в журнал."""
+    fixed_n = 0
+    for x in items:
+        s = (x.get("summary") or "").rstrip()
+        bare = drop_trailing_heading(s)
+        if bare != s and len(bare) >= 150:
+            x["summary"] = s = bare
+            fixed_n += 1
+            print(f"  🧨 Подзаголовок на конце текста снят [{lang}]: "
+                  f"[{x.get('source','?')}] {(x.get('title') or '')[:60]}")
+        if not s or not ends_inside_quote(s):
+            continue
+        ends = [_with_closers(s, m.end()) for m in _SENTENCE_END.finditer(s)]
+        new = next((s[:e] for e in reversed(ends)
+                    if e >= 150 and not ends_inside_quote(s[:e])), None)
+        tag = f"[{x.get('source','?')}] {(x.get('title') or '')[:60]}"
+        if new:
+            x["summary"] = new.strip()
+            fixed_n += 1
+            print(f"  🧨 Цитата оборвана в эфире [{lang}], текст укорочен: {tag}")
+        else:
+            print(f"  🧨 Цитата оборвана, укоротить некуда [{lang}]: {tag}")
+    if fixed_n:
+        print(f"  🧨 Конец текста после редактора починен у {fixed_n} [{lang}]")
     return items
 
 

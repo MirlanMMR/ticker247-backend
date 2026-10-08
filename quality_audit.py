@@ -13,6 +13,9 @@
   · lang   — родной язык (ky/kk/uz/tg) с чужой пометкой языка (ru)
   · scope  — своя новость пула лежит в «Мировых» (страна карточки = дом пула,
              полка world): AKIpress Эко с eco.akipress.org, 06.10.2026
+  · quote  — текст кончается внутри открытой цитаты («…заявил Зеленский: «Удалось
+             сбить только часть.», BBC 08.10.2026)
+  · title  — заголовок длиннее, чем помещается в карточке карусели (TITLE_FIT)
   · twin   — второй экземпляр одной и той же истории в ленте (twins.py: тот же
              снимок, либо разные выпуски одной редакции)
 
@@ -35,9 +38,11 @@ from editions import EDITION_LANG
 from native_lang import detect_native
 from shelves import verdict as shelf_verdict
 from twins import drop_twins
+from textcut import ends_inside_quote
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
 KEEP_LIMIT = 1300
+TITLE_FIT = 120   # карточка hero: 3 строки по ~40 знаков при 13sp, мельче шрифт не ужимается (MainHomeScreen.FitTitle)
 HOME = {"ru": "KG", "en": "US", "es": "MX", "pt": "BR", "fr": "FR"}
 NEG = re.compile(r"\b(не|нет|ни|без|нельзя|not|no|never|sin|nunca|pas|jamais|não|nunca)\b", re.I)
 CREDIT = re.compile(r"^\s*(автор фото|подпись к фото|image source|image caption|photo credit)", re.I)
@@ -87,6 +92,10 @@ def check(x, pool="ru"):
     have, page_len = len(x.get("summary", "")), len(body)
     if page_len >= 900 and have < 0.5 * min(page_len, KEEP_LIMIT):
         flaws["short"] = [have, page_len]
+    if ends_inside_quote(x.get("summary", "").rstrip()):
+        flaws["quote"] = True
+    if len(card) > TITLE_FIT:
+        flaws["title"] = len(card)
     if CREDIT.match(x.get("summary", "")):
         flaws["credit"] = True
     return {"source": x["source"], "title": card[:70], "flaws": flaws}
@@ -148,7 +157,7 @@ def main():
     nat = [x for x in loc if detect_native(x)]
     share = 100.0 * len(nat) / max(1, len(loc))
     kinds = {k: sum(1 for r in bad if k in r["flaws"])
-             for k in ("neg", "short", "credit", "twin", "lang", "scope")}
+             for k in ("neg", "short", "credit", "twin", "lang", "scope", "quote", "title")}
     # Полки по стране события (shelves.py): сколько карточек можно проверить и
     # сколько из проверяемых лежат не там
     sp, hm = pool_space(a.pool), HOME.get(a.pool)
@@ -164,7 +173,8 @@ def main():
         print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
               f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
               f"дубль {kinds['twin']}, язык {kinds['lang']}, "
-              f"не на своей полке {kinds['scope']}")
+              f"не на своей полке {kinds['scope']}, обрыв в цитате {kinds['quote']}, "
+              f"заголовок не влезает {kinds['title']}")
         print(f"    полки: страна события известна у {shelf_known} из {len(vs)} "
               f"({100.0 * shelf_known / max(1, len(vs)):.0f}%), под подозрением {shelf_wrong}; "
               f"поля where+scale у {new_fields} из {len(vs)} ({100.0 * new_fields / max(1, len(vs)):.0f}%)")
