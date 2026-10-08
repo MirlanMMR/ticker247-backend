@@ -9433,7 +9433,8 @@ def main():
         filtered = final_start_guard(filtered, lang)
         filtered = final_end_guard(filtered, lang)
         filtered = final_title_guard(filtered, lang)
-        filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
+        filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},
+                                    home=POOL_HOME.get(lang, ""))
         filtered = strip_known_stubs(filtered, lang)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю

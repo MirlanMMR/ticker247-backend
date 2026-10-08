@@ -65,5 +65,18 @@ check("мост не трогаем", PF(P(country="RU", event_where="TR", bridg
 _it = [P(country="RU", event_where="TR", source="s", title="t"), P(country="UZ", event_where="UZ", source="s", title="t")]
 FG(_it, "ru", SP)
 check("страж переносит только лишнее", [x["scope"] for x in _it] == ["world", "pool"])
+# «своё о своём» не лежит в «Мировых» (AKIpress Эко, охотоведы Оша, 08.10.2026)
+from shelves import world_to_home_fix as HF
+W = lambda **k: {"scope": "world", **k}
+check("AKIpress Эко: дом о доме → local", HF(W(country="KG", event_where="KG", scale="local"), "KG", SP) == "local")
+check("сосед о соседе → pool", HF(W(country="UZ", event_where="UZ", scale="region"), "KG", SP) == "pool")
+check("мировой масштаб остаётся", HF(W(country="KG", event_where="KG", scale="world"), "KG", SP) is None)
+check("издание не о своей стране остаётся", HF(W(country="RU", event_where="TR", scale="local"), "KG", SP) is None)
+check("без метки места — не трогаем", HF(W(country="KG", scale="local"), "KG", SP) is None)
+check("интересное и мосты не трогаем", HF(W(country="KG", event_where="KG", scale="local", interesting=True), "KG", SP) is None
+      and HF(W(country="KG", event_where="KG", scale="local", bridge=True), "KG", SP) is None)
+_it2 = [W(country="KG", event_where="KG", scale="local", source="s", title="t")]
+FG(_it2, "ru", SP | {"KG"}, home="KG")
+check("страж возвращает домой", _it2[0]["scope"] == "local")
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

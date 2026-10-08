@@ -134,13 +134,46 @@ def pool_shelf_fix(item, space):
     return None if country in space else "world"
 
 
-def final_shelf_guard(items, lang, space):
-    """После редактора: чужое и мировое уезжает с «Новости из» в «Мировые»."""
+def world_to_home_fix(item, home, space):
+    """Издание страны X о событии В СТРАНЕ X масштаба не мирового не может лежать
+    в «Мировых» (AKIpress Эко о депутате и охотоведах Оша — 06.10 чинили по
+    домену, 08.10 вернулось: цепочка шагов снова отправила его в world).
+
+    Возвращает «local» (страна — дом пула), «pool» (страна пула) или None.
+    Мировой масштаб и «мосты» не трогаем; нужны обе метки (страна издания и
+    место события) и они должны совпасть — иначе это не «своё о своём»."""
+    if item.get("scope") != "world" or item.get("bridge") or item.get("interesting"):
+        return None
+    if item.get("scale") not in ("local", "region"):
+        return None
+    country = (item.get("country") or "").strip().upper()
+    if not country or item.get("event_where") != country:
+        return None
+    if country == home:
+        return "local"
+    return "pool" if country in space else None
+
+
+def final_shelf_guard(items, lang, space, home=""):
+    """После редактора — последний взгляд на полку (итог не смотрел никто):
+    чужое и мировое уезжает с «Новости из» в «Мировые», а «своё о своём»
+    возвращается из «Мировых»."""
     moved = []
+    back = []
     for x in items:
         if pool_shelf_fix(x, space) == "world":
             x["scope"] = "world"
             moved.append(x)
+        else:
+            shelf = world_to_home_fix(x, home, space)
+            if shelf:
+                x["scope"] = shelf
+                back.append(x)
+    if back:
+        print(f"  🏠 Из «Мировых» домой [{lang}]: {len(back)}")
+        for x in back[:5]:
+            print(f"       · {x.get('source','?')} [{x.get('country')}]: "
+                  f"{(x.get('title') or '')[:56]}")
     if moved:
         print(f"  🗺️ С «Новости из» в «Мировые» [{lang}]: {len(moved)}")
         for x in moved[:5]:

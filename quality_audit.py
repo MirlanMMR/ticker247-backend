@@ -38,7 +38,7 @@ import ast
 from extract import extract_article
 from editions import EDITION_LANG
 from native_lang import detect_native
-from shelves import verdict as shelf_verdict, pool_shelf_fix
+from shelves import verdict as shelf_verdict, pool_shelf_fix, world_to_home_fix
 from twins import drop_twins
 from textcut import ends_inside_quote, first_sentence_title
 
@@ -82,6 +82,8 @@ def check(x, pool="ru"):
         flaws["lang"] = True            # родной язык с чужой пометкой (ky/kk/uz/tg)
     if x.get("scope") == "world" and x.get("country") == HOME.get(pool):
         flaws["scope"] = True
+    elif world_to_home_fix(x, HOME[pool], pool_space(pool)):
+        flaws["scope"] = True           # «своё о своём» в «Мировых»
     card, theirs = norm(x["title"]), og_title(page)
     if theirs and script_of(card) == script_of(theirs):
         if len(NEG.findall(card)) != len(NEG.findall(theirs)):
