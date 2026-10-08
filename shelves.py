@@ -154,21 +154,47 @@ def world_to_home_fix(item, home, space):
     return "pool" if country in space else None
 
 
+def foreign_fate(item):
+    """Что делать с чужой (вне пула) карточкой полки «Новости из»: «world» или «drop».
+
+    «Мировая» определяется МАСШТАБОМ события, а не географией (EDITORIAL.md,
+    docs/shelves_and_order.md; владелец 09.10.2026: «нужен масштаб события»).
+    Стамбульский дом, египетская авиакомпания — не мировые: это чужое
+    внутреннее дело, ему в ленте места нет (как place_domestic_world).
+      · scale == world            → world;
+      · scale local / region      → drop;
+      · масштаб не известен       → world только если весомая (несколько изданий,
+        priority ≥ 2, срочное), иначе drop: не знаем масштаба — не раздуваем.
+    """
+    sc = item.get("scale")
+    if sc == "world":
+        return "world"
+    if sc in ("local", "region"):
+        return "drop"
+    heavy = ((item.get("sourceCount") or 1) >= 2 or (item.get("priority") or 0) >= 2
+             or item.get("isTrending") or item.get("category") == "URGENT")
+    return "world" if heavy else "drop"
+
+
 def final_shelf_guard(items, lang, space, home=""):
     """После редактора — последний взгляд на полку (итог не смотрел никто):
     чужое и мировое уезжает с «Новости из» в «Мировые», а «своё о своём»
     возвращается из «Мировых»."""
-    moved = []
-    back = []
+    moved, dropped, back, kept = [], [], [], []
     for x in items:
         if pool_shelf_fix(x, space) == "world":
-            x["scope"] = "world"
-            moved.append(x)
+            if foreign_fate(x) == "world":
+                x["scope"] = "world"
+                moved.append(x)
+            else:
+                dropped.append(x)
+                continue
         else:
             shelf = world_to_home_fix(x, home, space)
             if shelf:
                 x["scope"] = shelf
                 back.append(x)
+        kept.append(x)
     if back:
         print(f"  🏠 Из «Мировых» домой [{lang}]: {len(back)}")
         for x in back[:5]:
@@ -179,4 +205,9 @@ def final_shelf_guard(items, lang, space, home=""):
         for x in moved[:5]:
             print(f"       · {x.get('source','?')} [{x.get('event_where') or x.get('country') or '—'}]: "
                   f"{(x.get('title') or '')[:56]}")
-    return items
+    if dropped:
+        print(f"  🚮 Чужое внутреннее дело (масштаб не мировой) снято с «Новости из» [{lang}]: {len(dropped)}")
+        for x in dropped[:6]:
+            print(f"       · {x.get('source','?')} [{x.get('event_where') or x.get('country') or '—'}]: "
+                  f"{(x.get('title') or '')[:56]}")
+    return kept

@@ -62,9 +62,18 @@ check("места события нет, издание из пула — ост
 check("родина пула в допустимых (Вечерний Бишкек)", PF(P(country="KG", event_where="KG"), SP | {"KG"}) is None)
 check("не pool — не трогаем", PF({"scope": "local", "event_where": "TR"}, SP) is None)
 check("мост не трогаем", PF(P(country="RU", event_where="TR", bridge=True), SP) is None)
-_it = [P(country="RU", event_where="TR", source="s", title="t"), P(country="UZ", event_where="UZ", source="s", title="t")]
-FG(_it, "ru", SP)
-check("страж переносит только лишнее", [x["scope"] for x in _it] == ["world", "pool"])
+from shelves import foreign_fate as FF
+check("масштаб world → мировая", FF(P(scale="world")) == "world")
+check("масштаб local → долой (чужое внутреннее дело)", FF(P(scale="local")) == "drop")
+check("масштаб region → долой", FF(P(scale="region")) == "drop")
+check("масштаба нет, весомая → мировая", FF(P(sourceCount=3)) == "world" and FF(P(priority=2)) == "world")
+check("масштаба нет, лёгкая → долой", FF(P()) == "drop")
+_it = [P(country="RU", event_where="TR", scale="local", source="s", title="дом в Стамбуле"),
+       P(country="RU", event_where="IR", scale="world", source="s", title="удар по Ирану"),
+       P(country="UZ", event_where="UZ", scale="local", source="s", title="Ташкент")]
+_out = FG(_it, "ru", SP)
+check("страж: мелкое чужое снято, мировое переехало, своё осталось",
+      [(x["title"], x["scope"]) for x in _out] == [("удар по Ирану", "world"), ("Ташкент", "pool")])
 # «своё о своём» не лежит в «Мировых» (AKIpress Эко, охотоведы Оша, 08.10.2026)
 from shelves import world_to_home_fix as HF
 W = lambda **k: {"scope": "world", **k}
