@@ -6672,7 +6672,7 @@ from storydedup import reviewed_extra_urls as _reviewed_extra_urls
 # Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
 # пул — правило и причина в editions.py, проверяется test_editions.py
 from twins import drop_twins
-from shelves import parse_where_scale
+from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
 
@@ -9433,6 +9433,7 @@ def main():
         filtered = final_start_guard(filtered, lang)
         filtered = final_end_guard(filtered, lang)
         filtered = final_title_guard(filtered, lang)
+        filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
         filtered = strip_known_stubs(filtered, lang)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю

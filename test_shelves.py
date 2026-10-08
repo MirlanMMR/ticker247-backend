@@ -47,5 +47,23 @@ check("номер вне списка новостей отбрасываетс�
 check("карточка, о которой ИИ не сказал where, остаётся без масштаба",
       parse_where_scale({"where": {"1": "KG"}}, 3)[1].get(1) is None)
 check("мусорный ответ не роняет разбор", parse_where_scale(None) == ({}, {}) and parse_where_scale({"where": "x"}) == ({}, {}))
+
+# «Новости из…» — только внутренние дела стран пула (владелец, 08.10.2026)
+from shelves import pool_shelf_fix as PF, final_shelf_guard as FG
+SP = {"KZ", "UZ", "TJ", "RU", "BY", "AM", "AZ", "GE", "MD", "TM"}
+P = lambda **k: {"scope": "pool", **k}
+check("внутреннее дело соседа остаётся", PF(P(country="UZ", event_where="UZ", scale="local"), SP) is None)
+check("мировой масштаб → мировые (Уфа)", PF(P(country="RU", event_where="RU", scale="world"), SP) == "world")
+check("событие вне пула (РИА о Стамбуле)", PF(P(country="RU", event_where="TR", scale="local"), SP) == "world")
+check("Украина — вне пула (РБК о Донецке)", PF(P(country="RU", event_where="UA", scale="local"), SP) == "world")
+check("места события нет, издание не из пула (ITC.ua)", PF(P(country="UA"), SP) == "world")
+check("места нет и страны нет (iXBT)", PF(P(country=""), SP) == "world")
+check("места события нет, издание из пула — остаётся", PF(P(country="KZ"), SP) is None)
+check("родина пула в допустимых (Вечерний Бишкек)", PF(P(country="KG", event_where="KG"), SP | {"KG"}) is None)
+check("не pool — не трогаем", PF({"scope": "local", "event_where": "TR"}, SP) is None)
+check("мост не трогаем", PF(P(country="RU", event_where="TR", bridge=True), SP) is None)
+_it = [P(country="RU", event_where="TR", source="s", title="t"), P(country="UZ", event_where="UZ", source="s", title="t")]
+FG(_it, "ru", SP)
+check("страж переносит только лишнее", [x["scope"] for x in _it] == ["world", "pool"])
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
