@@ -198,11 +198,16 @@ def final_shelf_guard(items, lang, space, home=""):
             shelf = world_to_home_fix(x, home, space)
             if shelf:
                 x["scope"] = shelf
-                # Издание без страны (региональное): приложение сверяет полку по
-                # стране карточки, без неё отправит обратно в «Мировые»
-                if not (x.get("country") or "").strip():
-                    x["country"] = (x.get("event_where") or "").strip().upper()
                 back.append(x)
+        # Карточка на полке страны (pool/local) без страны издания — у региональных
+        # изданий (Азаттык, BBC) — приложение отправит в «Мировые»: происхождение не
+        # доказано (NewsPlace.shelfFor). 09.10.2026: каракалпакский активист (Азаттык,
+        # событие в UZ, масштаб local, scope=pool) лежал в «Мировых». Страна события
+        # в пуле — ставим её как страну карточки
+        ev = (x.get("event_where") or "").strip().upper()
+        if (x.get("scope") in ("pool", "local") and not (x.get("country") or "").strip()
+                and ev and ev in space and not x.get("bridge")):
+            x["country"] = ev
         kept.append(x)
     if back:
         print(f"  🏠 Из «Мировых» домой [{lang}]: {len(back)}")
