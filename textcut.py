@@ -817,7 +817,43 @@ _TITLE_Q = re.compile(
     r"por qu[eé]|c[oó]mo|qu[eé]|cu[aá]ndo|pourquoi|comment|que|quand|por que|como|quando)\b", re.I)
 
 
+# Хвост-контекст: «…погибли 30 человек НА ФОНЕ ухудшения электроснабжения в Киеве».
+# Главное сказано до него; хвост — фон, а не событие (владелец, 09.10.2026).
+_CONTEXT_TAIL = re.compile(
+    r"\s+(?:на\s+фоне|на\s+этом\s+фоне|в\s+то\s+время,?\s+как|тогда\s+как|"
+    r"amid|while|en\s+medio\s+de|mientras\s+que|alors\s+que|dans\s+un\s+contexte\s+de|"
+    r"em\s+meio\s+a|enquanto)\s+", re.I)
+
+
+def trim_context_tail(title: str):
+    """Заголовок без хвоста-контекста или None, если резать нельзя.
+
+    Не режем: голова < 40 знаков, хвост < 12, в голове меньше отрицаний, чем во
+    всём заголовке (урок Sputnik KG), цитата открыта."""
+    t = (title or "").strip()
+    if len(t) <= TITLE_CUT:
+        return None
+    m = _CONTEXT_TAIL.search(t)
+    if not m:
+        return None
+    head, tail = t[:m.start()].rstrip(" ,;:—–-"), t[m.end():]
+    if len(head) < 40 or len(tail) < 12 or ends_inside_quote(head):
+        return None
+    if len(_TITLE_NEG.findall(head)) < len(_TITLE_NEG.findall(t)):
+        return None
+    return head
+
+
 def first_sentence_title(title: str):
+    """Заголовок короче: первое предложение или без хвоста-контекста; None, если резать нельзя."""
+    t = (title or "").strip()
+    if len(t) <= TITLE_CUT:
+        return None
+    cut = _first_sentence(t)
+    return trim_context_tail(cut or t) or cut
+
+
+def _first_sentence(title: str):
     """Первое предложение длинного заголовка или None, если резать нельзя."""
     t = (title or "").strip()
     if len(t) <= TITLE_CUT:
@@ -852,6 +888,32 @@ def final_title_guard(items, lang):
     if n:
         print(f"  ✂️ Длинные заголовки сведены к первому предложению [{lang}]: {n}")
     return items
+
+
+# ─── Заглушка вместо текста ─────────────────────────────────────────────────
+#
+# 09.10.2026: онлайн-трансляция BBC (/russian/live/…) попала в эфир с текстом
+# «Последние новости, комментарии и видео о войне России против Украины…» —
+# это подпись страницы, а не новость; рядом лежали ещё две карточки о том же
+# событии. Класс: аннотация страницы-ленты вместо статьи.
+_STUB_SUMMARY = re.compile(
+    r"последние новости, комментарии и видео|latest news, comment(?:ary)? and video|"
+    r"últimas noticias, comentarios y vídeos?|dernières informations, analyses et vidéos|"
+    r"últimas notícias, comentários e vídeos", re.I)
+
+
+def is_stub_summary(item) -> bool:
+    return bool(_STUB_SUMMARY.search((item.get("summary") or "")[:200]))
+
+
+def drop_stub_summaries(items, lang):
+    kept = [x for x in items if not is_stub_summary(x)]
+    if len(kept) != len(items):
+        print(f"  🧻 Заглушка вместо текста снята [{lang}]: {len(items) - len(kept)}")
+        for x in items:
+            if is_stub_summary(x):
+                print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:64]}")
+    return kept
 
 
 # ─── Известные заглушки изданий ─────────────────────────────────────────────
