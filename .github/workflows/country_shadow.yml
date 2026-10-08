@@ -8,6 +8,10 @@ on:
       countries:
         description: "Страны через запятую (пусто — все)"
         default: "AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT"
+      write:
+        description: "Писать в базу (/news/country/*); иначе сухой прогон"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -30,5 +34,5 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-      - name: Сухой прогон (без записи в базу)
-        run: python country_shelves.py --dry-run --countries "${{ inputs.countries || 'AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT' }}"
+      - name: Прогон полок стран
+        run: python country_shelves.py ${{ inputs.write && ' ' || '--dry-run' }} --countries "${{ inputs.countries || 'AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT' }}"
