@@ -424,7 +424,8 @@ RSS_SOURCES = [
     {"url": "https://www.zakon.kz/rss.xml", "source": "Zakon.kz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
 
     # Узбекистан
-    {"url": "https://kun.uz/news/rss?lang=ru", "source": "Kun.uz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
+    # Дубль Kun.uz со scope=world убран 08.10.2026: та же лента уже идёт как pool (выше); дубль отправлял
+    # новости об Узбекистане в «Мировые».
 
     # РОССИЯ — scope=world: местные новости РФ не должны попадать в блок
     # «Местные» пользователей других стран русского пула (КГ, УЗ, KZ и т.д.)
@@ -6685,6 +6686,7 @@ from storydedup import reviewed_extra_urls as _reviewed_extra_urls
 from twins import drop_twins
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
+from topic_country import final_foreign_topic_guard
 import border
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
@@ -9450,6 +9452,7 @@ def main():
         filtered = final_title_guard(filtered, lang)
         filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},
                                     home=POOL_HOME.get(lang, ""))
+        filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
         filtered = strip_known_stubs(filtered, lang)
         filtered, _ = cap_dull(filtered, lang)
         border.control(filtered, lang, report=_BORDER_REPORT)

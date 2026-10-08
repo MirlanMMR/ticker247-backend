@@ -19,6 +19,7 @@ import re
 
 from dull import is_dull
 from shelves import pool_shelf_fix, world_to_home_fix, POOL_HOME
+from topic_country import foreign_topic
 from textcut import ends_inside_quote, drop_trailing_heading, sentence_start
 
 TITLE_FIT = 120
@@ -31,7 +32,7 @@ def _summary(x):
 
 
 def _pool_foreign(x, ctx):
-    return pool_shelf_fix(x, ctx["space"]) == "world"
+    return pool_shelf_fix(x, ctx["space"]) == "world" or foreign_topic(x, ctx["space"])
 
 
 def _world_but_home(x, ctx):
