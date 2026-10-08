@@ -411,11 +411,11 @@ RSS_SOURCES = [
     {"url": "https://knews.kg/feed/", "source": "Knews.kg", "category": "NEWS", "priority": 1, "quota": 8, "scope": "local"},
     {"url": "https://www.gezitter.org/rss/", "source": "Gezitter", "category": "NEWS", "priority": 1, "quota": 6, "scope": "local"},
     # 08.10.2026, владелец: «слишком много ведомственных новостей, как будто писать больше не о чем».
-    # Kloop — независимое издание с расследованиями (суды, деньги, чиновники); Азаттык — Радио Свобода.
+    # Kloop НЕ подключаем: Октябрьский суд Бишкека 28.10.2025 признал его материалы экстремистскими — распространять
+    # их в КР опасно для владельца и читателей (откат 08.10.2026). Азаттык — Радио Свобода.
     # Ленты проверены живьём: полный текст на странице, 0–1 ведомственных заголовков из 12–20.
     # Азаттык (рус) — по региону (КР, КЗ, УЗ, ТДЖ), своей страны у него нет: scope world, а ИИ и
     # fix_scope_and_category разложат по полкам; кыргызская служба — про КР и идёт как Sputnik KG (кыргызча).
-    {"url": "https://kloop.kg/feed/", "source": "Kloop", "category": "NEWS", "priority": 1, "quota": 5, "scope": "local", "lang": "ru"},
     {"url": "https://www.azattyk.org/api/", "source": "Азаттык (кыргызча)", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "ru", "native": "ky"},
     {"url": "https://rus.azattyk.org/api/", "source": "Азаттык", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "ru"},
 
@@ -566,7 +566,7 @@ SOURCE_COUNTRY = {
     # Кыргызстан и соседи
     "AKIpress": "KG", "AKIpress Эко": "KG", "Gezitter": "KG",
     "Kaktus.media": "KG", "Kabar.kg": "KG", "Knews.kg": "KG",
-    "Kloop": "KG", "Азаттык (кыргызча)": "KG",
+    "Азаттык (кыргызча)": "KG",
     "24.kg": "KG", "Sputnik KG": "KG", "Turmush": "KG",
     "Asia-Plus": "TJ", "Kun.uz": "UZ", "Gazeta.uz": "UZ",
     "Vlast.kz": "KZ", "Tengrinews": "KZ",
@@ -2677,7 +2677,7 @@ _COUNTRY_BY_DOMAIN = {
 _COUNTRY_BY_SOURCE = {
     "24.kg": "KG", "Kaktus.media": "KG", "Kabar.kg": "KG", "AKIpress": "KG",
     "Knews.kg": "KG", "Sputnik KG": "KG", "Turmush": "KG", "Economist.kg": "KG",
-    "Kloop": "KG", "Азаттык (кыргызча)": "KG",
+    "Азаттык (кыргызча)": "KG",
     "Vlast.kz": "KZ", "Egemen Qazaqstan": "KZ",
     "Kun.uz": "UZ", "Gazeta.uz": "UZ", "Podrobno.uz": "UZ",
     "Asia-Plus": "TJ",
