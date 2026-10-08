@@ -171,6 +171,7 @@ jobs:
           python test_intent.py
           python test_country_shelves.py
           python test_dull.py
+          python test_negated_keyword.py
           python test_border.py
 
       - name: Run fetch script
