@@ -18,7 +18,7 @@ from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
                      final_start_guard, final_end_guard, final_title_guard, strip_known_stubs,
-                     drop_stub_summaries)
+                     drop_stub_summaries, drop_foreign_script)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -9495,6 +9495,7 @@ def main():
                               max_items=max_items)
         filtered = final_start_guard(filtered, lang)
         filtered = drop_stub_summaries(filtered, lang)
+        filtered = drop_foreign_script(filtered, lang)
         filtered = final_end_guard(filtered, lang)
         filtered = final_title_guard(filtered, lang)
         filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},

@@ -916,6 +916,40 @@ def drop_stub_summaries(items, lang):
     return kept
 
 
+# ─── Непереведённый чужой алфавит ───────────────────────────────────────────
+#
+# 09.10.2026, владелец: в «Новости из» карточка на грузинском. Перевод на язык
+# пула не сработал (или издание отдало грузинский текст), и карточка ушла в
+# эфир как есть. Пул читает кириллицу (ru) или латиницу (en/es/pt/fr); текст
+# грузинским, армянским, арабским, ивритом, индийскими письменностями, тайским
+# или иероглифами читателю не нужен — ни как заголовок, ни как «родной язык»
+# (родные языки пулов — ky, kk, uz, tg — пишутся кириллицей или латиницей).
+_FOREIGN_SCRIPT = re.compile(
+    r"[\u10A0-\u10FF\u0530-\u058F\u0590-\u05FF\u0600-\u06FF\u0900-\u0DFF"
+    r"\u0E00-\u0E7F\u1000-\u109F\u1100-\u11FF\u3040-\u30FF\u3400-\u9FFF\uAC00-\uD7AF]")
+_OWN_LETTER = re.compile(r"[A-Za-zÀ-ÿА-Яа-яЁёӨөҮүҢң]")
+
+
+def has_foreign_script(item) -> bool:
+    """True: заголовок (или начало текста) в основном чужим алфавитом."""
+    for field, take in (("title", 200), ("summary", 200)):
+        t = str(item.get(field) or "")[:take]
+        foreign = len(_FOREIGN_SCRIPT.findall(t))
+        if foreign >= 3 and foreign > len(_OWN_LETTER.findall(t)):
+            return True
+    return False
+
+
+def drop_foreign_script(items, lang):
+    kept = [x for x in items if not has_foreign_script(x)]
+    if len(kept) != len(items):
+        print(f"  🔤 Чужой алфавит без перевода снят [{lang}]: {len(items) - len(kept)}")
+        for x in items:
+            if has_foreign_script(x):
+                print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:64]}")
+    return kept
+
+
 # ─── Известные заглушки изданий ─────────────────────────────────────────────
 #
 # Straits Times на месте фото отдаёт свой логотип «ST» (белые буквы на синем,
