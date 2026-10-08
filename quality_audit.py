@@ -13,6 +13,8 @@
   · lang   — родной язык (ky/kk/uz/tg) с чужой пометкой языка (ru)
   · scope  — своя новость пула лежит в «Мировых» (страна карточки = дом пула,
              полка world): AKIpress Эко с eco.akipress.org, 06.10.2026
+  · region — на полке «Новости из…» (scope pool) мировая новость или событие
+             не из стран пула (РИА о Стамбуле, 08.10.2026)
   · quote  — текст кончается внутри открытой цитаты («…заявил Зеленский: «Удалось
              сбить только часть.», BBC 08.10.2026)
   · title  — заголовок длиннее, чем помещается в карточке карусели (TITLE_FIT)
@@ -36,7 +38,7 @@ import ast
 from extract import extract_article
 from editions import EDITION_LANG
 from native_lang import detect_native
-from shelves import verdict as shelf_verdict
+from shelves import verdict as shelf_verdict, pool_shelf_fix, world_to_home_fix
 from twins import drop_twins
 from textcut import ends_inside_quote, first_sentence_title
 
@@ -80,6 +82,8 @@ def check(x, pool="ru"):
         flaws["lang"] = True            # родной язык с чужой пометкой (ky/kk/uz/tg)
     if x.get("scope") == "world" and x.get("country") == HOME.get(pool):
         flaws["scope"] = True
+    elif world_to_home_fix(x, HOME[pool], pool_space(pool)):
+        flaws["scope"] = True           # «своё о своём» в «Мировых»
     card, theirs = norm(x["title"]), og_title(page)
     if theirs and script_of(card) == script_of(theirs):
         if len(NEG.findall(card)) != len(NEG.findall(theirs)):
@@ -92,6 +96,8 @@ def check(x, pool="ru"):
     have, page_len = len(x.get("summary", "")), len(body)
     if page_len >= 900 and have < 0.5 * min(page_len, KEEP_LIMIT):
         flaws["short"] = [have, page_len]
+    if pool_shelf_fix(x, pool_space(pool) | {HOME[pool]}) == "world":
+        flaws["region"] = True          # «Новости из…» с мировым или не из пула
     if ends_inside_quote(x.get("summary", "").rstrip()):
         flaws["quote"] = True
     if len(card) > TITLE_FIT:
@@ -157,7 +163,7 @@ def main():
     nat = [x for x in loc if detect_native(x)]
     share = 100.0 * len(nat) / max(1, len(loc))
     kinds = {k: sum(1 for r in bad if k in r["flaws"])
-             for k in ("neg", "short", "credit", "twin", "lang", "scope", "quote", "title")}
+             for k in ("neg", "short", "credit", "twin", "lang", "scope", "region", "quote", "title")}
     # Полки по стране события (shelves.py): сколько карточек можно проверить и
     # сколько из проверяемых лежат не там
     sp, hm = pool_space(a.pool), HOME.get(a.pool)
@@ -173,7 +179,7 @@ def main():
         print(f"[{a.pool}] проверено {len(rows)} из {len(items)}; брак {len(bad)} ({pct:.1f}%) "
               f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
               f"дубль {kinds['twin']}, язык {kinds['lang']}, "
-              f"не на своей полке {kinds['scope']}, обрыв в цитате {kinds['quote']}, "
+              f"не на своей полке {kinds['scope']}, не из пула {kinds['region']}, обрыв в цитате {kinds['quote']}, "
               f"заголовок не влезает {kinds['title']}")
         print(f"    полки: страна события известна у {shelf_known} из {len(vs)} "
               f"({100.0 * shelf_known / max(1, len(vs)):.0f}%), под подозрением {shelf_wrong}; "

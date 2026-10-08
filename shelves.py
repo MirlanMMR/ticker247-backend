@@ -101,3 +101,82 @@ def parse_where_scale(result, count=None):
         where[i] = code if _ISO.fullmatch(code) else None
         scale[i] = "world" if i in world else "region" if i in region else "local"
     return where, scale
+
+
+# Родина пула — страна, чьи новости на этой полке видят соседи (для читателя из
+# Казахстана «Новости из» включает Кыргызстан); в POOL_COUNTRIES её нет
+POOL_HOME = {"ru": "KG", "en": "US", "es": "MX", "pt": "BR", "fr": "FR"}
+
+
+def pool_shelf_fix(item, space):
+    """Что делать с карточкой на полке «Новости из…» (scope == pool).
+
+    Полка — ВНУТРЕННИЕ дела стран пула (владелец, 08.10.2026: «а у нас мировые
+    новости изданий соседних стран»). Приложение метке сервера верит и страну
+    события не читает, поэтому рубеж стоит здесь. Возвращает «world», если
+    карточка не для этой полки, иначе None:
+      · масштаб мировой — мировая, откуда бы её ни опубликовали (Уфа: «сбили
+        сотни беспилотников»);
+      · событие вне стран пула (РИА о Стамбуле, о Египте; РБК о Донецке) —
+        мировая: издание из пула, а событие не из пула;
+      · события нет, но и издание не из пула (ITC.ua, iXBT без страны).
+    Новость без метки масштаба и места, от издания из пула — остаётся: недоказанное
+    не снимаем, это дело замера (quality_audit.py, изъян region).
+    """
+    if item.get("scope") != "pool" or item.get("bridge"):
+        return None
+    if item.get("scale") == "world":
+        return "world"
+    ev = item.get("event_where")
+    if ev:
+        return None if ev in space else "world"
+    country = (item.get("country") or "").strip().upper()
+    return None if country in space else "world"
+
+
+def world_to_home_fix(item, home, space):
+    """Издание страны X о событии В СТРАНЕ X масштаба не мирового не может лежать
+    в «Мировых» (AKIpress Эко о депутате и охотоведах Оша — 06.10 чинили по
+    домену, 08.10 вернулось: цепочка шагов снова отправила его в world).
+
+    Возвращает «local» (страна — дом пула), «pool» (страна пула) или None.
+    Мировой масштаб и «мосты» не трогаем; нужны обе метки (страна издания и
+    место события) и они должны совпасть — иначе это не «своё о своём»."""
+    if item.get("scope") != "world" or item.get("bridge") or item.get("interesting"):
+        return None
+    if item.get("scale") not in ("local", "region"):
+        return None
+    country = (item.get("country") or "").strip().upper()
+    if not country or item.get("event_where") != country:
+        return None
+    if country == home:
+        return "local"
+    return "pool" if country in space else None
+
+
+def final_shelf_guard(items, lang, space, home=""):
+    """После редактора — последний взгляд на полку (итог не смотрел никто):
+    чужое и мировое уезжает с «Новости из» в «Мировые», а «своё о своём»
+    возвращается из «Мировых»."""
+    moved = []
+    back = []
+    for x in items:
+        if pool_shelf_fix(x, space) == "world":
+            x["scope"] = "world"
+            moved.append(x)
+        else:
+            shelf = world_to_home_fix(x, home, space)
+            if shelf:
+                x["scope"] = shelf
+                back.append(x)
+    if back:
+        print(f"  🏠 Из «Мировых» домой [{lang}]: {len(back)}")
+        for x in back[:5]:
+            print(f"       · {x.get('source','?')} [{x.get('country')}]: "
+                  f"{(x.get('title') or '')[:56]}")
+    if moved:
+        print(f"  🗺️ С «Новости из» в «Мировые» [{lang}]: {len(moved)}")
+        for x in moved[:5]:
+            print(f"       · {x.get('source','?')} [{x.get('event_where') or x.get('country') or '—'}]: "
+                  f"{(x.get('title') or '')[:56]}")
+    return items
