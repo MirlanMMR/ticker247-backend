@@ -143,3 +143,22 @@ def event_lines(items, chars=EVENT_SUMMARY_CHARS):
                 head += f" — {snip}"
         lines.append(head)
     return lines
+
+
+def pick_group_language(langs, counts, pool_lang, local):
+    """На каком языке оставить ОДНУ карточку из группы пересказов одного события.
+
+    Решение владельца 09.10.2026 (прежнее, от 20.08: «лучшая на каждом языке»):
+    «Более половины украинцев согласны на территориальные уступки» и то же по-кыргызски
+    рядом — выбрать один вариант с учётом 50/50.
+
+    local — группа лежит на «Местных»: там держим баланс языков, берём язык, которого
+    в ленте сейчас МЕНЬШЕ (counts — счёт остальных местных карточек по языкам);
+    при равенстве — язык потока. Вне «Местных» баланса нет: язык потока.
+    """
+    langs = list(langs)
+    if not langs:
+        return None
+    if not local:
+        return pool_lang if pool_lang in langs else langs[0]
+    return min(langs, key=lambda l: (counts.get(l, 0), 0 if l == pool_lang else 1))

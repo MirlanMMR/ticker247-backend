@@ -6736,6 +6736,7 @@ _STORY_STOP = {
 from storydedup import same_story as _same_story
 from storydedup import reviewed_extra_urls as _reviewed_extra_urls
 from storydedup import event_lines as _event_lines, EVENT_SUMMARY_CHARS as _EVENT_SUMMARY_CHARS
+from storydedup import pick_group_language as _pick_group_language
 # Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
 # пул — правило и причина в editions.py, проверяется test_editions.py
 from twins import drop_twins
@@ -7225,13 +7226,22 @@ def collapse_same_event(items, lang, stories=None):
         by_lang = {}
         for i in idxs:
             by_lang.setdefault(_lang_of(items[i]), []).append(i)
-        for same_lang in by_lang.values():
-            best = max(same_lang, key=lambda i: (
-                items[i].get("priority", 0),
-                1 if items[i].get("imageUrl") else 0,
-                len(items[i].get("summary") or ""),
-            ))
-            drop.update(i for i in same_lang if i != best)
+        # ОДНА карточка на событие, язык выбираем по балансу «Местных» (владелец, 09.10.2026:
+        # «выбрать один вариант с учётом 50/50»). Раньше — лучшая на каждом языке (20.08)
+        group_scope = Counter(items[i].get("scope") for i in idxs).most_common(1)[0][0]
+        counts = Counter(_lang_of(x) for j, x in enumerate(items)
+                         if x.get("scope") == "local" and j not in drop and j not in idxs)
+        target = _pick_group_language(by_lang.keys(), counts, lang, group_scope == "local")
+        pool_members = by_lang.get(target) or idxs
+        best = max(pool_members, key=lambda i: (
+            items[i].get("priority", 0),
+            1 if items[i].get("imageUrl") else 0,
+            len(items[i].get("summary") or ""),
+        ))
+        if len(by_lang) > 1:
+            print(f"  🌐 Один язык на событие [{lang}]: оставлен {target} "
+                  f"(было {', '.join(sorted(by_lang))}): {items[best].get('title','')[:60]}")
+        drop.update(i for i in idxs if i != best)
     if len(drop) > len(items) // 3:
         print(f"  ⚠️ ИИ предложил снять {len(drop)} из {len(items)} — "
               f"слишком много, оставляем ленту как есть")
