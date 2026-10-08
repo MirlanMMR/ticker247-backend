@@ -7,7 +7,7 @@ on:
     inputs:
       countries:
         description: "Страны через запятую (пусто — все)"
-        default: "AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT"
+        default: ""
       write:
         description: "Писать в базу (/news/country/*); иначе сухой прогон"
         type: boolean
@@ -23,6 +23,7 @@ concurrency:
 jobs:
   shadow:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
@@ -35,4 +36,4 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - name: Прогон полок стран
-        run: python country_shelves.py ${{ inputs.write && ' ' || '--dry-run' }} --countries "${{ inputs.countries || 'AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT' }}"
+        run: python country_shelves.py ${{ inputs.write && ' ' || '--dry-run' }} --countries "${{ inputs.countries }}"
