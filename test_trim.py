@@ -349,9 +349,9 @@ check("отрицание не теряем", TC("Власти подтверд�
 check("без маркера цел", TC("Удар по общественному автобусу в Украине привел к гибели 30 человек в Краматорске вчера"), None)
 
 from textcut import is_stub_summary as STUB, drop_stub_summaries as DSTUB
-check("BBC live-заглушка опознана", STUB({"summary": "Последние новости, комментарии и видео о войне России против Украины…"}))
-check("обычный текст не заглушка", not STUB({"summary": "Российские военные утром нанесли авиаудар по городу."}))
-check("заглушка снимается, остальное остаётся", len(DSTUB([{"summary": "Latest news, comment and video from the BBC"}, {"summary": "Real story."}], "en")) == 1)
+check("BBC live-заглушка опознана", STUB({"summary": "Последние новости, комментарии и видео о войне России против Украины…"}), True)
+check("обычный текст не заглушка", STUB({"summary": "Российские военные утром нанесли авиаудар по городу."}), False)
+check("заглушка снимается, остальное остаётся", len(DSTUB([{"summary": "Latest news, comment and video from the BBC"}, {"summary": "Real story."}], "en")), 1)
 
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
