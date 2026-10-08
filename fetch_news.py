@@ -6673,6 +6673,8 @@ from storydedup import reviewed_extra_urls as _reviewed_extra_urls
 # пул — правило и причина в editions.py, проверяется test_editions.py
 from twins import drop_twins
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
+from dull import cap_dull
+import border
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
 
@@ -7188,6 +7190,8 @@ _NEVER_URGENT = re.compile(
 # Страны языкового пространства каждого пула. Издание соседней страны, пишущее
 # о своей стране, — это полка «своего языка», а не «мировые»: 22.08 новость
 # Kun.uz об институте цифровой безопасности в Узбекистане стояла среди мировых.
+_BORDER_REPORT = []   # итог пункта пропуска по пулам (border.py), пишется в border_report.md
+
 POOL_COUNTRIES = {
     # Украины здесь НЕТ (решение владельца 06.10.2026): в условиях войны оттуда
     # идут только военные новости, и их стабильно освещают все мировые СМИ —
@@ -9436,6 +9440,8 @@ def main():
         filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},
                                     home=POOL_HOME.get(lang, ""))
         filtered = strip_known_stubs(filtered, lang)
+        filtered, _ = cap_dull(filtered, lang)
+        border.control(filtered, lang, report=_BORDER_REPORT)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
         # и базе они не нужны: _full один весит больше всей карточки
@@ -9484,6 +9490,10 @@ def main():
     save_editor_cache()
     report_cost_by_stage()
     save_editor_report()
+    try:
+        border.write_report(_BORDER_REPORT, os.path.join(os.path.dirname(os.path.abspath(__file__)), "border_report.md"))
+    except Exception as e:
+        print(f"  ⚠️ Отчёт пункта пропуска не записан: {e}")
     save_translations()
 
     # Расход этого прогона. Цены Flash-Lite на 13.08.2026 — примерно $0.10 за
