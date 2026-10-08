@@ -5514,6 +5514,11 @@ no_event.
             print(f"  🛡 [{lang}] пометок «нет события» снято {len(blind)}: "
                   f"текста статьи у нас нет, судить не по чему")
             no_event -= blind
+        # Лонгрид и журнальный материал по адресу (Guardian /ng-interactive/, /long-read/,
+        # NYT /interactive/, /magazine/…) — не событие, как бы ни звучал заголовок
+        # (владелец, 09.10.2026: «странная история Отто З. на новость не похоже»).
+        # Ставим ПОСЛЕ снятия пометок «слепым» ИИ: решает адрес, а не текст
+        no_event |= {i for i in range(len(news_list)) if is_longread_url(news_list[i])}
         # «Интересное» — отдельная полка со своими правилами: любопытный факт, открытие,
         # красивая история не событие по белому списку, но это ровно то, ради чего
         # источники «интересного» и заведены. Белый список к ним не применяется
@@ -6742,7 +6747,7 @@ from storydedup import pick_group_language as _pick_group_language
 from twins import drop_twins
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
-from curious import topup_interesting, is_curious_content
+from curious import topup_interesting, is_curious_content, is_longread_url
 from topic_country import final_foreign_topic_guard, final_local_foreign_guard
 import border
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool

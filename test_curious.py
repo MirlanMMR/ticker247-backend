@@ -50,5 +50,12 @@ check("депутаты хотят ограничить — политика", C
 check("ANSM alerte — предупреждение ведомства", CC({"title": "Anti-diabète : l'ANSM alerte sur des effets indésirables parfois graves"}), False)
 check("падение численности дикой природы — оставляем", CC({"title": "Глобальное сокращение численности дикой природы: в среднем на 73%"}), True)
 
+from curious import is_longread_url as LR
+check("Guardian ng-interactive — лонгрид", LR({"url": "https://www.theguardian.com/news/ng-interactive/2026/oct/08/a-death-a-plagiarism-scandal"}), True)
+check("long-read — лонгрид", LR({"url": "https://www.theguardian.com/news/2026/oct/08/the-long-read/x"}), True)
+check("NYT interactive — лонгрид", LR({"url": "https://www.nytimes.com/interactive/2026/10/08/world/story.html"}), True)
+check("обычная новость — не лонгрид", LR({"url": "https://www.bbc.com/russian/articles/c933xexyx2k2o"}), False)
+check("слово magazine в домене — не лонгрид", LR({"url": "https://smithsonianmag.com/smart-news/glacier-spoon/"}), False)
+
 print(f"пройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

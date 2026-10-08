@@ -107,3 +107,18 @@ _NOT_CURIOUS = re.compile(
 def is_curious_content(item) -> bool:
     """False: по заголовку это жёсткая новость, беда или реклама, а не любопытное."""
     return not _NOT_CURIOUS.search(str(item.get("title") or ""))
+
+
+# ─── Лонгрид и журнальный материал — не новость ─────────────────────────────
+#
+# 09.10.2026, владелец: «Странная история Отто З. — не читал, но на новость не
+# похоже». The Guardian, интерактивный лонгрид (/ng-interactive/): рассказ на
+# много экранов о частной истории, а не событие. ИИ его не отсеял — признаков «нет
+# события» (выступление, призыв, план) в заголовке нет. Лонгрид узнаётся по адресу.
+_LONGREAD_URL = re.compile(
+    r"/(?:ng-interactive|long-?read|the-long-read|interactive|magazine|features?|"
+    r"in-depth|profile|series|podcast|podcasts|newsletters?)/", re.I)
+
+
+def is_longread_url(item) -> bool:
+    return bool(_LONGREAD_URL.search(str(item.get("url") or "").split("?")[0]))
