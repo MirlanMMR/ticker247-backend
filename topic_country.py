@@ -13,6 +13,8 @@
 """
 import re
 
+from shelves import foreign_fate
+
 # код → слова (подстроки, нижний регистр) и слова с границами (короткие)
 _WORDS = {
     "US": ("сша", "америк", "трамп", "trump", "вашингтон", "белый дом", "pentágono", "estados unidos",
@@ -95,13 +97,22 @@ def foreign_topic(item, space):
 
 
 def final_foreign_topic_guard(items, lang, space):
-    moved = []
+    moved, dropped, kept = [], [], []
     for x in items:
         if foreign_topic(x, space):
-            x["scope"] = "world"
-            moved.append(x)
+            if foreign_fate(x) == "world":
+                x["scope"] = "world"
+                moved.append(x)
+            else:
+                dropped.append(x)       # масштаб не мировой — чужое дело, в ленте не нужно
+                continue
+        kept.append(x)
     if moved:
         print(f"  🌎 Чужая тема с «Новости из» в «Мировые» [{lang}]: {len(moved)}")
         for x in moved[:5]:
             print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:64]}")
-    return items
+    if dropped:
+        print(f"  🚮 Чужая тема, масштаб не мировой — снята [{lang}]: {len(dropped)}")
+        for x in dropped[:5]:
+            print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:64]}")
+    return kept

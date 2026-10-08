@@ -32,9 +32,14 @@ FR = {"BE", "CH", "CA", "SN", "CI", "MA", "TN", "DZ", "CD", "CM", "FR"}
 check("fr: Trump во французском пуле у бельгийского издания", foreign_topic(P("Trump annonce de nouveaux droits de douane", country="BE"), FR))
 check("fr: Canada — своё пространство", not foreign_topic(P("Le Canada annonce un budget militaire"), FR))
 # Страж
-it = [P("Трамп заявил о пошлинах", source="s"), P("В Ташкенте открылся рынок", source="s")]
-final_foreign_topic_guard(it, "ru", RU)
-check("страж переносит только чужое", [x["scope"] for x in it] == ["world", "pool"])
+it = [P("Трамп заявил о пошлинах", source="s", sourceCount=3), P("В США закрыли школу", source="s"),
+      P("В Ташкенте открылся рынок", source="s")]
+out = final_foreign_topic_guard(it, "ru", RU)
+check("страж: весомое → мировое, лёгкое чужое → долой, своё осталось",
+      [(x["title"], x["scope"]) for x in out] == [("Трамп заявил о пошлинах", "world"), ("В Ташкенте открылся рынок", "pool")])
+it = [P("Школа в США закрыта", source="s", scale="local"), P("Трамп ввёл пошлины", source="s", scale="world")]
+out = final_foreign_topic_guard(it, "ru", RU)
+check("масштаб решает: local долой, world мировая", [(x["scope"]) for x in out] == ["world"])
 
 print(f"пройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)
