@@ -18,7 +18,7 @@ from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
                      final_start_guard, final_end_guard, final_title_guard, strip_known_stubs,
-                     drop_stub_summaries, drop_foreign_script)
+                     drop_stub_summaries, drop_foreign_script, has_foreign_script, is_stub_summary)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -6742,6 +6742,7 @@ from storydedup import pick_group_language as _pick_group_language
 from twins import drop_twins
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
+from curious import topup_interesting, is_curious_content
 from topic_country import final_foreign_topic_guard
 import border
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
@@ -7337,7 +7338,10 @@ def _mentions_country(text: str, code: str) -> bool:
 def _is_interesting(item) -> bool:
     """Карточка «интересного»: по признаку или по источнику (признак на пути в
     ленту не у всех карточек доживает, источник — надёжнее)."""
-    return bool(item.get("interesting")) or item.get("source", "") in INTERESTING_ORIGIN
+    # Источник «любопытного» ещё не делает любопытной каждую его карточку: оружие, беда и
+    # реклама остаются обычными новостями (curious.is_curious_content, 09.10.2026)
+    return ((bool(item.get("interesting")) or item.get("source", "") in INTERESTING_ORIGIN)
+            and is_curious_content(item))
 
 
 INTERESTING_ORIGIN = {
@@ -9208,6 +9212,10 @@ def main():
             batch = group[i:i+80]
             filtered_batch = filter_with_gemini(batch, lang)
             filtered.extend(filtered_batch)
+        # Добор «Интересного»: ИИ первого этапа судит любопытное как обычные новости и
+        # часть выбрасывает; возвращаем лучшее из выброшенного до пяти источников
+        filtered = topup_interesting(filtered, cull_input, lang, _is_interesting,
+                                     bad=lambda x: has_foreign_script(x) or is_stub_summary(x))
         # Куда деваются новости домашних изданий. В испанском пуле мексиканские
         # газеты дают два десятка статей, а до ленты доходит десяток — потери
         # надо видеть поимённо, иначе лечим вслепую
