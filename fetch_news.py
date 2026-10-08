@@ -91,10 +91,14 @@ RSS_SOURCES = [
     # по адресу нет.
     {"url": "https://www.goodnewsnetwork.org/feed/", "source": "Good News Network", "category": "NEWS", "priority": 1, "quota": 3, "scope": "world", "interesting": True, "lang": "en"},
     {"url": "https://www.positive.news/feed/", "source": "Positive.News", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "interesting": True, "lang": "en"},
-    {"url": "https://www.atlasobscura.com/feeds/latest", "source": "Atlas Obscura", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "interesting": True, "lang": "en"},
-    {"url": "https://www.mentalfloss.com/feed", "source": "Mental Floss", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "interesting": True, "lang": "en"},
     {"url": "https://www.smithsonianmag.com/rss/latest_articles/", "source": "Smithsonian Magazine", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "interesting": True, "lang": "en"},
     {"url": "https://www.nasa.gov/feed/", "source": "NASA", "category": "NEWS", "priority": 0, "quota": 1, "scope": "world", "interesting": True, "lang": "en"},
+    # 09.10.2026: Atlas Obscura (каталожные страницы мест) и Mental Floss (списки «лучшие города», «звёзды сериала»)
+    # заменены — первый этап отбора справедливо выбрасывал их как «не новость». Замены проверены живьём: свежие, текст есть.
+    {"url": "https://www.livescience.com/feeds/all", "source": "Live Science", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "interesting": True, "lang": "en"},
+    {"url": "https://www.sciencealert.com/feed", "source": "ScienceAlert", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "interesting": True, "lang": "en"},
+    {"url": "https://www.sciencesetavenir.fr/rss.xml", "source": "Sciences et Avenir", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "interesting": True, "lang": "fr"},
+    {"url": "https://www.xataka.com/feedburner.xml", "source": "Xataka", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "interesting": True, "lang": "es"},
     {"url": "https://naked-science.ru/feed", "source": "Naked Science", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "interesting": True, "lang": "ru"},
     {"url": "https://www.muyinteresante.com/feed", "source": "Muy Interesante", "category": "NEWS", "priority": 0, "quota": 2, "scope": "world", "interesting": True, "lang": "es"},
     {"url": "https://super.abril.com.br/feed/", "source": "Superinteressante", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world", "interesting": True, "lang": "pt"},
@@ -682,9 +686,9 @@ WORLD_OUTLETS = {
     "AP News", "Bloomberg", "Guardian Sport", "The Guardian", "Fortune",
     "Semafor", "Time", "The Independent",
     # Мировое любопытное (см. RSS_SOURCES): расходится по всем пулам
-    "Good News Network", "Positive.News", "Atlas Obscura", "Mental Floss",
+    "Good News Network", "Positive.News", "Live Science", "ScienceAlert",
     "Smithsonian Magazine", "NASA", "Naked Science", "Muy Interesante",
-    "Superinteressante", "Futura-Sciences",
+    "Superinteressante", "Futura-Sciences", "Sciences et Avenir", "Xataka",
 }
 
 POOL_DOMAINS = {
@@ -7303,7 +7307,8 @@ def _is_interesting(item) -> bool:
 
 
 INTERESTING_ORIGIN = {
-    "Good News Network": "US", "Atlas Obscura": "US", "Mental Floss": "US",
+    "Good News Network": "US", "Live Science": "US", "ScienceAlert": "AU",
+    "Sciences et Avenir": "FR", "Xataka": "ES",
     "Smithsonian Magazine": "US", "NASA": "US", "Positive.News": "GB",
     "Naked Science": "RU", "Muy Interesante": "ES",
     "Superinteressante": "BR", "Futura-Sciences": "FR",
@@ -7322,8 +7327,12 @@ def place_interesting(items, lang):
     space = POOL_COUNTRIES.get(lang, set())
     moved = 0
     for x in items:
-        if not x.get("interesting"):
+        # Признак `interesting` теряется на пути в ленту (09.10.2026: у 0 из 450
+        # карточек в базе), и полка по стране издания не выставлялась вовсе.
+        # Источник надёжнее (_is_interesting) — и признак возвращаем на карточку
+        if not _is_interesting(x):
             continue
+        x["interesting"] = True
         code = INTERESTING_ORIGIN.get(x.get("source", ""))
         if not code:
             continue
@@ -9486,6 +9495,11 @@ def main():
         filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
         filtered = strip_known_stubs(filtered, lang)
         filtered, _ = cap_dull(filtered, lang)
+        # Признак «интересное» пропадал по дороге (редактор пересобирает карточки): возвращаем
+        # его по источнику ПОСЛЕДНИМ шагом, перед записью (журнал J13)
+        for _x in filtered:
+            if _is_interesting(_x):
+                _x["interesting"] = True
         border.control(filtered, lang, report=_BORDER_REPORT)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
