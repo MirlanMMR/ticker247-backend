@@ -38,7 +38,7 @@ from editions import EDITION_LANG
 from native_lang import detect_native
 from shelves import verdict as shelf_verdict
 from twins import drop_twins
-from textcut import ends_inside_quote
+from textcut import ends_inside_quote, first_sentence_title
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
 KEEP_LIMIT = 1300
