@@ -419,6 +419,36 @@ RSS_SOURCES = [
     {"url": "https://www.azattyk.org/api/", "source": "Азаттык (кыргызча)", "category": "NEWS", "priority": 1, "quota": 4, "scope": "local", "lang": "ru", "native": "ky"},
     {"url": "https://rus.azattyk.org/api/", "source": "Азаттык", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world", "lang": "ru"},
 
+    # 08.10.2026, владелец: «добавь издания по стране события и стране издания во все пулы». В пулах не было НИ ОДНОГО
+    # издания для 45 стран (ru: AM AZ BY GE MD TM; en: NZ ZA; es: 7 стран; pt: 5; fr: почти вся Африка). Кандидаты
+    # проверены живьём: лента свежее суток, страница статьи отдаёт ≥ 400 знаков. Не вошли (ленты закрыты/404/403 или
+    # без текста): MD, TM, BO, HN, NI, PA, PY, CL, CR, AO, TL, MZ, MA, CH, LU, SN, CI, CM, ML, MG, NE.
+    # ЮРИДИЧЕСКИЙ СТАТУС издания в его стране и в странах читателей НЕ проверялся (урок Kloop, 08.10.2026) — владельцу просмотреть.
+    # Квоты малые: цель — голос страны, не объём. 
+    {"url": "https://rus.azatutyun.am/api/", "source": "Азатутюн", "category": "NEWS", "priority": 1, "quota": 3, "scope": "pool", "lang": "ru"},   # AM
+    {"url": "https://report.az/rss/", "source": "Report.az", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "ru"},   # AZ
+    {"url": "https://www.onliner.by/feed", "source": "Onliner.by", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "ru"},   # BY
+    {"url": "https://newsgeorgia.ge/feed/", "source": "NewsGeorgia", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "ru"},   # GE
+    {"url": "https://podrobno.uz/rss/", "source": "Podrobno.uz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "ru"},   # UZ
+    {"url": "https://kapital.kz/feed", "source": "Kapital.kz", "category": "MONEY", "priority": 0, "quota": 3, "scope": "pool", "lang": "ru"},   # KZ
+    {"url": "https://avesta.tj/feed/", "source": "Avesta.tj", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "ru"},   # TJ
+    {"url": "https://www.rnz.co.nz/rss/national.xml", "source": "RNZ", "category": "NEWS", "priority": 1, "quota": 3, "scope": "pool", "lang": "en"},   # NZ
+    {"url": "https://www.dailymaverick.co.za/dmrss/", "source": "Daily Maverick", "category": "NEWS", "priority": 1, "quota": 3, "scope": "pool", "lang": "en"},   # ZA
+    {"url": "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml", "source": "Hindustan Times", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "en"},   # IN
+    {"url": "https://www.premiumtimesng.com/feed", "source": "Premium Times NG", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "en"},   # NG
+    {"url": "https://www.channelnewsasia.com/rssfeeds/8395986", "source": "CNA", "category": "NEWS", "priority": 1, "quota": 3, "scope": "pool", "lang": "en"},   # SG
+    {"url": "https://www.jamaicaobserver.com/feed/", "source": "Jamaica Observer", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "en"},   # JM
+    {"url": "https://www.14ymedio.com/rss/", "source": "14ymedio", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "es"},   # CU
+    {"url": "https://www.montevideo.com.uy/anxml.aspx?58", "source": "Montevideo Portal", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "es"},   # UY
+    {"url": "https://expressodasilhas.cv/rss", "source": "Expresso das Ilhas", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "pt"},   # CV
+    {"url": "https://www.telanon.info/feed/", "source": "Téla Nón", "category": "NEWS", "priority": 0, "quota": 2, "scope": "pool", "lang": "pt"},   # ST
+    {"url": "https://www.lalibre.be/arc/outboundfeeds/rss/?outputType=xml", "source": "La Libre", "category": "NEWS", "priority": 1, "quota": 3, "scope": "pool", "lang": "fr"},   # BE
+    {"url": "https://www.lapresse.tn/feed/", "source": "La Presse TN", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "fr"},   # TN
+    {"url": "https://www.tsa-algerie.com/feed/", "source": "TSA Algérie", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "fr"},   # DZ
+    {"url": "https://lenouvelliste.com/rss", "source": "Le Nouvelliste", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "fr"},   # HT
+    {"url": "https://www.radiookapi.net/feed", "source": "Radio Okapi", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "fr"},   # CD
+    {"url": "https://beninwebtv.com/feed/", "source": "Bénin Web TV", "category": "NEWS", "priority": 0, "quota": 3, "scope": "pool", "lang": "fr"},   # BJ
+
     # Казахстан
     {"url": "https://tengrinews.kz/rss/", "source": "Tengrinews", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
     {"url": "https://www.zakon.kz/rss.xml", "source": "Zakon.kz", "category": "NEWS", "priority": 0, "quota": 3, "scope": "world"},
@@ -571,6 +601,7 @@ SOURCE_COUNTRY = {
     "24.kg": "KG", "Sputnik KG": "KG", "Turmush": "KG",
     "Asia-Plus": "TJ", "Kun.uz": "UZ", "Gazeta.uz": "UZ",
     "Vlast.kz": "KZ", "Tengrinews": "KZ",
+    "Азатутюн": "AM", "Report.az": "AZ", "Onliner.by": "BY", "NewsGeorgia": "GE", "Podrobno.uz": "UZ", "Kapital.kz": "KZ", "Avesta.tj": "TJ", "RNZ": "NZ", "Daily Maverick": "ZA", "Hindustan Times": "IN", "Premium Times NG": "NG", "CNA": "SG", "Jamaica Observer": "JM", "14ymedio": "CU", "Montevideo Portal": "UY", "Expresso das Ilhas": "CV", "Téla Nón": "ST", "La Libre": "BE", "La Presse TN": "TN", "TSA Algérie": "DZ", "Le Nouvelliste": "HT", "Radio Okapi": "CD", "Bénin Web TV": "BJ",
     "РБК": "RU", "РИА Новости": "RU", "Sports.ru": "RU",
 }
 
