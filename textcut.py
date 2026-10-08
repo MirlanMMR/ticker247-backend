@@ -795,6 +795,65 @@ def final_end_guard(items, lang):
     return items
 
 
+# ─── Длинный заголовок → первое предложение ─────────────────────────────────
+#
+# 08.10.2026, владелец о BBC: «Россия нанесла массированный ракетный удар по
+# Украине. В городе Прилуки обрушилась пятиэтажка, погибли 22 человека» — в
+# карточку не влезает, берём первое предложение. Только если заголовок
+# длиннее TITLE_CUT и в нём есть второе предложение и первое предложение само годится: ≥ 30 знаков и не
+# теряет отрицание полного заголовка (урок Sputnik KG: «не» — смысл). Полный
+# заголовок издания сохраняем в titleOriginal.
+TITLE_CUT = 90   # длиннее — и если есть второе предложение — берём первое
+_TITLE_NEG = re.compile(
+    r"\b(не|нет|ни|без|нельзя|not|no|never|sin|nunca|pas|jamais|não|nunca|non|ne|nicht|kein)\b", re.I)
+_TITLE_SENT = re.compile(r"(?<=[^\W\d_]{3}[.!?])\s+(?=[«\"“„(]?[A-ZА-ЯЁ0-9])", re.U)
+
+
+_TITLE_ABBR = {"gov", "sen", "rep", "dr", "mr", "mrs", "ms", "st", "inc", "corp", "co",
+               "jr", "sr", "lt", "col", "gen", "sgt", "cmdr", "prof", "vs", "no", "u.s",
+               "sra", "sr", "dra", "ud", "uds", "mme", "mlle", "m"}
+_TITLE_Q = re.compile(
+    r"^(?:почему|как|что|когда|где|зачем|кто|чем|сколько|why|how|what|when|where|who|"
+    r"por qu[eé]|c[oó]mo|qu[eé]|cu[aá]ndo|pourquoi|comment|que|quand|por que|como|quando)\b", re.I)
+
+
+def first_sentence_title(title: str):
+    """Первое предложение длинного заголовка или None, если резать нельзя."""
+    t = (title or "").strip()
+    if len(t) <= TITLE_CUT:
+        return None
+    m = _TITLE_SENT.search(t)
+    if not m:
+        return None
+    first, rest = t[:m.start()].strip(), t[m.end():].strip()
+    if len(first) < 30 or len(rest) < 15 or ends_inside_quote(first):
+        return None
+    # «Gov.», «Dr.», «St.» — не конец предложения
+    if (first.rsplit(" ", 1)[-1].rstrip(".").lower() in _TITLE_ABBR):
+        return None
+    # «Тема. Почему/Как/Что…?» — первое предложение лишь зацепка, суть во
+    # втором («Шесть тысяч эвакуаций за месяц.» без «как справляются» — обрывок)
+    if rest.rstrip().endswith("?") or _TITLE_Q.match(rest):
+        return None
+    if len(_TITLE_NEG.findall(first)) < len(_TITLE_NEG.findall(t)):
+        return None
+    return first
+
+
+def final_title_guard(items, lang):
+    """После редактора: заголовок, не влезающий в карточку, → первое предложение."""
+    n = 0
+    for x in items:
+        short = first_sentence_title(x.get("title") or "")
+        if short:
+            x["titleOriginal"] = x["title"]
+            x["title"] = short
+            n += 1
+    if n:
+        print(f"  ✂️ Длинные заголовки сведены к первому предложению [{lang}]: {n}")
+    return items
+
+
 # ─── Известные заглушки изданий ─────────────────────────────────────────────
 #
 # Straits Times на месте фото отдаёт свой логотип «ST» (белые буквы на синем,
