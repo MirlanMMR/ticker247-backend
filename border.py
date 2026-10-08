@@ -20,7 +20,7 @@ import re
 from dull import is_dull
 from curious import is_curious_content
 from shelves import pool_shelf_fix, world_to_home_fix, POOL_HOME
-from topic_country import foreign_topic
+from topic_country import foreign_topic, mentions_home
 from textcut import ends_inside_quote, drop_trailing_heading, sentence_start, is_stub_summary, has_foreign_script
 
 TITLE_FIT = 120
@@ -66,6 +66,14 @@ def _foreign_script(x, ctx):
     return has_foreign_script(x)
 
 
+def _local_foreign(x, ctx):
+    ev = (x.get("event_where") or "").strip().upper()
+    return (x.get("scope") == "local" and bool(ev) and ev != ctx["home"] and not x.get("bridge")
+            and not x.get("interesting") and not x.get("vital")
+            and x.get("category") not in ("URGENT", "URGENT_LOCAL_ONLY")
+            and not mentions_home(x, ctx["home"]))
+
+
 def _fake_curious(x, ctx):
     return bool(x.get("interesting")) and not is_curious_content(x)
 
@@ -88,6 +96,7 @@ REGISTRY = [
     ("J8", "подпись к фото вместо текста", _credit_instead_of_text, True),
     ("J9", "текст начат с полуфразы", _half_phrase_start, True),
     ("J18", "чужой алфавит без перевода (грузинский и др.)", _foreign_script, True),
+    ("J23", "«Местное» с чужим событием (издание домашнее, событие и тема не наши)", _local_foreign, True),
     ("J22", "«Интересное» не по содержанию (оружие, беда, реклама, новость дня)", _fake_curious, True),
     ("J15", "аннотация страницы-трансляции вместо текста", _stub_summary, True),
     ("J11", "ведомственное на «Местных» (>15% полки)", None, False),   # доля, см. control

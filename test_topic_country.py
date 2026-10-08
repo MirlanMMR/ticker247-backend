@@ -41,5 +41,23 @@ it = [P("Школа в США закрыта", source="s", scale="local"), P("Т
 out = final_foreign_topic_guard(it, "ru", RU)
 check("масштаб решает: local долой, world мировая", [(x["scope"]) for x in out] == ["world"])
 
+from topic_country import final_local_foreign_guard as LFG
+L = lambda title, **k: dict(scope="local", title=title, summary=k.pop("summary", ""), **k)
+SP2 = RU | {"KG"}
+_o = LFG([L("Сооснователь Anthropic опасается, что создал нечто, обреченное на «вечные муки»", event_where="US", scale="local")], "ru", SP2, "KG")
+check("Anthropic на «Местных»: чужое событие, про КР нет — снято", _o == [])
+_o = LFG([L("Трое кыргызстанцев задержаны в Москве", event_where="RU", scale="local")], "ru", SP2, "KG")
+check("мост: наши в Москве остаются местными", [x["scope"] for x in _o] == ["local"])
+_o = LFG([L("Садыр Жапаров прилетел в Туркменистан", event_where="TM", scale="local")], "ru", SP2, "KG")
+check("Жапаров за границей — местное", [x["scope"] for x in _o] == ["local"])
+_o = LFG([L("Пакистан разместил войска в Саудовской Аравии", event_where="SA", scale="world")], "ru", SP2, "KG")
+check("мировой масштаб → Мировые", [x["scope"] for x in _o] == ["world"])
+_o = LFG([L("Президент Казахстана подписал закон", event_where="KZ", scale="local")], "ru", SP2, "KG")
+check("событие в стране пула → Новости из", [x["scope"] for x in _o] == ["pool"])
+_o = LFG([L("Любопытная находка в Тихом океане", event_where="US", scale="local", interesting=True)], "ru", SP2, "KG")
+check("интересное не трогаем", [x["scope"] for x in _o] == ["local"])
+_o = LFG([L("Дом обрушился в Бишкеке", event_where="KG", scale="local")], "ru", SP2, "KG")
+check("событие дома — местное", [x["scope"] for x in _o] == ["local"])
+
 print(f"пройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

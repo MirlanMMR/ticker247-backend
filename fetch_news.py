@@ -6743,7 +6743,7 @@ from twins import drop_twins
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
 from curious import topup_interesting, is_curious_content
-from topic_country import final_foreign_topic_guard
+from topic_country import final_foreign_topic_guard, final_local_foreign_guard
 import border
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
@@ -8173,7 +8173,7 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
         _rep("     жизненно важное: " + "; ".join(vital[:4]))
     if lang in ED.SHADOW_CURIOUS_POOLS:
         cur = ED.curious_list(results)
-        _rep(f"     🎲 Любопытное [{lang}] (тень, лента не тронута): {len(cur)}")
+        _rep(f"     🎲 Любопытное [{lang}] (в полосу «Интересное»): {len(cur)}")
         for c in cur:
             _rep(f"       🎲 {'в эфире' if c['published'] else 'снято'} · [{c['source']}] "
                  f"{c['title']} · {c['url']}" + (f" — {c['note']}" if c["note"] else ""))
@@ -8196,6 +8196,16 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
                 kept.append(it)         # ИИ не ответил — карточка как была
                 continue
             ok, x, _notes = ED.apply_verdict(it, v, paras, photos)
+            # «Любопытное» от редактора (09.10.2026: «есть ли у ИИ сознание» должно быть в «Интересном»):
+            # метка идёт в полосу, если заголовок прошёл проверку по содержанию. Карточку,
+            # которую редактор снял как «нет события», но назвал любопытной, возвращаем
+            if v.get("curious") is True and is_curious_content(it):
+                if not ok and any("нет события" in str(n) for n in _notes):
+                    it["interesting"] = True
+                    kept.append(it)
+                    continue
+                if ok:
+                    x["interesting"] = True
             # Жизненно важное — текст целиком. У отключения суть и есть
             # список: районы, ЧАСЫ, улицы. 24.09.2026 редактор оставил из
             # списка Kaktus «отключат свет» два пункта и выбросил районы —
@@ -9537,6 +9547,7 @@ def main():
         filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},
                                     home=POOL_HOME.get(lang, ""))
         filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
+        filtered = final_local_foreign_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")}, POOL_HOME.get(lang, ""))
         filtered = strip_known_stubs(filtered, lang)
         filtered, _ = cap_dull(filtered, lang)
         # Признак «интересное» пропадал по дороге (редактор пересобирает карточки): возвращаем

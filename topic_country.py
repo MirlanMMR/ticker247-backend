@@ -116,3 +116,49 @@ def final_foreign_topic_guard(items, lang, space):
         for x in dropped[:5]:
             print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:64]}")
     return kept
+
+
+# ─── «Местное» с чужим событием ─────────────────────────────────────────────
+#
+# 09.10.2026: Knews.kg «Сооснователь Anthropic опасается, что создал нечто,
+# обреченное на «вечные муки»» лежала на «Местных» (издание домашнее), хотя событие в
+# США и про Кыргызстан в ней ни слова. Полку определяет страна события, а не издание.
+# «Мост» (наши за границей: «трое кыргызстанцев задержаны в Москве», «Жапаров прилетел в
+# Туркменистан») остаётся местным: в нём названа своя страна. Страна события вне
+# пула и масштаб не мировой — чужое внутреннее дело (как foreign_fate); мировой масштаб —
+# «Мировые»; событие в стране пула — «Новости из».
+_HOME_EXTRA = {"KG": ("жапаров", "ташиев", "кабмин кр", "кр "), "US": (), "MX": (), "BR": (), "FR": ()}
+
+
+def mentions_home(item, home):
+    head = f"{item.get('title','')} {str(item.get('summary',''))[:300]}".lower()
+    words = tuple(_OWN.get(home, ())) + _HOME_EXTRA.get(home, ())
+    return any(w in head for w in words)
+
+
+def final_local_foreign_guard(items, lang, space, home):
+    moved, dropped, kept = [], [], []
+    for x in items:
+        ev = (x.get("event_where") or "").strip().upper()
+        if (x.get("scope") == "local" and ev and ev != home and not x.get("bridge")
+                and not x.get("interesting") and not x.get("vital")
+                and x.get("category") not in ("URGENT", "URGENT_LOCAL_ONLY")
+                and not mentions_home(x, home)):
+            if x.get("scale") == "world":
+                x["scope"] = "world"
+                moved.append(x)
+            elif ev in space:
+                x["scope"] = "pool"
+                moved.append(x)
+            elif foreign_fate(x) == "world":
+                x["scope"] = "world"
+                moved.append(x)
+            else:
+                dropped.append(x)
+                continue
+        kept.append(x)
+    if moved or dropped:
+        print(f"  🏳️ «Местное» с чужим событием [{lang}]: полка исправлена {len(moved)}, снято {len(dropped)}")
+        for x in (moved + dropped)[:6]:
+            print(f"       · {x.get('source','?')} [{x.get('event_where')}]: {(x.get('title') or '')[:60]}")
+    return kept
