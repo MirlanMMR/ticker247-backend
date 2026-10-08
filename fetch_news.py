@@ -6717,6 +6717,7 @@ _STORY_STOP = {
 # ключи и базу.
 from storydedup import same_story as _same_story
 from storydedup import reviewed_extra_urls as _reviewed_extra_urls
+from storydedup import event_lines as _event_lines, EVENT_SUMMARY_CHARS as _EVENT_SUMMARY_CHARS
 # Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
 # пул — правило и причина в editions.py, проверяется test_editions.py
 from twins import drop_twins
@@ -7085,10 +7086,10 @@ def collapse_same_event(items, lang, stories=None):
     """
     if len(items) < 8:
         return items, stories if stories is not None else []
-    lines = [f"{i+1}. [{it.get('source','?')}] {it.get('title','')}"
-             for i, it in enumerate(items)]
+    lines = _event_lines(items, _EVENT_SUMMARY_CHARS)
     prompt = (
-        "Ниже заголовки одного выпуска новостей. Найди группы, которые "
+        "Ниже заголовки одного выпуска новостей (после тире — начало текста: "
+        "сверяй по месту, числам и участникам, а не только по заголовку). Найди группы, которые "
         "рассказывают об ОДНОМ И ТОМ ЖЕ событии — даже если они на разных "
         "языках или написаны разными словами.\n\n"
         "ВАЖНО:\n"
@@ -7107,6 +7108,10 @@ def collapse_same_event(items, lang, stories=None):
         groups = json.loads(text)
         if not isinstance(groups, list):
             return items, stories if stories is not None else []
+        # Строка для сравнения «до/после» (EVENT_SUMMARY_CHARS 0 ↔ 280): групп, карточек в них
+        print(f"  🧲 Склейка по событиям [{lang}]: текст в запросе {_EVENT_SUMMARY_CHARS} зн., "
+              f"групп {len(groups)}, карточек в группах {sum(len(g) for g in groups if isinstance(g, list))}, "
+              f"на входе {len(items)}")
     except Exception as e:
         print(f"  ⚠️ Группировка по событиям не удалась: {str(e)[:60]}")
         return items, stories if stories is not None else []

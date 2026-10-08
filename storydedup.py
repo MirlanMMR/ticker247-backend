@@ -105,3 +105,41 @@ def _blocks_agree(a, b) -> bool:
     common = sa & sb
     share = len(common) / min(len(sa), len(sb))
     return len(common) >= _BLOCK_COMMON_MIN and share >= _BLOCK_SHARE_MIN
+
+
+# Начало текста в запросе о событиях (владелец, 09.10.2026: три карточки об ударе
+# по автобусам в Краматорске — NPR, BBC, BBC-трансляция — не склеились).
+# По заголовкам ИИ не видит, что «Удар по общественному автобусу в Украине …
+# в Киеве» (NPR) и «Авиаудар по Краматорску унес десятки жизней» — одно событие:
+# в заголовке NPR города нет. В начале текста есть число жертв, место и участники.
+# 0 — выключено (прежнее поведение: только заголовки).
+EVENT_SUMMARY_CHARS = 280
+
+
+def _snippet(item, chars):
+    import re
+    t = re.sub(r"\s+", " ", str(item.get("summary") or "")).strip()
+    if len(t) <= chars:
+        return t
+    cut = t[:chars].rsplit(" ", 1)[0]
+    return cut.rstrip(" ,;:—-") + "…"
+
+
+def event_lines(items, chars=EVENT_SUMMARY_CHARS):
+    """Строки для ИИ: «номер. [издание] заголовок — начало текста».
+
+    Заголовок, повторённый в начале текста, из сниппета не берём: он не добавляет
+    сведений. chars=0 — только заголовки."""
+    lines = []
+    for i, it in enumerate(items):
+        head = f"{i + 1}. [{it.get('source', '?')}] {it.get('title', '')}"
+        if chars:
+            snip = _snippet(it, chars)
+            title = str(it.get("title", "")).strip()
+            # Текст начат заголовком — заголовок отрезаем, остаток и есть сведения
+            if title and snip.lower().startswith(title.lower()[:30]):
+                snip = snip[len(title):].lstrip(" :—-.…")
+            if len(snip) >= 25:
+                head += f" — {snip}"
+        lines.append(head)
+    return lines
