@@ -17,7 +17,7 @@ from feed_gate import (drop_family_repeats, gate as feed_gate, same_event,
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
-                     final_start_guard, strip_known_stubs)
+                     final_start_guard, final_end_guard, strip_known_stubs)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -9431,6 +9431,7 @@ def main():
         filtered = run_editor(filtered, lang, leftover=leftover,
                               max_items=max_items)
         filtered = final_start_guard(filtered, lang)
+        filtered = final_end_guard(filtered, lang)
         filtered = strip_known_stubs(filtered, lang)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
