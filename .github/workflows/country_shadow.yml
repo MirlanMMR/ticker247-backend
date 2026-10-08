@@ -1,0 +1,34 @@
+name: Country shelves (shadow)
+
+# Полки стран (country_shelves.py). Ручной запуск: «сухой» прогон выбранных стран
+# без записи в базу, чтобы посмотреть качество и расход ИИ.
+on:
+  workflow_dispatch:
+    inputs:
+      countries:
+        description: "Страны через запятую (пусто — все)"
+        default: "AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: country-shadow
+  cancel-in-progress: true
+
+jobs:
+  shadow:
+    runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
+      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      AI_MONTHLY_BUDGET: '40'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Сухой прогон (без записи в базу)
+        run: python country_shelves.py --dry-run --countries "${{ inputs.countries || 'AM,GE,KZ,UZ,CA,BE,CH,MA,SN,AR,CO,PT' }}"

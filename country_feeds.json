@@ -1,0 +1,646 @@
+{
+ "AM": [
+  {
+   "source": "Hetq",
+   "url": "https://hetq.am/hy/rss"
+  },
+  {
+   "source": "Factor",
+   "url": "https://factor.am/feed"
+  },
+  {
+   "source": "168.am",
+   "url": "https://168.am/rss/"
+  }
+ ],
+ "AO": [
+  {
+   "source": "Expansão",
+   "url": "https://expansao.co.ao/rss"
+  }
+ ],
+ "AR": [
+  {
+   "source": "Clarín",
+   "url": "https://www.clarin.com/rss/lo-ultimo/"
+  },
+  {
+   "source": "La Nación",
+   "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml"
+  }
+ ],
+ "AU": [
+  {
+   "source": "ABC",
+   "url": "https://www.abc.net.au/news/feed/51120/rss.xml"
+  },
+  {
+   "source": "Guardian Australia",
+   "url": "https://www.theguardian.com/australia-news/rss"
+  },
+  {
+   "source": "SBS",
+   "url": "https://www.sbs.com.au/news/topic/latest/feed"
+  }
+ ],
+ "AZ": [
+  {
+   "source": "Report.az",
+   "url": "https://report.az/rss"
+  },
+  {
+   "source": "BBC Azeri",
+   "url": "https://feeds.bbci.co.uk/azeri/rss.xml"
+  }
+ ],
+ "BE": [
+  {
+   "source": "RTBF",
+   "url": "https://rss.rtbf.be/article/rss/highlight_rtbf_info.xml"
+  }
+ ],
+ "BF": [
+  {
+   "source": "LeFaso.net",
+   "url": "https://lefaso.net/spip.php?page=backend"
+  },
+  {
+   "source": "Burkina24",
+   "url": "https://burkina24.com/feed/"
+  },
+  {
+   "source": "Sidwaya",
+   "url": "https://www.sidwaya.info/feed/"
+  }
+ ],
+ "BJ": [
+  {
+   "source": "La Nouvelle Tribune",
+   "url": "https://lanouvelletribune.info/feed/"
+  }
+ ],
+ "BO": [
+  {
+   "source": "Opinion",
+   "url": "https://www.opinion.com.bo/rss"
+  }
+ ],
+ "BY": [
+  {
+   "source": "Onliner",
+   "url": "https://people.onliner.by/feed"
+  },
+  {
+   "source": "Reform.news",
+   "url": "https://reform.news/feed"
+  },
+  {
+   "source": "Belta",
+   "url": "https://www.belta.by/rss"
+  }
+ ],
+ "CA": [
+  {
+   "source": "Global News",
+   "url": "https://globalnews.ca/feed/"
+  }
+ ],
+ "CD": [
+  {
+   "source": "Actualite.cd",
+   "url": "https://actualite.cd/feed"
+  },
+  {
+   "source": "Politico.cd",
+   "url": "https://www.politico.cd/feed/"
+  },
+  {
+   "source": "Zoom Eco",
+   "url": "https://zoom-eco.net/feed/"
+  }
+ ],
+ "CH": [
+  {
+   "source": "Le Temps",
+   "url": "https://www.letemps.ch/articles.rss"
+  },
+  {
+   "source": "SRF",
+   "url": "https://www.srf.ch/news/bnf/rss/1646"
+  },
+  {
+   "source": "24 heures",
+   "url": "https://partner-feeds.publishing.tamedia.ch/rss/24heures/suisse"
+  }
+ ],
+ "CI": [
+  {
+   "source": "Linfodrome",
+   "url": "https://www.linfodrome.com/rss"
+  },
+  {
+   "source": "Connection Ivoirienne",
+   "url": "https://www.connectionivoirienne.net/feed/"
+  }
+ ],
+ "CL": [
+  {
+   "source": "The Clinic",
+   "url": "https://www.theclinic.cl/feed/"
+  },
+  {
+   "source": "La Tercera",
+   "url": "https://www.latercera.com/arc/outboundfeeds/rss/?outputType=xml"
+  }
+ ],
+ "CM": [
+  {
+   "source": "Journal du Cameroun",
+   "url": "https://www.journalducameroun.com/feed/"
+  },
+  {
+   "source": "Actu Cameroun",
+   "url": "https://actucameroun.com/feed/"
+  }
+ ],
+ "CO": [
+  {
+   "source": "El Tiempo",
+   "url": "https://www.eltiempo.com/rss/colombia.xml"
+  },
+  {
+   "source": "Semana",
+   "url": "https://www.semana.com/arc/outboundfeeds/rss/?outputType=xml"
+  },
+  {
+   "source": "El Espectador",
+   "url": "https://www.elespectador.com/arc/outboundfeeds/rss/?outputType=xml"
+  }
+ ],
+ "CR": [
+  {
+   "source": "La Nación CR",
+   "url": "https://www.nacion.com/rss/"
+  },
+  {
+   "source": "Delfino.cr",
+   "url": "https://delfino.cr/feed"
+  }
+ ],
+ "CU": [
+  {
+   "source": "14ymedio",
+   "url": "https://www.14ymedio.com/rss"
+  },
+  {
+   "source": "Diario de Cuba",
+   "url": "https://diariodecuba.com/rss.xml"
+  }
+ ],
+ "CV": [
+  {
+   "source": "A Nação",
+   "url": "https://anacao.cv/feed/"
+  }
+ ],
+ "DO": [
+  {
+   "source": "Diario Libre",
+   "url": "https://www.diariolibre.com/rss/portada.xml"
+  },
+  {
+   "source": "Remolacha",
+   "url": "https://www.remolacha.net/feed/"
+  }
+ ],
+ "DZ": [
+  {
+   "source": "TSA",
+   "url": "https://www.tsa-algerie.com/feed/"
+  },
+  {
+   "source": "Algérie Eco",
+   "url": "https://www.algerie-eco.com/feed/"
+  }
+ ],
+ "EC": [
+  {
+   "source": "El Universo",
+   "url": "https://www.eluniverso.com/arc/outboundfeeds/rss/?outputType=xml"
+  },
+  {
+   "source": "El Comercio EC",
+   "url": "https://www.elcomercio.com/feed/"
+  },
+  {
+   "source": "Expreso",
+   "url": "https://www.expreso.ec/rss"
+  }
+ ],
+ "FR": [
+  {
+   "source": "Le Monde",
+   "url": "https://www.lemonde.fr/rss/une.xml"
+  },
+  {
+   "source": "Libération",
+   "url": "https://www.liberation.fr/arc/outboundfeeds/rss-all/?outputType=xml"
+  },
+  {
+   "source": "Franceinfo",
+   "url": "https://www.francetvinfo.fr/titres.rss"
+  }
+ ],
+ "GB": [
+  {
+   "source": "BBC",
+   "url": "https://feeds.bbci.co.uk/news/rss.xml"
+  },
+  {
+   "source": "The Guardian",
+   "url": "https://www.theguardian.com/uk-news/rss"
+  },
+  {
+   "source": "Sky News",
+   "url": "https://feeds.skynews.com/feeds/rss/home.xml"
+  }
+ ],
+ "GE": [
+  {
+   "source": "Netgazeti",
+   "url": "https://netgazeti.ge/feed/"
+  },
+  {
+   "source": "Publika",
+   "url": "https://publika.ge/feed/"
+  }
+ ],
+ "GN": [
+  {
+   "source": "Guinée News",
+   "url": "https://guineenews.org/feed/"
+  },
+  {
+   "source": "Africaguinee",
+   "url": "https://www.africaguinee.com/feed/"
+  }
+ ],
+ "GT": [
+  {
+   "source": "Prensa Libre",
+   "url": "https://www.prensalibre.com/feed/"
+  },
+  {
+   "source": "República GT",
+   "url": "https://republica.gt/feed"
+  }
+ ],
+ "GW": [
+  {
+   "source": "O Democrata",
+   "url": "https://www.odemocratagb.com/?feed=rss2"
+  }
+ ],
+ "HN": [
+  {
+   "source": "Proceso Digital",
+   "url": "https://proceso.hn/feed/"
+  }
+ ],
+ "HT": [
+  {
+   "source": "Le Nouvelliste",
+   "url": "https://lenouvelliste.com/rss"
+  }
+ ],
+ "IE": [
+  {
+   "source": "RTE",
+   "url": "https://www.rte.ie/news/rss/news-headlines.xml"
+  },
+  {
+   "source": "Journal.ie",
+   "url": "https://www.thejournal.ie/feed/"
+  }
+ ],
+ "IN": [
+  {
+   "source": "The Hindu",
+   "url": "https://www.thehindu.com/news/national/feeder/default.rss"
+  },
+  {
+   "source": "The Hindu",
+   "url": "https://www.thehindu.com/feeder/default.rss"
+  },
+  {
+   "source": "NDTV",
+   "url": "https://feeds.feedburner.com/ndtvnews-india-news"
+  },
+  {
+   "source": "Hindustan Times",
+   "url": "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml"
+  },
+  {
+   "source": "Indian Express",
+   "url": "https://indianexpress.com/section/india/feed/"
+  }
+ ],
+ "JM": [
+  {
+   "source": "Jamaica Gleaner",
+   "url": "https://jamaica-gleaner.com/feed/rss.xml"
+  },
+  {
+   "source": "Jamaica Observer",
+   "url": "https://www.jamaicaobserver.com/feed/"
+  }
+ ],
+ "KZ": [
+  {
+   "source": "Tengrinews",
+   "url": "https://tengrinews.kz/news.rss"
+  }
+ ],
+ "LU": [
+  {
+   "source": "Wort",
+   "url": "https://www.wort.lu/en/rss"
+  },
+  {
+   "source": "Reporter.lu",
+   "url": "https://www.reporter.lu/feed/"
+  }
+ ],
+ "MA": [
+  {
+   "source": "Hespress",
+   "url": "https://www.hespress.com/feed"
+  }
+ ],
+ "MC": [
+  {
+   "source": "Monaco Hebdo",
+   "url": "https://www.monaco-hebdo.com/feed/"
+  }
+ ],
+ "MD": [
+  {
+   "source": "NewsMaker",
+   "url": "https://newsmaker.md/ru/feed/"
+  },
+  {
+   "source": "Ziarul de Gardă",
+   "url": "https://www.zdg.md/feed/"
+  },
+  {
+   "source": "TV8",
+   "url": "https://tv8.md/feed/"
+  }
+ ],
+ "MG": [
+  {
+   "source": "NewsMada",
+   "url": "https://www.newsmada.com/feed/"
+  },
+  {
+   "source": "Midi Madagasikara",
+   "url": "https://midi-madagasikara.mg/feed/"
+  }
+ ],
+ "ML": [
+  {
+   "source": "Studio Tamani",
+   "url": "https://www.studiotamani.org/feed"
+  },
+  {
+   "source": "Malijet",
+   "url": "https://malijet.com/rss.xml"
+  }
+ ],
+ "MZ": [
+  {
+   "source": "O País",
+   "url": "https://opais.co.mz/feed/"
+  },
+  {
+   "source": "Carta de Moçambique",
+   "url": "https://cartamz.com/feed/"
+  }
+ ],
+ "NE": [
+  {
+   "source": "Studio Kalangou",
+   "url": "https://www.studiokalangou.org/feed"
+  },
+  {
+   "source": "Tamtaminfo",
+   "url": "https://www.tamtaminfo.com/feed/"
+  },
+  {
+   "source": "ANP",
+   "url": "https://www.anp.ne/feed/"
+  }
+ ],
+ "NG": [
+  {
+   "source": "Premium Times",
+   "url": "https://www.premiumtimesng.com/feed"
+  },
+  {
+   "source": "Punch",
+   "url": "https://punchng.com/feed/"
+  },
+  {
+   "source": "Vanguard",
+   "url": "https://www.vanguardngr.com/feed/"
+  }
+ ],
+ "NI": [
+  {
+   "source": "Despacho 505",
+   "url": "https://www.despacho505.com/feed/"
+  }
+ ],
+ "NZ": [
+  {
+   "source": "RNZ",
+   "url": "https://www.rnz.co.nz/rss/national.xml"
+  },
+  {
+   "source": "Stuff",
+   "url": "https://www.stuff.co.nz/rss"
+  }
+ ],
+ "PA": [
+  {
+   "source": "TVN Panamá",
+   "url": "https://www.tvn-2.com/rss/"
+  },
+  {
+   "source": "La Prensa Panamá",
+   "url": "https://www.prensa.com/arc/outboundfeeds/rss/?outputType=xml"
+  }
+ ],
+ "PE": [
+  {
+   "source": "RPP",
+   "url": "https://rpp.pe/feed"
+  },
+  {
+   "source": "El Comercio",
+   "url": "https://elcomercio.pe/arc/outboundfeeds/rss/?outputType=xml"
+  }
+ ],
+ "PT": [
+  {
+   "source": "Observador",
+   "url": "https://observador.pt/feed/"
+  },
+  {
+   "source": "Público",
+   "url": "https://feeds.feedburner.com/PublicoRSS"
+  }
+ ],
+ "PY": [
+  {
+   "source": "ABC Color",
+   "url": "https://www.abc.com.py/arc/outboundfeeds/rss/?outputType=xml"
+  }
+ ],
+ "SG": [
+  {
+   "source": "Straits Times",
+   "url": "https://www.straitstimes.com/news/singapore/rss.xml"
+  },
+  {
+   "source": "Channel News Asia",
+   "url": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511"
+  }
+ ],
+ "SN": [
+  {
+   "source": "PressAfrik",
+   "url": "https://www.pressafrik.com/xml/syndication.rss"
+  },
+  {
+   "source": "Dakaractu",
+   "url": "https://www.dakaractu.com/xml/syndication.rss"
+  },
+  {
+   "source": "Senego",
+   "url": "https://senego.com/feed"
+  }
+ ],
+ "ST": [
+  {
+   "source": "Téla Nón",
+   "url": "https://www.telanon.info/feed/"
+  }
+ ],
+ "SV": [
+  {
+   "source": "La Página",
+   "url": "https://www.lapagina.com.sv/feed/"
+  },
+  {
+   "source": "Gato Encerrado",
+   "url": "https://gatoencerrado.news/feed/"
+  }
+ ],
+ "TG": [
+  {
+   "source": "Ici Lomé",
+   "url": "https://www.iciLome.com/rss"
+  }
+ ],
+ "TJ": [
+  {
+   "source": "Avesta",
+   "url": "https://avesta.tj/feed/"
+  },
+  {
+   "source": "Asia-Plus",
+   "url": "https://asiaplus.news/feed/"
+  },
+  {
+   "source": "Sputnik Tajikistan",
+   "url": "https://tj.sputniknews.ru/export/rss2/archive/index.xml"
+  }
+ ],
+ "TL": [
+  {
+   "source": "Tatoli",
+   "url": "https://www.tatoli.tl/feed/"
+  }
+ ],
+ "TM": [
+  {
+   "source": "Chronicles of Turkmenistan",
+   "url": "https://www.hronikatm.com/feed/"
+  },
+  {
+   "source": "Turkmen.news",
+   "url": "https://turkmen.news/feed/"
+  }
+ ],
+ "TN": [
+  {
+   "source": "Mosaique FM",
+   "url": "https://www.mosaiquefm.net/fr/rss"
+  },
+  {
+   "source": "La Presse",
+   "url": "https://lapresse.tn/feed/"
+  }
+ ],
+ "UA": [
+  {
+   "source": "Українська правда",
+   "url": "https://www.pravda.com.ua/rss/"
+  },
+  {
+   "source": "BBC Ukrainian",
+   "url": "https://feeds.bbci.co.uk/ukrainian/rss.xml"
+  }
+ ],
+ "UY": [
+  {
+   "source": "Montevideo Portal",
+   "url": "https://www.montevideo.com.uy/anxml.aspx?58"
+  }
+ ],
+ "UZ": [
+  {
+   "source": "Gazeta.uz",
+   "url": "https://www.gazeta.uz/ru/rss/"
+  },
+  {
+   "source": "Spot",
+   "url": "https://www.spot.uz/ru/rss/"
+  },
+  {
+   "source": "Kun.uz",
+   "url": "https://kun.uz/news/rss"
+  },
+  {
+   "source": "Uznews",
+   "url": "https://www.uznews.uz/ru/rss"
+  }
+ ],
+ "VE": [
+  {
+   "source": "Efecto Cocuyo",
+   "url": "https://efectococuyo.com/feed/"
+  },
+  {
+   "source": "El Nacional",
+   "url": "https://www.elnacional.com/feed/"
+  }
+ ],
+ "ZA": [
+  {
+   "source": "Daily Maverick",
+   "url": "https://www.dailymaverick.co.za/dmrss/"
+  }
+ ]
+}

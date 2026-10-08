@@ -32,7 +32,7 @@ kept, relab = apply([ky_w, ky_l, ru, kk], "ru")
 check("ничего не снимается: мировая на кыргызском остаётся", len(kept) == 4)
 check("каждому родному — свой код", ky_w["language"] == "ky" and kk["language"] == "kk")
 check("русская не тронута", ru["language"] == "ru")
-check("в других пулах ничего не меняем", apply([card("Манас шаарында жаңы мектеп")], "en")[1] == [])
+check("apply (метки по буквам) только для русского пула", apply([card("Манас шаарында жаңы мектеп")], "en")[1] == [])
 check("финансовые карточки не трогаем", apply([card("USD", cat="CURRENCY")], "ru")[1] == [])
 
 # 50/50 на «Местных»: 3 русских и 6 кыргызских → остаётся не больше 3 кыргызских
@@ -44,7 +44,15 @@ check("родного после потолка не больше половин
 check("снимаются слабейшие (приоритет, давность)", all(d["priority"] <= min(x["priority"] for x in nat_left) for d in dropped))
 check("русские не снимаются", all(x["language"] != "ru" for x in dropped))
 check("до половины — ничего не снимается", cap_native_share(loc[:3] + loc[3:6], "ru")[1] == [])
+# Потолок работает во всех пулах: Канада в английском — французская половина
+en_loc = [card(f"English story {i}", lang="en") for i in range(2)] + [
+    card(f"Histoire française {i}", lang="fr", t=i) for i in range(5)]
+kept_en, dropped_en = cap_native_share(en_loc, "en")
+check("английский пул: французского не больше половины",
+      sum(1 for x in kept_en if x["language"] == "fr") <= len(kept_en) / 2 and len(dropped_en) == 3)
 check("мировая на кыргызском потолком не задета",
       cap_native_share([ky_w] + [card(f"р{i}") for i in range(2)], "ru")[1] == [])
+check("нет карточек на языке пула — потолок ничего не снимает (Армения)",
+      cap_native_share([card(f"hy {i}", lang="hy") for i in range(5)], "ru")[1] == [])
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

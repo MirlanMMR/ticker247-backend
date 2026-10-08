@@ -9379,7 +9379,9 @@ def main():
         from native_lang import apply as _native_apply, cap_native_share as _native_cap
         filtered, _native_relabeled = _native_apply(filtered, lang)
         # На «Местных» родной язык — не больше половины (правило владельца 06.10.2026)
-        filtered, _native_dropped = _native_cap(filtered, lang)
+        # потолок 50/50 основного конвейера — как прежде, только русский пул (полки других
+        # стран делает country_shelves.py)
+        filtered, _native_dropped = _native_cap(filtered, lang) if lang == "ru" else (filtered, [])
         # Намерения («планируют», «собираются», «предложил») — не события:
         # метка noEvent, чтобы такое не шло в карусель, строку и шторку (intent.py)
         from intent import mark as _intent_mark
