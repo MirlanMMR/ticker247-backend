@@ -113,7 +113,7 @@ jobs:
       # занижал в 2,5 раза. Честно: ~$0.95/сутки без редактора, ~$30–35/мес.
       # ⚠️ Лимит в самом Google AI Studio должен быть ВЫШЕ $40 (~$45), иначе
       # Google отключит ИИ раньше нашего потолка.
-      AI_MONTHLY_BUDGET: ${{ inputs.force_fallback && '0' || '40' }}
+      AI_MONTHLY_BUDGET: ${{ inputs.force_fallback && '0' || '50' }}
       # Выпускающий редактор (editor.py): shadow — отчёт без правки ленты,
       # live — в эфире, off — выключен. Тень — два-три прогона, не дольше
       EDITOR_MODE: live

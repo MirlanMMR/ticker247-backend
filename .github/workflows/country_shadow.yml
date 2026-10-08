@@ -23,7 +23,7 @@ jobs:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
       FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-      AI_MONTHLY_BUDGET: '40'
+      AI_MONTHLY_BUDGET: '50'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
