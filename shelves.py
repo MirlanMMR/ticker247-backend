@@ -135,23 +135,28 @@ def pool_shelf_fix(item, space):
 
 
 def world_to_home_fix(item, home, space):
-    """Издание страны X о событии В СТРАНЕ X масштаба не мирового не может лежать
-    в «Мировых» (AKIpress Эко о депутате и охотоведах Оша — 06.10 чинили по
-    домену, 08.10 вернулось: цепочка шагов снова отправила его в world).
+    """Событие в стране пула, масштаб НЕ мировой — карточка не может лежать в «Мировых».
 
-    Возвращает «local» (страна — дом пула), «pool» (страна пула) или None.
-    Мировой масштаб и «мосты» не трогаем; нужны обе метки (страна издания и
-    место события) и они должны совпасть — иначе это не «своё о своём»."""
+    Полку определяет страна СОБЫТИЯ и масштаб (docs/shelves_and_order.md), а не
+    страна издания: AKIpress Эко о депутате Оша (06.10, 08.10) и Азаттык о
+    саммите глав государств ЦА в Авазе (09.10, владелец: «попало в мировые») —
+    события в пуле, масштаб region/local.
+
+    Возвращает «local» (издание из дома пула о событии дома), «pool» или None.
+    Мировой масштаб, «мосты» и «интересное» не трогаем; нужна метка места события.
+    Издание без страны (Азаттык, регион) → «pool»; приложение иначе не пустит его
+    на полку страны, поэтому страну проставляет final_shelf_guard."""
     if item.get("scope") != "world" or item.get("bridge") or item.get("interesting"):
         return None
     if item.get("scale") not in ("local", "region"):
         return None
-    country = (item.get("country") or "").strip().upper()
-    if not country or item.get("event_where") != country:
+    ev = (item.get("event_where") or "").strip().upper()
+    if not ev or ev not in space:
         return None
-    if country == home:
+    country = (item.get("country") or "").strip().upper()
+    if country == ev == home:
         return "local"
-    return "pool" if country in space else None
+    return "pool"
 
 
 def foreign_fate(item):
@@ -193,6 +198,10 @@ def final_shelf_guard(items, lang, space, home=""):
             shelf = world_to_home_fix(x, home, space)
             if shelf:
                 x["scope"] = shelf
+                # Издание без страны (региональное): приложение сверяет полку по
+                # стране карточки, без неё отправит обратно в «Мировые»
+                if not (x.get("country") or "").strip():
+                    x["country"] = (x.get("event_where") or "").strip().upper()
                 back.append(x)
         kept.append(x)
     if back:
