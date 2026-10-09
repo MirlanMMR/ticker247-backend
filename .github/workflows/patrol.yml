@@ -1,0 +1,84 @@
+name: Patrol (срочное и опрос вещания)
+
+# ДОЗОР КРУГЛОСУТОЧНО, НЕЗАВИСИМО ОТ РАЗБОРА (09.10.2026, решение владельца).
+#
+# Раньше дозор жил внутри разбора (шесть проходов по 12 минут после полной ленты) и держал
+# задание 105 минут вместо 25. Из-за этого очередь отменяла плановые запуски, и разбор шёл
+# ~4 раза в сутки с дырами до 11 часов. Владелец: срочное достаточно проверять раз в полчаса —
+# и час тоже нормально.
+#
+# Теперь это отдельное лёгкое задание: каждые полчаса (минуты :07 и :37 — запуски ровно в :00
+# GitHub задерживает сильнее всего), без разбора ленты, примерно минута. Вместе с дозором
+# срочного сюда переехал и опрос каналов-кандидатов вещания (probe_live.py): он и хотел идти
+# каждые полчаса, а в разборе ходил раз в два часа.
+#
+# Дозор по-прежнему вхолостую: публикует он только при PATROL_LIVE=true (холостой ход с 30.08,
+# решение — за владельцем, см. patrol.py). Включить: добавить PATROL_LIVE: "true" в env ниже.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7,37 * * * *'
+
+permissions:
+  contents: write
+
+# Своя очередь: дозор не ждёт разбор и не отменяет его
+concurrency:
+  group: ticker-patrol
+  cancel-in-progress: false
+
+jobs:
+  patrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
+      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+      QWEN_BASE_URL: "https://api.groq.com/openai/v1"
+      QWEN_MODEL: "openai/gpt-oss-120b"
+      AI_MONTHLY_BUDGET: '50'
+      EDITOR_MODE: live
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Дозор срочного
+        continue-on-error: true
+        run: python patrol.py
+
+      - name: Опрос каналов-кандидатов
+        if: always()
+        continue-on-error: true
+        run: python probe_live.py
+
+      - name: Сохранить замер
+        if: always()
+        continue-on-error: true
+        env:
+          PROBE_DEPLOY_KEY: ${{ secrets.PROBE_DEPLOY_KEY }}
+        run: |
+          git config user.name  "ticker-probe"
+          git config user.email "noreply@github.com"
+          git add live_probe.csv
+          git diff --cached --quiet && { echo "изменений нет"; exit 0; }
+          git commit -m "probe: замер вещания $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git pull --rebase --autostash origin main || true
+          mkdir -p ~/.ssh
+          printf '%s\n' "$PROBE_DEPLOY_KEY" > ~/.ssh/probe_key
+          chmod 600 ~/.ssh/probe_key
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/probe_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
+            git push git@github.com:MirlanMMR/ticker247-backend.git HEAD:main \
+            || echo "не выложилось, замер уйдёт следующим"
+          rm -f ~/.ssh/probe_key

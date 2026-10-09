@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup
 from feed_gate import (drop_family_repeats, gate as feed_gate, same_event,
                        regions_agree, pick_regionals)
 from live_identity import verdict as identity_verdict
+from schedule_pools import selected_pools, stale_pools
 from textcut import (display_source, lead, trim_to_boundary, wants_page_body,
                      card_text, cap_article, full_text_of,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
@@ -8792,10 +8793,34 @@ def _feed_is_fresh() -> bool:
     return False
 
 
+def _pool_age_min(pool: str):
+    """Сколько минут назад обновлялась лента пула; None — не смогли узнать."""
+    try:
+        ts = db.reference(f"/news/{pool}/updatedAt").get() or 0
+        return (datetime.now().timestamp() * 1000 - ts) / 60000
+    except Exception:
+        return None
+
+
 def main():
     print("🚀 Ticker247 Backend — Fetching news...")
 
-    if _feed_is_fresh():
+    # РЕЖИМ «ТОЛЬКО ЭТИ ПУЛЫ» (POOLS=ru,fr; расписание по часовым поясам, schedule_pools.py).
+    # Пусто — как прежде: все пулы и шлюз свежести по ru. Задан список — обновляем только
+    # его, и каждый пул проверяем на свежесть сам: запасной запуск слота (минуты :07 и :37)
+    # видит свежую ленту и выходит, ничего не потратив.
+    partial = bool((os.environ.get("POOLS") or "").strip())
+    run_pools = selected_pools(os.environ.get("POOLS"), tuple(ACTIVE_POOLS))
+    if partial:
+        if os.environ.get("FORCE_RUN") != "true":
+            ages = {p: _pool_age_min(p) for p in run_pools}
+            run_pools = stale_pools(run_pools, ages, FRESH_ENOUGH_MIN)
+            if not run_pools:
+                print(f"⏭ Все запрошенные пулы свежи (порог {FRESH_ENOUGH_MIN} мин): "
+                      f"{ {p: (None if a is None else round(a)) for p, a in ages.items()} } — выходим")
+                return
+        print(f"🎯 Обновляем пулы: {', '.join(run_pools)}")
+    elif _feed_is_fresh():
         return
 
     # Загружаем конфиг из Firebase (источники, фильтры)
@@ -9245,6 +9270,8 @@ def main():
     all_filtered = []
 
     for lang, group in lang_groups.items():
+        if lang not in run_pools:
+            continue            # чужой слот: этот пул обновится в своё местное время
         if not group:
             continue
         print(f"\n🌐 [{lang.upper()}] {len(group)} статей → Gemini...")
