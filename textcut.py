@@ -763,6 +763,23 @@ def final_start_guard(items, lang):
     return items
 
 
+def close_open_quote(text: str) -> str:
+    """Дописывает закрывающую кавычку, если откатиться до фразы вне цитаты некуда
+    (09.10.2026: Ars Technica и El Universal MX — текст в 600 знаков кончается «…» внутри
+    одной длинной цитаты). Не вышло закрыть за два знака — текст без изменений."""
+    t = (text or "").rstrip()
+    if not ends_inside_quote(t):
+        return t
+    for c1 in ("”", "»", "“", '"'):
+        if not ends_inside_quote(t + c1):
+            return t + c1
+    for c1 in ("”", "»", "“", '"'):
+        for c2 in ("”", "»", "“", '"'):
+            if not ends_inside_quote(t + c1 + c2):
+                return t + c1 + c2
+    return t
+
+
 def final_end_guard(items, lang):
     """ПОСЛЕДНИЙ взгляд на КОНЕЦ текста — парный к final_start_guard.
 
@@ -789,7 +806,13 @@ def final_end_guard(items, lang):
             fixed_n += 1
             print(f"  🧨 Цитата оборвана в эфире [{lang}], текст укорочен: {tag}")
         else:
-            print(f"  🧨 Цитата оборвана, укоротить некуда [{lang}]: {tag}")
+            closed = close_open_quote(s)
+            if closed != s:
+                x["summary"] = closed
+                fixed_n += 1
+                print(f"  🧨 Цитата оборвана, откатиться некуда — закрыта кавычка [{lang}]: {tag}")
+            else:
+                print(f"  🧨 Цитата оборвана, укоротить некуда [{lang}]: {tag}")
     if fixed_n:
         print(f"  🧨 Конец текста после редактора починен у {fixed_n} [{lang}]")
     return items

@@ -311,7 +311,7 @@ check("апостроф не кавычка", Q("The state's l'état don't."), F
 _it = [{"summary": _pad + "Зеленский: «Удалось сбить только часть.", "source": "t", "title": "t"}]
 check("страж после редактора укорачивает", Q(FEG(_it, "ru")[0]["summary"]), False)
 _short = [{"summary": "Он сказал: «Удалось.", "source": "t", "title": "t"}]
-check("страж не опустошает короткий текст", FEG(_short, "ru")[0]["summary"], "Он сказал: «Удалось.")
+check("страж не укорачивает короткий текст, а закрывает кавычку", FEG(_short, "ru")[0]["summary"], "Он сказал: «Удалось.»")
 
 # Подзаголовок на конце (BBC, Прилуки): текст не кончается вывеской раздела
 from textcut import drop_trailing_heading as H
@@ -362,6 +362,13 @@ check("кыргызский не чужой", FS({"title": "Жапаров Тү�
 check("латиница не чужая", FS({"title": "Prime minister announced new measures"}), False)
 check("1-2 иероглифа в русском тексте не считаем", FS({"title": "Фильм «Бэтмен» (蝙蝠侠) вышел в прокат в России"}), False)
 check("снимается только чужое", len(DFS([{"title": "საქართველოს პრემიერ-მინისტრმა განაცხადა"}, {"title": "Новость"}], "ru")), 1)
+
+from textcut import close_open_quote as COQ
+check("цитата закрыта (англ.)", COQ("Standards were set. “Today’s standards do not allow automakers…"), "Standards were set. “Today’s standards do not allow automakers…”")
+check("цитата закрыта (угловые)", COQ("Он сказал: «мы уходим…"), "Он сказал: «мы уходим…»")
+check("закрытую цитату не трогаем", COQ("Он сказал «да». И ушёл."), "Он сказал «да». И ушёл.")
+check("fallback в стороже: нечем откатиться — кавычка закрыта",
+      FEG([{"summary": "“" + "слово " * 120 + "…", "source": "s", "title": "t"}], "en")[0]["summary"].endswith("…”"), True)
 
 print(f"\nпройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

@@ -9560,6 +9560,8 @@ def main():
         for _x in filtered:
             if _is_interesting(_x):
                 _x["interesting"] = True
+            elif _x.get("interesting"):
+                _x.pop("interesting", None)     # флаг от источника, а проверка по содержанию отклонила (J22)
         border.control(filtered, lang, report=_BORDER_REPORT)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
