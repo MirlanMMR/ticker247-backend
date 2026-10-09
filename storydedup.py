@@ -162,3 +162,35 @@ def pick_group_language(langs, counts, pool_lang, local):
     if not local:
         return pool_lang if pool_lang in langs else langs[0]
     return min(langs, key=lambda l: (counts.get(l, 0), 0 if l == pool_lang else 1))
+
+
+# ─── Голос текста: назван ли источник и не говорит ли он голосом пресс-службы ─────────
+#
+# 09.10.2026, владелец: две новости про «Түндүк» и учёт животных — Kaktus.media называет
+# источник («сообщает пресс-служба Минводсельпрома») и пересказывает, Knews.kg не
+# отредактировал пресс-релиз: текст идёт голосом министерства («просим обратиться…»).
+# При выборе из группы пересказов одного события, ПРИ РАВНОМ приоритете, предпочитаем
+# карточку с названным источником и не берём ту, что говорит голосом пресс-службы.
+import re as _re
+
+_ATTRIBUTION = _re.compile(
+    r"(?:сообща(?:ет|ют|ла|ли)|сообщи(?:ли|ла)|по\s+данным|заяви(?:л|ла|ли)|поясни(?:л|ла|ли)|"
+    r"отмети(?:л|ла|ли)|говорится|сказано|пресс-служб\w*|according\s+to|said|told|announced|"
+    r"según|informó|dijo|segundo|disse|afirmou|selon|a\s+déclaré|indique)", _re.I)
+
+_PRESS_VOICE = _re.compile(
+    r"(?<![\w-])(?:просим|просьба|обращаемся|рады\s+сообщить|информируем|сообщаем|напоминаем|"
+    r"наш[аеиу]?\s+(?:служб\w*|ведомств\w*|министерств\w*|центр\w*)|"
+    r"we\s+(?:are\s+pleased|remind|invite|inform)|please\s+contact|"
+    r"le\s+pedimos|pedimos|informamos|nos\s+complace|"
+    r"nous\s+(?:vous\s+)?(?:informons|invitons)|veuillez|"
+    r"pedimos|solicitamos|temos o prazer)", _re.I)
+
+
+def source_voice(item) -> int:
+    """+1 — источник назван; −1 — голос пресс-службы без названного источника; 0 — иначе."""
+    text = str(item.get("summary") or "")[:600]
+    attributed = bool(_ATTRIBUTION.search(text))
+    if attributed:
+        return 1
+    return -1 if _PRESS_VOICE.search(text) else 0
