@@ -16,7 +16,7 @@ from feed_gate import (drop_family_repeats, gate as feed_gate, same_event,
                        regions_agree, pick_regionals)
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary, wants_page_body,
-                     card_text, cap_article,
+                     card_text, cap_article, full_text_of,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
                      final_start_guard, final_end_guard, final_title_guard, strip_known_stubs,
                      drop_stub_summaries, drop_foreign_script, has_foreign_script, is_stub_summary)
@@ -6281,6 +6281,7 @@ def translate_batch(items, target_lang):
         item["origTitle"] = orig_title
         item["origSummary"] = orig_summary
         item["translated"] = True
+        item.pop("_article", None)   # целая статья — на языке оригинала (textcut.full_text_of)
         return True
 
     pending, translated = [], 0
@@ -8047,7 +8048,7 @@ def _prepare_reserve(cands, lang):
         translate_batch(need[j:j + 10], lang)
     ready = [x for x in cands if not needs_translation(x, lang)]
     for x in ready:
-        x["_full"] = x.get("_article") or x.get("summary", "")
+        x["_full"] = full_text_of(x)
         x["summary"] = card_text(polish_summary(x["_full"]))
     return ready
 
@@ -9467,7 +9468,7 @@ def main():
         for _x in filtered:
             # Полный текст — выпускающему редактору (editor.py): он сам выбирает
             # абзацы. Перед записью в базу поле убирается
-            _x["_full"] = _x.get("_article") or _x.get("summary", "")
+            _x["_full"] = full_text_of(_x)
             smart = None
             if EDITOR_MODE == "live":
                 # Редактор выберет абзацы сам — не платим за обрезку дважды
