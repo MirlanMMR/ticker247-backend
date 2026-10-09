@@ -1045,9 +1045,24 @@ SHOW_MAX_PARAS = 8
 GIANT_PARA = 1500            # абзац длиннее — сбой разбора страницы (нет переводов строк)
 ARTICLE_HARD_CAP = 20000     # технический предохранитель памяти, а не редакционный предел
 _PROSE_MIN = 80
+# Служебные абзацы — на ВСЕХ языках пулов (журнал J33, 09.10.2026: правило было написано
+# по-русски и по-английски, и в es/pt/fr «Lee también», «Leia também», «À lire aussi»
+# попадали в тело карточки). Слова-«подписи» (фото, источник…) считаем служебными только с
+# двоеточием/тире или одним словом на строке: «Источник сообщил…» — это текст, а не подпись.
 _JUNK_PARA = re.compile(
-    r"^\s*(читайте также|читайте ещё|читайте еще|подписывайтесь|подписаться|"
-    r"фото\b|источник\b|реклама|по теме|read also|see also|subscribe)", re.I)
+    r"^\s*(?:"
+    # призывы прочитать ещё / подписаться / реклама — достаточно начала строки
+    r"читайте также|читайте ещё|читайте еще|читайте нас|подписывайтесь|подпишитесь|подписаться|"
+    r"по теме\b|на правах рекламы|реклама\b|"
+    r"read also|read more|see also|related (?:coverage|stories|articles|reading)|subscribe|sign up|"
+    r"follow us|advertisement|"
+    r"lee también|lee más|leer más|te puede interesar|también te puede interesar|suscr[ií]bete|"
+    r"suscr[ií]base|s[ií]guenos|sigue leyendo|contin[uú]a leyendo|publicidad\b|"
+    r"leia também|leia mais|veja também|veja mais|assine\b|inscreva-se|siga-nos|continue lendo|publicidade\b|"
+    r"à lire aussi|a lire aussi|lire aussi|lire également|lire la suite|abonnez-vous|suivez-nous|publicité\b"
+    r")"
+    r"|^\s*(?:фото|источник|photo|image|source|foto|fuente|imagen|crédito|credit|fonte|imagem|crédito)"
+    r"\s*(?:[:：\u2014\u2013-]|$)", re.I)
 
 
 def _split_giant(p: str, step: int = 700):
@@ -1057,7 +1072,8 @@ def _split_giant(p: str, step: int = 700):
     не трогаем."""
     if len(p) <= GIANT_PARA:
         return [p]
-    sents = re.split(r"(?<=[.!?…»\"])\s+(?=[A-ZА-ЯЁÀ-Ý«\"\d])", p)
+    # начало предложения: заглавная любого из языков пулов, цифра, кавычка, а в испанском ещё «¿» и «¡»
+    sents = re.split(r"(?<=[.!?…»\"”])\s+(?=[A-ZА-ЯЁÀ-Ý«\"“¿¡\d])", p)
     out, cur = [], ""
     for s in sents:
         if cur and len(cur) + len(s) > step:

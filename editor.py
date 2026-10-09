@@ -320,9 +320,7 @@ def _orphan_end(body: str):
 # в fetch_news.py: полторы страницы читалки)
 KEEP_LIMIT = 1300
 _PROSE_MIN = 80
-_JUNK_PARA = re.compile(
-    r"^\s*(читайте также|читайте ещё|читайте еще|подписывайтесь|подписаться|"
-    r"фото\b|источник\b|реклама|по теме|read also|see also|subscribe)", re.I)
+_JUNK_PARA = TC._JUNK_PARA      # один список служебных абзацев на все языки (textcut)
 
 
 def fill_selection(idx, paras, limit: int = KEEP_LIMIT):
