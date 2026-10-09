@@ -27,15 +27,14 @@ from urllib.parse import urlsplit
 
 from bs4 import BeautifulSoup
 
-EDITOR_VERSION = 2
+EDITOR_VERSION = 3          # 3: компоновка по правилу абзацев (09.10.2026) — вердикты v2 выбирали «суть в 2–4 абзацах»
 BATCH = 6                 # карточек в одном запросе
 # 5000 → 2800 знаков (25.09.2026): редактор ел 46% расхода ИИ, в основном
-# входящими — полным текстом статей. 2800 → 1400 (09.10.2026): теперь окно
-# режется целыми абзацами, а карточку по правилу абзацев собирает код из целой
-# статьи — редактору хватает начала, чтобы судить о событии, фото и срочности.
-# Жизненно важное выходит целиком (_full)
+# входящими — полным текстом статей. С 09.10.2026 окно режется ЦЕЛЫМИ абзацами
+# (не посреди), а редактор компонует текст сам — ему нужно видеть достаточно, чтобы
+# отличить суть от «воды». Жизненно важное выходит целиком (_full)
 MAX_PARAS = 10
-MAX_TEXT = 1400
+MAX_TEXT = 2800
 MAX_PHOTOS = 6
 
 VITAL_KINDS = {"вода-свет-газ", "дороги-транспорт", "стихия-погода", "здоровье",
@@ -154,6 +153,15 @@ def card_block(n: int, item: dict, paras, photos) -> str:
              f"Заголовок: {item.get('title', '')}",
              "Текст:"]
     lines += [f"[{i}] {p}" for i, p in enumerate(paras, 1)] or ["(текста нет)"]
+    # рамка компоновки: сколько абзацев в статье и сколько можно оставить
+    full = TC.real_paragraphs(item.get("_full") or "")
+    total = len(TC.article_region(full)) if full else len(paras)
+    if total > TC.SHOW_WHOLE_UP_TO:
+        shown = f"; ты видишь первые {len(paras)}" if len(paras) < len(full) else ""
+        lines.append(f"Абзацев в статье: {total}{shown}. Оставь не больше {TC.shown_count(total)} "
+                     f"(последний абзац не берём никогда).")
+    elif total:
+        lines.append(f"Абзацев в статье: {total} — короткая, целиком (`paragraphs` можно не заполнять).")
     lines.append("Снимки:")
     if photos:
         for i, ph in enumerate(photos, 1):
@@ -371,16 +379,16 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
         return False, x, [f"снято: {reason}"]
     # текст — выбранные абзацы дословно
     idx = [i for i in v.get("paragraphs") or [] if isinstance(i, int) and 1 <= i <= len(paras)]
-    # ПРАВИЛО АБЗАЦЕВ (09.10.2026, textcut.paragraph_rule): выбор редактора —
-    # лишь опора («где начинается и о чём»), а тело карточки собирается из ЦЕЛОЙ
-    # статьи: связный текст вперёд и назад от опоры; до трёх абзацев целиком,
-    # больше — без последнего. Окно редактора — начало тех же абзацев, поэтому
+    # ПРАВИЛО АБЗАЦЕВ (09.10.2026, textcut.compose_card): редактор КОМПОНУЕТ
+    # текст по смыслу (отсекает «воду»), а код держит рамку и замки: до трёх
+    # абзацев целиком, последний не берётся, не больше ⌈2n/3⌉ (до 8), заход и
+    # абзацы с потерянными цифрами остаются. Окно редактора — начало тех же абзацев, поэтому
     # номера применимы. Нет целой статьи — прежний путь со лимитом по знакам
     full = TC.real_paragraphs(item.get("_full") or "")
     whole = bool(full) and bool(paras) and list(paras) == full[:len(paras)]
     if whole:
         paras = full
-        idx = TC.paragraph_rule(TC.article_region(paras, idx))
+        idx = TC.compose_card(paras, idx)
     else:
         idx = fill_selection(sorted(set(idx)), paras)
     if idx and paras:

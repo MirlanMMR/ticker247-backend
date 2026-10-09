@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """Правило абзацев (решение владельца 09.10.2026, журнал J29).
 
-До трёх абзацев — целиком; больше трёх — все, кроме последнего (даже если там
-вывод). Числа знаков не участвуют. Тесты — на правило, а не на статью: любая
+До трёх абзацев — целиком; больше — ⌈2n/3⌉, но не больше восьми (4→3, 8→6, 12→8);
+последний абзац остаётся за кадром даже с выводом. Числа знаков не участвуют. Тесты — на правило, а не на статью: любая
 длина абзацев, любое их число, выбор редактора не вправе ни урезать тело, ни
 отдать последний абзац.
 """
+import math
 import os
 import sys
 
@@ -36,17 +37,29 @@ def article(n, size=120):
 
 
 # ── само правило, любое число абзацев и любая их длина ──
-for size in (90, 200, 700, 1500):
-    for n in range(1, 13):
+for size in (90, 200, 700, 1400):
+    for n in range(1, 41):
         got = TC.card_text(article(n, size)).split("\n\n")
-        want = n if n <= 3 else n - 1
+        want = n if n <= 3 else min(math.ceil(2 * n / 3), 8)
         check(f"{n} абзацев по {size} знаков → {want}", len(got) == want)
-        check(f"  непрерывный префикс статьи, последний не отдан или статья ≤3 (n={n}, {size})",
+        check(f"  непрерывный префикс статьи; при n≥4 последний не отдан (n={n}, {size})",
               got == [para(i, size) for i in range(1, want + 1)])
 
-# ── тело не обрезается по знакам: один огромный абзац = «до трёх», показываем целиком ──
-big = para(1, 5000)
-check("один абзац на 5000 знаков — целиком", TC.card_text(big) == big)
+check("заявленные точки владельца: 4→3, 8→6, 12→8", [TC.shown_count(n) for n in (4, 8, 12)] == [3, 6, 8])
+check("последний абзац не отдаётся никогда (n≥4)", all(TC.shown_count(n) < n for n in range(4, 200)))
+check("потолок восемь", all(TC.shown_count(n) <= 8 for n in range(4, 200)))
+check("доля не убывает с ростом статьи", all(TC.shown_count(n) <= TC.shown_count(n + 1) for n in range(1, 200)))
+
+# ── гигантский кусок (сбой разбора, нет переводов строк) делится по предложениям ──
+sent = "Это отдельное законченное предложение новости с цифрами и фактами для проверки правила. "
+giant = (sent * 60).strip()
+parts = TC.real_paragraphs(giant)
+check("гигантский абзац делится на куски", len(parts) > 3 and all(len(p) <= 800 for p in parts))
+shown = TC.card_text(giant)
+check("гигант: показана часть, а не всё", 0 < len(shown) < len(giant))
+check("гигант: рез по границе предложения", shown.rstrip().endswith("."))
+normal = para(1, 1400)
+check("абзац в пределах 1500 знаков не делится", TC.real_paragraphs(normal) == [normal])
 
 # ── подписи и хвост издания не входят в тело и не считаются абзацем ──
 tail = article(5) + "\n\nЧитайте также: другая новость"
@@ -65,11 +78,28 @@ full = article(8, 300)
 item = {"title": "T", "summary": "старая обрезка", "_full": full}
 win = ED.split_paragraphs(full)
 check("окно редактора — начало настоящих абзацев", win == TC.real_paragraphs(full)[:len(win)])
-for picked in ([1], [1, 2], [3], [2, 5], [1, 2, 3, 4, 5, 6, 7, 8]):
-    ok_, x, _ = ED.apply_verdict(item, {"publish": True, "paragraphs": picked}, win, [])
+# редактор КОМПОНУЕТ (отсекает воду), код держит рамку: заход, нижняя планка (3), потолок K, без последнего
+expect = {
+    (1,): [1, 2, 3],             # выбрал слишком мало — добираем до планки «три»
+    (1, 2): [1, 2, 3],
+    (3,): [1, 2, 3],             # заход остаётся всегда
+    (2, 5): [1, 2, 5],           # вода между ними (3, 4, 6) отсечена — это и есть компоновка
+    (1, 2, 3, 4, 5, 6, 7): [1, 2, 3, 4, 5, 6],   # потолок K=6 из 8
+    (8,): [1, 2, 3, 4, 5, 6],    # выбрал только последний — он не берётся, каркас по правилу
+}
+for picked, want_idx in expect.items():
+    ok_, x, _ = ED.apply_verdict(item, {"publish": True, "paragraphs": list(picked)}, win, [])
     got = x["summary"].split("\n\n")
-    check(f"выбор {picked}: тело = абзацы 1..7 (последний, 8-й, не отдан)",
-          ok_ and got == [para(i, 300) for i in range(1, 8)])
+    check(f"выбор {list(picked)} → абзацы {want_idx}", ok_ and got == [para(i, 300) for i in want_idx])
+# замок цифр: «второстепенный» абзац с главными цифрами не теряется (Sputnik KG 06.10)
+facts = [para(i, 300) for i in range(1, 9)]
+facts[3] = "Абзац 4: построено 12 электростанций, погибли 1455 человек, ущерб оценили в 340 млн."
+fi = {"title": "T", "summary": "x", "_full": "\n\n".join(facts)}
+fw = ED.split_paragraphs(fi["_full"])
+ok_, x, _ = ED.apply_verdict(fi, {"publish": True, "paragraphs": [1, 2, 5, 6]}, fw, [])
+check("абзац с потерянными цифрами возвращён", ok_ and facts[3] in x["summary"])
+check("и вода без цифр по-прежнему отсечена", facts[2] not in x["summary"])
+check("последний абзац не отдан", facts[7] not in x["summary"])
 short = {"title": "T", "summary": "x", "_full": article(3, 300)}
 w3 = ED.split_paragraphs(short["_full"])
 ok_, x, _ = ED.apply_verdict(short, {"publish": True, "paragraphs": [1]}, w3, [])
