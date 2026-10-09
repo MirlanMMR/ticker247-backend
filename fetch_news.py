@@ -69,7 +69,8 @@ RSS_SOURCES = [
     {"url": "https://feeds.bbci.co.uk/russian/rss.xml", "source": "BBC Русская служба", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world", "lang": "ru"},
     {"url": "https://feeds.bbci.co.uk/news/rss.xml", "source": "BBC News", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world"},
     {"url": "https://feeds.bbci.co.uk/news/world/rss.xml", "source": "BBC World", "category": "NEWS", "priority": 2, "quota": 5, "scope": "world"},
-    {"url": "https://feeds.reuters.com/reuters/topNews", "source": "Reuters", "category": "NEWS", "priority": 2, "quota": 6, "scope": "world"},
+    # Reuters: RSS закрыт, берём публичную новостную карту (заголовки без текста), см. fetch_news_sitemap
+    {"url": "https://www.reuters.com/arc/outboundfeeds/news-sitemap/?outputType=xml", "source": "Reuters", "category": "NEWS", "priority": 2, "quota": 8, "scope": "world", "lang": "en", "kind": "news_sitemap"},
     {"url": "https://www.aljazeera.com/xml/rss/all.xml", "source": "Al Jazeera", "category": "NEWS", "priority": 1, "quota": 5, "scope": "world"},
     {"url": "https://rsshub.app/apnews/topics/apf-topnews", "source": "AP News", "category": "NEWS", "priority": 2, "quota": 5, "scope": "world"},
     {"url": "https://rss.dw.com/rdf/rss-en-all", "source": "Deutsche Welle", "category": "NEWS", "priority": 1, "quota": 4, "scope": "world"},
@@ -1045,7 +1046,7 @@ def load_firebase_config():
                 code = by_url.get((s.get("url") or "").lower())
                 if code:
                     s = {**s, **{k: code[k] for k in
-                                 ("quota", "priority", "scope", "lang", "category", "region")
+                                 ("quota", "priority", "scope", "lang", "category", "region", "kind")
                                  if k in code}}
                     fixed.append(s)
                 else:
@@ -3420,7 +3421,62 @@ def source_quota(source) -> int:
     return q
 
 
+_SM_NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9",
+          "news": "http://www.google.com/schemas/sitemap-news/0.9",
+          "image": "http://www.google.com/schemas/sitemap-image/1.1"}
+
+
+def fetch_news_sitemap(source):
+    """Новостная карта сайта (Google News sitemap) как источник — для изданий без RSS.
+
+    Reuters закрыл бесплатные ленты (feeds.reuters.com не существует), но его новостная карта
+    публична и объявлена в robots.txt: заголовок, ссылка, время и фото последних материалов.
+    Текста в ней нет, а страницы отвечают 401 (защита от роботов) — поэтому карточки идут
+    «без текста»: приоритет 2 уводит их в бегущую строку и уведомления (notifyOnly), а дозору
+    они нужны как ещё одна редакция в счёте события. Пустой summary — намеренно.
+    Берём только английскую карту (в соседних лежат итальянские, испанские, японские заметки).
+    """
+    try:
+        r = requests.get(source["url"], timeout=10, headers=BROWSER_HEADERS)
+        if not r.ok:
+            return []
+        root = ET.fromstring(r.content)
+        items = []
+        for url_el in root.findall("sm:url", _SM_NS)[:source_quota(source)]:
+            title = clean_text((url_el.findtext("news:news/news:title", "", _SM_NS) or "").strip())
+            link = (url_el.findtext("sm:loc", "", _SM_NS) or "").strip()
+            lang = (url_el.findtext("news:news/news:publication/news:language", "", _SM_NS) or "").strip().lower()
+            if not title or not link or (source.get("lang") and lang and lang != source["lang"]):
+                continue
+            if any(k in title.lower() for k in BORING_KEYWORDS):
+                continue
+            published = (url_el.findtext("news:news/news:publication_date", "", _SM_NS) or "").strip()
+            try:
+                ts = int(datetime.fromisoformat(published.replace("Z", "+00:00")).timestamp() * 1000)
+            except Exception:
+                continue
+            image = url_el.findtext("image:image/image:loc", "", _SM_NS) or None
+            items.append({
+                "title": title, "url": link, "summary": "",
+                "imageUrl": image, "imageLowRes": False, "source": source["source"],
+                "country": source_country({"source": source["source"], "url": link,
+                                          "region": source.get("region")}),
+                "category": source["category"], "source_category": source["category"],
+                "priority": source["priority"],
+                "language": lang or source.get("lang") or "en",
+                "scope": source.get("scope", "world"),
+                "source_lang": source.get("lang"),
+                "publishedAt": ts,
+            })
+        return items
+    except Exception as e:
+        print(f"  ✗ {source['source']}: {e}")
+        return []
+
+
 def fetch_rss(source):
+    if source.get("kind") == "news_sitemap":
+        return fetch_news_sitemap(source)
     try:
         r = requests.get(source["url"], timeout=10, headers=BROWSER_HEADERS)
         if not r.ok:

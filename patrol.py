@@ -41,6 +41,7 @@ from datetime import datetime, timedelta, timezone
 
 import fetch_news as fn
 from feed_gate import same_event
+from patrol_rules import event_tier, region_of, outlet_country, MIN_OUTLETS_URGENT
 
 LIVE = os.environ.get("PATROL_LIVE") == "true"
 
@@ -55,7 +56,7 @@ WINDOW = timedelta(minutes=90)
 # привезёт и обычный прогон. Три независимых редакции за полтора часа —
 # самый ранний миг, когда можно быть уверенным, что событие не выдумка одного
 # агентства.
-MIN_OUTLETS = 3
+MIN_OUTLETS = MIN_OUTLETS_URGENT   # планка отбора кандидатов; «срочно/важно» решает event_tier (patrol_rules.py)
 
 
 # Страница-хроника («EN DIRECT», «AO VIVO», «LIVE UPDATES») — не событие.
@@ -108,7 +109,12 @@ def _already_published(item, lang) -> bool:
 
 def find_candidates():
     """События, о которых сорвались писать сразу несколько редакций."""
-    sources = [s for s in fn.RSS_SOURCES if (s.get("priority") or 0) >= 2]
+    # Быстрые ленты (приоритет ≥2) и мировые издания приоритета 1 без спорта: правило «пять
+    # изданий из разных концов света» (patrol_rules) требует, чтобы эти концы света были в списке
+    sources = [s for s in fn.RSS_SOURCES
+               if (s.get("priority") or 0) >= 2
+               or (s.get("scope") == "world" and (s.get("priority") or 0) >= 1
+                   and (s.get("category") or "") != "SPORT")]
     print(f"🔭 Дозор: смотрим {len(sources)} быстрых лент")
 
     fresh, skipped = [], []
@@ -140,8 +146,17 @@ def find_candidates():
                 "families": {fn.publisher_family(it.get("source", ""))},
             })
 
-    hot = [e for e in events if len(e["families"]) >= MIN_OUTLETS]
-    hot.sort(key=lambda e: -len(e["families"]))
+    # Регионы мира редакций события («из разных концов света») и уровень (patrol_rules.event_tier)
+    for e in events:
+        e["regions"] = {region_of(outlet_country(i.get("source"), fn.source_country(i))) for i in e["items"]} - {None}
+        e["tier"] = event_tier(e["families"], e["regions"], [i.get("title", "") for i in e["items"]])
+    # Поднимаем только то, что вышло на «срочно» или «важно»; прочее — наблюдаем в журнале
+    hot = [e for e in events if e["tier"]]
+    watch = [e for e in events if not e["tier"] and len(e["families"]) >= MIN_OUTLETS]
+    if watch:
+        print(f"  👀 наблюдаем (редакций хватает, уровня нет): {len(watch)} — "
+              + "; ".join(f"{len(e['families'])}р/{len(e['regions'])}рег {e['lead'].get('title','')[:50]}" for e in watch[:3]))
+    hot.sort(key=lambda e: (e["tier"] != "urgent", -len(e["families"])))
     return hot
 
 
@@ -154,7 +169,8 @@ def main():
     print(f"  🔥 кандидатов: {len(hot)}")
     for e in hot[:5]:
         names = ", ".join(sorted(e["families"]))
-        print(f"     · {len(e['families'])} редакций: {e['lead'].get('title','')[:70]}")
+        mark = "🚨 СРОЧНО" if e["tier"] == "urgent" else "📌 ВАЖНО"
+        print(f"     · {mark} · {len(e['families'])} редакций, регионов {len(e['regions'])}: {e['lead'].get('title','')[:70]}")
         print(f"       {names}")
 
     if not LIVE:
