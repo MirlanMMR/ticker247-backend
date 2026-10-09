@@ -156,6 +156,7 @@ jobs:
         run: |
           python test_trim.py
           python test_foreign_region.py
+          python test_full_text_of.py
           python test_enrich_rule.py
           python test_strip_tail.py
           python test_paragraph_rule.py
