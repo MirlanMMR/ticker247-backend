@@ -162,3 +162,34 @@ def final_local_foreign_guard(items, lang, space, home):
         for x in (moved + dropped)[:6]:
             print(f"       · {x.get('source','?')} [{x.get('event_where')}]: {(x.get('title') or '')[:60]}")
     return kept
+
+
+# ─── Областное издание чужой страны (журнал J32, 09.10.2026) ──────────────
+# Областные газеты (поле region: RU-PSK, MX-JAL, US-TX…) пишут для читателей своего
+# региона. В пуле, где их страны нет, им не место: в испанской ленте стояли Псков и
+# Оренбург (60.ru, 56.ru), переведённые на испанский, — «Travis Barker hospitalizado»
+# из псковской газеты. Класс общий: любая область любой страны вне пула.
+# Исключение — «мост» (граждане страны пула в чужой новости): его решает мост, не регион.
+REGION_EXTRA = {"es": {"US"}}      # испанский для штатов США (выпуск 47): US — свои
+
+
+def region_country(item):
+    r = (item.get("region") or "").strip()
+    return r.split("-")[0].upper() if r else ""
+
+
+def foreign_region(item, space, lang=""):
+    """Областное издание страны, которой нет в пространстве пула."""
+    c = region_country(item)
+    return bool(c) and c not in set(space) | REGION_EXTRA.get(lang, set()) and not item.get("bridge")
+
+
+def final_foreign_region_guard(items, lang, space):
+    kept, dropped = [], []
+    for x in items:
+        (dropped if foreign_region(x, space, lang) else kept).append(x)
+    if dropped:
+        print(f"  🗺️ Областные издания чужой страны [{lang}]: снято {len(dropped)}")
+        for x in dropped[:6]:
+            print(f"       · {x.get('source','?')} [{x.get('region')}]: {(x.get('title') or '')[:60]}")
+    return kept
