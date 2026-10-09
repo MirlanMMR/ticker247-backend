@@ -1228,3 +1228,16 @@ def compose_card(paras, picks=()):
         if j not in ordered:
             ordered.append(j)
     return sorted(ordered[:k])
+
+
+def full_text_of(item: dict) -> str:
+    """Полный текст для карточки по правилу абзацев.
+
+    ЦЕЛАЯ статья со страницы (`_article`) лежит на языке ОРИГИНАЛА. У переведённой
+    карточки заголовок и текст уже на языке пула, и брать для неё `_article` нельзя:
+    под испанским заголовком вышел бы английский или русский текст (регрессия #47,
+    поймана 09.10.2026 до первого прогона). Для переведённых — переведённый `summary`.
+    """
+    if item.get("translated"):
+        return item.get("summary") or ""
+    return item.get("_article") or item.get("summary") or ""
