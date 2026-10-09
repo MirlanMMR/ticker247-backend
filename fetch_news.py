@@ -6776,7 +6776,7 @@ from twins import drop_twins
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
 from curious import topup_interesting, is_curious_content, is_longread_url
-from topic_country import final_foreign_topic_guard, final_local_foreign_guard
+from topic_country import final_foreign_topic_guard, final_local_foreign_guard, final_foreign_region_guard
 import border
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
@@ -9585,6 +9585,7 @@ def main():
                                     home=POOL_HOME.get(lang, ""))
         filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
         filtered = final_local_foreign_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")}, POOL_HOME.get(lang, ""))
+        filtered = final_foreign_region_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
         filtered = strip_known_stubs(filtered, lang)
         filtered, _ = cap_dull(filtered, lang)
         # Признак «интересное» пропадал по дороге (редактор пересобирает карточки): возвращаем
