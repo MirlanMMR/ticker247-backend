@@ -1022,3 +1022,90 @@ def wants_page_body(item: dict, min_len: int = 400, annotations_too: bool = Fals
     if annotations_too:
         return not item.get("fromPage")
     return len(item.get("summary", "")) < min_len
+
+
+# ─── Правило абзацев (решение владельца, 09.10.2026) ───────────────────────
+#
+# Сколько показать карточке — решают АБЗАЦЫ, а не знаки:
+#   · статья до трёх абзацев включительно — целиком;
+#   · больше трёх — все, КРОМЕ ПОСЛЕДНЕГО. Его не добираем, даже если там вывод:
+#     событие описывают в начале, подробности дальше, а вывод читатель делает
+#     сам, на сайте издания.
+# Числа знаков (600, 1200+100, 1300) больше не мера: они были приближением к
+# этому правилу. Обрезка тела на скачивании — брак: «последний абзац» у
+# обрезанного текста уже не последний, и правило ломается молча.
+
+SHOW_WHOLE_UP_TO = 3
+ARTICLE_HARD_CAP = 20000     # технический предохранитель памяти, а не редакционный предел
+_PROSE_MIN = 80
+_JUNK_PARA = re.compile(
+    r"^\s*(читайте также|читайте ещё|читайте еще|подписывайтесь|подписаться|"
+    r"фото\b|источник\b|реклама|по теме|read also|see also|subscribe)", re.I)
+
+
+def real_paragraphs(text: str):
+    """Настоящие абзацы страницы: без склейки, без деления длинных."""
+    return [p.strip() for p in re.split(r"\n\s*\n|\n", (text or "").strip()) if p.strip()]
+
+
+def cap_article(text: str, cap: int = ARTICLE_HARD_CAP) -> str:
+    """Предохранитель от многомегабайтных страниц: режет по границе абзаца, не по знакам
+    внутри абзаца. Правило абзацев работает уже над этим текстом."""
+    text = (text or "").strip()
+    if len(text) <= cap:
+        return text
+    paras, out, total = real_paragraphs(text), [], 0
+    for p in paras:
+        if out and total + len(p) > cap:
+            break
+        out.append(p)
+        total += len(p) + 2
+    return "\n\n".join(out)
+
+
+def is_prose(p: str) -> bool:
+    return len(p) >= _PROSE_MIN and not _JUNK_PARA.match(p)
+
+
+def article_region(paras, idx=()):
+    """Номера (с 1) абзацев тела статьи: опорные `idx` (выбор редактора; нет —
+    первый связный текст), дыры между ними заполнены, а вперёд и назад — пока идёт
+    связный текст. Подписи, «читайте также», короткие вывески раздела и хвост
+    издания не берутся: на них область кончается."""
+    n = len(paras)
+    idx = sorted({i for i in idx if isinstance(i, int) and 1 <= i <= n})
+    if not idx:
+        first = next((i for i in range(1, n + 1) if is_prose(paras[i - 1])), None)
+        if first is None:
+            return []
+        idx = [first]
+    chosen = set(idx)
+    for i in range(idx[0], idx[-1] + 1):
+        if is_prose(paras[i - 1]):
+            chosen.add(i)
+    i = idx[-1] + 1
+    while i <= n and is_prose(paras[i - 1]):
+        chosen.add(i)
+        i += 1
+    i = idx[0] - 1
+    while i >= 1 and is_prose(paras[i - 1]):
+        chosen.add(i)
+        i -= 1
+    return sorted(chosen)
+
+
+def paragraph_rule(items):
+    """До трёх — целиком; больше — без последнего. Работает над списком чего угодно."""
+    items = list(items)
+    return items if len(items) <= SHOW_WHOLE_UP_TO else items[:-1]
+
+
+def card_text(text: str) -> str:
+    """Текст карточки по правилу абзацев из ПОЛНОЙ статьи (без выбора редактора)."""
+    paras = real_paragraphs(text)
+    if not paras:
+        return (text or "").strip()
+    region = article_region(paras)
+    if not region:                       # связного текста нет — отдаём как есть
+        return (text or "").strip()
+    return "\n\n".join(paras[i - 1] for i in paragraph_rule(region))

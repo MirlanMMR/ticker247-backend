@@ -39,7 +39,8 @@ P2 = "Второй абзац: цифры и последствия."
 paras = ED.split_paragraphs(f"{P1}\n\n{P2}\n\nПодписывайтесь на наш канал!")
 check("три абзаца", len(paras) == 3)
 long = " ".join(f"Предложение номер {i}." for i in range(1, 80))
-check("длинный кусок режется на части", len(ED.split_paragraphs(long)) > 3)
+# правило абзацев (09.10.2026): абзац не делим — номера обязаны совпадать со страницей
+check("длинный кусок остаётся одним абзацем", len(ED.split_paragraphs(long)) == 1)
 
 # ── разбор ответа ──
 raw = '```json\n[{"id": 1, "publish": true, "paragraphs": [1, 2], "photo": 2}]\n```'
