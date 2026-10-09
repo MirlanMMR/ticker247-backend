@@ -1022,3 +1022,193 @@ def wants_page_body(item: dict, min_len: int = 400, annotations_too: bool = Fals
     if annotations_too:
         return not item.get("fromPage")
     return len(item.get("summary", "")) < min_len
+
+
+# ─── Правило абзацев (решение владельца, 09.10.2026) ───────────────────────
+#
+# Сколько показать карточке — решают АБЗАЦЫ, а не знаки (для статей длиннее трёх
+# состав выбирает редактор-ИИ, формула ниже — запасной путь и потолок, см. compose_card):
+#   · статья до трёх абзацев включительно — целиком;
+#   · больше — доля ⌈2n/3⌉, но не больше SHOW_MAX_PARAS (восьми): 4→3, 8→6, 12→8.
+#     Последний абзац всегда остаётся за кадром (при n ≥ 4 доля меньше n), даже
+#     если там вывод: событие описывают в начале, подробности дальше, а вывод
+#     читатель делает сам, на сайте издания.
+# Первая версия правила («все, кроме последнего») на длинных статьях отдавала
+# почти всё тело (до 25–32 абзацев) — владелец 09.10.2026 предложил пропорцию и
+# потолок в 8 абзацев.
+# Числа знаков (600, 1200+100, 1300) больше не мера: они были приближением к
+# этому правилу. Обрезка тела на скачивании — брак: «последний абзац» у
+# обрезанного текста уже не последний, и правило ломается молча.
+
+SHOW_WHOLE_UP_TO = 3
+SHOW_MAX_PARAS = 8
+GIANT_PARA = 1500            # абзац длиннее — сбой разбора страницы (нет переводов строк)
+ARTICLE_HARD_CAP = 20000     # технический предохранитель памяти, а не редакционный предел
+_PROSE_MIN = 80
+_JUNK_PARA = re.compile(
+    r"^\s*(читайте также|читайте ещё|читайте еще|подписывайтесь|подписаться|"
+    r"фото\b|источник\b|реклама|по теме|read also|see also|subscribe)", re.I)
+
+
+def _split_giant(p: str, step: int = 700):
+    """Абзац без переводов строк длиннее GIANT_PARA — это сбой разбора страницы
+    (весь текст одним куском), а не авторский абзац. Делим по предложениям на куски
+    около step знаков, чтобы правило абзацев видело структуру. Нормальные абзацы
+    не трогаем."""
+    if len(p) <= GIANT_PARA:
+        return [p]
+    sents = re.split(r"(?<=[.!?…»\"])\s+(?=[A-ZА-ЯЁÀ-Ý«\"\d])", p)
+    out, cur = [], ""
+    for s in sents:
+        if cur and len(cur) + len(s) > step:
+            out.append(cur.strip())
+            cur = ""
+        cur += s + " "
+    if cur.strip():
+        out.append(cur.strip())
+    return out
+
+
+def real_paragraphs(text: str):
+    """Абзацы страницы без склейки. Нормальные не делим; только гигантский кусок
+    (сбой разбора) делим по предложениям — см. _split_giant."""
+    out = []
+    for p in re.split(r"\n\s*\n|\n", (text or "").strip()):
+        if p.strip():
+            out.extend(_split_giant(p.strip()))
+    return out
+
+
+def cap_article(text: str, cap: int = ARTICLE_HARD_CAP) -> str:
+    """Предохранитель от многомегабайтных страниц: режет по границе абзаца, не по знакам
+    внутри абзаца. Правило абзацев работает уже над этим текстом."""
+    text = (text or "").strip()
+    if len(text) <= cap:
+        return text
+    paras, out, total = real_paragraphs(text), [], 0
+    for p in paras:
+        if out and total + len(p) > cap:
+            break
+        out.append(p)
+        total += len(p) + 2
+    return "\n\n".join(out)
+
+
+def is_prose(p: str) -> bool:
+    return len(p) >= _PROSE_MIN and not _JUNK_PARA.match(p)
+
+
+def article_region(paras, idx=()):
+    """Номера (с 1) абзацев тела статьи: опорные `idx` (выбор редактора; нет —
+    первый связный текст), дыры между ними заполнены, а вперёд и назад — пока идёт
+    связный текст. Подписи, «читайте также», короткие вывески раздела и хвост
+    издания не берутся: на них область кончается."""
+    n = len(paras)
+    idx = sorted({i for i in idx if isinstance(i, int) and 1 <= i <= n})
+    if not idx:
+        first = next((i for i in range(1, n + 1) if is_prose(paras[i - 1])), None)
+        if first is None:
+            return []
+        idx = [first]
+    chosen = set(idx)
+    for i in range(idx[0], idx[-1] + 1):
+        if is_prose(paras[i - 1]):
+            chosen.add(i)
+    i = idx[-1] + 1
+    while i <= n and is_prose(paras[i - 1]):
+        chosen.add(i)
+        i += 1
+    i = idx[0] - 1
+    while i >= 1 and is_prose(paras[i - 1]):
+        chosen.add(i)
+        i -= 1
+    return sorted(chosen)
+
+
+def shown_count(n: int) -> int:
+    """Сколько из n абзацев показать: до трёх — все, дальше ⌈2n/3⌉, но не больше восьми."""
+    if n <= SHOW_WHOLE_UP_TO:
+        return n
+    return min(-(-2 * n // 3), SHOW_MAX_PARAS)
+
+
+def paragraph_rule(items):
+    """Начало списка по правилу абзацев. Работает над списком чего угодно."""
+    items = list(items)
+    return items[:shown_count(len(items))]
+
+
+def card_text(text: str) -> str:
+    """Текст карточки по правилу абзацев из ПОЛНОЙ статьи (без выбора редактора)."""
+    paras = real_paragraphs(text)
+    if not paras:
+        return (text or "").strip()
+    region = article_region(paras)
+    if not region:                       # связного текста нет — отдаём как есть
+        return (text or "").strip()
+    return "\n\n".join(paras[i - 1] for i in paragraph_rule(region))
+
+
+_NUM = re.compile(r"\d+(?:[.,]\d+)?")
+
+
+def _numbers(text: str) -> set:
+    return {m for m in _NUM.findall(text or "") if len(m) >= 2}
+
+
+def compose_card(paras, picks=()):
+    """Состав карточки: ИИ компонует по смыслу, код держит рамку (09.10.2026).
+
+    Владелец: «ИИ подключал, чтобы он подходил осмысленно, а не кромсал по
+    правилам». Поэтому правило абзацев задаёт только РАМКУ, а какие абзацы войдут
+    внутри неё — выбирает редактор (picks): отсекает «воду», оставляет суть.
+    Абзацы дословные, ничего не переписывается и не пересказывается.
+
+    Сколько абзацев оставить — решает ИИ, прогрессии нет (владелец, 09.10.2026:
+    «в статьях более 3 абзацев ИИ сам выбирает абзацы, которые даст дословно, а
+    не по прогрессии»). Пропорция ⌈2n/3⌉ (shown_count) остаётся ТОЛЬКО запасным
+    путём, когда ИИ не ответил.
+
+    Замки (то, что машина проверяет, а не ИИ):
+      · статья из ≤3 абзацев — целиком, ИИ её не кромсает;
+      · последний абзац статьи не берётся никогда;
+      · не больше SHOW_MAX_PARAS (8) и не больше n−1; не меньше трёх — глубже воду не режем;
+      · заход (первый абзац) остаётся всегда;
+      · абзац внутри выбранного отрезка, в котором есть число, которого нет в
+        остальном тексте, не теряется (Sputnik KG, 06.10: «второстепенный» абзац
+        оказался абзацем с главными цифрами — это был брак);
+      · ИИ не выбрал ничего годного — механический каркас paragraph_rule.
+    → номера абзацев (с 1) по порядку.
+    """
+    region = article_region(paras, picks)
+    if not region:
+        return []
+    n = len(region)
+    if n <= SHOW_WHOLE_UP_TO:
+        return region
+    k = min(SHOW_MAX_PARAS, n - 1)
+    allowed = region[:-1]
+    ai = [i for i in sorted(set(picks)) if i in allowed]
+    if not ai:
+        return paragraph_rule(region)
+    ordered = [region[0]]                              # заход
+    keep = {region[0], *ai}
+    # потерянные числа внутри выбранного отрезка
+    lo, hi = min(keep), max(keep)
+    seen = _numbers(" ".join(paras[i - 1] for i in keep))
+    evidence = []
+    for j in allowed:
+        if lo <= j <= hi and j not in keep:
+            nums = _numbers(paras[j - 1])
+            if nums - seen:
+                evidence.append(j)
+                seen |= nums
+    ordered += evidence + [i for i in ai if i not in ordered]
+    # нижняя планка: не режем глубже трёх — добираем следующие по порядку
+    floor = min(k, SHOW_WHOLE_UP_TO)
+    for j in allowed:
+        if len(ordered) >= floor:
+            break
+        if j not in ordered:
+            ordered.append(j)
+    return sorted(ordered[:k])

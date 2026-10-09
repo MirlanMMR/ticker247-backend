@@ -21,15 +21,18 @@ EDITOR.md.
 """
 import json
 import re
+
+import textcut as TC
 from urllib.parse import urlsplit
 
 from bs4 import BeautifulSoup
 
-EDITOR_VERSION = 2
+EDITOR_VERSION = 3          # 3: компоновка по правилу абзацев (09.10.2026) — вердикты v2 выбирали «суть в 2–4 абзацах»
 BATCH = 6                 # карточек в одном запросе
 # 5000 → 2800 знаков (25.09.2026): редактор ел 46% расхода ИИ, в основном
-# входящими — полным текстом статей. Суть почти всегда в начале; выбор
-# абзацев остаётся. Жизненно важное всё равно выходит целиком (_full)
+# входящими — полным текстом статей. С 09.10.2026 окно режется ЦЕЛЫМИ абзацами
+# (не посреди), а редактор компонует текст сам — ему нужно видеть достаточно, чтобы
+# отличить суть от «воды». Жизненно важное выходит целиком (_full)
 MAX_PARAS = 10
 MAX_TEXT = 2800
 MAX_PHOTOS = 6
@@ -49,19 +52,20 @@ _SENT = re.compile(r"(?<=[.!?…»\"])\s+(?=[A-ZА-ЯЁÀ-Ý«\"\d])")
 # ─── Досье ────────────────────────────────────────────────────────────────
 
 def split_paragraphs(text: str):
-    """Абзацы статьи. Один длинный кусок режем по два предложения — иначе
-    редактору нечего выбирать, кроме «всё или ничего»."""
-    text = (text or "").strip()[:MAX_TEXT]
-    paras = [p.strip() for p in re.split(r"\n\s*\n|\n", text) if p.strip()]
-    out = []
+    """Окно статьи для редактора: НАСТОЯЩИЕ абзацы, целиком, с начала, пока не
+    наберётся ~MAX_TEXT знаков (первый берётся всегда). Нумерация совпадает с
+    началом полного списка абзацев (textcut.real_paragraphs), поэтому выбор
+    редактора можно применить к целой статье. До 09.10.2026 длинный абзац
+    делился по два предложения, а текст резался по знакам посреди абзаца —
+    номера перестали соответствовать странице."""
+    paras = TC.real_paragraphs(text)
+    out, total = [], 0
     for p in paras:
-        if len(p) > 700:
-            sents = _SENT.split(p)
-            for i in range(0, len(sents), 2):
-                out.append(" ".join(sents[i:i + 2]).strip())
-        else:
-            out.append(p)
-    return [p for p in out if p][:MAX_PARAS]
+        if out and (total + len(p) > MAX_TEXT or len(out) >= MAX_PARAS):
+            break
+        out.append(p)
+        total += len(p)
+    return out
 
 
 def _links_elsewhere(img, page_url: str) -> bool:
@@ -149,6 +153,15 @@ def card_block(n: int, item: dict, paras, photos) -> str:
              f"Заголовок: {item.get('title', '')}",
              "Текст:"]
     lines += [f"[{i}] {p}" for i, p in enumerate(paras, 1)] or ["(текста нет)"]
+    # рамка компоновки: сколько абзацев в статье и сколько можно оставить
+    full = TC.real_paragraphs(item.get("_full") or "")
+    total = len(TC.article_region(full)) if full else len(paras)
+    if total > TC.SHOW_WHOLE_UP_TO:
+        shown = f"; ты видишь первые {len(paras)}" if len(paras) < len(full) else ""
+        lines.append(f"Абзацев в статье: {total}{shown}. Выбери по смыслу, какие дать дословно "
+                     f"(не больше {min(TC.SHOW_MAX_PARAS, total - 1)}; последний абзац не берём никогда).")
+    elif total:
+        lines.append(f"Абзацев в статье: {total} — короткая, целиком (`paragraphs` можно не заполнять).")
     lines.append("Снимки:")
     if photos:
         for i, ph in enumerate(photos, 1):
@@ -366,7 +379,18 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
         return False, x, [f"снято: {reason}"]
     # текст — выбранные абзацы дословно
     idx = [i for i in v.get("paragraphs") or [] if isinstance(i, int) and 1 <= i <= len(paras)]
-    idx = fill_selection(sorted(set(idx)), paras)
+    # ПРАВИЛО АБЗАЦЕВ (09.10.2026, textcut.compose_card): редактор КОМПОНУЕТ
+    # текст по смыслу (какие абзацы дать дословно — решает он, без прогрессии), а
+    # код держит замки: до трёх абзацев целиком, последний не берётся, не больше
+    # восьми, заход и абзацы с потерянными цифрами остаются. Окно редактора — начало тех же абзацев, поэтому
+    # номера применимы. Нет целой статьи — прежний путь со лимитом по знакам
+    full = TC.real_paragraphs(item.get("_full") or "")
+    whole = bool(full) and bool(paras) and list(paras) == full[:len(paras)]
+    if whole:
+        paras = full
+        idx = TC.compose_card(paras, idx)
+    else:
+        idx = fill_selection(sorted(set(idx)), paras)
     if idx and paras:
         body = "\n\n".join(paras[i - 1] for i in idx)
         # Первый выбранный абзац — продолжение оборванной строки: заголовок на

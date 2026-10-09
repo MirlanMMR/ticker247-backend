@@ -157,6 +157,7 @@ jobs:
           python test_trim.py
           python test_enrich_rule.py
           python test_strip_tail.py
+          python test_paragraph_rule.py
           python test_extract.py
           python test_storydedup.py
           python test_feed_gate.py

@@ -16,6 +16,7 @@ from feed_gate import (drop_family_repeats, gate as feed_gate, same_event,
                        regions_agree, pick_regionals)
 from live_identity import verdict as identity_verdict
 from textcut import (display_source, lead, trim_to_boundary, wants_page_body,
+                     card_text, cap_article,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
                      final_start_guard, final_end_guard, final_title_guard, strip_known_stubs,
                      drop_stub_summaries, drop_foreign_script, has_foreign_script, is_stub_summary)
@@ -2398,7 +2399,8 @@ def _is_sidebar_table(rows: list) -> bool:
     return money >= 2
 
 
-PAGE_BODY_LIMIT = 1300   # полторы страницы читалки — столько человек
+ARTICLE_FULL = {}        # адрес → ПОЛНАЯ статья этого прогона (правило абзацев, журнал J29)
+PAGE_BODY_LIMIT = 1300   # рабочая копия для ИИ и перевода; на карточку НЕ влияет. Было: полторы страницы читалки — столько человек
                          # проглядывает без утомительной прокрутки
 
 
@@ -2520,11 +2522,16 @@ def _body_from_html(html: bytes, url: str) -> str:
                 print(f"  · Разбор не дался [{url[:48]}]: {'; '.join(res.notes[-2:])}")
             return ""
 
+        # ПОЛНАЯ статья — для карточки: правило абзацев (textcut.card_text)
+        # считает «последний абзац» только по целой статье. Обрезка здесь —
+        # лишь рабочая копия для ИИ и перевода (их стоимость растёт с длиной)
+        ARTICLE_FULL[url] = cap_article(strip_tail(res.text))
         body = strip_tail(trim_to_boundary(res.text, PAGE_BODY_LIMIT,
                                             max_extra_sentences=3))
         if _looks_mangled(body):
             fixed = _ai_rescue_body(url, body, soup)
             if fixed:
+                ARTICLE_FULL[url] = fixed
                 return fixed
         return body
     except Exception:
@@ -2565,7 +2572,7 @@ def _page_body_legacy(url: str) -> str:
         if _looks_blocked(body):
             return ""
         if len(body) >= 200:
-            body = trim_to_boundary(body, PAGE_BODY_LIMIT, max_extra_sentences=3)
+            body = cap_article(body)
             body = strip_tail(body)
             if _looks_mangled(body):
                 fixed = _ai_rescue_body(url, body, soup)
@@ -2672,7 +2679,7 @@ def _page_body_legacy(url: str) -> str:
                 if len(body) >= 200:
                     break
 
-        body = trim_to_boundary(body, PAGE_BODY_LIMIT, max_extra_sentences=3)
+        body = cap_article(body)
         body = strip_tail(body)
 
         # Последний рубеж: машина сама признаётся, что потеряла смысл
@@ -2992,6 +2999,7 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16, annotatio
             # на 114 (событие названо, всё сказано). Резать по длине — значит
             # выбросить вторую вместе с первой.
             item["fromPage"] = True
+            item["_article"] = ARTICLE_FULL.get(item["url"]) or body
             by_url[item["url"]] = body
             done += 1
     # Копии той же статьи в списке получают тот же текст
@@ -2999,6 +3007,7 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16, annotatio
         b = by_url.get(item.get("url"))
         if b and len(item.get("summary", "")) < (len(b) if annotations_too else min_len):
             item["summary"] = b
+            item["_article"] = ARTICLE_FULL.get(item.get("url")) or b
     print(f"  📄 Дотянуто текстом со страницы: {done} из {len(targets)}")
 
 
@@ -8038,8 +8047,8 @@ def _prepare_reserve(cands, lang):
         translate_batch(need[j:j + 10], lang)
     ready = [x for x in cands if not needs_translation(x, lang)]
     for x in ready:
-        x["_full"] = x.get("summary", "")
-        x["summary"] = lead(polish_summary(x.get("summary", "")))
+        x["_full"] = x.get("_article") or x.get("summary", "")
+        x["summary"] = card_text(polish_summary(x["_full"]))
     return ready
 
 
@@ -9458,11 +9467,11 @@ def main():
         for _x in filtered:
             # Полный текст — выпускающему редактору (editor.py): он сам выбирает
             # абзацы. Перед записью в базу поле убирается
-            _x["_full"] = _x.get("summary", "")
+            _x["_full"] = _x.get("_article") or _x.get("summary", "")
             smart = None
             if EDITOR_MODE == "live":
                 # Редактор выберет абзацы сам — не платим за обрезку дважды
-                _x["summary"] = lead(polish_summary(_x.get("summary", "")))
+                _x["summary"] = card_text(polish_summary(_x["_full"]))
                 continue
             if lang == "ru":
                 smart = smart_trim(_x)
@@ -9470,7 +9479,7 @@ def main():
                 _x["summary"] = smart
                 trimmed_by_ai += 1
             else:
-                _x["summary"] = lead(polish_summary(_x.get("summary", "")))
+                _x["summary"] = card_text(polish_summary(_x["_full"]))
         if trimmed_by_ai:
             print(f"  ✂️ [{lang}] ИИ-обрезка: {trimmed_by_ai} из {len(filtered)}")
         filtered = quality_gate(filtered, lang)

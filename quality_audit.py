@@ -7,8 +7,8 @@
   · neg    — заголовок потерял или добавил отрицание («так и не нашли» → «так и
              нашли»). Сравнивается только если заголовок страницы на том же
              алфавите, что карточка (переведённые заголовки не сверить по словам)
-  · short  — текст карточки короче половины того, что мы вправе показать
-             (min(страница, KEEP_LIMIT)), хотя на странице материал ≥ 900 знаков
+  · short  — текст карточки короче половины того, что даёт правило абзацев
+             (textcut.card_text: до трёх абзацев целиком, больше — без последнего)
   · credit — вместо текста подпись к фото или служебная строка
   · lang   — родной язык (ky/kk/uz/tg) с чужой пометкой языка (ru)
   · scope  — своя новость пула лежит в «Мировых» (страна карточки = дом пула,
@@ -40,7 +40,7 @@ from editions import EDITION_LANG
 from native_lang import detect_native
 from shelves import verdict as shelf_verdict, pool_shelf_fix, world_to_home_fix
 from twins import drop_twins
-from textcut import ends_inside_quote, first_sentence_title
+from textcut import ends_inside_quote, first_sentence_title, card_text
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
 KEEP_LIMIT = 1300
@@ -93,9 +93,13 @@ def check(x, pool="ru"):
         body = res.text if res.ok() else ""
     except Exception:
         body = ""
-    have, page_len = len(x.get("summary", "")), len(body)
-    if page_len >= 900 and have < 0.5 * min(page_len, KEEP_LIMIT):
-        flaws["short"] = [have, page_len]
+    # «Коротко» по правилу абзацев (textcut.card_text, решение владельца 09.10.2026):
+    # ожидаемый текст — до трёх абзацев целиком, больше — без последнего. Числа знаков
+    # (1300 и др.) мерой больше не служат; половина ожидаемого — запас на чистку подписей
+    have, expected = len(x.get("summary", "")), len(card_text(body))
+    page_len = len(body)
+    if expected >= 300 and have < 0.5 * expected:
+        flaws["short"] = [have, expected]
     if pool_shelf_fix(x, pool_space(pool) | {HOME[pool]}) == "world":
         flaws["region"] = True          # «Новости из…» с мировым или не из пула
     if ends_inside_quote(x.get("summary", "").rstrip()):
