@@ -1,0 +1,31 @@
+name: Eval translation
+
+# Ручной запуск (09.10.2026): сравнение вариантов перевода на настоящих карточках —
+# промпт версий 1 и 2, основная модель и gemini-2.5-flash. Ленту и базу не трогает,
+# стоит несколько центов. Вход: пул (ru по умолчанию) и число карточек.
+on:
+  workflow_dispatch:
+    inputs:
+      pool:
+        description: "Пул, чьи переведённые карточки берём (ru, en, es, pt, fr)"
+        default: "ru"
+      limit:
+        description: "Сколько карточек"
+        default: "14"
+
+permissions:
+  contents: read
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Сравнение переводов
+        run: python eval_translation.py "${{ inputs.pool }}" "${{ inputs.limit }}"
