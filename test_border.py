@@ -25,6 +25,13 @@ bad = {
     "J8": dict(scope="world", title="t", summary="Автор фото, Getty Images. Текст."),
     "J9": dict(scope="world", title="t", summary="гектаров. По данным ведомства, лес горел. " * 5),
 }
+bad_es = {
+    "J32": dict(scope="world", country="RU", region="RU-PSK", event_where="US", scale="local",
+                title="Travis Barker ha sido hospitalizado", summary="x", translated=True),
+}
+for code, item in bad_es.items():
+    found, _ = run([item], lang="es")
+    check(f"{code} опознан (es)", len(found.get(code, [])) == 1)
 for code, item in bad.items():
     found, _ = run([item])
     check(f"{code} опознан", len(found.get(code, [])) == 1)
