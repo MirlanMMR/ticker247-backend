@@ -197,3 +197,13 @@ check("обычная карточка по «нет события» снима
 
 print(f"пройдено {passed}, провалено {failed}")
 sys.exit(1 if failed else 0)
+
+# ── тон зависит от потока (09.10.2026): в EDITOR.md правило «сухие факты» только для ru/en/fr/pt,
+#    для es — человеческая история остаётся; в карточке указан поток ──
+_md = open("EDITOR.md", encoding="utf-8").read()
+check("EDITOR.md: тон зависит от потока", "Тон зависит от потока" in _md)
+check("EDITOR.md: сухие факты — ru, en, fr", "ru, en, fr — сухие факты" in _md)
+check("EDITOR.md: pt не в списке «сухих»", "ru, en, fr, pt — сухие" not in _md)
+check("EDITOR.md: для es и pt человеческая история остаётся", "es и pt — человеческая история остаётся" in _md)
+check("шапка потока называет язык (на него ссылается правило)", "Поток: es" in ED.pool_header("es", "MX", "испанский"))
+check("шапка потока называет pt", "Поток: pt" in ED.pool_header("pt", "BR", "португальский"))
