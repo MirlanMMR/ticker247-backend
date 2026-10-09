@@ -32,6 +32,9 @@ check("штат США в испанском — свой (испанский д
 check("штат США в русском пуле — чужой", foreign_region({"region": "US-TX"}, RU, "ru"))
 check("штат США в португальском — чужой", foreign_region({"region": "US-TX"}, {"PT", "BR"}, "pt"))
 check("нет региона — не трогаем", not foreign_region({}, ES, "es") and not foreign_region({"region": ""}, ES, "es"))
+check("14.ru — Якутск без поля region — областная Россия, в es чужая", foreign_region({"source": "14.ru — Якутск"}, ES, "es"))
+check("14.ru — Якутск без поля region в русском пуле — своя", not foreign_region({"source": "14.ru — Якутск"}, RU, "ru"))
+check("федеральная iXBT/РИА без региона не трогаем", not foreign_region({"source": "iXBT"}, ES, "es") and not foreign_region({"source": "РИА Новости"}, ES, "es"))
 check("мост не режется регионом", not foreign_region({"region": "RU-PSK", "bridge": True}, ES, "es"))
 # любая страна, любая область — класс, а не случай
 for reg in ("DE-BY", "FR-IDF", "JP-13", "IN-MH", "BR-PR"):

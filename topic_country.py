@@ -173,9 +173,17 @@ def final_local_foreign_guard(items, lang, space, home):
 REGION_EXTRA = {"es": {"US"}}      # испанский для штатов США (выпуск 47): US — свои
 
 
+_REGIONAL_NAME = re.compile(r"^\S+\.ru\s+[—–-]\s+\S")     # «14.ru — Якутск», «e1.ru — Екатеринбург»
+
+
 def region_country(item):
+    """Страна области. Поле region у части карточек теряется по дороге (14.ru — Якутск:
+    у одной из трёх есть RU-SA, у двух нет, 09.10.2026), поэтому запасной признак — имя
+    издания: «N.ru — Город» — это областная газета России."""
     r = (item.get("region") or "").strip()
-    return r.split("-")[0].upper() if r else ""
+    if r:
+        return r.split("-")[0].upper()
+    return "RU" if _REGIONAL_NAME.match(item.get("source") or "") else ""
 
 
 def foreign_region(item, space, lang=""):
