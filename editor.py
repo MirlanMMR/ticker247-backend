@@ -158,8 +158,8 @@ def card_block(n: int, item: dict, paras, photos) -> str:
     total = len(TC.article_region(full)) if full else len(paras)
     if total > TC.SHOW_WHOLE_UP_TO:
         shown = f"; ты видишь первые {len(paras)}" if len(paras) < len(full) else ""
-        lines.append(f"Абзацев в статье: {total}{shown}. Оставь не больше {TC.shown_count(total)} "
-                     f"(последний абзац не берём никогда).")
+        lines.append(f"Абзацев в статье: {total}{shown}. Выбери по смыслу, какие дать дословно "
+                     f"(не больше {min(TC.SHOW_MAX_PARAS, total - 1)}; последний абзац не берём никогда).")
     elif total:
         lines.append(f"Абзацев в статье: {total} — короткая, целиком (`paragraphs` можно не заполнять).")
     lines.append("Снимки:")
@@ -380,9 +380,9 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
     # текст — выбранные абзацы дословно
     idx = [i for i in v.get("paragraphs") or [] if isinstance(i, int) and 1 <= i <= len(paras)]
     # ПРАВИЛО АБЗАЦЕВ (09.10.2026, textcut.compose_card): редактор КОМПОНУЕТ
-    # текст по смыслу (отсекает «воду»), а код держит рамку и замки: до трёх
-    # абзацев целиком, последний не берётся, не больше ⌈2n/3⌉ (до 8), заход и
-    # абзацы с потерянными цифрами остаются. Окно редактора — начало тех же абзацев, поэтому
+    # текст по смыслу (какие абзацы дать дословно — решает он, без прогрессии), а
+    # код держит замки: до трёх абзацев целиком, последний не берётся, не больше
+    # восьми, заход и абзацы с потерянными цифрами остаются. Окно редактора — начало тех же абзацев, поэтому
     # номера применимы. Нет целой статьи — прежний путь со лимитом по знакам
     full = TC.real_paragraphs(item.get("_full") or "")
     whole = bool(full) and bool(paras) and list(paras) == full[:len(paras)]
