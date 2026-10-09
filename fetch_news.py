@@ -6742,6 +6742,7 @@ from storydedup import same_story as _same_story
 from storydedup import reviewed_extra_urls as _reviewed_extra_urls
 from storydedup import event_lines as _event_lines, EVENT_SUMMARY_CHARS as _EVENT_SUMMARY_CHARS
 from storydedup import pick_group_language as _pick_group_language
+from storydedup import source_voice as _source_voice
 # Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
 # пул — правило и причина в editions.py, проверяется test_editions.py
 from twins import drop_twins
@@ -7181,6 +7182,7 @@ def collapse_same_event(items, lang, stories=None):
                 if keep is None:
                     keep = max(idxs, key=lambda i: (
                         items[i].get("priority", 0),
+                        _source_voice(items[i]),   # при равном приоритете: назван источник — вперёд, голос пресс-службы — назад
                         1 if items[i].get("imageUrl") else 0,
                         len(items[i].get("summary") or ""),
                     ))
@@ -7188,11 +7190,13 @@ def collapse_same_event(items, lang, stories=None):
                 continue
             picked = [max(v, key=lambda i: (
                 items[i].get("priority", 0),
+                _source_voice(items[i]),   # при равном приоритете: назван источник — вперёд, голос пресс-службы — назад
                 1 if items[i].get("imageUrl") else 0,
                 len(items[i].get("summary") or ""),
             )) for v in fams.values()]
             picked.sort(key=lambda i: (
                 items[i].get("priority", 0),
+                _source_voice(items[i]),   # при равном приоритете: назван источник — вперёд, голос пресс-службы — назад
                 1 if items[i].get("imageUrl") else 0,
                 len(items[i].get("summary") or ""),
             ), reverse=True)
@@ -7241,6 +7245,7 @@ def collapse_same_event(items, lang, stories=None):
         pool_members = by_lang.get(target) or idxs
         best = max(pool_members, key=lambda i: (
             items[i].get("priority", 0),
+            _source_voice(items[i]),   # при равном приоритете: назван источник — вперёд, голос пресс-службы — назад
             1 if items[i].get("imageUrl") else 0,
             len(items[i].get("summary") or ""),
         ))
