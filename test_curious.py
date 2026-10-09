@@ -57,5 +57,10 @@ check("NYT interactive — лонгрид", LR({"url": "https://www.nytimes.com/
 check("обычная новость — не лонгрид", LR({"url": "https://www.bbc.com/russian/articles/c933xexyx2k2o"}), False)
 check("слово magazine в домене — не лонгрид", LR({"url": "https://smithsonianmag.com/smart-news/glacier-spoon/"}), False)
 
+check("беглец — не любопытное", CC({"title": "Chef living quietly in San Diego revealed to be violent fugitive on the run"}), False)
+check("похитила собаку — не любопытное", CC({"title": "Cae mujer que secuestró a una perrita en calles de Iztapalapa"}), False)
+check("мошенничество — не любопытное", CC({"title": "Мошенники придумали новую схему обмана пенсионеров"}), False)
+check("кража века — не любопытное", CC({"title": "Кража в музее: у грабителей нашли картину"}), False)
+
 print(f"пройдено {ok}, провалено {fail}")
 sys.exit(1 if fail else 0)

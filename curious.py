@@ -92,6 +92,9 @@ _NOT_CURIOUS = re.compile(
     r"killed|dead|death|murder\w*|crash\w*|fire\b|arrest\w*|trial|"
     r"muert\w*|asesinat\w*|incendio|arresto|morto\w*|assassinat\w*|incêndio|"
     r"mort\b|meurtre|incendie|arrestation|tué\w*|"
+    # криминал: розыск, похищение, кража, мошенничество
+    r"fugitiv\w*|kidnap\w*|secuestr\w*|sequestr\w*|enl[eè]vement|robbery|theft|stolen|robo\b|roubo|"
+    r"похищ\w*|краж\w*|ограбл\w*|мошенн\w*|розыск\w*|разыскива\w*|scam\w*|fraud\w*|fraude|escroc\w*|"
     # новости дня, а не факты: награды, некрологи, законы, предупреждения ведомств, рынки
     r"нобел\w*|премию|премии|умер\w*|скончал\w*|законопроект\w*|закон\b|предупрежд\w*|акции\b|биржа\w*|"
     r"nobel|prize|dies\b|died\b|obituar\w*|\blaw\b|\bbill\b|warns?\b|alert\w*|stock\w*|shares\b|"
