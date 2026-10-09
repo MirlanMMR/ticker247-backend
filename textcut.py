@@ -1007,3 +1007,18 @@ def strip_known_stubs(items, lang=""):
         print(f"  🪧 Известная заглушка издания [{lang}]: снята у {n}")
     return items
 
+
+
+def wants_page_body(item: dict, min_len: int = 400, annotations_too: bool = False) -> bool:
+    """Нужна ли новости дотяжка текста со страницы.
+
+    Правило (09.10.2026, «потолок 600 знаков»): RSS-аннотация — не текст статьи,
+    какой бы длины она ни была. extract_full_summary режет её до 600, а порог
+    «≥400 — уже полный» оставлял зону 400–600 без сверки со страницей навсегда
+    (Knews 544 из 1876, iXBT 449 из 1131, Naked Science 500 из 3899). Для
+    новостей в эфире (annotations_too) дотягивается всё, что не взято со
+    страницы (fromPage), независимо от длины; подменяет страница, лишь когда она
+    заметно длиннее (это проверяет вызывающий)."""
+    if annotations_too:
+        return not item.get("fromPage")
+    return len(item.get("summary", "")) < min_len

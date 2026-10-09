@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 from feed_gate import (drop_family_repeats, gate as feed_gate, same_event,
                        regions_agree, pick_regionals)
 from live_identity import verdict as identity_verdict
-from textcut import (display_source, lead, trim_to_boundary,
+from textcut import (display_source, lead, trim_to_boundary, wants_page_body,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
                      final_start_guard, final_end_guard, final_title_guard, strip_known_stubs,
                      drop_stub_summaries, drop_foreign_script, has_foreign_script, is_stub_summary)
@@ -2856,7 +2856,7 @@ def _share_budget(targets, budget, what=""):
     return picked
 
 
-def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
+def enrich_short_summaries(items, min_len=400, budget=500, workers=16, annotations_too=False):
     """Дотягивает короткие описания текстом со страницы статьи.
 
     Мировые ленты дают одно предложение-затравку, и на экране это выглядит как
@@ -2876,6 +2876,13 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
     Сперва снизили до восьми — сбой стал реже, но причина осталась. Теперь
     разбор вынесен в один поток, и причины нет вовсе.
 
+    annotations_too (09.10.2026): порог min_len считал текст ≥400 знаков «уже
+    полным». Но RSS-аннотацию extract_full_summary режет до 600, и всё, что
+    выходило в 400–600, со страницей не сверялось никогда: Knews 544 из 1876,
+    iXBT 449 из 1131, Naked Science 500 из 3899. С этим флагом дотягивается
+    ВСЁ, что не взято со страницы (fromPage), какой бы длины ни была
+    аннотация; подменяет только страница, заметно длиннее (+80).
+
     Потоки, а не по очереди: раньше бюджет держали крошечным (25),
     потому что каждая страница ждала предыдущую, и короткие новости оставались
     короткими — а эталон качества их потом снимал с эфира. Дотянуть лучше, чем
@@ -2885,7 +2892,7 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
     skipped_live = 0
     for item in items:
         url = item.get("url", "")
-        if len(item.get("summary", "")) >= min_len or not url.startswith("http"):
+        if not url.startswith("http") or not wants_page_body(item, min_len, annotations_too):
             continue
         if "t.me" in url or "telegram." in url or url in seen_urls:
             continue
@@ -2979,10 +2986,9 @@ def enrich_short_summaries(items, min_len=400, budget=500, workers=16):
             done += 1
     # Копии той же статьи в списке получают тот же текст
     for item in items:
-        if len(item.get("summary", "")) < min_len:
-            b = by_url.get(item.get("url"))
-            if b:
-                item["summary"] = b
+        b = by_url.get(item.get("url"))
+        if b and len(item.get("summary", "")) < (len(b) if annotations_too else min_len):
+            item["summary"] = b
     print(f"  📄 Дотянуто текстом со страницы: {done} из {len(targets)}")
 
 
@@ -3115,11 +3121,12 @@ def enrich_feed_bodies(items, lang):
     short = [x for x in items
              if not x.get("translated") and not x.get("fromPage")
              and not str(x.get("url", "")).startswith("https://t.me")]
-    short = [x for x in short if len(x.get("summary") or "") < 400]
+    # Без порога по длине: аннотация на 400–600 знаков — тоже не статья
+    # (см. enrich_short_summaries, annotations_too)
     if not short:
         return
     before = sum(1 for x in short if x.get("fromPage"))
-    enrich_short_summaries(short, budget=len(short))
+    enrich_short_summaries(short, budget=len(short), annotations_too=True)
     got = sum(1 for x in short if x.get("fromPage")) - before
     print(f"  📄 [{lang}] Эфиру дотянуто со страницы: {got} из {len(short)}")
 
