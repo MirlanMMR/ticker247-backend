@@ -1,153 +1,139 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-10-11 16:53 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-10-11 17:55 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [ru]: помечено 123 из 354 за 3 запросов
-  🧭 [ru] после отбора и отсечки полок: всего 80 — местных 30, соседей 16, мира 34; областных 33 в 17 регионах
-  🧭 [ru] после чистки текста: всего 72 — местных 24, соседей 16, мира 32; областных 33 в 17 регионах
-  🧭 [ru] после обзоров прессы: всего 62 — местных 22, соседей 19, мира 21; областных 32 в 17 регионах
-  🧭 [ru] после склейки пересказов: всего 37 — местных 12, соседей 15, мира 10; областных 26 в 16 регионах
-  🧭 [ru] после рубежа: всего 33 — местных 12, соседей 11, мира 10; областных 26 в 16 регионах
+  🧪 Этап 1 (боевой) [pt]: помечено 110 из 431 за 4 запросов
+  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 89 в 30 регионах
+  🧭 [pt] после чистки текста: всего 69 — местных 27, соседей 14, мира 28; областных 89 в 30 регионах
+  🧭 [pt] после обзоров прессы: всего 58 — местных 25, соседей 14, мира 19; областных 54 в 17 регионах
+  🧭 [pt] после склейки пересказов: всего 51 — местных 23, соседей 14, мира 14; областных 50 в 17 регионах
+  🧭 [pt] после рубежа: всего 51 — местных 23, соседей 14, мира 14; областных 49 в 17 регионах
 
-  🗞 Редактор [ru] (В ЭФИРЕ): карточек 59, спрошено 25, вторым 0
-     память не сработала: новая 24, текст вырос 1
-     снято: нет события 6
-     починено: текст сокращён до сути 38, фото заменено 13, нужно другое фото 1
-     🎲 Любопытное [ru] (в полосу «Интересное»): 6
-       🎲 в эфире · [Kaktus.media] В Узбекистане толпы поклонников окружили MrBeast. Возникла давка · https://kaktus.media/doc/554843_v_yzbekistane_tolpy_poklonnikov_okryjili_mrbeast._voznikla_davka.html
-       🎲 в эфире · [Knews.kg] Казахстан и Узбекистан вошли в рейтинг самых влиятельных стран мира · https://knews.kg/2026/10/11/kazahstan-i-uzbekistan-voshli-v-rejting-samyh-vliyatelnyh-stran-mira/
-       🎲 снято · [The Guardian] «Я не хотел писать об этом»: человек, который первым увидел, как шимпанзе ведут гражданскую войну · https://www.theguardian.com/environment/2026/oct/11/chimp-civil-war-john-mitani-chimps-uganda-aoe — авторская колонка/рассказ
-       🎲 в эфире · [93.ru — Краснодар] В Азовском море появился чужеродный краб. Его считают «потенциально опасным» · https://93.ru/text/animals/2026/10/11/76693628/
-       🎲 в эфире · [59.ru — Пермь] Зеленые и розовые всполохи: этой ночью пермяки любовались северным сиянием — фото · https://59.ru/text/gorod/2026/10/11/76693450/
-       🎲 в эфире · [178.ru — Санкт-Петербург] Пьяный водитель пролетел сквозь Триумфальную арку · https://178.ru/text/incidents/2026/10/11/76693716/
-       ✂️ [Knews.kg] Бывшие первый замглавы ГКНБ Авазов и министр здравоохранения — абзацы 3/7
-       ✂️ [Kaktus.media] В Бишкеке вспыхнул пожар в многоэтажном доме (обновлено) — абзацы 3/6; пожар в жилом секторе
-       ✂️ [Kabar.kg] Садыр Жапаров 3 сааттан ашык баткендиктердин көйгөйлөрүн укт — абзацы 4/5; отчет о встрече президента с жителями Баткена
-       ✂️ [Азаттык (кыргызча)] Садыр Жапаров кыргыз-тажик чек арасында демаркация иштери бү — абзацы 4/6; заявление о демаркации границы
-       ✗ нет события: [Knews.kg] 10 октября – Всемирный день против смертной казни — информационный материал, событие отсутствует
-       ✂️ [Kaktus.media] Из Кочкора впервые отправят уголь по железной дороге на бишк — абзацы 4/10
-       ✂️ [Kaktus.media] В Узбекистане толпы поклонников окружили MrBeast. Возникла д — абзацы 7/10
-       ✂️ [Kabar.kg] Баткенде 24 миң пенсионерге ай сайын 2 миң сомдон кенемте тө — абзацы 4/6; выплаты пенсионерам в Баткенской области
-       ✂️ [Sputnik KG] За рубежом растет спрос на женские куртки и пальто из Кыргыз — абзацы 3/4
-       ✂️ [Вечерний Бишкек] Мясо, кредиты и китайские инвесторы: Минсельхоз утвердил мас — абзацы 4/5
-       ✂️ [Азаттык (кыргызча)] "90 пайызы кооптуу аймак". Жер көчкү коркунучунан ондон ашуу — абзацы 7/10
-       ✂️ [Onliner.by] В Могилеве загорелось общежитие. Эвакуировали более 100 чело — абзацы 4/7
-       ✂️ [Kapital.kz] Суд конфисковал в доход государства золотые слитки на 182 мл — абзацы 2/4
-       ✂️ [Knews.kg] Казахстан и Узбекистан вошли в рейтинг самых влиятельных стр — абзацы 3/9
-       ✗ нет события: [iXBT] Samsung готовит Galaxy A58 — прошивка этой модели уже лежит на серверах Samsung — слухи о разработке смартфона
-       ✂️ [iXBT] Три машины — три поломки: у китайского минивэна Maextro V800 — абзацы 3/6
-       🖼 [iXBT] Три машины — три поломки: у китайского минивэна Ma — фото: №3 вместо №1
-       ✂️ [ITC.ua] Военные чипы в вибраторах и секс-игрушках: рф обходит санкци — абзацы 1/10
-       🖼 [ITC.ua] Военные чипы в вибраторах и секс-игрушках: рф обхо — фото: №2 вместо №1
-       ✂️ [Kun.uz] 17-летнюю узбекистанку вернули из Турции после принудительно — абзацы 4/5
-       🖼 [UPI] 12 человек погибли, 300 пострадали при атаке хусит — фото из Йемена, событие в Саудовской Аравии
-       ✂️ [BBC Русская служба] Трамп недоволен ударами Киева по российским НПЗ и считает, ч — абзацы 4/10; убрал воду и экспертов, выбрал фото Трампа
-       🖼 [BBC Русская служба] Трамп недоволен ударами Киева по российским НПЗ и  — фото: №2 вместо №1
-       ✗ нет события: [The Guardian] «Я не хотел писать об этом»: человек, который первым увидел, как шимпанзе ведут гражданску — авторская колонка/рассказ
-       ✗ нет события: [The Guardian] «Я не ожидала, что меня представят каннибалом»: Рейчел Стирлинг о поедании праха своей мат — светская хроника
-       ✂️ [178.ru — Санкт-Петербург] У Джибути затонуло судно с мигрантами: 109 погибших — абзацы 3/5
-       ✂️ [v1.ru — Волгоград] Крупный пожар в Краснооктябрьском районе Волгограда попал на — абзацы 1/6
-       🖼 [v1.ru — Волгоград] Крупный пожар в Краснооктябрьском районе Волгоград — фото: №2 вместо №1
-       ✂️ [76.ru — Ярославль] «Потерял сознание»: посреди матча скончался футболист сборно — абзацы 3/6
-       ✂️ [14.ru — Якутск] Аэропорт Сочи охватил коллапс — десятки рейсов задерживаются — абзацы 7/10
-       ✂️ [29.ru — Архангельск] «Безжалостно воруете наше время!» Видео с пассажирами рейса  — абзацы 3/10
-       ✂️ [59.ru — Пермь] Звездный ведущий Александр Гордон приедет в Пермь: что он ту — абзацы 3/7
-       🖼 [59.ru — Пермь] Звездный ведущий Александр Гордон приедет в Пермь: — фото: №2 вместо №1
-       ✂️ [116.ru — Казань] Под Казанью легковушка слетела с обрыва в реку. Утонули двое — абзацы 3/5
-       🖼 [116.ru — Казань] Под Казанью легковушка слетела с обрыва в реку. Ут — фото: №2 вместо №1
-       ✂️ [86.ru — Ханты-Мансийск] В Югре за несвоевренное устранение дефектов в домах для пере — абзацы 5/7
-       ✂️ [72.ru — Тюмень] Сокращают рабочую неделю и увольняют сотрудников. На «Заводе — абзацы 5/9; убрал последний абзац-справку
-       ✂️ [161.ru — Ростов-на-Дону] Ростов, как самочувствие? Магнитная буря продержится до 12 о — абзацы 3/4
-       🖼 [62.ru — Рязань] Огонь повредил 70 кв. метров: пожар в жилом доме в — фото: №2 вместо №1
-       ✂️ [63.ru — Самара] В Самаре назначили главу контрольно-счетной палаты — абзацы 3/4
-       ✂️ [60.ru — Псков] Пскович отдал мошенникам более 7,5 млн рублей — абзацы 3/4
-       ✗ нет события: [e1.ru — Екатеринбург] «Тяжесть последствий еще предстоит осознать». Журналист E1.RU — о глобальном сбое интернет — авторская колонка
-       ✂️ [76.ru — Ярославль] «Спасайте вещи»: в Ярославле мощно затопило подвал новострой — абзацы 4/6
-       🖼 [76.ru — Ярославль] «Спасайте вещи»: в Ярославле мощно затопило подвал — фото: №2 вместо №1
-       ✂️ [14.ru — Якутск] «Я гол как сокол». Перед смертью Кашпировский признался в бо — абзацы 8/18
-       🖼 [14.ru — Якутск] «Я гол как сокол». Перед смертью Кашпировский приз — фото: №2 вместо №1
-       ✂️ [116.ru — Казань] «Гордимся и болеем за Арину»: вокалистка из Нижнекамска прош — абзацы 3/4
-       ✂️ [72.ru — Тюмень] «Дети сломали ему челюсть»: из-за драк и травм у воспитанник — абзацы 7/11
-       🖼 [72.ru — Тюмень] «Дети сломали ему челюсть»: из-за драк и травм у в — фото: №2 вместо №1
-       ✂️ [178.ru — Санкт-Петербург] Яндекс восстановил работу после атаки БПЛА — абзацы 4/5
-       ✂️ [14.ru — Якутск] Якутяне с диабетом могут получить глюкометры бесплатно — абзацы 4/5
-       ✂️ [59.ru — Пермь] Зеленые и розовые всполохи: этой ночью пермяки любовались се — абзацы 6/8
-       🖼 [59.ru — Пермь] Зеленые и розовые всполохи: этой ночью пермяки люб — фото: №2 вместо №1
-       ✂️ [178.ru — Санкт-Петербург] Пьяный водитель пролетел сквозь Триумфальную арку — абзацы 4/5
-       ✂️ [e1.ru — Екатеринбург] Уральский рэпер, известный по совместным трекам с Валерией и — абзацы 3/9; убрал биографию и переходы на другие статьи
-       🖼 [e1.ru — Екатеринбург] Уральский рэпер, известный по совместным трекам с  — фото: №2 вместо №1
-       ✗ нет события: [178.ru — Санкт-Петербург] Дмитриев предложил Маску строить тоннель Россия — предложение-пожелание без реальных действий
-     лента: было 59, снято 6, добрано до полной 41, стало 94; фото: взято у соседа 0, убрано чужих 1
-     💰 редактор: $0.0173
-  🧭 [ru] после редактора (в эфир): всего 67 — местных 11, соседей 13, мира 43; областных 23 в 15 регионах
-  🧪 Этап 1 (боевой) [fr]: помечено 109 из 406 за 4 запросов
-  🧭 [fr] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 41 в 19 регионах
-  🧭 [fr] после чистки текста: всего 69 — местных 27, соседей 14, мира 28; областных 41 в 19 регионах
-  🧭 [fr] после обзоров прессы: всего 61 — местных 25, соседей 14, мира 22; областных 13 в 10 регионах
-  🧭 [fr] после склейки пересказов: всего 42 — местных 18, соседей 13, мира 11; областных 11 в 9 регионах
-  🧭 [fr] после рубежа: всего 39 — местных 18, соседей 12, мира 9; областных 11 в 9 регионах
+  🗞 Редактор [pt] (В ЭФИРЕ): карточек 100, спрошено 86, вторым 0
+     память не сработала: новая 82, текст стал короче 3, текст вырос 1
+     снято: нет события 8, анонс без сути 1, реклама 1
+     починено: текст сокращён до сути 66, фото заменено 29, нужно другое фото 1
+     🎲 Любопытное [pt] (в полосу «Интересное»): 2
+       🎲 в эфире · [Folha de S.Paulo] Bill Gates alerta que IA sem regulação amplia risco de ciberataques · https://redir.folha.com.br/redir/online/emcimadahora/rss091/*https://c-level.folha.uol.com.br/negocios/2026/10/bill-gates-alerta-que-ia-sem-regulacao-amplia-risco-de-ciberataques.shtml
+       🎲 снято · [G1 Globo] Sua mulher foi levada por tsunami e ele passou anos mergulhando para estar perto dela · https://g1.globo.com/mundo/noticia/2026/10/11/sua-mulher-foi-levada-por-tsunami-e-ele-passou-anos-mergulhando-para-estar-perto-dela.ghtml — история 13-летней давности, нет повода
+       ✂️ [Estadão] O que se sabe sobre a invasão de creche em Curitiba com 13 c — абзацы 1/15; убран лишний повтор заголовка в тексте
+       ✗ нет события: [G1 Globo] Fiuk anuncia expansão de empresa de venda de carros após relatar crise financeira — бизнес-заметка о расширении офиса
+       🖼 [G1 Globo] Ponto de ônibus é alvo de vandalismo em avenida de — фото: №2 вместо №1
+       ✂️ [G1 Globo] Policial réu por matar ex-namorado durante briga vai a júri  — абзацы 3/26; убраны абзацы с подробностями следствия
+       ✂️ [G1 Globo] Campina Grande, 162 anos: crescimento da cidade aumenta desa — абзацы 3/9; убрана общая аналитика в последнем абзаце
+       ✂️ [G1 Globo] Flávio Bolsonaro se reúne com prefeitos de SP e orienta camp — абзацы 4/12
+       ✂️ [G1 Globo] Ossada humana é encontrada em terreno no PI; homem desaparec — абзацы 4/5
+       ✂️ [Folha de S.Paulo] Corinthians anuncia Shopee como patrocinador master até o fi — абзацы 3/6
+       ✂️ [Folha de S.Paulo] Musical sobre Paulo Gustavo completa o que a Covid cortou, d — абзацы 4/6
+       ✂️ [Folha de S.Paulo] Bill Gates alerta que IA sem regulação amplia risco de ciber — абзацы 3/4
+       ✂️ [Folha de S.Paulo] Deputada que fez campanha de tornozeleira é indiciada pela P — абзацы 6/17
+       ✂️ [CNN Brasil] Governança também é para PME e começa antes da crise — абзацы 7/18
+       ✂️ [CNN Brasil] Veja detalhes do contrato de Seedorf, novo treinador do Cori — абзацы 3/10
+       ✂️ [Agência Brasil] Governo ajudou assim que Amazonas decretou emergência, diz m — абзацы 3/11
+       ✂️ [Agência Brasil] TSE atende Flávio e manda suspender canal do whatsapp Exérci — абзацы 3/5
+       ✂️ [Agência Brasil] Meta alega "problemas técnicos" para menor alcance de Lula n — абзацы 3/6
+       ✂️ [Agência Brasil] Kassio atende Flávio e suspende propaganda do PT que cita ca — абзацы 3/4
+       ✂️ [Estadão] Ex-militar russo condenado à prisão perpétua é preso em Salv — абзацы 3/4; выбраны суть и подробности операции
+       ✂️ [Estadão] Queimadas no Amazonas quase quadruplicam e fumaça cobre Mana — абзацы 6/24
+       ✂️ [Estadão] ‘Não poderia ter acontecido’, diz idosa que teve prótese imp — абзацы 3/15; суть инцидента с операцией
+       ✂️ [Metrópoles] Em nova ofensiva, Lula compara tesouraço de Flávio com o de  — абзацы 3/5
+       ✂️ [BBC Brasil] Os milionários de origem cubana que se preparam em Miami par — абзацы 8/54
+       ✂️ [Observador PT] BES. Defesa queria ouvir 358 testemunhas. Juíza recusa — абзацы 3/16
+       ✂️ [Observador PT] Bananas, olés, três golos, a sexta vitória: a reação do City — абзацы 4/12; выбраны абзацы с сутью ситуации вокруг City
+       ✂️ [Notícias ao Minuto] "Quase um jogador novo". Jota voltou a jogar 553 dias depois — абзацы 3/5; убраны 2, 5; выбрана суть возвращения игрока
+       ✂️ [Notícias ao Minuto] Expulsão desbloqueou. Manchester City finta polémica e vence — абзацы 7/10; убран 3 (детали матча); оставлены факты
+       ✂️ [Notícias ao Minuto] Mais de 50 pessoas acampam no Porto pelo direito à habitação — абзацы 8/15; убран 9 (история одного участника)
+       ✂️ [RTP Notícias] Superbikes: Miguel Oliveira oitavo no Estoril em nova vitóri — абзацы 8/14; убран 1 (повтор), 2 (анонс); убран 10 (последний)
+       ✗ анонс без сути: [RTP Notícias] I Liga. Benfica-Vitória (1-0) — одна фраза, нет развернутого события
+       ✂️ [ECO] Seguro de saúde influencia cada vez mais a escolha do empreg — абзацы 4/11; убрал воду и призывы к подписке
+       ✂️ [ECO] Aon Portugal reforça área de Credit Solutions com nomeação d — абзацы 4/10; убрал воду и призывы к подписке
+       ✗ нет события: [G1 Globo] Sua mulher foi levada por tsunami e ele passou anos mergulhando para estar perto dela — история 13-летней давности, нет повода
+       ✂️ [Notícias ao Minuto] Macron apoia "trégua energética genuína" e continua "ao lado — абзацы 3/24
+       ✂️ [Notícias ao Minuto] Von der Leyen apoia Zelensky após críticas de Trump: "Luta p — абзацы 3/11
+       🖼 [Guardian Sport] Max Verstappen resiste à pressão de Leclerc e conq — фото: №2 вместо №1
+       ✗ реклама: [TechCrunch] Efferon busca erradicar o impacto devastador da sepse pediátrica — продвижение стартапа с конференции
+       ✗ нет события: [Wired] Por dentro da 'manosfera' muçulmana que patrulha mulheres online — обзор ситуации, нет повода
+       ✗ нет события: [Variety] Espanha leva dramas e formatos de reality para o Mipcom com elenco de destaque — анонс контента для индустрии
+       🖼 [G1 Rio] Tiroteio entre policiais deixa um PM do Bope morto — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] PMs matam com 27 tiros jovem que teve celular confundido com — абзацы 5/25
+       🖼 [G1 São Paulo] PMs matam com 27 tiros jovem que teve celular conf — фото: №2 вместо №1
+       ✂️ [G1 Pernambuco] Acidente entre carro e VLT deixa motorista morto e mulher fe — абзацы 6/15; убрал хвост, выбрал подходящий снимок
+       🖼 [G1 Pernambuco] Acidente entre carro e VLT deixa motorista morto e — фото: №2 вместо №1
+       ✂️ [G1 Santa Catarina] Caminhão com 3 mil litros de leite cai em rio, e motorista s — абзацы 5/6
+       🖼 [G1 Santa Catarina] Caminhão com 3 mil litros de leite cai em rio, e m — фото: №2 вместо №1
+       ✂️ [G1 Bahia] Incêndio atinge área com ambulâncias do Samu em Salvador — абзацы 3/5
+       🖼 [G1 Bahia] Incêndio atinge área com ambulâncias do Samu em Sa — фото: №2 вместо №1
+       🖼 [76.ru] Jogador da seleção da região de Yaroslavl morre du — фото: №2 вместо №1
+       ✂️ [Gazeta do Povo] Em evento evangélico, Flávio Bolsonaro diz que Brasil enfren — абзацы 6/7
+       🖼 [Gazeta do Povo] Em evento evangélico, Flávio Bolsonaro diz que Bra — фото: №3 вместо №1
+       ✂️ [G1 Ceará] Esquema que desviou milhões da saúde no Ceará usava mais de  — абзацы 7/20
+       🖼 [G1 Ceará] Esquema que desviou milhões da saúde no Ceará usav — фото: №2 вместо №1
+       ✂️ [G1 Rio Grande do Sul] Homem é condenado a 38 anos de prisão por matar prefeito de  — абзацы 6/11
+       🖼 [G1 Rio Grande do Sul] Homem é condenado a 38 anos de prisão por matar pr — фото: №2 вместо №1
+       ✂️ [G1 Minas] Lula se manifesta após queda de avião da PM em MG: 'deixo a  — абзацы 3/19; выбрал снимок с подписью
+       🖼 [116.ru] Carro cai de penhasco em rio perto de Kazan, deixa — фото: №2 вместо №1
+       🖼 [86.ru] Ugra aplicará multas por falhas na reparação de ca — фото: №2 вместо №1
+       ✂️ [G1 Distrito Federal] Após Papa anunciar cirurgia, CNBB diz estar em oração: 'conf — абзацы 3/14
+       🖼 [G1 Distrito Federal] Após Papa anunciar cirurgia, CNBB diz estar em ora — фото: №2 вместо №1
+       ✗ нет события: [14.ru] Antes de morrer, Kashpirovsky confessa arrependimento por mudança para os EUA — интервью, нет события
+       ✗ нет события: [178.ru] Estados Unidos abrem mercado para diesel russo — нет конкретного события/даты
+       ✂️ [G1 Rio] Câmara de Japeri cassa mandato da prefeita Fernanda Ontivero — абзацы 3/18; убрал фото с подписью, выбрал суть
+       ✂️ [G1 São Paulo] Lula faz ato na Paulista e pede que eleitores convençam quem — абзацы 8/30
+       ✂️ [G1 Bahia] Entenda as quatro condenações que somam 50 anos de prisão pa — абзацы 3/6
+       ✂️ [Gazeta do Povo] Esquema do Master com fundos de pensão renderia R$ 1 bilhão  — абзацы 3/4
+       ✂️ [G1 Rio Grande do Sul] VÍDEO: Incêndio deixa casa completamente destruída em Canoas — абзацы 4/6
+       🖼 [G1 Rio Grande do Sul] VÍDEO: Incêndio deixa casa completamente destruída — фото: №2 вместо №1
+       ✂️ [G1 Minas] VÍDEO: casal é detido com drogas ‘gourmet’ que seriam vendid — абзацы 3/7
+       🖼 [G1 Minas] VÍDEO: casal é detido com drogas ‘gourmet’ que ser — фото: №2 вместо №1
+       🖼 [ngs55.ru] Sobrevivente de incêndio em prédio é liberado de h — фото: №2 вместо №1
+       ✂️ [G1 Distrito Federal] Bancada 100% 'feminina, e não feminista' vai representar o D — абзацы 6/24
+       🖼 [G1 Distrito Federal] Bancada 100% 'feminina, e não feminista' vai repre — фото: №3 вместо №1
+       ✂️ [G1 São Paulo] Força-tarefa de SP embarca para combater incêndios florestai — абзацы 4/10
+       ✂️ [G1 Bahia] Adolescente de 16 anos morre afogado em barragem de Salvador — абзацы 5/14
+       🖼 [G1 Bahia] Adolescente de 16 anos morre afogado em barragem d — фото: №2 вместо №1
+       ✂️ [G1 Paraná] Mega-Sena: bolão e apostas simples feitas no Paraná acertam  — абзацы 1/24
+       ✂️ [G1 Rio Grande do Sul] Famílias deixam suas casas após deslizamento de terra no Int — абзацы 6/9
+       ✗ нет события: [G1 Minas] MG teve 140 acidentes aéreos e 71 mortes em 10 anos, aponta Cenipa — обзор статистики за 10 лет, не новость
+       ✂️ [G1 Distrito Federal] Motorista de aplicativo perde controle do carro e derruba po — абзацы 6/8
+       🖼 [G1 Distrito Federal] Motorista de aplicativo perde controle do carro e  — фото: №3 вместо №1
+       ✂️ [G1 Rio] 'Arruma a novinha', 'zero quilômetro': mensagens revelam esq — абзацы 2/50
+       🖼 [G1 Rio] 'Arruma a novinha', 'zero quilômetro': mensagens r — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Europa identifica laboratórios clandestinos para refino de c — абзацы 3/46
+       🖼 [G1 São Paulo] Europa identifica laboratórios clandestinos para r — фото: №2 вместо №1
+       ✂️ [G1 Paraná] Motorista bêbado em alta velocidade bate em outro carro, cau — абзацы 2/11
+       🖼 [G1 Paraná] Motorista bêbado em alta velocidade bate em outro  — фото: №2 вместо №1
+       ✂️ [G1 Rio Grande do Sul] 'Me olhou e disse: eu matei tua filha', relata mãe de vítima — абзацы 6/16
+       🖼 [G1 Rio Grande do Sul] 'Me olhou e disse: eu matei tua filha', relata mãe — фото: №2 вместо №1
+       ✗ нет события: [chita.ru] Operadores de turismo da Malásia percorrem a "Rota do Guerreiro" no distrito de Aginsky a  — пресс-релиз о турпоездке
+       ✂️ [G1 Rio] Tão perto, mas tão longe: separadas por apenas 30 km, urnas  — абзацы 6/30
+       ✂️ [G1 São Paulo] Val Marchiori é internada em SP após exame apontar alteração — абзацы 5/15; убрал воду, повторы и последний абзац
+       ✂️ [Gazeta do Povo] Bahia, Ceará e Piauí mantêm hegemonia do PT apesar do avanço — абзацы 3/21
+       🖼 [Gazeta do Povo] Bahia, Ceará e Piauí mantêm hegemonia do PT apesar — фото: №3 вместо №1
+       ✂️ [G1 Rio Grande do Sul] MPF cobra na Justiça R$ 541 milhões em reparação da Shell po — абзацы 8/12
+       ✂️ [G1 Rio] Ex-dirigentes da Cedae Saúde citados em auditoria sobre desv — абзацы 3/15
+       🖼 [G1 Rio] Ex-dirigentes da Cedae Saúde citados em auditoria  — фото: №2 вместо №1
+       ✂️ [G1 Bahia] Três homens morrem após confronto com policiais na Bahia; do — абзацы 3/5
+       ✂️ [Gazeta do Povo] Cleitinho se explica após críticas por vídeo ao lado de Alco — абзацы 6/8
+       🖼 [Gazeta do Povo] Cleitinho se explica após críticas por vídeo ao la — фото: №3 вместо №1
+       ✂️ [G1 Rio Grande do Sul] O que muda do governo Leite para o governo Zucco no RS? Reun — абзацы 4/8
+       ✂️ [G1 Bahia] Ex-militar russo preso em Salvador queria montar rede de arm — абзацы 3/12
+       🖼 [G1 Bahia] Ex-militar russo preso em Salvador queria montar r — фото: №2 вместо №1
+       ✂️ [G1 Rio] Governador eleito do RJ quer consenso entre clubes sobre Mar — абзацы 3/44; выбраны факты о ситуации, убраны цитаты и повторы
+       ✂️ [G1 Bahia] Agronegócio e conflitos por terra ligam as únicas quatro cid — абзацы 4/35
+       🖼 [G1 Bahia] Agronegócio e conflitos por terra ligam as únicas  — фото: №2 вместо №1
+     лента: было 100, снято 9, добрано до полной 24, стало 115; фото: взято у соседа 0, убрано чужих 1
+     💰 редактор: $0.0315
+  🧭 [pt] после редактора (в эфир): всего 63 — местных 26, соседей 9, мира 28; областных 40 в 10 регионах
 
-  🗞 Редактор [fr] (В ЭФИРЕ): карточек 50, спрошено 36, вторым 0
-     память не сработала: новая 34, текст вырос 2
-     снято: нет события 7
-     починено: текст сокращён до сути 23, фото заменено 12
-     🎲 Любопытное [fr] (в полосу «Интересное»): 2
-       🎲 в эфире · [93.ru] Un crabe étranger est apparu dans la mer d'Azov · https://93.ru/text/animals/2026/10/11/76693628/
-       🎲 в эфире · [51.ru] «On m'a prescrit une tonne de médicaments sans résultat». Un informaticien a créé un réseau de neurones pour p · https://51.ru/text/health/2026/10/11/76691185/
-       ✂️ [Le Figaro] EN DIRECT - Primaire à gauche : «Ce résultat dit qu’une gauc — абзацы 3/11
-       ✂️ [L'Obs] Plus de 200 lycéens blessés, 24 enquêtes ouvertes par l’IGPN — абзацы 4/17
-       ✂️ [Le Figaro] À Gergovie, Mélenchon se voit en Vercingétorix luttant contr — абзацы 3/8
-       ✂️ [Franceinfo] Entre le Covid, la mobilisation des lycéens et les événement — абзацы 1/4
-       ✂️ [Franceinfo] Max Verstappen remporte à Singapour son deuxième Grand Prix  — абзацы 3/4
-       ✂️ [Franceinfo] "Je préférerais éviter les ordonnances" pour faire adopter l — абзацы 5/6
-       ✂️ [20 Minutes] Lorient : Le calvaire de la jeune Iris, enlevée, violée, étr — абзацы 3/10
-       🖼 [20 Minutes] Lorient : Le calvaire de la jeune Iris, enlevée, v — фото: №2 вместо №1
-       ✗ нет события: [L'Express] Vladimir Kara-Murza, opposant russe : "Après Vladimir Poutine, nous aurons un très grand c — интервью-беседа, нет повода
-       ✗ нет события: [L'Express] Gaz, terres rares, routes polaires : "L’Arctique est le Far West du XXIe siècle", selon Ra — обзор книги, нет события
-       ✂️ [L'Express] En Pologne, le Premier ministre Donald Tusk et son ministre  — абзацы 5/7
-       ✂️ [La Dépêche] "Il est parti demander aux autres chauffeurs, mais personne  — абзацы 4/7; убрал повтор заголовка и первый абзац с общими фразами
-       ✂️ [BFMTV] Droit de vote à 16 ans, "l'ignominie" Parcoursup... En meeti — абзацы 5/8; выбрал факты о митинге и требованиях
-       ✂️ [France Bleu] Dijon a accueilli le 126e congrès du Parti radical, en prése — абзацы 5/21; убрал пустой абзац и последний
-       ✂️ [Le Devoir] L’État fédéral pakistanais prend le contrôle d’une province  — абзацы 4/21; убрал воду и детали про президента, оставил суть
-       ✂️ [TSA Algérie] Air France écarte ses personnels d’origine algérienne des vo — абзацы 3/16
-       🖼 [TSA Algérie] Air France écarte ses personnels d’origine algérie — фото: №2 вместо №1
-       ✂️ [Radio Okapi] Goma-Gisenyi : de nouvelles restrictions aux frontières ravi — абзацы 5/11
-       ✂️ [Bénin Web TV] Bénin : Nourénou Atchadé élu président des Démocrates après  — абзацы 5/20; убрал повтор заголовка и последний абзац
-       ✂️ [RTBF] Près de 50.000 manifestants à la Marche pour le climat à Bru — абзацы 5/9; выбрал суть протеста и требования
-       ✂️ [RTBF] TVA, soins de santé, indexation, croissance… Ces pistes budg — абзацы 4/12; убрал последний абзац (инструкция)
-       ✂️ [Radio-Canada] Le Kényan Geoffrey Birgen conserve son titre au Marathon de  — абзацы 5/7
-       🖼 [Radio-Canada] Le Kényan Geoffrey Birgen conserve son titre au Ma — фото: №3 вместо №1
-       ✂️ [Radio-Canada] Des Israéliens de l’étranger doivent dépenser des milliers d — абзацы 5/24; суть проблемы и инициативы, убраны личные мнения
-       ✂️ [Radio-Canada] Gabriela Dabrowski remporte un 25e titre en double à Pékin — абзацы 8/16
-       🖼 [BBC] Attaque contre l'aéroport de Riyad, capitale de l' — фото: №2 вместо №1
-       ✂️ [20 Minutes] EN DIRECT Guerre au Moyen-Orient : Nouvelle attaque contre l — абзацы 6/38; убрал повторы, выбрал фото с подписью
-       ✂️ [Africanews FR] Djibouti : plus de 100 migrants tués dans le naufrage de leu — абзацы 4/6; убрал хвосты, оставил суть трагедии
-       ✗ нет события: [TechCrunch] Ce qu'il faut savoir sur la vente historique de Warner Bros. Discovery — обзорная статья, события нет
-       🖼 [BBC Mundo] Christa Pike quitte l'hôpital et retourne en priso — фото: №2 вместо №1
-       ✗ нет события: [L'Express] Ukraine : Volodymyr Zelensky se dit prêt à organiser des élections si la Russie accepte un — пересказ слов Зеленского
-       ✂️ [L'Express] "Tribunal voyou" : les Etats-Unis sanctionnent la CPI, l'Uni — абзацы 3/7; текст оставлен целиком, исправлений не требует
-       🖼 [76.ru] Un joueur de l'équipe régionale de Yaroslavl décèd — фото: №2 вместо №1
-       ✗ нет события: [161.ru] Le pont entre l'enfance et la réalité est brisé : pourquoi le départ de Messi de l'équipe  — колонка
-       🖼 [116.ru] Près de Kazan, une voiture chute d'une falaise dan — фото: №2 вместо №1
-       🖼 [86.ru] En Iougra, des amendes seront infligées en cas de  — фото: №2 вместо №1
-       🖼 [93.ru] Un crabe étranger est apparu dans la mer d'Azov — фото: №2 вместо №1
-       🖼 [51.ru] «On m'a prescrit une tonne de médicaments sans rés — фото: №2 вместо №1
-       🖼 [178.ru] Les États-Unis ouvrent leur marché au diesel russe — фото: №2 вместо №1
-       ✗ нет события: [14.ru] «Je n'ai plus rien». Avant sa mort, Anatoli Kachpirovski a fait part d'une grande déceptio — пересказ интервью
-       🖼 [72.ru] Violence dans les centres sociaux de Tioumen : une — фото: №2 вместо №1
-       ✗ нет события: [178.ru] Dmitriev a proposé à Musk de construire un tunnel entre la Russie et les États-Unis — давняя история без актуального повода
-     лента: было 50, снято 7, добрано до полной 35, стало 78; фото: взято у соседа 0, убрано чужих 0
-     💰 редактор: $0.0257
-  🧭 [fr] после редактора (в эфир): всего 56 — местных 15, соседей 12, мира 29
-
-💰 Расход по этапам: всего $0.1056
-     редактор: $0.0253 (24%), запросов 23
-     спасение текста: $0.0237 (22%), запросов 12
-     перевод: $0.0200 (19%), запросов 17
-     отбор (этап 2): $0.0151 (14%), запросов 7
-     отсев (этап 1): $0.0106 (10%), запросов 7
-     склейка пересказов: $0.0055 (5%), запросов 2
-     снимки происшествий: $0.0029 (3%), запросов 10
-     мировые сюжеты: $0.0026 (2%), запросов 1
+💰 Расход по этапам: всего $0.0956
+     редактор: $0.0261 (27%), запросов 20
+     спасение текста: $0.0235 (25%), запросов 12
+     перевод: $0.0184 (19%), запросов 9
+     отбор (этап 2): $0.0113 (12%), запросов 5
+     отсев (этап 1): $0.0057 (6%), запросов 4
+     склейка пересказов: $0.0032 (3%), запросов 1
+     мировые сюжеты: $0.0026 (3%), запросов 1
+     обзоры прессы: $0.0025 (3%), запросов 1
+     снимки происшествий: $0.0023 (2%), запросов 8
 ```
