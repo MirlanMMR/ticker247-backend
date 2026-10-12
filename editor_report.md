@@ -1,137 +1,157 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-10-12 22:46 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-10-12 23:10 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [es]: помечено 82 из 365 за 4 запросов
-  🧭 [es] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 37 в 18 регионах
-  🧭 [es] после чистки текста: всего 70 — местных 28, соседей 14, мира 28; областных 37 в 18 регионах
-  🧭 [es] после обзоров прессы: всего 62 — местных 27, соседей 14, мира 21; областных 16 в 9 регионах
-  🧭 [es] после склейки пересказов: всего 57 — местных 22, соседей 14, мира 21; областных 16 в 9 регионах
-  🧭 [es] после рубежа: всего 51 — местных 20, соседей 14, мира 17; областных 16 в 9 регионах
+  🧪 Этап 1 (боевой) [pt]: помечено 63 из 430 за 4 запросов
+  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 86 в 27 регионах
+  🧭 [pt] после чистки текста: всего 70 — местных 28, соседей 14, мира 28; областных 86 в 27 регионах
+  🧭 [pt] после обзоров прессы: всего 62 — местных 25, соседей 14, мира 23; областных 62 в 18 регионах
+  🧭 [pt] после склейки пересказов: всего 56 — местных 22, соседей 11, мира 23; областных 59 в 18 регионах
+  🧭 [pt] после рубежа: всего 47 — местных 20, соседей 11, мира 16; областных 59 в 18 регионах
 
-  🗞 Редактор [es] (В ЭФИРЕ): карточек 67, спрошено 67, вторым 0
-     память не сработала: новая 67
-     снято: нет события 8, анонс без сути 1
-     починено: текст сокращён до сути 29, фото заменено 4, нужно другое фото 1
-     🎲 Любопытное [es] (в полосу «Интересное»): 3
-       🎲 в эфире · [Expansión MX] La IA cambia la forma de planear viajes, pero las empresas turísticas no logran seguirle el ritmo · https://expansion.mx/empresas/2026/10/12/ia-cambia-viajes-pero-empresas-arrastran-sistemas-rezagados — тема ИИ в туризме, любопытно
-       🎲 в эфире · [Wired] Muse Wonder devuelve a Meta a la vanguardia de la Inteligencia Artificial · https://www.wired.com/story/muse-wonder-puts-meta-back-at-the-ai-frontier/
-       🎲 в эфире · [Ars Technica] Epic Games cambiaría a un modelo de desarrollo de juegos "centrado en la IA" · https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/
-       ✂️ [El Universal MX] Clara Brugada plantea cambios al programa metropolitano; “no — абзацы 4/19
-       ✂️ [El Universal MX] Samuel García supervisa trabajos en Líneas 4 y del Metro de  — абзацы 3/15
-       ✗ нет события: [El Universal MX] Eduin Caz entrega 1 millón de pesos a "Ese" Pérez; lo denomina como "el verdadero ganador  — светская хроника/шоу-бизнес
-       ✗ нет события: [AKIpress] Cinco hombres fueron multados por pesca ilegal en la región de Osh — мелкое происшествие, штраф
-       ✂️ [El Financiero] (VIDEOS) Tormenta tropical ‘Rachel’ deja bajo el agua Las Ve — абзацы 4/15; выбраны абзацы с фактами, исключен последний
-       ✂️ [El Economista MX] Querétaro registra en septiembre su mejor mes en generación  — абзацы 4/5; выбраны 4 абзаца с данными, последний исключен
-       ✂️ [El Economista MX] Ley Federal de Derechos avanza en comisiones en la Cámara de — абзацы 3/5; выбраны абзацы по сути законопроекта, последний исключен
-       ✂️ [Expansión MX] Hospitales y laboratorios deben involucrarse en discusión de — абзацы 3/7; выбраны абзацы с позицией AMIS
-       ✂️ [Expansión MX] La IA cambia la forma de planear viajes, pero las empresas t — абзацы 3/8; тема ИИ в туризме, любопытно
-       ✂️ [Expansión MX] Empresas cumplen con pagos al IMSS dice el CCE; exige mejora — абзацы 3/6; позиция CCE по качеству услуг IMSS
-       ✂️ [Expansión MX] El Niño pone a prueba las finanzas de 10 estados en México,  — абзацы 4/9; выбраны абзацы с сутью анализа рисков S&P
-       ✂️ [Expansión MX] Hay más empleos para programadores, pero la IA complica el c — абзацы 3/5; выбраны абзацы с динамикой вакансий и рынком для новичков
-       ✂️ [Reforma] Exhibe EU fentanilo que AMLO negaba — абзацы 8/18; суть расследования, задержания и позиции властей США
-       ✂️ [El Financiero] A Pemex no le salen las cuentas: Gana menos dinero por refin — абзацы 7/15; выбраны факты о стоимости возможностей для Pemex
-       ✂️ [El Financiero] ¿Camino libre para Grecia Quiroz? PT abre la puerta a ‘rompe — абзацы 7/14; позиция PT по альянсу с Morena
-       ✗ нет события: [El Financiero] Como Walter White Jr: ¿Qué padecimiento tenía RJ Mitte, estrella de ‘Breaking Bad’? — некролог/биографическая справка, события нет
-       ✂️ [El Financiero] Peso ‘descubre’ la apreciación tras días de pérdidas ¿En cuá — абзацы 3/9
-       ✂️ [El Financiero] Esthela Damián destaca ampliación de consulta sobre ley de P — абзацы 4/6
-       ✂️ [La Vanguardia] El TS mantiene la suspensión del voto para los nacionalizado — абзацы 4/11
-       ✂️ [Infobae] EN VIVO| Seguridad, narcotráfico y crimen en México hoy 12 d — абзацы 3/4; выбрал фото с задержанием, убрал 4-й абзац
-       ✗ анонс без сути: [El Comercio PE] Elecciones Regionales y Municipales 2026: resultados oficiales de ONPE en la región de Pun — нет результатов в тексте, только описание выборов
-       ✂️ [14ymedio] La Habana intenta atraer inversiones privadas en el sector p — абзацы 3/7
-       ✂️ [Montevideo Portal] “Espero que se dé cuenta”: la advertencia de Lubetkin a Bols — абзацы 4/8
-       ✗ нет события: [La Nación AR] Javier Milei y sus medidas, EN VIVO: el Presidente negó la salida de Caputo y se mostró co — аналитика/обзор
-       ✂️ [La Nación AR] La regla final que debe aplicar el Uscis para migrantes que  — абзацы 3/4
-       ✂️ [El Tiempo CO] Corriente súbita sorprendió a turistas de balneario en Piede — абзацы 3/4
-       ✂️ [El Tiempo CO] Concejal de Cúcuta Carlos Dueñas empujó e insultó a trabajad — абзацы 4/5
-       ✂️ [Clarín AR] La represa Yacyretá abrió sus compuertas para atenuar los ef — абзацы 3/4; выбраны абзацы с сутью события
-       ✂️ [Marca] Tirón de pelo y escupitajo: el doblete que escandalizó al mu — абзацы 4/5; выбраны абзацы с фактами инцидента, сменен снимок
-       ✗ нет события: [Marca] El final más loco de LaLiga — обзор матча, отсутствие информационного повода
-       ✂️ [El Financiero] Reino Unido culpa a Irán de planear un atentado terrorista e — абзацы 5/17
-       ✂️ [BBC Mundo] "Si tienen tanta tecnología, ¿por qué nos atacaron?": los pe — абзацы 8/56; убраны повтор заголовка и 10 абзац
-       ✂️ [BBC Mundo] "Un salvavidas financiero para Rusia mientras mata civiles e — абзацы 8/30; убраны повторы и лишние детали
-       ✂️ [Clarín AR] El Gobierno pide esta semana al Tribunal del Mar de Hamburgo — абзацы 3/7; убран последний абзац с лишними деталями
-       🖼 [Notícias ao Minuto] La Guardia Revolucionaria de Irán reivindica un at — фото: №3 вместо №1
-       ✗ нет события: [The Guardian] Christian Horner: «No todos los equipos actúan así. Ya no se ve la misma brutalidad que cu — личная история, рефлексия, не новость
-       🖼 [63.ru] GTRK Samara llega a la final del concurso TEFI-Reg — фото: №2 вместо №1
-       🖼 [ngs.ru] Sibir derrota a Barys en un partido como visitante — фото: №2 вместо №1
-       🖼 [45.ru] Dos residentes de Trans-Urales se proclaman campeo — фото: №2 вместо №1
-       ✂️ [El Informador] Modifican niveles de alerta en 103 municipios de Jalisco por — абзацы 4/6
-       ✗ нет события: [63.ru] Pronóstico preocupante de AvtoVAZ: qué le espera al mercado automotriz ruso a corto plazo — прогноз рынка, аналитика
-       ✗ нет события: [72.ru] Tres residentes de Tiumén intentaron superar una pista de alta dificultad en un canal fede — участие в телешоу
-     лента: было 67, снято 9, добрано до полной 26, стало 84; фото: взято у соседа 0, убрано чужих 1
-     💰 редактор: $0.0213
-  🧭 [es] после редактора (в эфир): всего 61 — местных 21, соседей 20, мира 20; областных 5 в 1 регионах
-  🧪 Этап 1 (боевой) [fr]: помечено 95 из 415 за 4 запросов
-  🧭 [fr] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 37 в 18 регионах
-  🧭 [fr] после чистки текста: всего 70 — местных 28, соседей 14, мира 28; областных 37 в 18 регионах
-  🧭 [fr] после обзоров прессы: всего 57 — местных 23, соседей 15, мира 19; областных 13 в 9 регионах
-  🧭 [fr] после склейки пересказов: всего 42 — местных 18, соседей 13, мира 11; областных 12 в 9 регионах
-  🧭 [fr] после рубежа: всего 40 — местных 17, соседей 12, мира 11; областных 12 в 9 регионах
+  🗞 Редактор [pt] (В ЭФИРЕ): карточек 106, спрошено 45, вторым 0
+     память не сработала: новая 41, текст вырос 3, текст стал короче 1
+     снято: нет события 9
+     починено: текст сокращён до сути 69, фото заменено 41
+     🎲 Любопытное [pt] (в полосу «Интересное»): 6
+       🎲 снято · [Notícias ao Minuto] Cristiano Ronaldo eufórico após vitória... com cachecol da Arábia Saudita · https://www.noticiasaominuto.com/desporto/3065799/cristiano-ronaldo-euforico-apos-vitoria-com-cachecol-da-arabia-saudita#utm_source=rss-ultima-hora&utm_medium=rss&utm_campaign=rssfeed — светская хроника/инфоповод без события
+       🎲 в эфире · [Wired] Muse Wonder coloca a Meta de volta na fronteira da IA · https://www.wired.com/story/muse-wonder-puts-meta-back-at-the-ai-frontier/
+       🎲 в эфире · [Ars Technica] Epic Games estaria migrando para um modelo de desenvolvimento de jogos com foco em 'IA primeiro' · https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/
+       🎲 в эфире · [Wired] Elon Musk gabou-se de sua compra de Lego Star Wars pelo Grok. Depois, usuários do X o enganaram · https://www.wired.com/story/elon-musk-bragged-about-his-grok-lego-star-wars-haul-then-x-users-punked-him/
+       🎲 в эфире · [56.ru] Estudante russa desenvolve projeto de detecção precoce de tumores na China e recebe propostas de trabalho no e · https://56.ru/text/science/2026/10/12/76685321/
+       🎲 снято · [72.ru] Três moradores de Tyumen tentaram superar pista complexa em canal federal — quem avançou? · https://72.ru/text/entertainment/2026/10/12/76695409/ — реалити-шоу, не новость
+       ✂️ [G1 Globo] Defesa Civil alerta para chuvas fortes em todo o estado até  — абзацы 4/13
+       ✂️ [Folha de S.Paulo] Crianças fazem festa em praça marcada por mortos em operação — абзацы 7/22
+       ✂️ [Estadão] Menina de 10 anos viaja com excursão e morre afogada em parq — абзацы 5/7; убрал последний абзац и лишние подробности
+       ✂️ [Estadão] Arcebispo de Aparecida critica divisões no Brasil e pede ‘pa — абзацы 3/16; убрал рекламу и повторы
+       ✂️ [Estadão] Vazão recorde das Cataratas do Iguaçu provoca interdição de  — абзацы 5/10; убрал мусорные абзацы (1, 2, 3) и последний
+       ✂️ [Poder360] Celina tem 53% contra 33% de Grass no DF, diz Quaest — абзацы 2/18
+       🖼 [Poder360] Celina tem 53% contra 33% de Grass no DF, diz Quae — фото: №2 вместо №1
+       ✂️ [G1 Globo] Rio Branco vacinou mais de 30 mil crianças até outubro de 20 — абзацы 5/10
+       ✂️ [G1 Globo] Ex-senador Paulo Rocha se envolve em confusão em Belém após  — абзацы 3/4
+       🖼 [G1 Globo] Ex-senador Paulo Rocha se envolve em confusão em B — фото: №2 вместо №1
+       ✂️ [G1 Globo] VÍDEO: Terceirizado de companhia de energia é preso por furt — абзацы 4/8
+       ✂️ [Folha de S.Paulo] Ex-ministro espera julgamento de revisão criminal por tentat — абзацы 7/9
+       ✂️ [Folha de S.Paulo] Evmob, investida do Pátria, entra em manutenção de frotas el — абзацы 5/6
+       ✂️ [CNN Brasil] Cristiano Ronaldo não decidiu se vai voltar à seleção de Por — абзацы 3/7
+       ✂️ [CNN Brasil] Fagner desfalca o Cruzeiro contra o Bragantino e vive incert — абзацы 3/9
+       ✂️ [Agência Brasil] Coritiba e Botafogo empatam e mantêm jejum de vitórias no Br — абзацы 3/4
+       ✂️ [Agência Brasil] Flávio Bolsonaro participa de missa na Catedral de Brasília — абзацы 6/13
+       ✂️ [Agência Brasil] Polícia do Rio apreende armas após morte de suboficial do Bo — абзацы 4/8
+       ✂️ [Agência Brasil] Jornalista brasileiro crítico a Milei é deportado da Argenti — абзацы 3/9; оставил суть депортации и аргументы сторон
+       ✂️ [Estadão] Trave de futebol cai e mata menina de 3 anos durante festa d — абзацы 5/9
+       ✂️ [Metrópoles] Flávio Bolsonaro mira estado nao visitado para ampliar votaç — абзацы 3/4
+       🖼 [Metrópoles] Cristiano Ronaldo marca em jogo atrasado por míssi — фото: №2 вместо №1
+       🖼 [Metrópoles] "Somos um povo só", diz Celina após missa de N. S. — фото: №4 вместо №1
+       ✂️ [Notícias ao Minuto] MAI justifica demissão de secretário-geral com "quebra de co — абзацы 5/15
+       🖼 [Notícias ao Minuto] MAI justifica demissão de secretário-geral com "qu — фото: №3 вместо №1
+       ✂️ [Téla Nón] Levy Nazaré abandona liderança do BASTA e defende consenso p — абзацы 7/8; убрал хвост
+       ✂️ [BBC Brasil] Por que Alexandre de Moraes decidiu autorizar visitas de Flá — абзацы 3/21; снял воду, оставил суть решения
+       ✂️ [BBC Brasil] Americanos vencem Nobel de Economia por modelo para entender — абзацы 3/4; снял лишние абзацы с повторами
+       ✗ нет события: [Terra BR] Esporte ganha espaço no calendário de Gramado e amplia fluxo de visitantes na Serra Gaúcha — обзор событий города без информационного повода
+       ✂️ [Observador PT] MP em "rutura funcional" pede ajuda a Seguro — абзацы 3/4; выбраны абзацы с сутью, снимок из статьи
+       ✂️ [Observador PT] Montenegro aconselha Passos a esperar sentado — абзацы 3/23
+       ✂️ [Notícias ao Minuto] Acidente entre dois ligeiros em Lousada faz um morto e um fe — абзацы 3/4; выбран снимок с подписью
+       🖼 [Notícias ao Minuto] Acidente entre dois ligeiros em Lousada faz um mor — фото: №3 вместо №1
+       ✂️ [Notícias ao Minuto] Demissão de SG do MAI é "degradar sem precedentes das instit — абзацы 4/12; выбрана суть конфликта, снимок с подписью
+       🖼 [Notícias ao Minuto] Demissão de SG do MAI é "degradar sem precedentes  — фото: №3 вместо №1
+       ✗ нет события: [Notícias ao Minuto] Cristiano Ronaldo eufórico após vitória... com cachecol da Arábia Saudita — светская хроника/инфоповод без события
+       ✗ нет события: [The Guardian] O que me preocupa como cientista sobre a suspeita de vítima de peste na Rússia | Devi Srid — авторская колонка, а не новость
+       ✂️ [Notícias ao Minuto] Morreu RJ Mitte, ator de "Breaking Bad". Tinha 34 anos — абзацы 5/9; оставил суть: смерть, роль, деятельность, причина
+       ✂️ [Observador PT] Selma Blair detida por agressões em voo da Delta — абзацы 3/9
+       ✂️ [G1 São Paulo] VÍDEO: PMs atiram 24 vezes e matam homem já caído no chão du — абзацы 8/26
+       🖼 [G1 São Paulo] VÍDEO: PMs atiram 24 vezes e matam homem já caído  — фото: №2 вместо №1
+       ✂️ [G1 Santa Catarina] Batida entre dois carros deixa mortos, incluindo criança, na — абзацы 2/13
+       🖼 [G1 Santa Catarina] Batida entre dois carros deixa mortos, incluindo c — фото: №3 вместо №1
+       ✂️ [G1 Rio Grande do Sul] Rio Uruguai tem alerta para risco 'muito alto' de inundação; — абзацы 7/20
+       ✂️ [G1 Bahia] Duas pessoas morrem carbonizadas após carro bater em poste e — абзацы 3/4
+       🖼 [G1 Bahia] Duas pessoas morrem carbonizadas após carro bater  — фото: №2 вместо №1
+       ✗ нет события: [63.ru] GTRK "Samara" chega à final do "TEFI-Region-2026" com o projeto "Segredinhos de Slepets" — достижение/номинация, не новость
+       ✗ нет события: [ngs.ru] Sibir vence Barys em partida fora de casa em Astana — спортивный результат, не жизненно важно
+       ✂️ [G1 Rio] Rickson Falcão, campeão sul-americano de surfe, leva 4 tiros — абзацы 4/13
+       🖼 [G1 Rio] Rickson Falcão, campeão sul-americano de surfe, le — фото: №2 вместо №1
+       ✂️ [G1 Pernambuco] PF prende passageira com quase 34 quilos de 'supermaconha' e — абзацы 3/8
+       🖼 [G1 Pernambuco] PF prende passageira com quase 34 quilos de 'super — фото: №2 вместо №1
+       🖼 [45.ru] Dois moradores da região de Trans-Ural tornam-se c — фото: №2 вместо №1
+       ✗ нет события: [G1 Distrito Federal] Concentração de votos impede efetividade de 'puxadores de voto' do PSOL e coloca em xeque  — аналитический разбор выборов, не новость
+       ✂️ [G1 Minas] Acidente com carro capotado causa lentidão no Anel Rodoviári — абзацы 6/7
+       🖼 [G1 Minas] Acidente com carro capotado causa lentidão no Anel — фото: №2 вместо №1
+       ✗ нет события: [161.ru] “Foi difícil”. O zagueiro do Rostov, Viktor Melekhin, falou sobre sua condição física após — интервью/беседа о состоянии игрока
+       🖼 [ufa1.ru] Salavat Yulaev vence o Neftekhimik por 4 a 3 — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Criminosos furtam R$ 5 milhões em joias de loja na Oscar Fre — абзацы 3/5; убрал описание фото и детали следствия
+       ✂️ [G1 Santa Catarina] Dois homens são mortos a tiros após discussão durante cavalg — абзацы 1/4
+       🖼 [G1 Santa Catarina] Dois homens são mortos a tiros após discussão dura — фото: №2 вместо №1
+       🖼 [76.ru] Empresas de Yaroslavl são alvo de novas sanções da — фото: №2 вместо №1
+       🖼 [G1 Rio Grande do Sul] Colisão entre carro e van deixa 7 pessoas feridas  — фото: №2 вместо №1
+       ✂️ [G1 Bahia] Ex-militar russo condenado à prisão perpétua fala pouco ingl — абзацы 5/8
+       🖼 [G1 Bahia] Ex-militar russo condenado à prisão perpétua fala  — фото: №2 вместо №1
+       ✂️ [Gazeta do Povo] Presidente do TSE não pode ter lado na política, diz Lula — абзацы 6/8
+       🖼 [Gazeta do Povo] Presidente do TSE não pode ter lado na política, d — фото: №2 вместо №1
+       🖼 [63.ru] Clube de hóquei 'Lada' perde parceiro estratégico  — фото: №2 вместо №1
+       🖼 [ngs.ru] Diva da ópera e maestros italianos: estrelas mundi — фото: №2 вместо №1
+       ✂️ [G1 Pernambuco] Linha Sul do Metrô do Recife fica sem funcionar; falha elétr — абзацы 2/19; жизненно важное: транспорт
+       ✂️ [G1 Minas] Destroços de aeronave que caiu em BH seguem no trilho do met — абзацы 6/22; выбрал фото с места событий, убрал лишние детали
+       🖼 [G1 Minas] Destroços de aeronave que caiu em BH seguem no tri — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Luiza Brunet comenta condenação de Lirio Parisotto após 10 a — абзацы 6/34
+       🖼 [G1 São Paulo] Luiza Brunet comenta condenação de Lirio Parisotto — фото: №2 вместо №1
+       ✂️ [G1 Santa Catarina] Motorista é indiciada por homicídio após dirigir na contramã — абзацы 6/20
+       ✂️ [G1 Bahia] Soldado da PM suspeita de matar vendedor de lanches com tiro — абзацы 5/14
+       ✂️ [G1 Paraná] Há 12 anos, motorista de ônibus de Curitiba distribui brinqu — абзацы 4/9
+       🖼 [G1 Paraná] Há 12 anos, motorista de ônibus de Curitiba distri — фото: №2 вместо №1
+       🖼 [63.ru] Previsão preocupante da AvtoVAZ: o que aguarda o m — фото: №2 вместо №1
+       ✂️ [G1 Rio] Psicóloga que presenciou abordagem de guardas a entregador e — абзацы 3/12
+       🖼 [G1 Rio] Psicóloga que presenciou abordagem de guardas a en — фото: №2 вместо №1
+       ✂️ [G1 Pernambuco] Corpo de motorista de aplicativo desaparecido em Caruaru é e — абзацы 3/8
+       🖼 [G1 Pernambuco] Corpo de motorista de aplicativo desaparecido em C — фото: №2 вместо №1
+       ✂️ [G1 Minas] Incêndio em prédio deixa duas pessoas feridas no bairro Prad — абзацы 3/4; убрал последний абзац с деталями работы служб
+       ✂️ [G1 Santa Catarina] Adolescente de 14 anos é baleado no rosto após garoto de 13  — абзацы 8/22
+       🖼 [G1 Santa Catarina] Adolescente de 14 anos é baleado no rosto após gar — фото: №2 вместо №1
+       ✂️ [G1 Rio Grande do Sul] VÍDEO: Trecho da BR-386 registra dois acidentes em menos de  — абзацы 4/5
+       ✗ нет события: [72.ru] Três moradores de Tyumen tentaram superar pista complexa em canal federal — quem avançou? — реалити-шоу, не новость
+       ✂️ [Gazeta do Povo] Vídeo de Marina Silva denunciando fake news do PT em 2014 vo — абзацы 5/6; выпуск без изменений, так как суть события ясна
+       ✂️ [G1 Rio] Vídeo mostra bolinhas pretas suspeitas de serem chumbinho em — абзацы 5/13
+       🖼 [G1 Rio] Vídeo mostra bolinhas pretas suspeitas de serem ch — фото: №2 вместо №1
+       ✂️ [G1 Minas] Atirador mata homem e deixa adolescente ferida na região da  — абзацы 6/11
+       ✂️ [G1 São Paulo] Família é presa na Zona Leste de SP após morte de recém-nasc — абзацы 5/8
+       ✂️ [G1 Rio Grande do Sul] 'Mais tatuado do Brasil' conta que fará tratamento contra câ — абзацы 6/24
+       🖼 [G1 Rio Grande do Sul] 'Mais tatuado do Brasil' conta que fará tratamento — фото: №2 вместо №1
+       ✂️ [G1 Paraná] VÍDEO: rio transborda, alaga propriedade rural e arrasta bez — абзацы 4/7
+       🖼 [G1 Paraná] VÍDEO: rio transborda, alaga propriedade rural e a — фото: №2 вместо №1
+       ✂️ [G1 Minas] Idoso de 82 anos morre após carro cair em córrego no bairro  — абзацы 5/9
+       ✂️ [G1 São Paulo] Jovem morto com 27 tiros por PMs em SP é enterrado; Polícia  — абзацы 4/40
+       🖼 [G1 São Paulo] Jovem morto com 27 tiros por PMs em SP é enterrado — фото: №2 вместо №1
+       ✂️ [G1 Rio] Apoiadores de Lula fazem ato em Copacabana, na Zona Sul do R — абзацы 5/18
+       🖼 [G1 Rio] Apoiadores de Lula fazem ato em Copacabana, na Zon — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Velório de jovem encontrada morta dentro de casa em Taboão d — абзацы 4/6
+       🖼 [G1 São Paulo] Velório de jovem encontrada morta dentro de casa e — фото: №2 вместо №1
+       ✂️ [G1 Rio] Militar da Marinha é encontrado amarrado em comunidade de Sã — абзацы 4/6
+       🖼 [G1 Rio] Militar da Marinha é encontrado amarrado em comuni — фото: №2 вместо №1
+       ✂️ [G1 Minas] VÍDEO: Libanesa é agredida durante tentativa de roubo de cel — абзацы 2/6
+       🖼 [G1 Minas] VÍDEO: Libanesa é agredida durante tentativa de ro — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Desabamento de prédio na Zona Leste completa 1 mês com casal — абзацы 5/16
+       🖼 [G1 São Paulo] Desabamento de prédio na Zona Leste completa 1 mês — фото: №2 вместо №1
+       ✂️ [G1 Rio] Fiéis de 250 igrejas católicas participam de romaria em home — абзацы 5/6
+       🖼 [G1 Rio] Fiéis de 250 igrejas católicas participam de romar — фото: №2 вместо №1
+       ✂️ [G1 Minas] PM aposentado é suspeito de matar policial penal em bar de B — абзацы 4/10
+       🖼 [G1 Minas] PM aposentado é suspeito de matar policial penal e — фото: №2 вместо №1
+       ✗ нет события: [G1 São Paulo] Pirulla fala pela primeira vez sobre AVC, sequelas e recuperação: 'Esperança' — личная история, видео-интервью без новых фактов
+       ✂️ [G1 Rio] Corpo de Rie Nagasako, campeã pan-americana de canoagem, é v — абзацы 3/14
+       🖼 [G1 Rio] Corpo de Rie Nagasako, campeã pan-americana de can — фото: №2 вместо №1
+       ✂️ [G1 Minas] Homem de 66 anos morre afogado em parque aquático da Grande  — абзацы 3/5; №1 — подпись к фото, №5 — лишний абзац
+       ✂️ [G1 São Paulo] Falha em pantógrafo de trem provoca circulação em via única  — абзацы 4/26
+     лента: было 106, снято 7, добрано до полной 25, стало 124; фото: взято у соседа 0, убрано чужих 1
+     💰 редактор: $0.0149
+  🧭 [pt] после редактора (в эфир): всего 67 — местных 27, соседей 14, мира 26; областных 45 в 8 регионах
 
-  🗞 Редактор [fr] (В ЭФИРЕ): карточек 52, спрошено 19, вторым 0
-     память не сработала: новая 19
-     снято: нет события 10, не для читателя 3
-     починено: текст сокращён до сути 22, фото заменено 7, ложное «срочно» снято 1
-     🎲 Любопытное [fr] (в полосу «Интересное»): 2
-       🎲 в эфире · [Wired] Le modèle Muse Wonder replace Meta à la pointe de l'IA · https://www.wired.com/story/muse-wonder-puts-meta-back-at-the-ai-frontier/
-       🎲 в эфире · [Ars Technica] Epic Games passerait à un modèle de développement de jeux axé sur l'IA · https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/
-       ✂️ [Le Figaro] Principal d’un collège et une enseignante blessés à l’arme à — абзацы 3/9; оставил только суть инцидента
-       ✂️ [La Dépêche] Flotte fantôme : la Marine française arraisonne un pétrolier — абзацы 3/8
-       🖼 [La Dépêche] Flotte fantôme : la Marine française arraisonne un — фото: №2 вместо №1
-       ✂️ [France Bleu] Mobilisation des lycéens : moins d'établissements perturbés  — абзацы 4/8
-       ✂️ [France Bleu] Loi intégrale : dans la commune de Lyhanna, les espoirs miti — абзацы 3/13
-       ✗ нет события: [L'Obs] « Le président ne m’a jamais reproché une pseudo-répression policière » : Laurent Nuñez, u — интервью, анализа нет
-       ✂️ [Sud Ouest] Tickets-restaurant : ils pourront continuer à servir à faire — абзацы 2/6
-       🖼 [La Tribune] 400 000 fonctionnaires en moins, une nouvelle réfo — фото: №2 вместо №1
-       ✂️ [La Tribune] Flying Whales lève enfin 90 millions d’euros pour financer s — абзацы 1/6
-       🖼 [La Tribune] Flying Whales lève enfin 90 millions d’euros pour  — фото: №2 вместо №1
-       ✗ нет события: [AKIpress] Depuis le début de l'année, 93 décharges sauvages ont été éliminées dans le pays, selon le — отчетная статистика без инфоповода
-       ✗ нет события: [Le Figaro] Présidentielle 2027 : décidés à voter pour leur pouvoir d’achat, les Français font davanta — аналитический обзор опроса
-       ✂️ [Franceinfo] Le Premier ministre promet aux automobilistes "environ dix e — абзацы 3/4; исключен последний абзац, vital: true
-       ✂️ [Franceinfo] Des magasins Système U, Intermarché, E.Leclerc et Monoprix t — абзацы 4/7; убрал хвост с комментариями правительства
-       ✂️ [20 Minutes] Victoire de Glucksmann à la primaire : « C’est une assistanc — абзацы 3/9
-       ✂️ [RTBF] Taxation auto, droits de succession, infrastructures… le gou — абзацы 4/28
-       ✂️ [RTBF] Grève des services publics : forte mobilisation de nombreux  — абзацы 4/23
-       ✂️ [Radio-Canada] La Russie poursuit ses frappes contre les installations éner — абзацы 8/25
-       ✂️ [Le Devoir] El Niño pourrait faire de 2026 l’année la plus chaude jamais — абзацы 4/7
-       ✂️ [TSA Algérie] Train Alger-Tamanrasset, phosphate, Gara Djebilet : le coût  — абзацы 3/10
-       ✂️ [TSA Algérie] Subventions : l’Algérie prévoit 18,5 milliards de dollars en — абзацы 6/11; убраны заголовки блоков и хвост
-       ✂️ [Radio Okapi] RDC : Joseph Kabila alerte sur un pays « en péril » et appel — абзацы 3/9
-       ✂️ [Jeune Afrique] Tchad-France : Mahamat Idriss Déby Itno attendu à l’Élysée p — абзацы 4/6
-       🖼 [Jeune Afrique] Tchad-France : Mahamat Idriss Déby Itno attendu à  — фото: №2 вместо №1
-       ✂️ [RTBF] Retour d’une voiture mythique : la célèbre 2CV reprend du se — абзацы 5/6
-       ✂️ [Radio-Canada] L’animateur et journaliste Jean-Luc Mongrain s’éteint à l’âg — абзацы 8/38
-       ✂️ [Radio-Canada] Le message de Mark Carney aux Albertains : « Le Canada fonct — абзацы 3/13
-       🔕 [The Independent] Identité des victimes de la fusillade d'Erie dévoilée, le mobile du tu
-       ✂️ [Courrier International] France : une “cyberattaque d’ampleur” vise les installations — абзацы 5/8
-       ✂️ [La Presse TN] Guerre russo-ukrainienne : Trump annonce un cessez-le-feu da — абзацы 5/19
-       🖼 [BBC Mundo] « S'ils ont une telle technologie, pourquoi nous o — фото: №2 вместо №1
-       ✗ не для читателя: [BBC] RJ Mitte, star de la série « Breaking Bad », est décédé à l'âge de 34 ans — фейковая новость, актер жив
-       ✗ нет события: [63.ru] La GTRK «Samara» est finaliste du concours «TEFI-Region-2026» avec le projet «Slepetskie s — конкурс, нет инфоповода для внешнего читателя
-       ✗ не для читателя: [ngs.ru] Le Sibir bat le Barys lors d'un match à l'extérieur à Astana — локальный спорт РФ для французского потока
-       ✗ не для читателя: [45.ru] Deux habitants de la région de Trans-Oural sacrés champions du monde de kettlebell en Inde — локальный спорт РФ для французского потока
-       ✗ нет события: [161.ru] Le défenseur du FC Rostov, Viktor Melekhin, s'exprime sur son état physique après quatre m — мнение игрока о своем состоянии
-       ✗ нет события: [ufa1.ru] Le club de hockey Salavat Yulaev bat Neftekhimik 4-3 — спортивный результат без турнирного контекста
-       🖼 [76.ru] Des entreprises de Yaroslavl visées par de nouvell — фото: №2 вместо №1
-       ✗ нет события: [63.ru] Le club de hockey Lada perd son partenaire stratégique et sponsor principal — смена структуры акционеров клуба
-       ✗ нет события: [ngs.ru] Une diva de l'opéra et des chefs d'orchestre italiens attendus à Novossibirsk — анонс культурного события
-       🖼 [56.ru] « J'ai des comptes à régler avec le cancer » : une — фото со страницы события
-       ✗ нет события: [63.ru] Prévisions préoccupantes d'AvtoVAZ : quel avenir pour le marché automobile russe — прогноз рынка, не событие
-       ✗ нет события: [72.ru] Trois habitants de Tioumen à l'épreuve du parcours d'obstacles de l'émission « Superninja  — участие в шоу — не новостное событие
-     лента: было 52, снято 13, добрано до полной 34, стало 73; фото: взято у соседа 0, убрано чужих 0
-     💰 редактор: $0.0105
-  🧭 [fr] после редактора (в эфир): всего 65 — местных 23, соседей 10, мира 32
-
-💰 Расход по этапам: всего $0.0982
-     редактор: $0.0318 (32%), запросов 26
-     перевод: $0.0193 (20%), запросов 13
-     отбор (этап 2): $0.0134 (14%), запросов 8
-     спасение текста: $0.0117 (12%), запросов 7
-     отсев (этап 1): $0.0100 (10%), запросов 8
-     склейка пересказов: $0.0043 (4%), запросов 2
-     обзоры прессы: $0.0041 (4%), запросов 2
-     мировые сюжеты: $0.0026 (3%), запросов 1
-     снимки происшествий: $0.0012 (1%), запросов 4
+💰 Расход по этапам: всего $0.0554
+     редактор: $0.0140 (25%), запросов 12
+     спасение текста: $0.0124 (22%), запросов 8
+     отбор (этап 2): $0.0074 (13%), запросов 5
+     перевод: $0.0063 (11%), запросов 7
+     отсев (этап 1): $0.0050 (9%), запросов 4
+     склейка пересказов: $0.0035 (6%), запросов 1
+     мировые сюжеты: $0.0026 (5%), запросов 1
+     снимки происшествий: $0.0023 (4%), запросов 8
+     обзоры прессы: $0.0018 (3%), запросов 1
 ```
