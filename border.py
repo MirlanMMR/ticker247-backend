@@ -20,7 +20,7 @@ import re
 from dull import is_dull
 from curious import is_curious_content
 from shelves import pool_shelf_fix, world_to_home_fix, POOL_HOME
-from topic_country import foreign_topic, mentions_home, foreign_region
+from topic_country import foreign_topic, mentions_home, foreign_region, _local_foreign_candidate
 from urgent_guard import foreign_small_urgent, layout_category, p2_excess
 from textcut import ends_inside_quote, drop_trailing_heading, sentence_start, is_stub_summary, has_foreign_script
 
@@ -68,11 +68,8 @@ def _foreign_script(x, ctx):
 
 
 def _local_foreign(x, ctx):
-    ev = (x.get("event_where") or "").strip().upper()
-    return (x.get("scope") == "local" and bool(ev) and ev != ctx["home"] and not x.get("bridge")
-            and not x.get("interesting") and not x.get("vital")
-            and x.get("category") not in ("URGENT", "URGENT_LOCAL_ONLY")
-            and not mentions_home(x, ctx["home"]))
+    ev, _ = _local_foreign_candidate(x, ctx["space"], ctx["home"])
+    return bool(ev)
 
 
 def _fake_curious(x, ctx):
