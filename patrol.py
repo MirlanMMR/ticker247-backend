@@ -31,7 +31,8 @@ same_event). Здесь он же работает вторым ремеслом
 но спрашивают его о ДВУХ-ТРЁХ кандидатах, а не о трёхстах: доли цента.
 
 ХОЛОСТОЙ ХОД. Пока PATROL_LIVE не выставлен, дозор ничего не публикует —
-только находит и печатает. Так же вводили первый этап отбора 23.08: сутки
+только находит и печатает. С 15.10.2026 в боевом режиме (PATROL_LIVE=true в patrol.yml) он
+публикует ТОЛЬКО мировое срочное: 3 редакции + слово беды + масштаб (patrol_world.py). Так же вводили первый этап отбора 23.08: сутки
 вхолостую, сверка глазами, и лишь потом право действовать.
 """
 import os
@@ -42,6 +43,7 @@ from datetime import datetime, timedelta, timezone
 import fetch_news as fn
 from feed_gate import same_event
 from patrol_rules import event_tier, region_of, outlet_country, MIN_OUTLETS_URGENT
+from patrol_world import is_world_urgent, to_card, publish
 
 LIVE = os.environ.get("PATROL_LIVE") == "true"
 
@@ -177,8 +179,32 @@ def main():
         print("  🧪 холостой ход: ничего не публикуем (PATROL_LIVE не выставлен)")
         return 0
 
-    # Боевой режим включается отдельно и осознанно — см. заголовок файла
-    print("  ⚠️ боевой режим дозора ещё не написан: публикация будет здесь")
+    # БОЕВОЙ РЕЖИМ (15.10.2026, владелец): только МИРОВОЕ СРОЧНОЕ — 3 независимые редакции + слово беды
+    # + масштаб (patrol_world). «Важное» и «наблюдаем» по-прежнему только в журнале.
+    now_ms = int(datetime.now(timezone.utc).timestamp() * 1000)
+    published = 0
+    for e in hot:
+        if e["tier"] != "urgent":
+            continue
+        titles = [i.get("title", "") for i in e["items"]]
+        if not is_world_urgent(titles):
+            print(f"  ⏭ срочно по слову, но без масштаба (не мировое): {titles[0][:70]}")
+            continue
+        card = to_card(e, now_ms)
+        if not card:
+            print(f"  ⏭ нет карточки (язык не нашего пула или нет ссылки): {titles[0][:70]}")
+            continue
+        try:
+            done, why = publish(card, fn.db, same_event, now_ms)
+        except Exception as ex:
+            print(f"  ✗ публикация не удалась: {type(ex).__name__}: {ex}")
+            continue
+        if done:
+            published += 1
+            print(f"  🚨 ОПУБЛИКОВАНО [{card['language']}] ({card['patrolSources']}): {card['title'][:80]}")
+        else:
+            print(f"  ⏭ не опубликовано: {why}: {card['title'][:70]}")
+    print(f"  итого опубликовано: {published}")
     return 0
 
 

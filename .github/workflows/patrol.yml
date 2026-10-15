@@ -12,8 +12,8 @@ name: Patrol (срочное и опрос вещания)
 # срочного сюда переехал и опрос каналов-кандидатов вещания (probe_live.py): он и хотел идти
 # каждые полчаса, а в разборе ходил раз в два часа.
 #
-# Дозор по-прежнему вхолостую: публикует он только при PATROL_LIVE=true (холостой ход с 30.08,
-# решение — за владельцем, см. patrol.py). Включить: добавить PATROL_LIVE: "true" в env ниже.
+# Боевой режим с 15.10.2026 (решение владельца): PATROL_LIVE=true, публикует только мировое срочное —
+# 3 независимые редакции + слово беды + масштаб (patrol_world.py). Выключить: убрать PATROL_LIVE из env ниже.
 on:
   workflow_dispatch:
   schedule:
@@ -43,6 +43,7 @@ jobs:
       QWEN_MODEL: "openai/gpt-oss-120b"
       AI_MONTHLY_BUDGET: '50'
       EDITOR_MODE: live
+      PATROL_LIVE: "true"    # боевой режим: только мировое срочное (patrol_world.py), решение владельца 15.10.2026
     steps:
       - uses: actions/checkout@v4
 
