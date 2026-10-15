@@ -135,6 +135,8 @@ def city_of_item(item):
     верим заголовку: он про то, где произошло.
     """
     src = (item.get("source") or "")
+    if src in _OFFICIAL_CITY:                       # канал главы региона: город известен заранее
+        return CITIES[_OFFICIAL_CITY[src]]
     m = _SOURCE_CITY.search(src)
     src_city = _find(m.group(1)) if m else None
     title_city = _find(item.get("title") or "")
@@ -207,11 +209,12 @@ _PAST = re.compile(r"\b(?:в\s+\d{4}\s+году|годовщин\w*|вспомн
 #       тройное уведомление в шторке.
 # Эфир радио источником не считается вообще: его не слушаем.
 #
-# Официальные каналы сюда вносят ТОЛЬКО после проверки, чей это канал (урок 28.08.2026: «собачка» @ntv
-# оказалась турецким NTV). Проверено 15.10: @mchs_official — «МЧС России», @mod_russia — «Минобороны
-# России»; они публикуют пресс-релизы и итоги ночи, а не тревоги по городам, поэтому в реестр не
-# входят. Нужны региональные каналы глав регионов и местных МЧС — по одному на город, с проверкой.
-OFFICIAL_ALERT_SOURCES = set()
+# Официальные каналы — official_alerts.CHANNELS; вносят ТОЛЬКО после проверки, чей это канал (урок
+# 28.08.2026: «собачка» @ntv оказалась турецким NTV) и что в нём есть тревоги. Проверено 15.10: Оперштаб
+# Курской области, Развожаев (Севастополь), Собянин (Москва). @mchs_official и @mod_russia — пресс-релизы.
+from official_alerts import CHANNELS as _CHANNELS
+_OFFICIAL_CITY = {name: city for name, city in _CHANNELS.values()}   # издание → город канала
+OFFICIAL_ALERT_SOURCES = set(_OFFICIAL_CITY)
 
 ALERT_KIND = "air"
 
