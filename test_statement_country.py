@@ -8,7 +8,7 @@ import contextlib
 import io
 import sys
 
-from topic_country import statement_country, final_statement_country_guard
+from topic_country import statement_country, final_statement_country_guard, final_own_subject_guard
 
 ok = fail = 0
 
@@ -73,6 +73,35 @@ c = run([card(case, "KG")])[0]
 check("уже в стране заявителя — без изменений", c["event_where"] == "KG" and c["scope"] == "pool")
 c = run([card(case, "RU", event_countries="RU,UA")])[0]
 check("event_countries: чужая страна убрана, страна заявителя добавлена", set(c["event_countries"].split(",")) == {"UA", "KG"})
+
+# ── J51: издание страны пишет о своей стране, место события не названо в заголовке ──
+SRC = {"Вечерний Бишкек": "KG", "Kaktus.media": "KG", "Kun.uz": "UZ", "The Guardian": "GB"}
+src = lambda x: SRC.get(x.get("source"), "")
+
+
+def own(title, where, source="Вечерний Бишкек", **kw):
+    c = {"title": title, "event_where": where, "scope": "local", "source": source, **kw}
+    with contextlib.redirect_stdout(io.StringIO()):
+        final_own_subject_guard([c], "ru", src)
+    return c
+
+
+check("случай АлтГУ: кыргызское издание, Кыргызстан в заголовке, место не названо → KG",
+      own("Кыргызстан вошёл в число стран научного сотрудничества с АлтГУ", "RU")["event_where"] == "KG")
+check("узбекское издание пишет об Узбекистане → UZ",
+      own("Узбекистан вошёл в рейтинг стран по экспорту хлопка", "TJ", source="Kun.uz")["event_where"] == "UZ")
+check("место названо в заголовке — решение ИИ не трогаем",
+      own("Кыргызстан и Россия подписали соглашение", "RU")["event_where"] == "RU")
+check("визит в Москву — не трогаем", own("Президент Кыргызстана прибыл в Москву", "RU")["event_where"] == "RU")
+check("свой Ташкент назван → UZ не трогаем", own("Кыргызстан открыл выставку в Ташкенте", "UZ")["event_where"] == "UZ")
+check("Трамп в Америке: издание GB, своя страна не названа — не трогаем",
+      own("Трамп подписал указ", "US", source="The Guardian")["event_where"] == "US")
+check("страна события уже своя — без изменений", own("Кыргызстан вошёл в рейтинг", "KG")["event_where"] == "KG")
+check("издание не из списка — не трогаем", own("Кыргызстан вошёл в рейтинг", "RU", source="Неизвестное")["event_where"] == "RU")
+check("срочное не трогаем", own("Кыргызстан объявил тревогу", "RU", category="URGENT")["event_where"] == "RU")
+check("мост не трогаем", own("Кыргызстан помог гражданам в России", "RU", bridge=True)["event_where"] == "RU")
+check("event_countries: чужая убрана, своя добавлена",
+      set(own("Кыргызстан вошёл в число стран с АлтГУ", "RU", event_countries="RU,UZ")["event_countries"].split(",")) == {"UZ", "KG"})
 
 print(f"\n{ok} ✓, {fail} ✗")
 sys.exit(1 if fail else 0)

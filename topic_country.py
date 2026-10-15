@@ -435,6 +435,49 @@ def final_statement_country_guard(items, lang, home):
     return items
 
 
+# ─── Издание страны X пишет о ней же, а место события ИИ поставил в другую страну (J51, 15.10.2026) ─────
+# Владелец: «смотри на издание, оно кыргызское; для москвича пусть местные новости будут от местных
+# изданий». «Кыргызстан вошёл в число стран научного сотрудничества с АлтГУ» (Вечерний Бишкек): издание
+# кыргызское, своя страна названа в заголовке, а страна «места» (АлтГУ — вуз в России) в заголовке не
+# названа. Событие ИИ назвал российским, и у москвича это были «Местные».
+# Правило узкое: издание страны X (по списку изданий), в заголовке названа X, а страна Y события в
+# заголовке НЕ названа → событие X. Если Y названа («Глава МИД прибыл в Москву», «Кыргызстан и Узбекистан
+# подписали…») — решение ИИ не трогаем. Решение «Трамп в Америке для американца местное» не задето:
+# там своя страна издания (Великобритания) в заголовке не названа.
+def final_own_subject_guard(items, lang, source_country):
+    fixed = []
+    for x in items:
+        if x.get("interesting") or x.get("vital") or x.get("bridge") \
+                or x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY"):
+            continue
+        y = (x.get("event_where") or "").strip().upper()
+        if not y:
+            continue
+        try:
+            own = (source_country(x) or "").strip().upper()
+        except Exception:
+            own = ""
+        if not own or own == y:
+            continue
+        title = x.get("title") or ""
+        low = title.lower()
+        own_named = any(_word_start(low, w) for w in _OWN.get(own, ()))
+        if not own_named:
+            continue
+        if y in named_countries(title):
+            continue
+        x["event_where"] = own
+        ec = [c for c in (x.get("event_countries") or "").split(",") if c and c != y]
+        if ec:
+            x["event_countries"] = ",".join(sorted(set(ec) | {own}))
+        fixed.append((y, x))
+    if fixed:
+        print(f"  🗞 Издание страны пишет о своей стране: страна события исправлена [{lang}]: {len(fixed)}")
+        for y, x in fixed[:5]:
+            print(f"       · {x.get('source','?')} {y}→{x.get('event_where')}: {(x.get('title') or '')[:60]}")
+    return items
+
+
 # ─── Заявление зарубежной технологической компании на «Местных» → «Интересное» ───────────
 # (журнал J44, 15.10.2026; правило для всех пулов, список компаний — curious.TECH_COMPANIES)
 def final_foreign_tech_guard(items, lang, home):
