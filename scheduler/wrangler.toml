@@ -1,0 +1,21 @@
+# Внешний планировщик ленты Ticker 24/7 (Cloudflare Worker). Развёртывание — scheduler/README.md.
+name = "ticker247-scheduler"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+# Часы UTC — слоты из schedule_pools.SLOTS_UTC, минута :02 (запасные запуски GitHub — :07 и :37)
+[triggers]
+crons = [
+  "2 0 * * *",
+  "2 5 * * *",
+  "2 8 * * *",
+  "2 11 * * *",
+  "2 12 * * *",
+  "2 14 * * *",
+  "2 15 * * *",
+  "2 17 * * *",
+  "2 18 * * *",
+  "2 20 * * *",
+  "2 21 * * *",
+  "2 23 * * *",
+]
