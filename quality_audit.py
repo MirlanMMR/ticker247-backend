@@ -203,8 +203,17 @@ def main():
     shelf_wrong, shelf_unknown = vs.count("suspect"), vs.count("unknown")
     shelf_known = len(vs) - shelf_unknown
     new_fields = sum(1 for x in items if x.get("scale") and x.get("category") not in ("CURRENCY", "CRYPTO"))
+    # Пол полки «Новости из…» (CLAUDE.md, свежесть: не меньше 6 карточек за 36 часов) — для читателя
+    # дома пула. Соседи — как в приложении (NewsPlace.HOME_NEIGHBOURS): у США это Канада и Мексика,
+    # у остальных — всё пространство пула без дома. Журнал J45: у американца была одна карточка
+    import time as _t
+    nb = {"CA", "MX"} if HOME.get(a.pool) == "US" else (sp - {hm})
+    horizon = _t.time() * 1000 - 36 * 3600 * 1000
+    shelf_cards = [x for x in items if x.get("scope") != "world" and (x.get("country") or "").upper() in nb
+                   and (x.get("publishedAt") or 0) >= horizon]
+    shelf_floor = {"neighbours": sorted(nb), "cards_36h": len(shelf_cards), "floor": 6}
     if a.json:
-        print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad),
+        print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad), "shelf_floor": shelf_floor,
                           "percent": round(pct, 1), "kinds": kinds, "shelf": {"known": shelf_known, "wrong": shelf_wrong, "total": len(vs), "where_scale": new_fields}, "rows": bad},
                          ensure_ascii=False, indent=1))
     else:
@@ -216,6 +225,9 @@ def main():
         print(f"    полки: страна события известна у {shelf_known} из {len(vs)} "
               f"({100.0 * shelf_known / max(1, len(vs)):.0f}%), под подозрением {shelf_wrong}; "
               f"поля where+scale у {new_fields} из {len(vs)} ({100.0 * new_fields / max(1, len(vs)):.0f}%)")
+        mark = "✅" if shelf_floor["cards_36h"] >= shelf_floor["floor"] else "⚠️ ниже пола"
+        print(f"    «Новости из…» дома {hm}: {shelf_floor['cards_36h']} карточек за 36 ч от соседей "
+              f"{','.join(shelf_floor['neighbours'])} (пол {shelf_floor['floor']}) {mark}")
         print(f"    родной язык на «Местных»: {len(nat)} из {len(loc)} ({share:.0f}%, потолок 50%)")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
