@@ -35,10 +35,10 @@ _WORDS = {
 }
 # у каждой страны пула — свои слова (для проверки «своя страна названа»)
 _OWN = {
-    "KZ": ("казахстан", "kazakh", "астан", "алмат"), "UZ": ("узбекистан", "uzbek", "ташкент", "самарканд"),
-    "TJ": ("таджикистан", "tajik", "душанбе"), "KG": ("кыргыз", "киргиз", "бишкек", "kyrgyz", "ош "),
-    "BY": ("беларус", "белорус", "минск"), "AM": ("армени", "ереван"), "AZ": ("азербайджан", "баку"),
-    "GE": ("грузи", "тбилиси"), "MD": ("молдов", "кишин"), "TM": ("туркмен", "ашхабад"),
+    "KZ": ("казахстан", "kazakh", "астан", "алмат", "токаев", "тоқаев", "tokayev"), "UZ": ("узбекистан", "uzbek", "ташкент", "самарканд", "мирзиёев", "мирзиеев", "mirziyoyev"),
+    "TJ": ("таджикистан", "tajik", "душанбе", "рахмон", "rahmon"), "KG": ("кыргыз", "киргиз", "бишкек", "kyrgyz", "ош "),
+    "BY": ("беларус", "белорус", "минск", "лукашенко", "lukashenko"), "AM": ("армени", "ереван", "пашинян", "pashinyan"), "AZ": ("азербайджан", "баку", "алиев", "aliyev"),
+    "GE": ("грузи", "тбилиси", "кобахидзе", "kobakhidze"), "MD": ("молдов", "кишин", "санду"), "TM": ("туркмен", "ашхабад", "бердымухамедов"),
     "RU": _WORDS["RU"], "GB": _WORDS["GB"], "FR": _WORDS["FR"], "DE": _WORDS["DE"],
     "US": _WORDS["US"], "CN": _WORDS["CN"], "UA": _WORDS["UA"], "TR": _WORDS["TR"],
     "IE": ("ирланди", "ireland", "irlande", "irlanda"), "CA": ("канад", "canada", "canadá"),
@@ -136,23 +136,55 @@ def mentions_home(item, home):
     return any(w in head for w in words)
 
 
+def local_event_country(x, space, home):
+    """Страна события «местной» карточки: поле event_where от ИИ, а когда его нет (покрытие
+    27–58 %) — страна или глава государства, названные в ЗАГОЛОВКЕ (15.10.2026).
+
+    Случай: «Шавкат Мирзиёев подписал закон о пожизненном наказании для педофилов» лежало на
+    «Местных» Кыргызстана: издание наше, а президент и страна чужие. Страж смотрел только
+    event_where; у карточки без него ничего не срабатывало. Правило: чужая страна/глава
+    названы в заголовке, а своя — нет (ни в заголовке, ни в начале текста) → событие там.
+    """
+    ev = (x.get("event_where") or "").strip().upper()
+    if ev:
+        return ev, False
+    title = (x.get("title") or "").lower()
+    for code in list(space) + [c for c in _WORDS if c not in space]:
+        if code == home:
+            continue
+        if any(w in title for w in _OWN.get(code, ())) or _hit(code, title):
+            return code, True               # страна выведена из текста, а не названа ИИ
+    return "", False
+
+
+def _local_foreign_candidate(x, space, home):
+    if x.get("scope") != "local" or x.get("bridge") or x.get("interesting") or x.get("vital") \
+            or x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY") or mentions_home(x, home):
+        return "", False
+    ev, derived = local_event_country(x, space, home)
+    if not ev or ev == home:
+        return "", False
+    return ev, derived
+
+
 def final_local_foreign_guard(items, lang, space, home):
     moved, dropped, kept = [], [], []
     for x in items:
-        ev = (x.get("event_where") or "").strip().upper()
-        if (x.get("scope") == "local" and ev and ev != home and not x.get("bridge")
-                and not x.get("interesting") and not x.get("vital")
-                and x.get("category") not in ("URGENT", "URGENT_LOCAL_ONLY")
-                and not mentions_home(x, home)):
+        ev, derived = _local_foreign_candidate(x, space, home)
+        if ev:
             if x.get("scale") == "world":
                 x["scope"] = "world"
                 moved.append(x)
             elif ev in space:
                 x["scope"] = "pool"
+                if derived:
+                    x["event_where"] = ev
                 moved.append(x)
             elif foreign_fate(x) == "world":
                 x["scope"] = "world"
                 moved.append(x)
+            elif derived:
+                pass                        # страна выведена из слов — не снимаем, оставляем как было
             else:
                 dropped.append(x)
                 continue
