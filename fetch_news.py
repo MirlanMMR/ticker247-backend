@@ -7727,7 +7727,7 @@ def mark_vital_by_city(items, lang):
     См. vital_city.py.
     """
     now = int(datetime.now().timestamp() * 1000)
-    got = mark_vital_city(items, now)
+    got = mark_vital_city(items, now, family_of=publisher_family)
     for it in got:
         if it.get("scope") == "local":
             it["category"] = "URGENT"

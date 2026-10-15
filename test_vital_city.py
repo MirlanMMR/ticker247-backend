@@ -98,5 +98,32 @@ many = [card(f"В {n} сильный ливень", "Лента") for n in
         ("Москве", "Казани", "Уфе", "Перми", "Омске", "Самаре", "Тюмени", "Томске", "Липецке", "Рязани", "Туле", "Сочи", "Бишкеке", "Оше")]
 check("потолок на пул", len(V.mark_vital_city(many, now)) == V.VITAL_CITY_TOTAL)
 
+# ── лестница уверенности тревог ──
+check("нет источников → 0", V.alert_level(set(), False, False) == 0)
+check("один чужой источник → 1 (без уведомления)", V.alert_level({"РИА"}, False, False) == 1)
+check("одно местное издание → 2", V.alert_level({"116.ru"}, True, False) == 2)
+check("один официальный канал → 2, не 3 (взломать можно и его)", V.alert_level({"gov"}, False, True) == 2)
+check("два независимых без местного → 2", V.alert_level({"РИА", "РБК"}, False, False) == 2)
+check("местное + ещё одно независимое → 3", V.alert_level({"116.ru", "РИА"}, True, False) == 3)
+check("официальный + независимое → 3", V.alert_level({"gov", "РИА"}, False, True) == 3)
+check("три независимых → 3", V.alert_level({"a", "b", "c"}, False, False) == 3)
+check("дубли одного издания считаются один раз", V.alert_level({"116.ru"}, True, False) == 2)
+
+air1 = card("В Татарстане объявили ракетную опасность", "116.ru — Казань")
+air2 = card("В аэропорту Казани ограничения из-за ракетной опасности", "РИА Новости", age_h=0.5)
+got = V.mark_vital_city([air1, air2], now, family_of=lambda s: s.split(" — ")[0])
+check("тревога в Казани: два издания, одно местное → уровень 3", all(x.get("alertLevel") == 3 for x in got))
+check("источники названы на карточке", "116.ru" in got[0]["alertSources"] and "РИА Новости" in got[0]["alertSources"])
+solo = card("В Рязани объявили ракетную опасность", "РИА Новости")
+V.mark_vital_city([solo], now)
+check("одно нелокальное издание → уровень 1", solo.get("alertLevel") == 1)
+local_solo = card("В Рязани объявили ракетную опасность", "62.ru — Рязань")
+V.mark_vital_city([local_solo], now)
+check("одно местное → уровень 2", local_solo.get("alertLevel") == 2)
+weather = card("В Москве штормовое предупреждение", "Лента")
+V.mark_vital_city([weather], now)
+check("не тревога — без alertLevel", "alertLevel" not in weather)
+check("реестр официальных пуст, пока не проверены региональные каналы", V.OFFICIAL_ALERT_SOURCES == set())
+
 print(f"\n{ok} ✓, {fail} ✗")
 sys.exit(1 if fail else 0)

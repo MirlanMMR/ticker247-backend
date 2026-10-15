@@ -194,6 +194,47 @@ VITAL_KINDS = {
 # Историческое и итоговое — не «сейчас»: «ураган 2005 года», «в прошлом году был ливень».
 _PAST = re.compile(r"\b(?:в\s+\d{4}\s+году|годовщин\w*|вспомн\w*|исполнилось|\d+\s+лет\s+назад|в\s+прошлом\s+году|вечер\s+памяти|памяти)\b", re.I)
 
+# ── ЛЕСТНИЦА УВЕРЕННОСТИ ДЛЯ ТРЕВОГ (15.10.2026) ──────────────────────────────────────────
+# Воздушная тревога — единственный вид, который будит человека громко, поэтому ложная тревога
+# здесь дороже всего. Государственные каналы и эфир тоже взламывают (2022–2023: ложные «воздушные
+# тревоги» в эфире российских радиостанций и телеканалов; 2018: ложная ракетная тревога на
+# Гавайях) — «официальное» НЕ значит «верное». Поэтому уровень считается по числу НЕЗАВИСИМЫХ
+# источников, а не по громкости одного:
+#   1 — один источник не из этого города: карточка в ленте, без уведомления;
+#   2 — местное издание города, или официальный канал, или два независимых издания:
+#       одно уведомление с подписью «сообщают …, не подтверждено»;
+#   3 — не менее двух независимых, из них местное или официальное, либо три и больше:
+#       тройное уведомление в шторке.
+# Эфир радио источником не считается вообще: его не слушаем.
+#
+# Официальные каналы сюда вносят ТОЛЬКО после проверки, чей это канал (урок 28.08.2026: «собачка» @ntv
+# оказалась турецким NTV). Проверено 15.10: @mchs_official — «МЧС России», @mod_russia — «Минобороны
+# России»; они публикуют пресс-релизы и итоги ночи, а не тревоги по городам, поэтому в реестр не
+# входят. Нужны региональные каналы глав регионов и местных МЧС — по одному на город, с проверкой.
+OFFICIAL_ALERT_SOURCES = set()
+
+ALERT_KIND = "air"
+
+
+def alert_level(families, local, official):
+    """1 | 2 | 3 — см. «лестницу уверенности». families — независимые издания (семьи), не заметки."""
+    n = len(set(families))
+    if n == 0:
+        return 0
+    if n >= 3 or (n >= 2 and (local or official)):
+        return 3
+    if official or local or n >= 2:
+        return 2
+    return 1
+
+
+def source_is_local(item, city_id):
+    """Издание города события («116.ru — Казань» для события в Казани)."""
+    m = _SOURCE_CITY.search(item.get("source") or "")
+    c = _find(m.group(1)) if m else None
+    return bool(c and c["id"] == city_id)
+
+
 VITAL_CITY_MAX = 2            # на город
 VITAL_CITY_TOTAL = 12         # на пул: без потолка один шквальный день заполнил бы карусель
 VITAL_CITY_MAX_AGE_MS = 14 * 3600 * 1000   # объявили утром — важно до вечера
@@ -217,7 +258,7 @@ def is_vital_city(item):
     return bool(vital_kind(item) and city_of_item(item))
 
 
-def mark_vital_city(items, now_ms):
+def mark_vital_city(items, now_ms, family_of=lambda source: source):
     """Ставит vital + city/cityLat/cityLon; возвращает список отмеченных.
 
     Категорию и приоритет здесь НЕ меняем: на «срочно» поднимает вызывающий и только когда
@@ -231,6 +272,18 @@ def mark_vital_city(items, now_ms):
         c = city_of_item(it) if kind else None
         if c:
             cands.append((it, c, kind))
+    # Уровень тревоги считаем по ВСЕМ карточкам города этого вида, а не только по отобранным:
+    # потолок «два на город» не должен прятать подтверждение
+    air = {}
+    for it, c, kind in cands:
+        if kind != ALERT_KIND:
+            continue
+        a = air.setdefault(c["id"], {"fam": set(), "local": False, "official": False, "names": []})
+        a["fam"].add(family_of(it.get("source") or ""))
+        a["local"] = a["local"] or source_is_local(it, c["id"])
+        a["official"] = a["official"] or (it.get("source") in OFFICIAL_ALERT_SOURCES)
+        if it.get("source") not in a["names"]:
+            a["names"].append(it.get("source"))
     cands.sort(key=lambda t: -(t[0].get("publishedAt") or 0))
     per, out = {}, []
     for it, c, kind in cands:
@@ -242,5 +295,9 @@ def mark_vital_city(items, now_ms):
         it["city"] = c["id"]
         it["cityLat"] = c["lat"]
         it["cityLon"] = c["lon"]
+        if kind == ALERT_KIND:
+            a = air[c["id"]]
+            it["alertLevel"] = alert_level(a["fam"], a["local"], a["official"])
+            it["alertSources"] = ", ".join(a["names"][:4])
         out.append(it)
     return out
