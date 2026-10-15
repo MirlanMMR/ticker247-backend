@@ -136,6 +136,23 @@ def mentions_home(item, home):
     return any(w in head for w in words)
 
 
+def _word_start(low, w):
+    """Слово с НАЧАЛА слова: «алиев» не находится в «Талиева» и «Маматалиев» (фамилии
+    кыргызстанцев), «иран» — в «Миранда». Основа с окончанием по-прежнему находится."""
+    i = low.find(w)
+    while i >= 0:
+        if i == 0 or not low[i - 1].isalnum():
+            return True
+        i = low.find(w, i + 1)
+    return False
+
+
+def _hit_start(code, text):
+    if code in _SHORT and _SHORT[code].search(text):
+        return True
+    return any(_word_start(text, w) for w in _WORDS.get(code, ()))
+
+
 def local_event_country(x, space, home):
     """Страна события «местной» карточки: поле event_where от ИИ, а когда его нет (покрытие
     27–58 %) — страна или глава государства, названные в ЗАГОЛОВКЕ (15.10.2026).
@@ -152,7 +169,7 @@ def local_event_country(x, space, home):
     for code in list(space) + [c for c in _WORDS if c not in space]:
         if code == home:
             continue
-        if any(w in title for w in _OWN.get(code, ())) or _hit(code, title):
+        if any(_word_start(title, w) for w in _OWN.get(code, ())) or _hit_start(code, title):
             return code, True               # страна выведена из текста, а не названа ИИ
     return "", False
 
