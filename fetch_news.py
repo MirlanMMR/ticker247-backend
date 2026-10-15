@@ -137,6 +137,12 @@ RSS_SOURCES = [
     {"url": "https://www.rte.ie/feeds/rss/?index=/news/", "source": "RTÉ Ireland", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
     {"url": "https://www.irishtimes.com/arc/outboundfeeds/feed-irish-news/", "source": "Irish Times", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
     {"url": "https://globalnews.ca/feed/", "source": "Global News CA", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    # Соседи США по полке «Новости из…» (HOME_NEIGHBOURS["US"] = CA, MX): у читателя из США там была
+    # ОДНА карточка — один канадский источник и ни одного мексиканского (15.10.2026, владелец:
+    # «смотрел Америку с Арканзаса, в Новости из одна новость»). Ленты проверены 15.10: отдают ленту
+    {"url": "https://nationalpost.com/feed", "source": "National Post", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    {"url": "https://www.thestar.com/search/?f=rss&t=article&c=news*&l=50&s=start_time&sd=desc", "source": "Toronto Star", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    {"url": "https://mexiconewsdaily.com/feed/", "source": "Mexico News Daily", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
     {"url": "https://www.abc.net.au/news/feed/51120/rss.xml", "source": "ABC Australia", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
     {"url": "https://www.smh.com.au/rss/feed.xml", "source": "SMH Australia", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
     {"url": "https://www.thehindu.com/news/national/feeder/default.rss", "source": "The Hindu", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
@@ -592,7 +598,8 @@ SOURCE_COUNTRY = {
     # Англоязычное пространство
     "Irish Times": "IE", "RTÉ Ireland": "IE", "The Hindu": "IN",
     "Punch Nigeria": "NG", "Jamaica Gleaner": "JM", "ABC Australia": "AU",
-    "Global News CA": "CA", "Straits Times": "SG", "Sky Sports": "GB",
+    "Global News CA": "CA", "National Post": "CA", "Toronto Star": "CA", "Mexico News Daily": "MX",
+    "Straits Times": "SG", "Sky Sports": "GB",
     "BBC News": "GB", "BBC World": "GB", "BBC Sport": "GB",
     # Франкоязычные
     "Le Figaro": "FR", "Franceinfo": "FR", "20 Minutes": "FR",
@@ -708,7 +715,8 @@ POOL_DOMAINS = {
     # в английском — остальные три пула останутся без мировой повестки
     "en": ["thehindu.com", "smh.com.au", "irishtimes.com", "nzherald.co.nz",
            "rte.ie", "globalnews.ca", "abc.net.au", "punchng.com",
-           "jamaica-gleaner.com", "straitstimes.com"],
+           "jamaica-gleaner.com", "straitstimes.com",
+           "nationalpost.com", "thestar.com", "mexiconewsdaily.com"],
     "es": ["eldiario.es", "lavanguardia.com", "rtve.es", "elmundo.es",
            "semana.com", "diariolibre.com",
            "elpais.com", "abc.es", "marca.com", "clarin.com", "lanacion.com.ar",
@@ -7388,7 +7396,8 @@ POOL_COUNTRIES = {
     # это «Мировые», а не «Новости из». Внутренние дела Украины (мэрия, тарифы)
     # по правилу place_domestic_world в русском пуле не показываются вовсе
     "ru": {"KZ", "UZ", "TJ", "RU", "BY", "AM", "AZ", "GE", "MD", "TM"},
-    "en": {"GB", "IE", "CA", "AU", "NZ", "IN", "NG", "ZA", "JM", "SG"},
+    # MX — сосед США (полка «Новости из…» американца: Канада и Мексика); приложение держит тот же список
+    "en": {"GB", "IE", "CA", "AU", "NZ", "IN", "NG", "ZA", "JM", "SG", "MX"},
     "es": {"ES", "AR", "CO", "PE", "CL", "EC", "VE", "GT", "CR", "SV", "DO", "UY", "PY", "BO", "PA", "HN", "NI", "CU"},
     "pt": {"PT", "AO", "MZ", "CV", "GW", "ST", "TL"},
     "fr": {"BE", "CH", "CA", "SN", "CI", "MA", "TN", "DZ", "CD", "CM", "ML",
