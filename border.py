@@ -21,6 +21,7 @@ from dull import is_dull
 from curious import is_curious_content
 from shelves import pool_shelf_fix, world_to_home_fix, POOL_HOME
 from topic_country import foreign_topic, mentions_home, foreign_region
+from urgent_guard import foreign_small_urgent
 from textcut import ends_inside_quote, drop_trailing_heading, sentence_start, is_stub_summary, has_foreign_script
 
 TITLE_FIT = 120
@@ -86,6 +87,10 @@ def _foreign_region(x, ctx):
     return foreign_region(x, ctx["space"], ctx["lang"])
 
 
+def _foreign_urgent(x, ctx):
+    return foreign_small_urgent(x)
+
+
 def _dull_local(x, ctx):
     return ctx["lang"] == "ru" and x.get("scope") == "local" and is_dull(x)
 
@@ -104,6 +109,7 @@ REGISTRY = [
     ("J22", "«Интересное» не по содержанию (оружие, беда, реклама, новость дня)", _fake_curious, True),
     ("J15", "аннотация страницы-трансляции вместо текста", _stub_summary, True),
     ("J32", "областное издание чужой страны в пуле без неё (Псков в испанской ленте)", _foreign_region, True),
+    ("J38", "«срочно» вне «Местных» без масштаба (сель с одной жертвой у соседей в шторке)", _foreign_urgent, True),
     ("J11", "ведомственное на «Местных» (>15% полки)", None, False),   # доля, см. control
 ]
 
