@@ -107,9 +107,58 @@ _NOT_CURIOUS = re.compile(
     r")", re.I)
 
 
+# ─── Заявление или прогноз зарубежной технологической компании — не событие, а «надо же» ──────
+#
+# 15.10.2026, владелец: «новость про ИИ от Knews без инфоповода — может, в Интересное?»
+# («Anthropic предупреждает: ИИ скоро начнет сам копироваться…» лежало на «Местных»
+# Кыргызстана; повтор J23 от 09.10 — «Сооснователь Anthropic…»). Это заявление или прогноз
+# компании о технологиях: решения, события и страны, к которой она имела бы отношение, нет. Читатель
+# откроет её как любопытное. Правило для всех пулов: тема tech/science (по разметке ИИ), в заголовке
+# названа компания ДРУГОЙ страны и слово заявления/прогноза/предупреждения, своей страны нет.
+# Слово «предупреждает» в такой карточке не беда (в _NOT_CURIOUS оно стоит ради предупреждений
+# ведомств — МЧС, метео), поэтому при проверке содержания оно не считается.
+TECH_COMPANIES = {
+    "US": r"anthropic|openai|chatgpt|gemini|claude|google|alphabet|apple|meta\b|microsoft|nvidia|tesla|spacex|"
+          r"amazon|intel|amd\b|xai\b|oracle|ibm|antropic|опенэй|гугл|эппл|майкрософт|нвидиа|тесла",
+    "CN": r"huawei|tiktok|bytedance|alibaba|baidu|deepseek|tencent|xiaomi|хуавей|тикток|алибаба|дипсик|сяоми",
+    "KR": r"samsung|lg electronics|hyundai|самсунг",
+    "TW": r"tsmc",
+    "NL": r"asml",
+    "FR": r"mistral",
+    "DE": r"\bsap\b",
+}
+_TECH_CO = {c: re.compile(r"(?<![\w-])(?:" + p + r")", re.I) for c, p in TECH_COMPANIES.items()}
+_STATEMENT = re.compile(
+    r"(?<![\w-])(?:предупрежд\w*|предупреди\w*|считает|считают|опасает\w*|прогнозир\w*|прогноз\w*|"
+    r"заявил\w*|заявляет|утверждает\w*|уверен\w*|предсказ\w*|ожидает|"
+    r"warns?|warned|says|said|fears|predicts?|claims?|expects|believes|"
+    r"advierte|dice|teme|prevé|cree|diz|avisa|prevê|acredita|"
+    r"avertit|craint|estime|prévoit|pense)(?![\w-])", re.I)
+
+
+def tech_statement_country(item):
+    """Страна зарубежной технологической компании из заголовка карточки-заявления, иначе None.
+
+    Условия: тема tech/science (разметка ИИ или рубрика TECH), в заголовке слово заявления и
+    компания из списка. Страну компании возвращаем, чтобы отличить «чужую» от «домашней»."""
+    top = str(item.get("topic") or "").split("/")[0].lower()
+    if top not in ("tech", "science") and item.get("category") != "TECH":
+        return None
+    title = str(item.get("title") or "")
+    if not _STATEMENT.search(title):
+        return None
+    for code, rx in _TECH_CO.items():
+        if rx.search(title):
+            return code
+    return None
+
+
 def is_curious_content(item) -> bool:
     """False: по заголовку это жёсткая новость, беда или реклама, а не любопытное."""
-    return not _NOT_CURIOUS.search(str(item.get("title") or ""))
+    title = str(item.get("title") or "")
+    if tech_statement_country(item):
+        title = _STATEMENT.sub(" ", title)      # «предупреждает» компании — не предупреждение ведомства
+    return not _NOT_CURIOUS.search(title)
 
 
 # ─── Лонгрид и журнальный материал — не новость ─────────────────────────────
