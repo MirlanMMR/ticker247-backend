@@ -6854,7 +6854,7 @@ from twins import drop_twins
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
 from curious import topup_interesting, is_curious_content, is_longread_url
-from topic_country import final_foreign_topic_guard, final_local_foreign_guard, final_foreign_region_guard, final_foreign_tech_guard
+from topic_country import final_foreign_topic_guard, final_local_foreign_guard, final_foreign_region_guard, final_foreign_tech_guard, final_statement_country_guard
 import border
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
@@ -9680,6 +9680,7 @@ def main():
         filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},
                                     home=POOL_HOME.get(lang, ""))
         filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
+        filtered = final_statement_country_guard(filtered, lang, POOL_HOME.get(lang, ""))  # J50: заявление о своих гражданах — событие в стране заявителя
         filtered = final_local_foreign_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")}, POOL_HOME.get(lang, ""))
         filtered = final_foreign_region_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
         filtered = final_foreign_tech_guard(filtered, lang, POOL_HOME.get(lang, ""))   # J44: заявление зарубежной компании → «Интересное»

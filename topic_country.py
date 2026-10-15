@@ -363,6 +363,78 @@ def final_local_foreign_guard(items, lang, space, home):
     return kept
 
 
+# ─── Заявление должностного лица страны X о СВОИХ гражданах за рубежом → событие в стране X ───────
+# (журнал J50, 15.10.2026; правило для всех пулов, владелец: «не должна быть новость местной в России»)
+# Случай: «Глава МИД Кыргызстана впервые публично подтвердил принудительную вербовку
+# кыргызстанцев в России на войну в Украине» (Азаттык) ИИ отнёс к России («вербовка идёт в
+# России»), и у читателя из Москвы она лежала на «Местных». Но событие — ЗАЯВЛЕНИЕ киргизского
+# министра о киргизских гражданах; Россия — лишь место, где эти граждане находятся. «Мост» из
+# «Местного» Кыргызстана остаётся (там названа своя страна), а у москвича это новость о
+# Кыргызстане, то есть «Новости из…».
+# Правило узкое, чтобы не стать шире причины: ДОЛЖНОСТЬ страны X в начале заголовка + глагол
+# заявления + слова о гражданах (граждане, мигранты, соотечественники, «-станцы»), а страну Y
+# события ИИ назвал другой, и Y названа в заголовке как место («в России»). Визит и сами события
+# («глава МИД прибыл в Москву», «задержаны в Москве») не затрагиваются.
+_ROLE = (r"(?:глав\w+\s+(?:мид|правительств\w+|государств\w+)|министр\w*|мид\b|президент\w*|премьер\w*|посол\w*"
+         r"|правительств\w+|парламент\w*|омбудсмен\w*|уполномоченн\w+|спикер\w*|"
+         r"foreign\s+minister|minister|president|prime\s+minister|ambassador|government|"
+         r"ministro|presidente|primer\s+ministro|embajador|gobierno|ministre|président|premier\s+ministre|ambassadeur|gouvernement|"
+         r"governo|embaixador)")
+_STATEMENT = re.compile(
+    r"подтвердил|заявил|признал|сообщил|призвал|потребовал|предупредил|заверил|опроверг|назвал|рассказал|"
+    r"отметил|объявил|пояснил|прокомментировал|"
+    r"\b(?:says?|said|confirmed?|admitted?|admits|acknowledged?|called|warned|declared?|denied|denies)\b|"
+    r"\b(?:dijo|afirm[óo]|confirm[óo]|reconoci[óo]|admiti[óo]|neg[óo])\b|"
+    r"\b(?:a\s+confirm[ée]|a\s+d[ée]clar[ée]|a\s+reconnu|a\s+admis|confirmou|disse|admitiu|reconheceu)\b", re.I)
+_CITIZENS = re.compile(
+    r"граждан|мигрант|соотечественник|\w+станц\w+|кыргыз\w+|"
+    r"\b(?:citizens|nationals|migrants|ciudadanos|migrantes|compatriotas|cidad[aã]os|ressortissants|migrants)\b", re.I)
+_HEAD_ROLE = re.compile(r"^\W*" + _ROLE + r"\b", re.I)
+
+
+def statement_country(title):
+    """→ код страны X, если заголовок открывает должность страны X, а дальше заявление о гражданах."""
+    t = (title or "").strip()
+    m = _HEAD_ROLE.match(t)
+    if not m:
+        return None
+    span = t[m.end():m.end() + 45]
+    span = re.split(r"[,:;—–]|\s(?:в|во|на|при|по|из|от|для|in|on|at|en|à|no|na)\s", span)[0]
+    codes = named_countries(span)
+    if len(codes) != 1:
+        return None
+    rest = t[m.end():]
+    if not (_STATEMENT.search(rest) and _CITIZENS.search(rest)):
+        return None
+    return next(iter(codes))
+
+
+def final_statement_country_guard(items, lang, home):
+    """Событие заявления должностного лица страны X о её гражданах — в стране X, а не там, где граждане."""
+    fixed = []
+    for x in items:
+        if x.get("interesting") or x.get("vital") or x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY"):
+            continue
+        y = (x.get("event_where") or "").strip().upper()
+        code = statement_country(x.get("title"))
+        if not code or not y or y == code:
+            continue
+        if y not in named_countries(x.get("title") or ""):
+            continue                    # место ИИ не из заголовка — не трогаем
+        x["event_where"] = code
+        ec = [c for c in (x.get("event_countries") or "").split(",") if c and c != y]
+        if ec:
+            x["event_countries"] = ",".join(sorted(set(ec) | {code}))
+        if code == home and x.get("scope") == "pool":
+            x["scope"] = "local"
+        fixed.append(x)
+    if fixed:
+        print(f"  🗣 Заявление должностного лица о своих гражданах: страна события исправлена [{lang}]: {len(fixed)}")
+        for x in fixed[:5]:
+            print(f"       · {x.get('source','?')} → {x.get('event_where')}: {(x.get('title') or '')[:64]}")
+    return items
+
+
 # ─── Заявление зарубежной технологической компании на «Местных» → «Интересное» ───────────
 # (журнал J44, 15.10.2026; правило для всех пулов, список компаний — curious.TECH_COMPANIES)
 def final_foreign_tech_guard(items, lang, home):
