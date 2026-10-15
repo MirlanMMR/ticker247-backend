@@ -7710,10 +7710,34 @@ def carry_vital(items, lang):
     # таскала бы их в шторку ещё 14 часов
     back = [x for x in prev if isinstance(x, dict) and x.get("url") not in have
             and now - x.get("publishedAt", 0) <= VITAL_MAX_AGE_MS
-            and VITAL_LOCAL.search(f"{x.get('title', '')} {str(x.get('summary', ''))[:400]}")]
+            and (VITAL_LOCAL.search(f"{x.get('title', '')} {str(x.get('summary', ''))[:400]}")
+                 or is_vital_city(x))]
     if back:
         print(f"  🚰 Жизненно важное [{lang}] возвращено из прошлой выдачи: {len(back)}")
     return items + back
+
+
+def mark_vital_by_city(items, lang):
+    """Жизненно важное ПО ГОРОДУ (15.10.2026): ливень на Москву, тревога в Казани.
+
+    Город кладётся на карточку координатами (city, cityLat, cityLon): приложение будит
+    читателя, только если это его город. Чужой город (карточка не «Местная») остаётся
+    «важным» (priority 2, без URGENT): старое приложение не разбудит бишкекца московским
+    ливнем. Свой город (полка «Местные») поднимается в URGENT, как жизненно важное.
+    См. vital_city.py.
+    """
+    now = int(datetime.now().timestamp() * 1000)
+    got = mark_vital_city(items, now)
+    for it in got:
+        if it.get("scope") == "local":
+            it["category"] = "URGENT"
+            it["priority"] = max(it.get("priority", 0), 2)
+        else:
+            it["priority"] = max(it.get("priority", 0), 2)
+    if got:
+        print(f"  🏙 Жизненно важное по городу [{lang}]: {len(got)} — "
+              + "; ".join(f"{x['city']} {x.get('title','')[:45]}" for x in got[:6]))
+    return items
 
 
 def save_vital(items, lang):
@@ -7732,6 +7756,7 @@ def save_vital(items, lang):
 # землетрясение, взрыв, теракт. Гибель на учениях, в воде, при крушении у
 # соседей проходила мимо обоих. Масштаб считаем по числу из заголовка: своя
 # страна и соседи — от пяти погибших или пропавших, дальний мир — от двадцати.
+from vital_city import mark_vital_city, is_vital_city  # жизненно важное по городу (15.10.2026)
 from urgent_guard import _NUM_WORDS, _CASUALTY, CASUALTY_NEAR, CASUALTY_FAR, final_urgent_guard, final_category_guard  # одно определение для сервера, стража и аудита
 
 
@@ -8348,7 +8373,8 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
                 x["priority"] = min(int(x.get("priority") or 0), 1)
             cleared += 1
     # Жизненно важного не больше трёх разом — иначе шторка превратится в шум
-    vit = sorted([x for x in out if x.get("vital")], key=lambda x: -x.get("publishedAt", 0))
+    # Городские (city) считаются отдельно: потолок два на город и двенадцать на пул (vital_city.py)
+    vit = sorted([x for x in out if x.get("vital") and not x.get("city")], key=lambda x: -x.get("publishedAt", 0))
     for x in vit[EDITOR_VITAL_MAX:]:
         x["category"], x["vital"] = "NEWS", False
     _rep(f"     лента: было {len(filtered)}, снято {len(dropped)}, добрано до полной {added}, "
@@ -9594,6 +9620,7 @@ def main():
         filtered = cap_urgent(filtered, lang)
         filtered = carry_vital(filtered, lang)
         filtered = mark_vital_local(filtered, lang)
+        filtered = mark_vital_by_city(filtered, lang)
         filtered = demote_no_event(filtered, lang)
         filtered = fix_scope_and_category(filtered, lang)
         filtered = place_interesting(filtered, lang)

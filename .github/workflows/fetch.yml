@@ -195,6 +195,7 @@ jobs:
           python test_trim.py
           python test_schedule.py
           python test_patrol_rules.py
+          python test_vital_city.py
           python test_news_sitemap.py
           python test_rules_all_languages.py
           python test_foreign_region.py
