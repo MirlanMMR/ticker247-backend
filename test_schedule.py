@@ -39,23 +39,23 @@ check("каждый слот стоит дважды (запасной запу�
 check("минуты запуска не :00 (GitHub задерживает их сильнее всего)", all(int(c.split()[0]) != 0 for c in crons))
 check("минуты — те, что в таблице", {int(c.split()[0]) for c in crons} == set(S.CRON_MINUTES))
 
-# ── у каждого пула четыре слота — в дневных часах ОБОИХ главных поясов (8 поясов по три часа) ──
+# ── у каждого пула три слота — в дневных часах ОБОИХ главных поясов (8 поясов по три часа) ──
 check("восемь поясов по три часа, центры через три часа", S.BANDS == (-9, -6, -3, 0, 3, 6, 9, 12))
 for pool in S.ACTIVE_POOLS:
     hours = sorted(h for h, ps in S.SLOTS_UTC.items() if pool in ps)
     mains = S.POOL_MAIN_BANDS[pool]
-    check(f"{pool}: ровно четыре слота в сутки", len(hours) == 4)
+    check(f"{pool}: ровно три слота в сутки", len(hours) == 3)
     check(f"{pool}: два главных пояса, оба из восьми", len(mains) == 2 and all(b in S.BANDS for b in mains))
     for b in mains:
         locs = [S.band_hour(h, b) for h in hours]
         check(f"{pool}: все слоты в дневных часах пояса {b:+d} ({S.DAY_FROM}:00–{S.DAY_TO}:00): {locs}",
               all(S.DAY_FROM <= l <= S.DAY_TO for l in locs))
-        check(f"{pool}: пояс {b:+d} получает слоты от полудня до вечера (не позже 12:00 первый, не раньше 17:00 последний)", min(locs) <= 12 and max(locs) >= 17)
+        check(f"{pool}: пояс {b:+d} получает слоты от полудня до вечера (не позже 12:00 первый, не раньше 16:00 последний)", min(locs) <= 12 and max(locs) >= 16)
     # слоты по кругу суток не чаще чем раз в два часа и не реже чем раз в шесть (по UTC от слота к слоту)
-    gaps = [(hours[(i + 1) % 4] - hours[i]) % 24 for i in range(4)]
+    gaps = [(hours[(i + 1) % 3] - hours[i]) % 24 for i in range(3)]
     check(f"{pool}: промежутки между слотами {gaps} (не меньше 2 ч); ночной провал один", min(gaps) >= 2 and sum(gaps) == 24)
-check("всего 20 пул-прогонов в сутки (4 × 5)", sum(len(ps) for ps in S.SLOTS_UTC.values()) == 20)
-check("в одном запуске не больше трёх пулов", all(len(ps) <= 3 for ps in S.SLOTS_UTC.values()))
+check("всего 15 пул-прогонов в сутки (3 × 5), как с 9 октября", sum(len(ps) for ps in S.SLOTS_UTC.values()) == 15)
+check("в одном запуске не больше двух пулов", all(len(ps) <= 2 for ps in S.SLOTS_UTC.values()))
 check("«полки стран» — в часе, где есть слот", S.COUNTRY_SHELVES_HOUR in S.SLOTS_UTC)
 
 # ── внешний планировщик: worker.js и wrangler.toml совпадают с таблицей ──
@@ -72,8 +72,8 @@ check("fetch.yml: вход from_scheduler не обходит шлюз свеж�
 check("секрет токена не лежит в репозитории", "ghp_" not in wj and "github_pat_" not in wj and "github_pat_" not in wt)
 
 # ── разбор строки cron ──
-check("cron слота ru+fr → ru, fr", S.pools_for_cron("7 8 * * *") == ("ru", "fr"))
-check("запасной запуск того же слота — те же пулы", S.pools_for_cron("37 8 * * *") == S.pools_for_cron("7 8 * * *"))
+check("cron слота fr+pt → fr, pt", S.pools_for_cron("7 12 * * *") == ("fr", "pt"))
+check("запасной запуск того же слота — те же пулы", S.pools_for_cron("37 12 * * *") == S.pools_for_cron("7 12 * * *"))
 check("«полки стран» — один раз в сутки (первый слот)", [h for h in S.SLOTS_UTC if S.wants_country_shelves(f"7 {h} * * *")] == [S.COUNTRY_SHELVES_HOUR])
 
 # ── режим POOLS ──

@@ -2,7 +2,7 @@
  * Ticker 24/7 — внешний планировщик ленты (Cloudflare Worker, 15.10.2026).
  *
  * Зачем: расписание GitHub Actions ненадёжно (28 запусков дозора из ~290 за неделю), а слоты
- * ленты привязаны к дневным часам читателей (schedule_pools.py: 8 поясов, 4 слота на пул).
+ * ленты привязаны к дневным часам читателей (schedule_pools.py: 8 поясов, 3 слота на пул).
  * Планировщик Cloudflare срабатывает точно и дёргает workflow fetch.yml через API; строки
  * `cron:` в fetch.yml остаются запасными (:07 и :37) и выходят, увидев свежую ленту.
  *
@@ -19,7 +19,7 @@ const WORKFLOW = "fetch.yml";
 const SHELVES_HOUR = 5;   // schedule_pools.COUNTRY_SHELVES_HOUR: «полки стран» раз в сутки
 
 // час UTC → пулы
-const SLOTS = {"0": ["es"], "5": ["ru"], "8": ["ru", "fr"], "11": ["ru", "fr"], "12": ["pt"], "14": ["ru", "fr", "en"], "15": ["pt", "es"], "17": ["fr", "en"], "18": ["pt", "es"], "20": ["en"], "21": ["pt", "es"], "23": ["en"]};
+const SLOTS = {"5": ["ru"], "8": ["fr"], "9": ["ru"], "12": ["fr", "pt"], "13": ["ru"], "14": ["en"], "15": ["es"], "16": ["fr", "pt"], "18": ["en"], "19": ["es"], "20": ["pt"], "22": ["en"], "23": ["es"]};
 
 async function dispatch(env, pools, shelves) {
   const body = JSON.stringify({
