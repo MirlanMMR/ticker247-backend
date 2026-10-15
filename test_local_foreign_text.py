@@ -86,5 +86,12 @@ check("es: Аргентина названа, Мексика нет → «Нов
 out = run([card("México y Argentina firman acuerdo", country="MX")], home="MX", space=ES)
 check("es: названа и Мексика — мост, остаётся", out and out[0]["scope"] == "local")
 
+# слово внутри чужого слова — не страна и не глава государства (нашла сессия добора, 15.10)
+for t in ["Маматалиев высказался о строительстве дороги", "Камила Талиева определила почерк омбудсмена",
+          "Миранда открыла новую школу", "Лукашенкова улица закрыта на ремонт"]:
+    out = run([card(t)])
+    check(f"не страна: «{t[:38]}»", out and out[0]["scope"] == "local" and not out[0].get("event_where"))
+check("а настоящая основа с окончанием находится", run([card("Алиеву доложили о ходе работ")])[0]["scope"] == "pool")
+
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)
