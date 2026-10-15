@@ -363,6 +363,29 @@ def final_local_foreign_guard(items, lang, space, home):
     return kept
 
 
+# ─── Заявление зарубежной технологической компании на «Местных» → «Интересное» ───────────
+# (журнал J44, 15.10.2026; правило для всех пулов, список компаний — curious.TECH_COMPANIES)
+def final_foreign_tech_guard(items, lang, home):
+    """«Anthropic предупреждает: ИИ скоро…» от домашнего издания: решения, события и своей
+    страны нет — в полосу «Интересное», с полки «Местных» она уходит (приложение убирает карточки
+    полосы из полок). Своя компания (для США — Anthropic, OpenAI…) такой не считается."""
+    from curious import tech_statement_country
+    marked = []
+    for x in items:
+        if x.get("scope") != "local" or x.get("interesting") or x.get("bridge") or x.get("vital") \
+                or x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY") or mentions_home(x, home):
+            continue
+        co = tech_statement_country(x)
+        if co and co != home:
+            x["interesting"] = True
+            marked.append(x)
+    if marked:
+        print(f"  🎲 Заявление зарубежной компании → «Интересное» [{lang}]: {len(marked)}")
+        for x in marked[:5]:
+            print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:64]}")
+    return items
+
+
 # ─── Областное издание чужой страны (журнал J32, 09.10.2026) ──────────────
 # Областные газеты (поле region: RU-PSK, MX-JAL, US-TX…) пишут для читателей своего
 # региона. В пуле, где их страны нет, им не место: в испанской ленте стояли Псков и

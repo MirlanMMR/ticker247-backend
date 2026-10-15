@@ -20,6 +20,7 @@ import re
 from dull import is_dull
 from curious import is_curious_content
 from shelves import pool_shelf_fix, world_to_home_fix, POOL_HOME
+from curious import tech_statement_country
 from topic_country import foreign_topic, mentions_home, foreign_region, _local_foreign_candidate
 from urgent_guard import foreign_small_urgent, layout_category, p2_excess
 from textcut import ends_inside_quote, drop_trailing_heading, sentence_start, is_stub_summary, has_foreign_script
@@ -93,6 +94,13 @@ def _off_layout_category(x, ctx):
     return bool(c) and c not in ("CURRENCY", "CRYPTO") and layout_category(c) != c
 
 
+def _foreign_tech_statement(x, ctx):
+    co = tech_statement_country(x)
+    return (x.get("scope") == "local" and bool(co) and co != ctx["home"] and not x.get("interesting")
+            and not x.get("bridge") and not x.get("vital") and x.get("category") not in ("URGENT", "URGENT_LOCAL_ONLY")
+            and not mentions_home(x, ctx["home"]))
+
+
 def _dull_local(x, ctx):
     return ctx["lang"] == "ru" and x.get("scope") == "local" and is_dull(x)
 
@@ -113,6 +121,7 @@ REGISTRY = [
     ("J32", "областное издание чужой страны в пуле без неё (Псков в испанской ленте)", _foreign_region, True),
     ("J38", "«срочно» вне «Местных» без масштаба (сель с одной жертвой у соседей в шторке)", _foreign_urgent, True),
     ("J39", "рубрика вне списка вёрстки приложения (WAR, SOCIETY, «SPORT/FOOTBALL») — падает в хвост полки", _off_layout_category, True),
+    ("J44", "заявление зарубежной технологической компании на «Местных», не в «Интересном»", _foreign_tech_statement, True),
     ("J11", "ведомственное на «Местных» (>15% полки)", None, False),   # доля, см. control
 ]
 
