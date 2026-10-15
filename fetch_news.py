@@ -3736,7 +3736,17 @@ def _kw_hit(kw: str, text_lower: str) -> bool:
 
     Слово в отрицании не считается: см. _NEGATION_BEFORE (09.10.2026).
     """
-    for m in re.finditer(r"(?<![\w-])" + re.escape(kw.lower()), text_lower):
+    k = kw.lower()
+    # КОРОТКОЕ СЛОВО-ПРИЗНАК — ЦЕЛОЕ СЛОВО С КОРОТКОЙ ФЛЕКСИЕЙ (15.10.2026). Начало слова
+    # проверялось, конец — нет: «тур» находился в «Турции», «туркменский», «турак жай», «ош» — в
+    # «ошибка». До четырёх букв: кириллица — хвост до 1–2 букв, латиница — только s/es/d/ed/ing
+    tail = ""
+    if " " not in k and len(k) <= 4:
+        if re.search(r"[а-яё]", k):
+            tail = r"[а-яё]{0,%d}(?!\w)" % (1 if len(k) <= 3 else 2)
+        else:
+            tail = r"(?:s|es|d|ed|ing)?(?!\w)"
+    for m in re.finditer(r"(?<![\w-])" + re.escape(k) + tail, text_lower):
         if _NEGATION_BEFORE.search(text_lower[max(0, m.start() - 40):m.start()]):
             continue
         return True
@@ -3755,7 +3765,7 @@ def auto_categorize(item: dict) -> str:
     # отключение света в Москве не «срочно» для читателя из Кыргызстана
     if item.get("scope") == "local":
         local_kw = CATEGORY_KEYWORDS.get("URGENT_LOCAL_ONLY", [])
-        if any(kw.lower() in title_lower for kw in local_kw):
+        if any(_kw_hit(kw, title_lower) for kw in local_kw):
             return "URGENT"
     return "NEWS"
 
@@ -5686,7 +5696,7 @@ no_event.
                 return True  # NEWS, URGENT, STARS, MONEY и пр. — на усмотрение Gemini
             keywords = CATEGORY_KEYWORDS.get(new_cat, [])
             title_lower = title.lower()
-            return any(kw.lower() in title_lower for kw in keywords)
+            return any(_kw_hit(kw, title_lower) for kw in keywords)
 
         filtered = []
         dropped_mismatch = 0
@@ -7713,7 +7723,7 @@ def save_vital(items, lang):
 # землетрясение, взрыв, теракт. Гибель на учениях, в воде, при крушении у
 # соседей проходила мимо обоих. Масштаб считаем по числу из заголовка: своя
 # страна и соседи — от пяти погибших или пропавших, дальний мир — от двадцати.
-from urgent_guard import _NUM_WORDS, _CASUALTY, CASUALTY_NEAR, CASUALTY_FAR, final_urgent_guard  # одно определение для сервера, стража и аудита
+from urgent_guard import _NUM_WORDS, _CASUALTY, CASUALTY_NEAR, CASUALTY_FAR, final_urgent_guard, final_category_guard  # одно определение для сервера, стража и аудита
 
 
 def mass_casualty_urgent(items, lang):
@@ -9664,6 +9674,7 @@ def main():
         filtered = final_local_foreign_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")}, POOL_HOME.get(lang, ""))
         filtered = final_foreign_region_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
         filtered = final_urgent_guard(filtered, lang)   # J38: «срочно» вне «Местных» — только масштаб
+        filtered = final_category_guard(filtered, lang)  # J39/J40: рубрика из списка вёрстки, потолок «важного»
         filtered = strip_known_stubs(filtered, lang)
         filtered, _ = cap_dull(filtered, lang)
         # Признак «интересное» пропадал по дороге (редактор пересобирает карточки): возвращаем

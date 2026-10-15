@@ -90,3 +90,68 @@ def final_urgent_guard(items, lang):
         for x in hit[:6]:
             print(f"       · {x.get('source','?')} [{x.get('country')}]: {(x.get('title') or '')[:60]}")
     return items
+
+
+# ── Рубрика и приоритет на выходе (журнал J39, J40, 15.10.2026) ──────────────────────────
+#
+# Читатель рубрик не видит: полки «Местные», «Мировые», «Новости из…», штат/регион, а внутри
+# полки новости ложатся как в мировых изданиях — политика выше, культура и спорт ниже
+# (решение владельца). Рубрика нужна ОДНОМУ — порядку. Поэтому на выходе сервер отдаёт рубрики
+# только из списка вёрстки приложения (LayoutCategory.kt), а подрубрику — в поле topic.
+# Рубрика вне списка раньше уезжала в хвост полки по алфавиту: война и общество — ниже моды.
+LAYOUT = {"URGENT", "URGENT_LOCAL_ONLY", "POLITICS", "WORLD", "INCIDENTS", "NEWS", "TECH", "CULTURE",
+          "SPORT", "MONEY", "HEALTH", "LIFE", "TOURS", "AUTO", "FASHION", "STARS", "GOOD", "KG",
+          "CRYPTO", "CURRENCY"}
+ALIAS = {"WAR": "WORLD", "SCIENCE": "TECH", "ECONOMY": "MONEY", "SOCIETY": "NEWS",
+         "EDUCATION": "NEWS", "REALTY": "LIFE"}
+
+
+def layout_category(cat):
+    """Рубрика из списка вёрстки: подрубрика после «/» отбрасывается, незнакомое — NEWS."""
+    main = (cat or "").split("/")[0].strip().upper()
+    if not main:
+        return "NEWS"
+    return main if main in LAYOUT else ALIAS.get(main, "NEWS")
+
+
+# «Важное» (priority 2) — валюта карусели: у es и fr рубрики URGENT нет вовсе, и карусель
+# собирается из двоек. Но в en двоек 49 из 190 (26%): ИИ-разметка ставит 2 всему, что назвала
+# срочным, а cap_urgent снимает рубрику, не трогая приоритет. Потолок на полку — не больше
+# P2_CAP_PER_SCOPE самых свежих; остальным 1 («важное, тихо»). Карусель берёт 10 мест по кругу
+# между полками, так что по 6 на полку её не оставляют пустой.
+P2_CAP_PER_SCOPE = 6
+
+
+def p2_excess(items):
+    """Карточки с priority>=2 вне срочных/жизненно важных/выбора редактора сверх потолка полки."""
+    by = {}
+    for x in items:
+        if (x.get("priority") or 0) != 2 or x.get("category") in URGENT_CATS or x.get("vital") \
+                or x.get("isEditorCarousel") or x.get("isEditorImportant"):
+            continue
+        by.setdefault(x.get("scope"), []).append(x)
+    out = []
+    for lst in by.values():
+        lst.sort(key=lambda x: x.get("publishedAt") or 0, reverse=True)
+        out.extend(lst[P2_CAP_PER_SCOPE:])
+    return out
+
+
+def final_category_guard(items, lang):
+    """Рубрика — из списка вёрстки; «важного» не больше потолка на полку."""
+    fixed = 0
+    for x in items:
+        c = x.get("category")
+        b = layout_category(c)
+        if b != c and c not in ("CURRENCY", "CRYPTO"):
+            if "/" in (c or "") and not x.get("topic"):
+                x["topic"] = c.lower()           # подрубрика не пропадает: «sport/football»
+            x["category"] = b
+            fixed += 1
+    cut = p2_excess(items)
+    for x in cut:
+        x["priority"] = 1
+    if fixed or cut:
+        print(f"  🗂 Рубрики вёрстки и потолок «важного» [{lang}]: рубрик приведено {fixed}, "
+              f"приоритет снижен {len(cut)}")
+    return items

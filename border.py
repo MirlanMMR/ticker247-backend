@@ -21,7 +21,7 @@ from dull import is_dull
 from curious import is_curious_content
 from shelves import pool_shelf_fix, world_to_home_fix, POOL_HOME
 from topic_country import foreign_topic, mentions_home, foreign_region
-from urgent_guard import foreign_small_urgent
+from urgent_guard import foreign_small_urgent, layout_category, p2_excess
 from textcut import ends_inside_quote, drop_trailing_heading, sentence_start, is_stub_summary, has_foreign_script
 
 TITLE_FIT = 120
@@ -91,6 +91,11 @@ def _foreign_urgent(x, ctx):
     return foreign_small_urgent(x)
 
 
+def _off_layout_category(x, ctx):
+    c = x.get("category")
+    return bool(c) and c not in ("CURRENCY", "CRYPTO") and layout_category(c) != c
+
+
 def _dull_local(x, ctx):
     return ctx["lang"] == "ru" and x.get("scope") == "local" and is_dull(x)
 
@@ -110,6 +115,7 @@ REGISTRY = [
     ("J15", "аннотация страницы-трансляции вместо текста", _stub_summary, True),
     ("J32", "областное издание чужой страны в пуле без неё (Псков в испанской ленте)", _foreign_region, True),
     ("J38", "«срочно» вне «Местных» без масштаба (сель с одной жертвой у соседей в шторке)", _foreign_urgent, True),
+    ("J39", "рубрика вне списка вёрстки приложения (WAR, SOCIETY, «SPORT/FOOTBALL») — падает в хвост полки", _off_layout_category, True),
     ("J11", "ведомственное на «Местных» (>15% полки)", None, False),   # доля, см. control
 ]
 
@@ -130,6 +136,10 @@ def control(items, lang, report=None):
     dull = [x for x in local if _dull_local(x, ctx)]
     share = len(dull) / len(local) if local else 0
     found["J11"] = dull if share > 0.15 else []
+    # J40: «важного» (priority 2) на полку не больше потолка — считаем остаток сверх него
+    found["J40"] = p2_excess(items)
+    if found["J40"]:
+        returned.append(("J40", "«важное» сверх потолка на полку", found["J40"]))
 
     print(f"  🛂 Пункт пропуска [{lang}]: " + (
         ", ".join(f"{c}={len(v)}" for c, v in found.items() if v) or "чисто"))

@@ -20,6 +20,8 @@
   · title  — заголовок длиннее, чем помещается в карточке карусели (TITLE_FIT)
   · urgent — «срочно» (URGENT/URGENT_LOCAL_ONLY) на полке «Новости из…» или
              «Мировые» без масштаба беды: сель с одной жертвой у соседей, 15.10.2026
+  · cat    — рубрика вне списка вёрстки приложения (WAR, SOCIETY, «SPORT/FOOTBALL»)
+  · prio   — «важное» (priority 2) сверх потолка на полку (urgent_guard.P2_CAP_PER_SCOPE)
   · twin   — второй экземпляр одной и той же истории в ленте (twins.py: тот же
              снимок, либо разные выпуски одной редакции)
 
@@ -42,7 +44,7 @@ from editions import EDITION_LANG
 from native_lang import detect_native
 from shelves import verdict as shelf_verdict, pool_shelf_fix, world_to_home_fix
 from twins import drop_twins
-from urgent_guard import foreign_small_urgent
+from urgent_guard import foreign_small_urgent, layout_category, p2_excess
 from textcut import ends_inside_quote, first_sentence_title, card_text
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
@@ -172,13 +174,28 @@ def main():
                 row = {"source": x["source"], "title": norm(x["title"])[:70], "flaws": {}}
                 rows.append(row)
             row["flaws"]["urgent"] = True
+    # рубрика вне списка вёрстки (J39) и «важное» сверх потолка полки (J40) — по данным ленты
+    excess = {id(x) for x in p2_excess(items)}
+    for x in items:
+        c = x.get("category")
+        flaw = {}
+        if c and c not in ("CURRENCY", "CRYPTO") and layout_category(c) != c:
+            flaw["cat"] = True
+        if id(x) in excess:
+            flaw["prio"] = True
+        if flaw:
+            row = next((r for r in rows if r["title"] == norm(x["title"])[:70]), None)
+            if row is None:
+                row = {"source": x["source"], "title": norm(x["title"])[:70], "flaws": {}}
+                rows.append(row)
+            row["flaws"].update(flaw)
     bad = [r for r in rows if r["flaws"]]
     pct = 100.0 * len(bad) / max(1, len(rows))
     loc = [x for x in items if x.get("scope") == "local"]
     nat = [x for x in loc if detect_native(x)]
     share = 100.0 * len(nat) / max(1, len(loc))
     kinds = {k: sum(1 for r in bad if k in r["flaws"])
-             for k in ("neg", "short", "credit", "twin", "lang", "scope", "region", "quote", "title", "urgent")}
+             for k in ("neg", "short", "credit", "twin", "lang", "scope", "region", "quote", "title", "urgent", "cat", "prio")}
     # Полки по стране события (shelves.py): сколько карточек можно проверить и
     # сколько из проверяемых лежат не там
     sp, hm = pool_space(a.pool), HOME.get(a.pool)
@@ -195,7 +212,7 @@ def main():
               f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
               f"дубль {kinds['twin']}, язык {kinds['lang']}, "
               f"не на своей полке {kinds['scope']}, не из пула {kinds['region']}, обрыв в цитате {kinds['quote']}, "
-              f"заголовок не влезает {kinds['title']}, чужое срочное {kinds['urgent']}")
+              f"заголовок не влезает {kinds['title']}, чужое срочное {kinds['urgent']}, рубрика вне вёрстки {kinds['cat']}, «важное» сверх потолка {kinds['prio']}")
         print(f"    полки: страна события известна у {shelf_known} из {len(vs)} "
               f"({100.0 * shelf_known / max(1, len(vs)):.0f}%), под подозрением {shelf_wrong}; "
               f"поля where+scale у {new_fields} из {len(vs)} ({100.0 * new_fields / max(1, len(vs)):.0f}%)")
