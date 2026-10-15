@@ -6,7 +6,7 @@
  * Планировщик Cloudflare срабатывает точно и дёргает workflow fetch.yml через API; строки
  * `cron:` в fetch.yml остаются запасными (:07 и :37) и выходят, увидев свежую ленту.
  *
- * Расписание — wrangler.toml (минута :02 каждого слота). Таблица SLOTS ниже обязана совпадать с
+ * Расписание — wrangler.toml: один триггер «2 * * * *» (каждый час на :02), слот выбирается по часу. Таблица SLOTS ниже обязана совпадать с
  * schedule_pools.SLOTS_UTC: это проверяет test_schedule.py.
  *
  * Секрет (один): GH_DISPATCH_TOKEN — fine-grained токен GitHub, ТОЛЬКО репозиторий
@@ -50,14 +50,12 @@ async function dispatch(env, pools, shelves) {
 }
 
 export default {
-  // Cloudflare вызывает по строкам cron из wrangler.toml: «2 5 * * *» → час 5
+  // ОДИН триггер раз в час на :02 («2 * * * *»): на бесплатном тарифе Cloudflare не больше пяти cron-триггеров,
+  // а слотов тринадцать. Час берём из времени срабатывания; в часы без слота ничего не запускаем.
   async scheduled(event, env, ctx) {
-    const hour = String(parseInt(event.cron.split(" ")[1], 10));
+    const hour = String(new Date(event.scheduledTime).getUTCHours());
     const pools = SLOTS[hour];
-    if (!pools) {
-      console.log(`нет слота для '${event.cron}' — ничего не запускаю`);
-      return;
-    }
+    if (!pools) return;
     ctx.waitUntil(dispatch(env, pools, Number(hour) === SHELVES_HOUR));
   },
 

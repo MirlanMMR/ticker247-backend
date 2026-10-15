@@ -61,11 +61,12 @@ check("«полки стран» — в часе, где есть слот", S.C
 # ── внешний планировщик: worker.js и wrangler.toml совпадают с таблицей ──
 import json
 wt = open(os.path.join(HERE, "scheduler", "wrangler.toml"), encoding="utf-8").read()
-wcrons = re.findall(r'"2 (\d+) \* \* \*"', wt)
-check("wrangler.toml: по одному триггеру на слот, минута :02", sorted(int(h) for h in wcrons) == sorted(S.SLOTS_UTC) and len(wcrons) == len(S.SLOTS_UTC))
+wcrons = re.findall(r'crons = \[(.*?)\]', wt, re.S)
+check("wrangler.toml: один триггер «2 * * * *» (бесплатный тариф: не больше 5 триггеров)", len(wcrons) == 1 and re.findall(r'"([^"]+)"', wcrons[0]) == ["2 * * * *"])
 wj = open(os.path.join(HERE, "scheduler", "worker.js"), encoding="utf-8").read()
 slots_js = json.loads(re.search(r"const SLOTS = (\{.*?\});", wj, re.S).group(1))
 check("worker.js: таблица слотов совпадает с schedule_pools.SLOTS_UTC", {int(k): tuple(v) for k, v in slots_js.items()} == S.SLOTS_UTC)
+check("worker.js: слот выбирается по часу срабатывания", "getUTCHours()" in wj)
 check("worker.js: час «полок стран» совпадает", f"const SHELVES_HOUR = {S.COUNTRY_SHELVES_HOUR};" in wj)
 check("worker.js: запуск через workflow_dispatch с from_scheduler (шлюз свежести работает)", '"fetch.yml"' in wj and 'from_scheduler: "true"' in wj and "inputs" in wj)
 check("fetch.yml: вход from_scheduler не обходит шлюз свежести", "!inputs.from_scheduler" in wf)
