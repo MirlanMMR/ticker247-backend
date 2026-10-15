@@ -11,47 +11,56 @@ on:
         description: "Какие пулы обновить (ru,en,es,pt,fr через запятую); пусто — все"
         type: string
         default: ""
+      from_scheduler:
+        description: "Запуск внешнего планировщика: шлюз свежести работает как у планового запуска"
+        type: boolean
+        default: false
+      shelves:
+        description: "Обновить «полки стран» (раз в сутки, первый слот; ручной запуск с пустым pools делает это сам)"
+        type: boolean
+        default: false
   schedule:
-    # РАСПИСАНИЕ ПО ЧАСОВЫМ ПОЯСАМ ЧИТАТЕЛЕЙ (09.10.2026, решение владельца).
+    # РАСПИСАНИЕ ПО ПОЯСАМ ЧИТАТЕЛЕЙ (09.10.2026; 8 поясов — 15.10.2026).
     #
-    # Раньше стояло «раз в два часа, все пулы разом», а на деле выходило ~4 запуска в сутки
-    # с дырами до 11 часов: GitHub пропускает плановые запуски, а задание держалось 105
-    # минут (20 минут разбор + 70 минут холостого «дозора»), и очередь, в которой ждать
-    # может только один запуск, отменяла следующие. Читатель в Бишкеке просыпался к ленте
-    # двенадцатичасовой давности, а вся лента с 06:00 сводилась к одной карточке.
+    # Мир поделён на восемь поясов по три часа; у каждого пула — два главных пояса, и четыре
+    # три его слота стоят в дневных часах обоих (schedule_pools.py: BANDS, POOL_MAIN_BANDS,
+    # SLOTS_UTC). Один запуск обновляет только пулы своего слота (POOLS, fetch_news.py).
     #
-    # Теперь каждый пул обновляется трижды в сутки по СВОЕМУ местному времени — около
-    # 9:00, 13:00 и 17:00 — и только он один (POOLS, fetch_news.py): запуск стоит в 3–5 раз
-    # дешевле полного. Таблица слотов — в schedule_pools.py; строки ниже должны с ней
-    # совпадать, это проверяет test_schedule.py (ошибёшься — тесты не дадут запустить).
+    # ПЕРВИЧНЫЙ ЗАПУСК — ВНЕШНИЙ ПЛАНИРОВЩИК (scheduler/worker.js, Cloudflare): он дёргает этот
+    # workflow через workflow_dispatch на минуте :02. Расписание GitHub ненадёжно (28 запусков
+    # дозора из ~290 за неделю), поэтому строки ниже — ЗАПАСНЫЕ: если внешний запуск уже обновил
+    # ленту, они видят свежую ленту (шлюз FRESH_ENOUGH_MIN) и выходят, ничего не потратив.
+    # Строки должны совпадать с таблицей слотов, это проверяет test_schedule.py.
     #
     # Каждый слот стоит ДВАЖДЫ: :07 и :37. Расписание GitHub ненадёжно, и запасной запуск
     # видит свежую ленту (шлюз FRESH_ENOUGH_MIN) и выходит, ничего не потратив. Минуты
     # нечётные нарочно: запуски ровно в :00 GitHub задерживает сильнее всего.
     #
     # Дозор срочного вынесен в patrol.yml и идёт КРУГЛОСУТОЧНО, независимо от разбора.
-    - cron: '7 3 * * *'   # ru
-    - cron: '37 3 * * *'   # ru
-    - cron: '7 7 * * *'   # ru, fr
-    - cron: '37 7 * * *'   # ru, fr
-    - cron: '7 11 * * *'   # ru, fr
-    - cron: '37 11 * * *'   # ru, fr
-    - cron: '7 12 * * *'   # pt
-    - cron: '37 12 * * *'   # pt
-    - cron: '7 13 * * *'   # en
-    - cron: '37 13 * * *'   # en
-    - cron: '7 15 * * *'   # es, fr
-    - cron: '37 15 * * *'   # es, fr
-    - cron: '7 16 * * *'   # pt
-    - cron: '37 16 * * *'   # pt
-    - cron: '7 17 * * *'   # en
-    - cron: '37 17 * * *'   # en
+    - cron: '7 5 * * *'   # ru
+    - cron: '37 5 * * *'   # ru
+    - cron: '7 8 * * *'   # fr
+    - cron: '37 8 * * *'   # fr
+    - cron: '7 9 * * *'   # ru
+    - cron: '37 9 * * *'   # ru
+    - cron: '7 12 * * *'   # fr, pt
+    - cron: '37 12 * * *'   # fr, pt
+    - cron: '7 13 * * *'   # ru
+    - cron: '37 13 * * *'   # ru
+    - cron: '7 14 * * *'   # en
+    - cron: '37 14 * * *'   # en
+    - cron: '7 15 * * *'   # es
+    - cron: '37 15 * * *'   # es
+    - cron: '7 16 * * *'   # fr, pt
+    - cron: '37 16 * * *'   # fr, pt
+    - cron: '7 18 * * *'   # en
+    - cron: '37 18 * * *'   # en
     - cron: '7 19 * * *'   # es
     - cron: '37 19 * * *'   # es
     - cron: '7 20 * * *'   # pt
     - cron: '37 20 * * *'   # pt
-    - cron: '7 21 * * *'   # en
-    - cron: '37 21 * * *'   # en
+    - cron: '7 22 * * *'   # en
+    - cron: '37 22 * * *'   # en
     - cron: '7 23 * * *'   # es
     - cron: '37 23 * * *'   # es
 
@@ -152,7 +161,7 @@ jobs:
       QWEN_BASE_URL: "https://api.groq.com/openai/v1"
       QWEN_MODEL: "openai/gpt-oss-120b"
       # Ручной запуск делает работу всегда, не глядя на свежесть
-      FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' }}
+      FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && !inputs.from_scheduler }}
     steps:
       - uses: actions/checkout@v4
 
@@ -172,6 +181,7 @@ jobs:
         env:
           CRON: ${{ github.event.schedule }}
           POOLS_INPUT: ${{ inputs.pools }}
+          SHELVES_INPUT: ${{ inputs.shelves }}
           EVENT: ${{ github.event_name }}
         run: |
           if [ "$EVENT" = "schedule" ]; then
@@ -184,7 +194,7 @@ jobs:
             echo "COUNTRY_SHELVES=$(python schedule_pools.py --shelves "$CRON")" >> "$GITHUB_ENV"
           else
             echo "POOLS=$POOLS_INPUT" >> "$GITHUB_ENV"
-            if [ -z "$POOLS_INPUT" ]; then echo "COUNTRY_SHELVES=1" >> "$GITHUB_ENV"; fi
+            if [ -z "$POOLS_INPUT" ] || [ "$SHELVES_INPUT" = "true" ]; then echo "COUNTRY_SHELVES=1" >> "$GITHUB_ENV"; fi
           fi
           echo "Пулы запуска: ${P:-$POOLS_INPUT}"
 
