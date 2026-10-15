@@ -10,7 +10,7 @@ import contextlib
 import io
 import sys
 
-from urgent_guard import final_urgent_guard, foreign_small_urgent
+from urgent_guard import final_urgent_guard, foreign_small_urgent, final_prepared_guard, prepared_material
 
 ok = fail = 0
 
@@ -83,6 +83,33 @@ check("страж: категория снята", out[0]["category"] == "NEWS")
 check("страж: приоритет не выше 1", out[0]["priority"] <= 1)
 check("страж: настоящая беда не тронута", out[1]["category"] == "URGENT" and out[1]["priority"] == 2)
 check("страж: дом не тронут", out[2]["category"] == "URGENT" and out[2]["priority"] == 2)
+
+
+# ── подготовленный без спешки материал не бывает срочным (J48) ──
+feat = card("«Первая победа задаёт хорошую ноту»: как Элис Старцева завоевала историческое серебро для России",
+            scope="local", cat="URGENT", prio=2)
+check("случай 15.10: статья-цитата с «как» — не срочное", prepared_material(feat))
+for t in ("«Мы не сдаёмся»: как жители Бишкека спасают старые дворы",
+          "Интервью: министр рассказал о планах на зиму",
+          "Колонка: почему дорожает хлеб",
+          "Разбор: что изменится в налогах с января",
+          "Цена победы: как футболист стал тренером",
+          "«No nos rendimos»: cómo una familia reconstruyó su casa",
+          "«On ne lâche rien»: comment une équipe a gagné le titre",
+          "Interview: the mayor on winter plans"):
+    for cat, prio in (("URGENT", 2), ("NEWS", 2), ("SPORT", 2)):
+        check(f"{t[:36]} [{cat}/{prio}]", prepared_material(card(t, scope="local", cat=cat, prio=prio)))
+check("обычная новость момента не трогается", not prepared_material(card("Россиянка завоевала серебро на чемпионате мира", cat="URGENT", prio=2)))
+check("«Как сообщает МЧС…» — не разбор", not prepared_material(card("Как сообщает МЧС, в Бишкеке отключат воду", cat="URGENT", prio=2)))
+check("приоритет 1 без срочного не трогаем", not prepared_material(card("Интервью: о планах", cat="NEWS", prio=1)))
+check("беда остаётся срочной: «Землетрясение: как это было»", not prepared_material(card("Землетрясение: как это было в Бишкеке", cat="URGENT", prio=2)))
+check("жертвы остаются: «Взрыв: как погибли трое»", not prepared_material(card("Взрыв: как погибли трое рабочих", cat="URGENT", prio=2)))
+check("жизненно важное не снимаем", not prepared_material(card("«Воды не будет»: как отключат воду в районах", cat="URGENT", prio=2, vital=True)))
+lst = [dict(feat), card("Землетрясение магнитудой 7", cat="URGENT", prio=2)]
+with contextlib.redirect_stdout(io.StringIO()):
+    final_prepared_guard(lst, "ru")
+check("страж: статья в NEWS, приоритет 1", lst[0]["category"] == "NEWS" and lst[0]["priority"] == 1)
+check("страж: землетрясение не тронуто", lst[1]["category"] == "URGENT" and lst[1]["priority"] == 2)
 
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)

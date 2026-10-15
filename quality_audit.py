@@ -44,7 +44,7 @@ from editions import EDITION_LANG
 from native_lang import detect_native
 from shelves import verdict as shelf_verdict, pool_shelf_fix, world_to_home_fix
 from twins import drop_twins
-from urgent_guard import foreign_small_urgent, layout_category, p2_excess
+from urgent_guard import foreign_small_urgent, layout_category, p2_excess, prepared_material
 from textcut import ends_inside_quote, first_sentence_title, card_text
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
@@ -174,6 +174,14 @@ def main():
                 row = {"source": x["source"], "title": norm(x["title"])[:70], "flaws": {}}
                 rows.append(row)
             row["flaws"]["urgent"] = True
+    # подготовленный без спешки материал со «срочно» или «важным» (J48)
+    for x in items:
+        if prepared_material(x):
+            row = next((r for r in rows if r["title"] == norm(x["title"])[:70]), None)
+            if row is None:
+                row = {"source": x["source"], "title": norm(x["title"])[:70], "flaws": {}}
+                rows.append(row)
+            row["flaws"]["prepared"] = True
     # рубрика вне списка вёрстки (J39) и «важное» сверх потолка полки (J40) — по данным ленты
     excess = {id(x) for x in p2_excess(items)}
     for x in items:
@@ -195,7 +203,7 @@ def main():
     nat = [x for x in loc if detect_native(x)]
     share = 100.0 * len(nat) / max(1, len(loc))
     kinds = {k: sum(1 for r in bad if k in r["flaws"])
-             for k in ("neg", "short", "credit", "twin", "lang", "scope", "region", "quote", "title", "urgent", "cat", "prio")}
+             for k in ("neg", "short", "credit", "twin", "lang", "scope", "region", "quote", "title", "urgent", "cat", "prio", "prepared")}
     # Полки по стране события (shelves.py): сколько карточек можно проверить и
     # сколько из проверяемых лежат не там
     sp, hm = pool_space(a.pool), HOME.get(a.pool)
@@ -221,7 +229,7 @@ def main():
               f"— заголовок {kinds['neg']}, коротко {kinds['short']}, подпись {kinds['credit']}, "
               f"дубль {kinds['twin']}, язык {kinds['lang']}, "
               f"не на своей полке {kinds['scope']}, не из пула {kinds['region']}, обрыв в цитате {kinds['quote']}, "
-              f"заголовок не влезает {kinds['title']}, чужое срочное {kinds['urgent']}, рубрика вне вёрстки {kinds['cat']}, «важное» сверх потолка {kinds['prio']}")
+              f"заголовок не влезает {kinds['title']}, чужое срочное {kinds['urgent']}, рубрика вне вёрстки {kinds['cat']}, «важное» сверх потолка {kinds['prio']}, подготовленное срочным {kinds['prepared']}")
         print(f"    полки: страна события известна у {shelf_known} из {len(vs)} "
               f"({100.0 * shelf_known / max(1, len(vs)):.0f}%), под подозрением {shelf_wrong}; "
               f"поля where+scale у {new_fields} из {len(vs)} ({100.0 * new_fields / max(1, len(vs)):.0f}%)")
