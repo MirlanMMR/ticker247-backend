@@ -17,11 +17,12 @@ from shelves import foreign_fate
 
 # код → слова (подстроки, нижний регистр) и слова с границами (короткие)
 _WORDS = {
-    "US": ("сша", "америк", "трамп", "trump", "вашингтон", "белый дом", "pentágono", "estados unidos",
+    "US": ("сша", "америк", "трамп", "trump", "рубио", "rubio", "госдеп", "state department", "secretary of state", "вашингтон", "белый дом", "pentágono", "estados unidos",
            "états-unis", "etats-unis", "estados-unidos", "eua", "u.s.", "united states"),
-    "CN": ("китай", "пекин", "китае", "china", "chine", "chinese", "chinês", "chino"),
+    "CN": ("си цзиньпин", "xi jinping", "китай", "пекин", "китае", "china", "chine", "chinese", "chinês", "chino"),
     "EU": ("евросоюз", "брюссел", "еврокомисс", "european union", "union européenne",
            "unión europea", "união europeia", "bruxelles", "bruselas"),
+    "VA": ("ватикан", "vatican", "vaticano", "папа римск", "папа лев", "pope", "papa leão", "papa leon", "papa león", "pape léon", "pope leo", "pontífice", "pontifice", "le pape", "el papa", "o papa"),
     "IL": ("израил", "israel", "israël", "сектор газа", "gaza", "hamas", "хамас"),
     "IR": ("иран", "iran", "irán", "tehran", "тегеран"),
     "UA": ("украин", "ukrain", "ucrania", "ucrânia", "kiev", "киев", "zelensk", "зеленск"),
@@ -31,29 +32,81 @@ _WORDS = {
     "DE": ("германи", "germany", "allemagne", "alemania", "alemanha", "берлин"),
     "GB": ("британ", "britain", "british", "великобритан", "reino unido", "royaume-uni"),
     "FR": ("франци", "france", "francia", "frança", "париж", "macron", "макрон"),
-    "RU": ("росси", "russia", "rusia", "rússie", "russie", "путин", "putin", "москв", "moscow"),
+    "RU": ("росси", "russia", "rusia", "rússie", "russie", "путин", "putin", "лавров", "lavrov", "кремл", "москв", "moscow"),
 }
 # у каждой страны пула — свои слова (для проверки «своя страна названа»)
 _OWN = {
-    "KZ": ("казахстан", "kazakh", "астан", "алмат", "токаев", "тоқаев", "tokayev"), "UZ": ("узбекистан", "uzbek", "ташкент", "самарканд", "мирзиёев", "мирзиеев", "mirziyoyev"),
-    "TJ": ("таджикистан", "tajik", "душанбе", "рахмон", "rahmon"), "KG": ("кыргыз", "киргиз", "бишкек", "kyrgyz", "ош "),
-    "BY": ("беларус", "белорус", "минск", "лукашенко", "lukashenko"), "AM": ("армени", "ереван", "пашинян", "pashinyan"), "AZ": ("азербайджан", "баку", "алиев", "aliyev"),
-    "GE": ("грузи", "тбилиси", "кобахидзе", "kobakhidze"), "MD": ("молдов", "кишин", "санду"), "TM": ("туркмен", "ашхабад", "бердымухамедов"),
-    "RU": _WORDS["RU"], "GB": _WORDS["GB"], "FR": _WORDS["FR"], "DE": _WORDS["DE"],
-    "US": _WORDS["US"], "CN": _WORDS["CN"], "UA": _WORDS["UA"], "TR": _WORDS["TR"],
-    "IE": ("ирланди", "ireland", "irlande", "irlanda"), "CA": ("канад", "canada", "canadá"),
-    "AU": ("австрали", "australia"), "NZ": ("новой зеланди", "new zealand"), "IN": ("инди", "india", "inde"),
-    "NG": ("нигери", "nigeria"), "ZA": ("южной африк", "south africa"), "SG": ("сингапур", "singapore"),
-    "JM": ("ямайк", "jamaica"),
-    "ES": ("испани", "spain", "españa", "espagne"), "MX": ("мексик", "mexico", "méxico", "mexique"),
-    "AR": ("аргентин", "argentin"), "CO": ("колумби", "colombia"), "PE": ("перу", "peru", "perú", "pérou"),
-    "CL": ("чили", "chile", "chili"), "VE": ("венесуэл", "venezuela"), "CU": ("кубинск", "на кубе", "кубы", "cuba"),
-    "UY": ("уругва", "uruguay"), "BR": ("бразил", "brazil", "brasil", "brésil"),
-    "PT": ("португал", "portugal"), "AO": ("ангол", "angola"), "MZ": ("мозамбик", "moçambique", "mozambique"),
-    "BE": ("бельги", "belgi", "belgique", "bélgica"), "CH": ("швейцар", "suisse", "suiza", "suíça", "switzerland"),
-    "TN": ("тунис", "tunisie", "túnez", "tunisia"), "DZ": ("алжир", "algérie", "argelia", "algeria"),
-    "HT": ("гаити", "haïti", "haiti"), "CD": ("конго", "congo", "rdc"), "BJ": ("бенин", "bénin", "benin"),
-    "SN": ("сенегал", "sénégal"), "CI": ("кот-д", "côte d", "costa de marfil"), "MA": ("марокк", "maroc", "marruecos", "morocco"),
+    "KZ": ('казахстан', 'kazakh', 'астан', 'алмат', 'токаев', 'тоқаев', 'tokayev'),
+    "UZ": ('узбекистан', 'uzbek', 'ташкент', 'самарканд', 'мирзиёев', 'мирзиеев', 'mirziyoyev'),
+    "TJ": ('таджикистан', 'tajik', 'душанбе', 'рахмон', 'rahmon'),
+    "KG": ('кыргыз', 'киргиз', 'бишкек', 'kyrgyz', 'ош '),
+    "BY": ('беларус', 'белорус', 'минск', 'лукашенко', 'lukashenko'),
+    "AM": ('армени', 'ереван', 'пашинян', 'pashinyan'),
+    "AZ": ('азербайджан', 'баку', 'алиев', 'aliyev'),
+    "GE": ('грузи', 'тбилиси', 'кобахидзе', 'kobakhidze'),
+    "MD": ('молдов', 'кишин', 'санду'),
+    "TM": ('туркмен', 'ашхабад', 'бердымухамедов'),
+    "RU": _WORDS["RU"],
+    "GB": _WORDS["GB"] + ('лондон', 'london', 'downing street', 'даунинг'),
+    "FR": _WORDS["FR"],
+    "DE": _WORDS["DE"],
+    "US": _WORDS["US"],
+    "CN": _WORDS["CN"],
+    "UA": _WORDS["UA"],
+    "TR": _WORDS["TR"],
+    "IE": ('ирланди', 'ireland', 'irlande', 'irlanda', 'dublin', 'dublín', 'дублин'),
+    "CA": ('канад', 'canada', 'canadá', 'ottawa', 'оттава', 'toronto', 'торонто'),
+    "AU": ('австрали', 'australia', 'canberra', 'канберра', 'sydney', 'сидней'),
+    "NZ": ('новой зеланди', 'new zealand', 'wellington', 'веллингтон', 'auckland'),
+    "IN": ('инди', 'india', 'inde', 'delhi', 'дели', 'mumbai', 'мумбаи'),
+    "NG": ('нигери', 'nigeria', 'abuja', 'абуджа', 'lagos', 'лагос'),
+    "ZA": ('южной африк', 'south africa', 'pretoria', 'претория', 'johannesburg', 'cape town'),
+    "SG": ('сингапур', 'singapore'),
+    "JM": ('ямайк', 'jamaica'),
+    "ES": ('испани', 'spain', 'españa', 'espagne', 'madrid', 'мадрид'),
+    "MX": ('мексик', 'mexico', 'méxico', 'mexique', 'ciudad de méxico', 'cdmx', 'мехико'),
+    "AR": ('аргентин', 'argentin', 'buenos aires', 'буэнос-айрес'),
+    "CO": ('колумби', 'colombia', 'bogotá', 'bogota', 'богота'),
+    "PE": ('перу', 'peru', 'perú', 'pérou'),
+    "CL": ('чили', 'chile', 'chili', 'santiago de chile', 'сантьяго'),
+    "VE": ('венесуэл', 'venezuela', 'caracas', 'каракас'),
+    "CU": ('кубинск', 'на кубе', 'кубы', 'cuba', 'la habana', 'havana', 'гавана'),
+    "UY": ('уругва', 'uruguay', 'montevideo', 'монтевидео'),
+    "BR": ('бразил', 'brazil', 'brasil', 'brésil', 'brasília', 'brasilia', 'бразилиа'),
+    "PT": ('португал', 'portugal', 'lisboa', 'lisbon', 'лиссабон'),
+    "AO": ('ангол', 'angola', 'luanda', 'луанда'),
+    "MZ": ('мозамбик', 'moçambique', 'mozambique', 'maputo', 'мапуту'),
+    "BE": ('бельги', 'belgi', 'belgique', 'bélgica'),
+    "CH": ('швейцар', 'suisse', 'suiza', 'suíça', 'switzerland', 'genève', 'zurich', 'берн ', 'bern '),
+    "TN": ('тунис', 'tunisie', 'túnez', 'tunisia', 'tunis '),
+    "DZ": ('алжир', 'algérie', 'argelia', 'algeria', 'alger '),
+    "HT": ('гаити', 'haïti', 'haiti', 'port-au-prince', 'порт-о-пренс'),
+    "CD": ('конго', 'congo', 'rdc', 'kinshasa', 'киншаса'),
+    "BJ": ('бенин', 'bénin', 'benin', 'cotonou', 'porto-novo', 'котону'),
+    "SN": ('сенегал', 'sénégal', 'дакар', 'dakar'),
+    "CI": ('кот-д', 'côte d', 'costa de marfil', 'абиджан', 'abidjan', 'yamoussoukro'),
+    "MA": ('марокк', 'maroc', 'marruecos', 'morocco', 'rabat', 'рабат'),
+    "CM": ('yaoundé', 'yaounde', 'яунде', 'douala'),
+    "BF": ('ouagadougou', 'уагадугу'),
+    "ML": ('bamako', 'бамако'),
+    "NE": ('niamey', 'ниамей'),
+    "TG": ('lomé', 'lome'),
+    "GN": ('conakry', 'конакри'),
+    "MG": ('antananarivo', 'madagascar', 'мадагаскар'),
+    "GW": ('bissau', 'бисау'),
+    "ST": ('são tomé', 'sao tome'),
+    "TL": ('díli', 'dili', 'тимор', 'timor'),
+    "LU": ('luxembourg', 'люксембург', 'luxemburgo'),
+    "PY": ('asunción', 'asuncion', 'асунсьон'),
+    "EC": ('quito', 'кито'),
+    "GT": ('guatemala', 'гватемала'),
+    "HN": ('tegucigalpa', 'гондурас'),
+    "NI": ('managua', 'манагуа', 'никарагуа'),
+    "PA": ('panamá', 'panama', 'панам'),
+    "SV": ('san salvador', 'сальвадор'),
+    "DO": ('santo domingo', 'доминикан'),
+    "BO": ('боливи', 'bolivia', 'bolívia'),
+    "CR": ('коста-рик', 'costa rica'),
 }
 _SHORT = {"US": re.compile(r"\bсша\b|\bus\b|\busa\b|\beua\b", re.I), "EU": re.compile(r"\bес\b|\beu\b|\bue\b", re.I)}
 
@@ -174,7 +227,80 @@ def local_event_country(x, space, home):
     return "", False
 
 
+# РЕГИОН — НЕ МОНОЛИТ, И ПРАВИЛО ОДНО ДЛЯ ВСЕХ ПУЛОВ (владелец, 15.10.2026: «если пишешь правило, то
+# оно для всех пулов, то есть системное»). Слово региона в заголовке полку не решает: решают СТРАНЫ,
+# в которых событие. «Technovation в Ташкенте … росту ЦА» — событие в Ташкенте: для узбеков местная,
+# для остальной ЦА «Новости из…». «Рубио едет в ЦА» — по заголовку не ясно, куда; смотрим текст:
+# «посетит Бишкек, Ташкент и Алматы» — местная для киргизов, узбеков, казахов и американцев,
+# «Новости из…» для таджиков и туркмен, «Мировые» для читателей вне пула. То же для «Латинской
+# Америки» (es), «Африки» (fr/pt), «Кавказа», «Ближнего Востока» на любом языке пула.
+#   · места события — страны ИЗ РЕГИОНА, названные в заголовке (а если там нет — в начале текста);
+#   · актёр — страна вне региона, названная в заголовке или лиде (США у Рубио, Франция у Макрона):
+#     новость для её читателей тоже местная.
+# Голое «ЦА» в рекламе — «целевая аудитория»; такие заголовки исключены
+REGIONS = {
+    "CENTRAL_ASIA": (re.compile(r"(?<![\w])ца(?![\w])|центральн\w*\s+ази|central\s+asia|asia\s+central|asie\s+centrale", re.I),
+                     {"KZ", "KG", "UZ", "TJ", "TM"}),
+    "CAUCASUS": (re.compile(r"кавказ|закавказ|caucas|c[áa]ucaso|caucase", re.I), {"AM", "AZ", "GE"}),
+    "LATIN_AMERICA": (re.compile(r"латинск\w*\s+америк|latin\s+america|am[ée]rica\s+latina|latinoam[ée]rica|am[ée]rique\s+latine", re.I),
+                      {"AR", "BO", "BR", "CL", "CO", "CR", "CU", "DO", "EC", "GT", "HN", "MX", "NI", "PA", "PE", "PY", "SV", "UY", "VE", "HT"}),
+    "AFRICA": (re.compile(r"африк|africa|[áa]frica|afrique", re.I),
+               {"DZ", "AO", "BJ", "BF", "CM", "CV", "CD", "CI", "GN", "GW", "MA", "MG", "ML", "MZ", "NE", "NG", "SN", "ST", "TG", "TN", "ZA"}),
+    "MIDDLE_EAST": (re.compile(r"ближн\w*\s+восток|middle\s+east|medio\s+oriente|oriente\s+m[ée]dio|moyen-orient", re.I),
+                    {"IL", "IR", "TR"}),
+}
+# «Южная Африка» — страна, а не регион
+_SOUTH_AFRICA = re.compile(r"южн\w*\s+африк|south\s+africa|sud[áa]frica|afrique\s+du\s+sud|[áa]frica\s+do\s+sul", re.I)
+_NOT_REGION = re.compile(r"аудитор|маркетинг|реклам|бренд|таргет", re.I)
+
+
+def region_of(x):
+    """→ (название региона, страны региона) или None."""
+    t = _SOUTH_AFRICA.sub(" ", x.get("title") or "")
+    if _NOT_REGION.search(t):
+        return None
+    for name, (rx, members) in REGIONS.items():
+        if rx.search(t):
+            return name, members
+    return None
+
+
+def space_wide(x):
+    return region_of(x) is not None
+
+
+def named_countries(text):
+    """Коды стран, названные в тексте (страна, столица, глава государства) — с начала слова."""
+    low = (text or "").lower()
+    out = set()
+    for code, words in _OWN.items():
+        if any(_word_start(low, w) for w in words):
+            out.add(code)
+    for code in _WORDS:
+        if _hit_start(code, low):
+            out.add(code)
+    return out
+
+
+def region_event_countries(x):
+    """Страны, для читателей которых событие региона местное: места (страны региона, названные в
+    заголовке, а если их там нет — в начале текста) и актёры (страны вне региона, названные в
+    заголовке или лиде: США у Рубио, Франция у Макрона)."""
+    name_members = region_of(x)
+    members = name_members[1] if name_members else set()
+    title = x.get("title") or ""
+    # Места ищем в лиде, а не по всему телу: «…больше, чем в метрополиях Латинской Америки» — это
+    # сравнение, а не регион события (G1 São Paulo, 15.10.2026)
+    body = str(x.get("_full") or x.get("_article") or x.get("summary") or "")[:400]
+    places = named_countries(title) & members
+    if not places:
+        places = named_countries(body) & members
+    actors = (named_countries(title) | named_countries(body[:300])) - members
+    return places | actors, places
+
+
 def _local_foreign_candidate(x, space, home):
+    """→ (страна события | "", выведена ли из слов) для «местных» карточек с чужим событием."""
     if x.get("scope") != "local" or x.get("bridge") or x.get("interesting") or x.get("vital") \
             or x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY") or mentions_home(x, home):
         return "", False
@@ -185,8 +311,34 @@ def _local_foreign_candidate(x, space, home):
 
 
 def final_local_foreign_guard(items, lang, space, home):
+    """Полка «местной» карточки — по стране СОБЫТИЯ (владелец, 15.10.2026), а читателю её
+    окончательно считает приложение: оно знает, откуда читают (страна события против страны читателя).
+    Сервер отдаёт страну события (`event_where`, для региона — `event_countries`) и ставит полку
+    относительно дома пула:
+      · событие региона («ЦА»): страны из заголовка и текста → `event_countries`; дом назван → остаётся
+        местной, страны пула → «Новости из…», иначе «Мировые»; стран нет → «Новости из…»;
+      · страна события в пуле → «Новости из…»; масштаб «мир» → «Мировые»;
+      · чужая держава вне пула: слова в заголовке без вердикта ИИ → «Мировые»; вердикт ИИ про
+        «чужое мелкое» → снимаем, как раньше (J23)."""
     moved, dropped, kept = [], [], []
     for x in items:
+        # Регион обрабатываем, когда в ЗАГОЛОВКЕ назван кто-то (страна, столица, глава государства,
+        # папа): иначе слово региона — лишь сравнение («самый… среди метрополий Латинской Америки»)
+        if x.get("scope") == "local" and not x.get("interesting") and not x.get("vital") \
+                and x.get("category") not in ("URGENT", "URGENT_LOCAL_ONLY") and space_wide(x) \
+                and named_countries(x.get("title") or ""):
+            cs, places = region_event_countries(x)
+            if places:
+                x["event_countries"] = ",".join(sorted(cs))
+            else:
+                x["space_wide"] = True              # стран региона назвать нельзя; актёры — в event_countries
+                if cs:
+                    x["event_countries"] = ",".join(sorted(cs))
+            if home not in cs:
+                x["scope"] = "pool" if (not places or cs & set(space)) else "world"
+                moved.append(x)
+            kept.append(x)
+            continue
         ev, derived = _local_foreign_candidate(x, space, home)
         if ev:
             if x.get("scale") == "world":
@@ -197,11 +349,9 @@ def final_local_foreign_guard(items, lang, space, home):
                 if derived:
                     x["event_where"] = ev
                 moved.append(x)
-            elif foreign_fate(x) == "world":
+            elif foreign_fate(x) == "world" or derived:
                 x["scope"] = "world"
                 moved.append(x)
-            elif derived:
-                pass                        # страна выведена из слов — не снимаем, оставляем как было
             else:
                 dropped.append(x)
                 continue
@@ -209,7 +359,7 @@ def final_local_foreign_guard(items, lang, space, home):
     if moved or dropped:
         print(f"  🏳️ «Местное» с чужим событием [{lang}]: полка исправлена {len(moved)}, снято {len(dropped)}")
         for x in (moved + dropped)[:6]:
-            print(f"       · {x.get('source','?')} [{x.get('event_where')}]: {(x.get('title') or '')[:60]}")
+            print(f"       · {x.get('source','?')} [{x.get('event_countries') or x.get('event_where') or ('ЦА' if x.get('space_wide') else '')}]: {(x.get('title') or '')[:60]}")
     return kept
 
 
