@@ -174,12 +174,14 @@ def local_event_country(x, space, home):
     return "", False
 
 
-# Событие целого региона, а не одной страны: «Рубио едет в ЦА», «рост ЦА» (владелец, 15.10.2026:
-# такое прочтут не только в Бишкеке, но и во всей ЦА — «Новости из…»). Голое «ЦА» в рекламе —
-# «целевая аудитория»; такие заголовки исключены
+# ЦА — НЕ МОНОЛИТ (владелец, 15.10.2026). Слово «ЦА» в заголовке полку не решает: решают СТРАНЫ,
+# в которых событие. «Technovation в Ташкенте … росту ЦА» — событие в Ташкенте: для узбеков местная,
+# для остальной ЦА «Новости из…». «Рубио едет в ЦА» — по заголовку не ясно, куда; смотрим текст:
+# «посетит Бишкек, Ташкент и Алматы» — для киргизов, узбеков, казахов и американцев это местная,
+# для таджиков и туркмен «Новости из…», для читателей вне пула русского языка «Мировые».
+# Голое «ЦА» в рекламе — «целевая аудитория»; такие заголовки исключены
 _REGION_WIDE = re.compile(r"(?<![\w])ца(?![\w])|центральн\w*\s+ази|central\s+asia", re.I)
 _NOT_REGION = re.compile(r"аудитор|маркетинг|реклам|бренд|таргет", re.I)
-REGION = "REGION"
 
 
 def space_wide(x):
@@ -187,13 +189,38 @@ def space_wide(x):
     return bool(_REGION_WIDE.search(t)) and not _NOT_REGION.search(t)
 
 
+def named_countries(text):
+    """Коды стран, названные в тексте (страна, столица, глава государства) — с начала слова."""
+    low = (text or "").lower()
+    out = set()
+    for code, words in _OWN.items():
+        if any(_word_start(low, w) for w in words):
+            out.add(code)
+    for code in _WORDS:
+        if _hit_start(code, low):
+            out.add(code)
+    return out
+
+
+def region_event_countries(x):
+    """Страны, в которых происходит событие «региона»: названные в заголовке (событие там), а если
+    в заголовке стран нет («Рубио едет в ЦА») — названные в начале текста. Американский актёр
+    (США в заголовке или лиде) добавляется: для американцев это тоже местная новость."""
+    title = x.get("title") or ""
+    cs = named_countries(title)
+    body = str(x.get("_full") or x.get("_article") or x.get("summary") or "")[:2500]
+    if not cs:
+        cs = named_countries(body)
+    if "US" not in cs and _hit_start("US", (title + " " + body[:300]).lower()):
+        cs.add("US")
+    return cs
+
+
 def _local_foreign_candidate(x, space, home):
-    """→ (страна события | REGION | "", выведена ли из слов)."""
+    """→ (страна события | "", выведена ли из слов) для «местных» карточек с чужим событием."""
     if x.get("scope") != "local" or x.get("bridge") or x.get("interesting") or x.get("vital") \
             or x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY") or mentions_home(x, home):
         return "", False
-    if space_wide(x):
-        return REGION, True
     ev, derived = local_event_country(x, space, home)
     if not ev or ev == home:
         return "", False
@@ -201,22 +228,31 @@ def _local_foreign_candidate(x, space, home):
 
 
 def final_local_foreign_guard(items, lang, space, home):
-    """Полка «местной» карточки — по стране СОБЫТИЯ (владелец, 15.10.2026):
-      · событие целого региона («ЦА») → «Новости из…» (space_wide), карточку не снимаем;
+    """Полка «местной» карточки — по стране СОБЫТИЯ (владелец, 15.10.2026), а читателю её
+    окончательно считает приложение: оно знает, откуда читают (страна события против страны читателя).
+    Сервер отдаёт страну события (`event_where`, для региона — `event_countries`) и ставит полку
+    относительно дома пула:
+      · событие региона («ЦА»): страны из заголовка и текста → `event_countries`; дом назван → остаётся
+        местной, страны пула → «Новости из…», иначе «Мировые»; стран нет → «Новости из…»;
       · страна события в пуле → «Новости из…»; масштаб «мир» → «Мировые»;
-      · чужая держава вне пула: слова в заголовке без вердикта ИИ → «Мировые» («Трампа
-        критикуют…» читают кыргызстанцы, мировая полка им подходит), вердикт ИИ про
-        «чужое мелкое» → снимаем, как раньше (J23).
-    Какой из полок покажет карточку конкретному читателю, решает приложение: оно знает,
-    откуда читают (страна события против страны читателя)."""
+      · чужая держава вне пула: слова в заголовке без вердикта ИИ → «Мировые»; вердикт ИИ про
+        «чужое мелкое» → снимаем, как раньше (J23)."""
     moved, dropped, kept = [], [], []
     for x in items:
+        if x.get("scope") == "local" and not x.get("interesting") and not x.get("vital") \
+                and x.get("category") not in ("URGENT", "URGENT_LOCAL_ONLY") and space_wide(x):
+            cs = region_event_countries(x)
+            if cs:
+                x["event_countries"] = ",".join(sorted(cs))
+            else:
+                x["space_wide"] = True
+            if home not in cs:
+                x["scope"] = "pool" if (not cs or cs & set(space)) else "world"
+                moved.append(x)
+            kept.append(x)
+            continue
         ev, derived = _local_foreign_candidate(x, space, home)
-        if ev == REGION:
-            x["scope"] = "pool"
-            x["space_wide"] = True
-            moved.append(x)
-        elif ev:
+        if ev:
             if x.get("scale") == "world":
                 x["scope"] = "world"
                 moved.append(x)
@@ -235,7 +271,7 @@ def final_local_foreign_guard(items, lang, space, home):
     if moved or dropped:
         print(f"  🏳️ «Местное» с чужим событием [{lang}]: полка исправлена {len(moved)}, снято {len(dropped)}")
         for x in (moved + dropped)[:6]:
-            print(f"       · {x.get('source','?')} [{x.get('event_where') or ('ЦА' if x.get('space_wide') else '')}]: {(x.get('title') or '')[:60]}")
+            print(f"       · {x.get('source','?')} [{x.get('event_countries') or x.get('event_where') or ('ЦА' if x.get('space_wide') else '')}]: {(x.get('title') or '')[:60]}")
     return kept
 
 

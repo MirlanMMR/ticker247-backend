@@ -117,5 +117,35 @@ check("слово «ца» внутри слова не регион", where(car
 check("чужое мелкое вердикт ИИ «регион» вне пула — как раньше, снимаем",
       where(card("Мэр города подписал бюджет", event_where="US", scale="region")) == "снята")
 
+# ── ЦА не монолит (владелец, 15.10): страны события — из заголовка, а если их там нет, из текста ──
+def full(x):
+    out = run([x])
+    return out[0] if out else None
+
+
+tech = full(card("Technovation 2026 в Ташкенте: как инновации способствуют развитию и росту ЦА",
+                 summary="В форуме участвуют стартапы Казахстана, Таджикистана и Кыргызстана."))
+check("Ташкент в заголовке: страна события только UZ, а не все из текста", tech["event_countries"] == "UZ")
+check("и для дома (KG) это «Новости из…»", tech["scope"] == "pool")
+
+rubio_all = full(card("Рубио едет в ЦА", summary="Госсекретарь США посетит Бишкек, Ташкент и Алматы."))
+check("Рубио: страны из текста + США", rubio_all["event_countries"] == "KG,KZ,US,UZ")
+check("Бишкек среди них — для дома местная", rubio_all["scope"] == "local")
+
+rubio_two = full(card("Рубио едет в ЦА", summary="Госсекретарь США посетит Ташкент и Алматы."))
+check("Рубио в две страны без дома: KZ, US, UZ", rubio_two["event_countries"] == "KZ,US,UZ")
+check("дома нет среди стран — «Новости из…»", rubio_two["scope"] == "pool")
+
+rubio_tj = full(card("Рубио едет в ЦА", summary="Госсекретарь США посетит Душанбе."))
+check("только Таджикистан: TJ, US", rubio_tj["event_countries"] == "TJ,US" and rubio_tj["scope"] == "pool")
+
+check("текст страны не назвал — «Новости из…» с флагом региона",
+      full(card("Рубио едет в ЦА", summary="Визит запланирован на ноябрь."))["space_wide"] is True)
+cn = full(card("Си Цзиньпин едет в ЦА", summary="Он посетит Китай… то есть Казахстан и Узбекистан."))
+check("Китай и ЦА: страны пула из текста", "KZ" in cn["event_countries"] and cn["scope"] == "pool")
+only_world = full(card("Рубио едет в ЦА", summary="Госсекретарь США встретится с лидерами. Китай обеспокоен."))
+check("страны пула в тексте нет, названы США и Китай — «Мировые»", only_world["scope"] == "world")
+check("реклама «целевая аудитория» не регион", full(card("Как найти свою целевую аудиторию (ЦА) за неделю"))["scope"] == "local")
+
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)
