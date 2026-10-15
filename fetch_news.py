@@ -16,6 +16,7 @@ from feed_gate import (drop_family_repeats, gate as feed_gate, same_event,
                        regions_agree, pick_regionals)
 from live_identity import verdict as identity_verdict
 from schedule_pools import selected_pools, stale_pools
+from translate_prompt import build as build_translation_prompt
 from textcut import (display_source, lead, trim_to_boundary, wants_page_body,
                      card_text, cap_article, full_text_of,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
@@ -6181,7 +6182,13 @@ def save_translations():
         print(f"  ⚠️ Память переводов не сохранилась: {e}")
 
 
-def _gemini_translate(items, target_lang):
+# Перевод: версия промпта и модель (None — основная GEMINI_MODEL). Менять ТОЛЬКО по замеру
+# eval_translation.py: версия 2 и/или модель посильнее — после находки 09.10.2026 (Fortune/Шотвелл)
+TRANSLATE_PROMPT_VERSION = 1
+TRANSLATE_MODEL = None
+
+
+def _gemini_translate(items, target_lang, model_name=None, version=None):
     """Перевод пачки новостей через ИИ. Возвращает список пар или None.
 
     Почему ИИ, а не бесплатный переводчик: тот ломается ровно там, где всего
@@ -6199,31 +6206,12 @@ def _gemini_translate(items, target_lang):
     # «Переведи новости на fr язык», и модель угадывала по коду. Угадывала
     # чаще всего верно, но просить перевод кодом языка — значит однажды
     # получить не тот язык на ровном месте
-    LANG_NAME = {"ru": "русский", "en": "английский", "es": "испанский",
-                 "pt": "португальский", "fr": "французский"}
-    numbered = []
-    for i, it in enumerate(items, 1):
-        numbered.append(f"{i}. ЗАГОЛОВОК: {it.get('title','')}\n   ТЕКСТ: {(it.get('summary') or '')[:900]}")
-
-    prompt = f"""Переведи новости на {LANG_NAME.get(target_lang, target_lang)} язык.
-
-Требования:
-· Это новостная лента, а не художественный текст: переводи точно и сухо
-· Имена, фамилии, должности и названия компаний — правильно и целиком.
-  «HD Hyundai Chairman to meet Bill Gates» — это председатель Hyundai
-  ВСТРЕТИТСЯ С Гейтсом, а не «председатель Билл Гейтс»
-· Идиомы передавай смыслом, а не по словам
-· Не сокращай и не пересказывай, не добавляй ничего от себя
-· Служебные пометки телеграфных лент — «(4th LD)», «UPDATE 2» — убирай
-
-Верни ТОЛЬКО JSON без пояснений, ключ — номер новости:
-{{"1": {{"title": "...", "summary": "..."}}, "2": {{"title": "...", "summary": "..."}}}}
-
-НОВОСТИ:
-{chr(10).join(numbered)}"""
+    # Промпт — в translate_prompt.py (чистый модуль, версии 1 и 2; какая в бою — решает замер)
+    version = version or TRANSLATE_PROMPT_VERSION
+    prompt = build_translation_prompt(items, target_lang, version)
 
     try:
-        text = ask_gemini(prompt, charter=False)
+        text = ask_gemini(prompt, charter=False, model_name=model_name or TRANSLATE_MODEL)
         if "```" in text:
             text = text.split("```")[1].replace("json", "").strip()
         data = json.loads(text)
