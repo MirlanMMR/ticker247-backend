@@ -144,8 +144,60 @@ check("текст страны не назвал — «Новости из…» 
 cn = full(card("Си Цзиньпин едет в ЦА", summary="Он посетит Китай… то есть Казахстан и Узбекистан."))
 check("Китай и ЦА: страны пула из текста", "KZ" in cn["event_countries"] and cn["scope"] == "pool")
 only_world = full(card("Рубио едет в ЦА", summary="Госсекретарь США встретится с лидерами. Китай обеспокоен."))
-check("страны пула в тексте нет, названы США и Китай — «Мировые»", only_world["scope"] == "world")
+check("стран региона не названо, актёры США и Китай — регион без уточнения, «Новости из…»",
+      only_world["scope"] == "pool" and only_world["space_wide"] is True and only_world["event_countries"] == "CN,US")
 check("реклама «целевая аудитория» не регион", full(card("Как найти свою целевую аудиторию (ЦА) за неделю"))["scope"] == "local")
+
+# ── Правило одно для ВСЕХ пулов (владелец, 15.10): те же регионы и те же полки на es / pt / fr / en ──
+ES_SPACE = {"AR", "BO", "CL", "CO", "CR", "CU", "DO", "EC", "ES", "GT", "HN", "NI", "PA", "PE", "PY", "SV", "UY", "VE", "MX"}
+PT_SPACE = {"AO", "CV", "GW", "MZ", "PT", "ST", "TL", "BR"}
+FR_SPACE = {"BE", "BF", "BJ", "CA", "CD", "CH", "CI", "CM", "DZ", "GN", "HT", "LU", "MA", "MC", "MG", "ML", "NE", "SN", "TG", "TN", "FR"}
+EN_SPACE = {"AU", "CA", "GB", "IE", "IN", "JM", "NG", "NZ", "SG", "ZA", "US"}
+
+
+def pool_card(title, summary="", home="MX", **kw):
+    return {"title": title, "summary": summary, "scope": "local", "country": home, "source": "x",
+            "category": "NEWS", **kw}
+
+
+def run_pool(x, home, space):
+    with contextlib.redirect_stdout(io.StringIO()):
+        out = final_local_foreign_guard([x], "xx", space, home)
+    return out[0] if out else None
+
+
+# es, дом Мексика: «Латинская Америка» — не монолит
+r = run_pool(pool_card("El papa visitará América Latina", "Estará en Argentina y Chile en noviembre."), "MX", ES_SPACE)
+check("es: Латинская Америка → места AR, CL (+папа как актёр)", r["event_countries"] == "AR,CL,VA")
+check("es: Мексики среди стран нет → «Новости из…»", r["scope"] == "pool")
+r = run_pool(pool_card("El papa visitará América Latina", "Estará en México y Argentina."), "MX", ES_SPACE)
+check("es: Мексика названа в тексте — местная", r["scope"] == "local" and r["event_countries"] == "AR,MX,VA")
+
+# pt, дом Бразилия: «África»
+r = run_pool(pool_card("Papa Leão visita a África em março", "Passará por Angola e Moçambique.", home="BR"), "BR", PT_SPACE)
+check("pt: África → AO, MZ", r["event_countries"] == "AO,MZ,VA" and r["scope"] == "pool")
+r = run_pool(pool_card("Presidente viaja pela África do Sul e Angola", home="BR"), "BR", PT_SPACE)
+check("pt: «África do Sul» — страна, не регион", "event_countries" not in r and "space_wide" not in r)
+
+# fr, дом Франция: актёр (Макрон) — не место события
+r = run_pool(pool_card("Macron en tournée en Afrique", "Le président sera à Dakar et à Abidjan.", home="FR"), "FR", FR_SPACE)
+check("fr: места SN, CI; Франция — актёр", r["event_countries"] == "CI,FR,SN")
+check("fr: Франция среди стран → остаётся местной для дома", r["scope"] == "local")
+
+# en, дом США: Latin America, дом назван как актёр
+r = run_pool(pool_card("Rubio heads to Latin America", "The Secretary of State will visit Argentina and Mexico.", home="US"), "US", EN_SPACE)
+check("en: актёр США есть → местная для американцев", r["scope"] == "local" and "US" in r["event_countries"])
+
+# Кавказ в русском пуле
+r = run_pool(pool_card("Лавров отправится на Кавказ", "Он посетит Тбилиси и Ереван.", home="KG"), "KG", SPACE)
+check("ru: Кавказ → GE, AM + актёр RU", r["event_countries"] == "AM,GE,RU" and r["scope"] == "pool")
+
+# сравнение с регионом — не регион события: G1 São Paulo 15.10 («…entre metrópoles da América Latina»)
+sp = run_pool(pool_card("Chuva reduz velocidade do trânsito de SP; impacto é o maior entre metrópoles da América Latina",
+                        "Em São Paulo a lentidão chegou a 15%. Buenos Aires e Bogotá também sofrem.", home="BR"), "BR", PT_SPACE)
+check("сравнение с Латинской Америкой в заголовке без страны — не трогаем", sp["scope"] == "local" and "event_countries" not in sp)
+check("«ЦА» без названной страны/актёра в заголовке — тоже не трогаем",
+      full(card("В ЦА растёт интерес к стартапам", summary="Об этом сообщили в Бишкеке и Алматы."))["scope"] == "local")
 
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)
