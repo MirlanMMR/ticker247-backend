@@ -7713,16 +7713,7 @@ def save_vital(items, lang):
 # землетрясение, взрыв, теракт. Гибель на учениях, в воде, при крушении у
 # соседей проходила мимо обоих. Масштаб считаем по числу из заголовка: своя
 # страна и соседи — от пяти погибших или пропавших, дальний мир — от двадцати.
-_NUM_WORDS = {"двое": 2, "трое": 3, "четверо": 4, "пятеро": 5, "шестеро": 6,
-              "семеро": 7, "восемь": 8, "девять": 9, "десять": 10, "десятки": 20,
-              "сотни": 100, "dozens": 20, "hundreds": 100, "decenas": 20,
-              "centenas": 100, "dizaines": 20, "centaines": 100}
-_CASUALTY = re.compile(
-    r"(\d+|" + "|".join(_NUM_WORDS) + r")[^\d.!?]{0,40}?"
-    r"(погиб|утонул|жертв|пропал|скончал|killed|dead|died|drown|missing|victims?"
-    r"|muert|fallec|desaparec|mort[oa]s?|morreram|desaparecid|tués?|morts?|disparu)",
-    re.I)
-CASUALTY_NEAR, CASUALTY_FAR = 5, 20
+from urgent_guard import _NUM_WORDS, _CASUALTY, CASUALTY_NEAR, CASUALTY_FAR, final_urgent_guard  # одно определение для сервера, стража и аудита
 
 
 def mass_casualty_urgent(items, lang):
@@ -9672,6 +9663,7 @@ def main():
         filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
         filtered = final_local_foreign_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")}, POOL_HOME.get(lang, ""))
         filtered = final_foreign_region_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
+        filtered = final_urgent_guard(filtered, lang)   # J38: «срочно» вне «Местных» — только масштаб
         filtered = strip_known_stubs(filtered, lang)
         filtered, _ = cap_dull(filtered, lang)
         # Признак «интересное» пропадал по дороге (редактор пересобирает карточки): возвращаем
