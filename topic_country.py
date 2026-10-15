@@ -174,10 +174,26 @@ def local_event_country(x, space, home):
     return "", False
 
 
+# Событие целого региона, а не одной страны: «Рубио едет в ЦА», «рост ЦА» (владелец, 15.10.2026:
+# такое прочтут не только в Бишкеке, но и во всей ЦА — «Новости из…»). Голое «ЦА» в рекламе —
+# «целевая аудитория»; такие заголовки исключены
+_REGION_WIDE = re.compile(r"(?<![\w])ца(?![\w])|центральн\w*\s+ази|central\s+asia", re.I)
+_NOT_REGION = re.compile(r"аудитор|маркетинг|реклам|бренд|таргет", re.I)
+REGION = "REGION"
+
+
+def space_wide(x):
+    t = x.get("title") or ""
+    return bool(_REGION_WIDE.search(t)) and not _NOT_REGION.search(t)
+
+
 def _local_foreign_candidate(x, space, home):
+    """→ (страна события | REGION | "", выведена ли из слов)."""
     if x.get("scope") != "local" or x.get("bridge") or x.get("interesting") or x.get("vital") \
             or x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY") or mentions_home(x, home):
         return "", False
+    if space_wide(x):
+        return REGION, True
     ev, derived = local_event_country(x, space, home)
     if not ev or ev == home:
         return "", False
@@ -185,10 +201,22 @@ def _local_foreign_candidate(x, space, home):
 
 
 def final_local_foreign_guard(items, lang, space, home):
+    """Полка «местной» карточки — по стране СОБЫТИЯ (владелец, 15.10.2026):
+      · событие целого региона («ЦА») → «Новости из…» (space_wide), карточку не снимаем;
+      · страна события в пуле → «Новости из…»; масштаб «мир» → «Мировые»;
+      · чужая держава вне пула: слова в заголовке без вердикта ИИ → «Мировые» («Трампа
+        критикуют…» читают кыргызстанцы, мировая полка им подходит), вердикт ИИ про
+        «чужое мелкое» → снимаем, как раньше (J23).
+    Какой из полок покажет карточку конкретному читателю, решает приложение: оно знает,
+    откуда читают (страна события против страны читателя)."""
     moved, dropped, kept = [], [], []
     for x in items:
         ev, derived = _local_foreign_candidate(x, space, home)
-        if ev:
+        if ev == REGION:
+            x["scope"] = "pool"
+            x["space_wide"] = True
+            moved.append(x)
+        elif ev:
             if x.get("scale") == "world":
                 x["scope"] = "world"
                 moved.append(x)
@@ -197,11 +225,9 @@ def final_local_foreign_guard(items, lang, space, home):
                 if derived:
                     x["event_where"] = ev
                 moved.append(x)
-            elif foreign_fate(x) == "world":
+            elif foreign_fate(x) == "world" or derived:
                 x["scope"] = "world"
                 moved.append(x)
-            elif derived:
-                pass                        # страна выведена из слов — не снимаем, оставляем как было
             else:
                 dropped.append(x)
                 continue
@@ -209,7 +235,7 @@ def final_local_foreign_guard(items, lang, space, home):
     if moved or dropped:
         print(f"  🏳️ «Местное» с чужим событием [{lang}]: полка исправлена {len(moved)}, снято {len(dropped)}")
         for x in (moved + dropped)[:6]:
-            print(f"       · {x.get('source','?')} [{x.get('event_where')}]: {(x.get('title') or '')[:60]}")
+            print(f"       · {x.get('source','?')} [{x.get('event_where') or ('ЦА' if x.get('space_wide') else '')}]: {(x.get('title') or '')[:60]}")
     return kept
 
 

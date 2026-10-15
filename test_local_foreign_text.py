@@ -93,5 +93,29 @@ for t in ["Маматалиев высказался о строительств
     check(f"не страна: «{t[:38]}»", out and out[0]["scope"] == "local" and not out[0].get("event_where"))
 check("а настоящая основа с окончанием находится", run([card("Алиеву доложили о ходе работ")])[0]["scope"] == "pool")
 
+# ── Решение владельца 15.10: чужая держава → «Мировые», событие в «ЦА» → «Новости из…» ──
+def where(x):
+    out = run([x])
+    return out[0]["scope"] if out else "снята"
+
+
+for scale in (None, "world", "region", "local"):
+    kw = {"scale": scale} if scale else {}
+    check(f"Трамп без страны ИИ (масштаб {scale}) → Мировые",
+          where(card("Трампа критикуют за публикацию жуткого видео", **kw)) == "world")
+for ev in ("US", "UZ", ""):
+    for scale in (None, "region", "world"):
+        kw = {k: v for k, v in (("event_where", ev), ("scale", scale)) if v}
+        check(f"Рубио в ЦА (ИИ: {ev or '—'}/{scale}) → Новости из…, не снимать",
+              where(card("Рубио едет в ЦА", **kw)) == "pool")
+check("ЦА: флаг space_wide", run([card("Рубио едет в Центральную Азию")])[0].get("space_wide") is True)
+check("Рубио в Бишкек и Ташкент — мост, местное", where(card("Рубио посетит Бишкек и Ташкент")) == "local")
+check("Рубио в ЦА, Кыргызстан в лиде — мост", where(card("Рубио едет в ЦА", summary="Визит включит Кыргызстан.")) == "local")
+check("«ЦА» как целевая аудитория не регион", where(card("Как привлечь вашу ЦА: маркетинг для малого бизнеса")) == "local")
+check("Technovation в Ташкенте про рост ЦА → Новости из…", where(card("Technovation 2026 в Ташкенте: как инновации способствуют развитию и росту ЦА")) == "pool")
+check("слово «ца» внутри слова не регион", where(card("Новый цех открылся в городе")) == "local")
+check("чужое мелкое вердикт ИИ «регион» вне пула — как раньше, снимаем",
+      where(card("Мэр города подписал бюджет", event_where="US", scale="region")) == "снята")
+
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)
