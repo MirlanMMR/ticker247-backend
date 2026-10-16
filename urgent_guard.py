@@ -155,6 +155,15 @@ _PERSONNEL = re.compile(
     r"destituid[oa]\s+de\s+su\s+cargo|cesad[oa]\s+(?:de|en)\s+su\s+cargo|relev[oó]\s+del\s+cargo|"
     r"exonerad[oa]\s+do\s+cargo|demitid[oa]\s+do\s+cargo|"
     r"relevé\s+de\s+ses\s+fonctions|limogé", re.I)
+# «Заместителя министра уволили», «Уволен замглавы района»: глагол + нижестоящий чиновник в любом порядке
+_DEPUTY = (r"(?:зам(?:\.|еститель|еститея|еститела|естителя|естителю|естителем|естителе)?\s*[а-яё-]*|замминистр\w*|замглав\w*|замдиректор\w*|"
+           r"замакима\w*|вице-\w+|чиновник\w*|начальник\w*\s+(?:управлени|департамент|отдел)\w*|"
+           r"deputy|vice[- ]\w+|viceministr\w*|vice-minist\w*|viceminist\w*)")
+_DISMISS = (r"(?:уволен\w*|уволил\w*|увольнени\w*|освобожд[её]н\w*|освободил\w*|сняли|снят\w*|"
+            r"fired|sacked|dismissed|ousted|despedid[oa]|destituid[oa]|demitid[oa]|exonerad[oa]|limogé\w*|"
+            r"бошотул\w*|бошотушту)")
+_PERSONNEL_LOOSE = re.compile(
+    rf"\b{_DEPUTY}\W+(?:\w+\W+){{0,4}}?{_DISMISS}|\b{_DISMISS}\W+(?:\w+\W+){{0,3}}?{_DEPUTY}", re.I)
 # Глава государства/правительства: его уход — событие страны, поэтому срочное остаётся
 _TOP_OFFICE = re.compile(
     r"(?<!вице-)(?<!вице )президент|(?<!вице-)(?<!вице )премьер|канцлер|король|королев|император|шах\b|эмир|султан|"
@@ -171,10 +180,14 @@ def personnel_change(x):
     if x.get("category") not in URGENT_CATS and (x.get("priority") or 0) < 2:
         return False
     title = (x.get("title") or "").strip()
-    if not _PERSONNEL.search(title):
+    strict, loose = _PERSONNEL.search(title), _PERSONNEL_LOOSE.search(title)
+    if not (strict or loose):
         return False
     text = f"{title} {(x.get('summary') or '')[:400]}"
-    return not (_TOP_OFFICE.search(title) or _BIG.search(text) or casualties(text) >= 1)
+    # «Премьер уволил заместителя»: первое лицо тут увольняет, а не уходит
+    if strict and _TOP_OFFICE.search(title):
+        return False
+    return not (_BIG.search(text) or casualties(text) >= 1)
 
 
 def final_personnel_guard(items, lang):
