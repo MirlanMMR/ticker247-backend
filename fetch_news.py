@@ -7734,7 +7734,7 @@ def save_vital(items, lang):
 # землетрясение, взрыв, теракт. Гибель на учениях, в воде, при крушении у
 # соседей проходила мимо обоих. Масштаб считаем по числу из заголовка: своя
 # страна и соседи — от пяти погибших или пропавших, дальний мир — от двадцати.
-from urgent_guard import _NUM_WORDS, _CASUALTY, CASUALTY_NEAR, CASUALTY_FAR, final_urgent_guard, final_category_guard, final_prepared_guard  # одно определение для сервера, стража и аудита
+from urgent_guard import _NUM_WORDS, _CASUALTY, CASUALTY_NEAR, CASUALTY_FAR, final_urgent_guard, final_category_guard, final_prepared_guard, final_personnel_guard  # одно определение для сервера, стража и аудита
 
 
 def mass_casualty_urgent(items, lang):
@@ -9689,6 +9689,7 @@ def main():
         filtered = final_foreign_tech_guard(filtered, lang, POOL_HOME.get(lang, ""))   # J44: заявление зарубежной компании → «Интересное»
         filtered = final_urgent_guard(filtered, lang)   # J38: «срочно» вне «Местных» — только масштаб
         filtered = final_prepared_guard(filtered, lang)  # J48: подготовленный без спешки материал — не срочное
+        filtered = final_personnel_guard(filtered, lang)  # J54: освобождение/назначение чиновника — не срочное
         filtered = final_category_guard(filtered, lang)  # J39/J40: рубрика из списка вёрстки, потолок «важного»
         filtered = strip_known_stubs(filtered, lang)
         filtered, _ = cap_dull(filtered, lang)
