@@ -126,11 +126,20 @@ staff = [
     "Viceministro destituido de su cargo",
     "Vice-ministro exonerado do cargo",
     "Sous-préfet relevé de ses fonctions",
+    "Заместителя министра уволили",
+    "Уволен заместитель акима области",
+    "Замглавы района уволен",
+    "Уволили заместителя мэра Бишкека",
+    "Премьер-министр уволил заместителя",
+    "Deputy minister fired",
+    "Viceministro despedido",
+    "Vice-ministro demitido",
 ]
 for t in staff:
     for cat, prio in (("URGENT", 2), ("URGENT_LOCAL_ONLY", 2), ("NEWS", 2)):
         check(f"{t[:36]} [{cat}/{prio}]", personnel_change(card(t, scope="local", cat=cat, prio=prio)))
 check("несрочное с приоритетом 1 не трогаем", not personnel_change(card(staff[0], cat="NEWS", prio=1)))
+check("рядовых рабочих не трогаем", not personnel_change(card("Уволили 500 рабочих завода", cat="URGENT")))
 check("уход президента остаётся срочным", not personnel_change(card("Президент освобождён от должности", cat="URGENT")))
 check("премьер-министр остаётся срочным", not personnel_change(card("Премьер-министр отправлен в отставку", cat="URGENT")))
 check("prime minister остаётся срочным", not personnel_change(card("Prime minister dismissed from his post", cat="URGENT")))
