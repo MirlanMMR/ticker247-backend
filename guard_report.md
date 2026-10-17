@@ -1,24 +1,18 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] reviewjournal — NFL announces punishment for Raiders defensive end after loss to Patriots — Обычное дисциплинарное взыскание лиги, не является значимым событием для широкой аудитории.
-- [en] не_новость: [local] Portland Press Herald — Colby football coach Jack Cosgrove temporarily stepping away from team — Временный уход тренера по личным причинам — не новость, если нет скандала или последствий.
-- [en] не_новость: [local] WBAL — WNBA’s Cathy Engelbert says a search firm is vetting candidates to replace her — Рабочий процесс поиска преемника (использование рекрутинговой компании) не является событием.
-- [en] повтор: [pool] The Independent — Trump recycles ‘Dumocrats’ attacks at Kentucky rally but is privately ‘blaming a ≈ «‘I can do stuff that is unbelievable.’ T» — Один и тот же предвыборный митинг Трампа в Кентукки.
-- [en] не_новость: [pool] BBC Sport — Villa's Manzambi shows Newcastle what they missed out on — Спортивная аналитика (обзор игры, мнение игрока), а не фиксация результата матча.
-- [en] не_новость: [pool] Fortune — In midterm races, Democrats are using the Iran war to target Republicans—even so — Анализ предвыборной риторики и стратегии демократов, а не событие.
-- [en] не_новость: [pool] BBC Sport — Wirtz delivers but remains Liverpool's conundrum — Спортивная аналитика о «проблеме» игрока, а не новость о матче.
-- [en] не_новость: [pool] Rolling Stone — Eminem Defends New Collaboration With ‘Old Friend’ Kid Rock: ‘Not About Choosing — Интервью артиста с защитой своего мнения не является событием.
-- [en] не_новость: [pool] BBC News — Swinney's emotional explanation for his commitment to independence — Эмоциональное описание речи политика без принятия конкретных решений.
-- [en] не_новость: [pool] Guardian Sport — Haaland helps Maresca achieve record start as Manchester City defeat Ipswich — Журналистская колонка/мнение, а не новость о матче.
-- [en] не_новость: [pool] The Guardian — The Digger disaster: what an epic movie flop means for Tom Cruise and Hollywood — Обзор провала фильма в прокате, а не событие.
-- [en] не_новость: [pool] Guardian Sport — The ESPN producer who quit over gambling – and the stories she says went untold — История о бывшем сотруднике, не является событием.
-- [en] не_новость: [world] TechCrunch — Meta removes language that raised scraping and AI training concerns — Обновление условий пользования сервисом не является событием.
-- [en] не_новость: [world] Variety — Paul Bettany Says He and Johnny Depp ‘Hadn’t Spoken’ in Years When Their Texts W — Воспоминания актера об интервью — «желтая» аналитика.
-- [en] не_новость: [world] TechCrunch — Anthropic says its workforce has become less junior and is spending more time in — Внутренний корпоративный отчет компании об организации труда.
-- [en] не_новость: [world] Fortune — ‘How many canaries have we killed in the coal mine?’ — Wall Street debates if th — Рыночная дискуссия «пузырь или нет», а не свершившийся факт/сделка.
-- [en] курьёз: [world] Engadget — Leaked gameplay purports to show a canceled Assassin's Creed game set in ancient — Слив игрового процесса отмененной игры — не является значимой новостью.
-- [en] не_новость: [world] Santa Fe New Mexican — An American pope brings American-style governance to the Vatican, even in a heal — Авторская аналитическая статья об управлении Ватиканом.
-- [en] не_новость: [world] The Guardian — Move over, pervert glasses – the latest toxic trend is robogroping — Публицистический текст о трендах интернета.
-- [en] курьёз: [world] Ars Technica — Why BioWare's Neverwinter Nights still has thousands of active players — Почему старая игра все еще популярна — это лонгрид/обзор, а не новость.
-- [en] курьёз: [world] The Guardian — Muscles, metrosexuals and male tears: the 39 pictures that changed the way we se — Подборка фотографий о восприятии мужчин — культурный обзор, не новость.
-- [en] не_новость: [world] Semafor — Tariffs pose a risk to US-India relationship — Рассуждения о рисках для экономики, а не свершившееся решение о тарифах.
+- [es] курьёз: [local] El Financiero — ‘Me puse a coser toda la tarde’: La historia detrás del vestido de osos de Thalí — История о платье Талии — развлекательный контент, не событие.
+- [es] не_новость: [local] El Universal MX — Renuncia Rodrigo Reyes Mugüerza a Secretaría general del gobierno de Zacatecas;  — Плановая отставка ради участия в выборах — это политическая рутина, а не событие.
+- [es] не_новость: [local] El Financiero — A año y medio de la tragedia del Axe Ceremonia: ¿Quiénes son las personas y empr — Аналитический вопрос о трагедии полуторагодовалой давности, без нового факта.
+- [es] не_новость: [local] Expansión MX — Los países pobres pagan cada vez más deuda, el petróleo sube y el FMI alerta por — Пересказ общих экономических угроз МВФ, нет конкретного события.
+- [es] не_новость: [local] Expansión MX — Dejaste el gobierno, pero aún puedes cotizar al ISSSTE para mantener tu pensión: — Разбор (советы) того, как сохранять пенсию, а не новость.
+- [es] не_новость: [pool] La Nación AR — Racing, de soñar con la Libertadores a vivir el clásico “como la final del mundo — Предматчевые рассуждения, нет свершившегося результата или факта.
+- [es] не_новость: [pool] La Nación AR — Lautaro Blanco: defiende como 3 y ataca como 10, hizo hacer diez goles y es el j — Аналитический портрет игрока, не является новостью.
+- [es] курьёз: [pool] La Nación AR — La Asociación de Historiadores Estadounidenses premió a Adrián Gorelik por su li — Награда за книгу — не новость мирового или регионального масштаба.
+- [es] не_новость: [pool] Marca — Lamine, al límite — Очерк о состоянии игрока, нет события.
+- [es] не_новость: [pool] Marca — Aguirre recupera al 'viejo' Valencia — Спортивная аналитика (мнение о тренере), а не результат матча.
+- [es] не_новость: [pool] El País — Vox baraja no presentarse al Senado en algunas provincias para evitar una mayorí — Размышления (балансирование) партии, а не принятое решение.
+- [es] курьёз: [world] Xataka — Las células zombis están detrás del envejecimiento: así es como los científicos  — Общие научные гипотезы о старении — не событие.
+- [es] не_новость: [world] BBC Mundo — El juicio a una heredera millonaria que desató al mayor escándalo de espionaje d — Описание затянувшегося судебного процесса без нового приговора или решения.
+- [es] не_новость: [world] BBC Mundo — Por qué EE.UU. vuelve al pelotón de fusilamiento para aplicar la pena de muerte — Объяснительная статья (разбор) о методах смертной казни, а не конкретное событие.
+- [es] не_новость: [world] La Jornada — Encabezan jóvenes protestas en Europa y Asia por sus derechos y contra la corrup — Общая заметка о протестах молодежи без конкретики (где, что именно произошло).
+- [es] не_новость: [world] RPP PE — Temblor en Perú, hoy 17 de octubre: magnitud y epicentro del sismo según IGP — Анонс или кликбейт-заголовок (текст предлагает «узнать», а не сообщает факт).
