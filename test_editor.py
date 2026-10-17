@@ -195,8 +195,6 @@ check("интересное по «нет события» не снимаетс
 _plain = dict(_cur, interesting=False, source="Kaktus.media")
 check("обычная карточка по «нет события» снимается", ED.apply_verdict(_plain, {"publish": False, "reason": "нет события"}, ["Текст."], [])[0] is False)
 
-print(f"пройдено {passed}, провалено {failed}")
-sys.exit(1 if failed else 0)
 
 # ── тон зависит от потока (09.10.2026): в EDITOR.md правило «сухие факты» только для ru/en/fr/pt,
 #    для es — человеческая история остаётся; в карточке указан поток ──
@@ -205,5 +203,27 @@ check("EDITOR.md: тон зависит от потока", "Тон зависи
 check("EDITOR.md: сухие факты — ru, en, fr", "ru, en, fr — сухие факты" in _md)
 check("EDITOR.md: pt не в списке «сухих»", "ru, en, fr, pt — сухие" not in _md)
 check("EDITOR.md: для es и pt человеческая история остаётся", "es и pt — человеческая история остаётся" in _md)
+# «Интересное»: определения событию даёт ОБЩИЙ устав (EDITORIAL.md), а не копия в промпте редактора.
+# J54, 17.10.2026: редактор получал только EDITOR.md и сам решал, что «необычно» (Кэмерон в Бишкеке)
+_hdr = ED.pool_header("ru", "KG", "русский")
+_ed = open("EDITORIAL.md", encoding="utf-8").read()
+_shared = ED.shared_charter(_ed)
+check("общий устав: раздел EDITORIAL.md найден (заголовок не переименован)", len(_shared) > 3000)
+check("общий устав: белый список события", "Белый список событий" in _shared)
+check("общий устав: исключение «Интересное»", "Исключение: «Интересное»" in _shared)
+check("общий устав: объявление с датой, визит дома — тип 11", "приезд" in _shared and "знаменитости" in _shared)
+check("общий устав: берётся дословно из EDITORIAL.md", _shared in _ed)
+check("общий устав: не залезает в «Срочность»", "## Срочность" not in _shared)
+check("общий устав: нет раздела — пусто, не падает", ED.shared_charter("# ничего") == "")
+check("шапка «Интересного» отсылает к общему уставу, а не определяет событие сама",
+      "общий устав" in _hdr and "белого списка" in _hdr and "Что именно произошло" not in _hdr)
+check("«Интересное»: квоты 0–3 нет", "0–3" not in _hdr and "Обычно" not in _hdr)
+check("«Интересное»: сомневаешься — новость", "Сомневаешься — это новость" in _hdr)
+check("«Интересное»: версия правил поднята (память пересудит карточки)", ED.EDITOR_VERSION >= 5)
+_fn = open("fetch_news.py", encoding="utf-8").read()
+check("fetch_news подмешивает общий устав в инструкцию редактора", "ED.shared_charter(" in _fn and "EDITOR_MD +=" in _fn)
 check("шапка потока называет язык (на него ссылается правило)", "Поток: es" in ED.pool_header("es", "MX", "испанский"))
 check("шапка потока называет pt", "Поток: pt" in ED.pool_header("pt", "BR", "португальский"))
+
+print(f"пройдено {passed}, провалено {failed}")
+sys.exit(1 if failed else 0)
