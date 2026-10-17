@@ -235,6 +235,7 @@ jobs:
           python test_negated_keyword.py
           python test_border.py
           python test_repost_memory.py
+          python test_reenrich.py
           python test_urgent_guard.py
           python test_topic_country.py
           python test_local_foreign_text.py
