@@ -191,6 +191,7 @@ jobs:
               exit 1
             fi
             echo "POOLS=$P" >> "$GITHUB_ENV"
+            echo "SLOT_TS_MS=$(python schedule_pools.py --slot "$CRON")" >> "$GITHUB_ENV"
             echo "COUNTRY_SHELVES=$(python schedule_pools.py --shelves "$CRON")" >> "$GITHUB_ENV"
           else
             echo "POOLS=$POOLS_INPUT" >> "$GITHUB_ENV"
@@ -233,6 +234,7 @@ jobs:
           python test_curious.py
           python test_negated_keyword.py
           python test_border.py
+          python test_repost_memory.py
 
       - name: Run fetch script
         run: python fetch_news.py
