@@ -138,3 +138,37 @@ def touch(memory, urls, now_ms):
         if u in memory:
             memory[u]["at"] = now_ms
     return memory
+
+
+def cover_conflict(item, memory, related_urls=()):
+    """Запись о карточке, на которой уже стоял ЭТОТ снимок, если новость с ней не по теме; иначе None.
+
+    Решение владельца 17.10.2026: одно и то же фото уместно только у новостей одного сюжета («по теме»);
+    знакомая картинка у другой новости читается как повтор — такую не берём, пусть издание меняет фото.
+    По теме = ≥ MIN_SHARED_REPOST общих корней слов заголовков, либо страница сама ссылается на ту.
+    Своя же карточка (тот же адрес) и снимок без адреса/заглушка — не конфликт."""
+    img = norm_image(item.get("imageUrl"))
+    if not img or item.get("category") in ("CURRENCY", "CRYPTO"):
+        return None
+    mine = stems(item.get("title"))
+    for u, e in (memory or {}).items():
+        if u == item.get("url") or e.get("img") != img:
+            continue
+        if u in related_urls or len(mine & set(e.get("stems") or ())) >= MIN_SHARED_REPOST:
+            continue
+        return e
+    return None
+
+
+def reused_covers(items, memory):
+    """→ [(карточка, запись)]: у кого обложка уже стояла на не связанной новости. Прежние, что ещё в
+    этой же ленте, не считаем: между ними разбирается drop_twins."""
+    current = {x.get("url") for x in items}
+    live = {u: e for u, e in (memory or {}).items() if u not in current}
+    out = []
+    for x in items:
+        rel = {r.get("url") for r in (x.get("_related") or [])}
+        e = cover_conflict(x, live, rel)
+        if e:
+            out.append((x, e))
+    return out

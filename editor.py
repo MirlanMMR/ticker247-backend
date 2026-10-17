@@ -23,7 +23,7 @@ import json
 import re
 
 import textcut as TC
-from twins import norm_image
+from twins import norm_image, cover_conflict
 from urllib.parse import urljoin, urlsplit
 
 from bs4 import BeautifulSoup
@@ -207,12 +207,11 @@ def related_lines(item: dict):
     if rep:
         out.append(f"Похожая карточка уже была у наших читателей: «{rep.get('title', '')}» ({rep.get('src', '?')}), "
                    f"начало: «{rep.get('lead', '')}». Реши по правилу «повтор».")
-    img = norm_image(item.get("imageUrl"))
-    if img:
-        seen = next((e for u, e in SHOWN_MEMORY.items() if e.get("img") == img and u != item.get("url")), None)
-        if seen:
-            out.append(f"Этот снимок уже был на другой нашей карточке: «{seen.get('title', '')}» ({seen.get('src', '?')}). "
-                       f"Читатель запомнит картинку и примет новость за повтор — возьми другой снимок страницы, если он годный.")
+    seen = cover_conflict(item, SHOWN_MEMORY, {r.get("url") for r in (item.get("_related") or [])})
+    if seen:
+        out.append(f"Этот снимок уже стоял на другой нашей, НЕ связанной с этой новости: «{seen.get('title', '')}» "
+                   f"({seen.get('src', '?')}). Читатель примет новость за повтор. Возьми другой годный снимок страницы; "
+                   f"если другого нет — новость не выйдет (правило владельца: пусть издание меняет фото).")
     rel = item.get("_related") or []
     if rel:
         out.append("Связанные материалы издания (ссылки на странице):")

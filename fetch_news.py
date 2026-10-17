@@ -6878,7 +6878,7 @@ from storydedup import pick_group_language as _pick_group_language
 from storydedup import source_voice as _source_voice
 # Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
 # пул — правило и причина в editions.py, проверяется test_editions.py
-from twins import drop_twins, find_reposts, remember_shown, touch
+from twins import drop_twins, find_reposts, remember_shown, touch, reused_covers
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
 from curious import topup_interesting, is_curious_content, is_longread_url
@@ -9742,6 +9742,15 @@ def main():
                 _x["interesting"] = True
             elif _x.get("interesting"):
                 _x.pop("interesting", None)     # флаг от источника, а проверка по содержанию отклонила (J22)
+        # Знакомая обложка у новости не по теме (решение владельца 17.10.2026, J55): одно фото уместно
+        # только у одного сюжета; иначе читатель принимает новость за повтор — не берём
+        _cover_dups = reused_covers(filtered, _shown)
+        if _cover_dups:
+            _dup_ids = {id(_x) for _x, _ in _cover_dups}
+            filtered = [_x for _x in filtered if id(_x) not in _dup_ids]
+            for _x, _e in _cover_dups:
+                print(f"  🖼 [{lang}] снято: тот же снимок, что у «{_e.get('title', '')[:50]}», новость не по теме: "
+                      f"«{_x.get('title', '')[:50]}» ({_x.get('source')})")
         border.control(filtered, lang, report=_BORDER_REPORT)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
