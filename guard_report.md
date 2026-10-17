@@ -1,23 +1,23 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] Gothamist — Being reigning champions is weird for Knicks fans. We could get used to this. — мнение фаната, нет события
-- [en] курьёз: [local] NY Post — SoCal sorority president speaks out on scandal that rocked Greek life at America — скандал в студенческом обществе — частный случай, не мировая новость
-- [en] не_новость: [local] The Oregonian — Is Northwestern vs MSU football on TV today, or streaming only? — анонс спортивного события, нет результата
-- [en] курьёз: [local] 11Alive — A farmer found an 11-foot metal object in a Minnesota cornfield. — находка металлического объекта, не имеет последствий для читателя
-- [en] не_новость: [local] PennLive — Mega Millions numbers for Oct. 16: 1 player wins $5 million prize — результаты лотереи не являются новостью
-- [en] не_новость: [local] LA Times — Here's what we know about the man who allegedly bugged an OpenAI conference room — пересказ действий подозреваемого, нет итога дела
-- [en] не_новость: [local] WV MetroNews — Run defense a focus for both sides when Mountaineers play host to Cincinnati — спортивная аналитика перед матчем, нет события
-- [en] курьёз: [local] laist — South Pasadena finally has a bookstore. Step inside Outpost Books — открытие книжного магазина — частный бизнес, не новость
-- [en] не_новость: [local] WHYY — Wooden Shoe Books, South Street’s anarchist bookstore, marks 50 years, surprisin — юбилей магазина, нет события
-- [en] не_новость: [local] The Colorado Sun — What’s Working: A Durango nonprofit gets to build AI that will help caseworkers  — анонс деятельности НКО, нет события
-- [en] не_новость: [local] WHYY — Philadelphia is a rest stop for thousands of migrating birds. Can it stay that w — экологический очерк, нет события
-- [en] курьёз: [local] WHYY — Traveling bookstore spreads literature love on Drexel campus — очерк о передвижном книжном магазине
-- [en] не_новость: [local] Portland Press Herald — It’s not just you. There are more Maine political ads than ever this year. — рассуждение о количестве политической рекламы, нет события
-- [en] не_новость: [pool] Sky Sports — McIlroy drops out of contention at DP World India Championship — ход игры, не является завершенным событием
-- [en] анонс: [pool] Reuters — Bank of Canada sees sharply higher inflation outlook as oil surges, Macklem says — пустая карточка без содержания
-- [en] не_новость: [pool] Global News CA — Stellantis workers begin voting on strike mandate as talks remain stalled — голосование за мандат — рабочий процесс, не событие
-- [en] курьёз: [world] Variety — ‘The Angry Birds Movie 3’ Unpacked by VFX Supervisor, Including Red’s Redesign a — технические детали дизайна персонажа мультфильма
-- [en] не_новость: [world] Forbes — The No. 1 ‘Weekend Rule’ The Happiest People Have, By A Psychologist — психологический совет
-- [en] чужое_мелкое: [world] Reuters — Trump faults aides as Republican midterm prospects dim — внутренняя политика США, не имеет внешних последствий
-- [en] не_новость: [world] TechCrunch — Mark Wahlberg wants to take on the longevity-startup crowd with an affordable gy — планы знаменитости открыть спортзал, нет события
-- [en] не_новость: [world] TechCrunch — Porsche’s electric Macan Turbo is an automotive existential crisis — автомобильный обзор, личное мнение автора
+- [es] не_новость: [local] Reforma — Arrancan Olinia... ¡sacando la charola! — Это анонс проекта с призывом к инвестициям/ресурсам, а не событие.
+- [es] не_новость: [local] Reforma — Arropa el FICM al 'Campeón Gabacho' — Описание мероприятия как репортаж/светская хроника, нет факта события.
+- [es] не_новость: [local] Expansión MX — Dejaste el gobierno, pero aún puedes cotizar al ISSSTE para mantener tu pensión: — Это справочная статья/совет, как сохранять пенсионные права.
+- [es] не_новость: [local] Expansión MX — Arturo Elías Ayub encabeza una empresa ligada a Slim que factura 13,832 millones — Портрет бизнесмена, нет новостного повода.
+- [es] повтор: [pool] Infobae — Colectivos piden retirar cargos a manifestantes vinculados a proceso tras partic ≈ «Vinculan a proceso a 4 detenidos en prot» — Повторяет суть новости 9.
+- [es] не_новость: [pool] El Nacional VE — Políticos opositores afirman que eliminación de cuatro tribunales de control en  — Это мнение оппозиции, а не свершившееся действие.
+- [es] курьёз: [pool] La Nación AR — La determinante decisión de Julieta Prandi — Светская хроника личной жизни, не является новостью.
+- [es] не_новость: [pool] Clarín AR — Julián Álvarez tuvo un ingreso clave en el triunfo del Atlético de Madrid, aunqu — Анализ формы игрока, нет события (матча или трансфера).
+- [es] не_новость: [pool] Marca — Honda lo confiesa todo: "Hemos perdido dos años" — Интервью/мнение, а не новостной факт.
+- [es] повтор: [pool] El País — Frente Amplio pasa página del pacto fallido con Podemos: “Se acabó el tiempo de  ≈ «El Frente Amplio pide "unidad" frente al» — Один и тот же сюжет переговоров левых партий в Испании.
+- [es] не_новость: [pool] El País — Sánchez mete a Begoña Gómez en campaña: “Nos han intentado quebrar y estamos más — Предвыборная риторика и эмоции, нет события.
+- [es] не_новость: [pool] Semana CO — Jorge Iván Diez, presidente de un sector de la CGT, alerta que sindicatos serían — Это интервью, пересказ мнений.
+- [es] не_новость: [pool] Semana CO — Esta es la historia de la millonaria reclamación del DAS que exdirector Jorge No — История старой тяжбы, нет нового события.
+- [es] не_новость: [pool] Semana CO — ELN y sus ojos en Barranquilla: SEMANA revela detalles del presunto nexo con Los — Предположения и «детали», нет факта преступления или задержания.
+- [es] повтор: [pool] eldiario.es — Frente Amplio y Podemos fracasan en las negociaciones y solo irán juntos en Cana ≈ «El Frente Amplio pide "unidad" frente al» — Повтор темы переговоров левых партий.
+- [es] повтор: [pool] El País — Frente Amplio y Podemos fracasan en su intento de pactar una papeleta única para ≈ «El Frente Amplio pide "unidad" frente al» — Повтор темы переговоров левых партий.
+- [es] не_новость: [pool] eldiario.es — Así han quedado las candidaturas de la izquierda alternativa, territorio a terri — Это аналитическая справка (список), не событие.
+- [es] курьёз: [world] The Guardian — Olviden las gafas pervertidas: la última tendencia tóxica es el acoso mediante r — Статья-рассуждение о технологиях, не новость.
+- [es] чужое_мелкое: [world] La Jornada — Encabezan jóvenes protestas en Europa y Asia por sus derechos y contra la corrup — Общее описание протестов без конкретного события.
+- [es] не_новость: [world] The Guardian — Nada bien: ¿quién hackeó los refrigeradores de los supermercados en Francia? — Спекулятивное рассуждение о хакерах, нет факта.
+- [es] повтор: [world] BBC Mundo — "Un gran héroe": el padre que persiguió y abatió al atacante de la escuela de Or ≈ «¿Quién era el adolescente que abrió fueg» — Развитие темы стрельбы в Орегоне, поданное как отдельная новость.
