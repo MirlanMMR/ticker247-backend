@@ -59,6 +59,12 @@ jobs:
         continue-on-error: true
         run: python patrol.py
 
+      # Доборка текста (J60, 17.10.2026): карточки, где вместо статьи анонс («Em atualização»), получают
+      # статью, когда страница дописана. Без ИИ, только запросы страниц; пулы обновляются в свои слоты
+      - name: Доборка текста
+        continue-on-error: true
+        run: python reenrich.py
+
       - name: Опрос каналов-кандидатов
         if: always()
         continue-on-error: true
