@@ -7678,42 +7678,34 @@ def urgent_floor_by_outlets(items, lang):
 #     день.
 # Здесь — один признак для всех этих мест. Только полка local: отключение
 # воды в Москве читателю из Бишкека не нужно.
-VITAL_LOCAL = re.compile(
-    r"отключ\w* (?:вод|свет|газ|электр|отоплен|горяч)|без (?:воды|света|газа)"
-    r"|(?:воды|света|газа) не будет|подач\w+ (?:воды|газа|тепла)"
-    r"|перекр\w+ (?:движени|улиц|дорог)|ограничен\w* движени|закрыт\w* перевал"
-    r"|суу (?:өч|берилбей)|жарык өч|электр\w* өч|газ өч|жол жабыл|кыймыл чектел"
-    r"|су өшір|жарық өшір|электр\w* өшір"
-    r"|suv (?:o'chiril|berilmay)|svet o'chiril|elektr\w* o'chiril|gaz o'chiril"
-    r"|coupure d'(?:eau|électricité)|coupure de courant|panne d'électricité"
-    r"|corte de (?:agua|luz)|sin (?:agua|luz)\b|apagón"
-    r"|falta de água|sem (?:água|luz)\b|apagão|corte de energia"
-    r"|water (?:outage|shutoff)|power (?:outage|cut)|boil[- ]water|road clos",
-    re.I)
-VITAL_MAX = 2
-VITAL_MAX_AGE_MS = 14 * 3600 * 1000   # объявили утром — важно до вечера
+from vital_ai import VITAL_LOCAL, VITAL_MAX, VITAL_MAX_AGE_MS, candidates as _vital_candidates, definition_of as _vital_definition, judge as _vital_judge
 
 
 def mark_vital_local(items, lang):
-    """Жизненно важное с полки local → URGENT: карусель и шторка."""
+    """Жизненно важное с полки local → URGENT: карусель и шторка.
+
+    Слова только предлагают кандидатов, решает ИИ по определению из EDITOR.md (vital_ai.py, J61): «sem luz»
+    в рассказе о краже кабелей — не объявление об отключении. Нет ответа ИИ — не помечаем."""
     now = int(datetime.now().timestamp() * 1000)
-    found = []
-    for it in items:
-        if it.get("scope") != "local":
-            continue
-        if now - it.get("publishedAt", 0) > VITAL_MAX_AGE_MS:
-            continue
-        text = f"{it.get('title', '')} {str(it.get('summary', ''))[:400]}"
-        if VITAL_LOCAL.search(text):
-            found.append(it)
-    found.sort(key=lambda x: -x.get("publishedAt", 0))
-    for it in found[:VITAL_MAX]:
+    cands = _vital_candidates(items, now)
+    if not cands:
+        return items
+    verdict = _vital_judge(cands, _vital_definition(EDITOR_MD), lambda p: ask_gemini(p, charter=False))
+    if verdict is None:
+        print(f"  ⚠️ Жизненно важное [{lang}]: ИИ не ответил — {len(cands)} кандидатов не помечены")
+        return items
+    confirmed = [c for i, c in enumerate(cands, 1) if verdict.get(i)]
+    rejected = [c for i, c in enumerate(cands, 1) if not verdict.get(i)]
+    for it in confirmed[:VITAL_MAX]:
         it["category"] = "URGENT"
         it["priority"] = max(it.get("priority", 0), 2)
         it["vital"] = True
-    if found:
-        print(f"  🚰 Жизненно важное [{lang}]: {len(found[:VITAL_MAX])} — "
-              + "; ".join(x.get("title", "")[:50] for x in found[:VITAL_MAX]))
+        it["vitalConfirmed"] = True        # carry_vital возвращает только подтверждённое ИИ
+    if confirmed:
+        print(f"  🚰 Жизненно важное [{lang}]: {len(confirmed[:VITAL_MAX])} — "
+              + "; ".join(x.get("title", "")[:50] for x in confirmed[:VITAL_MAX]))
+    for x in rejected[:5]:
+        print(f"  🚫 Жизненно важное [{lang}] отклонено ИИ: «{x.get('title', '')[:60]}» ({x.get('source')})")
     return items
 
 
@@ -7737,6 +7729,7 @@ def carry_vital(items, lang):
     # прогон в эфире (24.09) сохранил сюда три ложные пометки ИИ, и память
     # таскала бы их в шторку ещё 14 часов
     back = [x for x in prev if isinstance(x, dict) and x.get("url") not in have
+            and x.get("vitalConfirmed")                      # только то, что подтвердил ИИ (J61)
             and now - x.get("publishedAt", 0) <= VITAL_MAX_AGE_MS
             and VITAL_LOCAL.search(f"{x.get('title', '')} {str(x.get('summary', ''))[:400]}")]
     if back:
