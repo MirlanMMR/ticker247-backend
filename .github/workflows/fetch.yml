@@ -236,6 +236,7 @@ jobs:
           python test_border.py
           python test_repost_memory.py
           python test_vital_ai.py
+          python test_reader_guard.py
           python test_reenrich.py
           python test_urgent_guard.py
           python test_topic_country.py
@@ -298,7 +299,7 @@ jobs:
         run: |
           git config user.name  "ticker-probe"
           git config user.email "noreply@github.com"
-          git add editor_report.md border_report.md 2>/dev/null || true
+          git add editor_report.md border_report.md guard_report.md 2>/dev/null || true
           git diff --cached --quiet && { echo "изменений нет"; exit 0; }
           git commit -m "reports: отчёты прогона $(date -u '+%Y-%m-%d %H:%M') UTC"
           # Между прогонами кто-то мог выложить правки — подтягиваем и

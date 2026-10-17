@@ -7416,6 +7416,37 @@ _NEVER_URGENT = re.compile(
 # Страны языкового пространства каждого пула. Издание соседней страны, пишущее
 # о своей стране, — это полка «своего языка», а не «мировые»: 22.08 новость
 # Kun.uz об институте цифровой безопасности в Узбекистане стояла среди мировых.
+import reader_guard as RG
+READER_GUARD_MODE = (os.environ.get("READER_GUARD") or "shadow").strip().lower()   # off | shadow | live (J63)
+_GUARD_REPORT = []     # находки сторожа по пулам, пишутся в guard_report.md
+
+
+def reader_guard_step(items, lang):
+    """СТОРОЖ (J63): ИИ просматривает собранную ленту глазами читателя. «Тень» только сообщает; «live» снимает
+    то, что не новость / чужое мелкое / повтор. Нет ответа ИИ — лента как была."""
+    if READER_GUARD_MODE == "off" or AI_STOPPED or not items:
+        return items
+    home = POOL_HOME.get(lang, "")
+    res = RG.review(items, lang, home, lambda p: ask_gemini(p, charter=True))
+    if res is None:
+        print(f"  ⚠️ Сторож [{lang}]: ИИ не ответил — лента как была")
+        return items
+    shown, findings = res
+    print(f"  👁 Сторож [{lang}] ({READER_GUARD_MODE}): просмотрено {len(shown)}, находок {len(findings)}")
+    for fd in findings:
+        x = shown[fd["n"] - 1]
+        dup = f" ≈ «{shown[fd['dup'] - 1].get('title', '')[:40]}»" if fd.get("dup") else ""
+        line = (f"{fd['problem']}: [{x.get('scope')}] {x.get('source')} — {str(x.get('title', ''))[:80]}{dup} — {fd['note']}")
+        print(f"       · {line}")
+        _GUARD_REPORT.append(f"[{lang}] {line}")
+    if READER_GUARD_MODE == "live":
+        kept, dropped = RG.apply(items, shown, findings)
+        for x, fd in dropped:
+            print(f"  🚫 Сторож [{lang}] снял: «{str(x.get('title', ''))[:60]}» ({fd['problem']})")
+        return kept
+    return items
+
+
 _BORDER_REPORT = []   # итог пункта пропуска по пулам (border.py), пишется в border_report.md
 
 POOL_COUNTRIES = {
@@ -9755,6 +9786,7 @@ def main():
             for _x, _e in _cover_dups:
                 print(f"  🖼 [{lang}] снято: тот же снимок, что у «{_e.get('title', '')[:50]}», новость не по теме: "
                       f"«{_x.get('title', '')[:50]}» ({_x.get('source')})")
+        filtered = reader_guard_step(filtered, lang)   # J63: итог глазами читателя (тень → live)
         border.control(filtered, lang, report=_BORDER_REPORT)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
@@ -9807,6 +9839,10 @@ def main():
     save_editor_report()
     try:
         border.write_report(_BORDER_REPORT, os.path.join(os.path.dirname(os.path.abspath(__file__)), "border_report.md"))
+        if _GUARD_REPORT:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "guard_report.md"), "w", encoding="utf-8") as _gf:
+                _gf.write("# Сторож — находки последнего запуска (режим " + READER_GUARD_MODE + ")\n\n"
+                          + "\n".join("- " + l for l in _GUARD_REPORT) + "\n")
     except Exception as e:
         print(f"  ⚠️ Отчёт пункта пропуска не записан: {e}")
     save_translations()
