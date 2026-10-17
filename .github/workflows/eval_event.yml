@@ -27,3 +27,5 @@ jobs:
         run: python eval_event.py testdata/owner_complaints.json
       - name: Eval — судья «жизненно важное» (слова против ИИ)
         run: python eval_vital.py
+      - name: Eval — сторож (ИИ глазами читателя на эталонной ленте)
+        run: python eval_guard.py

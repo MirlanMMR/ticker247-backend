@@ -1,0 +1,278 @@
+[
+ {
+  "item": {
+   "scope": "world",
+   "source": "The Hill",
+   "event_where": "US",
+   "title": "Заместитель директора Секретной службы США уходит в отставку",
+   "summary": "Заместитель директора Мэтт Куинн объявил об уходе с должности после полутора лет; передачу дел готовил месяцами.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": "чужое_мелкое"
+ },
+ {
+  "item": {
+   "scope": "world",
+   "source": "Naked Science",
+   "event_where": "",
+   "title": "Кортизол оказался другом женской репродуктивной системы",
+   "summary": "Учёные выяснили, что гормон стресса помогает созреванию яйцеклеток.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": "курьёз"
+ },
+ {
+  "item": {
+   "scope": "local",
+   "source": "G1 Rio",
+   "event_where": "KG",
+   "title": "Кража кабелей оставила дома без света в 50 метрах от отделения полиции",
+   "summary": "Жители рассказали, что несколько раз оставались без энергии после краж кабелей.",
+   "category": "URGENT",
+   "priority": 2,
+   "publishedAt": 1,
+   "vital": true
+  },
+  "expected": "срочность"
+ },
+ {
+  "item": {
+   "scope": "local",
+   "source": "Азаттык",
+   "event_where": "KG",
+   "title": "Начальник управления образования выходит на пенсию",
+   "summary": "Передача дел запланирована на осень, преемника назначат позже.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": "не_новость"
+ },
+ {
+  "item": {
+   "scope": "local",
+   "source": "Kaktus.media",
+   "event_where": "KG",
+   "title": "Сегодня Всемирный день пожилых людей: на что обратить внимание",
+   "summary": "Врачи напомнили о профилактике и советуют больше гулять.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": "не_новость"
+ },
+ {
+  "item": {
+   "scope": "local",
+   "source": "CNN Brasil",
+   "event_where": "KG",
+   "title": "Дело о финансировании фильма: полиция просит продлить расследование",
+   "summary": "Полиция просит продлить расследование на 90 дней. Обновляется.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": "анонс"
+ },
+ {
+  "item": {
+   "scope": "world",
+   "source": "Азаттык",
+   "event_where": "KZ",
+   "title": "СМИ: девять казахстанцев вывезли из зоны боевых действий в Украине",
+   "summary": "Девятерых граждан доставили в Воронеж.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "world",
+   "source": "Азаттык",
+   "event_where": "KZ",
+   "title": "Семерых казахстанцев вывезли из зоны боевых действий в Украине",
+   "summary": "Семерых граждан вывезли в Воронеж, сообщил юрист.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": "повтор"
+ },
+ {
+  "item": {
+   "scope": "pool",
+   "source": "RTBF",
+   "event_where": "KZ",
+   "title": "Мэр Алматы открыл новую станцию метро",
+   "summary": "Новая станция открыта для пассажиров.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 2
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "pool",
+   "source": "Kun.uz",
+   "event_where": "UZ",
+   "title": "Новая станция метро в Ташкенте: сроки открытия перенесли",
+   "summary": "Открытие перенесено на весну.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 3
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "local",
+   "source": "Kaktus.media",
+   "event_where": "KG",
+   "title": "Знаменитый режиссер Джеймс Кэмерон даст мастер-класс в Кыргызстане",
+   "summary": "Режиссёр приедет в Бишкек 25 октября и проведёт мастер-класс для студентов.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "local",
+   "source": "24.kg",
+   "event_where": "KG",
+   "title": "В Бишкеке 18 октября отключат воду в нескольких районах",
+   "summary": "С 9:00 до 17:00 не будет воды в Первомайском и Ленинском районах.",
+   "category": "URGENT_LOCAL_ONLY",
+   "priority": 2,
+   "publishedAt": 1,
+   "vital": true
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "local",
+   "source": "Sputnik KG",
+   "event_where": "KG",
+   "title": "Кабмин утвердил план строительства развязки на Южной магистрали",
+   "summary": "Правительство выделило 2 млрд сомов на строительство.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "local",
+   "source": "Kloop",
+   "event_where": "KG",
+   "title": "Суд приговорил экс-главу района к семи годам за взятку",
+   "summary": "Суд признал виновным бывшего главу района в получении взятки.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "world",
+   "source": "РИА Новости",
+   "event_where": "US",
+   "title": "Трамп заявил, что не ограничивал доступ ВСУ к Starshield",
+   "summary": "Заявление президента США о спутниковой связи для ВСУ.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "world",
+   "source": "BBC Русская служба",
+   "event_where": "VA",
+   "title": "Папа Лев XIV просит Путина о гуманитарном перемирии в Украине",
+   "summary": "Понтифик обратился к президенту России с просьбой о перемирии.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "world",
+   "source": "Reuters",
+   "event_where": "ID",
+   "title": "Землетрясение магнитудой 6,8 в Индонезии: десятки погибших",
+   "summary": "Мощное землетрясение разрушило дома, погибли десятки людей.",
+   "category": "URGENT",
+   "priority": 2,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "world",
+   "source": "РБК",
+   "event_where": "KZ",
+   "title": "«Казатомпром» отказал «Росатому» в долях по урановому проекту",
+   "summary": "Решение компании меняет расстановку сил на урановом рынке.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "pool",
+   "source": "Kun.uz",
+   "event_where": "UZ",
+   "title": "Узбекистан запускает прямой авиарейс Ташкент — Бишкек",
+   "summary": "Рейсы начнутся в ноябре, три раза в неделю.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "pool",
+   "source": "Tengrinews",
+   "event_where": "KZ",
+   "title": "В Казахстане с 1 ноября вырастут тарифы на электричество",
+   "summary": "Тарифы вырастут на 8%.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
+ },
+ {
+  "item": {
+   "scope": "world",
+   "source": "ScienceAlert",
+   "event_where": "",
+   "title": "Загадочный «золотой коралл» оказался новым семейством",
+   "summary": "Учёные описали новое семейство кораллов.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1,
+   "interesting": true
+  },
+  "expected": null
+ }
+]
