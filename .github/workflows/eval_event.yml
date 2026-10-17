@@ -23,3 +23,5 @@ jobs:
         run: python eval_event.py testdata/event_golden.json
       - name: Eval — независимый набор (без совпадений с определением)
         run: python eval_event.py testdata/event_holdout.json
+      - name: Eval — жалобы владельца (каждая правка устава проверяется на них)
+        run: python eval_event.py testdata/owner_complaints.json
