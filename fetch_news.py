@@ -8043,8 +8043,14 @@ try:
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "EDITOR.md"),
               encoding="utf-8") as _f:
         EDITOR_MD = _f.read()
+    # Общий устав (что такое событие и новость) — из EDITORIAL.md дословно, J54
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "EDITORIAL.md"),
+              encoding="utf-8") as _f:
+        _shared = ED.shared_charter(_f.read())
+    if _shared:
+        EDITOR_MD += "\n\n# Общий устав (то же читают остальные этапы)\n\n" + _shared + "\n"
 except Exception:
-    EDITOR_MD = ""
+    EDITOR_MD = EDITOR_MD if "EDITOR_MD" in globals() else ""
 EDITOR_PREAMBLE = ("Ниже карточки ленты. Реши по каждой, как сказано в инструкции. "
                    "Ответ — только JSON-массив.\n\n")
 EDITOR_CACHE = {}
