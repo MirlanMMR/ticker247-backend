@@ -1,25 +1,12 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Financiero — ‘Quítame de la lista’: Ebrard descarta, por ahora, aspirar a la elección preside — политическое высказывание об отказе от участия в выборах 2030 года
-- [es] полка: [pool] El Tiempo CO — Él era Andrés Felipe López Gutiérrez, escolta que murió asesinado en el atentado — событие в Колумбии — это не новость из региона/мира для мексиканского читателя, если нет последствий
-- [es] не_новость: [pool] El Tiempo CO — Fisuras en el deprimido de la Gran Vía reavivan dudas sobre la obra que conecta  — эксплуатационные вопросы (фисуры в асфальте) — не событие
-- [es] повтор: [pool] Infobae — El FC Barcelona mantiene el pleno con una goleada por 2-5 ante el Real Betis y s ≈ «LaLiga EA Sports: Betis sufre una aplast» — тот же сюжет об игре Барселона — Бетис
-- [es] полка: [pool] El Universo EC — Caso Luis Alarcón: Fiscalía busca procesar a cuatro personas por su muerte en un — мелкое судебное событие в Эквадоре — не для мексиканского читателя
-- [es] курьёз: [pool] La Nación CR — Película francesa ‘Sanguine’ triunfa en el festival de cine fantástico de Sitges — результаты кинофестиваля в Испании — не новость
-- [es] чужое_мелкое: [pool] El Economista MX — Estados Unidos reactiva presencia de marines en su embajada en Venezuela tras si — дипломатическая рутина (морпехи в посольстве) — не событие
-- [es] повтор: [pool] Marca — El Barça iguala el récord del Madrid ≈ «LaLiga EA Sports: Betis sufre una aplast» — тот же сюжет
-- [es] курьёз: [pool] La Nación AR — El insólito gol en contra de un jugador desde mitad de cancha que dejó a su equi — спортивный курьёз (гол в свои ворота)
-- [es] не_новость: [pool] El Universo EC — Libertad FC se encamina a la Copa Sudamericana 2027 tras goleada sobre Guayaquil — промежуточный результат спортивного сезона
-- [es] повтор: [pool] Marca — Manita, pleno y polémica ≈ «LaLiga EA Sports: Betis sufre una aplast» — тот же сюжет
-- [es] чужое_мелкое: [pool] El Nacional VE — Álex Baena marcó golazo en los últimos minutos y Atlético de Madrid venció a Esp — результат матча испанской лиги — не для мексиканской ленты
-- [es] не_новость: [pool] Clarín AR — El cura defensor de los represores que explica cómo salir de la homosexualidad d — описание частной лекции священника
-- [es] не_новость: [pool] 14ymedio — La Habana protesta porque EE UU utilizará la ONU para denunciar la represión en  — дипломатический протест без реального события
-- [es] чужое_мелкое: [pool] Montevideo Portal — Detuvieron en Argentina a uno de los requeridos por el robo millonario al BROU d — арест в Аргентине по делу в Уругвае
-- [es] не_новость: [pool] El País — Vox baraja no presentarse al Senado en algunas provincias para evitar una mayorí — партийное обсуждение (планы), а не событие
-- [es] не_новость: [pool] eldiario.es — El Frente Amplio pide "unidad" frente al "fascismo" y pasa página de la crisis c — политические переговоры без итога
-- [es] не_новость: [pool] eldiario.es — Sánchez mete en campaña a Begoña Gómez: "Nos han intentado quebrar pero hoy somo — предвыборная риторика
-- [es] не_новость: [pool] La Vanguardia — Sánchez refuerza a Torró y la designa portavoz del PSOE tras la dimisión de Míng — назначение внутри партии — не новость для широкого читателя
-- [es] не_новость: [pool] eldiario.es — Frente Amplio y Podemos fracasan en las negociaciones y solo irán juntos en Cana — провал переговоров коалиции
-- [es] не_новость: [world] La Jornada — Editorial: Israel: guerra contra el periodismo — редакционная колонка (мнение), а не событие
-- [es] не_новость: [world] La Jornada — Encabezan jóvenes protestas en Europa y Asia por sus derechos y contra la corrup — обобщающий разбор протестов
-- [es] чужое_мелкое: [world] Ars Technica — Modelos de OpenAI hackearon una billetera de criptomonedas y vulneraron más siti — технический инцидент ИИ, не имеющий мирового влияния
+- [pt] не_новость: [local] Poder360 — Eleições de 2026 marcam a transformação digital da esquerda, diz Bites — аналитический материал, прогноз, а не состоявшееся событие.
+- [pt] не_новость: [local] Gazeta do Povo — Estratégia da direita para público feminino sai vitoriosa e elege mais candidata — аналитический обзор итогов выборов, а не событие.
+- [pt] чужое_мелкое: [local] G1 Rio — Pernambucano, Rueda teve 60% de votos em Belford Roxo, onde fez dobradinha com C — местная политика и расследование в отношении конкретного политика без мирового резонанса.
+- [pt] курьёз: [world] Rolling Stone — Eminem defende nova colaboração com o 'velho amigo' Kid Rock: 'Não se trata de e — интервью/мнение знаменитости о дружбе, не является событием.
+- [pt] чужое_мелкое: [world] Variety — 'Dancing With the Stars' afasta Val Chmerkovskiy após piada com tapa de Carrie A — внутренний кадровый конфликт на телешоу в США.
+- [pt] не_новость: [world] Variety — KJ Apa fala sobre interpretar Jimmy Stewart, especulações de que ele é o cantor  — анонс фильма, подробности биографии актера.
+- [pt] чужое_мелкое: [world] TechCrunch — Replit não trabalha mais com a Anthropic, diz CEO — корпоративный конфликт (сотрудничество двух компаний), не имеет мирового значения.
+- [pt] чужое_мелкое: [world] Observador PT — Albânia. Manifestantes na rua pelo quinto dia — локальный протест в Албании, не имеет мирового охвата.
+- [pt] курьёз: [world] Superinteressante — Ter um ouvido aguçado pode facilitar o aprendizado de um novo idioma, sugere est — исследование без последствий, место в «Интересном».
+- [pt] чужое_мелкое: [world] Ars Technica — Promotor de Nova Jersey é acusado de produzir material de abuso sexual infantil  — уголовное дело против локального прокурора в США, нет международного значения.
