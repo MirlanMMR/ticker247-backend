@@ -1,12 +1,24 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] Poder360 — Eleições de 2026 marcam a transformação digital da esquerda, diz Bites — аналитический материал, прогноз, а не состоявшееся событие.
-- [pt] не_новость: [local] Gazeta do Povo — Estratégia da direita para público feminino sai vitoriosa e elege mais candidata — аналитический обзор итогов выборов, а не событие.
-- [pt] чужое_мелкое: [local] G1 Rio — Pernambucano, Rueda teve 60% de votos em Belford Roxo, onde fez dobradinha com C — местная политика и расследование в отношении конкретного политика без мирового резонанса.
-- [pt] курьёз: [world] Rolling Stone — Eminem defende nova colaboração com o 'velho amigo' Kid Rock: 'Não se trata de e — интервью/мнение знаменитости о дружбе, не является событием.
-- [pt] чужое_мелкое: [world] Variety — 'Dancing With the Stars' afasta Val Chmerkovskiy após piada com tapa de Carrie A — внутренний кадровый конфликт на телешоу в США.
-- [pt] не_новость: [world] Variety — KJ Apa fala sobre interpretar Jimmy Stewart, especulações de que ele é o cantor  — анонс фильма, подробности биографии актера.
-- [pt] чужое_мелкое: [world] TechCrunch — Replit não trabalha mais com a Anthropic, diz CEO — корпоративный конфликт (сотрудничество двух компаний), не имеет мирового значения.
-- [pt] чужое_мелкое: [world] Observador PT — Albânia. Manifestantes na rua pelo quinto dia — локальный протест в Албании, не имеет мирового охвата.
-- [pt] курьёз: [world] Superinteressante — Ter um ouvido aguçado pode facilitar o aprendizado de um novo idioma, sugere est — исследование без последствий, место в «Интересном».
-- [pt] чужое_мелкое: [world] Ars Technica — Promotor de Nova Jersey é acusado de produzir material de abuso sexual infantil  — уголовное дело против локального прокурора в США, нет международного значения.
+- [en] не_новость: [local] reviewjournal — NFL announces punishment for Raiders defensive end after loss to Patriots — Обычное дисциплинарное взыскание лиги, не является значимым событием для широкой аудитории.
+- [en] не_новость: [local] Portland Press Herald — Colby football coach Jack Cosgrove temporarily stepping away from team — Временный уход тренера по личным причинам — не новость, если нет скандала или последствий.
+- [en] не_новость: [local] WBAL — WNBA’s Cathy Engelbert says a search firm is vetting candidates to replace her — Рабочий процесс поиска преемника (использование рекрутинговой компании) не является событием.
+- [en] повтор: [pool] The Independent — Trump recycles ‘Dumocrats’ attacks at Kentucky rally but is privately ‘blaming a ≈ «‘I can do stuff that is unbelievable.’ T» — Один и тот же предвыборный митинг Трампа в Кентукки.
+- [en] не_новость: [pool] BBC Sport — Villa's Manzambi shows Newcastle what they missed out on — Спортивная аналитика (обзор игры, мнение игрока), а не фиксация результата матча.
+- [en] не_новость: [pool] Fortune — In midterm races, Democrats are using the Iran war to target Republicans—even so — Анализ предвыборной риторики и стратегии демократов, а не событие.
+- [en] не_новость: [pool] BBC Sport — Wirtz delivers but remains Liverpool's conundrum — Спортивная аналитика о «проблеме» игрока, а не новость о матче.
+- [en] не_новость: [pool] Rolling Stone — Eminem Defends New Collaboration With ‘Old Friend’ Kid Rock: ‘Not About Choosing — Интервью артиста с защитой своего мнения не является событием.
+- [en] не_новость: [pool] BBC News — Swinney's emotional explanation for his commitment to independence — Эмоциональное описание речи политика без принятия конкретных решений.
+- [en] не_новость: [pool] Guardian Sport — Haaland helps Maresca achieve record start as Manchester City defeat Ipswich — Журналистская колонка/мнение, а не новость о матче.
+- [en] не_новость: [pool] The Guardian — The Digger disaster: what an epic movie flop means for Tom Cruise and Hollywood — Обзор провала фильма в прокате, а не событие.
+- [en] не_новость: [pool] Guardian Sport — The ESPN producer who quit over gambling – and the stories she says went untold — История о бывшем сотруднике, не является событием.
+- [en] не_новость: [world] TechCrunch — Meta removes language that raised scraping and AI training concerns — Обновление условий пользования сервисом не является событием.
+- [en] не_новость: [world] Variety — Paul Bettany Says He and Johnny Depp ‘Hadn’t Spoken’ in Years When Their Texts W — Воспоминания актера об интервью — «желтая» аналитика.
+- [en] не_новость: [world] TechCrunch — Anthropic says its workforce has become less junior and is spending more time in — Внутренний корпоративный отчет компании об организации труда.
+- [en] не_новость: [world] Fortune — ‘How many canaries have we killed in the coal mine?’ — Wall Street debates if th — Рыночная дискуссия «пузырь или нет», а не свершившийся факт/сделка.
+- [en] курьёз: [world] Engadget — Leaked gameplay purports to show a canceled Assassin's Creed game set in ancient — Слив игрового процесса отмененной игры — не является значимой новостью.
+- [en] не_новость: [world] Santa Fe New Mexican — An American pope brings American-style governance to the Vatican, even in a heal — Авторская аналитическая статья об управлении Ватиканом.
+- [en] не_новость: [world] The Guardian — Move over, pervert glasses – the latest toxic trend is robogroping — Публицистический текст о трендах интернета.
+- [en] курьёз: [world] Ars Technica — Why BioWare's Neverwinter Nights still has thousands of active players — Почему старая игра все еще популярна — это лонгрид/обзор, а не новость.
+- [en] курьёз: [world] The Guardian — Muscles, metrosexuals and male tears: the 39 pictures that changed the way we se — Подборка фотографий о восприятии мужчин — культурный обзор, не новость.
+- [en] не_новость: [world] Semafor — Tariffs pose a risk to US-India relationship — Рассуждения о рисках для экономики, а не свершившееся решение о тарифах.
