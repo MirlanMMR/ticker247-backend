@@ -1,27 +1,34 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] полка: [local] Sputnik KG (кыргызча) — Экология, соода. Жапаров Ереванда Пашинян менен көп маселени талкуулады — Событие в Армении — это «Новости из…», а не местные новости Кыргызстана.
-- [ru] полка: [local] Kabar.kg — Садыр Жапаров Никол Пашинянды Кыргызстанга расмий сапар менен келүүгө чакырды — Событие в Армении — это «Новости из…», а не местные новости Кыргызстана.
-- [ru] чужое_мелкое: [pool] NewsGeorgia — Заслон на высоте 1800 метров: США помогли Грузии оборудовать важный погрансектор — Внутреннее событие Грузии, для читателя в КР не имеет значения.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Пример стойкости и преданности делу: воспитательницу из Бугуруслана наградили ме — Местная региональная новость РФ, не является мировым событием.
-- [ru] не_новость: [pool] Avesta.tj — В СНГ разработают общие подходы к контролю качества медицинских услуг и донорств — Рабочая встреча СНГ по разработке подходов, нет конкретного принятого решения.
-- [ru] чужое_мелкое: [pool] РБК — WSJ назвала страну в Азии, которая выиграет от ссоры Трампа и Зеленского — Аналитика/мнение о прогнозе, не является событием.
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — В Тюмени владельцев крупного строительного подрядчика отправили в СИЗО — Внутренняя криминальная хроника РФ.
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — «Сказали ждать еще неделю»: в центре Волгограда многоквартирный дом остался без  — Локальная коммунальная проблема в РФ.
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — «Один километр ехали полчаса!» На выезде из Екатеринбурга скопилась лютая пробка — Локальная пробка в российском городе.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — За сутки в Рязанской области ликвидировано два пожара — Локальная бытовая хроника пожаров в РФ.
-- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — В ХМАО силовики накрыли ячейку экстремистской организации — видео — Внутренняя криминальная хроника РФ.
-- [ru] чужое_мелкое: [pool] Onliner.by — В Минске 10-летний мальчик на велосипеде попал под колеса автомобиля — Локальное происшествие в Беларуси.
-- [ru] чужое_мелкое: [pool] chita.ru — Чита — Два Героя России из Забайкалья стали зампредами комитетов Госдумы — Внутренние кадровые перестановки в РФ.
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — На главу бывшей компании-подрядчика моста у Телецентра завели уголовное дело — в — Внутреннее уголовное дело в РФ.
-- [ru] не_новость: [pool] 14.ru — Якутск — Якутский мастер Мандар Уус получил государственную награду от Владимира Путина — Ведомственная награда в РФ, не имеет мирового значения.
-- [ru] чужое_мелкое: [pool] 93.ru — Краснодар — Двое подростков разбились насмерть в центре Краснодара. — Локальное происшествие в РФ.
-- [ru] чужое_мелкое: [pool] NewsGeorgia — Регулятор оштрафовал GWP из-за нарушений в водоснабжении Рустави — Локальный штраф коммунальщикам в Грузии.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Депутата Горсовета Оренбурга Алексея Кузьмина оставили в СИЗО до 25 декабря. — Внутренняя политика/суд РФ.
-- [ru] чужое_мелкое: [pool] Asia-Plus — На рынках Бохтара возник дефицит цемента. В чем причина? — Локальный дефицит в Таджикистане.
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — Улицы Ленина и Максима Горького частично закрыли из-за ремонта трамвайных путей: — Локальное перекрытие дорог в РФ.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Двое мужчин сгорели в иномарке в Тольятти: фото — Локальное ДТП в РФ.
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Брак бойца СВО на девочке по вызову из Екатеринбурга потребовали признать фиктив — Частный судебный спор в РФ.
-- [ru] чужое_мелкое: [pool] Asia-Plus — Загадочная смерть 62-летнего мужчины в Истаравшане. На теле обнаружены ножевые р — Локальное происшествие в Таджикистане.
-- [ru] чужое_мелкое: [pool] chita.ru — Чита — Экс-глава администрации губернатора Забайкалья получил в управление иностранные  — Внутреннее управление активами в РФ.
-- [ru] чужое_мелкое: [pool] 45.ru — Курган — Инфляция выше, чем по России: в Зауралье подорожали техника и общепит — Региональная статистика цен в РФ.
+- [pt] полка: [local] CNN Brasil — “Se eu fosse o Vini Jr, não estaria aqui”, diz Mourinho, técnico do Real — Событие в Испании (ES) не является местным для Бразилии (BR), должно быть в региональных или мировых.
+- [pt] не_новость: [local] Folha de S.Paulo — Paulinho e Verinha em perigo — Это личная история о домашних черепахах, не является новостью.
+- [pt] не_новость: [local] G1 Rio — Relembre o caso dos 5 deputados eleitos presos em 2018 no RJ; caso pode se repet — Исторический экскурс и ретроспектива, а не актуальное событие.
+- [pt] не_новость: [local] Gazeta do Povo — Lula precisa virar votação para vencer 2º turno — em 2022, não virou em nenhuma  — Аналитическая статья о шансах кандидатов, а не свершившееся событие.
+- [pt] курьёз: [pool] Observador PT — Francisca Veselko termina no quinto lugar na prova de elite — Спортивный результат (поражение в четвертьфинале) не мировой масштаб, не местное событие.
+- [pt] не_новость: [pool] BBC Brasil — O que a eleição de uma estreante deputada federal de 24 anos do Rio revela sobre — Аналитическая статья о политических тенденциях.
+- [pt] чужое_мелкое: [world] Variety — Agente de J.K. Rowling critica protesto pelos direitos trans em 'Harry Potter an — Локальный протест в Лондоне против театральной постановки не является мировой новостью.
+- [pt] курьёз: [world] Variety — O filme 'It', sucesso de Clara Bow, heroína de Taylor Swift, lidera acordo de di — Новость о классическом фильме 1927 года — это развлекательный контент.
+- [pt] курьёз: [world] Wired — HTC cria óculos inteligentes com maior foco em privacidade — Релиз потребительского гаджета без значимых последствий.
+- [pt] чужое_мелкое: [world] Rolling Stone — Harry Styles interpreta nova música escrita para Liam Payne no aniversário de su — Выступление артиста на концерте — светская хроника, а не мировая новость.
+- [pt] чужое_мелкое: [world] Rolling Stone — Pharrell Williams está tentando 'reescrever a história' e 'apagar' Chad Hugo do  — Личный имущественный спор между продюсерами не имеет мирового значения.
+- [pt] чужое_мелкое: [world] Rolling Stone — Caso de abuso sexual infantil contra Timothy Busfield é arquivado — Архивирование частного уголовного дела в штате США не является мировой новостью.
+- [pt] курьёз: [world] Superinteressante — Por que pessoas ainda procuram a Arca de Noé em uma formação rochosa natural na  — Статья-объяснение о поисках мифического объекта.
+- [fr] не_новость: [local] Sud Ouest — Intelligence artificielle : la bulle financière de l’IA pourrait-elle faire vaci — аналитическая статья об ИИ, нет конкретного события
+- [fr] не_новость: [local] 20 Minutes — NBA : Victor Wembanyama est chaud bouillant, et pas que pour soutenir le mouveme — рассуждение о спортсмене и список мероприятий, нет события
+- [fr] срочность: [local] La Dépêche — Il profite d'un rendez-vous coquin pour voler une voiture : interpellé 500 km pl — мелкое бытовое преступление, не повод для побудки
+- [fr] не_новость: [local] L'Express — Michel Foucault : la vie de l'iconique philosophe retracée dans un roman graphiq — анонс биографического романа, нет события
+- [fr] не_новость: [local] L'Obs — Mais comment a fait Alain Bauer pour publier quatorze livres en deux ans ? — авторская колонка/мнение, а не новостное событие
+- [fr] не_новость: [local] L'Obs — « Marche impériale », battles d’aura : ce que les lycéens en grève nous apprenne — репортаж-размышление, нет конкретного события
+- [fr] курьёз: [pool] Nice-Matin — La gestion des heures supplémentaires et la prime de logement de... 2,87 euros p — мелкий факт о зарплате, не тянет на новость
+- [fr] не_новость: [pool] Radio-Canada — « Implique-toi ou tais-toi » : l’histoire du plus ancien maire du Canada — портретный очерк о мэре, нет события
+- [fr] не_новость: [pool] Radio-Canada — De Clément Gignac à Olivier Primeau, un appel à l’aide pour les PME — призыв/мнение предпринимателя, а не событие
+- [fr] не_новость: [pool] Le Devoir — Le cadeau du métro — ностальгическое эссе к годовщине метро
+- [fr] не_новость: [world] La Tribune — L’Iran privé d’accès à l’espace ? L’analyse de l’IISS laisse planer le doute — аналитика/сомнение аналитиков, а не факт
+- [fr] чужое_мелкое: [world] TSA Algérie — En Azerbaïdjan, l’interdiction du voile à l’école suscite des tensions — локальная социальная напряженность в Азербайджане
+- [fr] чужое_мелкое: [world] Bénin Web TV — NFL, Lamar Jackson forfait contre Cleveland pour un deuxième match consécutif — спортивная травма игрока NFL, не мировая новость
+- [fr] чужое_мелкое: [world] La Presse TN — Irak : Le Tunisien Habib Oueslati signe un doublé, dont un retourné acrobatique  — локальный футбольный матч в Ираке
+- [fr] не_новость: [world] L'Express — Depuis son hôpital, le pape Léon XIV obtient la coopération de Moscou pour achem — вымышленная или неясная ситуация с Папой Римским, нет факта
+- [fr] курьёз: [world] Courrier International — Toutes les cartes sont fausses, chacune à sa manière — интересный факт о картах, нет новостного повода
+- [fr] не_новость: [world] L'Express — Quiconque a servi dans l’armée russe après 2022 doit être interdit d’entrée en E — авторская колонка с мнением, а не новость
+- [fr] не_новость: [world] Le Devoir — Les Canadiens préfèrent maintenir les règles environnementales plutôt que de les — результаты опроса, не событие
+- [fr] курьёз: [world] Sciences et Avenir — La musique adoucit les moeurs... et les douleurs — научно-популярный факт, нет события
