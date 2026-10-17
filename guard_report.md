@@ -1,34 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] полка: [local] CNN Brasil — “Se eu fosse o Vini Jr, não estaria aqui”, diz Mourinho, técnico do Real — Событие в Испании (ES) не является местным для Бразилии (BR), должно быть в региональных или мировых.
-- [pt] не_новость: [local] Folha de S.Paulo — Paulinho e Verinha em perigo — Это личная история о домашних черепахах, не является новостью.
-- [pt] не_новость: [local] G1 Rio — Relembre o caso dos 5 deputados eleitos presos em 2018 no RJ; caso pode se repet — Исторический экскурс и ретроспектива, а не актуальное событие.
-- [pt] не_новость: [local] Gazeta do Povo — Lula precisa virar votação para vencer 2º turno — em 2022, não virou em nenhuma  — Аналитическая статья о шансах кандидатов, а не свершившееся событие.
-- [pt] курьёз: [pool] Observador PT — Francisca Veselko termina no quinto lugar na prova de elite — Спортивный результат (поражение в четвертьфинале) не мировой масштаб, не местное событие.
-- [pt] не_новость: [pool] BBC Brasil — O que a eleição de uma estreante deputada federal de 24 anos do Rio revela sobre — Аналитическая статья о политических тенденциях.
-- [pt] чужое_мелкое: [world] Variety — Agente de J.K. Rowling critica protesto pelos direitos trans em 'Harry Potter an — Локальный протест в Лондоне против театральной постановки не является мировой новостью.
-- [pt] курьёз: [world] Variety — O filme 'It', sucesso de Clara Bow, heroína de Taylor Swift, lidera acordo de di — Новость о классическом фильме 1927 года — это развлекательный контент.
-- [pt] курьёз: [world] Wired — HTC cria óculos inteligentes com maior foco em privacidade — Релиз потребительского гаджета без значимых последствий.
-- [pt] чужое_мелкое: [world] Rolling Stone — Harry Styles interpreta nova música escrita para Liam Payne no aniversário de su — Выступление артиста на концерте — светская хроника, а не мировая новость.
-- [pt] чужое_мелкое: [world] Rolling Stone — Pharrell Williams está tentando 'reescrever a história' e 'apagar' Chad Hugo do  — Личный имущественный спор между продюсерами не имеет мирового значения.
-- [pt] чужое_мелкое: [world] Rolling Stone — Caso de abuso sexual infantil contra Timothy Busfield é arquivado — Архивирование частного уголовного дела в штате США не является мировой новостью.
-- [pt] курьёз: [world] Superinteressante — Por que pessoas ainda procuram a Arca de Noé em uma formação rochosa natural na  — Статья-объяснение о поисках мифического объекта.
-- [fr] не_новость: [local] Sud Ouest — Intelligence artificielle : la bulle financière de l’IA pourrait-elle faire vaci — аналитическая статья об ИИ, нет конкретного события
-- [fr] не_новость: [local] 20 Minutes — NBA : Victor Wembanyama est chaud bouillant, et pas que pour soutenir le mouveme — рассуждение о спортсмене и список мероприятий, нет события
-- [fr] срочность: [local] La Dépêche — Il profite d'un rendez-vous coquin pour voler une voiture : interpellé 500 km pl — мелкое бытовое преступление, не повод для побудки
-- [fr] не_новость: [local] L'Express — Michel Foucault : la vie de l'iconique philosophe retracée dans un roman graphiq — анонс биографического романа, нет события
-- [fr] не_новость: [local] L'Obs — Mais comment a fait Alain Bauer pour publier quatorze livres en deux ans ? — авторская колонка/мнение, а не новостное событие
-- [fr] не_новость: [local] L'Obs — « Marche impériale », battles d’aura : ce que les lycéens en grève nous apprenne — репортаж-размышление, нет конкретного события
-- [fr] курьёз: [pool] Nice-Matin — La gestion des heures supplémentaires et la prime de logement de... 2,87 euros p — мелкий факт о зарплате, не тянет на новость
-- [fr] не_новость: [pool] Radio-Canada — « Implique-toi ou tais-toi » : l’histoire du plus ancien maire du Canada — портретный очерк о мэре, нет события
-- [fr] не_новость: [pool] Radio-Canada — De Clément Gignac à Olivier Primeau, un appel à l’aide pour les PME — призыв/мнение предпринимателя, а не событие
-- [fr] не_новость: [pool] Le Devoir — Le cadeau du métro — ностальгическое эссе к годовщине метро
-- [fr] не_новость: [world] La Tribune — L’Iran privé d’accès à l’espace ? L’analyse de l’IISS laisse planer le doute — аналитика/сомнение аналитиков, а не факт
-- [fr] чужое_мелкое: [world] TSA Algérie — En Azerbaïdjan, l’interdiction du voile à l’école suscite des tensions — локальная социальная напряженность в Азербайджане
-- [fr] чужое_мелкое: [world] Bénin Web TV — NFL, Lamar Jackson forfait contre Cleveland pour un deuxième match consécutif — спортивная травма игрока NFL, не мировая новость
-- [fr] чужое_мелкое: [world] La Presse TN — Irak : Le Tunisien Habib Oueslati signe un doublé, dont un retourné acrobatique  — локальный футбольный матч в Ираке
-- [fr] не_новость: [world] L'Express — Depuis son hôpital, le pape Léon XIV obtient la coopération de Moscou pour achem — вымышленная или неясная ситуация с Папой Римским, нет факта
-- [fr] курьёз: [world] Courrier International — Toutes les cartes sont fausses, chacune à sa manière — интересный факт о картах, нет новостного повода
-- [fr] не_новость: [world] L'Express — Quiconque a servi dans l’armée russe après 2022 doit être interdit d’entrée en E — авторская колонка с мнением, а не новость
-- [fr] не_новость: [world] Le Devoir — Les Canadiens préfèrent maintenir les règles environnementales plutôt que de les — результаты опроса, не событие
-- [fr] курьёз: [world] Sciences et Avenir — La musique adoucit les moeurs... et les douleurs — научно-популярный факт, нет события
+- [ru] курьёз: [local] Kaktus.media — Ученые предупредили о возможных мощных вспышках на Солнце — Научная заметка без события и последствий для читателя.
+- [ru] не_новость: [local] Kabar.kg — Транспорт департаментинин директору кызматынан бошотулду — Плановое увольнение чиновника среднего звена (директор департамента мэрии).
+- [ru] не_новость: [local] Knews.kg — Глава «Кыргызтеста»: Садыру Жапарову не нужно будет сдавать тест на знание госяз — Рассуждение о том, что нужно/не нужно президенту, а не факт события.
+- [ru] не_новость: [local] Вечерний Бишкек — Баштовенко: За 35 лет мы создали новые формы поддержки пожилых людей в КР — Заметка к юбилею организации, нет события.
+- [ru] курьёз: [pool] РБК — Глава Nvidia предрек перемены в «каждой отрасли и каждой стране» из-за ИИ — Прогноз эксперта (мнение), а не событие.
+- [ru] курьёз: [pool] Sports.ru — Одиночество Муравьевой на Гран-при: приехала без тренера, но под присмотром Плющ — Спортивная светская хроника, не новость.
+- [ru] курьёз: [pool] Onliner.by — Белорусы снова выстроились в огромную очередь. Что раздают на этот раз? — Очередь за плюшевыми мишками — не новость.
+- [ru] не_новость: [pool] 76.ru — Ярославль — Давно не работают: что будет с фонтанами на проспекте Ленина в Ярославле — ответ — Ответ властей про фонтаны, события нет.
+- [ru] не_новость: [pool] 62.ru — Рязань — В Рязанской области уничтожили три очага дикорастущей конопли — Рутинная профилактическая операция (Мак-2026), нет события.
+- [ru] курьёз: [pool] 161.ru — Ростов-на-Дону — «Устал от Москвы, беру билет в Ростов»: рэпер из Старочеркасской возглавил топ-ч — Музыкальный успех артиста — не новость.
+- [ru] не_новость: [pool] 35.ru — Вологда — Вологодские молочные продукты начали поставлять в Беларусь — Обычная торговая статистика экспорта.
+- [ru] не_новость: [pool] 161.ru — Ростов-на-Дону — Полузащитник «Ростова» Миронов: «Благодарны Альбе, теперь будет биться за Кириче — Этикет/цитата игрока, нет события.
+- [ru] не_новость: [pool] 56.ru — Оренбург — Пример стойкости и преданности делу: воспитательницу из Бугуруслана наградили ме — Вручение ведомственной награды — не новость.
+- [ru] не_новость: [pool] Avesta.tj — В СНГ разработают общие подходы к контролю качества медицинских услуг и донорств — Обсуждение планов СНГ, конкретного решения нет.
+- [ru] не_новость: [pool] Kun.uz — В Узбекистане ожидают сезонный рост заболеваемости гриппом и ОРВИ. — Прогноз заболеваемости (мнение), нет события.
+- [ru] не_новость: [pool] Kun.uz — Олимпийская чемпионка Диёра Келдиёрова возвращается на татами после двухлетнего  — Анонс возвращения спортсменки в спорт.
+- [ru] курьёз: [world] Variety — Джоэл Коэн о консолидации студий: «Конкуренция создает возможности для разных ви — Интервью/мнение режиссера.
+- [ru] не_новость: [world] Engadget — Apple обновила правила App Store для предотвращения распространения ИИ-приложени — Изменение внутренних правил корпорации (App Store).
+- [ru] не_новость: [world] Variety — Pathé представила 4K-реставрацию фильма Софии Копполы «Мария-Антуанетта» — Анонс реставрации фильма.
+- [ru] не_новость: [world] Fortune — Директор по инвестициям Alphabet ответила на предупреждение Jefferies о том, что — Планы компании по расходам, нет свершившегося события.
+- [ru] курьёз: [world] Азаттык — Кот из Таджикистана «захватил» дом британского дипломата — История про кота.
+- [ru] не_новость: [world] Азаттык — Хун Манет: камбоджийцы, учившиеся в вузах Казахстана, занимаются высокие госдолж — Обзорная заметка о карьере выпускников вузов, нет события.
+- [ru] не_новость: [world] BBC Русская служба — «Тебе необязательно этим заниматься»: Кэти Закария покидает пост пресс-секретаря — Плановая смена пресс-секретаря (уход после короткого периода).
+- [ru] курьёз: [world] Knews.kg — Ученые нашли способ превратить пустынный песок в «живой песок», который удержива — Научная находка, нет последствия для читателя.
+- [ru] не_новость: [world] Knews.kg — СМИ: «Казатомпром» технично закрыл дверь перед «Росатомом» и отдал стратегически — Спекуляции СМИ о бизнесе без официального факта сделки.
