@@ -136,6 +136,74 @@ def final_prepared_guard(items, lang):
     return items
 
 
+# ── Кадровая перестановка чиновника — не срочное (журнал J54, 16.10.2026) ─────────────────
+# Случай: «освобождён от должности» заместитель (не председатель, не министр) попал в «Срочное».
+# Освобождения, назначения и увольнения чиновников — рутина власти: происходят каждую неделю и
+# не меняют день человека. Срочным остаётся только уход главы государства или правительства
+# (президент, премьер, канцлер, король…) — это и в подъёме мировых («смерть или отставка главы
+# государства»). Исключения те же, что везде: беда (жертвы, взрыв), жизненно важное.
+_PERSONNEL = re.compile(
+    r"освобожд[её]н\w*\s+от\s+(?:занимаемой\s+)?должност|освободил\w*\s+от\s+должност|"
+    r"снят\w*\s+с\s+(?:занимаемой\s+)?должност|сняли\s+с\s+должност|"
+    r"уволен\w*\s+с\s+должност|отправлен\w*\s+в\s+отставк|отправил\w*\s+в\s+отставк|"
+    r"освобождение\s+от\s+должност|отстранён\w*\s+от\s+должност|отстранен\w*\s+от\s+должност|"
+    r"назначен\w*\s+(?:на\s+должност|(?:нов\w+\s+)?(?:заместител|вице|первы|исполня|врио))|"
+    r"кызматынан\s+(?:бошотул|алынды|кеткен)|кызматтан\s+(?:бошотул|алын)|"
+    r"лавозимидан\s+(?:озод|бўшат|бушат)|лаузимидан\s+озод|"
+    r"relieved\s+of\s+(?:his|her|their)\s+(?:post|duties|position)|removed\s+from\s+(?:his|her|their)\s+(?:post|position)|"
+    r"dismissed\s+from\s+(?:his|her|their)\s+(?:post|position)|(?:fired|sacked|dismissed|removed|replaced)\s+as\s+(?:deputy|vice|head of|director|chief)|"
+    r"destituid[oa]\s+de\s+su\s+cargo|cesad[oa]\s+(?:de|en)\s+su\s+cargo|relev[oó]\s+del\s+cargo|"
+    r"exonerad[oa]\s+do\s+cargo|demitid[oa]\s+do\s+cargo|"
+    r"relevé\s+de\s+ses\s+fonctions|limogé", re.I)
+# «Заместителя министра уволили», «Уволен замглавы района»: глагол + нижестоящий чиновник в любом порядке
+_DEPUTY = (r"(?:зам(?:\.|еститель|еститея|еститела|естителя|естителю|естителем|естителе)?\s*[а-яё-]*|замминистр\w*|замглав\w*|замдиректор\w*|"
+           r"замакима\w*|вице-\w+|чиновник\w*|начальник\w*\s+(?:управлени|департамент|отдел)\w*|"
+           r"deputy|vice[- ]\w+|viceministr\w*|vice-minist\w*|viceminist\w*)")
+_DISMISS = (r"(?:уволен\w*|уволил\w*|увольнени\w*|освобожд[её]н\w*|освободил\w*|сняли|снят\w*|"
+            r"fired|sacked|dismissed|ousted|despedid[oa]|destituid[oa]|demitid[oa]|exonerad[oa]|limogé\w*|"
+            r"бошотул\w*|бошотушту)")
+_PERSONNEL_LOOSE = re.compile(
+    rf"\b{_DEPUTY}\W+(?:\w+\W+){{0,4}}?{_DISMISS}|\b{_DISMISS}\W+(?:\w+\W+){{0,3}}?{_DEPUTY}", re.I)
+# Глава государства/правительства: его уход — событие страны, поэтому срочное остаётся
+_TOP_OFFICE = re.compile(
+    r"(?<!вице-)(?<!вице )президент|(?<!вице-)(?<!вице )премьер|канцлер|король|королев|император|шах\b|эмир|султан|"
+    r"глав[аыуе]\s+(?:государств|правительств)|председател\w+\s+(?:правительств|кабинет\w*\s+министр|совет\w*\s+министр)|"
+    r"спикер\s+(?:парламент|жогорку|мажилис)|"
+    r"\b(?:president|prime\s+minister|chancellor|king|queen|emperor|head\s+of\s+(?:state|government))\b|"
+    r"presidente|primer\s+ministro|primeiro[- ]ministro|premier\s+ministre|chancelier|roi\b|rey\b|rei\b", re.I)
+
+
+def personnel_change(x):
+    """Срочная/важная карточка о кадровой перестановке не первого лица страны."""
+    if x.get("vital"):
+        return False
+    if x.get("category") not in URGENT_CATS and (x.get("priority") or 0) < 2:
+        return False
+    title = (x.get("title") or "").strip()
+    strict, loose = _PERSONNEL.search(title), _PERSONNEL_LOOSE.search(title)
+    if not (strict or loose):
+        return False
+    text = f"{title} {(x.get('summary') or '')[:400]}"
+    # «Премьер уволил заместителя»: первое лицо тут увольняет, а не уходит
+    if strict and _TOP_OFFICE.search(title):
+        return False
+    return not (_BIG.search(text) or casualties(text) >= 1)
+
+
+def final_personnel_guard(items, lang):
+    """Снимает «срочно» и «важное» с кадровых перестановок. Карточку из ленты не убирает."""
+    hit = [x for x in items if personnel_change(x)]
+    for x in hit:
+        if x.get("category") in URGENT_CATS:
+            x["category"] = "NEWS"
+        x["priority"] = min(int(x.get("priority") or 0), 1)
+    if hit:
+        print(f"  🧑‍💼 Кадровая перестановка без «срочно» [{lang}]: снято {len(hit)}")
+        for x in hit[:6]:
+            print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:60]}")
+    return items
+
+
 # ── Рубрика и приоритет на выходе (журнал J39, J40, 15.10.2026) ──────────────────────────
 #
 # Читатель рубрик не видит: полки «Местные», «Мировые», «Новости из…», штат/регион, а внутри

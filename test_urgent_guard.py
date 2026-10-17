@@ -10,7 +10,7 @@ import contextlib
 import io
 import sys
 
-from urgent_guard import final_urgent_guard, foreign_small_urgent, final_prepared_guard, prepared_material
+from urgent_guard import final_urgent_guard, foreign_small_urgent, final_prepared_guard, prepared_material, personnel_change, final_personnel_guard
 
 ok = fail = 0
 
@@ -110,6 +110,50 @@ with contextlib.redirect_stdout(io.StringIO()):
     final_prepared_guard(lst, "ru")
 check("страж: статья в NEWS, приоритет 1", lst[0]["category"] == "NEWS" and lst[0]["priority"] == 1)
 check("страж: землетрясение не тронуто", lst[1]["category"] == "URGENT" and lst[1]["priority"] == 2)
+
+# ── кадровая перестановка чиновника — не срочное (J54) ──
+staff = [
+    "Заместитель министра освобождён от должности",
+    "Заместитель председателя комитета освобожден от занимаемой должности",
+    "Первый вице-мэр Бишкека освобождён от должности",
+    "Назначен новый заместитель акима области",
+    "Чиновник отправлен в отставку",
+    "Вице-премьера сняли с должности",
+    "Директор департамента уволен с должности",
+    "Орун басары кызматынан бошотулду",
+    "Deputy minister relieved of his post",
+    "Deputy governor dismissed from his post",
+    "Viceministro destituido de su cargo",
+    "Vice-ministro exonerado do cargo",
+    "Sous-préfet relevé de ses fonctions",
+    "Айзада Субакожоева освобождена от занимаемой должности заместителя главы Нацагентства по виртуальным активам и блокчейн-технологиям",
+    "Заместителя министра уволили",
+    "Уволен заместитель акима области",
+    "Замглавы района уволен",
+    "Уволили заместителя мэра Бишкека",
+    "Премьер-министр уволил заместителя",
+    "Deputy minister fired",
+    "Viceministro despedido",
+    "Vice-ministro demitido",
+]
+for t in staff:
+    for cat, prio in (("URGENT", 2), ("URGENT_LOCAL_ONLY", 2), ("NEWS", 2)):
+        check(f"{t[:36]} [{cat}/{prio}]", personnel_change(card(t, scope="local", cat=cat, prio=prio)))
+check("несрочное с приоритетом 1 не трогаем", not personnel_change(card(staff[0], cat="NEWS", prio=1)))
+check("рядовых рабочих не трогаем", not personnel_change(card("Уволили 500 рабочих завода", cat="URGENT")))
+check("уход президента остаётся срочным", not personnel_change(card("Президент освобождён от должности", cat="URGENT")))
+check("премьер-министр остаётся срочным", not personnel_change(card("Премьер-министр отправлен в отставку", cat="URGENT")))
+check("prime minister остаётся срочным", not personnel_change(card("Prime minister dismissed from his post", cat="URGENT")))
+check("с жертвами остаётся срочным", not personnel_change(card("Замминистра освобождён от должности после того, как погибли 3 рабочих", cat="URGENT")))
+check("жизненно важное не снимаем", not personnel_change(card(staff[0], cat="URGENT", vital=True)))
+check("обычная новость не трогается", not personnel_change(card("Землетрясение магнитудой 7", cat="URGENT")))
+lst = [card(staff[0], scope="local"), card("Президент освобождён от должности", scope="local"),
+       card("Землетрясение магнитудой 7", scope="local")]
+with contextlib.redirect_stdout(io.StringIO()):
+    final_personnel_guard(lst, "ru")
+check("страж: замминистра в NEWS, приоритет 1", lst[0]["category"] == "NEWS" and lst[0]["priority"] == 1)
+check("страж: президент не тронут", lst[1]["category"] == "URGENT" and lst[1]["priority"] == 2)
+check("страж: землетрясение не тронуто", lst[2]["category"] == "URGENT" and lst[2]["priority"] == 2)
 
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)
