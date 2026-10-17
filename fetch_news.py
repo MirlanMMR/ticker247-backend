@@ -4800,7 +4800,7 @@ def _shown_key(url):
 
 
 def load_shown_memory(lang):
-    """Память показанного для повторов прошлых дней (twins.drop_reposts). Нет связи — пусто."""
+    """Память показанного для повторов прошлых дней (twins.find_reposts). Нет связи — пусто."""
     try:
         m = db.reference(f"/shown_memory/{lang}").get() or {}
     except Exception as e:
@@ -6878,7 +6878,7 @@ from storydedup import pick_group_language as _pick_group_language
 from storydedup import source_voice as _source_voice
 # Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
 # пул — правило и причина в editions.py, проверяется test_editions.py
-from twins import drop_twins, drop_reposts, remember_shown
+from twins import drop_twins, find_reposts, remember_shown, touch, reused_covers
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
 from curious import topup_interesting, is_curious_content, is_longread_url
@@ -9646,12 +9646,16 @@ def main():
         # редакции) — см. twins.py. Проверка ПОСЛЕ перевода: до него заголовки
         # на разных языках слов не делят (France 24 и France 24 FR, 06.10.2026)
         # Повтор прошлых дней (J55): тот же снимок и сюжет, но другой адрес, а прежняя карточка уже
-        # вышла из ленты — drop_twins её не видит, помнит только память показанного
+        # вышла из ленты — drop_twins её не видит. Здесь только замечаем и пишем памятку на карточку;
+        # выпускать ли её, решает редактор (есть ли новый факт), см. EDITOR.md «повтор»
         _shown = load_shown_memory(lang)
-        filtered, _reposts = drop_reposts(filtered, _shown)
-        for _x, _e in _reposts:
-            print(f"  🔁 [{lang}] повтор снят: «{_x.get('title', '')[:50]}» ({_x.get('source')}) — "
-                  f"уже было: «{_e.get('title', '')[:50]}» ({_e.get('src')})")
+        ED.SHOWN_MEMORY = _shown
+        _found = find_reposts(filtered, _shown)
+        for _x, _u, _e in _found:
+            _x["_repost_of"] = _e
+            print(f"  🔁 [{lang}] похожая уже была: «{_x.get('title', '')[:50]}» ({_x.get('source')}) — "
+                  f"раньше: «{_e.get('title', '')[:50]}» ({_e.get('src')})")
+        touch(_shown, [u for _, u, _ in _found], int(datetime.now().timestamp() * 1000))
         from editions import EDITION_LANG as _EDITION_LANG
         filtered, _twin_pairs = drop_twins(filtered, publisher_family, frozenset(_EDITION_LANG))
         for _keep, _lose in _twin_pairs:
@@ -9738,6 +9742,15 @@ def main():
                 _x["interesting"] = True
             elif _x.get("interesting"):
                 _x.pop("interesting", None)     # флаг от источника, а проверка по содержанию отклонила (J22)
+        # Знакомая обложка у новости не по теме (решение владельца 17.10.2026, J55): одно фото уместно
+        # только у одного сюжета; иначе читатель принимает новость за повтор — не берём
+        _cover_dups = reused_covers(filtered, _shown)
+        if _cover_dups:
+            _dup_ids = {id(_x) for _x, _ in _cover_dups}
+            filtered = [_x for _x in filtered if id(_x) not in _dup_ids]
+            for _x, _e in _cover_dups:
+                print(f"  🖼 [{lang}] снято: тот же снимок, что у «{_e.get('title', '')[:50]}», новость не по теме: "
+                      f"«{_x.get('title', '')[:50]}» ({_x.get('source')})")
         border.control(filtered, lang, report=_BORDER_REPORT)
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю

@@ -20,7 +20,7 @@
 """
 import re
 
-_SIZE = re.compile(r"/(?:w|h|resizer|resize|size)[:_/]?\d+[^/]*|_\d+x\d*|-\d+x\d+", re.I)
+_SIZE = re.compile(r"/(?:w|h|resizer|resize|size)[:_/]?\d+[^/]*|_\d+x\d*|-\d+x\d+|(?:_(?:cx|cy|cw|ch|w|h|r|s|q)\d+)+(?=\.[a-z]{3,4}$)", re.I)
 _STUB = re.compile(r"logo|placeholder|default|stub|sprite|blank", re.I)
 WINDOW_MS = 24 * 3600 * 1000
 MIN_SHARED_B = 2
@@ -82,16 +82,22 @@ def drop_twins(items, family=lambda s: s, editions=frozenset()):
 # Владелец: «СМИ: девять казахстанцев вывезли из зоны боевых действий в Украине — видел несколько
 # дней назад, появилась в третий раз, даже фото одно и то же». Развивающийся сюжет (семеро → девять)
 # выходит новыми материалами с новым адресом и датой, а близнецов (drop_twins) ищем только среди
-# карточек ОДНОГО прогона: прежние к тому времени уже вышли из ленты, и сравнивать было не с чем.
-# Память показанного — адрес, снимок и корни слов заголовка на REPOST_TTL_MS; новая карточка с тем
-# же снимком и ≥ MIN_SHARED_REPOST общими корнями, но другим адресом, — повтор.
-REPOST_TTL_MS = 96 * 3600 * 1000
+# карточек ОДНОГО прогона: прежние к тому времени уже вышли из ленты.
+#
+# Решение владельца: возвращаться к новости МОЖНО, если событие развивается; решает не правило, а
+# рассуждение — «что нового в самой новости, стоит ли её вообще показывать». Поэтому код здесь только
+# ЗАМЕЧАЕТ (тот же снимок и ≥ MIN_SHARED_REPOST общих корней слов при другом адресе), записывает
+# памятку на карточку (`_repost_of`), а выпускающий редактор получает её вместе с ссылками «по теме»
+# страницы и сам решает: есть новый факт — выпустить, нет — снять с причиной «повтор».
+# Память живёт, пока сюжет жив: каждое новое совпадение продлевает запись (нет обрыва «4 дня и минута»).
+REPOST_TTL_MS = 7 * 24 * 3600 * 1000
 MIN_SHARED_REPOST = 2     # против общей заставки издания: одного слова мало, как и в близнецах
 
 
 def memory_entry(card, now_ms):
     return {"img": norm_image(card.get("imageUrl")) or "", "stems": sorted(stems(card.get("title"))),
-            "src": card.get("source", ""), "at": now_ms, "title": (card.get("title") or "")[:90]}
+            "src": card.get("source", ""), "at": now_ms, "title": (card.get("title") or "")[:90],
+            "lead": (card.get("summary") or "")[:240]}
 
 
 def remember_shown(memory, items, now_ms):
@@ -105,25 +111,77 @@ def remember_shown(memory, items, now_ms):
     return memory
 
 
-def drop_reposts(items, memory):
-    """→ (список без повторов, [(карточка, прежняя запись)]).
+def find_reposts(items, memory):
+    """→ [(карточка, адрес прежней, запись прежней)]: новая карточка о том же сюжете, что уже показывали.
 
     Не повтор: карточка уже показывалась (её адрес в памяти — это она же, дожившая до нового
     прогона), и сравнение с карточкой, которая есть в этом же прогоне (тут решает drop_twins)."""
     memory = memory or {}
     current = {x.get("url") for x in items}
-    kept, dropped = [], []
+    found = []
     for x in items:
         img = norm_image(x.get("imageUrl"))
         if (not img or x.get("url") in memory or x.get("category") in ("CURRENCY", "CRYPTO")):
-            kept.append(x)
             continue
         mine = stems(x.get("title"))
-        hit = next((e for u, e in memory.items()
-                    if u not in current and e.get("img") == img
-                    and len(mine & set(e.get("stems") or ())) >= MIN_SHARED_REPOST), None)
-        if hit:
-            dropped.append((x, hit))
-        else:
-            kept.append(x)
-    return kept, dropped
+        for u, e in memory.items():
+            if (u not in current and e.get("img") == img
+                    and len(mine & set(e.get("stems") or ())) >= MIN_SHARED_REPOST):
+                found.append((x, u, e))
+                break
+    return found
+
+
+def touch(memory, urls, now_ms):
+    """Сюжет жив — продлеваем запись, чтобы цепочка не рвалась по сроку."""
+    for u in urls:
+        if u in memory:
+            memory[u]["at"] = now_ms
+    return memory
+
+
+def cover_conflict(item, memory, related_urls=()):
+    """Запись о карточке, на которой уже стоял ЭТОТ снимок, или None.
+
+    Решение владельца 17.10.2026: знакомая обложка читается как повтор («зрительная память запомнила»), и по
+    теме новость или нет — не важно: та же фотография, что у уже показанной (или у предыдущей новости по
+    ссылке) — не берём, пусть издание меняет фото. Своя же карточка (тот же адрес) и снимок без адреса — не
+    конфликт. `related_urls` не используется (оставлен для вызывающих)."""
+    img = norm_image(item.get("imageUrl"))
+    if not img or item.get("category") in ("CURRENCY", "CRYPTO"):
+        return None
+    for u, e in (memory or {}).items():
+        if u != item.get("url") and e.get("img") == img:
+            return e
+    return None
+
+
+def reused_covers(items, memory):
+    """→ [(карточка, запись)]: у кого обложка уже стояла на не связанной новости. Прежние, что ещё в
+    этой же ленте, не считаем: между ними разбирается drop_twins."""
+    current = {x.get("url") for x in items}
+    live = {u: e for u, e in (memory or {}).items() if u not in current}
+    out = []
+    for x in items:
+        r = related_cover_conflict(x)
+        if r:
+            out.append((x, {"title": r.get("title", ""), "src": "связанная страница"}))
+            continue
+        e = cover_conflict(x, live)
+        if e:
+            out.append((x, e))
+    return out
+
+
+def related_cover_conflict(item):
+    """Связанная ссылкой материал (_related с обложкой `cover`) с ТАКИМ ЖЕ снимком, что у карточки, или None.
+
+    Решение владельца 17.10.2026 («новость про казахстанцев на СВО: та же редакция, на той же странице ссылки
+    на предыдущие новости; если по ссылкам стоит та же фотография — не берём»)."""
+    img = norm_image(item.get("imageUrl"))
+    if not img:
+        return None
+    for r in item.get("_related") or []:
+        if r.get("cover") and norm_image(r["cover"]) == img:
+            return r
+    return None
