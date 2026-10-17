@@ -4794,6 +4794,32 @@ def save_page_bodies():
         print(f"  ⚠️ Память страниц не сохранена: {e}")
 
 
+def _shown_key(url):
+    import hashlib
+    return hashlib.sha1(url.encode("utf-8")).hexdigest()[:24]    # ключи базы не терпят . / # $ [ ]
+
+
+def load_shown_memory(lang):
+    """Память показанного для повторов прошлых дней (twins.drop_reposts). Нет связи — пусто."""
+    try:
+        m = db.reference(f"/shown_memory/{lang}").get() or {}
+    except Exception as e:
+        print(f"  ⚠️ Память показанного [{lang}] недоступна: {e}")
+        return {}
+    return {e["url"]: e for e in m.values() if isinstance(e, dict) and e.get("url")} if isinstance(m, dict) else {}
+
+
+def save_shown_memory(lang, memory, shown):
+    """Дописывает опубликованное в память (после записи ленты: снятое сюда не попадает)."""
+    now = int(datetime.now().timestamp() * 1000)
+    try:
+        mem = remember_shown(memory, shown, now)
+        db.reference(f"/shown_memory/{lang}").set({_shown_key(u): {**e, "url": u} for u, e in mem.items()})
+        print(f"  🔁 Память показанного [{lang}]: {len(mem)}")
+    except Exception as e:
+        print(f"  ⚠️ Память показанного [{lang}] не сохранилась: {e}")
+
+
 def load_trim_cache():
     global TRIM_CACHE
     try:
@@ -6852,7 +6878,7 @@ from storydedup import pick_group_language as _pick_group_language
 from storydedup import source_voice as _source_voice
 # Какие выпуски одной редакции (BBC Русская/Mundo/Brasil/News) пускать в какой
 # пул — правило и причина в editions.py, проверяется test_editions.py
-from twins import drop_twins
+from twins import drop_twins, drop_reposts, remember_shown
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
 from curious import topup_interesting, is_curious_content, is_longread_url
@@ -9619,6 +9645,13 @@ def main():
         # Близнецы: одна история дважды (тот же снимок, или два выпуска одной
         # редакции) — см. twins.py. Проверка ПОСЛЕ перевода: до него заголовки
         # на разных языках слов не делят (France 24 и France 24 FR, 06.10.2026)
+        # Повтор прошлых дней (J55): тот же снимок и сюжет, но другой адрес, а прежняя карточка уже
+        # вышла из ленты — drop_twins её не видит, помнит только память показанного
+        _shown = load_shown_memory(lang)
+        filtered, _reposts = drop_reposts(filtered, _shown)
+        for _x, _e in _reposts:
+            print(f"  🔁 [{lang}] повтор снят: «{_x.get('title', '')[:50]}» ({_x.get('source')}) — "
+                  f"уже было: «{_e.get('title', '')[:50]}» ({_e.get('src')})")
         from editions import EDITION_LANG as _EDITION_LANG
         filtered, _twin_pairs = drop_twins(filtered, publisher_family, frozenset(_EDITION_LANG))
         for _keep, _lose in _twin_pairs:
@@ -9720,6 +9753,7 @@ def main():
         if stories:
             payload["stories"] = stories
         db.reference(f"/news/{lang}").set(payload)
+        save_shown_memory(lang, _shown, filtered)
         save_vital(filtered, lang)
         print(f"  ✅ /news/{lang} сохранено")
         # Записываем расход СРАЗУ, а не в конце прогона: убитое задание
