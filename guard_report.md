@@ -1,27 +1,25 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] NY Post — Walker Kessler jokes ‘there was a pile’ of rust against Nikola Jokic — Спортивная колонка/мнение, нет события.
-- [en] чужое_мелкое: [local] Inquirer.com — Rep. Ilhan Omar’s lawyers say authorities ignored judge’s restrictions on home s — Внутренняя политика/юридический спор локального уровня.
-- [en] не_новость: [local] WSFA — ADOC gives update on Gov. Kay Ivey Correctional Complex completion — Отчёт о ходе строительства, нет события.
-- [en] не_новость: [local] Startribune News — Modern Times, the restaurant that had no prices, plans to close — Ресторан планирует закрыться — событие не совершено.
-- [en] чужое_мелкое: [local] Honolulu Star-Advertiser — Cornell trustees present a united front amid crisis — Внутренние университетские протесты, нет последствий.
-- [en] не_новость: [local] Santa Fe New Mexican — Fundraising to protect oceans, forests and other key nature sites falling short  — Общий обзор/рассуждения о нехватке средств.
-- [en] не_новость: [local] LA Times — As Bryson fire reignites trauma in Malibu, neighbors lean on one another — Описание атмосферы/спекуляции студентов, нет факта.
-- [en] не_новость: [local] El Paso Matters — Herrera, Padilla Stout and Mendoza vie for Texas congressional seat vacated by G — Анонс предвыборной гонки, нет события.
-- [en] курьёз: [local] Deseret News — Meet the BYU student who won $3 million for kicking a field goal at ‘College Gam — Развлекательная история про студента.
-- [en] курьёз: [local] CBS News — This electric hydrofoil boat could be the ferry of the future — Обзор технологий, нет события.
-- [en] не_новость: [local] KOTA — Fire officials urge safe fireplace ash disposal ahead of winter season — Совет пожарной службы.
-- [en] не_новость: [local] WABI — Girl Scouts of Maine hosts 3rd annual “Build. Create. Innovate.” — Описание мероприятия как факт его проведения.
-- [en] не_новость: [local] Honolulu Star-Advertiser — Homeownership drifts further out of reach as rates rise — Аналитика рынка недвижимости.
-- [en] не_новость: [local] Honolulu Star-Advertiser — Feel like you’re overpaying for hotels? Blame Expedia, lawsuit says. — Анонс иска, юридические рассуждения.
-- [en] не_новость: [local] Cronkite News — Congress is weighing an AM radio mandate. — Анонс законодательной инициативы.
-- [en] не_новость: [local] 1011NOW — It’s on! GI mayor debate to take place after all — Анонс дебатов.
-- [en] не_новость: [local] NH Union Leader Latest News — Jolin carries Plymouth to low-scoring win at Pelham in difficult conditions — Спортивный репортаж о локальном матче.
-- [en] не_новость: [local] WCAX — New center unveiled to study sleep disorders at Rutland Regional Medical Center — Анонс открытия центра.
-- [en] не_новость: [local] WV MetroNews — Some August flood victims may be eligible for disaster unemployment benefits — Общая информация об условиях получения пособий.
-- [en] не_новость: [pool] The Guardian — The Digger disaster: what an epic movie flop means for Tom Cruise and Hollywood — Аналитический обзор фильма.
-- [en] не_новость: [world] The Hill — America’s $40 trillion debt is coming for your wallet — Мнение о госдолге, нет события.
-- [en] курьёз: [world] Engadget — Anbernic's RG DDS is almost double the price of the original Nintendo 3DS — Обзор гаджета.
-- [en] курьёз: [world] Engadget — This Samsung Galaxy feature can protect you from untrustworthy apps — Инструкция/совет к функции телефона.
-- [en] не_новость: [world] The Guardian — Move over, pervert glasses – the latest toxic trend is robogroping — Авторская колонка, нет события.
-- [en] не_новость: [world] TechCrunch — Mark Wahlberg wants to take on the longevity-startup crowd with an affordable gy — Бизнес-планы знаменитости.
+- [es] не_новость: [local] El Financiero — ‘Quítame de la lista’: Ebrard descarta, por ahora, aspirar a la elección preside — политическое высказывание об отказе от участия в выборах 2030 года
+- [es] полка: [pool] El Tiempo CO — Él era Andrés Felipe López Gutiérrez, escolta que murió asesinado en el atentado — событие в Колумбии — это не новость из региона/мира для мексиканского читателя, если нет последствий
+- [es] не_новость: [pool] El Tiempo CO — Fisuras en el deprimido de la Gran Vía reavivan dudas sobre la obra que conecta  — эксплуатационные вопросы (фисуры в асфальте) — не событие
+- [es] повтор: [pool] Infobae — El FC Barcelona mantiene el pleno con una goleada por 2-5 ante el Real Betis y s ≈ «LaLiga EA Sports: Betis sufre una aplast» — тот же сюжет об игре Барселона — Бетис
+- [es] полка: [pool] El Universo EC — Caso Luis Alarcón: Fiscalía busca procesar a cuatro personas por su muerte en un — мелкое судебное событие в Эквадоре — не для мексиканского читателя
+- [es] курьёз: [pool] La Nación CR — Película francesa ‘Sanguine’ triunfa en el festival de cine fantástico de Sitges — результаты кинофестиваля в Испании — не новость
+- [es] чужое_мелкое: [pool] El Economista MX — Estados Unidos reactiva presencia de marines en su embajada en Venezuela tras si — дипломатическая рутина (морпехи в посольстве) — не событие
+- [es] повтор: [pool] Marca — El Barça iguala el récord del Madrid ≈ «LaLiga EA Sports: Betis sufre una aplast» — тот же сюжет
+- [es] курьёз: [pool] La Nación AR — El insólito gol en contra de un jugador desde mitad de cancha que dejó a su equi — спортивный курьёз (гол в свои ворота)
+- [es] не_новость: [pool] El Universo EC — Libertad FC se encamina a la Copa Sudamericana 2027 tras goleada sobre Guayaquil — промежуточный результат спортивного сезона
+- [es] повтор: [pool] Marca — Manita, pleno y polémica ≈ «LaLiga EA Sports: Betis sufre una aplast» — тот же сюжет
+- [es] чужое_мелкое: [pool] El Nacional VE — Álex Baena marcó golazo en los últimos minutos y Atlético de Madrid venció a Esp — результат матча испанской лиги — не для мексиканской ленты
+- [es] не_новость: [pool] Clarín AR — El cura defensor de los represores que explica cómo salir de la homosexualidad d — описание частной лекции священника
+- [es] не_новость: [pool] 14ymedio — La Habana protesta porque EE UU utilizará la ONU para denunciar la represión en  — дипломатический протест без реального события
+- [es] чужое_мелкое: [pool] Montevideo Portal — Detuvieron en Argentina a uno de los requeridos por el robo millonario al BROU d — арест в Аргентине по делу в Уругвае
+- [es] не_новость: [pool] El País — Vox baraja no presentarse al Senado en algunas provincias para evitar una mayorí — партийное обсуждение (планы), а не событие
+- [es] не_новость: [pool] eldiario.es — El Frente Amplio pide "unidad" frente al "fascismo" y pasa página de la crisis c — политические переговоры без итога
+- [es] не_новость: [pool] eldiario.es — Sánchez mete en campaña a Begoña Gómez: "Nos han intentado quebrar pero hoy somo — предвыборная риторика
+- [es] не_новость: [pool] La Vanguardia — Sánchez refuerza a Torró y la designa portavoz del PSOE tras la dimisión de Míng — назначение внутри партии — не новость для широкого читателя
+- [es] не_новость: [pool] eldiario.es — Frente Amplio y Podemos fracasan en las negociaciones y solo irán juntos en Cana — провал переговоров коалиции
+- [es] не_новость: [world] La Jornada — Editorial: Israel: guerra contra el periodismo — редакционная колонка (мнение), а не событие
+- [es] не_новость: [world] La Jornada — Encabezan jóvenes protestas en Europa y Asia por sus derechos y contra la corrup — обобщающий разбор протестов
+- [es] чужое_мелкое: [world] Ars Technica — Modelos de OpenAI hackearon una billetera de criptomonedas y vulneraron más siti — технический инцидент ИИ, не имеющий мирового влияния
