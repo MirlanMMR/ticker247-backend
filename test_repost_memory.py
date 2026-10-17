@@ -92,34 +92,48 @@ check("карточка без связей не получает лишних �
 ED.SHOWN_MEMORY = {}
 
 # ── одна и та же обложка: уместна только у новостей одного сюжета (владелец, 17.10.2026) ──
-from twins import cover_conflict, reused_covers, norm_image
+from twins import cover_conflict, reused_covers, norm_image, related_cover_conflict
 mem_c = remember_shown({}, [card("u1", "Суд по делу о пожаре в Алматы начался", IMG)], 0)
 ED.SHOWN_MEMORY = mem_c
 other_story = card("u7", "Совсем другая новость про футбол", IMG)
-check("тот же снимок у несвязанной новости — конфликт", cover_conflict(other_story, mem_c) is not None)
-check("тот же снимок у новости того же сюжета (≥ 2 общих корней) — уместно",
-      cover_conflict(card("u7", "Приговор по делу о пожаре в Алматы вынесли", IMG), mem_c) is None)
-check("тот же снимок, страница сама ссылается на прежнюю — по теме, уместно",
-      cover_conflict(other_story, mem_c, {"u1"}) is None)
+check("тот же снимок у другой новости — конфликт", cover_conflict(other_story, mem_c) is not None)
+check("тот же снимок у продолжения того же сюжета — тоже конфликт (пусть издание меняет фото)",
+      cover_conflict(card("u7", "Приговор по делу о пожаре в Алматы вынесли", IMG), mem_c) is not None)
 check("свой же адрес себе не конфликт", cover_conflict(card("u1", "Суд по делу о пожаре в Алматы начался", IMG), mem_c) is None)
 check("другой снимок — нет конфликта", cover_conflict(card("u7", "Совсем другая новость", IMG_OTHER), mem_c) is None)
 check("снимка нет — нет конфликта", cover_conflict(card("u7", "Совсем другая новость", None), mem_c) is None)
 check("память пуста (первый прогон) — не снимаем", reused_covers([other_story], {}) == [])
-check("конфликт со снимаемой записью, которая ещё в ленте, решает drop_twins",
+check("конфликт со старой записью, которая ещё в ленте, решает drop_twins",
       reused_covers([other_story, card("u1", "Суд по делу о пожаре в Алматы начался", IMG)], mem_c) == [])
 rc = reused_covers([other_story, card("u8", "Новость со свежим снимком", IMG_OTHER)], mem_c)
-check("снимается только новость с чужой знакомой обложкой", len(rc) == 1 and rc[0][0]["url"] == "u7")
-check("страница ссылается на прежнюю (_related) — по теме, не снимаем",
-      reused_covers([dict(other_story, _related=[{"url": "u1", "title": "x"}])], mem_c) == [])
+check("снимается только новость со знакомой обложкой", len(rc) == 1 and rc[0][0]["url"] == "u7")
 blk = ED.card_block(1, other_story, ["Текст."], [])
-check("редактор предупреждён: другой снимок или новость не выйдет", "НЕ связанной" in blk and "новость не выйдет" in blk)
-check("по теме — редактора не пугаем",
-      "НЕ связанной" not in ED.card_block(1, card("u7", "Приговор по делу о пожаре в Алматы вынесли", IMG), ["Т."], []))
-check("своя же карточка — строки нет", "НЕ связанной" not in ED.card_block(1, card("u1", "Суд по делу о пожаре в Алматы начался", IMG), ["Т."], []))
+check("редактор предупреждён: другой снимок или новость не выйдет", "уже стоял на другой нашей карточке" in blk and "новость не выйдет" in blk)
+check("своя же карточка — строки нет", "уже стоял на другой" not in ED.card_block(1, card("u1", "Суд по делу о пожаре в Алматы начался", IMG), ["Т."], []))
 ED.SHOWN_MEMORY = {}
 md0 = open("EDITOR.md", encoding="utf-8").read()
-check("EDITOR.md: знакомая обложка — другой снимок, иначе не выйдет", "не связанной по теме" in md0 and "пусть издание" in md0)
+check("EDITOR.md: тот же снимок у предыдущей новости — не берём, другой снимок страницы", "Тот же снимок уже стоял у предыдущей новости" in md0 and "пусть издание" in md0)
 check("конвейер снимает такие новости до записи ленты", "reused_covers(filtered" in open("fetch_news.py", encoding="utf-8").read())
+
+# ── ссылки «по теме»: у связанной страницы тот же снимок — не берём (владелец, 17.10.2026) ──
+az_card = "https://gdb.rferl.org/256e66c6-85a4-42bf-42ae-08df13a884cb_w800_h450.jpeg"
+az_og = "https://gdb.rferl.org/256e66c6-85a4-42bf-42ae-08df13a884cb_w1200_h630.jpeg"
+az_crop = "https://gdb.rferl.org/01ef7085-d068-4af5-70fc-08df13a869ed_cx0_cy60_cw0_w1200_h630.jpeg"
+check("один снимок разных размеров у Азаттыка — один и тот же (w800_h450 = w1200_h630)", norm_image(az_card) == norm_image(az_og))
+check("кадрирование (cx/cy/cw) тоже не делает снимок другим", norm_image(az_crop) == norm_image("https://gdb.rferl.org/01ef7085-d068-4af5-70fc-08df13a869ed_w100_r1.jpeg"))
+check("разные снимки Азаттыка не склеиваются", norm_image(az_card) != norm_image(az_crop))
+c1 = card("u3", "СМИ: девять казахстанцев вывезли", az_card)
+c1["_related"] = [{"url": "r1", "title": "Казахстанец уехал на заработки в Курск", "cover": az_crop},
+                  {"url": "r2", "title": "Родители пришли в МИД", "cover": az_og}]
+check("у связанной страницы тот же снимок — конфликт, названа именно она", (related_cover_conflict(c1) or {}).get("url") == "r2")
+c2 = dict(c1, _related=[{"url": "r1", "title": "x", "cover": az_crop}])
+check("у связанных другие снимки — конфликта нет (так на странице Азаттыка 17.10.2026)", related_cover_conflict(c2) is None)
+check("обложка связанной не скачалась (пусто) — не конфликт", related_cover_conflict(dict(c1, _related=[{"url": "r", "title": "x", "cover": ""}])) is None)
+rc2 = reused_covers([c1, c2, card("u9", "Другая новость", IMG_OTHER)], {})
+check("конвейер снимает новость, у связанной страницы которой тот же снимок, и только её", len(rc2) == 1 and rc2[0][0] is c1)
+check("редактор видит строку о том же снимке у связанной", "ТАКОЙ ЖЕ снимок" in ED.card_block(1, c1, ["Т."], []))
+check("page_cover берёт og:image", ED.page_cover('<meta property="og:image" content="https://a/b_w1200_h630.jpg">') == "https://a/b_w1200_h630.jpg")
+check("page_cover без разметки — пусто", ED.page_cover("<html></html>") == "" and ED.page_cover("") == "")
 
 # ── правило решает редактор, а не код ──
 md = open("EDITOR.md", encoding="utf-8").read()

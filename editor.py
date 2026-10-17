@@ -23,7 +23,7 @@ import json
 import re
 
 import textcut as TC
-from twins import norm_image, cover_conflict
+from twins import norm_image, cover_conflict, related_cover_conflict
 from urllib.parse import urljoin, urlsplit
 
 from bs4 import BeautifulSoup
@@ -137,6 +137,21 @@ def page_related(html: str, page_url: str):
     return out
 
 
+def page_cover(html: str) -> str:
+    """Обложка страницы для соцсетей (og:image / twitter:image) — по ней сверяем связанные материалы."""
+    if not html:
+        return ""
+    soup = BeautifulSoup(html, "html.parser")
+    for attr, name in (("property", "og:image"), ("name", "twitter:image"), ("property", "og:image:url")):
+        tag = soup.find("meta", attrs={attr: name})
+        if tag and tag.get("content"):
+            return tag["content"].strip()
+    return ""
+
+
+MAX_RELATED_COVERS = 4     # сколько связанных страниц скачиваем ради сверки обложек
+
+
 # Память показанного (адрес → запись, twins.remember_shown), подставляет вызывающий перед прогоном
 SHOWN_MEMORY = {}
 
@@ -207,11 +222,16 @@ def related_lines(item: dict):
     if rep:
         out.append(f"Похожая карточка уже была у наших читателей: «{rep.get('title', '')}» ({rep.get('src', '?')}), "
                    f"начало: «{rep.get('lead', '')}». Реши по правилу «повтор».")
-    seen = cover_conflict(item, SHOWN_MEMORY, {r.get("url") for r in (item.get("_related") or [])})
+    seen = cover_conflict(item, SHOWN_MEMORY)
     if seen:
-        out.append(f"Этот снимок уже стоял на другой нашей, НЕ связанной с этой новости: «{seen.get('title', '')}» "
+        out.append(f"Этот снимок уже стоял на другой нашей карточке: «{seen.get('title', '')}» "
                    f"({seen.get('src', '?')}). Читатель примет новость за повтор. Возьми другой годный снимок страницы; "
                    f"если другого нет — новость не выйдет (правило владельца: пусть издание меняет фото).")
+    same = related_cover_conflict(item)
+    if same:
+        out.append(f"У связанного материала «{same.get('title', '')}» ТАКОЙ ЖЕ снимок, как у этой карточки. "
+                   f"Возьми другой годный снимок страницы; если другого нет — новость не выйдет "
+                   f"(правило владельца: та же фотография у предыдущей новости по теме — не берём).")
     rel = item.get("_related") or []
     if rel:
         out.append("Связанные материалы издания (ссылки на странице):")
@@ -610,6 +630,13 @@ def review(items, lang, *, ask, ask_strong, fetch_html, cache, cache_key,
     for d, html in zip(todo, htmls):
         d[3] = page_photos(html or "", d[0].get("url", ""), d[0].get("imageUrl", ""))
         d[0]["_related"] = page_related(html or "", d[0].get("url", ""))
+    # обложки связанных материалов (только HTTP, без ИИ): тот же снимок у связанной страницы — повтор для читателя
+    rel_jobs = [(r, d[0]) for d in todo for r in d[0].get("_related", [])[:MAX_RELATED_COVERS]]
+    if rel_jobs:
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            covers = list(pool.map(lambda j: page_cover(fetch_html(j[0]["url"]) or ""), rel_jobs))
+        for (r, _), cover in zip(rel_jobs, covers):
+            r["cover"] = cover
 
     def run(batch, asker, second=False):
         tail = header + ("Ты — ВТОРОЙ редактор: эти карточки первый пометил как "

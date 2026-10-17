@@ -20,7 +20,7 @@
 """
 import re
 
-_SIZE = re.compile(r"/(?:w|h|resizer|resize|size)[:_/]?\d+[^/]*|_\d+x\d*|-\d+x\d+", re.I)
+_SIZE = re.compile(r"/(?:w|h|resizer|resize|size)[:_/]?\d+[^/]*|_\d+x\d*|-\d+x\d+|(?:_(?:cx|cy|cw|ch|w|h|r|s|q)\d+)+(?=\.[a-z]{3,4}$)", re.I)
 _STUB = re.compile(r"logo|placeholder|default|stub|sprite|blank", re.I)
 WINDOW_MS = 24 * 3600 * 1000
 MIN_SHARED_B = 2
@@ -141,22 +141,18 @@ def touch(memory, urls, now_ms):
 
 
 def cover_conflict(item, memory, related_urls=()):
-    """Запись о карточке, на которой уже стоял ЭТОТ снимок, если новость с ней не по теме; иначе None.
+    """Запись о карточке, на которой уже стоял ЭТОТ снимок, или None.
 
-    Решение владельца 17.10.2026: одно и то же фото уместно только у новостей одного сюжета («по теме»);
-    знакомая картинка у другой новости читается как повтор — такую не берём, пусть издание меняет фото.
-    По теме = ≥ MIN_SHARED_REPOST общих корней слов заголовков, либо страница сама ссылается на ту.
-    Своя же карточка (тот же адрес) и снимок без адреса/заглушка — не конфликт."""
+    Решение владельца 17.10.2026: знакомая обложка читается как повтор («зрительная память запомнила»), и по
+    теме новость или нет — не важно: та же фотография, что у уже показанной (или у предыдущей новости по
+    ссылке) — не берём, пусть издание меняет фото. Своя же карточка (тот же адрес) и снимок без адреса — не
+    конфликт. `related_urls` не используется (оставлен для вызывающих)."""
     img = norm_image(item.get("imageUrl"))
     if not img or item.get("category") in ("CURRENCY", "CRYPTO"):
         return None
-    mine = stems(item.get("title"))
     for u, e in (memory or {}).items():
-        if u == item.get("url") or e.get("img") != img:
-            continue
-        if u in related_urls or len(mine & set(e.get("stems") or ())) >= MIN_SHARED_REPOST:
-            continue
-        return e
+        if u != item.get("url") and e.get("img") == img:
+            return e
     return None
 
 
@@ -167,8 +163,25 @@ def reused_covers(items, memory):
     live = {u: e for u, e in (memory or {}).items() if u not in current}
     out = []
     for x in items:
-        rel = {r.get("url") for r in (x.get("_related") or [])}
-        e = cover_conflict(x, live, rel)
+        r = related_cover_conflict(x)
+        if r:
+            out.append((x, {"title": r.get("title", ""), "src": "связанная страница"}))
+            continue
+        e = cover_conflict(x, live)
         if e:
             out.append((x, e))
     return out
+
+
+def related_cover_conflict(item):
+    """Связанная ссылкой материал (_related с обложкой `cover`) с ТАКИМ ЖЕ снимком, что у карточки, или None.
+
+    Решение владельца 17.10.2026 («новость про казахстанцев на СВО: та же редакция, на той же странице ссылки
+    на предыдущие новости; если по ссылкам стоит та же фотография — не берём»)."""
+    img = norm_image(item.get("imageUrl"))
+    if not img:
+        return None
+    for r in item.get("_related") or []:
+        if r.get("cover") and norm_image(r["cover"]) == img:
+            return r
+    return None
