@@ -1,23 +1,40 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] Reforma — Arrancan Olinia... ¡sacando la charola! — Это анонс проекта с призывом к инвестициям/ресурсам, а не событие.
-- [es] не_новость: [local] Reforma — Arropa el FICM al 'Campeón Gabacho' — Описание мероприятия как репортаж/светская хроника, нет факта события.
-- [es] не_новость: [local] Expansión MX — Dejaste el gobierno, pero aún puedes cotizar al ISSSTE para mantener tu pensión: — Это справочная статья/совет, как сохранять пенсионные права.
-- [es] не_новость: [local] Expansión MX — Arturo Elías Ayub encabeza una empresa ligada a Slim que factura 13,832 millones — Портрет бизнесмена, нет новостного повода.
-- [es] повтор: [pool] Infobae — Colectivos piden retirar cargos a manifestantes vinculados a proceso tras partic ≈ «Vinculan a proceso a 4 detenidos en prot» — Повторяет суть новости 9.
-- [es] не_новость: [pool] El Nacional VE — Políticos opositores afirman que eliminación de cuatro tribunales de control en  — Это мнение оппозиции, а не свершившееся действие.
-- [es] курьёз: [pool] La Nación AR — La determinante decisión de Julieta Prandi — Светская хроника личной жизни, не является новостью.
-- [es] не_новость: [pool] Clarín AR — Julián Álvarez tuvo un ingreso clave en el triunfo del Atlético de Madrid, aunqu — Анализ формы игрока, нет события (матча или трансфера).
-- [es] не_новость: [pool] Marca — Honda lo confiesa todo: "Hemos perdido dos años" — Интервью/мнение, а не новостной факт.
-- [es] повтор: [pool] El País — Frente Amplio pasa página del pacto fallido con Podemos: “Se acabó el tiempo de  ≈ «El Frente Amplio pide "unidad" frente al» — Один и тот же сюжет переговоров левых партий в Испании.
-- [es] не_новость: [pool] El País — Sánchez mete a Begoña Gómez en campaña: “Nos han intentado quebrar y estamos más — Предвыборная риторика и эмоции, нет события.
-- [es] не_новость: [pool] Semana CO — Jorge Iván Diez, presidente de un sector de la CGT, alerta que sindicatos serían — Это интервью, пересказ мнений.
-- [es] не_новость: [pool] Semana CO — Esta es la historia de la millonaria reclamación del DAS que exdirector Jorge No — История старой тяжбы, нет нового события.
-- [es] не_новость: [pool] Semana CO — ELN y sus ojos en Barranquilla: SEMANA revela detalles del presunto nexo con Los — Предположения и «детали», нет факта преступления или задержания.
-- [es] повтор: [pool] eldiario.es — Frente Amplio y Podemos fracasan en las negociaciones y solo irán juntos en Cana ≈ «El Frente Amplio pide "unidad" frente al» — Повтор темы переговоров левых партий.
-- [es] повтор: [pool] El País — Frente Amplio y Podemos fracasan en su intento de pactar una papeleta única para ≈ «El Frente Amplio pide "unidad" frente al» — Повтор темы переговоров левых партий.
-- [es] не_новость: [pool] eldiario.es — Así han quedado las candidaturas de la izquierda alternativa, territorio a terri — Это аналитическая справка (список), не событие.
-- [es] курьёз: [world] The Guardian — Olviden las gafas pervertidas: la última tendencia tóxica es el acoso mediante r — Статья-рассуждение о технологиях, не новость.
-- [es] чужое_мелкое: [world] La Jornada — Encabezan jóvenes protestas en Europa y Asia por sus derechos y contra la corrup — Общее описание протестов без конкретного события.
-- [es] не_новость: [world] The Guardian — Nada bien: ¿quién hackeó los refrigeradores de los supermercados en Francia? — Спекулятивное рассуждение о хакерах, нет факта.
-- [es] повтор: [world] BBC Mundo — "Un gran héroe": el padre que persiguió y abatió al atacante de la escuela de Or ≈ «¿Quién era el adolescente que abrió fueg» — Развитие темы стрельбы в Орегоне, поданное как отдельная новость.
+- [pt] не_новость: [local] Poder360 — Flávio pede vídeos em mercados para mostrar que está “tudo caro” — мнение политика, видео в соцсетях без реального события
+- [pt] курьёз: [local] CNN Brasil — Giulia Be exibe fotos de escola de samba no casamento com Conor Kennedy — светская хроника, не несет общественной значимости
+- [pt] курьёз: [local] Metrópoles — Maisa descobre que ex está na casa de João Guilherme e faz piada; web reage — светская сплетня, контент для соцсетей
+- [pt] не_новость: [local] Metrópoles — O bolsonarista não aguenta um google — публицистическая заметка, не содержит события
+- [pt] не_новость: [local] G1 Rio — Mercado de panificação cresce no RJ, mas setor enfrenta dificuldade na busca por — общий обзор ситуации в секторе без факта
+- [pt] не_новость: [pool] Notícias ao Minuto — Frelimo anuncia apoio à candidatura de Chapo a Presidência em 2029 — планы на 2029 год, не событие
+- [pt] полка: [pool] Notícias ao Minuto — Atropelo no Seixal. Benfica amassa Sporting e sobe ao trono nos juniores — региональный спорт (юноши), не мировая новость
+- [pt] не_новость: [pool] Observador PT — Gio Rodrigues vai transformar desfile em protesto — анонс акции/протеста, который только будет
+- [pt] не_новость: [pool] Observador PT — IL não viraria costas a Passos, mas não aceitaria Chega — рассуждения о политических альянсах
+- [pt] курьёз: [pool] Jornal de Negócios — Sobras do ananás passam a alimentar peixes: Agrogrin Tech arranca com unidade pi — локальный стартап, не событие мирового масштаба
+- [pt] не_новость: [pool] Público — BE pede ao Governo que apoie venda imediata da Visão para evitar encerramento — просьба о поддержке, не свершившееся событие
+- [pt] не_новость: [pool] BBC Brasil — O que a eleição de uma estreante deputada federal de 24 anos do Rio revela sobre — аналитическая статья, не содержит свежего события
+- [pt] не_новость: [pool] BBC Brasil — Senador do PL promete dinheiro de emendas a cidades com mais votos em Flávio: es — мнение экспертов о гипотетическом преступлении
+- [pt] не_новость: [world] Variety — Bilheteria: 'Street Fighter' estreia com US$ 13 milhões e 'You Can See Everythin — еженедельные отчеты о киносборах — не события
+- [pt] полка: [world] Metrópoles — Venezia bate o Napoli e conquista a primeira vitória no Campeonato Italiano — спортивный результат матча в Италии — не мировая новость
+- [pt] не_новость: [world] Fortune — Estados processam a OpenAI, alegando que a empresa cria 'agentes de ciberataque' — подача иска — это лишь начало процесса, не событие
+- [pt] не_новость: [world] Fortune — Guerra com o Irã custou a cada família americana quase 2.000 dólares, com a parc — аналитический разбор экономической статистики
+- [pt] полка: [world] Guardian Sport — Dois gols de Neto contra o Everton levam o Chelsea à vitória, marcada por lesão  — результаты матча АПЛ — не мировое событие для общего потока
+- [pt] не_новость: [world] Wired — A criptografia está sendo pressionada por todos os lados — общий обзор законодательных тенденций
+- [pt] не_новость: [world] Азаттык — Hun Manet: cambojanos que estudaram em universidades do Cazaquistão ocupam altos — обзорная заметка о карьере выпускников
+- [pt] не_новость: [world] Ars Technica — Modelos da OpenAI hackearam carteira de criptomoedas e violaram sites — отчет об инциденте с ИИ-моделями — не является событием для читателя
+- [fr] курьёз: [local] L'Express — Homo sapiens, l'enquête qui change tout : plongée dans l'histoire cachée de nos  — История происхождения человека — это интересное, а не новость для ленты.
+- [fr] не_новость: [local] 20 Minutes — Mobilisation du 17 octobre : Petit-déjeuner à l’Elysée et kits de survie, les ré — Спекуляции о социальных сетях не являются событием.
+- [fr] курьёз: [pool] RTBF — Toutes les minutes feront 60 secondes : la seconde intercalaire n’existera bient — Технический факт о времени не является актуальной новостью.
+- [fr] курьёз: [pool] Courrier International — Au Mali, la très polluante production du bazin, l’étoffe colorée des grandes occ — История об урожае в Мали — это очерк, не новость.
+- [fr] не_новость: [world] La Tribune — Après Londres et Tokyo, les taxis autonomes de Waymo sont prêts à affronter l'hi — Анонс запуска программы пилота, а не свершившийся факт для читателя.
+- [fr] курьёз: [world] Bénin Web TV — Ligue des champions CAF, Young Africans écrase le CFFA 4-0 et prend une option s — Результаты матча лиги чемпионов Африки не являются значимыми для французского читателя.
+- [fr] чужое_мелкое: [world] France 24 FR — Controverse électorale en Inde : le chef des "cafards" à nouveau arrêté — Внутренняя новость Индии не имеет последствий для Франции.
+- [fr] не_новость: [world] L'Express — Hongrie-Ukraine : après l’ère Viktor Orban, Péter Magyar amorce un rapprochement — Анализ отношений политиков не является событием.
+- [fr] не_новость: [world] BBC — Le pape Léon XIV est sorti de l'hôpital à Rome après une opération du poumon — Выписка из больницы (если нет угрозы жизни или глобальных последствий) — не новость.
+- [fr] не_новость: [world] Africanews FR — Égypte : Abdel Fattah Sissi s'engage à quitter ses fonctions en 2030 — Заявление о планах на 2030 год — не событие.
+- [fr] чужое_мелкое: [world] La Dépêche — Il vient de prolonger pour un salaire de plus de 20 M€ par an et explique que le — Увольнения в частном британском клубе — частное дело бизнеса.
+- [fr] не_новость: [world] Africanews FR — L'ancien président sénégalais Macky Sall se retire de la course à la tête de l'O — Отказ от участия в гонке — это намерение, не событие.
+- [fr] не_новость: [world] 20 Minutes — Qui sont ces « Russes noirs » qui perturbent la frontière entre la Biélorussie e — Спекуляция о неизвестной группе лиц без подтверждённых фактов.
+- [fr] не_новость: [world] Sciences et Avenir — Les technologies du futur porte-avions "France libre" — Анонс названия и планы на 2038 год — не новость.
+- [fr] не_новость: [world] Africanews FR — Tous les candidats à la tête de l'ONU se heurtent à un veto — Процесс обсуждения кандидатов в ООН — текущая рутина, не событие.
+- [fr] курьёз: [world] Sciences et Avenir — De la lumière au cœur des abysses — Научно-популярный факт об организмах — это интересное.
+- [fr] не_новость: [world] Semafor — Les droits de douane font peser un risque sur les relations entre les États-Unis — Ожидание решения о пошлинах — не событие.
