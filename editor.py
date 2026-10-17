@@ -23,11 +23,12 @@ import json
 import re
 
 import textcut as TC
-from urllib.parse import urlsplit
+from twins import norm_image
+from urllib.parse import urljoin, urlsplit
 
 from bs4 import BeautifulSoup
 
-EDITOR_VERSION = 5          # 5: «Интересное» — рассуждение о поводе, без квоты 0–3 и без списка тем (17.10.2026, J54); 4: тон по потоку (es — человеческая история остаётся); 3: компоновка по правилу абзацев (09.10.2026) — вердикты v2 выбирали «суть в 2–4 абзацах»
+EDITOR_VERSION = 6          # 6: ссылки «по теме» и «уже показывали» — причина «повтор» (J55); 5: «Интересное» — рассуждение о поводе, без квоты 0–3 и без списка тем (17.10.2026, J54); 4: тон по потоку (es — человеческая история остаётся); 3: компоновка по правилу абзацев (09.10.2026) — вердикты v2 выбирали «суть в 2–4 абзацах»
 BATCH = 6                 # карточек в одном запросе
 # 5000 → 2800 знаков (25.09.2026): редактор ел 46% расхода ИИ, в основном
 # входящими — полным текстом статей. С 09.10.2026 окно режется ЦЕЛЫМИ абзацами
@@ -41,7 +42,7 @@ VITAL_KINDS = {"вода-свет-газ", "дороги-транспорт", "�
                "цены-на-необходимое", "документы-выплаты"}
 
 REASONS = {"реклама", "нет события", "анонс без сути", "закрыто", "мусор",
-           "не для читателя"}
+           "не для читателя", "повтор"}
 
 _CARD = re.compile(r"/images/sharing/|/sharing/|/social[-_/]|og[-_]image|share[-_]card"
                    r"|_og\.(jpe?g|png|webp)|/og/|[?&]og=|imagemeta/", re.I)
@@ -82,6 +83,62 @@ def _links_elsewhere(img, page_url: str) -> bool:
             if urlsplit(href).path.rstrip("/") != here:
                 return True
     return False
+
+
+# Что издание считает связанным: блоки «Читайте также»/«По теме» и ссылки на свои же материалы прямо в тексте.
+# Заголовок связанного — из атрибута title/текста ссылки, а если там одно слово («призвало»), из адреса:
+# в нём заголовок латиницей. Без разметки конкретного сайта: ссылки собираются по общим признакам.
+_RELATED_BLOCK = re.compile(r"also-?read|related|read-?more|more-?on|see-?also|po-?teme|chitayte|"
+                            r"читайте|по теме|recomend|recommend|leia|lire|más", re.I)
+MAX_RELATED = 6
+
+
+def _slug_title(href: str) -> str:
+    """Заголовок латиницей из адреса: /a/slug/123.html и /doc/123_slug.html → «slug»."""
+    segs = [re.sub(r"\.(html?|php)$", "", s) for s in urlsplit(href).path.split("/") if s]
+    segs = [re.sub(r"^\d+[_-]?", "", s) for s in segs]
+    segs = [s for s in segs if s and not s.isdigit() and len(s) > 3]
+    return segs[-1].replace("-", " ").replace("_", " ").strip() if segs else ""
+
+
+def page_related(html: str, page_url: str):
+    """Ссылки страницы на другие материалы ТОГО ЖЕ сайта: [{url, title, kind}] (kind: блок | в тексте)."""
+    if not html:
+        return []
+    soup = BeautifulSoup(html, "html.parser")
+    host = urlsplit(page_url).netloc.lower().removeprefix("www.")
+    here = urlsplit(page_url).path.rstrip("/")
+    out, seen = [], set()
+    for a in soup.find_all("a", href=True):
+        href = urljoin(page_url, a["href"])
+        sp = urlsplit(href)
+        if sp.netloc.lower().removeprefix("www.") != host or sp.path.rstrip("/") in ("", here):
+            continue
+        if not re.search(r"/\d{4,}|\d{6,}\.html?|/a/|/article|/news|/story|/doc/", sp.path):
+            continue
+        if any(anc.name in ("nav", "header", "footer") for anc in a.parents):
+            continue
+        in_block = any(_RELATED_BLOCK.search(" ".join(anc.get("class") or [])) for anc in a.parents
+                       if getattr(anc, "get", None))
+        in_text = any(anc.name == "p" for anc in a.parents)
+        if not (in_block or in_text):
+            continue
+        key = sp.path.rstrip("/")
+        if key in seen:
+            continue
+        seen.add(key)
+        title = (a.get("title") or "").strip()
+        if len(title) < 15:
+            txt = a.get_text(" ", strip=True)
+            title = txt if len(txt) >= 15 else (title or _slug_title(href))
+        out.append({"url": href, "title": title[:140], "kind": "блок" if in_block else "в тексте"})
+        if len(out) >= MAX_RELATED:
+            break
+    return out
+
+
+# Память показанного (адрес → запись, twins.remember_shown), подставляет вызывающий перед прогоном
+SHOWN_MEMORY = {}
 
 
 def page_photos(html: str, page_url: str, current: str = ""):
@@ -143,6 +200,29 @@ def page_photos(html: str, page_url: str, current: str = ""):
     return photos[:MAX_PHOTOS]
 
 
+def related_lines(item: dict):
+    """Строки для карточки: что издание связывает с этим материалом и что из этого наши читатели уже видели."""
+    out = []
+    rep = item.get("_repost_of")
+    if rep:
+        out.append(f"Похожая карточка уже была у наших читателей: «{rep.get('title', '')}» ({rep.get('src', '?')}), "
+                   f"начало: «{rep.get('lead', '')}». Реши по правилу «повтор».")
+    img = norm_image(item.get("imageUrl"))
+    if img:
+        seen = next((e for u, e in SHOWN_MEMORY.items() if e.get("img") == img and u != item.get("url")), None)
+        if seen:
+            out.append(f"Этот снимок уже был на другой нашей карточке: «{seen.get('title', '')}» ({seen.get('src', '?')}). "
+                       f"Читатель запомнит картинку и примет новость за повтор — возьми другой снимок страницы, если он годный.")
+    rel = item.get("_related") or []
+    if rel:
+        out.append("Связанные материалы издания (ссылки на странице):")
+        for r in rel:
+            known = SHOWN_MEMORY.get(r["url"])
+            mark = f" — НАШИ ЧИТАТЕЛИ ЭТО УЖЕ ВИДЕЛИ: «{known.get('title', '')}»" if known else ""
+            out.append(f"  · {r['title']}{mark}")
+    return out
+
+
 def card_block(n: int, item: dict, paras, photos) -> str:
     shelf = {"local": "местная", "pool": "свой язык (соседи)",
              "world": "мир"}.get(item.get("scope"), item.get("scope") or "?")
@@ -153,6 +233,7 @@ def card_block(n: int, item: dict, paras, photos) -> str:
              f"Заголовок: {item.get('title', '')}",
              "Текст:"]
     lines += [f"[{i}] {p}" for i, p in enumerate(paras, 1)] or ["(текста нет)"]
+    lines += related_lines(item)
     # рамка компоновки: сколько абзацев в статье и сколько можно оставить
     full = TC.real_paragraphs(item.get("_full") or "")
     total = len(TC.article_region(full)) if full else len(paras)
@@ -529,6 +610,7 @@ def review(items, lang, *, ask, ask_strong, fetch_html, cache, cache_key,
                               str(d[0].get("url", "")).startswith("http") else None, todo))
     for d, html in zip(todo, htmls):
         d[3] = page_photos(html or "", d[0].get("url", ""), d[0].get("imageUrl", ""))
+        d[0]["_related"] = page_related(html or "", d[0].get("url", ""))
 
     def run(batch, asker, second=False):
         tail = header + ("Ты — ВТОРОЙ редактор: эти карточки первый пометил как "
