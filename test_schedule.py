@@ -106,5 +106,22 @@ check("fetch_news: шлюз свежести по каждому пулу", "sta
 check("fetch_news: без POOLS остаётся прежний шлюз по ru", "elif _feed_is_fresh():" in fn)
 check("fetch_news: ручной запуск (FORCE_RUN) шлюз обходит", 'os.environ.get("FORCE_RUN") != "true"' in fn)
 
+
+# ── запасной запуск слота: «слот обслужен» (J56, 17.10.2026: 13 опоздавших запусков = $0,99 из $1,86) ──
+H = 3600 * 1000
+DAY = 24 * H
+day0 = 1_792_000_000_000 - 1_792_000_000_000 % DAY      # полночь UTC какого-то дня
+slot18 = S.slot_start_ms("7 18 * * *", day0 + 21 * H + 60_000)    # запуск «7 18» стартовал в 21:01
+check("слот строки «7 18» — начало 18:00 того же дня, хоть запуск и в 21:01", slot18 == day0 + 18 * H)
+check("запуск до срабатывания строки относится к вчерашнему слоту", S.slot_start_ms("7 18 * * *", day0 + 3 * H) == day0 - 6 * H)
+check("пул обновлён планировщиком в 18:17 — слот обслужен, опоздавший запуск молчит", S.slot_served(day0 + 18 * H + 17 * 60000, slot18))
+check("пул обновлялся в 13:00 — слот 18:00 не обслужен, запасной запуск работает", not S.slot_served(day0 + 13 * H, slot18))
+check("планировщик стартует в :02 и может писать сразу — запас 5 минут", S.slot_served(day0 + 18 * H - 3 * 60000, slot18))
+check("возраст неизвестен — работаем (дешевле ошибки)", not S.slot_served(None, slot18))
+wf = open(".github/workflows/fetch.yml", encoding="utf-8").read()
+check("fetch.yml передаёт SLOT_TS_MS запасному запуску", 'schedule_pools.py --slot "$CRON"' in wf)
+check("fetch.yml гоняет test_repost_memory.py", "python test_repost_memory.py" in wf)
+check("fetch_news читает SLOT_TS_MS и пропускает обслуженные пулы", "SLOT_TS_MS" in fn and "slot_served(" in fn)
+
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)

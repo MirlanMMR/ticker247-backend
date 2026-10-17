@@ -114,6 +114,29 @@ def stale_pools(pools, ages_min, threshold_min):
     return tuple(p for p in pools if ages_min.get(p) is None or ages_min[p] >= threshold_min)
 
 
+# ─── Запасной запуск слота: «слот уже обслужен» (журнал J56, 17.10.2026) ───────────────────────
+# Замер 16.10: 13 запусков по расписанию GitHub стоили $0,99 из $1,86 за сутки. GitHub задерживает
+# запасные строки на 3–5 часов («7 18» стартовала в 21:01, «7 8» в 13:11), а шлюз свежести спрашивал
+# «обновлялась ли лента за последние 25 минут» — после задержки нет, и запуск платил за ещё одно
+# обновление пула, который внешний планировщик обновил вовремя. Правильный вопрос: обслужен ли СЛОТ,
+# которому принадлежит эта строка.
+SLOT_MARGIN_MIN = 5       # запас: планировщик стартует в :02, писать ленту может раньше начала часа не будет
+
+
+def slot_start_ms(expr, now_ms):
+    """Начало часа (UTC) последнего срабатывания строки cron «M H * * *» не позже now_ms, в мс."""
+    parts = (expr or "").split()
+    hour = int(parts[1])
+    day = 24 * 3600 * 1000
+    today = now_ms - now_ms % day + hour * 3600 * 1000
+    return today if today <= now_ms else today - day
+
+
+def slot_served(updated_ms, slot_ms, margin_min=SLOT_MARGIN_MIN):
+    """Пул обновлялся не раньше начала часа слота (с запасом) — запасному запуску тут делать нечего."""
+    return updated_ms is not None and updated_ms >= slot_ms - margin_min * 60000
+
+
 def local_hour(utc_hour, pool):
     return (utc_hour + POOL_UTC_OFFSET[pool]) % 24
 
@@ -127,7 +150,10 @@ if __name__ == "__main__":
     # Использование в workflow:  python schedule_pools.py "<cron>"           → «ru,fr»
     #                            python schedule_pools.py --shelves "<cron>" → «1» или «»
     args = sys.argv[1:]
-    if args and args[0] == "--shelves":
+    if args and args[0] == "--slot":
+        import time
+        print(slot_start_ms(args[1] if len(args) > 1 else "", int(time.time() * 1000)))
+    elif args and args[0] == "--shelves":
         print("1" if wants_country_shelves(args[1] if len(args) > 1 else "") else "")
     else:
         print(",".join(pools_for_cron(args[0] if args else "")))

@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 from feed_gate import (drop_family_repeats, gate as feed_gate, same_event,
                        regions_agree, pick_regionals)
 from live_identity import verdict as identity_verdict
-from schedule_pools import selected_pools, stale_pools
+from schedule_pools import selected_pools, stale_pools, slot_served
 from textcut import (display_source, lead, trim_to_boundary, wants_page_body,
                      card_text, cap_article, full_text_of,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
@@ -8914,6 +8914,16 @@ def main():
     if partial:
         if os.environ.get("FORCE_RUN") != "true":
             ages = {p: _pool_age_min(p) for p in run_pools}
+            # Запасной запуск по расписанию GitHub опаздывает на часы: «моложе 25 минут» его не гасит.
+            # Если слот уже обслужен (пул обновлялся не раньше начала часа слота) — выходим (J56)
+            _slot = os.environ.get("SLOT_TS_MS", "").strip()
+            if _slot.isdigit():
+                _now = datetime.now().timestamp() * 1000
+                served = {p for p in run_pools
+                          if ages.get(p) is not None and slot_served(_now - ages[p] * 60000, int(_slot))}
+                if served:
+                    print(f"⏭ Слот уже обслужен для пулов: {', '.join(sorted(served))} — запасной запуск их не трогает")
+                run_pools = tuple(p for p in run_pools if p not in served)
             run_pools = stale_pools(run_pools, ages, FRESH_ENOUGH_MIN)
             if not run_pools:
                 print(f"⏭ Все запрошенные пулы свежи (порог {FRESH_ENOUGH_MIN} мин): "
