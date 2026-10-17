@@ -123,5 +123,12 @@ check("fetch.yml передаёт SLOT_TS_MS запасному запуску",
 check("fetch.yml гоняет test_repost_memory.py", "python test_repost_memory.py" in wf)
 check("fetch_news читает SLOT_TS_MS и пропускает обслуженные пулы", "SLOT_TS_MS" in fn and "slot_served(" in fn)
 
+
+# ── каждый замок подключён к CI (J59, 17.10.2026): шесть test_*.py (urgent_guard, topic_country,
+#    local_foreign_text, foreign_tech, kw_boundary, category_guard) не входили в fetch.yml и проверялись только вручную ──
+import glob as _glob
+_missing = [f for f in sorted(_glob.glob("test_*.py")) if f"python {f}" not in wf]
+check("все test_*.py запускаются в fetch.yml (не подключены: " + ", ".join(_missing) + ")", not _missing)
+
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)

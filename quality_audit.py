@@ -44,7 +44,7 @@ from editions import EDITION_LANG
 from native_lang import detect_native
 from shelves import verdict as shelf_verdict, pool_shelf_fix, world_to_home_fix
 from twins import drop_twins
-from urgent_guard import foreign_small_urgent, layout_category, p2_excess, prepared_material
+from urgent_guard import foreign_small_urgent, layout_category, p2_excess, personnel_change, prepared_material
 from textcut import ends_inside_quote, first_sentence_title, card_text
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
@@ -182,6 +182,14 @@ def main():
                 row = {"source": x["source"], "title": norm(x["title"])[:70], "flaws": {}}
                 rows.append(row)
             row["flaws"]["prepared"] = True
+    # кадровая перестановка чиновника со «срочно» или «важным» (J54)
+    for x in items:
+        if personnel_change(x):
+            row = next((r for r in rows if r["title"] == norm(x["title"])[:70]), None)
+            if row is None:
+                row = {"source": x["source"], "title": norm(x["title"])[:70], "flaws": {}}
+                rows.append(row)
+            row["flaws"]["personnel"] = True
     # рубрика вне списка вёрстки (J39) и «важное» сверх потолка полки (J40) — по данным ленты
     excess = {id(x) for x in p2_excess(items)}
     for x in items:
