@@ -1,14 +1,25 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] WTOP — Embattled White House press secretary Katie Zacharia is leaving the job after le — внезапная отставка пресс-секретаря через неделю работы — это кадровый шум, а не событие государственной важности
-- [en] повтор: [local] CBS News — Trump says he's "negotiating Peace" as Russia, Ukraine trade strikes ≈ «What Trump’s Waiver of New Russia Sancti» — сюжет о действиях Трампа по санкциям/России/Украине
-- [en] повтор: [local] NH Union Leader Latest News — Rubio says Trump to take up to 60 days to weigh Russia sanctions ≈ «What Trump’s Waiver of New Russia Sancti» — сюжет о действиях Трампа по санкциям/России/Украине
-- [en] повтор: [pool] BBC News — Inside Chicago's battle against the synthetic drugs flooding the US ≈ «A wave of homemade, synthetic drugs swee» — один и тот же сюжет про синтетические наркотики в США
-- [en] не_новость: [pool] Reuters — Browns get walk-off winner to catch Ravens in AFC North — карточка без заголовка, по сути пустая
-- [en] курьёз: [world] Engadget — After five years, Inscryption is finally coming to mobile — выход игры на мобильные устройства — это новость для узкого круга геймеров, не для широкой ленты
-- [en] курьёз: [world] Engadget — Here's how the Slate truck gets software updates without built-in infotainment — технические подробности устройства грузовика не являются новостью
-- [en] не_новость: [world] TechCrunch — Disney agrees to hire the majority of Character.AI’s workforce — корпоративная перестановка, не имеющая широкого общественного значения
-- [en] не_новость: [world] Ars Technica — Anthropic gives outside AI watchdog “employee-like” access — внутренняя процедура проверки компании, не является событием для читателя
-- [en] не_новость: [world] The Guardian — I saw rioting, looting, above all, anger. — это авторская колонка/репортаж, а не новостное событие
-- [en] курьёз: [world] Superinteressante — Scientists vote to redefine how the world measures time — научно-технический факт, не является новостью
-- [en] полка: [world] Guardian Sport — Auburn stun No 1 Georgia on last-gasp field goal as top-ranked teams fall in suc — спортивная новость из США должна быть в местных новостях, а не в мировой ленте
+- [es] не_новость: [local] El Universal MX — Ramírez Cuéllar propone coordinación entre gobiernos para mejorar ciudades; comb — предложение политики, а не принятое решение
+- [es] не_новость: [local] El Universal MX — PAN asegura que tenía razón sobre riesgos del Programa de Ordenación Metropolita — спор о документах без свершившегося изменения
+- [es] не_новость: [local] El Informador — Chapala celebra por primera vez el Día del Lago — празднование дня, плановое мероприятие
+- [es] не_новость: [local] El Financiero — Val’Quirico será sede del IV festival enogourmet “Aire Tinto” — анонс фестиваля, который проходит в эти даты
+- [es] не_новость: [local] Expansión MX — Olinia necesita dinero privado para producir en masa; el gobierno busca empresar — планы правительства по поиску инвестиций
+- [es] не_новость: [local] Expansión MX — Los países pobres pagan cada vez más deuda, el petróleo sube y el FMI alerta por — общий обзор состояния экономики, нет события
+- [es] не_новость: [pool] El Tiempo CO — Medellín impulsa el turismo del futuro: más de 9.000 prestadores le apuestan a l — описание процесса формализации туризма, без события
+- [es] не_новость: [pool] El Tiempo CO — Deuda de ACSA por obras pendientes en el aeropuerto Cortissoz supera $147.000 mi — описание долга, а не новое решение или выплата
+- [es] не_новость: [pool] La Nación AR — Belgrano vs. River, en vivo, por el torneo Clausura: horario, TV y formaciones — анонс спортивного матча (расписание)
+- [es] не_новость: [pool] Semana CO — Sindicato de Asmet Salud EPS envió carta a Abelardo De La Espriella y anunció de — письмо и намерение профсоюза, нет события
+- [es] курьёз: [pool] Infobae — Un estudio revela que los fármacos GLP-1 para la obesidad se asocian con menos i — результаты исследования без конкретного события
+- [es] не_новость: [pool] 14ymedio — Cienfuegos busca capital privado nacional y extranjero para rescatar sus instala — намерение правительства искать капитал
+- [es] не_новость: [pool] Diario Libre DO — Leonel: Gobierno ha perdido toda autoridad moral” para negociar arroz — мнение политика, критика
+- [es] не_новость: [pool] Diario Libre DO — Raquel Peña destaca reducción de pobreza en República Dominicana — статистический отчет за прошлый период
+- [es] не_новость: [pool] La Vanguardia — Feijóo promete una nueva ley antiocupaciones de la mano de Albiol — предвыборные обещания кандидата
+- [es] не_новость: [world] Semana CO — Donald Trump cree que Zelenski “no quiere acabar esta guerra y probablemente nun — мнение лидера США о Зеленском, не событие
+- [es] курьёз: [world] Prensa Libre GT — Cindy Crawford habla por primera vez tras la muerte de su hijo Presley: “Estoy m — личные переживания знаменитости
+- [es] повтор: [world] CBS News — Trump afirma que está "negociando la paz" mientras Rusia y Ucrania intercambian  ≈ «Trump defiende el alivio de sanciones a » — тот же сюжет про критику и переговоры Трампа
+- [es] не_новость: [world] Fortune — Irán se queda sin fondos y no puede pagar a sus tropas ante el bloqueo de EE. UU — аналитическая оценка стратегии США
+- [es] не_новость: [world] Variety — Julianne Moore afirma que 'The Debut' es 'uno de los mejores guiones que he leíd — мнение актрисы о сценарии
+- [es] не_новость: [world] BBC Mundo — Cuánto aporta la rica provincia de Alberta a la economía de Canadá y qué pasaría — рассуждение о гипотетической независимости провинции
+- [es] курьёз: [world] BBC Mundo — Un yate con una piscina de 50 metros y toboganes acuáticos: imágenes satelitales — описание роскоши лидера КНДР без события
+- [es] анонс: [world] RPP PE — Temblor en Perú, hoy 18 de octubre: magnitud y epicentro del sismo según IGP — обновляемая лента сейсмической активности без конкретного факта
