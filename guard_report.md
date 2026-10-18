@@ -1,37 +1,9 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] G1 Globo — Ditadura, desinformação e 'gag': veja o que caiu na 1ª fase da Unicamp 2027 — Вопросы экзамена Vestibular — это методическая информация, а не событие.
-- [pt] курьёз: [local] Poder360 — Filho de Temer aparece em vídeo com adesivo de apoio a Lula — Появление подростка с наклейкой — частное событие без общественной значимости.
-- [pt] курьёз: [local] Poder360 — Robô chinês para aplicações industriais é apresentado no Brasil — Презентация прототипа робота в исследовательском центре — не новость широкого охвата.
-- [pt] полка: [pool] Jornal de Negócios — Provedora de Justiça pede informações à PSP com urgência sobre carga policial no — Событие в Португалии (PT) ошибочно попало в пул португальского языка как «Новости из…», где должны быть новости других с
-- [pt] курьёз: [pool] Observador PT — Os candelabros da baixela Germain que regressam a Portugal — Исторический факт о возвращении музейных экспонатов — это рубрика «Интересное», а не новостная повестка.
-- [pt] не_новость: [pool] Téla Nón — Dia Mundial da Alimentação : Crianças mostram na prática a valorização dos produ — Участие детей в школьном празднике в День питания не является новостью.
-- [pt] чужое_мелкое: [world] Notícias ao Minuto — Trump manifesta "apoio total e incondicional" a Netanyahu nas eleições — Заявление поддержки кандидата внутри другой страны — мелкая политическая новость.
-- [pt] чужое_мелкое: [world] CNN Brasil — O estado que pode pôr em risco o plano democrata de controlar o Senado — Разбор предвыборной ситуации в Сенате США для бразильского читателя — избыточная информация.
-- [pt] не_новость: [world] Folha de S.Paulo — Investimentos de US$ 10 tri em data centers nos EUA enfrentam atrasos, dúvidas e — Общий аналитический обзор рынка инфраструктуры — это разбор, а не событие.
-- [pt] не_новость: [world] Variety — Bilheteria: ‘You Can See Everything’ surpreende com estreia de US$ 15 milhões; ‘ — Обычная заметка о кассовых сборах фильмов.
-- [pt] курьёз: [world] Rolling Stone — Charli XCX e Chappell Roan apresentam ‘Boom Clap’ em Los Angeles — Выступление артистов — светская хроника, а не событие.
-- [pt] не_новость: [world] Observador PT — O "xadrez" que vai reconfigurar o BCE com a saída de Lagarde — Слухи о перестановках в ЕЦБ без официального решения.
-- [pt] не_новость: [world] Engadget — Os novos recursos do CarPlay no iOS 27 são excelentes, mas apenas estes iPhones  — Обзор новой версии ПО — это потребительская статья.
-- [pt] не_новость: [world] Variety — ‘Jengira’s Magnificent Dream’, de Apichatpong Weerasethakul com Tilda Swinton, é — Новость о покупке прав на фильм кинокомпанией — рыночная рутина.
-- [pt] курьёз: [world] BBC Brasil — Iate com piscina de 50 metros e toboáguas: imagens de satélite revelam o centro  — Описание яхты лидера страны по снимкам спутника — не событие, а спекуляция.
-- [pt] не_новость: [world] TechCrunch — TikTok bane permanentemente conta de publicidade do documentário sobre Elon Musk — Блокировка аккаунта в соцсети — технический вопрос, не имеющий широких последствий.
-- [pt] не_новость: [world] TechCrunch — Replit não trabalha mais com a Anthropic, diz CEO — Решение частной компании о смене партнера по API.
-- [pt] чужое_мелкое: [world] Ars Technica — Promotor de Nova Jersey é acusado de produzir material de abuso sexual infantil  — Уголовное дело против местного прокурора в штате США — мелкое происшествие для международного читателя.
-- [fr] не_новость: [local] La Dépêche — Présidentielle 2027 : "L'arrivée au pouvoir des extrêmes dans notre pays est imp — мнение актрисы об электорате и политике — не событие.
-- [fr] не_новость: [local] 20 Minutes — « Quand ça a commencé à fonctionner pour Superbus, je ne l’ai pas très bien vécu — интервью/воспоминания музыканта не являются новостью.
-- [fr] полка: [pool] Radio-Canada — Mathieu Lévesque est le nouveau chef par intérim de la CAQ — канадская новость о назначении регионального лидера должна быть в «Новости из...», а не в местных (ошибочно помечена FR)
-- [fr] повтор: [pool] Africanews FR — La France secouée par des affrontements, des incendies et des pillages ≈ «17 octobre : au lendemain des violences,» — дублирует описание протестов во Франции.
-- [fr] повтор: [pool] RTBF — Vie chère, violences, tensions : Paris au cœur d’un dimanche sous haute surveill ≈ «Tensions à Paris: nouveaux heurts autour» — дублирует ситуацию в Париже.
-- [fr] курьёз: [pool] RTBF — "Une attitude moqueuse" : le chroniqueur français Guillaume Meurice contrôlé à L — личный инцидент с блогером, не имеет общественного значения.
-- [fr] чужое_мелкое: [pool] RTBF — Affaire El Talbi, le policier décédé à Bruxelles : six personnes sous mandat d’a — детали уголовного расследования в Бельгии не имеют значения для французского потока.
-- [fr] чужое_мелкое: [world] La Tribune — Électricité indisponible : Microsoft abandonne un mégaprojet d'IA au Royaume-Uni — отмена проекта IT-гиганта в Британии — бизнес-новость, не имеющая мирового масштаба для широкого читателя.
-- [fr] чужое_мелкое: [world] Le Devoir — Santé Québec corrige le tir en matière d’aide à domicile après des erreurs coûte — реорганизация канадской соцслужбы — внутренняя новость Канады.
-- [fr] чужое_мелкое: [world] TSA Algérie — Automobile : la Chine détrône l’Europe en Algérie, plus de 190.000 véhicules imp — алжирская статистика по импорту авто не является мировой новостью.
-- [fr] повтор: [world] UPI — La police française procède à 2 000 arrestations ≈ «Interpellations, magasins saccagés… Les » — дублирует информацию об арестах во Франции.
-- [fr] повтор: [world] BBC — Incendie majeur sur une base militaire au Canada : plusieurs morts et blessés ≈ «Tragédie mortelle à la base des Forces c» — одно и то же событие (пожар на базе в Канаде).
-- [fr] чужое_мелкое: [world] Le Devoir — Les absents pourraient peser lourd dans le référendum albertain — внутренний референдум в Альберте — локальное событие Канады.
-- [fr] чужое_мелкое: [world] Le Devoir — Les indépendantistes albertains préparent déjà l’après-référendum — внутренний референдум в Альберте — локальное событие Канады.
-- [fr] полка: [world] Азаттык (кыргызча) — Frappes russes en Ukraine : victimes humaines et coupures d'électricité — новость из Украины должна быть в мировых, а не в разделе с названием киргизского агентства.
-- [fr] повтор: [world] RFI — DIRECT - De nouvelles scènes de tensions et de pillages à Paris, au lendemain de ≈ «Tensions à Paris: nouveaux heurts autour» — дублирует отчет о протестах.
-- [fr] курьёз: [world] Radio-Canada — « Combien d’électricité avons-nous? » : l’essor des centres de données divise en — описание любопытства туристов к исландским дата-центрам не является событием.
+- [en] полка: [local] Clarín AR — Official and confirmed: United States prohibits exit and return for those unable — Это новость про законодательство США, должна быть в МЕСТНЫХ, а не в НОВОСТЯХ ИЗ...
+- [en] повтор: [pool] SMH Australia — Trump urges Israelis to re-elect ‘Great Warrior’ Netanyahu in stunning intervent ≈ «Trump tells Axios why he endorsed Netany» — Один и тот же сюжет про вмешательство Трампа в выборы Израиля.
+- [en] повтор: [pool] NPR News — Carney says 4 service members killed and dozens injured in fire at Alberta milit ≈ «Canadian military base 'incident' has ki» — Один и тот же сюжет про инцидент на канадской военной базе.
+- [en] чужое_мелкое: [world] Азаттык — Rubio arrives in Samarkand; meetings with Central Asian Foreign Ministers expect — Визит госсекретаря в Узбекистан — внутренняя дипломатическая новость для региона, не является мировым событием.
+- [en] не_новость: [world] The Guardian — I saw rioting, looting, above all, anger. — Это авторская колонка-эссе («Я видел...»), а не новость о событии.
+- [en] курьёз: [world] BBC Sport — Britain's Kartal misses out on biggest title of her career — Спортивный результат (поражение в финале) не является мировым событием, если он не меняет историю вида спорта.
+- [en] курьёз: [world] Guardian Sport — Auburn stun No 1 Georgia on last-gasp field goal as top-ranked teams fall in suc — Результат матча студенческого футбола — это чисто американская спортивная новость, не мировая.
