@@ -1,26 +1,18 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] PennLive — Who is Luke Fahey? Ohio State’s new quarterback is about to get his biggest test — спортивный анонс/профайл игрока, не событие
-- [en] не_новость: [local] Cleveland.com — Baker Mayfield could be nearing his Buccaneers return, and look who is next — спортивный прогноз/рассуждение, не событие
-- [en] не_новость: [local] WBAL — Ravens face first divisional game against Browns | What to know — анонс матча, не событие
-- [en] не_новость: [local] NBC News — Poll: Americans are anxious, pessimistic and deeply unhappy with Trump ahead of  — опрос общественного мнения, не событие
-- [en] не_новость: [local] WCTV — Coldest mornings since May are on the way🥶 — прогноз погоды, не событие
-- [en] не_новость: [local] WKYT — From frost to sunshine and 70-degree days — прогноз погоды, не событие
-- [en] не_новость: [local] WAFB — Admonished Saints roll into New York to find old friend Jameis Winston waiting — спортивное превью перед игрой, не событие
-- [en] не_новость: [local] Startribune News — Movie clubs have popped up all over the Twin Cities. Here’s a guide to 7. — гид/подборка, не событие
-- [en] не_новость: [local] Gothamist — Bail reform remains major issue in NY governor's race, 7 years after it became l — аналитическая статья о политике, не событие
-- [en] не_новость: [local] Wisconsin Watch — How a Madison doctor is saving the smallest lives — лонгрид-расследование, не событие
-- [en] курьёз: [local] Startribune News — Douglas: Where should I retire in a warming world? — авторская колонка/мнение, место в «Интересном»
-- [en] не_новость: [local] Honolulu Star-Advertiser — UH hoops individual game tickets on sale — плановая продажа билетов, не событие
-- [en] не_новость: [local] Honolulu Civil Beat — Tech Troubles Trip Up Hawaiʻi’s Child Welfare System — отчет о рисках системы, не событие
-- [en] полка: [pool] Sky Sports — Gomez scores stunning HALFWAY-LINE goal! — спортивный результат из Британии должен быть в «Мировых»
-- [en] повтор: [pool] NBC News — Large Military Base Fire in Canada Leaves Several Dead ≈ «Canadian military base 'incident' has ki» — тот же сюжет про пожар на базе
-- [en] не_новость: [pool] BBC News — Polanski says he will not overturn Green Party's 'Zionism is racism' motion — политическое заявление, нет свершившегося факта
-- [en] не_новость: [pool] BBC Sport — After Dubois' dominant win, what's next for heavyweight boxing? — спортивная аналитика, не событие
-- [en] не_новость: [pool] BBC News — A wave of homemade, synthetic drugs sweeps US and deepens crisis — репортаж-очерк о наркотиках, не событие
-- [en] полка: [pool] Ars Technica — “thegentlemanpervert” producing AI CSAM is a NJ prosecutor, say cops — криминальная новость из US должна быть в «Местных»
-- [en] анонс: [world] Reuters — US resumes intelligence-sharing with Ukraine after pause, Zelenskiy says — пустой текст, нет содержания
-- [en] анонс: [world] Reuters — Albanian PM says protests pose threat to EU membership, not government — пустой текст, нет содержания
-- [en] не_новость: [world] TechCrunch — Meta removes language that raised scraping and AI training concerns — обновление условий пользования, не событие
-- [en] не_новость: [world] TechCrunch — TikTok permanently bans ‘Musk’ documentary advertising account — спор об рекламе, не событие
-- [en] не_новость: [world] TechCrunch — Anthropic says its workforce has become less junior and is spending more time in — корпоративное исследование/наблюдение, не событие
+- [es] курьёз: [local] El Sol de México — Centenario de Chuck Berry: entre rock & roll y polémica — Исторический факт о смерти музыканта 100 лет назад не является новостью.
+- [es] не_новость: [local] El Financiero — El dólar: la velocidad y la distancia son diferentes — Это авторская колонка с рассуждениями, а не событие с фактами.
+- [es] курьёз: [local] El Financiero — ‘Operación Cisne Negro’: Documental sobre recaptura de Joaquín ‘El Chapo’ Guzmán — Анонс документального фильма — это не событие, а реклама контента.
+- [es] не_новость: [pool] El Universo EC — El Banco de Germoplasma del Iniap cumple 45 años con la meta de digitalizar su p — Юбилей организации (45 лет) — плановая дата, а не событие.
+- [es] курьёз: [pool] La Nación AR — El emotivo gesto del hijo de Julieta Prandi con su mamá tras la separación de Em — Светская хроника и личные дела знаменитостей не являются новостью.
+- [es] не_новость: [pool] La Nación AR — Por dónde pasan Racing vs. Independiente y qué canal lo transmite en vivo — Анонс матча — это справочная информация, а не событие.
+- [es] не_новость: [pool] 14ymedio — La escasez de electricidad en Cuba provoca una “guerra de circuitos” — Описание бытовых трудностей без конкретного события (решения или аварии).
+- [es] курьёз: [pool] El Universo EC — Budokan 2026: ‘cosplayers’ dan vida a personajes de videojuegos y fantasía con t — Репортаж с фестиваля косплея — это лайфстайл, а не новость.
+- [es] не_новость: [pool] Diario Libre DO — Conape tenía a 15 empleados públicos en programa Familias de Cariño — Упоминание прошлых лет (2024) без события «сегодня».
+- [es] не_новость: [pool] eldiario.es — El Frente Amplio y Podemos intentan zanjar el debate de las siglas y llaman a “f — Политические лозунги и призывы партий — это слова, а не совершенное действие.
+- [es] не_новость: [world] BBC Mundo — Cuánto aporta la rica provincia de Alberta a la economía de Canadá y qué pasaría — Рассуждения о гипотетической независимости провинции — это аналитика, а не новость.
+- [es] курьёз: [world] Muy Interesante — ¿Sabías que los romanos consiguieron que su hormigón se reparara solo? — Научно-популярный факт об истории Древнего Рима.
+- [es] курьёз: [world] Superinteressante — Científicos votan para redefinir la forma en que el mundo mide el tiempo — Абстрактное научное обсуждение мер измерения времени.
+- [es] курьёз: [world] BBC Mundo — Cómo el arroz puede ayudar a construir las casas del futuro — История о ремонте дома — частный случай, не имеющий мирового значения.
+- [es] курьёз: [world] BBC Mundo — Un yate con una piscina de 50 metros y toboganes acuáticos: imágenes satelitales — Обсуждение фотографий яхты не является значимым политическим или иным событием.
+- [es] не_новость: [world] TechCrunch — Meta elimina cláusulas que generaban preocupación sobre la recopilación de datos — Изменение условий использования сервиса — рутина, а не событие.
