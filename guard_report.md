@@ -1,17 +1,14 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Exame — Astrônomos descobrem primeira estrela verde já vista no espaço; entenda o fenôme — астрономическое наблюдение, не имеющее последствий для читателя
-- [pt] не_новость: [local] Folha de S.Paulo — 1926: Ex-parlamentar italiano foge de navio para desembarcar no Brasil — историческая справка 1926 года
-- [pt] полка: [local] Metrópoles — Quem era o médico do "lifting de bumbum brasileiro" assassinado em clínica — событие в Испании с гражданином Германии — не местная новость для Бразилии
-- [pt] курьёз: [local] Superinteressante — Cientistas acabam de votar para redefinir a forma como o mundo mede o tempo — научный факт об измерении времени, место в «интересном»
-- [pt] курьёз: [local] G1 São Paulo — Tecnologia usada no Coliseu de Roma vai ajudar a preservar o Museu do Ipiranga — технология для музея — любопытный факт, а не событие
-- [pt] курьёз: [pool] Notícias ao Minuto — GNR resgata cobra "presa numa rede de proteção" em Ponte de Lima — спасение змеи — мелкий курьёз, а не новость
-- [pt] не_новость: [pool] Terra BR — 1ª modelo trans a ser recordista de desfiles, Liya Santos desfila para 10 grifes — очерк о модели, отсутствие значимого события
-- [pt] не_новость: [pool] Terra BR — Lua Blanco, 8 anos antes de morte precoce por câncer, revelou crises e admitiu i — воспоминания о смерти 8-летней давности, нет события
-- [pt] чужое_мелкое: [pool] Público — Juiz pede meio milhão a prostituta que o acusou de pornografia infantil — судебный процесс частного характера, не имеет мирового значения
-- [pt] курьёз: [world] Rolling Stone — Red Hot Chili Peppers e Dave Grohl se apresentam no show de 25º aniversário do S — музыкальное выступление, не является событием
-- [pt] не_новость: [world] Terra BR — Em 1971, Quebec inundou 11.500 km² de floresta para criar um mega-reservatório e — исторический экскурс в 1971 год
-- [pt] не_новость: [world] Forbes — O Chevy Bolt 2027 é agora o veículo elétrico mais barato dos EUA com condução au — рекламный обзор потребительских товаров
-- [pt] не_новость: [world] TechCrunch — TechCrunch Mobility: O próximo passo da Rivian — бизнес-обзор планов компании без совершившегося факта сделки
-- [pt] курьёз: [world] BBC Brasil — Iate com piscina de 50 metros e toboáguas: imagens de satélite revelam o centro  — описание быта лидера страны по спутниковым снимкам
-- [pt] не_новость: [world] TechCrunch — Meta remove cláusula que gerou preocupações sobre coleta de dados e treinamento  — изменение условий пользовательского соглашения ИТ-компании
+- [en] не_новость: [local] WTOP — Embattled White House press secretary Katie Zacharia is leaving the job after le — внезапная отставка пресс-секретаря через неделю работы — это кадровый шум, а не событие государственной важности
+- [en] повтор: [local] CBS News — Trump says he's "negotiating Peace" as Russia, Ukraine trade strikes ≈ «What Trump’s Waiver of New Russia Sancti» — сюжет о действиях Трампа по санкциям/России/Украине
+- [en] повтор: [local] NH Union Leader Latest News — Rubio says Trump to take up to 60 days to weigh Russia sanctions ≈ «What Trump’s Waiver of New Russia Sancti» — сюжет о действиях Трампа по санкциям/России/Украине
+- [en] повтор: [pool] BBC News — Inside Chicago's battle against the synthetic drugs flooding the US ≈ «A wave of homemade, synthetic drugs swee» — один и тот же сюжет про синтетические наркотики в США
+- [en] не_новость: [pool] Reuters — Browns get walk-off winner to catch Ravens in AFC North — карточка без заголовка, по сути пустая
+- [en] курьёз: [world] Engadget — After five years, Inscryption is finally coming to mobile — выход игры на мобильные устройства — это новость для узкого круга геймеров, не для широкой ленты
+- [en] курьёз: [world] Engadget — Here's how the Slate truck gets software updates without built-in infotainment — технические подробности устройства грузовика не являются новостью
+- [en] не_новость: [world] TechCrunch — Disney agrees to hire the majority of Character.AI’s workforce — корпоративная перестановка, не имеющая широкого общественного значения
+- [en] не_новость: [world] Ars Technica — Anthropic gives outside AI watchdog “employee-like” access — внутренняя процедура проверки компании, не является событием для читателя
+- [en] не_новость: [world] The Guardian — I saw rioting, looting, above all, anger. — это авторская колонка/репортаж, а не новостное событие
+- [en] курьёз: [world] Superinteressante — Scientists vote to redefine how the world measures time — научно-технический факт, не является новостью
+- [en] полка: [world] Guardian Sport — Auburn stun No 1 Georgia on last-gasp field goal as top-ranked teams fall in suc — спортивная новость из США должна быть в местных новостях, а не в мировой ленте
