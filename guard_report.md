@@ -1,19 +1,28 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] не_новость: [local] Kaktus.media — На концерт Шакиры объявили скидки до 60%, а затем удалили публикацию — Событие «удаление публикации» не меняет реальности для читателя.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Оренбургский областной суд пополнили сразу трое экс-председателей районных судов — Внутренняя кадровая политика судов РФ не является важной для Кыргызстана.
-- [ru] не_новость: [pool] 51.ru — Мурманск — Завершен ремонт нижней привокзальной площади в Мурманске: показываем, как она вы — Отчет об окончании ремонта площади — локальный инфоповод, не событие.
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — «У него свой магазин снастей»: в Челябинской области ищут предпринимателя, пропа — Поиск пропавшего человека в РФ — местная новость российского региона, нет последствий для мира.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самаре у жильцов заберут дом-памятник через дорогу от площади Куйбышева — Внутреннее дело мэрии Самары по изъятию недвижимости.
-- [ru] не_новость: [pool] 14.ru — Якутск — Регулярные закупки и ремонт до поломок. Якутдорстрой решил оптимизировать свою р — Планы компании по оптимизации работы не являются свершившимся событием.
-- [ru] не_новость: [pool] Avesta.tj — В СНГ разработают общие подходы к контролю качества медицинских услуг и донорств — Разработка «общих подходов» — бюрократический процесс, нет итогов.
-- [ru] не_новость: [world] Engadget — OpenAI создает гуманоидного робота, но настоящая сложность заключается не в корп — Анонс планов компании по разработке робота, событие не произошло.
-- [ru] не_новость: [world] Engadget — Эти планшеты Samsung Galaxy проживают последний год программной поддержки — Прекращение поддержки ПО через год — это не событие текущего дня.
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Шона Комбса перевели в тюрьму с историей скандалов — Перевод американского заключенного в другую тюрьму не имеет мирового значения.
-- [ru] не_новость: [world] TechCrunch — Meta удалила формулировки, вызвавшие опасения по поводу сбора данных и обучения  — Обновление условий использования — это рутина, не событие.
-- [ru] чужое_мелкое: [world] TechCrunch — TikTok навсегда заблокировал рекламный аккаунт документального фильма об Илоне М — Блокировка рекламного аккаунта — внутренняя мера площадки.
-- [ru] не_новость: [world] TechCrunch — В Anthropic заявили о снижении доли молодых специалистов и увеличении времени на — Внутренняя статистика компании (доля молодых специалистов) не новость.
-- [ru] чужое_мелкое: [world] TechCrunch — Replit выбрала OpenAI вместо Anthropic в качестве основного партнера — Смена партнера у частной компании (Replit) — не мировая новость.
-- [ru] не_новость: [world] BBC Русская служба — Кэти Закария проработала пресс-секретарем Трампа всего пять дней. Что это было и — Аналитическая статья о кадровых перестановках в администрации США (бывший пресс-секретарь).
-- [ru] не_новость: [world] Semafor — Переговоры Федерального управления гражданской авиации (FAA) об участии в капита — Переговоры не являются завершенным событием (FAA и Air Space Intelligence).
-- [ru] курьёз: [world] 24.kg — Нейросеть смогла расшифровать послание Наполеона, написанное им 217 лет назад — Расшифровка письма Наполеона — любопытный факт, не событие.
+- [pt] не_новость: [local] Exame — Campanha de Flávio entrou no clima de 'já ganhou' e precisa voltar às ruas, diz  — мнение аналитика о политической кампании, а не свершившееся событие
+- [pt] не_новость: [local] InfoMoney — De faxineiro a gerente: como fica a jornada de 30 profissões com o fim da 6×1 — аналитический разбор тренда, нет конкретного события
+- [pt] курьёз: [local] Metrópoles — Plebiscito sobre mudança em cidades do PR com votação em urna será inédito — интересный факт о голосовании, но не новость
+- [pt] курьёз: [local] Superinteressante — Cientistas acabam de votar para redefinir a forma como o mundo mede o tempo — научное решение без последствий для читателя, место в 'Интересном'
+- [pt] повтор: [local] Gazeta do Povo — Ato em São Paulo busca consolidar apoio a Flávio na reta final do 2º turno ≈ «Campanha de Flávio entrou no clima de 'j» — тот же сюжет про кампанию Флавио Болсонару
+- [pt] не_новость: [local] G1 São Paulo — Filha de FHC, ex-ministro de Temer, autor de pedido de impeachment de Dilma e ju — подписание письма поддержки политиков — не является событием
+- [pt] не_новость: [local] Agência Brasil — Cortes em auxílios sociais podem gerar retração em cidades do interior — прогноз последствий, а не свершившийся факт
+- [pt] курьёз: [local] Agência Brasil — Festival de Cinema valoriza produções de crianças e adolescentes — история о ребенке-киноделе, не новость
+- [pt] не_новость: [local] Agência Brasil — Organizações promovem ação de empregabilidade para refugiados — информация об акции, не содержащая конкретного результата
+- [pt] не_новость: [local] G1 Minas — Cleitinho reage a projeto de Simões sobre redução do IPVA, diz que fará estudos  — реакция политика на проект, не является событием
+- [pt] срочность: [local] G1 São Paulo — Investigado por fraudes bilionárias, advogado Nelson Wilians tem inscrição suspe — заголовок помечен как обычная новость, но событие не требует побудки
+- [pt] не_новость: [local] G1 São Paulo — Delegados e carcereiro de cadeia onde Milton Leite está preso são ouvidos pela C — процесс опроса свидетелей, нет результата следствия
+- [pt] не_новость: [pool] Poder360 — Lisboa tem ato a favor de Lula com presença de Alceu Valença — факт проведения митинга в Лиссабоне, событие второстепенное для BR
+- [pt] не_новость: [pool] BBC Brasil — 'No Brasil, rico fica mais rico dormindo, e pobre trabalha para pagar juros', di — мнение предпринимателя, а не новостное событие
+- [pt] не_новость: [world] RTP Notícias — Irão. Novo ministro da Defesa promete ripostar em caso de novos ataques dos EUA — заявление министра о планах, нет свершившегося действия
+- [pt] не_новость: [world] Público — Leão XIV promete regresso gradual às funções no primeiro evento após cirurgia — сообщение о планировании будущего графика Папы, нет события
+- [pt] курьёз: [world] RFI — No «Extremo Norte» do planeta, a Ucrânia protege as suas sementes da guerra — информация о сохранении семян — не новость
+- [pt] не_новость: [world] RFI — Tribunais «ridículos e artificiais»: na Síria, a justiça de transição permanece  — обзор ситуации с правосудием, нет события
+- [pt] не_новость: [world] Fortune — Relatório aponta que 10 milhões de americanos utilizam aplicativos de adiantamen — публикация отчета о статистике, нет свершившегося события
+- [pt] не_новость: [world] RFI — Movimento 'No Kings': novo protesto anti-Trump se aproxima das eleições de meio  — анонс протестного движения
+- [pt] не_новость: [world] Engadget — A OpenAI está construindo um robô humanoide, mas o corpo não é o maior desafio — подтверждение разработки, нет готового продукта
+- [pt] не_новость: [world] Engadget — Estes tablets Samsung Galaxy estão em seu último ano de suporte de software — плановое прекращение поддержки, не является событием
+- [pt] не_новость: [world] TechCrunch — A Anthropic afirma que sua força de trabalho tornou-se menos júnior e passa mais — внутреннее наблюдение компании, нет события
+- [fr] не_новость: [world] L'Obs — La porte-parole de Trump prend la porte après une semaine de gros malaises — уход пресс-секретаря — внутренняя кадровая перестановка, не имеющая существенных последствий для внешней политики.
+- [fr] не_новость: [world] Africanews FR — Égypte : Abdel Fattah Sissi s'engage à quitter ses fonctions en 2030 — обещание уйти в отставку через 4 года (в 2030) — это слова о будущем, а не событие.
+- [fr] не_новость: [world] Sciences et Avenir — Les technologies du futur porte-avions "France libre" — анонс перспективного проекта (ввод в строй в 2038 году) без конкретного события текущего дня.
