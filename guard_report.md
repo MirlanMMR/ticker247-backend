@@ -1,27 +1,24 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Financiero — ¿Zoé Robledo tiene ‘un pie fuera’ del IMSS? Sheinbaum aclara su futuro tras prot — Спекуляции о будущем чиновника, без факта увольнения или назначения.
-- [es] курьёз: [local] El Financiero — ‘Los otros’ eran los fantasmas: Peso ‘asusta’ al dólar y gana 8 centavos — Биржевые колебания — это рутина, а не новость с последствиями.
-- [es] не_новость: [pool] Infobae — Kevin y Luciano Benavides, los únicos hermanos en ganar el rally Dakar: su amor  — Очерк о жизни спортсменов, а не событие.
-- [es] не_новость: [pool] Infobae — Peñas Sevillistas denuncian "adulteración" y "sistemático atropello arbitral" al — Жалобы фанатов — это мнение, не событие.
-- [es] курьёз: [pool] La Nación AR — Jorge Tartaglione, médico, sobre el consumo del café: “Tomar más de cuatro tazas — Совет врача общего характера, не событие.
-- [es] чужое_мелкое: [pool] El Universo EC — Bajo secreto militar, Argentina busca equipar a sus Fuerzas Armadas — Техническая закупка армии другой страны без глобальных последствий.
-- [es] не_новость: [pool] La Nación AR — Para el Gobierno, la suba del riesgo país obedece a la “incertidumbre global” — Комментарий чиновника о причинах экономических показателей — это рассуждение.
-- [es] не_новость: [pool] La Nación AR — Dólar hoy y dólar blue, EN VIVO: a cuánto cotiza el oficial y cuál es el precio  — Ежедневная сводка курсов валют — не событие.
-- [es] не_новость: [pool] Clarín AR — El nuevo desafío ganadero: demostrar la calidad de la carne argentina con datos  — Рассуждения о качестве мяса и задачах на будущее.
-- [es] не_новость: [pool] RPP PE — Comisión de Constitución del Senado aprueba siete puntos adicionales sobre el pe — Процедурный этап рассмотрения закона, а не принятие.
-- [es] не_новость: [pool] El Nacional VE — Los Tigres pegaron más fuerte en la primera semana y están en la cima — Обзор хода чемпионата — не новость.
-- [es] срочность: [pool] El Nacional VE — Trabajadores y jubilados de Pdvsa protestaron en Maracaibo por pagos pendientes  — Протест — это рутина, а не повод для побудки.
-- [es] не_новость: [pool] BBC Mundo — "No hay intención de mantener viva su memoria": cómo se va difuminando la figura — Аналитическая статья о политическом образе, не событие.
-- [es] не_новость: [pool] eldiario.es — Abascal pide "sacrificios" frente a la unión de la izquierda en el Senado sin co — Слова оппозиционного лидера без конкретных действий.
-- [es] не_новость: [pool] eldiario.es — Feijóo firma su "contrato con España" si gobierna tras las elecciones sin revela — Предвыборное подписание декларации без конкретных новых мер.
-- [es] курьёз: [world] Xataka — El mercado de la ciberseguridad sufrió un desplome del 26% en EEUU. — Аналитический обзор рынка ИИ, не событие.
-- [es] не_новость: [world] TechCrunch — Tolan recauda 30 millones de dólares para su asistente de inteligencia artificia — Привлечение инвестиций стартапом — не событие (нет сделки или продукта).
-- [es] срочность: [world] Semana CO — Terremoto, dólar barato y tasas de interés debilitaron la economía en agosto. — Отчет за август — не повод для срочной побудки (событие в прошлом).
-- [es] срочность: [world] Wired — Oficinas electorales en al menos 32 estados han recibido cartas sospechosas — Рутинные сообщения об угрозах, это не катастрофа или война.
-- [es] не_новость: [world] RPP PE — Muere Betty McGuire, actriz de 'Growing Pains', a los 100 años — Смерть актера в 100 лет — это не срочная мировая новость.
-- [es] курьёз: [world] Xataka — Alemania tardó 45 años en atreverse a rodar una película bélica como ésta y ahor — Рекомендация фильма на стриминге.
-- [es] не_новость: [world] TechCrunch — La startup de asistentes de IA Town alcanza una valoración de unicornio cuatro m — Оценка стоимости стартапа не является событием для читателя.
-- [es] курьёз: [world] Live Science — Un dron de carreras con inteligencia artificial supera a los mejores pilotos hum — Технологический курьез без последствий.
-- [es] не_новость: [world] The Guardian — ¿Pueden los países cumplir un acuerdo para salvar las plantas y animales del mun — Вопрос-размышление о будущем соглашении, не событие.
-- [es] курьёз: [world] BBC Mundo — Los hijos temporales que los ancianos contratan en China para combatir la soleda — Социальный очерк о жизни в Китае.
+- [pt] срочность: [local] G1 Globo — VÍDEO: homem é resgatado de cisterna após ser empurrado por mulher no interior d — Криминальная хроника, не требующая побудки читателя.
+- [pt] не_новость: [local] Folha de S.Paulo — 1926: Companhia Negra de Revistas vem a SP após sucesso no Rio — Историческая справка/архив, нет текущего события.
+- [pt] чужое_мелкое: [local] Metrópoles — Advogado de Trump critica fala de Lula durante debate com Flávio Bolsonaro — Спор и комментарий адвоката по поводу предвыборной риторики, не событие для Бразилии.
+- [pt] срочность: [local] Poder360 — Fred sobre tiro no pé em bar: “Poderia ter sido muito pior” — Происшествие случилось ранее, не требует немедленного уведомления.
+- [pt] курьёз: [local] G1 Bahia — Carol Peixinho mantém clima de 'mêsversário' e celebra 1 ano e 1 mês do filho co — Светская хроника (жизнь знаменитостей), не является значимой новостью.
+- [pt] срочность: [local] G1 Bahia — Idoso de 80 anos é resgatado após ficar preso em canal com cinco metros de profu — Криминальная хроника/инцидент, не требует побудки.
+- [pt] срочность: [local] G1 Bahia — Adolescente é morto a facadas durante caminhada política no interior da Bahia — Криминальная хроника, нет последствий глобального масштаба.
+- [pt] срочность: [local] Estadão — Gato Preto e Bia Miranda são condenados a indenizar vítimas de acidente com Pors — Криминальная хроника/судебное решение по происшествию, не срочно.
+- [pt] срочность: [local] G1 Rio — Vereador do RJ preso pela Polícia Federal no Paraná foi encontrado depois de pos — Арест политика по уголовному делу, не требует срочного уведомления.
+- [pt] не_новость: [local] G1 Rio — Casa de homem preso pela PF tinha elevador de vidro transparente, piscina e lare — Описание дома преступника — развлекательный контент.
+- [pt] срочность: [local] G1 Minas — Justiça manda soltar motorista preso por atropelar manifestante em ato pró-Lula  — Судебное решение, не требующее побудки.
+- [pt] срочность: [local] G1 Ceará — Polícia prende suspeito de matar motorista de topique no interior do Ceará — Криминальная хроника (арест по старому делу), не срочно.
+- [pt] не_новость: [pool] RTP Notícias — Ronaldo assumiu por telefone a Proença falta de "condições anímicas" para ficar — Спортивное закулисье, дисциплинарное решение — локальный шум.
+- [pt] не_новость: [pool] Notícias ao Minuto — Balneário de estádio em Valongo reabre após foco de legionella — Мелкое бытовое событие (открытие раздевалки).
+- [pt] повтор: [pool] Terra BR — Cristiano Ronaldo é suspenso após deixar concentração de Portugal ≈ «Ronaldo assumiu por telefone a Proença f» — Тот же сюжет об отстранении Роналду.
+- [pt] не_новость: [pool] Terra BR — Ronaldo e Roberto Carlos assinam SAF de tradicional clube paulista — Бизнес-сделка в спорте, событие лишь для болельщиков клуба.
+- [pt] срочность: [world] Notícias ao Minuto — Israel liberta três colonos detidos por ataques na Cisjordânia — Освобождение задержанных — рядовое событие, не требующее побудки.
+- [pt] срочность: [world] The Independent — 1 morto e um ferido após tiroteio perto de mesquita em Ohio desencadear grande r — Местное происшествие в США, не мировая катастрофа, не требует побудки в Бразилии.
+- [pt] не_новость: [world] RTP Notícias — Papa Leão XIV insta Zelensky a cooperar com a Rússia no envio de ajuda a Oleshky — Дипломатический этикет/призыв, не содержит реального факта соглашения.
+- [pt] не_новость: [world] Sciences et Avenir — Na COP17, críticas aos subsídios aos combustíveis fósseis — Анонс мероприятия/обсуждение повестки, нет принятого решения.
+- [pt] курьёз: [world] Superinteressante — O Universo teve uma infância mais pesada do que se pensava — Научно-популярный факт, не новость.
+- [pt] не_новость: [world] The Guardian — Quatro anos atrás, países fizeram um acordo histórico para salvar a natureza. El — Аналитическая статья/мнение, нет события.
