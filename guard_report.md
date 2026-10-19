@@ -1,22 +1,28 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] чужое_мелкое: [local] El Financiero — ‘Violó la ley’: Sheinbaum reconoce a Chihuahua por detener a exfiscal involucrad — Внутренняя отставка мексиканского чиновника — местная новость, не мировая.
-- [es] не_новость: [pool] Infobae — Defensa formaliza un contrato para mantener los mástiles telescópicos de los peñ — Техническое обслуживание объектов — рутина, а не новость.
-- [es] курьёз: [pool] La Nación AR — Boom a China: anticipan la exportación de 1,7 millones de toneladas de un cultiv — Прогноз урожая сорго — отраслевая аналитика, не событие для массового читателя.
-- [es] не_новость: [pool] La Nación CR — Corte Plena discute reelección de Carlo Díaz como fiscal general — Обсуждение повестки дня заседания суда — не свершившееся решение.
-- [es] повтор: [pool] El Universo EC — A cuatro años de iniciado el Caso Vocales, en la Corte Nacional se instala el ju ≈ «A cuatro años de iniciado el Caso Vocale» — Карточка описывает затянувшийся процесс (пятая попытка), не является событием.
-- [es] не_новость: [pool] Clarín AR — Feriados de noviembre 2026 por la visita del Papa: quiénes tendrán cuatro días d — Анонс возможных выходных в будущем.
-- [es] не_новость: [pool] 14ymedio — Cuba recibió mucho menos combustible de lo anunciado: EE UU confundió litros con — Исправление статистической ошибки в старом отчете — не событие.
-- [es] не_новость: [pool] El Nacional VE — Delcy Rodríguez estima que sector petrolero generará 324.000 empleos en los próx — Прогноз экономического сектора на 10 лет — не событие.
-- [es] не_новость: [pool] BBC Mundo — "No hay intención de mantener viva su memoria": cómo se va difuminando la figura — Аналитическая статья-очерк о политике, а не событие.
-- [es] не_новость: [pool] El Mundo — Feijóo empeña su "palabra" en la reconstrucción nacional: "Vamos a recuperar el  — Политические обещания и риторика без конкретных принятых мер.
-- [es] не_новость: [pool] El Mundo — El informe interno del Tribunal Constitucional propone inadmitir el recurso del  — Рекомендация юридической службы суда не является решением суда.
-- [es] не_новость: [pool] eldiario.es — Feijóo firma su "contrato con España" si gobierna tras las elecciones sin revela — Подписание политического «контракта» с избирателями — предвыборная риторика.
-- [es] не_новость: [world] Marca — El plan Dakar... con Fernando Alonso — Планы организаторов ралли на следующий год — анонс, не новость.
-- [es] курьёз: [world] Fortune — «No creo que este sea nuestro hogar»: científicos abandonan Estados Unidos ante  — Личные истории ученых о переезде — не общественно значимое событие.
-- [es] не_новость: [world] Fortune — La deuda nacional de EE. UU. se acerca a un punto donde los operadores de bonos  — Оценки экспертов о состоянии долга — не свершившееся событие.
-- [es] не_новость: [world] BBC Mundo — La nueva oleada de drogas sintéticas caseras que se propaga por EE.UU. y agrava  — Аналитический обзор проблемы наркотиков без нового факта.
-- [es] не_новость: [world] TechCrunch — Apple actualiza sus directrices para prohibir aplicaciones que generan desnudos  — Изменение внутренних правил компании — рутина.
-- [es] курьёз: [world] BBC Mundo — Los hijos temporales que los ancianos contratan en China para combatir la soleda — Социальный феномен, не имеющий масштаба события.
-- [es] курьёз: [world] TechCrunch — Khosla Ventures apuesta nuevamente por Even Healthcare para desafiar la economía — Очередной раунд финансирования стартапа — бизнес-рутина.
-- [es] не_новость: [world] Superinteressante — ¿Qué proponen Lula y Flavio Bolsonaro sobre minerales estratégicos y tierras rar — Обзор предвыборных программ и мнений кандидатов.
+- [pt] курьёз: [local] Folha de S.Paulo — Documentário da Mostra de São Paulo resgata imagens inéditas da União Soviética — документальный фильм о прошлом — это исторический очерк, а не актуальное событие
+- [pt] не_новость: [local] Metrópoles — Janones: situações de estresse emocional podem provocar arritmia cardíaca — госпитализация депутата при стрессе без критического состояния — не новость
+- [pt] курьёз: [local] Metrópoles — Noiva fica acamada durante despedida de solteira e amigas continuam a festa — бытовая история о пропущенной вечеринке в США не имеет ценности для бразильца
+- [pt] не_новость: [local] Gazeta do Povo — O que a campanha de Flávio prepara antes do segundo turno — описание планов предвыборной кампании — это анонс/обзор, а не свершившееся событие
+- [pt] не_новость: [local] CNN Brasil — Dança dos Famosos: Pedro Scooby avança na competição após críticas — результаты реалити-шоу (танцы) — развлекательный контент, не событие
+- [pt] не_новость: [local] G1 Rio — Quem é Gisele Nascimento, cantora gospel com mais de 20 anos de carreira cujo fi — биографическая справка о певице, чей родственник замешан в деле, не является новостью
+- [pt] не_новость: [world] Sciences et Avenir — Na COP17, críticas aos subsídios aos combustíveis fósseis — критика в рамках конференции — это слова и дискуссия, а не решение
+- [pt] курьёз: [world] Engadget — Um dos consoles GameCube mais raros é vendido hoje por milhares de dólares — продажа редкой игровой приставки — любопытный факт, не мировое событие
+- [pt] не_новость: [world] TechCrunch — Apple atualiza diretrizes para banir aplicativos de nudez que se disfarçam de ap — обновление правил магазина приложений — рутина бизнеса, не мировое событие
+- [pt] курьёз: [world] Superinteressante — Será que as “canetas emagrecedoras” podem aumentar a longevidade? — научно-популярный разбор о лекарствах без факта открытия или запрета
+- [fr] курьёз: [local] Sciences et Avenir — A la COP17, haro sur les subventions aux énergies fossiles — Это научная новость о климате, не событие в привычном смысле.
+- [fr] повтор: [pool] Africanews FR — France : le président Macron distingue les groupes violents et les manifestants ≈ «« Quelque chose d'historique se produit » — Один сюжет с карточкой 31 о беспорядках в стране.
+- [fr] курьёз: [world] Jeune Afrique — Joseph Kabila, « proxy » de Paul Kagame ? — Аналитическая статья о политических альянсах, а не оперативное событие.
+- [fr] не_новость: [world] Jeune Afrique — Au Maroc, combien coûtera le stade Hassan-II ? — Это анонс инфраструктурного проекта с планируемой датой завершения, а не факт завершения.
+- [fr] курьёз: [world] Xataka — L'« amibe de feu » bat le record de chaleur pour la vie complexe et force à repe — Научный факт о поиске жизни в космосе.
+- [fr] чужое_мелкое: [world] Sud Ouest — États-Unis : un soldat fait une chute de 50 mètres et meurt devant 23 000 person — Трагический инцидент в США, не имеющий международного влияния.
+- [fr] не_новость: [world] Courrier International — “La France brûle” : les scènes de chaos à la une des journaux en Iran — Это медийный обзор («как о нас пишут в Иране»), а не событие внутри Франции.
+- [fr] чужое_мелкое: [world] La Dépêche — "C'est une véritable folle" : Donald Trump persiste et annonce que son projet de — Локальный судебный спор о поле для гольфа в США.
+- [fr] чужое_мелкое: [world] Courrier International — À Milan aussi, les manifestations dégénèrent en violences et en pillages — Беспорядки в Италии, которые не являются мировым событием.
+- [fr] курьёз: [world] La Dépêche — Des décennies de combats et plusieurs millions de morts... Une guerre meurtrière — История о муравьях в Калифорнии.
+- [fr] курьёз: [world] Sciences et Avenir — Un "coup de massue": face à l'IA, les mathématiciens sont sous le choc — Мнение математиков об ИИ, без факта события.
+- [fr] не_новость: [world] Courrier International — Au Royaume-Uni, la presse n’éprouve “plus de plaisir à voir la France” dans un t — Подборка мнений британской прессы о событиях во Франции.
+- [fr] чужое_мелкое: [world] Semafor — La Zambie règle son différend avec un investisseur du Golfe au sujet d'une mine  — Корпоративный спор в Замбии, не имеющий мирового значения.
+- [fr] не_новость: [world] Africanews FR — Zimbabwe : le parti au pouvoir approuve le maintien de Mnangagwa à sa tête — Плановое решение партии об оставлении действующего лидера на посту.
+- [fr] курьёз: [world] Sciences et Avenir — "Sans précédent" ou juste "très puissant" ? Les experts sont divisés sur El Niño — Дискуссия экспертов о погоде.
+- [fr] не_новость: [world] Superinteressante — Quelles sont les propositions de Lula et de Flávio Bolsonaro concernant les mine — Обзор предвыборных программ политиков, не является оперативным событием.
