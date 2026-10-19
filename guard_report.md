@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] WSMV — Real ice-skating rink, 40-foot Christmas tree headline Nashville Yards’ 2026 hol — Анонс праздничной программы на будущие праздники, не событие.
-- [en] не_новость: [local] WAFF — Dancer Abby Callahan talks Huntsville Ballet’s 2026-2027 season — Анонс балетного сезона, беседа о планах.
-- [en] не_новость: [local] Inquirer.com — Patriots dealing with more injuries on their banged-up offensive line entering a — Спортивная аналитика о составе команды, нет конкретного события.
-- [en] не_новость: [local] WBRC — Head of Alabama Medical Cannabis Commission to retire, says Commission Chair — Плановая отставка чиновника, не является важным событием.
-- [en] не_новость: [local] KFYR-TV — Public health officials recommend vaccinations for respiratory illnesses — Рекомендация по вакцинации, не конкретное событие.
-- [en] не_новость: [local] NY Post — Aaron Boone will have another chance to get Yankees over the hump — Мнение о решении менеджмента оставить тренера, не событие.
-- [en] не_новость: [local] WSMV — These Tennessee cities selected for new initiative to increase housing, affordab — Участие в инициативе по поддержке, нет свершившегося события.
-- [en] не_новость: [local] WBAY — Brown County reminds residents not to throw GLP-1 needles in trash — Памятка (совет) жителям, не событие.
-- [en] не_новость: [local] WCTV — Digital campaign signs from unknown sponsor appear in Tallahassee, cause confusi — Спекуляции о происхождении знаков, нет конкретного события.
-- [en] не_новость: [local] KOLO — Nevada DMV extending business hours during election period — План по расширению часов работы, не событие.
-- [en] не_новость: [local] WBAL — Residents near Back River wastewater plant raise concerns over foul odors — Жалобы на запахи, нет конкретного события.
-- [en] не_новость: [local] WISH-TV — Crime podcaster targeted in Facebook hacking and bitcoin scam — История о хакерской атаке, нет оперативного события.
-- [en] не_новость: [local] reviewjournal — As Lake Mead sinks, Southern Nevada experts outline solutions to water crisis — Обзор мнений экспертов о долгосрочной проблеме воды, не событие.
-- [en] не_новость: [local] WOWT — Omaha drivers report gas station supply issues across the metro — Слухи/отчеты о проблемах с поставками, нет конкретного факта.
-- [en] не_новость: [local] UPI — Federal judge presses government officials over golf course plans — Судебный процесс о планах, нет факта нарушения или решения.
-- [en] не_новость: [local] Gothamist — MTA train yards are in such bad shape plants are growing out of the roof, watchd — Оценка состояния зданий, не событие.
-- [en] чужое_мелкое: [pool] The Independent — ‘Pay-for-influence’ scandal involving Trump allies hits White House: report — Внутренняя политика/скандал, нет последствий за рубежом.
-- [en] не_новость: [pool] BBC News — Burnham vows end to 'rip-off parking charges' under new rules — Обещание премьер-министра (слова), не свершившееся решение.
-- [en] курьёз: [pool] Variety — Michael Douglas Says Marvel ‘Wouldn’t Let Me’ Quit After Asking Studio for ‘Ant- — Интервью актера, не является новостью.
-- [en] курьёз: [pool] Variety — Jaafar Jackson on Playing His Uncle in ‘Michael,’ Losing the Original Third Act  — Интервью актера о планах, не событие.
-- [en] курьёз: [pool] Rolling Stone — Hunter Schafer Reveals She Underwent Gender-Affirming Bottom Surgery — Личное признание знаменитости.
-- [en] не_новость: [pool] BBC Sport — Palace manager Sage facing fight to keep his job — Спекуляция о возможной отставке менеджера.
-- [en] повтор: [pool] Time — Jalen Hurts Has Deep Vein Thrombosis and Blood Clots in His Lungs. Here’s What t ≈ «Eagles QB Hurts set to miss rest of NFL » — 
-- [en] не_новость: [pool] BBC News — Woman says she 'closed eyes and tried not to be there' during alleged Russell Br — Пересказ старых показаний в рамках суда, нет нового события.
-- [en] не_новость: [world] Ars Technica — Batteries help reduce emissions, but how do we reduce their emissions? — Аналитическая статья о батареях.
+- [es] курьёз: [local] El Economista MX — Startup de Yucatán convierte sargazo en bioplásticos — Это технологическая инновация, не имеющая статуса общественно значимого события или решения.
+- [es] курьёз: [local] El Financiero — Utilidad neta de Aeroméxico cae 58% en tercer trimestre; costo de la turbosina,  — Отчетность компании — дело внутреннее, не является новостью для широкой аудитории.
+- [es] не_новость: [local] El Economista MX — Spring Air planea aumentar 25% su capacidad de producción en México — Плановое намерение расширить производство, не является свершившимся фактом.
+- [es] не_новость: [local] El Universal MX — Volvo Fashion Week México culmina con Alfredo Martínez — Освещение культурного мероприятия как хроники, нет события по списку.
+- [es] не_новость: [local] El Universal MX — Senado analiza reunión con titulares del IMSS y Salud; buscan hablar sobre la fa — Анонс обсуждений и совещаний, нет принятого решения.
+- [es] не_новость: [local] El Economista MX — Axelera busca establecerse en México con chips para operar IA dentro de las empr — Намерение компании обосноваться в регионе, нет факта сделки или открытия.
+- [es] не_новость: [local] Expansión MX — Sindicatos, municipios, partidos políticos y asociaciones civiles estarán bajo l — Анонс будущих проверок налоговой, нет события.
+- [es] курьёз: [local] Expansión MX — WhatsApp ya permite programar mensajes: cómo hacerlo y quiénes pueden usar la fu — Обзор новой функции популярного приложения — не новость.
+- [es] не_новость: [local] El Sol de México — Bolsas compostables deben cumplir nueva norma, plantea Brugada — Предложение чиновника (идея), а не принятый закон или норма.
+- [es] курьёз: [local] Expansión MX — Chevrolet bajó tanto el precio del Aveo nuevo que uno usado dejó de ser la opció — Рыночный анализ цен на авто — не является событием.
+- [es] не_новость: [local] Expansión MX — México afina la medición del contenido nacional para ganar más negocio en energí — Общие рассуждения об энергетическом секторе без конкретного факта.
+- [es] не_новость: [local] Expansión MX — Ser la capital de los data centers obliga a Querétaro a reforzar su seguridad — Оценка ситуации в регионе без свершившегося события.
+- [es] не_новость: [local] El Sol de México — CANIRAC prevé derrama de mil 500 mdp para restaurantes de CDMX por Día de Muerto — Прогноз выручки ресторанов — это лишь мнение организации, не событие.
+- [es] не_новость: [local] La Jornada — Denuncia Morena que los panistas usan la ley catastral para aumentar el impuesto — Политическое обвинение без свершившегося юридического акта.
+- [es] чужое_мелкое: [pool] El Tiempo CO — El drama que viven los médicos en San Andrés Islas: la otra cara de la moneda tr — Локальный конфликт в Колумбии, не имеющий значения для читателя в Мексике.
+- [es] чужое_мелкое: [pool] Infobae — Newell’s vence a Central Córdoba en el cierre de la fecha 13 del Torneo Clausura — Внутренние спортивные результаты Аргентины, не интересны миру.
+- [es] чужое_мелкое: [pool] Infobae — Atlético Nacional confirmó el regreso de James Rodríguez para enfrentar a Cúcuta — Локальная спортивная новость Колумбии.
+- [es] чужое_мелкое: [pool] Infobae — De la Espriella ordena una "ofensiva total" contra guerrilla del ELN y disidenci — Внутренние военные распоряжения президента Колумбии, не имеют мирового масштаба.
+- [es] чужое_мелкое: [pool] La Nación AR — Hablan los expertos: miles de vacunos deben salir de las islas y anticipan qué p — Аграрный вопрос Аргентины, узкоспециализированная новость.
+- [es] чужое_мелкое: [pool] Clarín AR — El Gobierno frena la Ley Malvinas en Diputados: falta de respaldo de los aliados — Внутриполитическая процедура в Аргентине.
+- [es] чужое_мелкое: [pool] El Comercio PE — Ante cuestionamientos de El Comercio, el Mininter asegura que Programa de Recomp — Внутренняя перестройка перуанского ведомства.
+- [es] чужое_мелкое: [pool] El Comercio PE — Guaylupo y Escuza ganaron en “Contender Series” y firmaron con UFC: ¿es el mejor — Спортивный успех атлетов из Перу в нишевом турнире.
+- [es] чужое_мелкое: [pool] El Mundo — Los candidatos del PSOE en Palencia renuncian en bloque después de que Ferraz im — Внутрипартийный скандал в Испании, не имеет последствий за границей.
+- [es] чужое_мелкое: [pool] El Mundo — El informe interno del Tribunal Constitucional propone inadmitir el recurso del  — Внутренние юридические консультации испанского суда.
+- [es] чужое_мелкое: [pool] El Comercio PE — Sector Pesquero ante la no autorización de de pesca de anchoveta: “Frente a situ — Локальный отраслевой спор в Перу.
