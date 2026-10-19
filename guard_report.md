@@ -1,28 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Folha de S.Paulo — Documentário da Mostra de São Paulo resgata imagens inéditas da União Soviética — документальный фильм о прошлом — это исторический очерк, а не актуальное событие
-- [pt] не_новость: [local] Metrópoles — Janones: situações de estresse emocional podem provocar arritmia cardíaca — госпитализация депутата при стрессе без критического состояния — не новость
-- [pt] курьёз: [local] Metrópoles — Noiva fica acamada durante despedida de solteira e amigas continuam a festa — бытовая история о пропущенной вечеринке в США не имеет ценности для бразильца
-- [pt] не_новость: [local] Gazeta do Povo — O que a campanha de Flávio prepara antes do segundo turno — описание планов предвыборной кампании — это анонс/обзор, а не свершившееся событие
-- [pt] не_новость: [local] CNN Brasil — Dança dos Famosos: Pedro Scooby avança na competição após críticas — результаты реалити-шоу (танцы) — развлекательный контент, не событие
-- [pt] не_новость: [local] G1 Rio — Quem é Gisele Nascimento, cantora gospel com mais de 20 anos de carreira cujo fi — биографическая справка о певице, чей родственник замешан в деле, не является новостью
-- [pt] не_новость: [world] Sciences et Avenir — Na COP17, críticas aos subsídios aos combustíveis fósseis — критика в рамках конференции — это слова и дискуссия, а не решение
-- [pt] курьёз: [world] Engadget — Um dos consoles GameCube mais raros é vendido hoje por milhares de dólares — продажа редкой игровой приставки — любопытный факт, не мировое событие
-- [pt] не_новость: [world] TechCrunch — Apple atualiza diretrizes para banir aplicativos de nudez que se disfarçam de ap — обновление правил магазина приложений — рутина бизнеса, не мировое событие
-- [pt] курьёз: [world] Superinteressante — Será que as “canetas emagrecedoras” podem aumentar a longevidade? — научно-популярный разбор о лекарствах без факта открытия или запрета
-- [fr] курьёз: [local] Sciences et Avenir — A la COP17, haro sur les subventions aux énergies fossiles — Это научная новость о климате, не событие в привычном смысле.
-- [fr] повтор: [pool] Africanews FR — France : le président Macron distingue les groupes violents et les manifestants ≈ «« Quelque chose d'historique se produit » — Один сюжет с карточкой 31 о беспорядках в стране.
-- [fr] курьёз: [world] Jeune Afrique — Joseph Kabila, « proxy » de Paul Kagame ? — Аналитическая статья о политических альянсах, а не оперативное событие.
-- [fr] не_новость: [world] Jeune Afrique — Au Maroc, combien coûtera le stade Hassan-II ? — Это анонс инфраструктурного проекта с планируемой датой завершения, а не факт завершения.
-- [fr] курьёз: [world] Xataka — L'« amibe de feu » bat le record de chaleur pour la vie complexe et force à repe — Научный факт о поиске жизни в космосе.
-- [fr] чужое_мелкое: [world] Sud Ouest — États-Unis : un soldat fait une chute de 50 mètres et meurt devant 23 000 person — Трагический инцидент в США, не имеющий международного влияния.
-- [fr] не_новость: [world] Courrier International — “La France brûle” : les scènes de chaos à la une des journaux en Iran — Это медийный обзор («как о нас пишут в Иране»), а не событие внутри Франции.
-- [fr] чужое_мелкое: [world] La Dépêche — "C'est une véritable folle" : Donald Trump persiste et annonce que son projet de — Локальный судебный спор о поле для гольфа в США.
-- [fr] чужое_мелкое: [world] Courrier International — À Milan aussi, les manifestations dégénèrent en violences et en pillages — Беспорядки в Италии, которые не являются мировым событием.
-- [fr] курьёз: [world] La Dépêche — Des décennies de combats et plusieurs millions de morts... Une guerre meurtrière — История о муравьях в Калифорнии.
-- [fr] курьёз: [world] Sciences et Avenir — Un "coup de massue": face à l'IA, les mathématiciens sont sous le choc — Мнение математиков об ИИ, без факта события.
-- [fr] не_новость: [world] Courrier International — Au Royaume-Uni, la presse n’éprouve “plus de plaisir à voir la France” dans un t — Подборка мнений британской прессы о событиях во Франции.
-- [fr] чужое_мелкое: [world] Semafor — La Zambie règle son différend avec un investisseur du Golfe au sujet d'une mine  — Корпоративный спор в Замбии, не имеющий мирового значения.
-- [fr] не_новость: [world] Africanews FR — Zimbabwe : le parti au pouvoir approuve le maintien de Mnangagwa à sa tête — Плановое решение партии об оставлении действующего лидера на посту.
-- [fr] курьёз: [world] Sciences et Avenir — "Sans précédent" ou juste "très puissant" ? Les experts sont divisés sur El Niño — Дискуссия экспертов о погоде.
-- [fr] не_новость: [world] Superinteressante — Quelles sont les propositions de Lula et de Flávio Bolsonaro concernant les mine — Обзор предвыборных программ политиков, не является оперативным событием.
+- [en] не_новость: [local] Inquirer.com — Jaguars appear ready to phase out speedy receiver Brian Thomas Jr. after Wembley — спортивная аналитика и предположения, не событие
+- [en] курьёз: [local] Bangor Daily News — New Orrington boat launch dedicated to former weekly newspaper owner — локальное переименование объекта, не общественно значимое событие
+- [en] не_новость: [local] KOLO — Reno Ice Sled Hockey & Achieve Tahoe Benefit — анонс мероприятия, нет события
+- [en] курьёз: [local] Missoula Current — Bear Spotted On University of Montana Campus Near Oval — появление медведя, не новость
+- [en] не_новость: [local] WAFF — This Month Matters: Two families, six decades apart, turn loss into a legacy of  — тематический месяц, не событие
+- [en] не_новость: [local] KLKN-TVKLKN-TV — Husker basketball receives votes in first AP poll, falls short of top 25 — статистика голосования в опросе, не событие
+- [en] курьёз: [local] Arizona's Family — Family-friendly ‘Sober Fest’ in Phoenix celebrates sobriety and recovery — локальный фестиваль, не новость
+- [en] не_новость: [local] WAFF — Madison to host inclusive ‘Trail of Treats’ Halloween event at James Clemens Hig — анонс мероприятия, не событие
+- [en] не_новость: [local] 1011NOW — Who funded Nebraska Working People, America First parties? Law doesn’t require d — рассуждение об отсутствии закона
+- [en] не_новость: [local] WLBT — Ordinance would ban use of plywood in boarding up vacant structures — обсуждение законопроекта, не принят
+- [en] курьёз: [local] KOLO — Sparks United Methodist Church hosts pumpkin patch to help feed the homeless — локальная благотворительная акция
+- [en] курьёз: [local] Untitled RSS Feed — Common Cold Virus Leaves Healthy Gillette 7-Year-Old In Acute Respiratory Failur — медицинская история одного пациента
+- [en] курьёз: [local] Gothamist — Where are the cheapest drinks in NYC? A new report details the city's average pr — обзор цен, не событие
+- [en] не_новость: [local] Mirror Indy — Lawrence North runner-up in state flag football tournament — результат школьного турнира, не новость
+- [en] чужое_мелкое: [pool] Sky Sports — O'Sullivan suffers one of most embarrassing defeats of his career at NI Open — внутренние спортивные результаты Британии
+- [en] не_новость: [pool] Variety — ‘Running Point’ Co-Creator Mindy Kaling Joins Season 3 Cast — кастинговые перестановки в сериале
+- [en] не_новость: [pool] Variety — ‘Rooster’ Season 2 Casts Sutton Foster, Lamorne Morris, Michael Urie and More as — кастинговые перестановки в сериале
+- [en] срочность: [pool] RNZ — Shallow 4.0 earthquake rattles lower North Island — землетрясение 4.0 без разрушений, не требует побудки
+- [en] чужое_мелкое: [pool] Sky Sports — Clarke not bothered about Billam-Smith's amateur fight heartache — спортивные комментарии, не событие
+- [en] не_новость: [pool] Rolling Stone — A$AP Rocky Discovers the Wonders of Nature in Trippy New ‘Shroom Clouds’ Video — выход музыкального клипа
+- [en] курьёз: [pool] Rolling Stone — Tim McGraw’s Country Music Hall of Fame Induction Was One the Most Emotional in  — эмоции на церемонии награждения
+- [en] курьёз: [pool] The Guardian — Blue for poor, yellow for posh: the London maps exposing centuries of terrible h — историческая справка/обзор карт
+- [en] чужое_мелкое: [world] Guardian Sport — Will that do? Lamine Yamal conjures another magical spell as Barça pass first te — анализ игры футболиста
+- [en] курьёз: [world] TechCrunch — People are using AI to make their smart TVs dumb again — обзор пользовательского софта
+- [en] курьёз: [world] KTVB — 'I'm a strong old grandma': 62-year-old Idaho weightlifter breaks world record — спортивное достижение личного характера
