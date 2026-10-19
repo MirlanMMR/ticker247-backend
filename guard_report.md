@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] полка: [local] Kabar.kg — Жээнбек Кулубаев Өзбекстандын президенти менен жолукту — Это новость о визите министра КР в Узбекистан, должна быть в МЕСТНЫХ (событие касается внешней политики КР).
-- [ru] полка: [local] Kabar.kg — Борбор Азия менен АКШ экономикалык байланыштарын өнүктүрөт — Аналогично №2, это касается повестки КР, место в МЕСТНЫХ.
-- [ru] полка: [local] Sputnik KG — Глава МИД КР встретился с госсекретарем США — что обсудили — Повторяет повестку КР (встреча в Самарканде), место в МЕСТНЫХ.
-- [ru] полка: [local] Knews.kg — Айбийке Уланбек кызы стала чемпионкой Азиатских Параигр — Спортсменка из Кыргызстана — это местная новость, а не новость из другой страны.
-- [ru] чужое_мелкое: [pool] Kapital.kz — Pinduoduo мен Claude Қазақстан бюджетіне 8 млрд теңге салық төледі — Внутренняя налоговая новость Казахстана, не имеет последствий для читателя в КР.
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — «С учетом фактических потребностей»: в Ярославской области изменились маршруты п — Локальное изменение расписания поездов в Ярославской области.
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Тюменские рестораны и шеф-повара претендуют на звание лучших на Урале — Локальный рейтинг ресторанов в Тюмени.
-- [ru] курьёз: [pool] 56.ru — Оренбург — Маленький дракончик-сенсация: в Оренбургском океанариуме родились первые малыши  — Рождение аксолотлей в океанариуме — типичный развлекательный контент.
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — «Мой ребенок замерзнет»: в доме № 56 на улице 1-й Красноармейской десять дней не — Жалоба жильцов конкретного дома в Перми.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Рязанском округе трех жителей срочно госпитализировали после диспансеризации — Местная медицинская рутина в рязанской деревне.
-- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — «Это оскверняет СВО»: жителей Архангельской области подозревают в оправдании тер — Локальное уголовное дело в Северодвинске.
-- [ru] курьёз: [pool] 14.ru — Якутск — Стюардесса из Якутска вышла в финал международного конкурса красоты. Показываем  — Конкурсы красоты — развлекательный формат, не событие.
-- [ru] не_новость: [pool] 62.ru — Рязань — В Рязани более 200 человек вышли на общегородской субботник — Обычный субботник — плановое рутинное мероприятие.
-- [ru] чужое_мелкое: [pool] 43.ru — Киров — В Кирове задержан находящийся в розыске за алименты — Задержание одного алиментщика в Кирове.
-- [ru] не_новость: [pool] 48.ru — Липецк — В Липецке убрали три незаконных НТО — Рутинный демонтаж ларьков — хозяйственная работа, не новость.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Туле начался суд над 24 фигурантами дела о незаконной миграции — Местный судебный процесс в Туле.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Крыша как парус: на трассе в Самарской области столкнулись легковушка и грузовик — Обычное ДТП в Самарской области без мировых последствий.
-- [ru] не_новость: [pool] 74.ru — Челябинск — Климат-контроль. Власти Челябинска пообещали следить за температурой в автобусах — Обещание власти внедрить мониторинг — это план/намерение, а не свершившийся факт.
-- [ru] не_новость: [pool] 71.ru — Тула — Прокуратура взялась за проверку Тульского асфальтобетонного завода — Прокурорская проверка — это процесс, а не событие с результатом.
-- [ru] не_новость: [pool] 45.ru — Курган — Не конкуренты, а команда: в Кургане прошел юбилейный городской конкурс «Ученик г — Школьный конкурс — плановое мероприятие.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Школьники из Ряжска угнали «Жигули» и хотели разобрать на запчасти — Угон машины в Ряжске.
-- [ru] не_новость: [pool] 48.ru — Липецк — В Елецком строят пешеходную дорожку от школы № 58 — Начало строительства дорожки — мелкая хозработа.
-- [ru] курьёз: [pool] 48.ru — Липецк — Юидовка из Долгоруково победила на всероссийском конкурсе — Победа в школьном конкурсе ПДД.
-- [ru] не_новость: [pool] 45.ru — Курган — Садятся пьяными за руль: в ГАИ Зауралья подвели итоги рейдов за выходные — Ежедневная статистика рейдов ГАИ — рутина.
-- [ru] не_новость: [pool] 68.ru — Тамбов — В Тамбовской области легализовали труд почти 7 тысяч человек — Отчет о легализации труда — бюрократический отчет.
+- [en] повтор: [local] CNN — Dominion still has pending lawsuits against election deniers such as Rudy Giulia ≈ «The fallout from Trump's Russia energy m» — Второй заголовок про ту же сделку Dominion.
+- [en] не_новость: [local] Texas Standard — Today on Texas Standard: Affordability leads concerns as Texas early voting begi — Анонс о начале голосования, нет конкретного события.
+- [en] чужое_мелкое: [local] OPB — Trump to close and renovate D.C. golf course, despite legal battle — Внутренняя коммерческая сделка, не является важной мировой новостью.
+- [en] курьёз: [local] Missoula Current — Bear killings rise as garbage, birdfeed draw them into conflict — Сезонная сводка о поведении животных, не событие.
+- [en] чужое_мелкое: [local] Missoula Current — Arizona joins lawsuit challenging Colorado River cuts — Локальный спор штатов о воде, не имеет мирового значения.
+- [en] не_новость: [local] KCRG — Deer hunters welcome cooler, drier conditions as muzzleloader season starts — Описание погодных условий для охотников, не событие.
+- [en] не_новость: [local] WSMV — Tim McGraw among new inductees into Country Music Hall of Fame — Список лауреатов премии, плановое событие культуры.
+- [en] не_новость: [local] Wisconsin Watch — Wisconsin officials call for prompt ballot return after court rules against prop — Призыв чиновников, а не свершившееся действие.
+- [en] не_новость: [local] Homepage — Milwaukee residents prepare for leaf collection with new paper bag option this y — Инструкция для жителей, плановое бытовое мероприятие.
+- [en] не_новость: [local] reviewjournal — RTC touts transit safety gains, overdose saves — Отчет о работе ведомства, нет конкретного события.
+- [en] чужое_мелкое: [local] reviewjournal — What are they hiding? CCSD shields records for school cop accused of misconduct — Внутренний конфликт в школьном округе.
+- [en] не_новость: [local] San Antonio Report — Another new hotel is going up in the South Texas Medical Center — Планы строительства отеля.
+- [en] чужое_мелкое: [local] Bangor Daily News — Jared Golden sends campaign cash to fellow Democrats around the country — Внутренние партийные переводы средств, не имеет широкого значения.
+- [en] чужое_мелкое: [pool] UPI — Alberta heads to the polls for vote on possible independence referendum — Внутренняя политика Канады, мелкое событие для US.
+- [en] чужое_мелкое: [pool] KOB — Singapore expands crackdown on Indonesian companies linked to haze — Локальное решение Сингапура по компаниям Индонезии.
+- [en] чужое_мелкое: [pool] Global News CA — Gas prices drove inflation up to 3.1% in September, says StatCan — Статистический отчет по инфляции Канады.
+- [en] чужое_мелкое: [pool] Irish Times — More than €650,000 spent on fire-safety works at Farmleigh House — Локальный ремонт в ирландском поместье.
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Rape, sexual assault cases disrupted over legal aid row — Юридический спор в Ирландии.
+- [en] не_новость: [pool] RTÉ Ireland — Talks under way on new public sector pay deal — Переговоры в процессе, итогов нет.
+- [en] чужое_мелкое: [world] Азаттык — Chinese Premier calls on Dushanbe to strengthen security cooperation — Дипломатический этикет, нет нового факта.
+- [en] не_новость: [world] TechCrunch — Apple updates guidelines to ban nudify apps masquerading as regular apps to pass — Обновление правил компании (рутина, не событие).
+- [en] чужое_мелкое: [world] National Post — French minister admits police ‘lost control’ of violent demonstrations as organi — Локальные протесты во Франции.
+- [en] не_новость: [world] Азаттык — Central Asian countries and the U.S. agree to develop cooperation in trade, ener — Общие намерения, без конкретных решений.
+- [en] не_новость: [world] RFI — France: Despite the crisis, Emmanuel Macron begins a Gulf tour with oil in focus — Плановая поездка (протокольное событие).
+- [en] курьёз: [world] Superinteressante — What do Lula and Flávio Bolsonaro propose for strategic minerals and rare earths — Аналитический разбор предложений кандидатов, не событие.
