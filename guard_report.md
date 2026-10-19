@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] Inquirer.com — Jaguars appear ready to phase out speedy receiver Brian Thomas Jr. after Wembley — спортивная аналитика и предположения, не событие
-- [en] курьёз: [local] Bangor Daily News — New Orrington boat launch dedicated to former weekly newspaper owner — локальное переименование объекта, не общественно значимое событие
-- [en] не_новость: [local] KOLO — Reno Ice Sled Hockey & Achieve Tahoe Benefit — анонс мероприятия, нет события
-- [en] курьёз: [local] Missoula Current — Bear Spotted On University of Montana Campus Near Oval — появление медведя, не новость
-- [en] не_новость: [local] WAFF — This Month Matters: Two families, six decades apart, turn loss into a legacy of  — тематический месяц, не событие
-- [en] не_новость: [local] KLKN-TVKLKN-TV — Husker basketball receives votes in first AP poll, falls short of top 25 — статистика голосования в опросе, не событие
-- [en] курьёз: [local] Arizona's Family — Family-friendly ‘Sober Fest’ in Phoenix celebrates sobriety and recovery — локальный фестиваль, не новость
-- [en] не_новость: [local] WAFF — Madison to host inclusive ‘Trail of Treats’ Halloween event at James Clemens Hig — анонс мероприятия, не событие
-- [en] не_новость: [local] 1011NOW — Who funded Nebraska Working People, America First parties? Law doesn’t require d — рассуждение об отсутствии закона
-- [en] не_новость: [local] WLBT — Ordinance would ban use of plywood in boarding up vacant structures — обсуждение законопроекта, не принят
-- [en] курьёз: [local] KOLO — Sparks United Methodist Church hosts pumpkin patch to help feed the homeless — локальная благотворительная акция
-- [en] курьёз: [local] Untitled RSS Feed — Common Cold Virus Leaves Healthy Gillette 7-Year-Old In Acute Respiratory Failur — медицинская история одного пациента
-- [en] курьёз: [local] Gothamist — Where are the cheapest drinks in NYC? A new report details the city's average pr — обзор цен, не событие
-- [en] не_новость: [local] Mirror Indy — Lawrence North runner-up in state flag football tournament — результат школьного турнира, не новость
-- [en] чужое_мелкое: [pool] Sky Sports — O'Sullivan suffers one of most embarrassing defeats of his career at NI Open — внутренние спортивные результаты Британии
-- [en] не_новость: [pool] Variety — ‘Running Point’ Co-Creator Mindy Kaling Joins Season 3 Cast — кастинговые перестановки в сериале
-- [en] не_новость: [pool] Variety — ‘Rooster’ Season 2 Casts Sutton Foster, Lamorne Morris, Michael Urie and More as — кастинговые перестановки в сериале
-- [en] срочность: [pool] RNZ — Shallow 4.0 earthquake rattles lower North Island — землетрясение 4.0 без разрушений, не требует побудки
-- [en] чужое_мелкое: [pool] Sky Sports — Clarke not bothered about Billam-Smith's amateur fight heartache — спортивные комментарии, не событие
-- [en] не_новость: [pool] Rolling Stone — A$AP Rocky Discovers the Wonders of Nature in Trippy New ‘Shroom Clouds’ Video — выход музыкального клипа
-- [en] курьёз: [pool] Rolling Stone — Tim McGraw’s Country Music Hall of Fame Induction Was One the Most Emotional in  — эмоции на церемонии награждения
-- [en] курьёз: [pool] The Guardian — Blue for poor, yellow for posh: the London maps exposing centuries of terrible h — историческая справка/обзор карт
-- [en] чужое_мелкое: [world] Guardian Sport — Will that do? Lamine Yamal conjures another magical spell as Barça pass first te — анализ игры футболиста
-- [en] курьёз: [world] TechCrunch — People are using AI to make their smart TVs dumb again — обзор пользовательского софта
-- [en] курьёз: [world] KTVB — 'I'm a strong old grandma': 62-year-old Idaho weightlifter breaks world record — спортивное достижение личного характера
+- [es] не_новость: [local] El Financiero — ¿Zoé Robledo tiene ‘un pie fuera’ del IMSS? Sheinbaum aclara su futuro tras prot — Спекуляции о будущем чиновника, без факта увольнения или назначения.
+- [es] курьёз: [local] El Financiero — ‘Los otros’ eran los fantasmas: Peso ‘asusta’ al dólar y gana 8 centavos — Биржевые колебания — это рутина, а не новость с последствиями.
+- [es] не_новость: [pool] Infobae — Kevin y Luciano Benavides, los únicos hermanos en ganar el rally Dakar: su amor  — Очерк о жизни спортсменов, а не событие.
+- [es] не_новость: [pool] Infobae — Peñas Sevillistas denuncian "adulteración" y "sistemático atropello arbitral" al — Жалобы фанатов — это мнение, не событие.
+- [es] курьёз: [pool] La Nación AR — Jorge Tartaglione, médico, sobre el consumo del café: “Tomar más de cuatro tazas — Совет врача общего характера, не событие.
+- [es] чужое_мелкое: [pool] El Universo EC — Bajo secreto militar, Argentina busca equipar a sus Fuerzas Armadas — Техническая закупка армии другой страны без глобальных последствий.
+- [es] не_новость: [pool] La Nación AR — Para el Gobierno, la suba del riesgo país obedece a la “incertidumbre global” — Комментарий чиновника о причинах экономических показателей — это рассуждение.
+- [es] не_новость: [pool] La Nación AR — Dólar hoy y dólar blue, EN VIVO: a cuánto cotiza el oficial y cuál es el precio  — Ежедневная сводка курсов валют — не событие.
+- [es] не_новость: [pool] Clarín AR — El nuevo desafío ganadero: demostrar la calidad de la carne argentina con datos  — Рассуждения о качестве мяса и задачах на будущее.
+- [es] не_новость: [pool] RPP PE — Comisión de Constitución del Senado aprueba siete puntos adicionales sobre el pe — Процедурный этап рассмотрения закона, а не принятие.
+- [es] не_новость: [pool] El Nacional VE — Los Tigres pegaron más fuerte en la primera semana y están en la cima — Обзор хода чемпионата — не новость.
+- [es] срочность: [pool] El Nacional VE — Trabajadores y jubilados de Pdvsa protestaron en Maracaibo por pagos pendientes  — Протест — это рутина, а не повод для побудки.
+- [es] не_новость: [pool] BBC Mundo — "No hay intención de mantener viva su memoria": cómo se va difuminando la figura — Аналитическая статья о политическом образе, не событие.
+- [es] не_новость: [pool] eldiario.es — Abascal pide "sacrificios" frente a la unión de la izquierda en el Senado sin co — Слова оппозиционного лидера без конкретных действий.
+- [es] не_новость: [pool] eldiario.es — Feijóo firma su "contrato con España" si gobierna tras las elecciones sin revela — Предвыборное подписание декларации без конкретных новых мер.
+- [es] курьёз: [world] Xataka — El mercado de la ciberseguridad sufrió un desplome del 26% en EEUU. — Аналитический обзор рынка ИИ, не событие.
+- [es] не_новость: [world] TechCrunch — Tolan recauda 30 millones de dólares para su asistente de inteligencia artificia — Привлечение инвестиций стартапом — не событие (нет сделки или продукта).
+- [es] срочность: [world] Semana CO — Terremoto, dólar barato y tasas de interés debilitaron la economía en agosto. — Отчет за август — не повод для срочной побудки (событие в прошлом).
+- [es] срочность: [world] Wired — Oficinas electorales en al menos 32 estados han recibido cartas sospechosas — Рутинные сообщения об угрозах, это не катастрофа или война.
+- [es] не_новость: [world] RPP PE — Muere Betty McGuire, actriz de 'Growing Pains', a los 100 años — Смерть актера в 100 лет — это не срочная мировая новость.
+- [es] курьёз: [world] Xataka — Alemania tardó 45 años en atreverse a rodar una película bélica como ésta y ahor — Рекомендация фильма на стриминге.
+- [es] не_новость: [world] TechCrunch — La startup de asistentes de IA Town alcanza una valoración de unicornio cuatro m — Оценка стоимости стартапа не является событием для читателя.
+- [es] курьёз: [world] Live Science — Un dron de carreras con inteligencia artificial supera a los mejores pilotos hum — Технологический курьез без последствий.
+- [es] не_новость: [world] The Guardian — ¿Pueden los países cumplir un acuerdo para salvar las plantas y animales del mun — Вопрос-размышление о будущем соглашении, не событие.
+- [es] курьёз: [world] BBC Mundo — Los hijos temporales que los ancianos contratan en China para combatir la soleda — Социальный очерк о жизни в Китае.
