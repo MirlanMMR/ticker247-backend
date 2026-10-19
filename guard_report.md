@@ -1,25 +1,25 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Universal MX — Ramírez Cuéllar propone coordinación entre gobiernos para mejorar ciudades; comb — предложение политики, а не принятое решение
-- [es] не_новость: [local] El Universal MX — PAN asegura que tenía razón sobre riesgos del Programa de Ordenación Metropolita — спор о документах без свершившегося изменения
-- [es] не_новость: [local] El Informador — Chapala celebra por primera vez el Día del Lago — празднование дня, плановое мероприятие
-- [es] не_новость: [local] El Financiero — Val’Quirico será sede del IV festival enogourmet “Aire Tinto” — анонс фестиваля, который проходит в эти даты
-- [es] не_новость: [local] Expansión MX — Olinia necesita dinero privado para producir en masa; el gobierno busca empresar — планы правительства по поиску инвестиций
-- [es] не_новость: [local] Expansión MX — Los países pobres pagan cada vez más deuda, el petróleo sube y el FMI alerta por — общий обзор состояния экономики, нет события
-- [es] не_новость: [pool] El Tiempo CO — Medellín impulsa el turismo del futuro: más de 9.000 prestadores le apuestan a l — описание процесса формализации туризма, без события
-- [es] не_новость: [pool] El Tiempo CO — Deuda de ACSA por obras pendientes en el aeropuerto Cortissoz supera $147.000 mi — описание долга, а не новое решение или выплата
-- [es] не_новость: [pool] La Nación AR — Belgrano vs. River, en vivo, por el torneo Clausura: horario, TV y formaciones — анонс спортивного матча (расписание)
-- [es] не_новость: [pool] Semana CO — Sindicato de Asmet Salud EPS envió carta a Abelardo De La Espriella y anunció de — письмо и намерение профсоюза, нет события
-- [es] курьёз: [pool] Infobae — Un estudio revela que los fármacos GLP-1 para la obesidad se asocian con menos i — результаты исследования без конкретного события
-- [es] не_новость: [pool] 14ymedio — Cienfuegos busca capital privado nacional y extranjero para rescatar sus instala — намерение правительства искать капитал
-- [es] не_новость: [pool] Diario Libre DO — Leonel: Gobierno ha perdido toda autoridad moral” para negociar arroz — мнение политика, критика
-- [es] не_новость: [pool] Diario Libre DO — Raquel Peña destaca reducción de pobreza en República Dominicana — статистический отчет за прошлый период
-- [es] не_новость: [pool] La Vanguardia — Feijóo promete una nueva ley antiocupaciones de la mano de Albiol — предвыборные обещания кандидата
-- [es] не_новость: [world] Semana CO — Donald Trump cree que Zelenski “no quiere acabar esta guerra y probablemente nun — мнение лидера США о Зеленском, не событие
-- [es] курьёз: [world] Prensa Libre GT — Cindy Crawford habla por primera vez tras la muerte de su hijo Presley: “Estoy m — личные переживания знаменитости
-- [es] повтор: [world] CBS News — Trump afirma que está "negociando la paz" mientras Rusia y Ucrania intercambian  ≈ «Trump defiende el alivio de sanciones a » — тот же сюжет про критику и переговоры Трампа
-- [es] не_новость: [world] Fortune — Irán se queda sin fondos y no puede pagar a sus tropas ante el bloqueo de EE. UU — аналитическая оценка стратегии США
-- [es] не_новость: [world] Variety — Julianne Moore afirma que 'The Debut' es 'uno de los mejores guiones que he leíd — мнение актрисы о сценарии
-- [es] не_новость: [world] BBC Mundo — Cuánto aporta la rica provincia de Alberta a la economía de Canadá y qué pasaría — рассуждение о гипотетической независимости провинции
-- [es] курьёз: [world] BBC Mundo — Un yate con una piscina de 50 metros y toboganes acuáticos: imágenes satelitales — описание роскоши лидера КНДР без события
-- [es] анонс: [world] RPP PE — Temblor en Perú, hoy 18 de octubre: magnitud y epicentro del sismo según IGP — обновляемая лента сейсмической активности без конкретного факта
+- [ru] не_новость: [local] Вечерний Бишкек — Наука для фермеров: студенты Бишкека представили инновации для агросектора — День-праздник (AgriFood Innovation Day) не является событием по белому списку.
+- [ru] не_новость: [local] Kaktus.media — Работников социальной защиты и профсоюзов поздравили с профессиональным праздник — Официальное поздравление чиновника с профессиональным праздником — это этикет, не новость.
+- [ru] не_новость: [local] Kaktus.media — В ООН призвали готовиться к изменениям из-за ИИ. Кто рискует остаться позади? — Это обзорная статья-рассуждение об ИИ, а не новостное событие.
+- [ru] курьёз: [local] Knews.kg — Узбекский боксер победил казахстанца и отказался отдавать обещанный гонорар — Спортивный скандал вне пула (Узбекистан-Казахстан) интересен, но не является мировой новостью.
+- [ru] полка: [pool] РИА Новости — США ищут возможности для завершения конфликта на Украине, заявил Рубио — Внутренняя политика США (заявление Рубио) в новостях из Узбекистана — это не местная и не региональная новость для KG.
+- [ru] курьёз: [pool] ufa1.ru — Уфа — Эксперимент Чегодаева. Жители Уфы обокрали путешественника — Кража вещей у путешественника в Уфе не является значимым событием.
+- [ru] курьёз: [pool] Onliner.by — «Исполнение мечты плюс заработок». Белорус купил амбар 1907 года и превратил в г — История про покупку старого амбара — чистое «Интересное».
+- [ru] не_новость: [pool] Onliner.by — 70-летний качок, 15 яиц в день и бесценные трусы. Репортаж из мира бодибилдинга — Репортаж с турнира по бодибилдингу без конкретных спортивных результатов (победителей) — не событие.
+- [ru] не_новость: [pool] ngs55.ru — Омск — Омская область опустилась в рейтинге по развитию науки — какое место занял регио — Изменение позиции в рейтинге развития науки за год — не оперативное событие.
+- [ru] не_новость: [pool] ngs55.ru — Омск — Главный тренер «Авангарда» расплакался в раздевалке после матча — что случилось — Эмоциональный поступок тренера (расплакался) — не новость.
+- [ru] курьёз: [pool] ngs.ru — Новосибирск — Аномальная зона. Учёные взялись исследовать загадочный провал в Новосибирской об — Загадочный провал в поле — типичное «Интересное».
+- [ru] не_новость: [pool] ngs.ru — Новосибирск — Миллиардный бюджет с дефицитом: почему Новосибирск недобирает доходы и готовится — Аналитика бюджета (почему не хватает доходов) — это разбор, а не событие.
+- [ru] курьёз: [pool] 56.ru — Оренбург — 13 енотов и 2 носухи: как антикафе спасает животных со всей России, от которых о — История про енотов в кафе — «Интересное».
+- [ru] курьёз: [world] Naked Science — Прокрастинация вызвала больший стресс, чем другие жизненные проблемы — Исследование о прокрастинации — «Интересное».
+- [ru] курьёз: [world] Naked Science — Ученые узнали, что ели люди перед извержением Везувия — Исследование диеты перед извержением Везувия — «Интересное».
+- [ru] курьёз: [world] France 24 — Украденные год назад из Лувра драгоценности стоимостью 100 миллионов долларов до — Старая история (год назад) про кражу — не новость.
+- [ru] курьёз: [world] Superinteressante — Что Лула и Флавиу Болсонару предлагают в отношении стратегических минералов и ре — Мнение/аналитика о минералах — «Интересное».
+- [ru] не_новость: [world] Variety — Сюрприз «Симпсонов»: голос Апу прозвучал впервые почти за десять лет, Сунил Малх — Детали сюжета мультсериала не являются новостным событием.
+- [ru] курьёз: [world] 56.ru — Оренбург — «Коко любит людей, но люди глупые»: история гориллы, которая научилась говорить  — Давняя история про гориллу — «Интересное».
+- [ru] не_новость: [world] Rolling Stone — Выступление Red Hot Chili Peppers и Дэйва Грола на 25-летии консерватории Silver — Отчет о благотворительном концерте не является значимым событием.
+- [ru] курьёз: [world] BBC Русская служба — Яхты Ким Чен Ына попали на спутниковые снимки. Как выглядит роскошь для правящей — Описание яхт на фото — «Интересное».
+- [ru] курьёз: [world] Ars Technica — Почему у игры Neverwinter Nights от BioWare до сих пор тысячи активных игроков — Почему в игру до сих пор играют — «Интересное».
+- [ru] курьёз: [world] 24.kg — Нейросеть смогла расшифровать послание Наполеона, написанное им 217 лет назад — Исторический факт (расшифровка письма 217-летней давности) — «Интересное».
