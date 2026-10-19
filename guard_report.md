@@ -1,24 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] срочность: [local] G1 Globo — VÍDEO: homem é resgatado de cisterna após ser empurrado por mulher no interior d — Криминальная хроника, не требующая побудки читателя.
-- [pt] не_новость: [local] Folha de S.Paulo — 1926: Companhia Negra de Revistas vem a SP após sucesso no Rio — Историческая справка/архив, нет текущего события.
-- [pt] чужое_мелкое: [local] Metrópoles — Advogado de Trump critica fala de Lula durante debate com Flávio Bolsonaro — Спор и комментарий адвоката по поводу предвыборной риторики, не событие для Бразилии.
-- [pt] срочность: [local] Poder360 — Fred sobre tiro no pé em bar: “Poderia ter sido muito pior” — Происшествие случилось ранее, не требует немедленного уведомления.
-- [pt] курьёз: [local] G1 Bahia — Carol Peixinho mantém clima de 'mêsversário' e celebra 1 ano e 1 mês do filho co — Светская хроника (жизнь знаменитостей), не является значимой новостью.
-- [pt] срочность: [local] G1 Bahia — Idoso de 80 anos é resgatado após ficar preso em canal com cinco metros de profu — Криминальная хроника/инцидент, не требует побудки.
-- [pt] срочность: [local] G1 Bahia — Adolescente é morto a facadas durante caminhada política no interior da Bahia — Криминальная хроника, нет последствий глобального масштаба.
-- [pt] срочность: [local] Estadão — Gato Preto e Bia Miranda são condenados a indenizar vítimas de acidente com Pors — Криминальная хроника/судебное решение по происшествию, не срочно.
-- [pt] срочность: [local] G1 Rio — Vereador do RJ preso pela Polícia Federal no Paraná foi encontrado depois de pos — Арест политика по уголовному делу, не требует срочного уведомления.
-- [pt] не_новость: [local] G1 Rio — Casa de homem preso pela PF tinha elevador de vidro transparente, piscina e lare — Описание дома преступника — развлекательный контент.
-- [pt] срочность: [local] G1 Minas — Justiça manda soltar motorista preso por atropelar manifestante em ato pró-Lula  — Судебное решение, не требующее побудки.
-- [pt] срочность: [local] G1 Ceará — Polícia prende suspeito de matar motorista de topique no interior do Ceará — Криминальная хроника (арест по старому делу), не срочно.
-- [pt] не_новость: [pool] RTP Notícias — Ronaldo assumiu por telefone a Proença falta de "condições anímicas" para ficar — Спортивное закулисье, дисциплинарное решение — локальный шум.
-- [pt] не_новость: [pool] Notícias ao Minuto — Balneário de estádio em Valongo reabre após foco de legionella — Мелкое бытовое событие (открытие раздевалки).
-- [pt] повтор: [pool] Terra BR — Cristiano Ronaldo é suspenso após deixar concentração de Portugal ≈ «Ronaldo assumiu por telefone a Proença f» — Тот же сюжет об отстранении Роналду.
-- [pt] не_новость: [pool] Terra BR — Ronaldo e Roberto Carlos assinam SAF de tradicional clube paulista — Бизнес-сделка в спорте, событие лишь для болельщиков клуба.
-- [pt] срочность: [world] Notícias ao Minuto — Israel liberta três colonos detidos por ataques na Cisjordânia — Освобождение задержанных — рядовое событие, не требующее побудки.
-- [pt] срочность: [world] The Independent — 1 morto e um ferido após tiroteio perto de mesquita em Ohio desencadear grande r — Местное происшествие в США, не мировая катастрофа, не требует побудки в Бразилии.
-- [pt] не_новость: [world] RTP Notícias — Papa Leão XIV insta Zelensky a cooperar com a Rússia no envio de ajuda a Oleshky — Дипломатический этикет/призыв, не содержит реального факта соглашения.
-- [pt] не_новость: [world] Sciences et Avenir — Na COP17, críticas aos subsídios aos combustíveis fósseis — Анонс мероприятия/обсуждение повестки, нет принятого решения.
-- [pt] курьёз: [world] Superinteressante — O Universo teve uma infância mais pesada do que se pensava — Научно-популярный факт, не новость.
-- [pt] не_новость: [world] The Guardian — Quatro anos atrás, países fizeram um acordo histórico para salvar a natureza. El — Аналитическая статья/мнение, нет события.
+- [en] не_новость: [local] WSMV — Real ice-skating rink, 40-foot Christmas tree headline Nashville Yards’ 2026 hol — Анонс праздничной программы на будущие праздники, не событие.
+- [en] не_новость: [local] WAFF — Dancer Abby Callahan talks Huntsville Ballet’s 2026-2027 season — Анонс балетного сезона, беседа о планах.
+- [en] не_новость: [local] Inquirer.com — Patriots dealing with more injuries on their banged-up offensive line entering a — Спортивная аналитика о составе команды, нет конкретного события.
+- [en] не_новость: [local] WBRC — Head of Alabama Medical Cannabis Commission to retire, says Commission Chair — Плановая отставка чиновника, не является важным событием.
+- [en] не_новость: [local] KFYR-TV — Public health officials recommend vaccinations for respiratory illnesses — Рекомендация по вакцинации, не конкретное событие.
+- [en] не_новость: [local] NY Post — Aaron Boone will have another chance to get Yankees over the hump — Мнение о решении менеджмента оставить тренера, не событие.
+- [en] не_новость: [local] WSMV — These Tennessee cities selected for new initiative to increase housing, affordab — Участие в инициативе по поддержке, нет свершившегося события.
+- [en] не_новость: [local] WBAY — Brown County reminds residents not to throw GLP-1 needles in trash — Памятка (совет) жителям, не событие.
+- [en] не_новость: [local] WCTV — Digital campaign signs from unknown sponsor appear in Tallahassee, cause confusi — Спекуляции о происхождении знаков, нет конкретного события.
+- [en] не_новость: [local] KOLO — Nevada DMV extending business hours during election period — План по расширению часов работы, не событие.
+- [en] не_новость: [local] WBAL — Residents near Back River wastewater plant raise concerns over foul odors — Жалобы на запахи, нет конкретного события.
+- [en] не_новость: [local] WISH-TV — Crime podcaster targeted in Facebook hacking and bitcoin scam — История о хакерской атаке, нет оперативного события.
+- [en] не_новость: [local] reviewjournal — As Lake Mead sinks, Southern Nevada experts outline solutions to water crisis — Обзор мнений экспертов о долгосрочной проблеме воды, не событие.
+- [en] не_новость: [local] WOWT — Omaha drivers report gas station supply issues across the metro — Слухи/отчеты о проблемах с поставками, нет конкретного факта.
+- [en] не_новость: [local] UPI — Federal judge presses government officials over golf course plans — Судебный процесс о планах, нет факта нарушения или решения.
+- [en] не_новость: [local] Gothamist — MTA train yards are in such bad shape plants are growing out of the roof, watchd — Оценка состояния зданий, не событие.
+- [en] чужое_мелкое: [pool] The Independent — ‘Pay-for-influence’ scandal involving Trump allies hits White House: report — Внутренняя политика/скандал, нет последствий за рубежом.
+- [en] не_новость: [pool] BBC News — Burnham vows end to 'rip-off parking charges' under new rules — Обещание премьер-министра (слова), не свершившееся решение.
+- [en] курьёз: [pool] Variety — Michael Douglas Says Marvel ‘Wouldn’t Let Me’ Quit After Asking Studio for ‘Ant- — Интервью актера, не является новостью.
+- [en] курьёз: [pool] Variety — Jaafar Jackson on Playing His Uncle in ‘Michael,’ Losing the Original Third Act  — Интервью актера о планах, не событие.
+- [en] курьёз: [pool] Rolling Stone — Hunter Schafer Reveals She Underwent Gender-Affirming Bottom Surgery — Личное признание знаменитости.
+- [en] не_новость: [pool] BBC Sport — Palace manager Sage facing fight to keep his job — Спекуляция о возможной отставке менеджера.
+- [en] повтор: [pool] Time — Jalen Hurts Has Deep Vein Thrombosis and Blood Clots in His Lungs. Here’s What t ≈ «Eagles QB Hurts set to miss rest of NFL » — 
+- [en] не_новость: [pool] BBC News — Woman says she 'closed eyes and tried not to be there' during alleged Russell Br — Пересказ старых показаний в рамках суда, нет нового события.
+- [en] не_новость: [world] Ars Technica — Batteries help reduce emissions, but how do we reduce their emissions? — Аналитическая статья о батареях.
