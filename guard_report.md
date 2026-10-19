@@ -1,36 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Exame — iPhone Duo de R$ 22 mil: o que o primeiro dobrável da Apple oferece? — анонс продукта Apple без события: это не новость, а обзор гаджета.
-- [pt] не_новость: [local] G1 Bahia — Em post de missa de 7º dia, família de Netinho se recusa a escrever que cantor m — размышления семьи о дате смерти в посте соцсетей не является новостным событием.
-- [pt] курьёз: [local] G1 Rio Grande do Sul — Prótese de mamilo de silicone busca recuperar aparência da mama e ajuda mulheres — описание медицинской технологии/протеза — это не событие, а познавательный факт.
-- [pt] курьёз: [local] G1 São Paulo — Conheça tecnologia do Coliseu de Roma usada para monitorar estrutura do Museu do — описание технологии мониторинга музея — познавательный материал, а не событие.
-- [pt] не_новость: [local] Superinteressante — O que Lula e Flávio Bolsonaro propõem para os minerais estratégicos e terras rar — аналитический разбор предвыборных программ — это не событие (нет факта свершения).
-- [pt] не_новость: [pool] Observador PT — IP instala primeira central fotovoltaica no Entroncamento — анонс установки солнечной панели («vai avançar») — это план, а не событие.
-- [pt] не_новость: [pool] Público — Quem paga os acidentes dos alunos? BE alerta para vazio legal no seguro escolar  — предупреждение партии о правовом вакууме не является событием.
-- [pt] не_новость: [pool] Público — Humorista britânico Ricky Gervais de volta a Lisboa em Março — анонс гастролей комика в будущем — не событие.
-- [pt] не_новость: [world] InfoMoney — Eleições EUA: asiático-americanos estão desiludidos com Trump — пересказ результатов социологического опроса — не новость.
-- [pt] чужое_мелкое: [world] Jornal de Negócios — IMF – EUA: Inflação acelerou em setembro — ежемесячная статистика инфляции в США без глобальных последствий — мелкая внутренняя новость.
-- [pt] курьёз: [world] Superinteressante — Será que as “canetas emagrecedoras” podem aumentar a longevidade? — научно-популярный вопрос о влиянии лекарств — это не событие, а разбор.
-- [pt] не_новость: [world] Sciences et Avenir — Japão lança missão para conquistar as luas de Marte — анонс запуска миссии в будущем («com lançamento programado para terça-feira») — событие еще не произошло.
-- [pt] курьёз: [world] Muy Interesante — Inspirar para proteger o coração: assim avança a radioterapia contra o câncer de — описание медицинской техники — познавательный очерк, не событие.
-- [pt] не_новость: [world] TechCrunch — Anthropic anuncia destinação de 5% de suas ações para um 'fundo de benefício púb — внутреннее корпоративное решение о создании фонда — не новость для широкого читателя.
-- [pt] не_новость: [world] Ars Technica — Anthropic concede a órgão externo de vigilância de IA acesso de nível de funcion — корпоративное решение о допуске аудиторов — это не событие.
-- [fr] не_новость: [local] La Tribune — Budget 2027 : les retraités pourraient assumer près de 60 % de l’effort financie — обзор законопроекта, нет свершившегося события
-- [fr] полка: [local] Le Figaro — Violences urbaines : Italie, Belgique, Albanie… Des scènes de chaos et de pillag — события в других странах не должны лежать в 'Местных'
-- [fr] не_новость: [local] France 24 FR — Une Ligue 1 serrée, Chwalinska titrée et Lebrun champion d'Europe : les infos sp — спортивный обзор, нет конкретного события
-- [fr] не_новость: [local] Franceinfo — "La justice", pas "la vengeance" : au procès de l'assassinat de son grand frère  — портрет/репортаж с процесса, нет нового факта
-- [fr] курьёз: [pool] Le Temps — L’administration fiscale genevoise met en garde contre des e-mails frauduleux pr — предупреждение о спаме — не новость
-- [fr] чужое_мелкое: [pool] Radio-Canada — C’est le jour du référendum en Alberta — внутренние выборы в провинции Канады
-- [fr] не_новость: [pool] RTBF — Changement d’heure 2026 : la Belgique basculera à l’heure d’hiver la nuit du 24  — плановое событие (смена времени)
-- [fr] не_новость: [pool] Radio-Canada — L’ex-député Pascal Paradis nommé diplomate et négociateur en chef du gouvernemen — назначение чиновника — не событие
-- [fr] не_новость: [world] BBC News — Une femme déclare avoir « fermé les yeux et essayé de ne pas être là » lors du v — показания свидетеля в ходе затянувшегося процесса
-- [fr] чужое_мелкое: [world] Courrier International — Les Dalton, un gang de la mafia turque au service du Kremlin ? — криминальное происшествие без широкого резонанса
-- [fr] не_новость: [world] Sciences et Avenir — "Sans précédent" ou juste "très puissant" ? Les experts sont divisés sur El Niño — спор ученых о терминологии, нет открытия
-- [fr] курьёз: [world] Africanews FR — Mexique : des milliers de personnes réunies pour la 19ème "zombie walk" — городской праздник, 'интересное'
-- [fr] повтор: [world] BBC World — Un pasteur kényan accusé d'avoir ordonné aux parents d'affamer leurs enfants jus ≈ «Kenya : le verdict attendu ce lundi dans» — тот же сюжет про суд над Полом Маккензи
-- [fr] не_новость: [world] Futura-Sciences — Après 60 ans : ce que la fragilité de vos os pourrait révéler sur la santé de vo — научно-популярный совет/разбор
-- [fr] не_новость: [world] RTBF — Elections Midterms : Donald Trump peut-il tout perdre ? — аналитика/обзор перед выборами
-- [fr] не_новость: [world] Africanews FR — Ebola en RDC : l'épidémie affecte la santé mentale des populations — описание последствий эпидемии, нет события
-- [fr] не_новость: [world] RFI — Présidentielle au Brésil: entre Lula et Flavio Bolsonaro, un premier débat télév — оценка дебатов, нет события
-- [fr] не_новость: [world] 20 Minutes — Etats-Unis : Après l’affaire de viol collectif des 7 de Cornell, la « greek life — рассуждения о будущем студенческих организаций
-- [fr] не_новость: [world] 20 Minutes — Cambriolage du Louvre : « Un travail de patience »… Pourquoi est-ce si compliqué — годовщина преступления, нет нового события
+- [ru] полка: [local] Kabar.kg — Жээнбек Кулубаев Өзбекстандын президенти менен жолукту — Это новость о визите министра КР в Узбекистан, должна быть в МЕСТНЫХ (событие касается внешней политики КР).
+- [ru] полка: [local] Kabar.kg — Борбор Азия менен АКШ экономикалык байланыштарын өнүктүрөт — Аналогично №2, это касается повестки КР, место в МЕСТНЫХ.
+- [ru] полка: [local] Sputnik KG — Глава МИД КР встретился с госсекретарем США — что обсудили — Повторяет повестку КР (встреча в Самарканде), место в МЕСТНЫХ.
+- [ru] полка: [local] Knews.kg — Айбийке Уланбек кызы стала чемпионкой Азиатских Параигр — Спортсменка из Кыргызстана — это местная новость, а не новость из другой страны.
+- [ru] чужое_мелкое: [pool] Kapital.kz — Pinduoduo мен Claude Қазақстан бюджетіне 8 млрд теңге салық төледі — Внутренняя налоговая новость Казахстана, не имеет последствий для читателя в КР.
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — «С учетом фактических потребностей»: в Ярославской области изменились маршруты п — Локальное изменение расписания поездов в Ярославской области.
+- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Тюменские рестораны и шеф-повара претендуют на звание лучших на Урале — Локальный рейтинг ресторанов в Тюмени.
+- [ru] курьёз: [pool] 56.ru — Оренбург — Маленький дракончик-сенсация: в Оренбургском океанариуме родились первые малыши  — Рождение аксолотлей в океанариуме — типичный развлекательный контент.
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — «Мой ребенок замерзнет»: в доме № 56 на улице 1-й Красноармейской десять дней не — Жалоба жильцов конкретного дома в Перми.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Рязанском округе трех жителей срочно госпитализировали после диспансеризации — Местная медицинская рутина в рязанской деревне.
+- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — «Это оскверняет СВО»: жителей Архангельской области подозревают в оправдании тер — Локальное уголовное дело в Северодвинске.
+- [ru] курьёз: [pool] 14.ru — Якутск — Стюардесса из Якутска вышла в финал международного конкурса красоты. Показываем  — Конкурсы красоты — развлекательный формат, не событие.
+- [ru] не_новость: [pool] 62.ru — Рязань — В Рязани более 200 человек вышли на общегородской субботник — Обычный субботник — плановое рутинное мероприятие.
+- [ru] чужое_мелкое: [pool] 43.ru — Киров — В Кирове задержан находящийся в розыске за алименты — Задержание одного алиментщика в Кирове.
+- [ru] не_новость: [pool] 48.ru — Липецк — В Липецке убрали три незаконных НТО — Рутинный демонтаж ларьков — хозяйственная работа, не новость.
+- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Туле начался суд над 24 фигурантами дела о незаконной миграции — Местный судебный процесс в Туле.
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — Крыша как парус: на трассе в Самарской области столкнулись легковушка и грузовик — Обычное ДТП в Самарской области без мировых последствий.
+- [ru] не_новость: [pool] 74.ru — Челябинск — Климат-контроль. Власти Челябинска пообещали следить за температурой в автобусах — Обещание власти внедрить мониторинг — это план/намерение, а не свершившийся факт.
+- [ru] не_новость: [pool] 71.ru — Тула — Прокуратура взялась за проверку Тульского асфальтобетонного завода — Прокурорская проверка — это процесс, а не событие с результатом.
+- [ru] не_новость: [pool] 45.ru — Курган — Не конкуренты, а команда: в Кургане прошел юбилейный городской конкурс «Ученик г — Школьный конкурс — плановое мероприятие.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Школьники из Ряжска угнали «Жигули» и хотели разобрать на запчасти — Угон машины в Ряжске.
+- [ru] не_новость: [pool] 48.ru — Липецк — В Елецком строят пешеходную дорожку от школы № 58 — Начало строительства дорожки — мелкая хозработа.
+- [ru] курьёз: [pool] 48.ru — Липецк — Юидовка из Долгоруково победила на всероссийском конкурсе — Победа в школьном конкурсе ПДД.
+- [ru] не_новость: [pool] 45.ru — Курган — Садятся пьяными за руль: в ГАИ Зауралья подвели итоги рейдов за выходные — Ежедневная статистика рейдов ГАИ — рутина.
+- [ru] не_новость: [pool] 68.ru — Тамбов — В Тамбовской области легализовали труд почти 7 тысяч человек — Отчет о легализации труда — бюрократический отчет.
