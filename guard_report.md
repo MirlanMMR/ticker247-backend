@@ -1,27 +1,36 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] чужое_мелкое: [local] Kaktus.media — От видеоигр до суда. ООН предупредила о рисках сбора данных мозга — новость о рисках ИИ в мире, событие не имеет привязки к KG
-- [ru] чужое_мелкое: [local] Sputnik KG — Жапаров рассказал, как Аблязов предлагал организовать революцию в Казахстане — внутренняя политика Казахстана, не событие для Кыргызстана
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Уроженка Красноярска может получить ключевой пост в правительстве России: что из — кадровые перестановки в правительстве РФ, не влияет на KG
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — Передала мошенникам 13 миллионов рублей: в Перми задержали курьера-аферистку — криминальная хроника Перми, не мировая новость
-- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — В Архангельской области часть выплат для многодетных семей перенаправили участни — внутреннее перераспределение бюджета в Архангельской области РФ
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Тульской области гендиректора компании будут судить за уклонение от долга в 3, — суд по долгам компании в Тульской области РФ
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Тюменским властям передали десятки гектаров федеральной земли. Что там строят? — земельный вопрос в Тюмени, не касается читателя в KG
-- [ru] не_новость: [pool] 29.ru — Архангельск — Авиарейсы между Архангельском и Москвой снова задерживают — задержка авиарейса — рутина, а не событие
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Упавших били ногами. Подростки устроили массовые разборки в Ленинском районе (ви — бытовая драка подростков в Челябинске
-- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Юрий Трутнев уйдет с поста полпреда Дальнего Востока. Его место может занять Оле — слухи о кадрах на Дальнем Востоке РФ
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Судимый за убийство оренбуржец, уже после этого лишивший жизни племянника, пытал — апелляция по уголовному делу в Оренбурге
-- [ru] чужое_мелкое: [pool] 45.ru — Курган — В администрации Кургана прокомментировали, почему не ремонтируют дорогу по решен — ремонт дороги в Кургане
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Рязанской области выявили нарушения при декларировании 35 тысяч тонн зерна — нарушения при оформлении документов на зерно в Рязани
-- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Семь лет за трактор. Глава Мохсоголлоха отправится в колонию строгого режима за  — приговор за взятку в Якутии
-- [ru] курьёз: [pool] 72.ru — Тюмень — Устроил беспорядок. В большой Тюменской области медведь забрался в дом пенсионер — медведь забрался в дом в ХМАО, нет последствий
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Выставкой кошек в рязанском торговом центре заинтересовался Россельхознадзор — проверка выставки кошек Россельхознадзором в Рязани
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — В Челябинске досрочно открыли движение по мосту на Черкасской — открытие моста в Челябинске
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — В Оренбурге мужчина нашел потерянные ключи и стащил из машины соседа деньги — кража денег из машины в Оренбурге
-- [ru] не_новость: [pool] 45.ru — Курган — Ресторан, музей и коворкинг: исторический завод Смолина в Кургане предложили пре — анонс идеи создания кластера, не совершённое действие
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Мэру Ярославля компенсируют плату за аренду жилья — какая сумма предусмотрена — аренда жилья мэром Ярославля
-- [ru] не_новость: [pool] Kun.uz — WB Taxi начинает работу в Андижане. — запуск сервиса такси — коммерческое объявление
-- [ru] не_новость: [pool] 72.ru — Тюмень — Будут ли очереди? В Тюмени пройдут продуктовые ярмарки — анонс ярмарки
-- [ru] не_новость: [pool] 62.ru — Рязань — На Солотчинском шоссе обновят дорожное покрытие — планы по ремонту дороги в Рязани
-- [ru] курьёз: [pool] 14.ru — Якутск — Медведя заметили на улице Ленска. О нем сообщили в полицию и Комитет охраны прир — медведь в Ленске, частный случай
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Оштрафован еще орчанин, нарушивший запрет на съемку БПЛА и последствий их атак — штраф жителю Орска за съемку видео
+- [pt] курьёз: [local] Exame — iPhone Duo de R$ 22 mil: o que o primeiro dobrável da Apple oferece? — анонс продукта Apple без события: это не новость, а обзор гаджета.
+- [pt] не_новость: [local] G1 Bahia — Em post de missa de 7º dia, família de Netinho se recusa a escrever que cantor m — размышления семьи о дате смерти в посте соцсетей не является новостным событием.
+- [pt] курьёз: [local] G1 Rio Grande do Sul — Prótese de mamilo de silicone busca recuperar aparência da mama e ajuda mulheres — описание медицинской технологии/протеза — это не событие, а познавательный факт.
+- [pt] курьёз: [local] G1 São Paulo — Conheça tecnologia do Coliseu de Roma usada para monitorar estrutura do Museu do — описание технологии мониторинга музея — познавательный материал, а не событие.
+- [pt] не_новость: [local] Superinteressante — O que Lula e Flávio Bolsonaro propõem para os minerais estratégicos e terras rar — аналитический разбор предвыборных программ — это не событие (нет факта свершения).
+- [pt] не_новость: [pool] Observador PT — IP instala primeira central fotovoltaica no Entroncamento — анонс установки солнечной панели («vai avançar») — это план, а не событие.
+- [pt] не_новость: [pool] Público — Quem paga os acidentes dos alunos? BE alerta para vazio legal no seguro escolar  — предупреждение партии о правовом вакууме не является событием.
+- [pt] не_новость: [pool] Público — Humorista britânico Ricky Gervais de volta a Lisboa em Março — анонс гастролей комика в будущем — не событие.
+- [pt] не_новость: [world] InfoMoney — Eleições EUA: asiático-americanos estão desiludidos com Trump — пересказ результатов социологического опроса — не новость.
+- [pt] чужое_мелкое: [world] Jornal de Negócios — IMF – EUA: Inflação acelerou em setembro — ежемесячная статистика инфляции в США без глобальных последствий — мелкая внутренняя новость.
+- [pt] курьёз: [world] Superinteressante — Será que as “canetas emagrecedoras” podem aumentar a longevidade? — научно-популярный вопрос о влиянии лекарств — это не событие, а разбор.
+- [pt] не_новость: [world] Sciences et Avenir — Japão lança missão para conquistar as luas de Marte — анонс запуска миссии в будущем («com lançamento programado para terça-feira») — событие еще не произошло.
+- [pt] курьёз: [world] Muy Interesante — Inspirar para proteger o coração: assim avança a radioterapia contra o câncer de — описание медицинской техники — познавательный очерк, не событие.
+- [pt] не_новость: [world] TechCrunch — Anthropic anuncia destinação de 5% de suas ações para um 'fundo de benefício púb — внутреннее корпоративное решение о создании фонда — не новость для широкого читателя.
+- [pt] не_новость: [world] Ars Technica — Anthropic concede a órgão externo de vigilância de IA acesso de nível de funcion — корпоративное решение о допуске аудиторов — это не событие.
+- [fr] не_новость: [local] La Tribune — Budget 2027 : les retraités pourraient assumer près de 60 % de l’effort financie — обзор законопроекта, нет свершившегося события
+- [fr] полка: [local] Le Figaro — Violences urbaines : Italie, Belgique, Albanie… Des scènes de chaos et de pillag — события в других странах не должны лежать в 'Местных'
+- [fr] не_новость: [local] France 24 FR — Une Ligue 1 serrée, Chwalinska titrée et Lebrun champion d'Europe : les infos sp — спортивный обзор, нет конкретного события
+- [fr] не_новость: [local] Franceinfo — "La justice", pas "la vengeance" : au procès de l'assassinat de son grand frère  — портрет/репортаж с процесса, нет нового факта
+- [fr] курьёз: [pool] Le Temps — L’administration fiscale genevoise met en garde contre des e-mails frauduleux pr — предупреждение о спаме — не новость
+- [fr] чужое_мелкое: [pool] Radio-Canada — C’est le jour du référendum en Alberta — внутренние выборы в провинции Канады
+- [fr] не_новость: [pool] RTBF — Changement d’heure 2026 : la Belgique basculera à l’heure d’hiver la nuit du 24  — плановое событие (смена времени)
+- [fr] не_новость: [pool] Radio-Canada — L’ex-député Pascal Paradis nommé diplomate et négociateur en chef du gouvernemen — назначение чиновника — не событие
+- [fr] не_новость: [world] BBC News — Une femme déclare avoir « fermé les yeux et essayé de ne pas être là » lors du v — показания свидетеля в ходе затянувшегося процесса
+- [fr] чужое_мелкое: [world] Courrier International — Les Dalton, un gang de la mafia turque au service du Kremlin ? — криминальное происшествие без широкого резонанса
+- [fr] не_новость: [world] Sciences et Avenir — "Sans précédent" ou juste "très puissant" ? Les experts sont divisés sur El Niño — спор ученых о терминологии, нет открытия
+- [fr] курьёз: [world] Africanews FR — Mexique : des milliers de personnes réunies pour la 19ème "zombie walk" — городской праздник, 'интересное'
+- [fr] повтор: [world] BBC World — Un pasteur kényan accusé d'avoir ordonné aux parents d'affamer leurs enfants jus ≈ «Kenya : le verdict attendu ce lundi dans» — тот же сюжет про суд над Полом Маккензи
+- [fr] не_новость: [world] Futura-Sciences — Après 60 ans : ce que la fragilité de vos os pourrait révéler sur la santé de vo — научно-популярный совет/разбор
+- [fr] не_новость: [world] RTBF — Elections Midterms : Donald Trump peut-il tout perdre ? — аналитика/обзор перед выборами
+- [fr] не_новость: [world] Africanews FR — Ebola en RDC : l'épidémie affecte la santé mentale des populations — описание последствий эпидемии, нет события
+- [fr] не_новость: [world] RFI — Présidentielle au Brésil: entre Lula et Flavio Bolsonaro, un premier débat télév — оценка дебатов, нет события
+- [fr] не_новость: [world] 20 Minutes — Etats-Unis : Après l’affaire de viol collectif des 7 de Cornell, la « greek life — рассуждения о будущем студенческих организаций
+- [fr] не_новость: [world] 20 Minutes — Cambriolage du Louvre : « Un travail de patience »… Pourquoi est-ce si compliqué — годовщина преступления, нет нового события
