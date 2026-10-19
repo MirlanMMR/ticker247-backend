@@ -1,27 +1,22 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] повтор: [local] CNN — Dominion still has pending lawsuits against election deniers such as Rudy Giulia ≈ «The fallout from Trump's Russia energy m» — Второй заголовок про ту же сделку Dominion.
-- [en] не_новость: [local] Texas Standard — Today on Texas Standard: Affordability leads concerns as Texas early voting begi — Анонс о начале голосования, нет конкретного события.
-- [en] чужое_мелкое: [local] OPB — Trump to close and renovate D.C. golf course, despite legal battle — Внутренняя коммерческая сделка, не является важной мировой новостью.
-- [en] курьёз: [local] Missoula Current — Bear killings rise as garbage, birdfeed draw them into conflict — Сезонная сводка о поведении животных, не событие.
-- [en] чужое_мелкое: [local] Missoula Current — Arizona joins lawsuit challenging Colorado River cuts — Локальный спор штатов о воде, не имеет мирового значения.
-- [en] не_новость: [local] KCRG — Deer hunters welcome cooler, drier conditions as muzzleloader season starts — Описание погодных условий для охотников, не событие.
-- [en] не_новость: [local] WSMV — Tim McGraw among new inductees into Country Music Hall of Fame — Список лауреатов премии, плановое событие культуры.
-- [en] не_новость: [local] Wisconsin Watch — Wisconsin officials call for prompt ballot return after court rules against prop — Призыв чиновников, а не свершившееся действие.
-- [en] не_новость: [local] Homepage — Milwaukee residents prepare for leaf collection with new paper bag option this y — Инструкция для жителей, плановое бытовое мероприятие.
-- [en] не_новость: [local] reviewjournal — RTC touts transit safety gains, overdose saves — Отчет о работе ведомства, нет конкретного события.
-- [en] чужое_мелкое: [local] reviewjournal — What are they hiding? CCSD shields records for school cop accused of misconduct — Внутренний конфликт в школьном округе.
-- [en] не_новость: [local] San Antonio Report — Another new hotel is going up in the South Texas Medical Center — Планы строительства отеля.
-- [en] чужое_мелкое: [local] Bangor Daily News — Jared Golden sends campaign cash to fellow Democrats around the country — Внутренние партийные переводы средств, не имеет широкого значения.
-- [en] чужое_мелкое: [pool] UPI — Alberta heads to the polls for vote on possible independence referendum — Внутренняя политика Канады, мелкое событие для US.
-- [en] чужое_мелкое: [pool] KOB — Singapore expands crackdown on Indonesian companies linked to haze — Локальное решение Сингапура по компаниям Индонезии.
-- [en] чужое_мелкое: [pool] Global News CA — Gas prices drove inflation up to 3.1% in September, says StatCan — Статистический отчет по инфляции Канады.
-- [en] чужое_мелкое: [pool] Irish Times — More than €650,000 spent on fire-safety works at Farmleigh House — Локальный ремонт в ирландском поместье.
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Rape, sexual assault cases disrupted over legal aid row — Юридический спор в Ирландии.
-- [en] не_новость: [pool] RTÉ Ireland — Talks under way on new public sector pay deal — Переговоры в процессе, итогов нет.
-- [en] чужое_мелкое: [world] Азаттык — Chinese Premier calls on Dushanbe to strengthen security cooperation — Дипломатический этикет, нет нового факта.
-- [en] не_новость: [world] TechCrunch — Apple updates guidelines to ban nudify apps masquerading as regular apps to pass — Обновление правил компании (рутина, не событие).
-- [en] чужое_мелкое: [world] National Post — French minister admits police ‘lost control’ of violent demonstrations as organi — Локальные протесты во Франции.
-- [en] не_новость: [world] Азаттык — Central Asian countries and the U.S. agree to develop cooperation in trade, ener — Общие намерения, без конкретных решений.
-- [en] не_новость: [world] RFI — France: Despite the crisis, Emmanuel Macron begins a Gulf tour with oil in focus — Плановая поездка (протокольное событие).
-- [en] курьёз: [world] Superinteressante — What do Lula and Flávio Bolsonaro propose for strategic minerals and rare earths — Аналитический разбор предложений кандидатов, не событие.
+- [es] чужое_мелкое: [local] El Financiero — ‘Violó la ley’: Sheinbaum reconoce a Chihuahua por detener a exfiscal involucrad — Внутренняя отставка мексиканского чиновника — местная новость, не мировая.
+- [es] не_новость: [pool] Infobae — Defensa formaliza un contrato para mantener los mástiles telescópicos de los peñ — Техническое обслуживание объектов — рутина, а не новость.
+- [es] курьёз: [pool] La Nación AR — Boom a China: anticipan la exportación de 1,7 millones de toneladas de un cultiv — Прогноз урожая сорго — отраслевая аналитика, не событие для массового читателя.
+- [es] не_новость: [pool] La Nación CR — Corte Plena discute reelección de Carlo Díaz como fiscal general — Обсуждение повестки дня заседания суда — не свершившееся решение.
+- [es] повтор: [pool] El Universo EC — A cuatro años de iniciado el Caso Vocales, en la Corte Nacional se instala el ju ≈ «A cuatro años de iniciado el Caso Vocale» — Карточка описывает затянувшийся процесс (пятая попытка), не является событием.
+- [es] не_новость: [pool] Clarín AR — Feriados de noviembre 2026 por la visita del Papa: quiénes tendrán cuatro días d — Анонс возможных выходных в будущем.
+- [es] не_новость: [pool] 14ymedio — Cuba recibió mucho menos combustible de lo anunciado: EE UU confundió litros con — Исправление статистической ошибки в старом отчете — не событие.
+- [es] не_новость: [pool] El Nacional VE — Delcy Rodríguez estima que sector petrolero generará 324.000 empleos en los próx — Прогноз экономического сектора на 10 лет — не событие.
+- [es] не_новость: [pool] BBC Mundo — "No hay intención de mantener viva su memoria": cómo se va difuminando la figura — Аналитическая статья-очерк о политике, а не событие.
+- [es] не_новость: [pool] El Mundo — Feijóo empeña su "palabra" en la reconstrucción nacional: "Vamos a recuperar el  — Политические обещания и риторика без конкретных принятых мер.
+- [es] не_новость: [pool] El Mundo — El informe interno del Tribunal Constitucional propone inadmitir el recurso del  — Рекомендация юридической службы суда не является решением суда.
+- [es] не_новость: [pool] eldiario.es — Feijóo firma su "contrato con España" si gobierna tras las elecciones sin revela — Подписание политического «контракта» с избирателями — предвыборная риторика.
+- [es] не_новость: [world] Marca — El plan Dakar... con Fernando Alonso — Планы организаторов ралли на следующий год — анонс, не новость.
+- [es] курьёз: [world] Fortune — «No creo que este sea nuestro hogar»: científicos abandonan Estados Unidos ante  — Личные истории ученых о переезде — не общественно значимое событие.
+- [es] не_новость: [world] Fortune — La deuda nacional de EE. UU. se acerca a un punto donde los operadores de bonos  — Оценки экспертов о состоянии долга — не свершившееся событие.
+- [es] не_новость: [world] BBC Mundo — La nueva oleada de drogas sintéticas caseras que se propaga por EE.UU. y agrava  — Аналитический обзор проблемы наркотиков без нового факта.
+- [es] не_новость: [world] TechCrunch — Apple actualiza sus directrices para prohibir aplicaciones que generan desnudos  — Изменение внутренних правил компании — рутина.
+- [es] курьёз: [world] BBC Mundo — Los hijos temporales que los ancianos contratan en China para combatir la soleda — Социальный феномен, не имеющий масштаба события.
+- [es] курьёз: [world] TechCrunch — Khosla Ventures apuesta nuevamente por Even Healthcare para desafiar la economía — Очередной раунд финансирования стартапа — бизнес-рутина.
+- [es] не_новость: [world] Superinteressante — ¿Qué proponen Lula y Flavio Bolsonaro sobre minerales estratégicos y tierras rar — Обзор предвыборных программ и мнений кандидатов.
