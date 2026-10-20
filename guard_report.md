@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] не_новость: [local] Kaktus.media — Депутат о беспошлинном ввозе в КР электромобилей: Для кого стараемся? Для россия — депутат выражает свое мнение, нет свершившегося факта
-- [ru] срочность: [local] 24.kg — 21 октября: где в Бишкеке и регионах отключат свет — плановое отключение света не требует побудки
-- [ru] не_новость: [local] Kabar.kg — Бааларды ооздуктоо: Инфляцияга каршы жаңы чаралар кантип иштейт? — анонс государственной программы на 2027 год
-- [ru] курьёз: [local] Knews.kg — Ученые обнаружили удивительную связь между витамином С и выживаемостью при раке — результаты клинического исследования без последствий для читателя
-- [ru] не_новость: [local] Kabar.kg — Айтиев атындагы музейде “Графика” көргөзмөсү өтөт — анонс выставки без даты и значимости
-- [ru] чужое_мелкое: [local] Вечерний Бишкек — Почему методы расследования ENRC стали предметом судебного спора — внутренний судебный спор в Британии, событие KZ/UK
-- [ru] повтор: [local] Вечерний Бишкек — В Нарыне открылся Евразийский центр русского языка, культуры и инклюзии ≈ «Чему будут учить детей в Евразийском цен» — одно и то же событие
-- [ru] не_новость: [local] Knews.kg — В Кыргызстане хотят освободить иностранных преподавателей от подоходного налога  — законопроект только рассмотрен комитетом, не принят
-- [ru] повтор: [local] Knews.kg — Кыргызстан на COP-17 КБР продвигает интересы горных стран ≈ «На СОР17 делегация Кыргызстана предложил» — одно событие
-- [ru] не_новость: [local] 24.kg — В Узгене на День города приготовили 1,2 тонны плова — празднование дня города — плановое мероприятие, рутина
-- [ru] повтор: [local] Вечерний Бишкек — В Бишкеке подросток сбил школьника и протаранил две машины ≈ «Бишкекте айдоочулук күбөлүгү жок өспүрүм» — одно событие, разные заголовки
-- [ru] срочность: [local] Kaktus.media — Напоминаем. С завтрашнего дня в центре Бишкека пять дней будут ограничивать движ — напоминание о будущих ограничениях не является срочным событием
-- [ru] не_новость: [pool] 74.ru — Челябинск — В Поволжье или Прикамье? Через Челябинск запустят новый поезд до Самары и Перми — плановое изменение расписания поездов в РФ
-- [ru] не_новость: [pool] Sports.ru — Таблица переходов СКА при Андрее Разине — аналитическая таблица/обзор переходов
-- [ru] не_новость: [pool] ufa1.ru — Уфа — Халляр не айбат? Владелец сети уфимской кухни, который посылал кыстыбый Путину,  — продажа частной точки общепита
-- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — В Петербурге пройдет «Суровый Питерский Форум» — анонс профессионального форума
-- [ru] чужое_мелкое: [pool] Азаттык — Омбудсмен Казахстана заявил, что Жыланбаев «находится в одиночной камере по собс — внутренние дела активиста в Казахстане
-- [ru] не_новость: [pool] Kun.uz — Куда чаще всего ездили узбекистанцы за границу в 2026 году. — статистический обзор за 2026 год, нет свежего события
-- [ru] не_новость: [pool] Gazeta.uz — Научный фестиваль Formula 35 пройдёт в Ботаническом саду Ташкента — анонс научного фестиваля
-- [ru] не_новость: [pool] Kun.uz — В частных образовательных учреждениях могут ввести должность инспектора органов  — предложение ввести должность, не решение
-- [ru] не_новость: [pool] Gazeta.uz — У почти 5000 лифтов в Узбекистане истёк срок эксплуатации — отчет о состоянии лифтов, нет события
-- [ru] курьёз: [world] TechCrunch — Компания Eka оценивается в 1,45 млрд долларов благодаря модели физического ИИ — оценка стоимости стартапа
-- [ru] курьёз: [world] iXBT — Nvidia ускорит расчёты взаимодействий атомов и молекул на GPU для производства ч — научно-техническая новость без влияния на быт
-- [ru] курьёз: [world] iXBT — Первая известная солнечная буря, нарушившая работу железной дороги, произошла на — исторический факт
-- [ru] не_новость: [world] TechCrunch — Spotify запускает платные подписки на подкасты с расширенными возможностями — запуск функции подписки в сервисе — не является событием для читателя
+- [en] не_новость: [local] WV MetroNews — Crop of returners, large contingent of newcomers comprise Herd roster in Jackson — спортивная аналитика и описание состава команды перед сезоном.
+- [en] курьёз: [local] WTOP — John Turturro, thief of New York characters, adds a capstone in ‘The Last Pickpo — описание жизни актера, не является новостным событием.
+- [en] не_новость: [local] Mirror Indy — Shop from Black-owned businesses at this free festival — анонс мероприятия, нет свершившегося факта.
+- [en] не_новость: [local] WTOP — Wall Street is mixed as more drops for AI stocks offset some strong profit repor — обзор биржевых сводок, нет конкретного события.
+- [en] не_новость: [local] CBS News — Christina Applegate reveals she was misdiagnosed with MS — личная история, не является значимым событием для общественности.
+- [en] не_новость: [local] WBRC — Kalen DeBoer affirms support for OC Ryan Grubb after recent offensive struggles — поддержка тренером своего подчиненного — это слова, а не событие.
+- [en] не_новость: [local] WDBJ7 — HOMETOWN HEALTH: Researchers identify new clues for treating type 2 diabetes — описание научного исследования без конкретного прорыва/события.
+- [en] не_новость: [local] Cleveland.com — Popular rock musician dies at 53 after suffering heart attack on tour — трагическая смерть музыканта, но без привязки к событию (нет даты, контекста, просто факт смерти).
+- [en] не_новость: [local] Cleveland.com — NFL analyst and ex-ESPN star blasts Eagles for handling of Jalen Hurts’ blood cl — мнение аналитика об игре, не является новостью.
+- [en] курьёз: [local] Georgia Public Broadcasting — 'Brother of the More Famous Jack' finds its way to a new generation of readers — рецензия на книгу 1982 года.
+- [en] не_новость: [local] Arizona's Family — Is your school the best? U.S. News ranks best K-8 schools in Arizona — рейтинг школ, нет свершившегося действия.
+- [en] не_новость: [local] Bangor Daily News — Joe Manchin will campaign Wednesday for Susan Collins in Maine — анонс визита политика (плановое мероприятие).
+- [en] не_новость: [local] WLBT — Vacant buildings, fire trucks, bridges on agenda for Jackson council meeting — повестка дня совета — это обсуждение, а не принятое решение.
+- [en] не_новость: [local] Homepage — World Series block party takes over Milwaukee's Historic Third Ward with watch p — анонс праздника.
+- [en] не_новость: [local] County 17 — Who showed up for Wyoming’s US House debate and key takeaways — аналитика итогов дебатов, обсуждение.
+- [en] не_новость: [local] reviewjournal — Inside Gaming: MGM Resorts, Wynn and betting giants hit hard as gaming stocks st — обзор состояния акций, не является событием.
+- [en] курьёз: [local] WDBJ7 — WHAT’S GROWING @ HOME: Roanoke garden center demonstrates Kokedama plant art — мастер-класс по садоводству.
+- [en] не_новость: [local] OPB — Southwest Oregon airport eyes Portland flights as it plans for major growth — планы на 2027 год, не является событием.
+- [en] не_новость: [local] Latest &amp; Breaking News — Howard University students to walk out Tuesday demanding data center development — анонс протеста, который еще не прошел.
+- [en] не_новость: [pool] Straits Times — Early US flu season, current strain may signal risk for younger people; doctors  — призыв врачей к вакцинации, не является событием.
+- [en] не_новость: [pool] Straits Times — Accelerating warming pushes vital ecosystems towards point of no return, scienti — научное предупреждение о климате, не является событием.
+- [en] не_новость: [pool] Hindustan Times — ‘Unpaid dues can’t be classified as savings': DMK leader lashes out at Vijay's T — политическая перепалка, слова.
+- [en] не_новость: [pool] BBC Sport — Ronaldo let Manchester United down - Ten Hag — высказывание тренера о бывшем игроке.
+- [en] не_новость: [pool] Sky Sports — More star names at The Hundred in 2027 as overseas player quota grows — открытие окна для трансферов, рабочая процедура.
+- [en] не_новость: [pool] BBC Sport — Race, illness, injury, repeat - REDs and why men are suffering in silence — статья о проблемах здоровья спортсмена.
