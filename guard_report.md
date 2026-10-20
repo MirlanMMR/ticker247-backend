@@ -1,13 +1,18 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] Exame — A matemática da Gullane para levar a produção de cinema do Brasil para o mundo — Это маркетинговый очерк о 30-летии компании, а не событие.
-- [pt] не_новость: [local] Exame — Floripa 2030: a capital se prepara para o maior salto de sua história — Планирование и декларация намерений на 2030 год.
-- [pt] не_новость: [local] Metrópoles — Deputado sobre atuação de colega em escola: "Abuso de ainda não autoridade" — Политическая критика и обмен мнениями, а не свершившееся событие.
-- [pt] не_новость: [local] Gazeta do Povo — Marçal orienta influenciadores pró-Flávio a trocar críticas a Lula por discurso  — Политические рекомендации и советы внутри кампании, не являются фактом.
-- [pt] не_новость: [local] Gazeta do Povo — Mendonça será relator de pedido de Lula para levantar sigilos dele e de Flávio — Назначение судьи докладчиком — техническая процедура, а не событие.
-- [pt] не_новость: [pool] BBC Brasil — Efeito BYD: como Brasil virou 'laboratório' de empresas chinesas — Разбор старой информации и опровержение слухов.
-- [pt] курьёз: [world] Xataka — Menos de 100 caracteres, 1.200 sites atacados e mais de 100 comprometidos: como  — Общий аналитический материал об ИИ, нет события.
-- [pt] чужое_мелкое: [world] Poder360 — Flórida emite mandado de prisão contra Raúl Castro por ataque em 1996 — Юридический жест властей штата США в отношении иностранного политика, не имеет значимости для мира.
-- [pt] чужое_мелкое: [world] Semafor — Mais republicanos rompem com Trump sobre sanções à Rússia — Внутренняя партийная дискуссия республиканцев США, нет решения.
-- [pt] не_новость: [world] Азаттык — "Quero Viver": Rússia recrutou mais de 20 mil cidadãos de países da Ásia Central — Статистический отчет проекта, не является оперативным событием.
-- [pt] не_новость: [world] Азаттык — Uzbequistão assume presidência do Conselho de Chefes de Governo da OCS por um an — Плановая ротация председательства, рутина международной организации.
+- [en] не_новость: [local] Oil City News — (PHOTOS) Burger King on Wyoming Blvd is demolished ahead of rebuild — демонтаж здания ради строительства нового — плановые работы, не событие
+- [en] курьёз: [local] WBAY — Oshkosh man honored for 30 years of bluebird conservation work — индивидуальное достижение пенсионера, не несет общественной значимости
+- [en] не_новость: [local] WKYT — Oil change costs rise as specialty motor oil becomes harder to find — общее рассуждение о росте цен без конкретного события
+- [en] не_новость: [local] Gothamist — Coney Island's small, 1890s lighthouse may be landmarked by the city — обсуждение планов по получению статуса достопримечательности
+- [en] не_новость: [local] WBRC — Birmingham council takes next step toward $11M office building purchase — обсуждение планов покупки офисного здания
+- [en] не_новость: [local] UPI — Trump says he’s spending more than $400 million on Republicans in midterms — заявление о намерении потратить деньги, а не совершенное действие
+- [en] не_новость: [local] WBRC — ‘Everything should be at a halt’: Bessemer mayor pushes pause on data center dev — призыв мэра остановить строительство, а не решение
+- [en] не_новость: [local] KFVS12 — SIC’s Heritage Festival to benefit Harrisburg food pantry — анонс ежегодного фестиваля
+- [en] не_новость: [pool] Sky Sports — Portsmouth strike late to frustrate Wolves — описание хода спортивного матча, а не итог
+- [en] не_новость: [pool] BBC Sport — Audit regulator looking into Manchester City accounting — уведомление о начале проверки, а не результат
+- [en] не_новость: [pool] BBC Sport — Arsenal criticism from very small minority - Arteta — мнение тренера о критике, нет события
+- [en] не_новость: [pool] BBC Sport — Allen considers retirement after NI Open exit — размышления спортсмена о возможном завершении карьеры
+- [en] не_новость: [pool] RTÉ Ireland — Minister will meet solicitors in 'coming days' over row — анонс встречи, которая еще не состоялась
+- [en] не_новость: [world] BBC News — Elon Musk says Tesla-SpaceX merger would be a 'good idea' — мысли Маска о слиянии компаний, а не сделка
+- [en] не_новость: [world] BBC Sport — Carrick wants more clean sheets to turn season around — пожелания тренера перед матчем
+- [en] не_новость: [world] Straits Times — Iran Guards say three tankers hit mines crossing Strait of Hormuz — новость сгенерирована ИИ и является непроверенным утверждением
