@@ -1,38 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] чужое_мелкое: [local] Metrópoles — Luchsinger: CPMI tem apoio no Senado, mas faltam assinaturas na Câmara — Внутренняя политика Бразилии: процедурные вопросы создания парламентской комиссии.
-- [pt] курьёз: [local] Metrópoles — Tratamento com LED não elimina celulites de forma duradoura, afirma médico — Медицинский совет/исследование без событийного повода.
-- [pt] курьёз: [local] G1 Rio Grande do Sul — O que é a espuma branca que se acumula na beira-mar de Torres, no Litoral do RS, — Научно-популярное объяснение природного явления.
-- [pt] чужое_мелкое: [local] Gazeta do Povo — Milei acusa Lula de machismo e alfineta: “Espero que não roube a eleição” — Политическая перепалка президента Аргентины с лидером другой страны не является мировым событием.
-- [pt] не_новость: [local] G1 Bahia — Casa do Trabalhador oferece 100 vagas para atendimento em Feira de Santana; saib — Анонс вакансий, не является событием.
-- [pt] не_новость: [local] G1 Minas — Prefeitura de BH e governo de MG abrem cadastro escolar de 2027 nesta terça-feir — Анонс начала приема документов (плановое мероприятие).
-- [pt] чужое_мелкое: [pool] Notícias ao Minuto — CGA explica redução de 2.937 pensões e afasta intervenção do Governo — Административное разъяснение пенсионного фонда Португалии.
-- [pt] не_новость: [pool] Observador PT — Aguiar-Branco indefere novo pedido do Livre para debate — Отказ в дебатах — внутренняя парламентская процедура.
-- [pt] не_новость: [pool] Público — “Perdeu o seu telemóvel?”, o BdP aconselha-o a informar o banco — Совет банка, не является событием.
-- [pt] не_новость: [pool] Público — Mosteiro de Odivelas será finalmente requalificado e terá um museu até 2030 — Далекие планы (реконструкция до 2030 года).
-- [pt] чужое_мелкое: [world] The Independent — UE revela nova estratégia para o Ártico em meio a ameaças da Rússia e interesse  — Стратегия ЕС в Арктике — концептуальный документ без немедленных последствий.
-- [pt] повтор: [world] Público — Comissão lança nova estratégia para UE não ser “mera espectadora” das mudanças n ≈ «UE revela nova estratégia para o Ártico » — Тот же сюжет про стратегию ЕС в Арктике.
-- [pt] чужое_мелкое: [world] Público — PRR pouco fez para melhorar a administração pública, diz Tribunal de Contas Euro — Отчет аудиторов о работе администрирования — канцелярское событие.
-- [pt] не_новость: [world] TechCrunch — Co-fundador da Figma, Dylan Field, considera que o MCP não é um protocolo perfei — Мнение эксперта о технологии, нет факта сделки или релиза.
-- [pt] курьёз: [world] Superinteressante — “Nintendo Switch Sports Resort” traz de volta jogos ao estilo do Wii — Ретроспектива видеоигр.
-- [pt] полка: [world] AKIpress Эко — Alerta de tempestade: geadas de até -5°C previstas para 23 a 25 de outubro — Событие в Кыргызстане (KG) не должно быть в мировых для пула PT.
-- [pt] чужое_мелкое: [world] Semafor — Abu Dhabi negocia venda de aplicativo de serviços governamentais para cidades do — Переговоры о продаже ПО для муниципалитетов США — рутина.
-- [pt] чужое_мелкое: [world] Азаттык — Uzbequistão assume presidência do Conselho de Chefes de Governo da OCS por um an — Плановая ротация в региональной организации (OCS).
-- [pt] курьёз: [world] The Guardian — “Sobrevivi por um motivo”: Aberfan luta para preservar a memória do desastre 60  — Исторический очерк/воспоминания, не является свежей новостью.
-- [pt] чужое_мелкое: [world] El Mundo — PP e Vox ficam a 6 cadeiras do controle total do Senado após aliança da esquerda — Внутриполитическая борьба за места в Сенате Испании.
-- [fr] курьёз: [local] France Bleu — PHOTOS - Quatre naissances de bébés guépards au zoo de Montpellier — Рождение животных в зоопарке не является новостью общенационального масштаба.
-- [fr] не_новость: [local] Franceinfo — Comment les enquêteurs vont-ils exploiter les images filmées pendant les émeutes — Это аналитическая статья (разбор), а не событие.
-- [fr] не_новость: [local] 20 Minutes — Octobre Rose : « Ça n’arrive pas qu’aux femmes »… Un téléfilm met en lumière le  — Анонс телефильма не является новостью.
-- [fr] курьёз: [pool] Le Temps — A Yverdon-les-Bains, une rare lueur d’espoir pour un assassin sur le chemin de l — Частная история одного преступника не имеет общественного значения.
-- [fr] не_новость: [pool] Le Devoir — L’extrême droite française cherche à s’imposer comme le parti de l’ordre — Это политический анализ/колонка, а не фиксация события.
-- [fr] курьёз: [world] BFMTV — Équateur: un prêtre tué par la chute d'un crucifix en pleine messe retransmise e — Трагический несчастный случай локального масштаба без политических или социальных последствий.
-- [fr] чужое_мелкое: [world] La Libre — Plus de 70.000 voitures électriques rappelées par Volkswagen pour une possible " — Отзыв авто из-за техпроблем — мировая бизнес-рутина, не требующая места в ленте.
-- [fr] не_новость: [world] L'Express — "C'est une partie de l’Union européenne" : l’éveil stratégique de l’Europe dans  — Аналитическая статья о стратегии ЕС в Арктике.
-- [fr] чужое_мелкое: [world] Courrier International — Un satellite militaire russe frôle de près un appareil commercial américain — Сближение спутников без последствий — малозначимый инцидент.
-- [fr] не_новость: [world] Africanews FR — Ebola : les USA invitent leurs citoyens à "reconsidérer" tout voyage au Kenya — Рекомендация воздержаться от поездок — это не событие с конкретным результатом.
-- [fr] чужое_мелкое: [world] BBC News — Un étudiant ayant poignardé son colocataire à 30 reprises plaide coupable de meu — Криминальная хроника из Британии не является важной мировой новостью для французского читателя.
-- [fr] не_новость: [world] Sciences et Avenir — Brise-glace et câble sous-marin: l'UE veut renforcer sa présence dans l'Arctique — Обзор стратегии развития, а не факт свершившегося действия.
-- [fr] не_новость: [world] Africanews FR — Apartheid : l'ex-président sud-africain Thabo Mbeki nie avoir entravé la justice — Политические опровержения и заявления без юридического факта/решения.
-- [fr] чужое_мелкое: [world] Africanews FR — Brésil : Meta accusé d’ingérence dans la campagne présidentielle — Внутренняя судебная тяжба компании в Бразилии.
-- [fr] курьёз: [world] Sciences et Avenir — Orionides 2026 : admirez la pluie d'étoiles filantes de la nuit du 21 octobre — Анонс астрономического явления (Интересное).
-- [fr] повтор: [world] Le Devoir — Les Albertains rejettent la séparation du Canada ≈ «Référendum en Alberta : Carney salue un » — Повтор сюжета о референдуме в Альберте.
+- [en] не_новость: [local] KOLD — Tohono Chul will unveil new 15 year master plan — Анонс планов на будущее, нет свершившегося события.
+- [en] не_новость: [local] NY Post — Andrew Cuomo faces blowback as he plugs NYSE owner’s Chinese joint venture for c — Мнение/комментарий, нет конкретного события.
+- [en] не_новость: [local] WBRC — Tuberville leads Jones 51%-40% in exclusive Gray/Alabama Daily News poll — Данные соцопроса не являются новостным событием.
+- [en] чужое_мелкое: [local] Untitled RSS Feed — Reid Rasner Sues A Seventh Person, This Time A Union Leader, For Defamation — Частный иск о диффамации — мелкая локальная новость.
+- [en] курьёз: [local] WCAX — Can larger batteries safely power residential buildings? — Познавательный материал про батареи, место в «Интересном».
+- [en] не_новость: [local] WPLN — The real reason it’s going to take a while to know who won in some midterm races — Аналитическая статья о причинах задержки подсчета голосов.
+- [en] не_новость: [local] KSFY — Turner County Charity Youth Pheasant Hunt taking place November 7 — Плановое ежегодное мероприятие (охота), нет события-изменения.
+- [en] не_новость: [local] WV MetroNews — Schools from nine counties to compete in fifth annual “Culineering Challenge” We — Анонс предстоящего соревнования.
+- [en] курьёз: [local] WCAX — Arizona woman’s 3-year wait for an intestine shows the US organ transplant syste — История пациента, не является новостью для широкого круга.
+- [en] срочность: [local] KPNX RSS Feed: news — Most of Arizona will be under a 'flood watch' starting Wednesday — Прогноз погоды (flood watch) не требует плашки «важное».
+- [en] курьёз: [local] Bangor Daily News — Cilla Bonnie and her band bring the Groove to Belfast’s Underground Lounge — Анонс концерта группы, не событие в масштабе страны.
+- [en] не_новость: [pool] Variety — Alana Mayo Promoted to Head of Film, Production & Development Alongside Julie Ra — Корпоративное назначение, не является событием для читателя.
+- [en] не_новость: [pool] Forbes — 6,488 Veteran Lives Lost, But Gaps And Unknowns Remain — Обзор отчета, нет свежего события.
+- [en] не_новость: [pool] Variety — Sundance Hires Tracy Brady as Marketing, Communications Chief — Корпоративное назначение (Sundance).
+- [en] не_новость: [pool] Rolling Stone — ‘Human Made, Human Paid’: The Largest U.S. Musicians Union Is Demanding AI Prote — Профсоюз лишь «просит» (заявляет требования), событие отсутствует.
+- [en] не_новость: [pool] TechCrunch — Ex-Nvidia-turned-VC Amulya Vishwanath: ‘Physical AI is in it’s LEGO era’ — Интервью/мнение эксперта.
+- [en] не_новость: [pool] BBC Sport — Allen considers retirement after NI Open exit — Слова спортсмена о потенциальном завершении карьеры.
+- [en] не_новость: [pool] BBC Sport — Ronaldo let Manchester United down — Разбор старого конфликта (прошлое).
+- [en] курьёз: [pool] Ars Technica — Visiting Slate’s first showroom as its $25,000 electric truck nears production — Обзор предсерийного грузовика.
+- [en] не_новость: [world] Time — Bangladesh’s Vital Garment Industry Struggles Amid Global Energy Crunch — Описание ситуации в индустрии, нет события.
+- [en] не_новость: [world] Fortune — As billionaires fight a tax hike, Jensen Huang says paying $8 billion is a ‘priv — Цитата миллиардера, не является новостным поводом.
+- [en] не_новость: [world] Time — The CEO Moment: F1’s Stefano Domenicali — Портрет/интервью гендиректора.
+- [en] курьёз: [world] Wired — An AI Agent Joined a Listserv of Top Internet Researchers. — Технический эксперимент с ИИ, место в «Интересном».
+- [en] не_новость: [world] Time — AI Safety and Cybersecurity Should Be Allies. Instead, They're at Odds — Мнение автора о безопасности ИИ.
+- [en] курьёз: [world] The Guardian — ‘It was so satisfying when I threw a rock through the screen’: the people sick o — История о человеке, разбивающем телевизор, не новость.
