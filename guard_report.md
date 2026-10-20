@@ -1,27 +1,23 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] WV MetroNews — Crop of returners, large contingent of newcomers comprise Herd roster in Jackson — спортивная аналитика и описание состава команды перед сезоном.
-- [en] курьёз: [local] WTOP — John Turturro, thief of New York characters, adds a capstone in ‘The Last Pickpo — описание жизни актера, не является новостным событием.
-- [en] не_новость: [local] Mirror Indy — Shop from Black-owned businesses at this free festival — анонс мероприятия, нет свершившегося факта.
-- [en] не_новость: [local] WTOP — Wall Street is mixed as more drops for AI stocks offset some strong profit repor — обзор биржевых сводок, нет конкретного события.
-- [en] не_новость: [local] CBS News — Christina Applegate reveals she was misdiagnosed with MS — личная история, не является значимым событием для общественности.
-- [en] не_новость: [local] WBRC — Kalen DeBoer affirms support for OC Ryan Grubb after recent offensive struggles — поддержка тренером своего подчиненного — это слова, а не событие.
-- [en] не_новость: [local] WDBJ7 — HOMETOWN HEALTH: Researchers identify new clues for treating type 2 diabetes — описание научного исследования без конкретного прорыва/события.
-- [en] не_новость: [local] Cleveland.com — Popular rock musician dies at 53 after suffering heart attack on tour — трагическая смерть музыканта, но без привязки к событию (нет даты, контекста, просто факт смерти).
-- [en] не_новость: [local] Cleveland.com — NFL analyst and ex-ESPN star blasts Eagles for handling of Jalen Hurts’ blood cl — мнение аналитика об игре, не является новостью.
-- [en] курьёз: [local] Georgia Public Broadcasting — 'Brother of the More Famous Jack' finds its way to a new generation of readers — рецензия на книгу 1982 года.
-- [en] не_новость: [local] Arizona's Family — Is your school the best? U.S. News ranks best K-8 schools in Arizona — рейтинг школ, нет свершившегося действия.
-- [en] не_новость: [local] Bangor Daily News — Joe Manchin will campaign Wednesday for Susan Collins in Maine — анонс визита политика (плановое мероприятие).
-- [en] не_новость: [local] WLBT — Vacant buildings, fire trucks, bridges on agenda for Jackson council meeting — повестка дня совета — это обсуждение, а не принятое решение.
-- [en] не_новость: [local] Homepage — World Series block party takes over Milwaukee's Historic Third Ward with watch p — анонс праздника.
-- [en] не_новость: [local] County 17 — Who showed up for Wyoming’s US House debate and key takeaways — аналитика итогов дебатов, обсуждение.
-- [en] не_новость: [local] reviewjournal — Inside Gaming: MGM Resorts, Wynn and betting giants hit hard as gaming stocks st — обзор состояния акций, не является событием.
-- [en] курьёз: [local] WDBJ7 — WHAT’S GROWING @ HOME: Roanoke garden center demonstrates Kokedama plant art — мастер-класс по садоводству.
-- [en] не_новость: [local] OPB — Southwest Oregon airport eyes Portland flights as it plans for major growth — планы на 2027 год, не является событием.
-- [en] не_новость: [local] Latest &amp; Breaking News — Howard University students to walk out Tuesday demanding data center development — анонс протеста, который еще не прошел.
-- [en] не_новость: [pool] Straits Times — Early US flu season, current strain may signal risk for younger people; doctors  — призыв врачей к вакцинации, не является событием.
-- [en] не_новость: [pool] Straits Times — Accelerating warming pushes vital ecosystems towards point of no return, scienti — научное предупреждение о климате, не является событием.
-- [en] не_новость: [pool] Hindustan Times — ‘Unpaid dues can’t be classified as savings': DMK leader lashes out at Vijay's T — политическая перепалка, слова.
-- [en] не_новость: [pool] BBC Sport — Ronaldo let Manchester United down - Ten Hag — высказывание тренера о бывшем игроке.
-- [en] не_новость: [pool] Sky Sports — More star names at The Hundred in 2027 as overseas player quota grows — открытие окна для трансферов, рабочая процедура.
-- [en] не_новость: [pool] BBC Sport — Race, illness, injury, repeat - REDs and why men are suffering in silence — статья о проблемах здоровья спортсмена.
+- [es] чужое_мелкое: [pool] Infobae — Detenido y ya en prisión un profesor de un colegio religioso por agredir sexualm — внутренняя криминальная хроника Испании, не имеет значения для читателя в Мексике
+- [es] чужое_мелкое: [pool] Infobae — La DGT pone el foco en el móvil como el gran problema de los conductores: más de — локальная кампания по безопасности дорожного движения в Испании
+- [es] курьёз: [pool] Infobae — La Alhambra redescubre el legado de María de Hungría, referente del Renacimiento — культурная заметка об историческом наследии, не является новостным событием
+- [es] чужое_мелкое: [pool] La Nación AR — Paro total en las seis líneas de subte tras la detención de tres metrodelegados  — локальный профсоюзный конфликт в метро Буэнос-Айреса
+- [es] чужое_мелкое: [pool] El Comercio PE — Comisaría de Surquillo Cerrada: vecinos fueron a poner denuncias y realizar trám — местные проблемы с полицией в Перу, нет мирового масштаба
+- [es] курьёз: [pool] La Nación AR — Piezas invaluables de Borges ingresan en la bóveda del Cervantes en Madrid, mien — культурное событие в Испании, нет последствий для читателя
+- [es] чужое_мелкое: [pool] RPP PE — Comisión de Ética de Diputados aprueba informe que recomienda suspender 120 días — внутренняя дисциплинарная мера в парламенте Перу
+- [es] чужое_мелкое: [pool] El Universo EC — En el segundo día del juicio en el caso Vocales, la Fiscalía continúa presentand — рутинный ход внутреннего судебного процесса в Эквадоре
+- [es] чужое_мелкое: [pool] Clarín AR — Cómo viajar por Buenos Aires si no funciona el subte: qué colectivos reemplazan  — советы по транспорту в Буэнос-Айресе, для читателя в Мексике это шум
+- [es] чужое_мелкое: [pool] Marca — Antiviolencia castiga con dureza lo ocurrido en el Rayo-Athletic... ¡y en el GP  — локальные спортивные санкции в Испании
+- [es] чужое_мелкое: [pool] Montevideo Portal — Sicario adolescente: cayó uno de los responsables del quíntuple homicidio en El  — внутренний криминальный случай в Уругвае
+- [es] чужое_мелкое: [pool] Montevideo Portal — “Resultados espantosos”: blancos cargaron contra Negro por el aumento de los hom — местная политическая перепалка в Уругвае
+- [es] чужое_мелкое: [pool] El Mundo — El juez da un ultimátum de 48 horas al PSOE para que le entregue todos los pagos — внутренняя судебная процедура в Испании
+- [es] чужое_мелкое: [pool] El Mundo — Sánchez resucita el "acuerdo de país frente a la emergencia climática" tras una  — анализ внутренней политики Испании, не является событием
+- [es] чужое_мелкое: [pool] El País — Feijóo propone exigir a los nacionalizados un “tiempo de residencia mínima” en E — внутриполитическая дискуссия в Испании о праве голоса
+- [es] чужое_мелкое: [pool] La Vanguardia — Junqueras y el resto de líderes del 'procés' condenados quedan amnistiados — внутреннее юридическое решение по 'процес' в Испании
+- [es] чужое_мелкое: [pool] El País — Feijóo plantea ceder senadores autonómicos a Vox para que no se presente en algu — предвыборные переговоры внутри Испании
+- [es] не_новость: [world] TechCrunch — Dylan Field, cofundador de Figma, considera que el MCP no es un protocolo perfec — экспертное мнение об IT-протоколе, а не событие
+- [es] не_новость: [world] BBC Mundo — En gráficos: ¿cómo le está yendo a la economía de EE.UU. bajo la presidencia de  — графический обзор экономики, нет конкретного события
+- [es] чужое_мелкое: [world] El Mundo — El PP amenaza por burofax a Albares con llevarlo a los tribunales si Exteriores  — политический спор через официальную переписку в Испании
+- [es] чужое_мелкое: [world] El Mundo — PP y Vox se quedan a 6 escaños del control total del Senado tras el frente de iz — внутрииспанские партийные прогнозы перед выборами
