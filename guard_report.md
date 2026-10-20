@@ -1,23 +1,38 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] чужое_мелкое: [pool] Infobae — Detenido y ya en prisión un profesor de un colegio religioso por agredir sexualm — внутренняя криминальная хроника Испании, не имеет значения для читателя в Мексике
-- [es] чужое_мелкое: [pool] Infobae — La DGT pone el foco en el móvil como el gran problema de los conductores: más de — локальная кампания по безопасности дорожного движения в Испании
-- [es] курьёз: [pool] Infobae — La Alhambra redescubre el legado de María de Hungría, referente del Renacimiento — культурная заметка об историческом наследии, не является новостным событием
-- [es] чужое_мелкое: [pool] La Nación AR — Paro total en las seis líneas de subte tras la detención de tres metrodelegados  — локальный профсоюзный конфликт в метро Буэнос-Айреса
-- [es] чужое_мелкое: [pool] El Comercio PE — Comisaría de Surquillo Cerrada: vecinos fueron a poner denuncias y realizar trám — местные проблемы с полицией в Перу, нет мирового масштаба
-- [es] курьёз: [pool] La Nación AR — Piezas invaluables de Borges ingresan en la bóveda del Cervantes en Madrid, mien — культурное событие в Испании, нет последствий для читателя
-- [es] чужое_мелкое: [pool] RPP PE — Comisión de Ética de Diputados aprueba informe que recomienda suspender 120 días — внутренняя дисциплинарная мера в парламенте Перу
-- [es] чужое_мелкое: [pool] El Universo EC — En el segundo día del juicio en el caso Vocales, la Fiscalía continúa presentand — рутинный ход внутреннего судебного процесса в Эквадоре
-- [es] чужое_мелкое: [pool] Clarín AR — Cómo viajar por Buenos Aires si no funciona el subte: qué colectivos reemplazan  — советы по транспорту в Буэнос-Айресе, для читателя в Мексике это шум
-- [es] чужое_мелкое: [pool] Marca — Antiviolencia castiga con dureza lo ocurrido en el Rayo-Athletic... ¡y en el GP  — локальные спортивные санкции в Испании
-- [es] чужое_мелкое: [pool] Montevideo Portal — Sicario adolescente: cayó uno de los responsables del quíntuple homicidio en El  — внутренний криминальный случай в Уругвае
-- [es] чужое_мелкое: [pool] Montevideo Portal — “Resultados espantosos”: blancos cargaron contra Negro por el aumento de los hom — местная политическая перепалка в Уругвае
-- [es] чужое_мелкое: [pool] El Mundo — El juez da un ultimátum de 48 horas al PSOE para que le entregue todos los pagos — внутренняя судебная процедура в Испании
-- [es] чужое_мелкое: [pool] El Mundo — Sánchez resucita el "acuerdo de país frente a la emergencia climática" tras una  — анализ внутренней политики Испании, не является событием
-- [es] чужое_мелкое: [pool] El País — Feijóo propone exigir a los nacionalizados un “tiempo de residencia mínima” en E — внутриполитическая дискуссия в Испании о праве голоса
-- [es] чужое_мелкое: [pool] La Vanguardia — Junqueras y el resto de líderes del 'procés' condenados quedan amnistiados — внутреннее юридическое решение по 'процес' в Испании
-- [es] чужое_мелкое: [pool] El País — Feijóo plantea ceder senadores autonómicos a Vox para que no se presente en algu — предвыборные переговоры внутри Испании
-- [es] не_новость: [world] TechCrunch — Dylan Field, cofundador de Figma, considera que el MCP no es un protocolo perfec — экспертное мнение об IT-протоколе, а не событие
-- [es] не_новость: [world] BBC Mundo — En gráficos: ¿cómo le está yendo a la economía de EE.UU. bajo la presidencia de  — графический обзор экономики, нет конкретного события
-- [es] чужое_мелкое: [world] El Mundo — El PP amenaza por burofax a Albares con llevarlo a los tribunales si Exteriores  — политический спор через официальную переписку в Испании
-- [es] чужое_мелкое: [world] El Mundo — PP y Vox se quedan a 6 escaños del control total del Senado tras el frente de iz — внутрииспанские партийные прогнозы перед выборами
+- [pt] чужое_мелкое: [local] Metrópoles — Luchsinger: CPMI tem apoio no Senado, mas faltam assinaturas na Câmara — Внутренняя политика Бразилии: процедурные вопросы создания парламентской комиссии.
+- [pt] курьёз: [local] Metrópoles — Tratamento com LED não elimina celulites de forma duradoura, afirma médico — Медицинский совет/исследование без событийного повода.
+- [pt] курьёз: [local] G1 Rio Grande do Sul — O que é a espuma branca que se acumula na beira-mar de Torres, no Litoral do RS, — Научно-популярное объяснение природного явления.
+- [pt] чужое_мелкое: [local] Gazeta do Povo — Milei acusa Lula de machismo e alfineta: “Espero que não roube a eleição” — Политическая перепалка президента Аргентины с лидером другой страны не является мировым событием.
+- [pt] не_новость: [local] G1 Bahia — Casa do Trabalhador oferece 100 vagas para atendimento em Feira de Santana; saib — Анонс вакансий, не является событием.
+- [pt] не_новость: [local] G1 Minas — Prefeitura de BH e governo de MG abrem cadastro escolar de 2027 nesta terça-feir — Анонс начала приема документов (плановое мероприятие).
+- [pt] чужое_мелкое: [pool] Notícias ao Minuto — CGA explica redução de 2.937 pensões e afasta intervenção do Governo — Административное разъяснение пенсионного фонда Португалии.
+- [pt] не_новость: [pool] Observador PT — Aguiar-Branco indefere novo pedido do Livre para debate — Отказ в дебатах — внутренняя парламентская процедура.
+- [pt] не_новость: [pool] Público — “Perdeu o seu telemóvel?”, o BdP aconselha-o a informar o banco — Совет банка, не является событием.
+- [pt] не_новость: [pool] Público — Mosteiro de Odivelas será finalmente requalificado e terá um museu até 2030 — Далекие планы (реконструкция до 2030 года).
+- [pt] чужое_мелкое: [world] The Independent — UE revela nova estratégia para o Ártico em meio a ameaças da Rússia e interesse  — Стратегия ЕС в Арктике — концептуальный документ без немедленных последствий.
+- [pt] повтор: [world] Público — Comissão lança nova estratégia para UE não ser “mera espectadora” das mudanças n ≈ «UE revela nova estratégia para o Ártico » — Тот же сюжет про стратегию ЕС в Арктике.
+- [pt] чужое_мелкое: [world] Público — PRR pouco fez para melhorar a administração pública, diz Tribunal de Contas Euro — Отчет аудиторов о работе администрирования — канцелярское событие.
+- [pt] не_новость: [world] TechCrunch — Co-fundador da Figma, Dylan Field, considera que o MCP não é um protocolo perfei — Мнение эксперта о технологии, нет факта сделки или релиза.
+- [pt] курьёз: [world] Superinteressante — “Nintendo Switch Sports Resort” traz de volta jogos ao estilo do Wii — Ретроспектива видеоигр.
+- [pt] полка: [world] AKIpress Эко — Alerta de tempestade: geadas de até -5°C previstas para 23 a 25 de outubro — Событие в Кыргызстане (KG) не должно быть в мировых для пула PT.
+- [pt] чужое_мелкое: [world] Semafor — Abu Dhabi negocia venda de aplicativo de serviços governamentais para cidades do — Переговоры о продаже ПО для муниципалитетов США — рутина.
+- [pt] чужое_мелкое: [world] Азаттык — Uzbequistão assume presidência do Conselho de Chefes de Governo da OCS por um an — Плановая ротация в региональной организации (OCS).
+- [pt] курьёз: [world] The Guardian — “Sobrevivi por um motivo”: Aberfan luta para preservar a memória do desastre 60  — Исторический очерк/воспоминания, не является свежей новостью.
+- [pt] чужое_мелкое: [world] El Mundo — PP e Vox ficam a 6 cadeiras do controle total do Senado após aliança da esquerda — Внутриполитическая борьба за места в Сенате Испании.
+- [fr] курьёз: [local] France Bleu — PHOTOS - Quatre naissances de bébés guépards au zoo de Montpellier — Рождение животных в зоопарке не является новостью общенационального масштаба.
+- [fr] не_новость: [local] Franceinfo — Comment les enquêteurs vont-ils exploiter les images filmées pendant les émeutes — Это аналитическая статья (разбор), а не событие.
+- [fr] не_новость: [local] 20 Minutes — Octobre Rose : « Ça n’arrive pas qu’aux femmes »… Un téléfilm met en lumière le  — Анонс телефильма не является новостью.
+- [fr] курьёз: [pool] Le Temps — A Yverdon-les-Bains, une rare lueur d’espoir pour un assassin sur le chemin de l — Частная история одного преступника не имеет общественного значения.
+- [fr] не_новость: [pool] Le Devoir — L’extrême droite française cherche à s’imposer comme le parti de l’ordre — Это политический анализ/колонка, а не фиксация события.
+- [fr] курьёз: [world] BFMTV — Équateur: un prêtre tué par la chute d'un crucifix en pleine messe retransmise e — Трагический несчастный случай локального масштаба без политических или социальных последствий.
+- [fr] чужое_мелкое: [world] La Libre — Plus de 70.000 voitures électriques rappelées par Volkswagen pour une possible " — Отзыв авто из-за техпроблем — мировая бизнес-рутина, не требующая места в ленте.
+- [fr] не_новость: [world] L'Express — "C'est une partie de l’Union européenne" : l’éveil stratégique de l’Europe dans  — Аналитическая статья о стратегии ЕС в Арктике.
+- [fr] чужое_мелкое: [world] Courrier International — Un satellite militaire russe frôle de près un appareil commercial américain — Сближение спутников без последствий — малозначимый инцидент.
+- [fr] не_новость: [world] Africanews FR — Ebola : les USA invitent leurs citoyens à "reconsidérer" tout voyage au Kenya — Рекомендация воздержаться от поездок — это не событие с конкретным результатом.
+- [fr] чужое_мелкое: [world] BBC News — Un étudiant ayant poignardé son colocataire à 30 reprises plaide coupable de meu — Криминальная хроника из Британии не является важной мировой новостью для французского читателя.
+- [fr] не_новость: [world] Sciences et Avenir — Brise-glace et câble sous-marin: l'UE veut renforcer sa présence dans l'Arctique — Обзор стратегии развития, а не факт свершившегося действия.
+- [fr] не_новость: [world] Africanews FR — Apartheid : l'ex-président sud-africain Thabo Mbeki nie avoir entravé la justice — Политические опровержения и заявления без юридического факта/решения.
+- [fr] чужое_мелкое: [world] Africanews FR — Brésil : Meta accusé d’ingérence dans la campagne présidentielle — Внутренняя судебная тяжба компании в Бразилии.
+- [fr] курьёз: [world] Sciences et Avenir — Orionides 2026 : admirez la pluie d'étoiles filantes de la nuit du 21 octobre — Анонс астрономического явления (Интересное).
+- [fr] повтор: [world] Le Devoir — Les Albertains rejettent la séparation du Canada ≈ «Référendum en Alberta : Carney salue un » — Повтор сюжета о референдуме в Альберте.
