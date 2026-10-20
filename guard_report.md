@@ -1,14 +1,13 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] чужое_мелкое: [pool] El País — La UCO cuestiona la veracidad del tiroteo al coche de Aldama — внутреннее расследование Испании, не имеющее мирового значения
-- [es] не_новость: [pool] Marca — Confianza absoluta en Bernal — спортивная предматчевая аналитика, а не событие
-- [es] чужое_мелкое: [pool] El Mundo — El juez da un ultimátum de 48 horas al PSOE para que le entregue todos los pagos — внутренние судебные процедуры и дела PSOE, не имеющие мирового значения
-- [es] чужое_мелкое: [pool] El País — Feijóo propone exigir a los nacionalizados un “tiempo de residencia mínima” en E — внутренняя политическая дискуссия Испании о праве голоса
-- [es] чужое_мелкое: [pool] eldiario.es — Feijóo confirma negociaciones con Vox para buscar una mayoría en el Senado que l — внутренние коалиционные переговоры в Испании
-- [es] не_новость: [world] Variety — La tercera temporada de «Lioness» cierra con 9,7 millones de espectadores en sie — обзор статистики просмотров сериала
-- [es] не_новость: [world] TechCrunch — Google se une a Amazon en el desafío al dominio de Nvidia entre los desarrollado — технический анонс инструмента для разработчиков
-- [es] не_новость: [world] TechCrunch — Eric Schmidt poseería aproximadamente la mitad de la participación de Anthropic  — аналитическая публикация об акциях частного лица
-- [es] не_новость: [world] TechCrunch — Muse de Meta alcanza los 10 millones de descargas en EE. UU. en 40 días, un hito — отчет о статистике скачиваний приложения
-- [es] не_новость: [world] BBC Mundo — En gráficos: ¿cómo le está yendo a la economía de EE.UU. bajo la presidencia de  — графический обзор экономики, а не событие
-- [es] чужое_мелкое: [world] El Mundo — El PP amenaza por burofax a Albares con llevarlo a los tribunales si Exteriores  — процессуальная угроза внутри Испании
-- [es] не_новость: [world] El Mundo — PP y Vox se quedan a 6 escaños del control total del Senado tras el frente de iz — аналитический прогноз распределения мест в сенате
+- [pt] не_новость: [local] Exame — A matemática da Gullane para levar a produção de cinema do Brasil para o mundo — Это маркетинговый очерк о 30-летии компании, а не событие.
+- [pt] не_новость: [local] Exame — Floripa 2030: a capital se prepara para o maior salto de sua história — Планирование и декларация намерений на 2030 год.
+- [pt] не_новость: [local] Metrópoles — Deputado sobre atuação de colega em escola: "Abuso de ainda não autoridade" — Политическая критика и обмен мнениями, а не свершившееся событие.
+- [pt] не_новость: [local] Gazeta do Povo — Marçal orienta influenciadores pró-Flávio a trocar críticas a Lula por discurso  — Политические рекомендации и советы внутри кампании, не являются фактом.
+- [pt] не_новость: [local] Gazeta do Povo — Mendonça será relator de pedido de Lula para levantar sigilos dele e de Flávio — Назначение судьи докладчиком — техническая процедура, а не событие.
+- [pt] не_новость: [pool] BBC Brasil — Efeito BYD: como Brasil virou 'laboratório' de empresas chinesas — Разбор старой информации и опровержение слухов.
+- [pt] курьёз: [world] Xataka — Menos de 100 caracteres, 1.200 sites atacados e mais de 100 comprometidos: como  — Общий аналитический материал об ИИ, нет события.
+- [pt] чужое_мелкое: [world] Poder360 — Flórida emite mandado de prisão contra Raúl Castro por ataque em 1996 — Юридический жест властей штата США в отношении иностранного политика, не имеет значимости для мира.
+- [pt] чужое_мелкое: [world] Semafor — Mais republicanos rompem com Trump sobre sanções à Rússia — Внутренняя партийная дискуссия республиканцев США, нет решения.
+- [pt] не_новость: [world] Азаттык — "Quero Viver": Rússia recrutou mais de 20 mil cidadãos de países da Ásia Central — Статистический отчет проекта, не является оперативным событием.
+- [pt] не_новость: [world] Азаттык — Uzbequistão assume presidência do Conselho de Chefes de Governo da OCS por um an — Плановая ротация председательства, рутина международной организации.
