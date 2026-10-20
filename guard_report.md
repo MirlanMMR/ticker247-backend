@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] курьёз: [local] El Economista MX — Startup de Yucatán convierte sargazo en bioplásticos — Это технологическая инновация, не имеющая статуса общественно значимого события или решения.
-- [es] курьёз: [local] El Financiero — Utilidad neta de Aeroméxico cae 58% en tercer trimestre; costo de la turbosina,  — Отчетность компании — дело внутреннее, не является новостью для широкой аудитории.
-- [es] не_новость: [local] El Economista MX — Spring Air planea aumentar 25% su capacidad de producción en México — Плановое намерение расширить производство, не является свершившимся фактом.
-- [es] не_новость: [local] El Universal MX — Volvo Fashion Week México culmina con Alfredo Martínez — Освещение культурного мероприятия как хроники, нет события по списку.
-- [es] не_новость: [local] El Universal MX — Senado analiza reunión con titulares del IMSS y Salud; buscan hablar sobre la fa — Анонс обсуждений и совещаний, нет принятого решения.
-- [es] не_новость: [local] El Economista MX — Axelera busca establecerse en México con chips para operar IA dentro de las empr — Намерение компании обосноваться в регионе, нет факта сделки или открытия.
-- [es] не_новость: [local] Expansión MX — Sindicatos, municipios, partidos políticos y asociaciones civiles estarán bajo l — Анонс будущих проверок налоговой, нет события.
-- [es] курьёз: [local] Expansión MX — WhatsApp ya permite programar mensajes: cómo hacerlo y quiénes pueden usar la fu — Обзор новой функции популярного приложения — не новость.
-- [es] не_новость: [local] El Sol de México — Bolsas compostables deben cumplir nueva norma, plantea Brugada — Предложение чиновника (идея), а не принятый закон или норма.
-- [es] курьёз: [local] Expansión MX — Chevrolet bajó tanto el precio del Aveo nuevo que uno usado dejó de ser la opció — Рыночный анализ цен на авто — не является событием.
-- [es] не_новость: [local] Expansión MX — México afina la medición del contenido nacional para ganar más negocio en energí — Общие рассуждения об энергетическом секторе без конкретного факта.
-- [es] не_новость: [local] Expansión MX — Ser la capital de los data centers obliga a Querétaro a reforzar su seguridad — Оценка ситуации в регионе без свершившегося события.
-- [es] не_новость: [local] El Sol de México — CANIRAC prevé derrama de mil 500 mdp para restaurantes de CDMX por Día de Muerto — Прогноз выручки ресторанов — это лишь мнение организации, не событие.
-- [es] не_новость: [local] La Jornada — Denuncia Morena que los panistas usan la ley catastral para aumentar el impuesto — Политическое обвинение без свершившегося юридического акта.
-- [es] чужое_мелкое: [pool] El Tiempo CO — El drama que viven los médicos en San Andrés Islas: la otra cara de la moneda tr — Локальный конфликт в Колумбии, не имеющий значения для читателя в Мексике.
-- [es] чужое_мелкое: [pool] Infobae — Newell’s vence a Central Córdoba en el cierre de la fecha 13 del Torneo Clausura — Внутренние спортивные результаты Аргентины, не интересны миру.
-- [es] чужое_мелкое: [pool] Infobae — Atlético Nacional confirmó el regreso de James Rodríguez para enfrentar a Cúcuta — Локальная спортивная новость Колумбии.
-- [es] чужое_мелкое: [pool] Infobae — De la Espriella ordena una "ofensiva total" contra guerrilla del ELN y disidenci — Внутренние военные распоряжения президента Колумбии, не имеют мирового масштаба.
-- [es] чужое_мелкое: [pool] La Nación AR — Hablan los expertos: miles de vacunos deben salir de las islas y anticipan qué p — Аграрный вопрос Аргентины, узкоспециализированная новость.
-- [es] чужое_мелкое: [pool] Clarín AR — El Gobierno frena la Ley Malvinas en Diputados: falta de respaldo de los aliados — Внутриполитическая процедура в Аргентине.
-- [es] чужое_мелкое: [pool] El Comercio PE — Ante cuestionamientos de El Comercio, el Mininter asegura que Programa de Recomp — Внутренняя перестройка перуанского ведомства.
-- [es] чужое_мелкое: [pool] El Comercio PE — Guaylupo y Escuza ganaron en “Contender Series” y firmaron con UFC: ¿es el mejor — Спортивный успех атлетов из Перу в нишевом турнире.
-- [es] чужое_мелкое: [pool] El Mundo — Los candidatos del PSOE en Palencia renuncian en bloque después de que Ferraz im — Внутрипартийный скандал в Испании, не имеет последствий за границей.
-- [es] чужое_мелкое: [pool] El Mundo — El informe interno del Tribunal Constitucional propone inadmitir el recurso del  — Внутренние юридические консультации испанского суда.
-- [es] чужое_мелкое: [pool] El Comercio PE — Sector Pesquero ante la no autorización de de pesca de anchoveta: “Frente a situ — Локальный отраслевой спор в Перу.
+- [ru] полка: [local] Sputnik KG — Белый дом не одобрил передачу Киеву третьей страной ракет для Patriot — WP — Событие в Украине и США — мировая новость, не «Местные»
+- [ru] полка: [local] Kaktus.media — Совбез ООН принял резолюцию по защите детей от вербовки в интернете — Резолюция ООН — мировая новость, не «Местные»
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Внесли корректировки: в Ярославской области оживили идею с канатной дорогой чере — Локальное планирование в Ярославской области для Кыргызстана — шум
+- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Омскую аптеку, которая снабжает льготников лекарствами, снова хотят отдать в час — Приватизация аптек в Омске не имеет последствий для читателя в KG
+- [ru] чужое_мелкое: [pool] Kapital.kz — Шинный завод в Шымкенте модернизировали за счет утильсбора — Модернизация завода в Шымкенте — локальное событие Казахстана
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Силовики выдворили из Свердловской области почти три тысячи нелегальных мигранто — Миграционная статистика Свердловской области — шум
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — РЖД запустит поезд из Перми в Самару через Уфу и Челябинск — что с ценами на бил — Расписание поездов в РФ — шум для жителя Кыргызстана
+- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Три автобуса изменили маршрут на Взлетке и в Северном — Перекрытие улиц в Красноярске — шум
+- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — Стул, лыжи и дверца шкафа: новосибирские подростки сбросили из окна восьмого эта — Хулиганство подростков в Новосибирске — шум
+- [ru] срочность: [pool] ngs55.ru — Омск — Пьяный омич пытался уехать от полицейских и влетел в светофор — видео погони — Бытовое ДТП в Омске не требует срочности
+- [ru] не_новость: [pool] 72.ru — Тюмень — Подросла на несколько рублей. Какую пенсию получают тюменцы — данные на осень — Справка о размере пенсий в Тюмени — не событие
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Тольятти ввели новое правило: оно касается стоимости проезда в городском транс — Тарифы в Тольятти — шум
+- [ru] не_новость: [pool] 93.ru — Краснодар — Что со стройкой Кубанского кремля на Затоне? Ответили власти Краснодара — Анонс/вопрос властям о стройке — события нет
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Требуют несуществующий документ! — Частный спор в школе Верхней Пышмы — шум
+- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Экс-подрядчик ремонта моста у Телецентра заплатит работнику больше 200 тысяч руб — Трудовой спор в Омске — шум
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — «Я просто делала свою работу и выложила её результат». В Перми чувства верующего — Проверка тату в Перми — шум
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — «Постоянный камнепад!» Жители Эльмаша пожаловались на разваливающийся дом — Жалоба на дом в Екатеринбурге — шум
+- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — На Театральной площади продают заброшенное общежитие педуниверситета — Продажа общежития в Красноярске — шум
+- [ru] курьёз: [pool] e1.ru — Екатеринбург — «Я извиняюсь за содеянное». Незнакомец набрал кучу кредитов на екатеринбурженку, — Частная история мошенничества в Екатеринбурге — шум
+- [ru] не_новость: [pool] ngs.ru — Новосибирск — В Новосибирской области снижается заболеваемость коклюшем — чем он опасен — Статистика заболеваемости в РФ — шум
+- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Центр тестирования мигрантов откроют в Студгородке? Что об этом известно и почем — Обсуждение центра тестирования в Красноярске — шум
+- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — «Пока существует в одном экземпляре»: тестировать экспериментальную «гармошку» р — Тестирование троллейбуса в Новосибирске — шум
+- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — Скидка в 59 миллионов: на торгах продали участок у Юго-Западного котлована под К — Аукцион в Новосибирске — шум
+- [ru] срочность: [pool] ngs.ru — Новосибирск — В Калининском районе пропала 15-летняя девочка — Пропажа ребенка — трагедия, но не срочная новость для другого государства
+- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Власти Ленобласти рассказали о ситуации со светом в Янино — Ситуация со светом в Ленобласти — шум
