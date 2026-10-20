@@ -1,27 +1,14 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] KOLD — Tohono Chul will unveil new 15 year master plan — Анонс планов на будущее, нет свершившегося события.
-- [en] не_новость: [local] NY Post — Andrew Cuomo faces blowback as he plugs NYSE owner’s Chinese joint venture for c — Мнение/комментарий, нет конкретного события.
-- [en] не_новость: [local] WBRC — Tuberville leads Jones 51%-40% in exclusive Gray/Alabama Daily News poll — Данные соцопроса не являются новостным событием.
-- [en] чужое_мелкое: [local] Untitled RSS Feed — Reid Rasner Sues A Seventh Person, This Time A Union Leader, For Defamation — Частный иск о диффамации — мелкая локальная новость.
-- [en] курьёз: [local] WCAX — Can larger batteries safely power residential buildings? — Познавательный материал про батареи, место в «Интересном».
-- [en] не_новость: [local] WPLN — The real reason it’s going to take a while to know who won in some midterm races — Аналитическая статья о причинах задержки подсчета голосов.
-- [en] не_новость: [local] KSFY — Turner County Charity Youth Pheasant Hunt taking place November 7 — Плановое ежегодное мероприятие (охота), нет события-изменения.
-- [en] не_новость: [local] WV MetroNews — Schools from nine counties to compete in fifth annual “Culineering Challenge” We — Анонс предстоящего соревнования.
-- [en] курьёз: [local] WCAX — Arizona woman’s 3-year wait for an intestine shows the US organ transplant syste — История пациента, не является новостью для широкого круга.
-- [en] срочность: [local] KPNX RSS Feed: news — Most of Arizona will be under a 'flood watch' starting Wednesday — Прогноз погоды (flood watch) не требует плашки «важное».
-- [en] курьёз: [local] Bangor Daily News — Cilla Bonnie and her band bring the Groove to Belfast’s Underground Lounge — Анонс концерта группы, не событие в масштабе страны.
-- [en] не_новость: [pool] Variety — Alana Mayo Promoted to Head of Film, Production & Development Alongside Julie Ra — Корпоративное назначение, не является событием для читателя.
-- [en] не_новость: [pool] Forbes — 6,488 Veteran Lives Lost, But Gaps And Unknowns Remain — Обзор отчета, нет свежего события.
-- [en] не_новость: [pool] Variety — Sundance Hires Tracy Brady as Marketing, Communications Chief — Корпоративное назначение (Sundance).
-- [en] не_новость: [pool] Rolling Stone — ‘Human Made, Human Paid’: The Largest U.S. Musicians Union Is Demanding AI Prote — Профсоюз лишь «просит» (заявляет требования), событие отсутствует.
-- [en] не_новость: [pool] TechCrunch — Ex-Nvidia-turned-VC Amulya Vishwanath: ‘Physical AI is in it’s LEGO era’ — Интервью/мнение эксперта.
-- [en] не_новость: [pool] BBC Sport — Allen considers retirement after NI Open exit — Слова спортсмена о потенциальном завершении карьеры.
-- [en] не_новость: [pool] BBC Sport — Ronaldo let Manchester United down — Разбор старого конфликта (прошлое).
-- [en] курьёз: [pool] Ars Technica — Visiting Slate’s first showroom as its $25,000 electric truck nears production — Обзор предсерийного грузовика.
-- [en] не_новость: [world] Time — Bangladesh’s Vital Garment Industry Struggles Amid Global Energy Crunch — Описание ситуации в индустрии, нет события.
-- [en] не_новость: [world] Fortune — As billionaires fight a tax hike, Jensen Huang says paying $8 billion is a ‘priv — Цитата миллиардера, не является новостным поводом.
-- [en] не_новость: [world] Time — The CEO Moment: F1’s Stefano Domenicali — Портрет/интервью гендиректора.
-- [en] курьёз: [world] Wired — An AI Agent Joined a Listserv of Top Internet Researchers. — Технический эксперимент с ИИ, место в «Интересном».
-- [en] не_новость: [world] Time — AI Safety and Cybersecurity Should Be Allies. Instead, They're at Odds — Мнение автора о безопасности ИИ.
-- [en] курьёз: [world] The Guardian — ‘It was so satisfying when I threw a rock through the screen’: the people sick o — История о человеке, разбивающем телевизор, не новость.
+- [es] чужое_мелкое: [pool] El País — La UCO cuestiona la veracidad del tiroteo al coche de Aldama — внутреннее расследование Испании, не имеющее мирового значения
+- [es] не_новость: [pool] Marca — Confianza absoluta en Bernal — спортивная предматчевая аналитика, а не событие
+- [es] чужое_мелкое: [pool] El Mundo — El juez da un ultimátum de 48 horas al PSOE para que le entregue todos los pagos — внутренние судебные процедуры и дела PSOE, не имеющие мирового значения
+- [es] чужое_мелкое: [pool] El País — Feijóo propone exigir a los nacionalizados un “tiempo de residencia mínima” en E — внутренняя политическая дискуссия Испании о праве голоса
+- [es] чужое_мелкое: [pool] eldiario.es — Feijóo confirma negociaciones con Vox para buscar una mayoría en el Senado que l — внутренние коалиционные переговоры в Испании
+- [es] не_новость: [world] Variety — La tercera temporada de «Lioness» cierra con 9,7 millones de espectadores en sie — обзор статистики просмотров сериала
+- [es] не_новость: [world] TechCrunch — Google se une a Amazon en el desafío al dominio de Nvidia entre los desarrollado — технический анонс инструмента для разработчиков
+- [es] не_новость: [world] TechCrunch — Eric Schmidt poseería aproximadamente la mitad de la participación de Anthropic  — аналитическая публикация об акциях частного лица
+- [es] не_новость: [world] TechCrunch — Muse de Meta alcanza los 10 millones de descargas en EE. UU. en 40 días, un hito — отчет о статистике скачиваний приложения
+- [es] не_новость: [world] BBC Mundo — En gráficos: ¿cómo le está yendo a la economía de EE.UU. bajo la presidencia de  — графический обзор экономики, а не событие
+- [es] чужое_мелкое: [world] El Mundo — El PP amenaza por burofax a Albares con llevarlo a los tribunales si Exteriores  — процессуальная угроза внутри Испании
+- [es] не_новость: [world] El Mundo — PP y Vox se quedan a 6 escaños del control total del Senado tras el frente de iz — аналитический прогноз распределения мест в сенате
