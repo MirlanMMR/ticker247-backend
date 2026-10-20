@@ -1,18 +1,24 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] Oil City News — (PHOTOS) Burger King on Wyoming Blvd is demolished ahead of rebuild — демонтаж здания ради строительства нового — плановые работы, не событие
-- [en] курьёз: [local] WBAY — Oshkosh man honored for 30 years of bluebird conservation work — индивидуальное достижение пенсионера, не несет общественной значимости
-- [en] не_новость: [local] WKYT — Oil change costs rise as specialty motor oil becomes harder to find — общее рассуждение о росте цен без конкретного события
-- [en] не_новость: [local] Gothamist — Coney Island's small, 1890s lighthouse may be landmarked by the city — обсуждение планов по получению статуса достопримечательности
-- [en] не_новость: [local] WBRC — Birmingham council takes next step toward $11M office building purchase — обсуждение планов покупки офисного здания
-- [en] не_новость: [local] UPI — Trump says he’s spending more than $400 million on Republicans in midterms — заявление о намерении потратить деньги, а не совершенное действие
-- [en] не_новость: [local] WBRC — ‘Everything should be at a halt’: Bessemer mayor pushes pause on data center dev — призыв мэра остановить строительство, а не решение
-- [en] не_новость: [local] KFVS12 — SIC’s Heritage Festival to benefit Harrisburg food pantry — анонс ежегодного фестиваля
-- [en] не_новость: [pool] Sky Sports — Portsmouth strike late to frustrate Wolves — описание хода спортивного матча, а не итог
-- [en] не_новость: [pool] BBC Sport — Audit regulator looking into Manchester City accounting — уведомление о начале проверки, а не результат
-- [en] не_новость: [pool] BBC Sport — Arsenal criticism from very small minority - Arteta — мнение тренера о критике, нет события
-- [en] не_новость: [pool] BBC Sport — Allen considers retirement after NI Open exit — размышления спортсмена о возможном завершении карьеры
-- [en] не_новость: [pool] RTÉ Ireland — Minister will meet solicitors in 'coming days' over row — анонс встречи, которая еще не состоялась
-- [en] не_новость: [world] BBC News — Elon Musk says Tesla-SpaceX merger would be a 'good idea' — мысли Маска о слиянии компаний, а не сделка
-- [en] не_новость: [world] BBC Sport — Carrick wants more clean sheets to turn season around — пожелания тренера перед матчем
-- [en] не_новость: [world] Straits Times — Iran Guards say three tankers hit mines crossing Strait of Hormuz — новость сгенерирована ИИ и является непроверенным утверждением
+- [es] курьёз: [local] El Universal MX — Tesoros de papel: Un viaje al corazón de la memoria impresa en la hemeroteca de  — Исторический архив не является событием по белому списку.
+- [es] не_новость: [local] El Universal MX — César Cravioto pide a diputados panistas no metir sobre despojos y plan de orden — Политическая перепалка и обмен обвинениями без свершившегося факта.
+- [es] не_новость: [local] El Universal MX — RTC da clasificación para mayores de 12 años a “Los nuevos”; sus creadores prote — Спор о классификации фильма не является событием, меняющим положение.
+- [es] не_новость: [local] El Universal MX — Se seca el crédito para extraer petróleo y gas — Аналитическая заметка о состоянии кредитования без нового события.
+- [es] не_новость: [local] La Jornada — Con pendientes de la ASF, avalarán diputados la Cuenta Pública 2024 — Анонс предстоящего одобрения комиссии.
+- [es] не_новость: [local] La Jornada — CNDH acusa a Pablo Lemus de no apoyar en pesquisas — Обмен обвинениями и претензии правозащитников — не событие.
+- [es] чужое_мелкое: [pool] El Tiempo CO — Video delató a un hombre que arrojaba cascos y partes de motos a un arroyo de Ba — Мелкое происшествие в Колумбии (выброшенный мусор) не имеет значения для читателя в Мексике.
+- [es] чужое_мелкое: [pool] El Tiempo CO — Mujer campesina dio a luz a trillizos en San Carlos, Córdoba: clama por apoyo mo — Локальная история жительницы Колумбии, не имеющая мирового значения.
+- [es] чужое_мелкое: [pool] El Tiempo CO — Misteriosa muerte de pensionado de la Fiscalía en Bucaramanga: apareció sin vida — Локальное криминальное происшествие в Колумбии.
+- [es] не_новость: [pool] El Tiempo CO — ¿Qué pasó con los $3.600 millones del drenaje pluvial de Riohacha? — Журналистское расследование/вопрос без свершившегося факта.
+- [es] чужое_мелкое: [pool] La Nación AR — Qué se sabe de la salud de Fabián Gianola tras ser atropellado por un auto — Частное ДТП в Аргентине.
+- [es] не_новость: [pool] La Nación AR — En fotos: el emotivo último adiós a Antonio Grimau — Описание похорон артиста — не является новостным событием (смерть — да, церемония — нет).
+- [es] не_новость: [pool] El Mundo — El juez da un ultimátum de 48 horas al PSOE para que le entregue todos los pagos — Процессуальный ультиматум суда в рамках расследования.
+- [es] не_новость: [pool] El País — Feijóo propone exigir a los nacionalizados un “tiempo de residencia mínima” en E — Политическое предложение без принятия закона.
+- [es] курьёз: [world] BBC Mundo — "Empecé a consumir ketamina a los 14 años y a los 22 necesitaba pañales" — Личная история здоровья без научной новизны или мирового события.
+- [es] не_новость: [world] El Financiero — Cierra el Hotel Plaza, donde se grabó ‘Mi pobre angelito 2’: ¿Qué pasará con el  — Плановая реновация отеля — не является событием для читателя.
+- [es] не_новость: [world] El Financiero — ‘El Viceroy’ aún no llega a un acuerdo con EU: Aplazan a diciembre su audiencia — Отсрочка судебного заседания — техническая деталь процесса, не новость.
+- [es] курьёз: [world] BBC Mundo — La medusa "inmortal" capaz de rejuvenecer y cómo los secretos de sus células nos — Научно-популярный факт о биологии без нового открытия.
+- [es] курьёз: [world] BBC Mundo — La actriz Christina Applegate revela que estuvo 5 años diagnosticada erróneament — Личное признание актрисы о диагнозе.
+- [es] не_новость: [world] BBC Mundo — En gráficos: ¿cómo le está yendo realmente a la economía de EE.UU. bajo la presi — Аналитический разбор экономики — это чтение, а не событие.
+- [es] не_новость: [world] El Mundo — El PP amenaza por burofax a Albares con llevarlo a los tribunales si Exteriores  — Угроза подачи в суд и бюрократическая переписка — не события.
+- [es] не_новость: [world] El Mundo — PP y Vox se quedan a 6 escaños del control total del Senado tras el frente de iz — Рассуждения о раскладе сил в парламенте до выборов/голосования.
