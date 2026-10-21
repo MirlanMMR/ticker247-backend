@@ -1,27 +1,15 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] NY Post — John Goodman makes rare remark about weighing nearly 400 pounds: ‘I was eating a — интервью, частные воспоминания актера о своем весе
-- [en] не_новость: [local] WKYT — Kentucky mayoral candidates say video of alleged racial slur has changed campaig — рассуждения о влиянии скандала, самого события нет
-- [en] не_новость: [local] KFVS12 — Cape Girardeau Co. clerk addresses ballot misinformation ahead of election day — опровержение слухов в соцсетях, не является новостным событием
-- [en] не_новость: [local] KCRG — Fall colors drive tourism, October outperforms summer for visitors — сезонный отчет о посещаемости, общая статистика
-- [en] чужое_мелкое: [local] Deseret News — 30 U.S. colleges cut research ties to ‘problematic’ foreign entities — at the Pe — внутренняя административная мера по вузам США, не является мировой новостью
-- [en] не_новость: [local] Startribune News — Minneapolis mental health crisis response program ‘thrown into chaos’ — текущие трудности с подрядчиком, нет события
-- [en] курьёз: [local] Georgia Public Broadcasting — New human data hints at psychedelics' potential to combat inflammation — научное исследование без конкретного прикладного результата
-- [en] не_новость: [local] Santa Fe New Mexican — Santa Fe unveils plans for reconfigured Alternative Response Unit — ребрендинг подразделения мэрии, внутреннее переименование
-- [en] не_новость: [local] KFYR-TV — Towner vet clinic expands to meet rural demand — расширение частной клиники, бизнес-процесс
-- [en] не_новость: [local] Untitled RSS Feed — Campbell County Moves $500 Million Nuclear Fuel Facility Closer To Reality — стадия подготовки площадки к стройке (планы)
-- [en] не_новость: [local] KOLO — Rosen joins colleagues in introducing bill ending tariffs — внесение законопроекта (только слова и намерения)
-- [en] не_новость: [local] KFVS12 — Increased speed limits in Missouri: Here’s where — анонс будущих изменений скоростного режима
-- [en] не_новость: [local] CBS News — A look at the iPhone Duo before its official release this week — обзор продукта перед релизом
-- [en] не_новость: [local] WISH-TV — Vote delayed on $52M tax incentive package for Metrobloks data center — отложенное голосование, событие не состоялось
-- [en] не_новость: [local] KLKN-TVKLKN-TV — Letter released condemning online sports wagering signed by Tom Osborne, 44 form — выпуск открытого письма (слова)
-- [en] не_новость: [local] WABI — Women for Troy coalition rallies in Augusta, pushes back on attack ads — политический митинг, нет свершившегося события
-- [en] курьёз: [pool] Variety — Alexander Skarsgård on His Wacky ‘Wicker’ Red Carpet Looks: From Clear Shoes and — разбор нарядов актера на красной дорожке
-- [en] не_новость: [pool] Time — Ahead of Midterms, Elena Kagan Says the Supreme Court Is Undermining Voting Righ — мнение судьи, это слова, а не решение
-- [en] курьёз: [pool] NPR News — Meet the people moving north to escape increasingly hot summers — очерк о людях, переезжающих на север
-- [en] не_новость: [pool] Time — Five Facts You Need To Know From The U.N.'s Major Emissions Gap Report — пересказ отчета ООН о климате (без нового события)
-- [en] курьёз: [pool] Fortune — Collectors sent rare Pokémon and sports cards to get graded. — общее описание процесса оценки карточек
-- [en] курьёз: [world] Ars Technica — Survey: Enterprises waste 28 percent of software budgets on unwanted upgrades — обзор результатов опроса о тратах бизнеса
-- [en] не_новость: [world] Rolling Stone — Talking Heads Reunite for Coffee-Table Book — анонс книги
-- [en] не_новость: [world] Forbes — It’s A Wash: AI Will Create As Many Jobs As It Eliminates, Study Suggests — теоретическое исследование NBER о влиянии ИИ на рынок труда
-- [en] курьёз: [world] Ars Technica — The new human-crafted Apple Music brand matters in an AI world — мнение автора о дизайне бренда Apple Music
+- [es] чужое_мелкое: [local] El Universal MX — Justin Trudeau destaca avances de Hermosillo en movilidad eléctrica; participa e — визит экс-политика другого государства — не событие для Мексики.
+- [es] срочность: [local] El Financiero — Rodada nocturna ciclista de Día de Muertos en CDMX: Fecha, ruta y todo lo que de — мероприятие не требует побудки, это плановый досуг.
+- [es] не_новость: [local] El Universal MX — Pemex mantiene respaldo a su área de administración y servicios; enfrenta retos — отсутствие события, общие слова о стратегии компании.
+- [es] курьёз: [pool] Semana CO — Científicos identifican al belemnite más robusto jamás encontrado y revelan su p — палеонтологическая находка не имеет последствий для читателя.
+- [es] не_новость: [pool] La Nación AR — La explicación del Gobierno sobre por qué Milei usó una venda en el cuello duran — слухи о здоровье/одежде политика — не новость.
+- [es] не_новость: [pool] Prensa Libre GT — Salario mínimo 2027 en Guatemala: Arévalo podría fijar el nuevo aumento por deci — в заголовке 'мог бы', события нет.
+- [es] не_новость: [world] Semafor — FT: Netanyahu presiona a EE. UU. para bombardear Irán antes de las elecciones — политические консультации/давление — не свершившийся факт.
+- [es] не_новость: [world] Rolling Stone — Talking Heads se reúne para un libro de colección — анонс выхода книги — не событие.
+- [es] повтор: [world] BBC Mundo — El papa León XIV no necesitará más tratamientos tras la cirugía en la que le ext ≈ «Los médicos del Papa León afirman que lo» — тот же сюжет, что и в 58.
+- [es] не_новость: [world] Muy Interesante — De 29.450 a 85.185 euros: así es la gama Kia, con 10 eléctricos y una furgoneta  — рекламный обзор модельного ряда авто.
+- [es] не_новость: [world] BBC Mundo — Springfield, el pueblo transformado por migrantes haitianos que se convirtió en  — аналитическая статья, а не новостное событие.
+- [es] не_новость: [world] The Guardian — ‘Siempre intento ser auténtica’: ¿qué convence a figuras cuestionadas como Eliza — очерк о медийной личности, события нет.
+- [es] не_новость: [world] BBC Mundo — Qué es el "efecto bola de nieve" de la deuda y qué papel tiene en la crítica sit — разбор экономических причин — это аналитика, а не событие.
