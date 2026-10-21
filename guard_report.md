@@ -1,21 +1,17 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] Seven Days — Electricity Costs Are Soaring in Vermont — личная история потребителя, не является общественно значимым событием.
-- [en] курьёз: [local] CBS News — Man behind the Knicks' championship ring on capturing New York's grit and energy — дизайн чемпионского кольца — это любопытный факт, не новость.
-- [en] чужое_мелкое: [local] CBS News — Trump weighs moving White House press corps out of building — слухи о перемещении пресс-пула не являются значимым государственным решением.
-- [en] курьёз: [local] WCTV — True Friends Hall restoration aims to save Louisiana music landmark — реставрация исторического здания — культурная заметка, не новость.
-- [en] не_новость: [local] Portland Press Herald — Brunswick Parks and Rec to host Halloween parade and trick-or-treat event downto — плановое массовое мероприятие (праздник) для сообщества, не несет общественно важной информации.
-- [en] курьёз: [local] KFYR-TV — Donated reporter’s journal is tested for blood — подозрения о пятнах на пожертвованном журнале — это странный факт, не событие.
-- [en] не_новость: [local] WIBW — National Prescription Drug Take-Back Day set for Saturday — регулярная акция по сбору лекарств — плановое событие без новостного повода.
-- [en] курьёз: [local] PennLive — Country music star boots fans mid-song: ‘Get these two (expletives) out of here’ — инцидент на концерте — частный случай, не имеющий значения для широкой аудитории.
-- [en] не_новость: [local] WCAX — Town of St. Albans to remove more than 70 ash trees from Bay Park — плановая вырубка деревьев в парке — хозяйственная рутина.
-- [en] не_новость: [pool] Rolling Stone — Forget What You Missed on ‘Glee’ — The Series Is Coming Back — новость о перезапуске сериала — развлекательный контент, не событие по списку.
-- [en] курьёз: [pool] Rolling Stone — Beck Regrets Turning Down ‘Zoolander’ Character That Went to Davie Bowie — артист жалеет об отказе от роли — это не новость, а светский курьез.
-- [en] чужое_мелкое: [pool] Sky Sports — VAR who wrongly awarded Haaland winner vs Man Utd set for PL return — внутренние кадровые перестановки в футбольном судействе Британии.
-- [en] курьёз: [pool] BBC Sport — Why has Lord's dug up its pitch and what comes next? — ремонт газона на стадионе — спортивная курьезна/заметка.
-- [en] не_новость: [pool] BBC Sport — Crystal Palace urged to retire bald eagle mascot — призыв активистов к смене талисмана — мнение без реального события/решения.
-- [en] не_новость: [world] Variety — Empire Founder Ghazi Launches Supply Chain, New Rights Management/ Distribution  — основание новой компании — корпоративная заметка, не событие по списку.
-- [en] не_новость: [world] Forbes — Intelligence Is Not A Department — мнение CEO о роли ИИ — это колонка, а не новость.
-- [en] не_новость: [world] TechCrunch — Mach9 raises $34M after pivoting to AI CAD software — привлечение инвестиций стартапом — бизнес-заметка без значимых последствий.
-- [en] не_новость: [world] The Guardian — Troubled waters: life during wartime for Iranians on the strait of Hormuz — очерк о жизни в военное время без конкретных событий — это лонгрид.
-- [en] курьёз: [world] The Guardian — Veggie Thursdays and vegan surprises! How Ghent became a plant-based paradise — описание школьных обедов в Бельгии — это интересная история, но не новость.
+- [es] не_новость: [local] El Financiero — La economía mexicana ‘metió tercera’ — мнение автора, а не событие
+- [es] не_новость: [pool] Marca — Pepu Hernández y Savane vuelven al Movistar Estudiantes — спортивная аналитика о возвращении тренера, а не факт матча
+- [es] не_новость: [pool] El Comercio PE — Cambio de hora en España 2026 — qué día empieza el horario de invierno y a qué h — плановое календарное событие, а не новость
+- [es] не_новость: [pool] La Nación AR — Juicio por la muerte de Maradona: las defensas de la psiquiatra Cosachov y el ps — процессуальный этап (ходатайство защиты), а не приговор
+- [es] не_новость: [pool] La Nación AR — Día de los Cafés de Buenos Aires 2026: cuándo y dónde habrá conciertos gratis en — анонс мероприятия, нет факта совершения
+- [es] не_новость: [pool] El Nacional VE — México sumó 169 asesinatos de periodistas en los últimos 20 años con impunidad e — статистический отчет/обзор за 20 лет, нет нового события
+- [es] курьёз: [pool] Marca — Alcaraz y Mérida, entrenamiento de máximo nivel en Murcia — тренировка теннисиста не является событием
+- [es] повтор: [pool] El País — El Constitucional rechaza el amparo por la ‘ley de nietos’ y deja en el aire el  ≈ «El Constitucional rechaza la petición de» — один и тот же сюжет (решение суда)
+- [es] не_новость: [pool] El País — Milei saca el programa de la motosierra en el Casino (ante Jaime de Marichalar,  — светская хроника (кто прошел на мероприятие), нет значимого события
+- [es] повтор: [pool] El Mundo — Un juzgado de Madrid admite a trámite una querella contra Sofía Puente por preva ≈ «Un juzgado abre una causa contra la crea» — один и тот же сюжет
+- [es] не_новость: [pool] eldiario.es — Navajazos judiciales entre Supremo y Constitucional por la amnistía: "Injerencia — описание конфликта между судами без нового фактического решения
+- [es] не_новость: [world] Variety — El Latino Film Institute anuncia la séptima edición de su programa de becas Incl — объявление о стипендиальной программе (пиар института)
+- [es] не_новость: [world] Variety — Philippa Northeast, protagonista de «My Brilliant Career», sustituye a Quintessa — замена актера в сериале — не новость мирового масштаба
+- [es] не_новость: [world] Variety — Lanzan el tráiler de «Tangles», película animada producida por Seth Rogen sobre  — выход трейлера — рекламное событие
+- [es] не_новость: [world] BBC Mundo — Qué es el "efecto bola de nieve" de la deuda y qué papel tiene en la crítica sit — аналитическая статья/разбор, нет нового события
