@@ -1,27 +1,19 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] чужое_мелкое: [local] WKYT — Gov. Beshear condemns ad in Ohio governor race — Внутренняя предвыборная реклама в штате Огайо не является новостью для общенационального потока.
-- [en] курьёз: [local] Cardinal & Pine — It’s no longer top crop, but tobacco still stars at the North Carolina State Fai — Описание школьной экскурсии на ярмарку — не новость.
-- [en] не_новость: [local] WLBT — Jackson Prep presents “Les Misérables” — Анонс школьного спектакля.
-- [en] чужое_мелкое: [local] NY Post — Roger Goodell sends clear Jed York message as 49ers owner ducks media after arre — Внутрикорпоративные дела NFL и дисциплинарные взыскания — не новость мирового или национального масштаба.
-- [en] не_новость: [local] KLKN-TVKLKN-TV — New report, backed by City of Lincoln, shows inadequate child care impacts — Публикация отчёта о нехватке детских садов без конкретных решений или изменений для жителей.
-- [en] курьёз: [local] Deseret News — A just-revealed security flaw is hitting computer systems around the world — Техническая заметка о уязвимости без конкретных действий пользователей.
-- [en] курьёз: [local] NY Post — Conn. gets salty over pizza list snub — while America’s best slice goes to a cla — Недовольство штата рейтингом пиццы.
-- [en] чужое_мелкое: [local] WOWT — Election 2026: Ashley Hinson campaigns in Mills County for Iowa Senate seat — Обычная предвыборная поездка кандидата в штате Айова.
-- [en] чужое_мелкое: [local] WPLN — Voters are fed up with data centers. Both parties are trying to cash in for midt — Общий обзор политической обстановки по данным центров обработки данных не является событием.
-- [en] не_новость: [local] WAFF — Alpha Phi Alpha Fraternity, Inc. to host free Community Civic Engagement Festiva — Анонс фестиваля в Хантсвилле.
-- [en] не_новость: [local] WCAX — Maine Sen. Collins enlists ex-Democratic colleague Manchin in effort to highligh — Аналитическая статья о репутации сенатора.
-- [en] не_новость: [local] WAFF — Veterans meet with dozens of employers at Huntsville job fair — Плановая ярмарка вакансий.
-- [en] курьёз: [pool] Ars Technica — Does opting out of smart TV tracking work? Research finds “suspicious” traffic. — Исследование трафика смарт-ТВ, нет факта нарушения или решения.
-- [en] не_новость: [pool] TechCrunch — GM is giving OnStar an AI makeover — Объявление планового обновления ИИ-помощника.
-- [en] курьёз: [pool] Sky Sports — Brilliant sprinter Almeraq retired to stud — Спортивная новость об уходе лошади на пенсию.
-- [en] не_новость: [pool] Variety — Kid Cudi to Star as Jean-Michel Basquiat in Self-Written and Directed Film ‘Jean — Анонс будущего фильма.
-- [en] не_новость: [pool] CNA — Anthropic adds former Harvard science dean to oversight body — Назначение в консультативный совет — не событие-решение.
-- [en] не_новость: [pool] Variety — Neon Partners With ‘NAZA’ Filmmakers, Guardian and MK2 to Bring Prize-Winning Do — Анонс документального фильма.
-- [en] не_новость: [pool] TechCrunch — Blacksmith hits unicorn valuation after Sequoia leads Series C — Очередной раунд венчурных инвестиций в стартап.
-- [en] не_новость: [pool] Fortune — Microsoft and Alphabet object to blockchain versions of their shares—but their v — Юридические возражения компаний против токенизации акций без судебного решения.
-- [en] не_новость: [pool] Fortune — ‘Grow the damn economy’: Billionaire Ken Griffin warns Trump made a mistake cutt — Мнение миллиардера о налогах.
-- [en] не_новость: [pool] Engadget — Sony's PlayStation Pulse headset arrives on November 19 for $100 — Плановая дата выхода потребительского устройства.
-- [en] не_новость: [pool] Engadget — Supernatural's VR exercise app has relaunched on Meta VR headsets — Релиз приложения в ранний доступ.
-- [en] не_новость: [pool] BBC Sport — Why do Man City fans boo pre-match anthems? — Аналитическая статья о поведении фанатов.
-- [en] не_новость: [pool] Guardian Sport — Troy Aikman and Joe Buck: what next for the NFL’s $165m TV power couple as they  — Спекулятивная статья о карьере телеведущих.
+- [es] не_новость: [local] El Financiero — Tatiana Clouthier ‘no tira la toalla’: Llama a reunión en NL para explicar su nu — Это политическая активность без конкретного события (решение/действие).
+- [es] не_новость: [local] Expansión MX — Fernando Chico Pardo quiere llevar a Banamex al nivel de BBVA y sus hijos podría — Планы и намерения бизнесмена, а не свершившийся факт сделки.
+- [es] курьёз: [local] Expansión MX — A OpenAI no le importa la competencia: utilizará la nube de Google para sus mode — Техническая новость о выборе облачного провайдера, не является событием для широкой аудитории.
+- [es] не_новость: [local] Expansión MX — La crisis climática empeora y amenaza más vidas: la ONU advierte sobre calor mor — Общие рассуждения о климате, нет конкретного события.
+- [es] не_новость: [local] El Sol de México — AT&T duplica utilidad en México previo al anuncio de su salida del país — Корпоративная отчетность (утилида) без указания реального факта ухода.
+- [es] не_новость: [pool] Infobae — Fundadora de la plataforma Resistencia Chiquita explicó por qué le pidieron a Ho — Политическая перепалка и причины отказа в участии, нет значимого события.
+- [es] не_новость: [pool] Infobae — Nelson Cabanillas apunta contra Fabián Bustos y Jean Ferrari por su polémica sal — Спортивная конфликтная ситуация, слова игрока о претензиях к руководству.
+- [es] не_новость: [pool] Marca — Coki Nieto: "¿Mi estilo? Creo que va a durar poco en el pádel" — Интервью со спортсменом, нет события (результата/трансфера).
+- [es] не_новость: [pool] La Jornada — Spotify modifica algoritmo para sacar música basura y spam creados con IA — Техническое изменение алгоритма — это не событие в жизни общества.
+- [es] курьёз: [world] Xataka — Científicos convierten plástico en miles de millones de nanodiamantes mediante p — Научный эксперимент, место в «Интересном», нет последствий.
+- [es] не_новость: [world] Variety — El estreno de la temporada 12 de 'Chicago Med' alcanza los 8.8 millones de espec — Статистика просмотров сериала — это не новость.
+- [es] не_новость: [world] Rolling Stone — Trump a Estados Unidos: Solo haré mi trabajo si los republicanos ganan — Политическое заявление, содержащее условие («если...»), не является событием.
+- [es] курьёз: [world] TechCrunch — General Motors incorpora inteligencia artificial a OnStar — Обновление функции в авто, нет значимых последствий.
+- [es] курьёз: [world] Live Science — El uranio de la Segunda Guerra Mundial revela qué tan cerca estuvieron los nazis — Историческое исследование, место в «Интересном».
+- [es] не_новость: [world] El Mundo — La IA detecta un fallo que pone en riesgo hasta al 70% de las páginas web del mu — Общий заголовок о киберугрозах без конкретного события и пострадавших.
+- [es] не_новость: [world] BBC Mundo — Qué es el "efecto bola de nieve" de la deuda y qué papel tiene en la crítica sit — Разбор экономической теории на фоне протестов, это объяснение, а не новость.
+- [es] курьёз: [world] BBC Mundo — "Empecé a consumir ketamina a los 14 años y a los 22 necesitaba pañales" — Личная история, носит характер социального очерка, нет события.
