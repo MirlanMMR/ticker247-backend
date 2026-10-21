@@ -1,17 +1,37 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Financiero — La economía mexicana ‘metió tercera’ — мнение автора, а не событие
-- [es] не_новость: [pool] Marca — Pepu Hernández y Savane vuelven al Movistar Estudiantes — спортивная аналитика о возвращении тренера, а не факт матча
-- [es] не_новость: [pool] El Comercio PE — Cambio de hora en España 2026 — qué día empieza el horario de invierno y a qué h — плановое календарное событие, а не новость
-- [es] не_новость: [pool] La Nación AR — Juicio por la muerte de Maradona: las defensas de la psiquiatra Cosachov y el ps — процессуальный этап (ходатайство защиты), а не приговор
-- [es] не_новость: [pool] La Nación AR — Día de los Cafés de Buenos Aires 2026: cuándo y dónde habrá conciertos gratis en — анонс мероприятия, нет факта совершения
-- [es] не_новость: [pool] El Nacional VE — México sumó 169 asesinatos de periodistas en los últimos 20 años con impunidad e — статистический отчет/обзор за 20 лет, нет нового события
-- [es] курьёз: [pool] Marca — Alcaraz y Mérida, entrenamiento de máximo nivel en Murcia — тренировка теннисиста не является событием
-- [es] повтор: [pool] El País — El Constitucional rechaza el amparo por la ‘ley de nietos’ y deja en el aire el  ≈ «El Constitucional rechaza la petición de» — один и тот же сюжет (решение суда)
-- [es] не_новость: [pool] El País — Milei saca el programa de la motosierra en el Casino (ante Jaime de Marichalar,  — светская хроника (кто прошел на мероприятие), нет значимого события
-- [es] повтор: [pool] El Mundo — Un juzgado de Madrid admite a trámite una querella contra Sofía Puente por preva ≈ «Un juzgado abre una causa contra la crea» — один и тот же сюжет
-- [es] не_новость: [pool] eldiario.es — Navajazos judiciales entre Supremo y Constitucional por la amnistía: "Injerencia — описание конфликта между судами без нового фактического решения
-- [es] не_новость: [world] Variety — El Latino Film Institute anuncia la séptima edición de su programa de becas Incl — объявление о стипендиальной программе (пиар института)
-- [es] не_новость: [world] Variety — Philippa Northeast, protagonista de «My Brilliant Career», sustituye a Quintessa — замена актера в сериале — не новость мирового масштаба
-- [es] не_новость: [world] Variety — Lanzan el tráiler de «Tangles», película animada producida por Seth Rogen sobre  — выход трейлера — рекламное событие
-- [es] не_новость: [world] BBC Mundo — Qué es el "efecto bola de nieve" de la deuda y qué papel tiene en la crítica sit — аналитическая статья/разбор, нет нового события
+- [pt] полка: [local] InfoMoney — Bayern de Munique x Arsenal: Veja onde assistir à Champions League — новость о Лиге чемпионов (футбол) не является местной новостью для BR; должна быть в МИРОВЫХ
+- [pt] срочность: [local] G1 Rio — Vídeo mostra perseguição e batida em tiroteio que terminou com morte de bandido  — описание задержания и смерти преступника после события не требует побудки читателя
+- [pt] чужое_мелкое: [local] Estadão — Brasileiro é condenado a 12 anos de prisão nos EUA por lavar US$ 30 milhões do t — криминальная хроника из США без последствий для Бразилии
+- [pt] повтор: [pool] RTP Notícias — Movimento pela Habitação. A evolução da vaga de protestos em Lisboa e Porto ≈ «Habitação: Luís Neves diz que PSP vai ac» — оба материала про протесты по поводу жилья в Португалии
+- [pt] курьёз: [pool] RTP Notícias — Sporting vence LASK e soma primeiro triunfo na Youth League — спортивный результат матча молодежной лиги не имеет мирового значения
+- [pt] не_новость: [pool] ECO — Comissão de inquérito a Neves vai ter sala reservada para documentos confidencia — процедурная информация о распределении помещений в комитете
+- [pt] не_новость: [pool] Observador PT — Governo analisa intervenção no caso da revista Visão — министр «будет искать», нет принятого решения или свершившегося факта
+- [pt] чужое_мелкое: [world] Notícias ao Minuto — Mulher mata ex e namorada (mais nova) por não aprovar relacionamento — бытовое преступление в США, не имеющее мирового значения
+- [pt] полка: [world] El Universo EC — ECU911 monitora o aumento do nível do rio Viche, em Quinindé — мониторинг реки в Эквадоре — не мировая новость, региональная для испанского пула, но не для PT
+- [pt] срочность: [world] Guardian Sport — Titans teriam dispensado Jordan Elliott após o jogador buscar uma arma após brig — инцидент в футбольной команде — рядовое спортивное происшествие
+- [pt] не_новость: [world] TechCrunch — Cofundador do Foursquare diz que detentores de capital não obtiveram retorno com — комментарии бывшего руководителя о прошлых финансовых итогах
+- [pt] срочность: [world] Guardian Sport — LeBron James e Sixers frustram festa de título dos Knicks; Thunder e Pistons ven — результат матча NBA — не требует срочной пометки
+- [fr] не_новость: [local] France 24 FR — Non l’ambassade de Côte d’Ivoire à Paris n’a pas été incendiée par les manifesta — Опровержение слуха, не событие.
+- [fr] не_новость: [local] L'Express — Violences du 17 octobre : "Pour la note de crédit française, ces événements arri — Мнение эксперта о ситуации, не событие.
+- [fr] не_новость: [local] Franceinfo — Cinq questions sur la possibilité d'interdire un parti politique, comme le propo — Аналитическая подборка вопросов и мнений.
+- [fr] не_новость: [local] L'Express — "Une vague de transmissions d’entreprises arrive" : les propositions de l’ex-min — Обзор предложений депутата, не принятые решения.
+- [fr] не_новость: [local] L'Express — La France, nouvel épouvantail du camp Maga : "Voilà ce que les démocrates prévoi — Аналитический обзор дискурса в США, нет события.
+- [fr] не_новость: [pool] Radio Okapi — Perquisitions visant des proches de F. Tshisekedi en Belgique : l’UDPS dénonce u — Реакция и заявление (этикет), нет нового события.
+- [fr] не_новость: [pool] BBC World — Emmanuel Macron accuse des dirigeants étrangers d'exploiter les émeutes en Franc — Повторяющаяся риторика, отсутствие нового факта.
+- [fr] курьёз: [pool] Radio-Canada — Verushka Lieutenant-Duval et le « mot en n », « une blessure ouverte » — Личная история, не является новостным событием.
+- [fr] не_новость: [pool] Radio-Canada — De 17 % à 23 % : Mark Carney fait plus de place au français qu’avant — Заявление о намерениях, не является событием.
+- [fr] чужое_мелкое: [world] Jeune Afrique — Cameroun : comment le schisme entre Nourane Foster et Cabral Libii fragilise le  — Локальные партийные разборки в Камеруне.
+- [fr] не_новость: [world] Jeune Afrique — Abidjan-Paris : le tandem Air France-Air Côte d’Ivoire resserre l’étau autour de — Бизнес-партнерство, носит рекламный характер.
+- [fr] не_новость: [world] Courrier International — Avec sa nouvelle stratégie pour l’Arctique, l’UE veut “rattraper son retard” — Обзор стратегии, нет события.
+- [fr] повтор: [world] BBC News — Le citoyen américain Stephen Hubbard libéré par la Russie lors d'une rencontre e ≈ «La Russie a relâché un Américain empriso» — Тот же факт освобождения американца.
+- [fr] чужое_мелкое: [world] RFI — Au Salvador, des dizaines de milliers de personnes attendent d'être jugées — Внутренняя ситуация в Сальвадоре.
+- [fr] чужое_мелкое: [world] Courrier International — Disparitions au Mexique : le gouvernement reconnaît l’implication des autorités  — Местные разбирательства в Мексике.
+- [fr] чужое_мелкое: [world] BBC News — Google fait face à une vague de démissions suite à ses contrats militaires impli — Корпоративные споры Google, нет последствий для мира.
+- [fr] курьёз: [world] Futura-Sciences — Il a fabriqué le hoverboard volant du Bouffon vert de Marvel : les images sont c — Техническая диковинка, место в «Интересном».
+- [fr] чужое_мелкое: [world] Courrier International — Au milieu des tensions en Méditerranée, la Libye se range du côté de la Turquie — Давно подписанный договор, ратификация — бюрократия.
+- [fr] повтор: [world] Courrier International — Moscou libère un prisonnier américain, Witkoff qualifie Poutine d’“humaniste” ≈ «La Russie a relâché un Américain empriso» — Повтор сюжета об освобождении американца.
+- [fr] чужое_мелкое: [world] Africanews FR — Aliko Dangote acquiert 25 % du réseau national d’oléoducs du Kenya — Бизнес-сделка локального масштаба в Кении.
+- [fr] чужое_мелкое: [world] Semafor — JPMorgan est sur le point d'obtenir une licence bancaire commerciale au Nigeria — Банковская лицензия — обычная деятельность, нет события.
+- [fr] не_новость: [world] BBC Sport — Mark Allen révèle avoir séjourné dans une clinique de santé mentale avant son re — Личная жизнь спортсмена, не является новостью.
+- [fr] чужое_мелкое: [world] BBC World — Le Pakistan arrête un homme recherché par les États-Unis dans une affaire de fra — Арест по старому делу о мошенничестве, мелкий масштаб.
