@@ -1,22 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Exame — Na Salesforce, 81% dos funcionários dizem que a IA aumenta a produtividade, mas  — Внутренний опрос компании — не новость для широкого круга читателей.
-- [pt] не_новость: [local] Folha de S.Paulo — 1926: Grupo teatral de artistas negros encanta público de São Paulo — Историческая справка/архив, не событие.
-- [pt] полка: [local] Metrópoles — Malévola pode pegar até 4 anos de prisão no Egito, explica advogado — Событие в Египте (EG), должно быть в «Мировых», а не «Местных».
-- [pt] не_новость: [local] G1 Rio Grande do Sul — Jovem de 21 anos desaparece junto com namorado em São José, na Grande Florianópo — Затяжной процесс/поиск, нет события.
-- [pt] не_новость: [local] G1 Minas — Depoimento de Fabiano Zettel à PF previsto para esta quarta-feira é cancelado e  — Перенос даты допроса — рутина, не событие.
-- [pt] срочность: [local] G1 São Paulo — Polícia encontra 11º corpo em SP; veja onde cadáveres foram encontrados em sacos — Найдено 11 тел за 47 дней — это текущее следствие, а не срочная побудка.
-- [pt] полка: [pool] Terra BR — Fuga frustrada após 10 anos: Polícia Civil captura líder do narcotráfico ligado  — Событие в Бразилии (BR) в ленте «Новости из…», должно быть в «Местных».
-- [pt] полка: [pool] Terra BR — Tiro em Fred Bruno: polícia muda boletim de ocorrência que investiga deputado Ma — Событие в Бразилии (BR) в ленте «Новости из…», должно быть в «Местных».
-- [pt] анонс: [pool] Observador PT — Cerca de 200 manifestantes reunidos em Braga pela habitação — В тексте только код рекламного блока, нет сути новости.
-- [pt] полка: [pool] Terra BR — STJD marca julgamento, e Kannemann pode pegar gancho pesado no Grêmio — Событие в Бразилии (BR) в ленте «Новости из…», должно быть в «Местных».
-- [pt] повтор: [world] RTP Notícias — Meta condenada a pagar 25 mil milhões de dólares ao Novo México por enganar util ≈ «Meta é multada em 25 bilhões de dólares » — Дублирует новость о штрафе Meta.
-- [pt] курьёз: [world] Engadget — Xbox testa streaming de jogos pago para usuários sem Game Pass — Тестирование функции сервиса — не мировое событие.
-- [pt] курьёз: [world] TechCrunch — Enquanto a Amazon bloqueia agentes de IA, o Walmart abre as portas — Стратегия ритейлера — не мировое событие.
-- [pt] не_новость: [world] Variety — Série 'ComicView: Rooftop Series' é renovada para a 2ª temporada no BET — Продление сериала — не событие в жизни общества.
-- [pt] не_новость: [world] Variety — Série da Hera Venenosa da DC está em desenvolvimento na HBO com Lauren LeFranc,  — Разработка сериала (стадия «в развитии») — не событие.
-- [pt] не_новость: [world] Ars Technica — Fim da BioWare: EA fecha estúdio de RPG após mais de três décadas — Закрытие студии — это событие, но новость подана без деталей, как констатация.
-- [pt] чужое_мелкое: [world] Guardian Sport — Titans teriam dispensado Jordan Elliott após o jogador buscar uma arma após brig — Внутренний дисциплинарный инцидент NFL (США) — не мировое событие.
-- [pt] курьёз: [world] Ars Technica — Modelos de IA da OpenAI chegarão ao Google Cloud e ao Antigravity — Техническая интеграция — не мировое событие.
-- [pt] курьёз: [world] Live Science — Urânio da Segunda Guerra Mundial revela quão próximos os nazistas estavam de uma — Научно-популярный факт об истории — место в «Интересном».
-- [pt] не_новость: [world] Superinteressante — Tech: os 4 produtos mais interessantes de outubro de 2026 — Подборка товаров — это рекламный обзор, а не новость.
+- [en] не_новость: [local] NY Post — John Goodman makes rare remark about weighing nearly 400 pounds: ‘I was eating a — интервью, частные воспоминания актера о своем весе
+- [en] не_новость: [local] WKYT — Kentucky mayoral candidates say video of alleged racial slur has changed campaig — рассуждения о влиянии скандала, самого события нет
+- [en] не_новость: [local] KFVS12 — Cape Girardeau Co. clerk addresses ballot misinformation ahead of election day — опровержение слухов в соцсетях, не является новостным событием
+- [en] не_новость: [local] KCRG — Fall colors drive tourism, October outperforms summer for visitors — сезонный отчет о посещаемости, общая статистика
+- [en] чужое_мелкое: [local] Deseret News — 30 U.S. colleges cut research ties to ‘problematic’ foreign entities — at the Pe — внутренняя административная мера по вузам США, не является мировой новостью
+- [en] не_новость: [local] Startribune News — Minneapolis mental health crisis response program ‘thrown into chaos’ — текущие трудности с подрядчиком, нет события
+- [en] курьёз: [local] Georgia Public Broadcasting — New human data hints at psychedelics' potential to combat inflammation — научное исследование без конкретного прикладного результата
+- [en] не_новость: [local] Santa Fe New Mexican — Santa Fe unveils plans for reconfigured Alternative Response Unit — ребрендинг подразделения мэрии, внутреннее переименование
+- [en] не_новость: [local] KFYR-TV — Towner vet clinic expands to meet rural demand — расширение частной клиники, бизнес-процесс
+- [en] не_новость: [local] Untitled RSS Feed — Campbell County Moves $500 Million Nuclear Fuel Facility Closer To Reality — стадия подготовки площадки к стройке (планы)
+- [en] не_новость: [local] KOLO — Rosen joins colleagues in introducing bill ending tariffs — внесение законопроекта (только слова и намерения)
+- [en] не_новость: [local] KFVS12 — Increased speed limits in Missouri: Here’s where — анонс будущих изменений скоростного режима
+- [en] не_новость: [local] CBS News — A look at the iPhone Duo before its official release this week — обзор продукта перед релизом
+- [en] не_новость: [local] WISH-TV — Vote delayed on $52M tax incentive package for Metrobloks data center — отложенное голосование, событие не состоялось
+- [en] не_новость: [local] KLKN-TVKLKN-TV — Letter released condemning online sports wagering signed by Tom Osborne, 44 form — выпуск открытого письма (слова)
+- [en] не_новость: [local] WABI — Women for Troy coalition rallies in Augusta, pushes back on attack ads — политический митинг, нет свершившегося события
+- [en] курьёз: [pool] Variety — Alexander Skarsgård on His Wacky ‘Wicker’ Red Carpet Looks: From Clear Shoes and — разбор нарядов актера на красной дорожке
+- [en] не_новость: [pool] Time — Ahead of Midterms, Elena Kagan Says the Supreme Court Is Undermining Voting Righ — мнение судьи, это слова, а не решение
+- [en] курьёз: [pool] NPR News — Meet the people moving north to escape increasingly hot summers — очерк о людях, переезжающих на север
+- [en] не_новость: [pool] Time — Five Facts You Need To Know From The U.N.'s Major Emissions Gap Report — пересказ отчета ООН о климате (без нового события)
+- [en] курьёз: [pool] Fortune — Collectors sent rare Pokémon and sports cards to get graded. — общее описание процесса оценки карточек
+- [en] курьёз: [world] Ars Technica — Survey: Enterprises waste 28 percent of software budgets on unwanted upgrades — обзор результатов опроса о тратах бизнеса
+- [en] не_новость: [world] Rolling Stone — Talking Heads Reunite for Coffee-Table Book — анонс книги
+- [en] не_новость: [world] Forbes — It’s A Wash: AI Will Create As Many Jobs As It Eliminates, Study Suggests — теоретическое исследование NBER о влиянии ИИ на рынок труда
+- [en] курьёз: [world] Ars Technica — The new human-crafted Apple Music brand matters in an AI world — мнение автора о дизайне бренда Apple Music
