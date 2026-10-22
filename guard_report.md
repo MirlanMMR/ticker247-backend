@@ -1,11 +1,31 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] чужое_мелкое: [local] El Financiero — Sorprende a Trump el pasado de Sheinbaum como bailarina: ‘¿Cómo llegó a ser pres — Внутренняя политическая полемика в США не является мировой новостью для Мексики.
-- [es] курьёз: [pool] Infobae — Caricaturista Matador denunció que Meta eliminó su página de Facebook y suspendi — Конфликт блогера с Meta — частный случай, не имеющий широкого общественного значения.
-- [es] не_новость: [pool] Clarín AR — Sofía Solá habló de los rumores de romance con Franco Colapinto y fue contundent — Светская хроника и слухи о романах не входят в белый список событий.
-- [es] курьёз: [pool] Marca — Mayweather quiere encontrar al único boxeador que le venció para ayudarlo: “Está — История о бывшем боксере — развлекательный контент, а не новость.
-- [es] не_новость: [pool] Clarín AR — Sara Carbonero, periodista española, rememoró las repercusiones de su beso con I — Воспоминания о событии 2010 года — это не актуальное событие.
-- [es] не_новость: [world] TechCrunch — Nirva recauda 33 millones de dólares para un colgante diseñado solo para escucha — Это бизнес-новость о привлечении инвестиций стартапом, не имеющая последствий для читателя.
-- [es] не_новость: [world] BBC Mundo — "Ya no puedo hacer teatro, ni cine, ni leer": la enfermedad que ha frenado la ca — Проблемы со здоровьем актрисы — частная история, не попадает в белый список.
-- [es] не_новость: [world] BBC Mundo — "Me olvidé secretos de Estado en un tren: soy la prueba de que es posible recupe — Личные мемуары без общественной значимости.
-- [es] срочность: [world] RFI — Presidenciales en Brasil: Lula y Flávio Bolsonaro agotan sus últimas fuerzas en  — Обычный ход предвыборной кампании не требует пометки «срочно».
+- [pt] не_новость: [local] CNN Brasil — Pyong Lee desmente que filha se chamará Joquebede e explica anúncio “falso” — личная жизнь знаменитости, не является общественно значимым событием
+- [pt] не_новость: [local] CNN Brasil — Moradia digna e acessível: o papel da habitação social na urbanização — аналитическая статья-мнение, нет события с датой или результатом
+- [pt] не_новость: [local] G1 Rio — Ligação entre lagoa e mar na Região dos Lagos pode ter sido causado por volume a — предположение биолога без установленного факта события
+- [pt] не_новость: [local] Estadão — Novo ciclone extratropical pode se formar na região Sul; saiba quando — прогноз о возможном явлении, а не свершившееся событие
+- [pt] не_новость: [local] Estadão — Anthropic lembra que compramos conveniência digital, mas descuidamos da seguranç — статья-рассуждение о безопасности технологий, нет события
+- [pt] не_новость: [pool] RTP Notícias — Habitação. "Lei da geringonça castigou o arrendamento", aponta Leitão Amaro — мнение политика о законе, нет нового решения или события
+- [pt] не_новость: [pool] Terra BR — Diretor da Quaest elenca três fluxos que podem definir eleição e diz que Lula pr — анализ политолога, нет факта события
+- [pt] не_новость: [pool] Téla Nón — Reforço da prevenção face à ameaça da Peste dos Pequenos Ruminantes — информация о профилактике, нет свершившегося события
+- [pt] курьёз: [world] CNN Brasil — Sempre ao Seu Lado: Galo vigia hospital na Bolívia anos após morte do dono — необычный факт, не имеющий мирового значения
+- [pt] курьёз: [world] Terra BR — O enigma do possível arranha-céu da Antiguidade — историко-археологическое исследование, не новость
+- [pt] курьёз: [world] Terra BR — Seu comprimento ultrapassa um metro: fóssil de 415 milhões de anos revela a desc — палеонтологическая находка, не новость
+- [pt] не_новость: [world] Engadget — As TVs OLED Pro Series LX da Roku já estão disponíveis na Amazon — реклама выхода товара в продажу
+- [pt] повтор: [world] RFI — Parlamento Europeu concede o Prêmio Sakharov ao Tribunal Penal Internacional ≈ «“Construído sobre o respeito”: UE conced» — дублирует новость о премии Сахарова
+- [pt] чужое_мелкое: [world] Guardian Sport — Bem-vindo à armadilha: o Atlanta Dream transforma as finais da WNBA em um espetá — детальный обзор матча WNBA не является мировой новостью
+- [pt] курьёз: [world] Superinteressante — Corais doentes podem se curar ao encostar em clones saudáveis — биологический факт, нет события
+- [fr] курьёз: [local] France Bleu — Un nuage lenticulaire observé à Alès — наблюдение за облаком — не новость
+- [fr] повтор: [local] L'Obs — Faut-il s’inquiéter du virus Shamonda, qui vient de faire sa première victime hu ≈ «Le virus de Chamond détecté pour la prem» — один и тот же случай с вирусом
+- [fr] не_новость: [local] Le Figaro — Pierre Moscovici démissionne de la Cour des comptes européenne — отставка чиновника — плановое или частное дело, нет события
+- [fr] не_новость: [pool] Le Temps — La France face à une violence «algorithmique»: des experts alertent sur l’amplif — аналитический разбор «экспертов», нет события
+- [fr] чужое_мелкое: [world] Africanews FR — Guinée : sept ans de prison pour l’ex-président de la Cour constitutionnelle — внутренний суд в Гвинее, нет последствий для мира
+- [fr] не_новость: [world] Africanews FR — Allemagne : Nvidia présente ses robots et ses machines dopées à l'IA — презентация технологий (рекламный характер), не событие
+- [fr] курьёз: [world] Futura-Sciences — Alerte sur le Web : une IA vient de découvrir deux failles majeures que les pira — абстрактная новость об угрозе ИИ, нет конкретного события
+- [fr] не_новость: [world] Courrier International — Witkoff à Saint-Pétersbourg : “les deux parties sont prêtes à négocier”, selon l — обсуждение слухов о переговорах, события нет
+- [fr] курьёз: [world] Courrier International — Petit miracle dans un zoo australien : un casoar à casque pond deux œufs vert fl — рождение редкого животного в зоопарке
+- [fr] не_новость: [world] Africanews FR — Madagascar : d’anciens dirigeants visés par des plaintes pour corruption — подача жалоб (процесс), а не приговор
+- [fr] не_новость: [world] Africanews FR — Ceuta : la crise migratoire nourrit la défiance envers le gouvernement Sánchez — рассуждение о политических настроениях перед выборами
+- [fr] курьёз: [world] Futura-Sciences — Psychologie : cette étude explique pourquoi le cerveau humain ne serait plus du  — научно-популярная статья о психологии, не новость
+- [fr] чужое_мелкое: [world] RFI — La Russie poursuit sa «diplomatie des otages» avec l'arrestation d'un ressortiss — задержание иностранца — рутинная новость внутренней политики РФ
+- [fr] не_новость: [world] L'Express — Vladimir Poutine, un "humaniste" ? Aux Etats-Unis, Steve Witkoff choque même les — политический комментарий к словам политика, события нет
