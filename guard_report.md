@@ -1,17 +1,21 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] Exame — Confiar na IA sem checar pode virar erro de gestão; veja como criar o hábito da  — Это статья с советами, а не событие.
-- [pt] чужое_мелкое: [local] Poder360 — “New Yorker” chama a eleição de “a última dança de Lula” — Мнение иностранного журнала о внутренних выборах другой страны.
-- [pt] не_новость: [local] G1 São Paulo — Família procura por cachorro ‘Diamante’, que fugiu de casa durante comemorações  — Частное объявление о поиске пропавшего питомца.
-- [pt] не_новость: [local] G1 Rio — Quem é Rubel, compositor que mandou retirar sua música de vídeo de Nikolas Ferre — Развлекательный материал о скандале вокруг артиста.
-- [pt] не_новость: [local] G1 Minas — 'Pêndulo' eleitoral, MG espelha divisão entre direita e esquerda na corrida para — Аналитическая статья-разбор о политической ситуации.
-- [pt] не_новость: [local] G1 Rio — Ligação entre lagoa e mar na Região dos Lagos pode ter sido causada por volume a — Гипотеза биолога, а не свершившийся факт.
-- [pt] курьёз: [pool] Público — Cartoon de André Carrilho publicado no PÚBLICO é finalista do European Cartoon A — Художественное достижение, не требующее срочности в новостной ленте.
-- [pt] курьёз: [pool] Público — Julie veio “acanhada” para o Alentejo: agora é um elefante que dorme sob as estr — История про животное — типичный материал для рубрики «интересное».
-- [pt] курьёз: [world] Variety — Sacha Baron Cohen afirma que a Marvel temia que escalar um ator judeu para o pap — Закулисные слухи и страхи актеров — не новость.
-- [pt] курьёз: [world] Ars Technica — Gotas de tinta em movimento conquistam prêmio máximo no concurso Nikon Small Wor — Победа в фотоконкурсе не является важным мировым событием.
-- [pt] не_новость: [world] Rolling Stone — Revelados os apresentadores do episódio de Halloween do ‘SNL’ — Анонс программы развлекательного шоу.
-- [pt] не_новость: [world] Superinteressante — Uma linha do tempo de como o voto feminino foi conquistado no Brasil e no mundo — Историческая справка/таймлайн.
-- [pt] курьёз: [world] Fortune — Pesquisadores encontram sinal de 'dor' em modelos de IA; ativação levou à exclus — Научно-популярное наблюдение, не влияющее на читателя сейчас.
-- [pt] не_новость: [world] Superinteressante — Um brasileiro nos bastidores de uma revolução na matemática — Популяризаторская статья о математике.
-- [pt] не_новость: [world] Fortune — A fusão desejada por Elon Musk é um pesadelo para os acionistas da SpaceX — Обсуждение планов/гипотез о слиянии компаний, а не свершившаяся сделка.
+- [en] чужое_мелкое: [local] NY Post — Meghan Markle’s dad, Thomas, under investigation for ‘hundreds, if not thousands — скандал вокруг частного лица, не является событием государственной важности для US
+- [en] не_новость: [local] WBAY — Breadsmith named Bakery of the Year — награждение пекарни местной премией — частный PR-повод
+- [en] не_новость: [local] Homepage — Bernie Brewer's old chalet finds new home at Lakefront Brewery, keeping County S — ретроспективный очерк о спортивном объекте, нет события
+- [en] полка: [local] CNN Brasil — United States announces anti-drug office in Paraguay — международное событие с участием США должно быть в мировых
+- [en] повтор: [pool] Sky Sports — Bournemouth seal historic win over Amorim's 10-man Milan ≈ «Bournemouth enjoy night to remember as 1» — один и тот же матч
+- [en] чужое_мелкое: [pool] The Independent — Foster son accused of murdering mom who was battling cancer to get her money — криминальная хроника: обвинение частного лица, не имеет значения для ленты в US
+- [en] чужое_мелкое: [pool] The Hill — Prominent Texas lawyer who donated over 600K to pro-Paxton PAC endorses Talarico — локальная предвыборная поддержка в штате, не имеет национального значения
+- [en] не_новость: [pool] Daily Maverick — REPEAT CONVICT: SA double murderer ‘with racist alter ego’ may lose US citizensh — обзор старого дела и статуса гражданства частного лица
+- [en] курьёз: [pool] Variety — Raye Wins Mercury Prize for Album of the Year — премия в области музыки — развлекательная новость, не событие
+- [en] не_новость: [pool] Sky Sports — 'That's not enough for me' - Hamilton explains taking strategy into own hands — комментарии спортсмена о стратегии — слова, а не событие
+- [en] не_новость: [pool] BBC News — Prince William makes surprise appearance on Graham Norton Show — появление знаменитости на ТВ — не является событием
+- [en] не_новость: [pool] Engadget — A new subscription service promises an evolving collection of 'bold and bizarre' — анонс запуска сервиса игр, нет свершившегося события
+- [en] не_новость: [pool] The Independent — Good Samaritan gets $1K reward for hopping on rolling school bus to save 18 kids — анонс материала с призывом оформить подписку
+- [en] не_новость: [pool] Fortune — Venture giant Andreessen Horowitz drops ‘crypto’ from name of blockchain fund, r — ребрендинг фонда — внутренняя бизнес-рутина
+- [en] курьёз: [pool] Fortune — Chick-fil-A hit $23.9 billion in sales while closed every Sunday. — статистика продаж сети фастфуда, нет события
+- [en] не_новость: [pool] The Guardian — Reform snowflake Zia Yusuf demands safe space from ITV’s racism hunters — колонка мнений, эмоциональный шум, нет события
+- [en] не_новость: [pool] Guardian Sport — Rookie Lendeborg jaws at ‘weak ass’ Dončić and admits he didn’t watch much NBA — пересказ игровых моментов и трэш-тока — не событие
+- [en] не_новость: [pool] BBC Sport — Fernandes to stay captain as Rooney calls Man Utd players babies — обсуждение состава команды и мнения ветеранов — слова
+- [en] курьёз: [world] Cascade PBS — NFL Player Turned Mathematician Solves Problem that Eluded Scholars for Years — научно-популярный факт, не имеющий прямого последствия для читателя
