@@ -1,38 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Exame — Quem são os jogadores mais bem pagos do mundo? Veja ranking da Forbes — Список Forbes о доходах игроков не событие и не новость.
-- [pt] курьёз: [local] G1 Rio Grande do Sul — Cachorrinha 'invade' pedido de casamento, rouba a cena e momento viraliza; VÍDEO — Вирусное видео с собакой — развлекательный контент.
-- [pt] курьёз: [local] G1 Rio Grande do Sul — Leitoa que seria rifada e abatida para ceia ganha novo lar em ONG e dorme ao lad — История о спасенной лейте — развлекательный контент.
-- [pt] курьёз: [world] Notícias ao Minuto — Museu retira múmias por não ter consentimento das próprias para exposição — Решение музея о мумиях — любопытный факт, не мировое событие.
-- [pt] не_новость: [world] Variety — Spin-off de 'Blippi', intitulado 'Meekah', é produzido pelo Moonbug Entertainmen — Анонс производства мультсериала — бизнес-план, а не состоявшееся событие.
-- [pt] не_новость: [world] Ars Technica — ONU afirma que ultrapassaremos o limite de aquecimento de 1,5ºC e apresenta resp — Отчет ООН о том, что прогноз сбывается — это прогноз, а не новое событие.
-- [pt] повтор: [world] BBC Brasil — O que é PHP e a falha grave de segurança detectada por IA que tirou sites do ar ≈ «Falha descoberta por IA gera correria do» — Повтор темы о критической уязвимости в PHP.
-- [pt] курьёз: [world] Live Science — Mudanças climáticas estão alterando literalmente o formato do planeta — Исследование об изменении формы Земли — научный факт, а не новость.
-- [pt] курьёз: [world] Superinteressante — Corais doentes podem se curar ao encostar em clones saudáveis — Исследование о лечении кораллов — интересный факт, не новость.
-- [pt] не_новость: [world] Engadget — Tesla planeja iniciar as vendas dos Cybercabs até o final do ano — Планы Tesla на 2027 год — это намерение, а не состоявшееся событие.
-- [pt] не_новость: [world] TechCrunch — Airbnb limita exigências de limpeza para hóspedes, gerando críticas de anfitriõe — Изменение правил Airbnb — это корпоративная политика, а не событие.
-- [pt] не_новость: [world] Ars Technica — A Xbox quer que você pague de 24 a 40 centavos por hora para transmitir jogos qu — Xbox хочет ввести оплату — это намерение/модель бизнеса, события нет.
-- [fr] не_новость: [local] Franceinfo — Pierre Moscovici démissionne de la Cour des comptes européenne, moins d'un an ap — Плановый уход/отставка без указания чрезвычайных причин или последствий.
-- [fr] не_новость: [local] BFMTV — "Des annonces totalement déconnectées des attentes de nos concitoyens": Arthur D — Это цитирование критики политиков, а не событие.
-- [fr] не_новость: [local] BFMTV — Interdiction des manifestations non syndicales: "Le droit de manifester est insc — Риторический вопрос депутата, пересказ мнения, не событие.
-- [fr] срочность: [local] Nice-Matin — Un accident entre une voiture et un poids lourd provoque plusieurs kilomètres de — Обычное ДТП с пробками на автостраде не требует побудки читателя.
-- [fr] срочность: [local] Sud Ouest — « Un trafic à un régime industriel » : prison ferme requise pour un élevage clan — Судебные запросы прокурора — это часть затяжного процесса, а не событие для срочной метки.
-- [fr] не_новость: [local] France Bleu — Concours de danse, paiement chez le dentiste : gare à ces messages frauduleux su — Общий совет/предупреждение о мошенниках без конкретного нового факта или пострадавших.
-- [fr] не_новость: [pool] TSA Algérie — Algérie – Maroc : chute drastique des échanges commerciaux — Аналитика/описание долгосрочного тренда, а не событие.
-- [fr] не_новость: [pool] Bénin Web TV — Mali : l’armée annonce une frappe près de Ngoma Koura, sans bilan chiffré — Анонс/сообщение о продолжении разведки, отсутствие факта (результата операции).
-- [fr] не_новость: [pool] RTBF — Economies en Fédération Wallonie-Bruxelles : "Ce qui est insupportable, c’est qu — Дискуссия о методах финансирования, не конкретное решение.
-- [fr] чужое_мелкое: [pool] Le Nouvelliste — Salvadoran President Nayib Bukele Issues Ultimatum to Criminal Gangs in Haiti — Внутренняя повестка Гаити и Сальвадора, не имеющая последствий для международного сообщества.
-- [fr] не_новость: [world] La Tribune — Lufthansa : une extension internationale inédite depuis la pandémie — Анализ стратегии компании, а не свершившаяся сделка.
-- [fr] повтор: [world] Le Temps — Tour de France 2027: départ d'Édimbourg, absence de cols mythiques et retour de  ≈ «Un départ au Royaume-Uni, deux contre-la» — Тот же сюжет про Tour de France 2027.
-- [fr] чужое_мелкое: [world] 20 Minutes — États-Unis : Trump envisage de chasser les journalistes… pour faire une piscine  — Спекулятивная идея Трампа о бассейне не является новостью, меняющей положение.
-- [fr] не_новость: [world] Semafor — Le Golfe attire des sociétés financières gérant 5 800 milliards de dollars depui — Описательный обзор бизнес-активности без факта сделки или события.
-- [fr] не_новость: [world] Africanews FR — Arrêt sur images du 22 octobre 2026 : manifestation à Londres contre un nouveau  — Репортажная зарисовка о митинге, который не меняет политический ландшафт.
-- [fr] не_новость: [world] Semafor — Les contrats à terme sur les actions américaines reculent en raison des inquiétu — Биржевые колебания («опасения») не являются новостным событием.
-- [fr] не_новость: [world] Franceinfo — "Discours de haine", "propagande" pro-Nétanyahou... En Israël, le média Channel  — Обзорная статья о спорах вокруг СМИ, не событие.
-- [fr] курьёз: [world] Africanews FR — Australie : des passants plongent dans les eaux pour sauver un conducteur — Мелкий локальный инцидент (спасение водителя), не мировой масштаб.
-- [fr] повтор: [world] 20 Minutes — États-Unis : Mais pourquoi donc Witkoff, l’émissaire de Trump, a-t-il qualifié P ≈ «Vladimir Poutine, un "humaniste" ? Aux E» — Тот же сюжет про слова Стива Уиткоффа.
-- [fr] не_новость: [world] La Dépêche — Piquée par un moustique en Asie, une touriste française de 24 ans est décédée d' — Трагическая история, произошедшая в августе, подана как новость спустя месяцы без нового повода.
-- [fr] не_новость: [world] BBC News — Les criminels refusant d'assister à leur condamnation seront placés à l'isolemen — Общее описание полномочий судей, не решение по конкретному делу.
-- [fr] курьёз: [world] RTBF — "La ségrégation était une bonne chose" : sur la mythique Highway 61, la rencontr — Личные впечатления от поездки, не новость.
-- [fr] не_новость: [world] L'Express — "C'était donc possible" : il y a 70 ans, le peuple hongrois se soulevait contre  — Историческая справка (архивная статья 1956 года).
-- [fr] не_новость: [world] Radio-Canada — Les États-Unis accusent le Canada d’ingérence dans les élections américaines — Обвинения и реакция на них — дипломатическая рутина без совершившегося события.
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Трагедия в Орске: скончался двухлетний мальчик, подавившийся пельменем — Локальное происшествие (несчастный случай) в российском городе без мировых последствий.
+- [ru] не_новость: [pool] РИА Новости — "Ночь видеоигр" проведут 31 октября в рамках Московской недели видеоигр — Анонс мероприятия («Ночь видеоигр») без совершившегося факта.
+- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Стенд из сотен олимпийских медалей и гости из Африки и Азии: как прошел второй д — Детали проведения локального форума в Красноярске для кыргызского читателя — избыточный шум.
+- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — В Мурманской области начнет работать поисково-спасательный отряд из Архангельска — Местная организационная новость регионального отряда в РФ.
+- [ru] чужое_мелкое: [pool] Kapital.kz — Для банков установлены индивидуальные показатели по обращениям и урегулированию  — Внутренние требования регулятора к банкам Казахстана.
+- [ru] не_новость: [pool] Kapital.kz — Президент принял главу Агентства по атомной энергии — Рабочая встреча президента с главой агентства (протокольное мероприятие).
+- [ru] чужое_мелкое: [pool] Onliner.by — Подешевела в два раза. Заброшенную советскую гостиницу снова попытаются продать — Попытка продажи недвижимости в Гродно (Беларусь) — мелкое местное событие.
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Дело о служебном подлоге направлено в Новгородский райсуд — Локальное уголовное дело о подлоге в Великом Новгороде.
+- [ru] чужое_мелкое: [pool] NewsGeorgia — С начала года Грузия экспортировала улиток на $3 млн — Статистика экспорта улиток из Грузии — мелкая экономическая заметка без влияния на регион.
+- [ru] курьёз: [pool] 59.ru — Пермь — Повалил на землю и атаковал когтями: в Пермском крае медведь напал на охотника,  — Нападение медведя на охотника — типичное «надо же», место в интересном.
+- [ru] не_новость: [pool] Avesta.tj — Таджикистан и Южная Корея расширяют сотрудничество в цифровизации таможни — Обсуждение планов по цифровизации (намерение, не свершившийся факт).
+- [ru] не_новость: [pool] 45.ru — Курган — В Кургане построили здание — копию бывшей гостиницы Васильевых. Фото — Заметка о строительстве здания-копии (описание городской застройки).
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — «Поджёг бумагу, засунул в бутылку»: новые подробности пожара в автобусном парке  — Локальное происшествие (поджог) в Перми.
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самарской области появится новый мост — Местная новость о строительстве моста в Самарской области.
+- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — Застрелили медведя, который убил охотника в Архангельской области — Локальное событие: отстрел медведя в Архангельской области.
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — Череповец получил восемь машин из Москвы — Передача коммунальной техники между российскими городами — шум.
+- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Жуки-дровосеки съели брус, пока семья строила дом в Якутске. — Гражданский иск частных лиц в Якутске.
+- [ru] чужое_мелкое: [pool] 43.ru — Киров — Житель Кирова осуждён за покушение на убийство — Локальный приговор жителю Кирова.
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — Дело о попытке взятки инспектору ДПС направлено в суд — Мелкое уголовное дело в Вологодской области.
+- [ru] чужое_мелкое: [pool] 48.ru — Липецк — В Ельце судят женщину за ложный донос об изнасиловании — Локальное уголовное дело в Липецке.
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Приговор за смерть мужчины на карьере в Малой Вишере — Приговор по локальному делу в Новгородской области.
+- [ru] не_новость: [pool] 60.ru — Псков — Псковские росгвардейцы задержали 17 нарушителей — Отчет Росгвардии о количестве выездов (рутина).
+- [ru] чужое_мелкое: [pool] 45.ru — Курган — В Кургане сотрудница одного из предприятий получила тяжелую травму руки — Травма на производстве в Кургане.
+- [ru] полка: [world] 14.ru — Якутск — «Нас девушками называют, а деды у нас — мальчишки»: как столовая заставила пенси — Новость из Якутска лежит в «Мировых». Должна быть в «Новости из...» или удалена.
+- [ru] полка: [world] 60.ru — Псков — Жертвы Эпштейна добились коллективного иска к банку — Локальный судебный процесс в США лежит в «Мировых», при этом издание 60.ru (Псков) в заголовке — явная ошибка разметки.
