@@ -1,26 +1,17 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] полка: [local] El Financiero — Wall Street abre con pérdidas por dudas sobre la IA: ¿Cuánto caen HOY las accion — Это мировая финансовая новость (Wall Street), не местная мексиканская.
-- [es] не_новость: [local] El Sol de México — Acuerda OAJ aumento salarial de 4.5% para trabajadores operativos y mandos medio — Плановое повышение зарплаты после диалога — часть бюрократического процесса, нет события.
-- [es] не_новость: [local] El Sol de México — Restricciones a la Modalidad 40 del IMSS podrían ser impugnadas ante tribunales  — Предупреждение о возможных будущих исках, события нет.
-- [es] не_новость: [local] La Jornada — Editorial: IMSS: conflicto sindical — Обычная профсоюзная рутина, объявление о принятии условий — не событие.
-- [es] не_новость: [local] La Jornada — La ley antimemes fue aprobada en San Lázaro — Термин «закон об антимемах» в контексте защиты ИС — это оценочное суждение, событие отсутствует.
-- [es] курьёз: [local] La Jornada — Trasladan rinoceronte del zoo de París a Guadalajara para preservar la diversida — Перевозка животного между зоопарками — не новость для широкого круга читателей.
-- [es] чужое_мелкое: [pool] La Nación AR — Un grupo de presos protagonizó una violenta pelea en la Alcaidía 1 de la Ciudad — Драка заключенных в Аргентине — мелкое местное событие, не имеет мирового значения.
-- [es] не_новость: [pool] Clarín AR — "Tengo la esperanza de volver a abrazarlo": buscan a un senderista desaparecido  — Поиски пропавшего человека — трагедия, но не новостное событие в смысле принятия решений или перемен.
-- [es] чужое_мелкое: [pool] Marca — Al Getafe se le va de las manos con los regalos — Проигрыш футбольного клуба в лиге — местная новость Испании, в пуле MX не нужна.
-- [es] не_новость: [pool] El Nacional VE — Delsa Solórzano denuncia el uso de recursos del Estado para financiar campañas e — Политическое заявление оппозиции без факта совершения действия.
-- [es] не_новость: [pool] El Nacional VE — Relatores y grupos de trabajo de la ONU piden al Estado venezolano reconsiderar  — Призыв ООН к государству — дипломатическая переписка, не событие.
-- [es] чужое_мелкое: [pool] El Mundo — Registran una ONG en Ceuta y detienen a dos ceutíes acusados de repartir espray  — Обыск НПО в Испании — внутренняя хроника, не имеет международного масштаба.
-- [es] чужое_мелкое: [pool] El País — El cabeza de lista de Vox por Tarragona debe sentarse en el banquillo en julio p — Судебное дело регионального политика Испании — не новость для Мексики.
-- [es] курьёз: [pool] El Sol de México — Sorpresa a Patti Smith en España: mil 500 personas cantan con ella “People have  — Концерт и награда артистки — это светская хроника, не новость.
-- [es] не_новость: [pool] El País — El PP da un paso más en su campaña y suplanta la identidad de Begoña Gómez, Zapa — Оценка предвыборной кампании и видеороликов — это разбор/мнение, а не факт события.
-- [es] чужое_мелкое: [world] TechCrunch — Canva lanza su primer modelo de generación de imágenes — Запуск функции в приложении Canva — коммерческая новость, не событие мирового масштаба.
-- [es] чужое_мелкое: [world] El Economista MX — Jueza fija plazo para que Trump declare en demanda por difamación contra la BBC — Судебная процедура (назначение даты) — мелкое процессуальное событие.
-- [es] курьёз: [world] TechCrunch — Mustafa Suleyman, de Microsoft, asegura que su IA supera a los médicos en casos  — Заявление компании об успехе симуляции ИИ — маркетинговая новость, не событие.
-- [es] чужое_мелкое: [world] BBC Mundo — Cómo Trump está tratando de influir para que Flávio Bolsonaro gane a Lula en las — Обзор влияния Трампа на выборы в Бразилии — это аналитическая статья, события нет.
-- [es] не_новость: [world] El Financiero — Judi Dench revela que su pérdida de visión la alejó de la actuación: ‘No puedo h — Актриса рассказала о здоровье — личная история, не событие.
-- [es] чужое_мелкое: [world] RFI — Dinamarca oficializa la compra de misiles de largo alcance estadounidenses y nor — Закупка оружия Данией — внутренняя новость, не влияет на мир в целом.
-- [es] чужое_мелкое: [world] Semafor — Elon Musk invierte 1000 millones de dólares en Skydance, empresa de Ellison — Частная инвестиция Маска в компанию Эллисона — коммерческая сделка без последствий для других.
-- [es] не_новость: [world] Азаттык — Rusia exigió «aclaraciones» sobre las nuevas reglas de entrada a Kazajistán — Дипломатический обмен «требованиями» — этикет, события нет.
-- [es] повтор: [world] BBC Mundo — Quién es Luisa González, la excandidata presidencial correísta detenida en Ecuad ≈ «Arrestaron a Luisa González, la ex candi» — Та же новость об аресте Луизы Гонсалес, что и №32.
+- [pt] не_новость: [local] Exame — Confiar na IA sem checar pode virar erro de gestão; veja como criar o hábito da  — Это статья с советами, а не событие.
+- [pt] чужое_мелкое: [local] Poder360 — “New Yorker” chama a eleição de “a última dança de Lula” — Мнение иностранного журнала о внутренних выборах другой страны.
+- [pt] не_новость: [local] G1 São Paulo — Família procura por cachorro ‘Diamante’, que fugiu de casa durante comemorações  — Частное объявление о поиске пропавшего питомца.
+- [pt] не_новость: [local] G1 Rio — Quem é Rubel, compositor que mandou retirar sua música de vídeo de Nikolas Ferre — Развлекательный материал о скандале вокруг артиста.
+- [pt] не_новость: [local] G1 Minas — 'Pêndulo' eleitoral, MG espelha divisão entre direita e esquerda na corrida para — Аналитическая статья-разбор о политической ситуации.
+- [pt] не_новость: [local] G1 Rio — Ligação entre lagoa e mar na Região dos Lagos pode ter sido causada por volume a — Гипотеза биолога, а не свершившийся факт.
+- [pt] курьёз: [pool] Público — Cartoon de André Carrilho publicado no PÚBLICO é finalista do European Cartoon A — Художественное достижение, не требующее срочности в новостной ленте.
+- [pt] курьёз: [pool] Público — Julie veio “acanhada” para o Alentejo: agora é um elefante que dorme sob as estr — История про животное — типичный материал для рубрики «интересное».
+- [pt] курьёз: [world] Variety — Sacha Baron Cohen afirma que a Marvel temia que escalar um ator judeu para o pap — Закулисные слухи и страхи актеров — не новость.
+- [pt] курьёз: [world] Ars Technica — Gotas de tinta em movimento conquistam prêmio máximo no concurso Nikon Small Wor — Победа в фотоконкурсе не является важным мировым событием.
+- [pt] не_новость: [world] Rolling Stone — Revelados os apresentadores do episódio de Halloween do ‘SNL’ — Анонс программы развлекательного шоу.
+- [pt] не_новость: [world] Superinteressante — Uma linha do tempo de como o voto feminino foi conquistado no Brasil e no mundo — Историческая справка/таймлайн.
+- [pt] курьёз: [world] Fortune — Pesquisadores encontram sinal de 'dor' em modelos de IA; ativação levou à exclus — Научно-популярное наблюдение, не влияющее на читателя сейчас.
+- [pt] не_новость: [world] Superinteressante — Um brasileiro nos bastidores de uma revolução na matemática — Популяризаторская статья о математике.
+- [pt] не_новость: [world] Fortune — A fusão desejada por Elon Musk é um pesadelo para os acionistas da SpaceX — Обсуждение планов/гипотез о слиянии компаний, а не свершившаяся сделка.
