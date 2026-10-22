@@ -1,31 +1,26 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] CNN Brasil — Pyong Lee desmente que filha se chamará Joquebede e explica anúncio “falso” — личная жизнь знаменитости, не является общественно значимым событием
-- [pt] не_новость: [local] CNN Brasil — Moradia digna e acessível: o papel da habitação social na urbanização — аналитическая статья-мнение, нет события с датой или результатом
-- [pt] не_новость: [local] G1 Rio — Ligação entre lagoa e mar na Região dos Lagos pode ter sido causado por volume a — предположение биолога без установленного факта события
-- [pt] не_новость: [local] Estadão — Novo ciclone extratropical pode se formar na região Sul; saiba quando — прогноз о возможном явлении, а не свершившееся событие
-- [pt] не_новость: [local] Estadão — Anthropic lembra que compramos conveniência digital, mas descuidamos da seguranç — статья-рассуждение о безопасности технологий, нет события
-- [pt] не_новость: [pool] RTP Notícias — Habitação. "Lei da geringonça castigou o arrendamento", aponta Leitão Amaro — мнение политика о законе, нет нового решения или события
-- [pt] не_новость: [pool] Terra BR — Diretor da Quaest elenca três fluxos que podem definir eleição e diz que Lula pr — анализ политолога, нет факта события
-- [pt] не_новость: [pool] Téla Nón — Reforço da prevenção face à ameaça da Peste dos Pequenos Ruminantes — информация о профилактике, нет свершившегося события
-- [pt] курьёз: [world] CNN Brasil — Sempre ao Seu Lado: Galo vigia hospital na Bolívia anos após morte do dono — необычный факт, не имеющий мирового значения
-- [pt] курьёз: [world] Terra BR — O enigma do possível arranha-céu da Antiguidade — историко-археологическое исследование, не новость
-- [pt] курьёз: [world] Terra BR — Seu comprimento ultrapassa um metro: fóssil de 415 milhões de anos revela a desc — палеонтологическая находка, не новость
-- [pt] не_новость: [world] Engadget — As TVs OLED Pro Series LX da Roku já estão disponíveis na Amazon — реклама выхода товара в продажу
-- [pt] повтор: [world] RFI — Parlamento Europeu concede o Prêmio Sakharov ao Tribunal Penal Internacional ≈ «“Construído sobre o respeito”: UE conced» — дублирует новость о премии Сахарова
-- [pt] чужое_мелкое: [world] Guardian Sport — Bem-vindo à armadilha: o Atlanta Dream transforma as finais da WNBA em um espetá — детальный обзор матча WNBA не является мировой новостью
-- [pt] курьёз: [world] Superinteressante — Corais doentes podem se curar ao encostar em clones saudáveis — биологический факт, нет события
-- [fr] курьёз: [local] France Bleu — Un nuage lenticulaire observé à Alès — наблюдение за облаком — не новость
-- [fr] повтор: [local] L'Obs — Faut-il s’inquiéter du virus Shamonda, qui vient de faire sa première victime hu ≈ «Le virus de Chamond détecté pour la prem» — один и тот же случай с вирусом
-- [fr] не_новость: [local] Le Figaro — Pierre Moscovici démissionne de la Cour des comptes européenne — отставка чиновника — плановое или частное дело, нет события
-- [fr] не_новость: [pool] Le Temps — La France face à une violence «algorithmique»: des experts alertent sur l’amplif — аналитический разбор «экспертов», нет события
-- [fr] чужое_мелкое: [world] Africanews FR — Guinée : sept ans de prison pour l’ex-président de la Cour constitutionnelle — внутренний суд в Гвинее, нет последствий для мира
-- [fr] не_новость: [world] Africanews FR — Allemagne : Nvidia présente ses robots et ses machines dopées à l'IA — презентация технологий (рекламный характер), не событие
-- [fr] курьёз: [world] Futura-Sciences — Alerte sur le Web : une IA vient de découvrir deux failles majeures que les pira — абстрактная новость об угрозе ИИ, нет конкретного события
-- [fr] не_новость: [world] Courrier International — Witkoff à Saint-Pétersbourg : “les deux parties sont prêtes à négocier”, selon l — обсуждение слухов о переговорах, события нет
-- [fr] курьёз: [world] Courrier International — Petit miracle dans un zoo australien : un casoar à casque pond deux œufs vert fl — рождение редкого животного в зоопарке
-- [fr] не_новость: [world] Africanews FR — Madagascar : d’anciens dirigeants visés par des plaintes pour corruption — подача жалоб (процесс), а не приговор
-- [fr] не_новость: [world] Africanews FR — Ceuta : la crise migratoire nourrit la défiance envers le gouvernement Sánchez — рассуждение о политических настроениях перед выборами
-- [fr] курьёз: [world] Futura-Sciences — Psychologie : cette étude explique pourquoi le cerveau humain ne serait plus du  — научно-популярная статья о психологии, не новость
-- [fr] чужое_мелкое: [world] RFI — La Russie poursuit sa «diplomatie des otages» avec l'arrestation d'un ressortiss — задержание иностранца — рутинная новость внутренней политики РФ
-- [fr] не_новость: [world] L'Express — Vladimir Poutine, un "humaniste" ? Aux Etats-Unis, Steve Witkoff choque même les — политический комментарий к словам политика, события нет
+- [es] полка: [local] El Financiero — Wall Street abre con pérdidas por dudas sobre la IA: ¿Cuánto caen HOY las accion — Это мировая финансовая новость (Wall Street), не местная мексиканская.
+- [es] не_новость: [local] El Sol de México — Acuerda OAJ aumento salarial de 4.5% para trabajadores operativos y mandos medio — Плановое повышение зарплаты после диалога — часть бюрократического процесса, нет события.
+- [es] не_новость: [local] El Sol de México — Restricciones a la Modalidad 40 del IMSS podrían ser impugnadas ante tribunales  — Предупреждение о возможных будущих исках, события нет.
+- [es] не_новость: [local] La Jornada — Editorial: IMSS: conflicto sindical — Обычная профсоюзная рутина, объявление о принятии условий — не событие.
+- [es] не_новость: [local] La Jornada — La ley antimemes fue aprobada en San Lázaro — Термин «закон об антимемах» в контексте защиты ИС — это оценочное суждение, событие отсутствует.
+- [es] курьёз: [local] La Jornada — Trasladan rinoceronte del zoo de París a Guadalajara para preservar la diversida — Перевозка животного между зоопарками — не новость для широкого круга читателей.
+- [es] чужое_мелкое: [pool] La Nación AR — Un grupo de presos protagonizó una violenta pelea en la Alcaidía 1 de la Ciudad — Драка заключенных в Аргентине — мелкое местное событие, не имеет мирового значения.
+- [es] не_новость: [pool] Clarín AR — "Tengo la esperanza de volver a abrazarlo": buscan a un senderista desaparecido  — Поиски пропавшего человека — трагедия, но не новостное событие в смысле принятия решений или перемен.
+- [es] чужое_мелкое: [pool] Marca — Al Getafe se le va de las manos con los regalos — Проигрыш футбольного клуба в лиге — местная новость Испании, в пуле MX не нужна.
+- [es] не_новость: [pool] El Nacional VE — Delsa Solórzano denuncia el uso de recursos del Estado para financiar campañas e — Политическое заявление оппозиции без факта совершения действия.
+- [es] не_новость: [pool] El Nacional VE — Relatores y grupos de trabajo de la ONU piden al Estado venezolano reconsiderar  — Призыв ООН к государству — дипломатическая переписка, не событие.
+- [es] чужое_мелкое: [pool] El Mundo — Registran una ONG en Ceuta y detienen a dos ceutíes acusados de repartir espray  — Обыск НПО в Испании — внутренняя хроника, не имеет международного масштаба.
+- [es] чужое_мелкое: [pool] El País — El cabeza de lista de Vox por Tarragona debe sentarse en el banquillo en julio p — Судебное дело регионального политика Испании — не новость для Мексики.
+- [es] курьёз: [pool] El Sol de México — Sorpresa a Patti Smith en España: mil 500 personas cantan con ella “People have  — Концерт и награда артистки — это светская хроника, не новость.
+- [es] не_новость: [pool] El País — El PP da un paso más en su campaña y suplanta la identidad de Begoña Gómez, Zapa — Оценка предвыборной кампании и видеороликов — это разбор/мнение, а не факт события.
+- [es] чужое_мелкое: [world] TechCrunch — Canva lanza su primer modelo de generación de imágenes — Запуск функции в приложении Canva — коммерческая новость, не событие мирового масштаба.
+- [es] чужое_мелкое: [world] El Economista MX — Jueza fija plazo para que Trump declare en demanda por difamación contra la BBC — Судебная процедура (назначение даты) — мелкое процессуальное событие.
+- [es] курьёз: [world] TechCrunch — Mustafa Suleyman, de Microsoft, asegura que su IA supera a los médicos en casos  — Заявление компании об успехе симуляции ИИ — маркетинговая новость, не событие.
+- [es] чужое_мелкое: [world] BBC Mundo — Cómo Trump está tratando de influir para que Flávio Bolsonaro gane a Lula en las — Обзор влияния Трампа на выборы в Бразилии — это аналитическая статья, события нет.
+- [es] не_новость: [world] El Financiero — Judi Dench revela que su pérdida de visión la alejó de la actuación: ‘No puedo h — Актриса рассказала о здоровье — личная история, не событие.
+- [es] чужое_мелкое: [world] RFI — Dinamarca oficializa la compra de misiles de largo alcance estadounidenses y nor — Закупка оружия Данией — внутренняя новость, не влияет на мир в целом.
+- [es] чужое_мелкое: [world] Semafor — Elon Musk invierte 1000 millones de dólares en Skydance, empresa de Ellison — Частная инвестиция Маска в компанию Эллисона — коммерческая сделка без последствий для других.
+- [es] не_новость: [world] Азаттык — Rusia exigió «aclaraciones» sobre las nuevas reglas de entrada a Kazajistán — Дипломатический обмен «требованиями» — этикет, события нет.
+- [es] повтор: [world] BBC Mundo — Quién es Luisa González, la excandidata presidencial correísta detenida en Ecuad ≈ «Arrestaron a Luisa González, la ex candi» — Та же новость об аресте Луизы Гонсалес, что и №32.
