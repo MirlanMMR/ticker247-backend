@@ -1,21 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] чужое_мелкое: [local] NY Post — Meghan Markle’s dad, Thomas, under investigation for ‘hundreds, if not thousands — скандал вокруг частного лица, не является событием государственной важности для US
-- [en] не_новость: [local] WBAY — Breadsmith named Bakery of the Year — награждение пекарни местной премией — частный PR-повод
-- [en] не_новость: [local] Homepage — Bernie Brewer's old chalet finds new home at Lakefront Brewery, keeping County S — ретроспективный очерк о спортивном объекте, нет события
-- [en] полка: [local] CNN Brasil — United States announces anti-drug office in Paraguay — международное событие с участием США должно быть в мировых
-- [en] повтор: [pool] Sky Sports — Bournemouth seal historic win over Amorim's 10-man Milan ≈ «Bournemouth enjoy night to remember as 1» — один и тот же матч
-- [en] чужое_мелкое: [pool] The Independent — Foster son accused of murdering mom who was battling cancer to get her money — криминальная хроника: обвинение частного лица, не имеет значения для ленты в US
-- [en] чужое_мелкое: [pool] The Hill — Prominent Texas lawyer who donated over 600K to pro-Paxton PAC endorses Talarico — локальная предвыборная поддержка в штате, не имеет национального значения
-- [en] не_новость: [pool] Daily Maverick — REPEAT CONVICT: SA double murderer ‘with racist alter ego’ may lose US citizensh — обзор старого дела и статуса гражданства частного лица
-- [en] курьёз: [pool] Variety — Raye Wins Mercury Prize for Album of the Year — премия в области музыки — развлекательная новость, не событие
-- [en] не_новость: [pool] Sky Sports — 'That's not enough for me' - Hamilton explains taking strategy into own hands — комментарии спортсмена о стратегии — слова, а не событие
-- [en] не_новость: [pool] BBC News — Prince William makes surprise appearance on Graham Norton Show — появление знаменитости на ТВ — не является событием
-- [en] не_новость: [pool] Engadget — A new subscription service promises an evolving collection of 'bold and bizarre' — анонс запуска сервиса игр, нет свершившегося события
-- [en] не_новость: [pool] The Independent — Good Samaritan gets $1K reward for hopping on rolling school bus to save 18 kids — анонс материала с призывом оформить подписку
-- [en] не_новость: [pool] Fortune — Venture giant Andreessen Horowitz drops ‘crypto’ from name of blockchain fund, r — ребрендинг фонда — внутренняя бизнес-рутина
-- [en] курьёз: [pool] Fortune — Chick-fil-A hit $23.9 billion in sales while closed every Sunday. — статистика продаж сети фастфуда, нет события
-- [en] не_новость: [pool] The Guardian — Reform snowflake Zia Yusuf demands safe space from ITV’s racism hunters — колонка мнений, эмоциональный шум, нет события
-- [en] не_новость: [pool] Guardian Sport — Rookie Lendeborg jaws at ‘weak ass’ Dončić and admits he didn’t watch much NBA — пересказ игровых моментов и трэш-тока — не событие
-- [en] не_новость: [pool] BBC Sport — Fernandes to stay captain as Rooney calls Man Utd players babies — обсуждение состава команды и мнения ветеранов — слова
-- [en] курьёз: [world] Cascade PBS — NFL Player Turned Mathematician Solves Problem that Eluded Scholars for Years — научно-популярный факт, не имеющий прямого последствия для читателя
+- [es] чужое_мелкое: [pool] El Universal MX — Muere Saúl Blanch, primera voz de Rata Blanca; estaba hospitalizado — внутренняя новость Аргентины, смерть локального музыканта
+- [es] чужое_мелкое: [pool] La Nación AR — Buscan a un joven de 18 años que huyó de su casa en Martínez tras dejar una cart — поиск пропавшего человека в Аргентине — частный случай
+- [es] не_новость: [pool] Marca — Sorpresa Camavinga — спекуляции о составе команды перед матчем — это не событие
+- [es] чужое_мелкое: [pool] El Mundo — Registran una ONG en Ceuta y detienen a dos ceutíes acusados de repartir espray  — локальное полицейское происшествие в Сеуте
+- [es] не_новость: [pool] El País — El PSOE acepta un cara a cara con Feijóo el 16 de noviembre y sigue en el aire l — анонс политических дебатов, событие еще не произошло
+- [es] чужое_мелкое: [pool] El Mundo — 'Casa de los horrores' en Ceuta: la Policía detiene a un ceutí por alojar a 74 m — местная полицейская сводка из Сеуты
+- [es] чужое_мелкое: [pool] El País — El cabeza de lista de Vox por Tarragona debe sentarse en el banquillo en julio p — судебное дело местного политика в Испании
+- [es] не_новость: [pool] El País — El PP da un paso más en su campaña y suplanta la identidad de Begoña Gómez, Zapa — описание политической кампании/видеороликов, нет события
+- [es] чужое_мелкое: [world] Clarín AR — Jueza federal bloquea operativos de Trump por presunto fraude electoral en nueve — внутренний судебный процесс США, не имеет мировых последствий
+- [es] не_новость: [world] TechCrunch — OpenAI trabaja en una nueva ronda de financiación de 30.000 millones de dólares  — слухи о финансировании компании, не свершившееся событие
+- [es] курьёз: [world] BBC Mundo — Los anfitriones de Airbnb ya no pueden exigir a los huéspedes que quiten las sáb — корпоративные правила Airbnb — не мировое событие
+- [es] чужое_мелкое: [world] BBC Mundo — La justicia le ordena a Trump responder preguntas bajo juramento en su demanda c — процессуальный вопрос в частном иске Трампа
+- [es] не_новость: [world] TechCrunch — Rivian adquiere una startup de modelos mundiales para acelerar sus ambiciones en — бизнес-сделка стартапа, рядовое событие рынка
+- [es] не_новость: [world] Engadget — Un nuevo servicio de suscripción promete una colección cambiante de juegos indep — анонс сервиса подписки
+- [es] курьёз: [world] Wired — El altavoz Google Home ha estado consumiendo datos Wi-Fi de forma oculta — технический баг домашнего устройства
+- [es] не_новость: [world] TechCrunch — El navegador Arc cerrará el 22 de diciembre mientras The Browser Company se cent — плановое закрытие браузера
+- [es] курьёз: [world] Xataka — Los fallos críticos de PHP acaban de hacerse públicos. — теоретические размышления об уязвимостях PHP
+- [es] не_новость: [world] Fortune — El gigante de capital de riesgo Andreessen Horowitz elimina 'crypto' del nombre  — ребрендинг фонда
+- [es] повтор: [world] El Comercio PE — Terremoto de magnitud 7 sacude el Tíbet chino a solo 10 kilómetros de profundida ≈ «Un fuerte terremoto sacude la remota reg» — тот же сюжет про землетрясение в Китае
+- [es] не_новость: [world] BBC Mundo — ¿Qué es PHP y por qué generó una falla de seguridad en internet que desató una a — объяснение основ PHP, это разбор
+- [es] чужое_мелкое: [world] Азаттык — Rusia exigió «aclaraciones» sobre las nuevas reglas de entrada a Kazajistán — дипломатическая рутина (запрос разъяснений)
+- [es] не_новость: [world] RFI — Irán aumenta la presión y amenaza a Estados Unidos con reanudar los combates — угрозы и заявления, нет фактического события
+- [es] не_новость: [world] RFI — Manifestaciones en Francia: Emmanuel Macron prohíbe toda reunión que no esté org — заявление о запрете, нет информации о последствиях или акциях
+- [es] не_новость: [world] La Vanguardia — Italia y España levantan el bloqueo de Schengen — описание решения, которое по сути является бюрократическим актом
+- [es] срочность: [world] Reuters — Rusia bombardea Kiev y Ucrania lanza drones hacia Moscú a pesar de las conversac — ежедневная сводка боевых действий не требует побудки
