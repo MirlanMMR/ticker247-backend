@@ -1,27 +1,11 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] чужое_мелкое: [local] NY Post — Getty Images files for bankruptcy amid mounting debt and AI competition — банкротство компании — бизнес-новость, не имеющая общемирового значения.
-- [en] чужое_мелкое: [local] Startribune News — Justice Department halts cooperation in Good and Pretti probes, state officials  — внутренний спор между ведомствами США не является мировой новостью.
-- [en] не_новость: [local] reviewjournal — Louden Cahill leaving mark at Basic football with father, grandpa alongside — локальное спортивное событие уровня школы, анонсированное в стиле кино.
-- [en] не_новость: [local] WHYY — Crozer-Chester still needs a hospital operator. What does that mean for reopenin — редакционный вопрос читателям, а не новость.
-- [en] курьёз: [local] Homepage — Bobblehead Hall of Fame and Museum hopeful for new additions to Wall of Champion — музей бейсбольных сувениров — чисто развлекательный контент.
-- [en] курьёз: [local] WCAX — A Vermont woman scrubs grime from gravestones and researches who is buried there — частная история о женщине, чистящей надгробия.
-- [en] чужое_мелкое: [pool] NY Post — Cause of death for 2 young children allegedly killed by acupuncturist mom Janett — криминальная хроника из Канады для США — не мировое событие.
-- [en] повтор: [pool] Toronto Star — The Latest: Many states deciding control of the Senate are seeing a big boost in ≈ «Jeffries says Democrats ‘on the verge’ o» — тема предвыборной гонки в США, дублирует содержание других лент.
-- [en] курьёз: [pool] BBC News — Retired decorator's Pokémon cards sell for £1.5m after years in attic — частный случай продажи коллекции карточек.
-- [en] не_новость: [pool] Variety — ‘Heated Rivalry’ to Release in Movie Theaters, Two Episodes at a Time — анонс показа фильма в кинотеатрах.
-- [en] не_новость: [pool] BBC Sport — England's travel schedule like Steve Martin comedy - McDermott — субъективное мнение игрока о логистике команды.
-- [en] не_новость: [pool] BBC Sport — Carrick carrying on as normal as Man Utd eye possible replacements — слухи о тренерском штабе и 'обычный' рабочий процесс.
-- [en] не_новость: [pool] The Guardian — Donald Trump has sold out Ukraine. — авторская колонка/мнение, а не новость.
-- [en] не_новость: [pool] RTÉ Ireland — Video on hugging consent taken down after criticism — удаление видео из-за критики — незначительное медийное событие.
-- [en] чужое_мелкое: [pool] BBC World — Police investigate Married at First Sight Australia after 'inappropriate' allega — полицейское расследование вокруг реалити-шоу в Австралии.
-- [en] не_новость: [pool] Guardian Sport — Welcome to the trap: swaggering Atlanta Dream turn WNBA finals into a hometown s — спортивный репортаж-очерк, а не оперативная новость.
-- [en] курьёз: [world] Variety — Lego Unveils Daft Punk Set Based on 2007 ‘Alive’ Tour, Short Film Collab Set to  — анонс игрушек Lego.
-- [en] курьёз: [world] TechCrunch — Nirva raises $33M for a pendant that only listens to you — стартап-анонс устройства, слушающего пользователя.
-- [en] не_новость: [world] Engadget — 1Password will let you hand your data security over to your preferred AI agent — интеграция ПО, анонс продукта.
-- [en] не_новость: [world] Engadget — Insta360 adds expandable storage to its new e-ink wireless mics — обзор характеристик микрофонов.
-- [en] не_новость: [world] BBC Sport — 'Not what a captain should be' - the debate around Fernandes' outburst — дискуссия вокруг высказывания игрока, а не событие.
-- [en] курьёз: [world] BBC World — Celebrity shark guided out of South Korea canal refuses to swim out to sea — история с акулой, не несущая последствий для мира.
-- [en] чужое_мелкое: [world] Cardinal News — Russia releases an American prisoner but not the one from Salem. — решение по сделке с топливом, подано как невнятная и неточная хроника.
-- [en] не_новость: [world] Ars Technica — FCC chair warns media not to run the "fake polls" Trump keeps complaining about — предупреждение чиновника в духе обсуждения политики.
-- [en] не_новость: [world] KSL.com — OpenAI to sell its top models on Google Cloud in latest enterprise push — бизнес-анонс о планах расширения продаж ПО.
+- [es] чужое_мелкое: [local] El Financiero — Sorprende a Trump el pasado de Sheinbaum como bailarina: ‘¿Cómo llegó a ser pres — Внутренняя политическая полемика в США не является мировой новостью для Мексики.
+- [es] курьёз: [pool] Infobae — Caricaturista Matador denunció que Meta eliminó su página de Facebook y suspendi — Конфликт блогера с Meta — частный случай, не имеющий широкого общественного значения.
+- [es] не_новость: [pool] Clarín AR — Sofía Solá habló de los rumores de romance con Franco Colapinto y fue contundent — Светская хроника и слухи о романах не входят в белый список событий.
+- [es] курьёз: [pool] Marca — Mayweather quiere encontrar al único boxeador que le venció para ayudarlo: “Está — История о бывшем боксере — развлекательный контент, а не новость.
+- [es] не_новость: [pool] Clarín AR — Sara Carbonero, periodista española, rememoró las repercusiones de su beso con I — Воспоминания о событии 2010 года — это не актуальное событие.
+- [es] не_новость: [world] TechCrunch — Nirva recauda 33 millones de dólares para un colgante diseñado solo para escucha — Это бизнес-новость о привлечении инвестиций стартапом, не имеющая последствий для читателя.
+- [es] не_новость: [world] BBC Mundo — "Ya no puedo hacer teatro, ni cine, ni leer": la enfermedad que ha frenado la ca — Проблемы со здоровьем актрисы — частная история, не попадает в белый список.
+- [es] не_новость: [world] BBC Mundo — "Me olvidé secretos de Estado en un tren: soy la prueba de que es posible recupe — Личные мемуары без общественной значимости.
+- [es] срочность: [world] RFI — Presidenciales en Brasil: Lula y Flávio Bolsonaro agotan sus últimas fuerzas en  — Обычный ход предвыборной кампании не требует пометки «срочно».
