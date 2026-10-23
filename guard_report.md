@@ -1,18 +1,14 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Folha de S.Paulo — O menor livro do mundo cabe em um grão de arroz — незначительная новость про самый маленький в мире предмет, не несет последствий
-- [pt] курьёз: [local] Metrópoles — Homem fica cara a cara com maior ave de rapina do mundo, a harpia — найденный птенец редкой птицы — типичное «интересное», не новость
-- [pt] чужое_мелкое: [local] CNN Brasil — Infantino ganha força para reeleição na Fifa após apoio da Ásia — внутренняя политика FIFA не является мировой новостью для бразильца
-- [pt] полка: [local] Folha de S.Paulo — Flávia Saraiva é a 12ª na final do individual geral no Mundial; Lorrane Oliveira — спортивные результаты чемпионата мира — мировая новость, а не местная
-- [pt] не_новость: [local] InfoMoney — Real ainda pode subir após eleição, mas riscos aumentam, diz Goldman Sachs — аналитика о рисках рынка не является событием (нет факта свершившегося действия)
-- [pt] не_новость: [pool] RTP Notícias — Táxis com novos tarifários. Tarifa inicial passa a ser mais baixa — информация о тарифах без конкретики («многими не применяется» и до января)
-- [pt] курьёз: [pool] Terra BR — 'Let It Be', dos Beatles, alcança 1 bilhão de reproduções no Spotify — статистика прослушиваний песни в Spotify — развлекательный факт
-- [pt] не_новость: [pool] Terra BR — Netinho de Paula é sincero ao falar sobre sua saúde — здоровье артиста не является общественно значимым событием
-- [pt] не_новость: [pool] Jornal de Negócios — BCP já recomprou quase 330 milhões de euros em ações próprias. Detém mais de 2%  — текущие корпоративные операции банка не являются новостью для широкого читателя
-- [pt] не_новость: [pool] Público — Ministério garante que pagamentos de reapreciações dos exames nacionais “estão a — заверение министерства о том, что платежи «делаются», без факта их совершения
-- [pt] не_новость: [pool] ECO — ProPública alerta que lei pode ser insuficiente para proteger Sines no negócio G — предупреждение ассоциации о возможности правовых рисков — мнение, не событие
-- [pt] курьёз: [world] Exame — Folga para jogar GTA 6? Faltas no trabalho podem provocar perdas de R$ 5 bilhões — спекуляции о потенциальных невыходах на работу из-за видеоигры
-- [pt] не_новость: [world] Notícias ao Minuto — Câmara do novo topo de gama da Oppo tem três sensores de 200MP — анонс характеристик гаджета — это маркетинговый материал, а не событие
-- [pt] чужое_мелкое: [world] InfoMoney — Nova York aprova proibição de carruagens no Central Park a partir de 2028 — локальное решение совета города Нью-Йорк о правилах в парке не касается остального мира
-- [pt] чужое_мелкое: [world] Guardian Sport — Connor Hellebuyck é negociado com o New Jersey Devils após fim de impasse com o  — трансфер игрока в американской лиге NHL — узкоспециализированная новость
-- [pt] курьёз: [world] Engadget — Apple Music tem um divertido 'easter egg' para o 25º aniversário do iPod — «пасхалка» на сайте компании — развлечение, не новость
+- [en] курьёз: [local] NY Post — 49ers’ Nick Bosa gets another brutal reality check after bold return prediction — Спортивная сплетня/мнение, не является событием.
+- [en] не_новость: [local] WBAY — Sports betting risks rise with Brewers in World Series — Обзор/мнение о рисках ставок, а не событие.
+- [en] полка: [pool] Sky Sports — Lankshear at the double as Middlesbrough thump Bolton to go top — Это новость из Британии, должна быть в «Новости из...», а не в «Местных».
+- [en] полка: [pool] Sky Sports — Wade equals try-scoring record in Newcastle win over Sale — Это новость из Британии, должна быть в «Новости из...».
+- [en] полка: [pool] BBC News — Watch: Trees ripped up as Storm Austen batters Britain — Это новость из Британии, должна быть в «Новости из...».
+- [en] полка: [pool] BBC Sport — Poulter & Hatton leave LIV as exodus continues — Это новость из Британии, должна быть в «Новости из...».
+- [en] полка: [pool] BBC Sport — Arsenal fear Saka could be out for two months — Это новость из Британии, должна быть в «Новости из...».
+- [en] полка: [pool] BBC Sport — Carrick refuses to rule out dropping Fernandes in emotional address — Это новость из Британии, должна быть в «Новости из...».
+- [en] курьёз: [world] UPI — Beirut Book Fair offers a cultural lifeline amid war, crisis — Культурная заметка, не является новостью в условиях войны.
+- [en] повтор: [world] Charleston Gazette-Mail — The Kremlin says a first tanker of Russian diesel sets sail for the US despite U ≈ «1st tanker of Russian diesel sets sail f» — Тот же сюжет о поставке дизеля из РФ в США.
+- [en] не_новость: [world] BBC News — Meghan says she was informed about 'disturbing allegations' against her father i — Обсуждение событий 2018 года, не является актуальным событием.
+- [en] полка: [world] BBC Sport — Kompany taken to hospital after collapsing at training — Это новость из Германии, должна быть в «Мировых».
