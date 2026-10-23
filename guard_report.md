@@ -1,39 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] G1 Globo — 'Mentira' de Marcos Valle na ditadura é perpetuada em álbum em que Mariana Matsu — Музыкальный альбом 1973 года — не новость и не событие.
-- [pt] не_новость: [local] CNN Brasil — Neguinho da Beija-Flor desfilará pela União de Maricá em 2027 — Планы на карнавал 2027 года — это анонс, а не свершившееся событие.
-- [pt] не_новость: [local] G1 Rio — Detento tenta deixar cadeia no RJ com alvará falso, é descoberto e acaba levado  — Плановая рутина без последствий для широкого круга лиц.
-- [pt] не_новость: [local] Estadão — Caso Isabelle Caracristi: Justiça arquiva investigação de feminicídio e indução  — Архивирование старого дела не является актуальным событием.
-- [pt] курьёз: [local] G1 Rio Grande do Sul — Homem reencontra carro que admirava na infância e o compra 30 anos depois; autom — История про старый автомобиль — это развлекательный факт, не новость.
-- [pt] не_новость: [local] G1 Rio Grande do Sul — Ainda de olhos fechados e sem a mãe, filhote de lontra com 15 dias é resgatado a — Событие локального характера, не имеет значимости для широкой аудитории.
-- [pt] чужое_мелкое: [pool] RTP Notícias — Prova dos Factos. MP Investiga autarquia de Mogadouro — Внутреннее расследование местной мэрии в Португалии — не мировая новость.
-- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Câmara de Bragança vai realojar família desalojada após incêndio — Локальное бытовое происшествие в Португалии.
-- [pt] чужое_мелкое: [pool] Observador PT — Farmacêuticas terão de manter tratamento gratuito — Внутреннее решение регулятора здравоохранения Португалии.
-- [pt] чужое_мелкое: [pool] Observador PT — Prisão preventiva para suspeito de 29 crimes em São Miguel — Локальная криминальная сводка с островов (Азорские острова).
-- [pt] курьёз: [pool] Observador PT — Dois amigos ganham 104 mil euros no casino e são assaltados — Личное происшествие с двумя частными лицами в Португалии.
-- [pt] чужое_мелкое: [pool] ECO — Renovação de licenças proposta pela Anacom fixa mercado das telecomunicações em  — Техническое решение телекоммуникационного регулятора Португалии.
-- [pt] чужое_мелкое: [pool] Expresso das Ilhas — Câmara Municipal do Sal permite uso de taxímetros e fixa tarifas até 1.900 escud — Местный тариф на такси в Кабо-Верде.
-- [pt] не_новость: [world] Terra BR — Maior cinebiografia do cinema, 'Michael' estreia no streaming — Релиз фильма на стриминге — это реклама или сервисное сообщение.
-- [pt] не_новость: [world] ECO — Ucrânia quer desenvolver comunicações soberanas por satélite com Nokia e ICEYE — Подписание «письма о намерениях» — это планы, а не свершившееся бизнес-событие.
-- [pt] не_новость: [world] Engadget — A Tesla afirma que não lançará mais o Cybertruck na Austrália e na Nova Zelândia — Отмена продаж продукта в конкретном регионе — бизнес-деталь, не мировая новость.
-- [pt] курьёз: [world] Público — Gruta da Sibéria revela restos mortais de mamífero da Idade do Gelo semelhante a — Археологическая находка — место в «Интересном», но не в мировых новостях.
-- [pt] не_новость: [world] Ars Technica — Relatório de Foguetes: SpaceX recusa contratos militares; foguete espanhol está  — Отказ от контрактов и обсуждение безопасности — это процесс, нет свершившегося факта.
-- [pt] чужое_мелкое: [world] RFI — Israel: a quatro dias das eleições legislativas, a controversa Canal 14 ocupa o  — Внутренняя израильская телеповестка перед выборами.
-- [pt] чужое_мелкое: [world] Engadget — Oura processa a Ultrahuman (novamente) para bloquear o lançamento do seu novo an — Корпоративный патентный спор в США, не имеющий мировых последствий.
-- [pt] полка: [world] Азаттык (кыргызча) — Centro de pesquisa e reabilitação "Ak Ilbirs" é inaugurado em Issyk-Kul — Новость из Кыргызстана должна быть в пуле 'ru', а не в португальской ленте.
-- [pt] не_новость: [world] TechCrunch — Concorrente da Uber, inDrive planeja testes de robotáxis na Ásia Central em 2027 — Планы на 2027 год — это намерение, а не свершившееся событие.
-- [pt] курьёз: [world] Ars Technica — Segurança do Switch 2 é comprometida por hackers — Технический взлом консоли — не событие мирового масштаба.
-- [fr] не_новость: [local] BFMTV — "Il y a des groupes qui pourrissent l'ambiance": Raphaël Glucksmann reproche à c — Это мнение и пересказ политической перепалки, а не событие.
-- [fr] полка: [local] L'Express — LFI et les autonomistes : de la Corse aux outre-mer, le revirement de Jean-Luc M — Событие июня 2026 года, сейчас октябрь. Это не новость, а архив.
-- [fr] курьёз: [local] L'Express — 17 octobre : comment le renseignement enquête sur la gauche radicale, avec LFI h — Это аналитический материал-расследование, а не новость о событии.
-- [fr] курьёз: [pool] Radio-Canada — Une œuvre de Jean Gaudreau entre les mains de Barack Obama — Это светская заметка, не имеющая общественной значимости.
-- [fr] курьёз: [world] Sciences et Avenir — Thrombose: aucun risque avec les traitements hormonaux cutanés pour la ménopause — Исследование без последствий, место в «Интересном», но пометка стоит ошибочно в общем потоке.
-- [fr] курьёз: [world] Futura-Sciences — Ces nonnes avaient un cerveau marqué par Alzheimer, mais aucun symptôme : voici  — Научный факт/наблюдение, не событие.
-- [fr] чужое_мелкое: [world] Engadget — Oura poursuit de nouveau Ultrahuman pour bloquer la commercialisation de sa dern — Коммерческий спор компаний в США не является мировой новостью.
-- [fr] не_новость: [world] Courrier International — Vu du Royaume-Uni, “le chaos est une humiliation totale pour Macron” — Подборка мнений британской прессы о Макроне, события нет.
-- [fr] повтор: [world] Africanews FR — Taïwan : le typhon Champi provoque chaos dans les transports et fermeture d’écol ≈ «Des centaines de vols annulés alors que » — Дублирует информацию о тайфуне Champi в Тайване.
-- [fr] полка: [world] Азаттык (кыргызча) — Un centre de recherche et de réhabilitation « Ak Ilbirs » a été inauguré dans la — Местная новость Кыргызстана в ленте для Франции.
-- [fr] чужое_мелкое: [world] RFI — Le gendre de Donald Trump Jared Kushner accusé de conflits d’intérêts au profit  — Внутренняя политическая полемика в США, не имеющая мировых последствий.
-- [fr] чужое_мелкое: [world] RFI — Midterms 2026: dans le Texas rural, la manne pétrolière reste «une bénédiction»  — Очерк о жизни в округе Техаса, не является мировой новостью.
-- [fr] не_новость: [world] TechCrunch — Le concurrent d'Uber, inDrive, prévoit des tests de robotaxis en Asie centrale e — Планы на 2027 год — это намерение, а не свершившееся событие.
-- [fr] курьёз: [world] TechCrunch — Laissés sans consignes, des agents d'intelligence artificielle ont commencé à jo — Наблюдение за поведением ИИ, не является событием.
+- [ru] полка: [local] Sputnik KG (кыргызча) — ЖМК: Европа Путин менен сүйлөшүү жүргүзүүгө беш талапкерди тандады — Событие в Украине, нет связи с Кыргызстаном, это мировой уровень, а не местный.
+- [ru] полка: [local] Вечерний Бишкек — 22 борца из Кыргызстана выступят на ЧМ в Астане — Это чемпионат мира в Казахстане. Для кыргызстанца — это спорт, событие за границей, но полка «Новости из...» была бы точ
+- [ru] чужое_мелкое: [pool] Kapital.kz — NVIDIA отметила роль «Казахтелекома» в развитии ИИ-инфраструктуры Казахстана — Обычная бизнес-новость из Казахстана, не имеет значимости для читателя в Кыргызстане.
+- [ru] чужое_мелкое: [pool] РИА Новости — В Петербурге задержали обвиняемых в убийстве пяти человек и мошенничестве — Криминальная хроника из Санкт-Петербурга, не событие мирового масштаба.
+- [ru] чужое_мелкое: [pool] Азаттык — «Казатомпром» повторно вынесет на голосование сделку по продаже урана российской — Внутренние корпоративные споры в Казахстане.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Из Рязани депортировали мигрантов-наркоманов и поддельщиков — Локальная новость Рязани, не имеет значения для международного читателя.
+- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Тульской области в СИЗО отправили чиновника из Росимущества за взятки — Локальная коррупция в Тульской области.
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — «Вокруг паника, кровь, все орут»: в Екатеринбурге полицейский влетел на легковуш — ДТП в Екатеринбурге, не является мировой новостью.
+- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — В Ростове задержали чиновника из-за капитального ремонта 13-ти квартир на Комаро — Локальный арест чиновника в Ростове.
+- [ru] курьёз: [pool] 74.ru — Челябинск — «Кровь пошла в легкие»: челябинские хирурги спасли пациента с разорвавшейся анев — Медицинский случай из Челябинска, не является событием для общей ленты.
+- [ru] не_новость: [pool] 56.ru — Оренбург — В Орске скончался ветеран Великой Отечественной войны Розалин Мамбетов — Смерть ветерана — личная трагедия, а не новостное событие для широкой аудитории.
+- [ru] курьёз: [pool] 51.ru — Мурманск — Оспу обезьян можно спутать с гриппом: биолог назвала мурманчанам опасные симптом — Советы биолога — это просветительский материал, а не новость.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Суд Себежа вынес приговор за повторную пьяную езду — Приговор за пьяную езду в Пскове — чисто региональная сводка РФ.
+- [ru] чужое_мелкое: [pool] 45.ru — Курган — В Шадринске депутаты избрали главу города. Кто он такой? — Выборы главы города в Шадринске (РФ) не имеют значения для нашего потока.
+- [ru] не_новость: [pool] 62.ru — Рязань — В Рязани на ночь перекроют дорогу к РНПК и изменят движение автобуса № 6 — Плановое перекрытие дороги в РФ, для нашего читателя неактуально.
+- [ru] не_новость: [pool] 62.ru — Рязань — «Подняться с постели не могла»: рязанка чуть не умерла от давления, но скорая ус — Благодарность врачам от частного лица — не новость.
+- [ru] чужое_мелкое: [pool] 45.ru — Курган — В Зауралье погибли два человека: горел многоквартирный дом в одном из сёл — Пожар в Курганской области, не имеет международного масштаба.
+- [ru] не_новость: [pool] 62.ru — Рязань — В Рязани предупредили о перебоях со светом в Московском районе — Локальные перебои света в Рязани.
+- [ru] чужое_мелкое: [pool] Asia-Plus — Производство тканей сократилось почти вдвое, импорт вырос на 38% — Статистика производства тканей в Таджикистане — узкая отраслевая информация.
+- [ru] не_новость: [pool] 48.ru — Липецк — В Липецке приняли 17 отремонтированных дорог — Приемка дорог в Липецке — рутина.
+- [ru] не_новость: [pool] 56.ru — Оренбург — Трибуны все равно остались довольны: волейбольный клуб «Оренбуржье» проиграл пер — Результат волейбольного матча в Оренбурге не является событием для СНГ.
+- [ru] повтор: [pool] 45.ru — Курган — Дети ехали с экскурсии. Стали известны подробности ДТП с автобусом в Екатеринбур ≈ ««Вокруг паника, кровь, все орут»: в Екат» — Детали того же ДТП в Екатеринбурге.
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — В Вологде возбудили дело о смертельном избиении соседа — Бытовое преступление в Вологде.
+- [ru] чужое_мелкое: [pool] 43.ru — Киров — В Кирове задержали закладчика с 350 граммами наркотика — Задержание наркозакладчика в Кирове.
+- [ru] не_новость: [pool] 62.ru — Рязань — Жителей Рязани оставили без холодной воды: что произошло? — Бытовое отключение воды в Рязани.
