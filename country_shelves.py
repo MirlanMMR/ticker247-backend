@@ -285,6 +285,11 @@ def run(only=None, pools=None, dry_run=True, no_ai=False, write=False):
           f"{'сухой' if dry_run else 'запись'}{', без ИИ' if no_ai else ''}")
     now_ms = int(time.time() * 1000)
 
+    if write and not no_ai:
+        # Итог месяца — до первого запроса к ИИ: потолок AI_MONTHLY_BUDGET действует и на этот шаг
+        # (без чтения в памяти 0, и запись расхода затирала месячный счёт — J64)
+        fn.load_ai_spend()
+
     cache = {}
     if write and not no_ai:
         try:

@@ -244,6 +244,7 @@ jobs:
           python test_foreign_tech.py
           python test_kw_boundary.py
           python test_category_guard.py
+          python test_ai_spend.py
 
       - name: Run fetch script
         run: python fetch_news.py

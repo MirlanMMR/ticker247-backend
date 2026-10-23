@@ -4137,16 +4137,22 @@ def save_ai_spend(run_cost: float):
     global AI_SPENT_MONTH
     try:
         ref = db.reference(f"/ai_spend/{_spend_month_key()}")
-        ref.update({
-            "usd": round(AI_SPENT_MONTH + run_cost, 6),
-            "calls": int((db.reference(
-                f"/ai_spend/{_spend_month_key()}/calls").get() or 0)
-                + TOKENS["calls"]),
-            "updatedAt": int(time.time() * 1000),
-        })
-        # Держим в памяти то же, что записали: следующая запись прибавляет
-        # к обновлённому итогу, а не к прочитанному при запуске
-        AI_SPENT_MONTH = AI_SPENT_MONTH + run_cost
+
+        # Прибавляем к тому, что лежит в базе СЕЙЧАС, а не к прочитанному при
+        # старте. 21–23.10.2026 шаг «Полки стран» не читал итог (в памяти 0) и
+        # записывал «0 + $0,07» поверх всего месяца — счёт сбрасывался каждые
+        # сутки, и потолок не видел настоящих денег. Так же терялась запись
+        # прогона, пока рядом шёл другой (J64)
+        def add(cur):
+            cur = cur if isinstance(cur, dict) else {}
+            return {
+                "usd": round(float(cur.get("usd") or 0.0) + run_cost, 6),
+                "calls": int(cur.get("calls") or 0) + TOKENS["calls"],
+                "updatedAt": int(time.time() * 1000),
+            }
+
+        # В памяти — то же, что записано: потолок проверяется по настоящему итогу
+        AI_SPENT_MONTH = float(ref.transaction(add)["usd"])
     except Exception as e:
         print(f"  ⚠️ Счётчик расхода не сохранён: {e}")
 
