@@ -1,25 +1,13 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] NY Post — UCLA continues bid for historic rise, will rock championship-inspired unis vs. M — рассказ о форме футболистов — не событие
-- [en] чужое_мелкое: [local] AL.com — Stevie Wonder seeks to evict former fiancée from Los Angeles home — частный спор о недвижимости, личное дело
-- [en] курьёз: [local] AL.com — LEGO confirms Daft Punk concert set with iconic pyramid stage — анонс игрушки, интересное без события
-- [en] не_новость: [local] Bangor Daily News — UMaine football hosting Campbell for Homecoming game — анонс матча, нет события
-- [en] не_новость: [local] WCAX — Vermont “I voted” sticker contest winners announced — результаты конкурса стикеров — не новость
-- [en] не_новость: [local] KPLC — ‘Jennings Alive’ festival brings free family fun and live entertainment downtown — анонс городского фестиваля, это не событие с последствиями
-- [en] курьёз: [local] WJXT News4JAX — Nease High School football field riddled with eggs, cottage cheese ahead of game — хулиганство на футбольном поле — локальный курьёз
-- [en] не_новость: [local] Mirror Indy — Developer proposes turning to Washington Square into a luxury resort — просто предложение девелопера, нет факта сделки
-- [en] не_новость: [local] Semafor — El-Sayed’s new ad pitch: Republicans love me — описание содержания рекламы — не событие
-- [en] не_новость: [local] KSTP — 5 ON YOUR SIDE: Millie Moon diapers — совет родителям по поводу подгузников — не событие
-- [en] курьёз: [pool] El Universo EC — Paris Hilton recreates Britney Spears’ iconic 2001 MTV look for Halloween — звезда в костюме — типичный курьёз для «Интересного»
-- [en] не_новость: [pool] Straits Times — Tyler Robinson requests 2029 trial for alleged murder of Charlie Kirk — назначение даты суда — это рутина, не событие
-- [en] не_новость: [pool] Sky Sports — Raskin 'really happy' at Rangers but unsure about future — цитата игрока о чувствах — не событие
-- [en] не_новость: [pool] Wired — Elon Musk Just Dumped Another $76 Million Into the Midterms — информация о пожертвованиях — не событие, ежедневный процесс
-- [en] не_новость: [pool] WFPL — How Kentucky's unregulated raw milk industry bypasses oversight — очерк о методах работы фермера — не новость
-- [en] не_новость: [pool] BBC Sport — Poulter leaves LIV as exodus of big names continues — уход гольфиста из тура — не событие
-- [en] не_новость: [pool] BBC Sport — Arsenal fear Saka could be out for two months — опасения врачей по поводу травмы — не факт
-- [en] не_новость: [pool] BBC Sport — Carrick refuses to rule out dropping Fernandes in emotional address — описание эмоционального выступления тренера — не событие
-- [en] не_новость: [pool] WFPL — In Floyd County, judicial candidates say they’re motivated by community — мнение кандидатов о мотивации — не событие
-- [en] анонс: [pool] RTÉ Ireland — Orange rain and wind warnings ahead of Storm Boelo — погодное предупреждение с ссылкой на сторонний контент
-- [en] повтор: [world] BBC World — Ukraine says Starlink still restricted after Trump says limits lifted ≈ «Ukraine says Starlink speed curbs remain» — тот же сюжет про Starlink
-- [en] не_новость: [world] BBC News — Meghan says she was informed about 'disturbing allegations' against her father i — интервью с подробностями событий 2018 года — не событие
-- [en] курьёз: [world] Live Science — Scientists can now 'watermark' AI-generated proteins to deter bioweapon creation — научное рассуждение — курьёз для рубрики интересное
+- [es] не_новость: [world] Variety — Hunter Biden firma con CAA — Подписание контракта агентством с частным лицом не является значимым событием.
+- [es] курьёз: [world] Xataka — "Van a empeorar mucho más": Jason Clinton, subdirector de ciberseguridad de Anth — Мнение эксперта о будущем ИИ не является новостным событием.
+- [es] курьёз: [world] Muy Interesante — ¿Quién salvó este libro católico de la Reforma de Enrique VIII? — Историческое исследование без последствий для читателя (раздел «интересное»).
+- [es] чужое_мелкое: [world] Guardian Sport — Connor Hellebuyck es traspasado a New Jersey tras finalizar el conflicto con los — Внутренняя спортивная сделка США не имеет мирового значения.
+- [es] не_новость: [world] TechCrunch — La startup de computación en la nube Daytona alcanza una valoración de mil millo — Рядовая бизнес-сделка стартапа не является общественно важным событием.
+- [es] не_новость: [world] TechCrunch — Commonwealth Fusion Systems recibe 85 millones de dólares para fabricar semicond — Получение гранта компанией — это бизнес-процесс, а не новость.
+- [es] чужое_мелкое: [world] Wired — Elon Musk aportó otros 76 millones de dólares para las elecciones legislativas — Внутренняя политика США (пожертвования PAC) не является мировой новостью.
+- [es] не_новость: [world] TechCrunch — El gigante de análisis de laboratorio Quest Diagnostics confirma el compromiso d — Уведомление SEC о техническом инциденте без последствий для пользователей — канцелярия.
+- [es] не_новость: [world] BBC Mundo — Meghan Markle dice que fue informada en 2018 de las "inquietantes acusaciones" c — Личные семейные дела знаменитостей не являются новостью.
+- [es] курьёз: [world] BBC Mundo — Amina Helmi, la científica argentina que recibió el "Nobel de astrofísica" por e — Биографический очерк о карьере ученой — не новость.
+- [es] курьёз: [world] Live Science — Científicos ahora pueden poner «marcas de agua» a proteínas generadas por IA par — Техническая заметка о методах защиты (раздел «интересное»).
