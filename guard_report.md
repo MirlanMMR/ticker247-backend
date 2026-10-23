@@ -1,23 +1,44 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] La Jornada — Senadores ven necesario llamar a comparecer a Zoé Robledo — Это обсуждение возможного вызова чиновника, а не состоявшееся действие.
-- [es] курьёз: [local] La Jornada — Sitúan la fecha en la que Van Gogh se inspiró para plasmar La noche estrellada — Научно-популярный факт, не имеющий новостного повода.
-- [es] не_новость: [local] Expansión MX — El trágico accidente que le dio su nombre al Autódromo Hermanos Rodríguez y tien — Исторический очерк об автодроме, не является новостным событием.
-- [es] не_новость: [pool] El Mundo — La Fiscalía pide investigar a Zapatero por malversación y el juez reclama el act — Требование прокуратуры о расследовании — это этап следствия, не имеющий прямого значения для читателя в MX.
-- [es] не_новость: [pool] El País — La estrategia de Vox en redes copia la IA del PP y agita el odio a la inmigració — Анализ стратегии партии в соцсетях без конкретного новостного повода.
-- [es] не_новость: [pool] El País — Pensiones, aborto y los pactos con Vox, los 10 titulares de la entrevista a Feij — Пересказ интервью политика, а не его действия или решения.
-- [es] курьёз: [world] Variety — El fondo Displacement Film Fund de Cate Blanchett se asocia con The New Yorker p — Анонс арт-проекта, не является событием для массового читателя.
-- [es] не_новость: [world] Variety — Bravo renueva 'In the City', 'Next Gen NYC' y 'Southern Hospitality', y ordena ' — Корпоративное обновление расписания телеканалов.
-- [es] курьёз: [world] La Nación AR — Se quedaron sin trabajo y construyeron una casa de 70 m² con más de 10.000 botel — История о переработке мусора, нет новостного повода.
-- [es] не_новость: [world] Marca — Verstappen se planta con los baches en Austin: "El año pasado tuve impactos vert — Жалоба гонщика на состояние трассы, нет события.
-- [es] не_новость: [world] Marca — Marta Bassino: "He aprendido a hablar con mi rodilla, a escucharla" — Личное высказывание спортсменки о восстановлении, нет новостного повода.
-- [es] курьёз: [world] Futura-Sciences — Dos multimillonarios de Silicon Valley recaudan 200 millones para crear perros d — Спекулятивный материал о генной инженерии без факта реализации.
-- [es] не_новость: [world] BBC Mundo — Meghan Markle dice que fue informada en 2018 de las "inquietantes acusaciones" c — Воспоминания и личные заявления светских персон не являются новостью.
-- [es] курьёз: [world] Muy Interesante — La verdad sobre la cucaracha decapitada — Биологический факт, нет новостного повода.
-- [es] курьёз: [world] Wired — El túnel dividido (split tunneling) es la mejor función de su VPN. — Технический совет по использованию VPN.
-- [es] не_новость: [world] BBC Mundo — Amina Helmi, la científica argentina que recibió el "Nobel de astrofísica" por e — Биография ученой, нет оперативного новостного события.
-- [es] курьёз: [world] Live Science — Científicos ahora pueden poner «marcas de agua» a proteínas generadas por IA par — Общие рассуждения ученых о потенциальных угрозах ИИ.
-- [es] не_новость: [world] BBC Mundo — "Me avergüenza trabajar en una empresa que impulsa la IA con fines militares": l — Личные мнения сотрудников о корпоративной политике, нет события.
-- [es] не_новость: [world] BBC Mundo — Quiénes son los "ciudadanos palestinos de Israel" y por qué pueden tener la llav — Аналитический обзор политической ситуации в Израиле без нового факта.
-- [es] курьёз: [world] TechCrunch — Dejados a su suerte, agentes de IA comenzaron a jugar — Наблюдение исследователей за ИИ, нет новостного события.
-- [es] не_новость: [world] El Mundo — Un pastor metodista para obrar el milagro demócrata en Kansas: "Jesús dice que h — Религиозно-политическое высказывание, нет конкретного события.
+- [pt] курьёз: [local] G1 Globo — Tchuco, macaco-aranha de 23 anos, desembarca em Campinas para viver com três fêm — переезд животного в зоопарк — это любопытный факт, а не событие.
+- [pt] не_новость: [local] Folha de S.Paulo — Casas Bahia anuncia Camille Faria para liderar negociações de recuperação judici — назначение руководителя — внутреннее корпоративное событие, не влияющее на читателя.
+- [pt] курьёз: [local] G1 Minas — Gustavo Scarpa, do Atlético, é convidado para entregar Prêmio Jabuti após sucess — приглашение футболиста на церемонию — светская хроника, а не новость.
+- [pt] курьёз: [local] Poder360 — Meta diz que apps de edição podem causar bloqueios por IA — информация о возможных блокировках из-за ИИ-редакторов — это справочный совет для пользователей.
+- [pt] не_новость: [local] Estadão — Caso Isabelle Caracristi: Justiça arquiva investigação de feminicídio e indução  — архивирование дела и общие рассуждения о статистике фемицида без нового факта.
+- [pt] не_новость: [local] G1 Minas — Prefeitura de BH abre venda de concessões de jazigos perpétuos em quatro cemitér — объявление о начале продажи услуг мэрии (погребения) — рекламный характер.
+- [pt] чужое_мелкое: [pool] RTP Notícias — Gebalis explica que viúva não tinha direito à casa em Marvila — локальный спор о праве на жилье в Португалии для бразильской ленты.
+- [pt] не_новость: [pool] RTP Notícias — Farioli alerta para Gil Vicente entre as equipas em melhor forma — мнение тренера о форме другой команды — аналитика, а не событие.
+- [pt] не_новость: [pool] Notícias ao Minuto — Rafaela Schenkel, Tomás Azul e Joana Paraíso vencem Prémios Cargaleiro — вручение локальной премии — не является общественно значимым событием.
+- [pt] не_новость: [pool] Expresso das Ilhas — Cabo Verde vai reactivar comissão nacional para reforçar controlo de armas e mun — план по реактивации комиссии (намерение, а не действие).
+- [pt] курьёз: [pool] ECO — Alentejo apresenta garrafa de vinho mais leve para reduzir custos e emissões — разработка более легкой бутылки для вина — отраслевая заметка.
+- [pt] не_новость: [pool] Observador PT — Governo quer criar Código do Poder Local — создание рабочей группы для написания кодекса — бюрократический процесс.
+- [pt] не_новость: [pool] ECO — Governo deixa Parlamento sem resposta sobre abertura de candidaturas a prémio sa — отсутствие ответа парламента — это лишь жалоба на отсутствие новости.
+- [pt] курьёз: [world] Engadget — Apple Music tem um divertido 'easter egg' para o 25º aniversário do iPod — пасхалка в честь юбилея iPod — классический «надо же» факт.
+- [pt] курьёз: [world] Engadget — Análise do ASUS ProArt P16: uma vitrine elegante para o chip RTX Spark da NVIDIA — анализ ноутбука — это обзор техники, а не событие.
+- [pt] чужое_мелкое: [world] Ars Technica — Relatório de Foguetes: SpaceX recusa contratos militares; foguete espanhol está  — отказ SpaceX от контрактов и внутренние панели NASA — узкоспециализированная информация.
+- [pt] не_новость: [world] TechCrunch — Concorrente da Uber, inDrive planeja testes de robotáxis na Ásia Central em 2027 — планы на 2027 год — это намерение, а не совершенное действие.
+- [fr] полка: [local] Le Figaro — «Un incident majeur et inédit» : le patron d’Orange France explique au Figaro le — Инцидент с Orange — важная внутренняя новость Франции, должна быть в «Местных».
+- [fr] курьёз: [pool] La Presse TN — Octobre Rose : Tunisie Telecom fait danser l’espoir (vidéo) — Корпоративная рекламная кампания, а не новость.
+- [fr] не_новость: [pool] Radio Okapi — Championnat d'Afrique de boxe : la 22e édition lancée à Kinshasa — Запуск спортивного турнира (анонс события, нет результата).
+- [fr] чужое_мелкое: [pool] TSA Algérie — Sahara occidental : un projet américain profondément partial et déséquilibré — Обсуждение дипломатического документа, нет завершенного события.
+- [fr] не_новость: [pool] Radio-Canada — « Cessez d’expulser ceux qui travaillent déjà chez nous », lance le PDG de Canam — Призыв/выступление гендиректора, а не принятое решение.
+- [fr] не_новость: [pool] Le Nouvelliste — Antoine Simon International Airport in Les Cayes at the heart of a new moderniza — Планы по модернизации аэропорта — намерения, а не событие.
+- [fr] чужое_мелкое: [world] BFMTV — De Lille à Marseille, toute la France est à sa portée: la Russie construit un ra — Строительство радара в Калининграде — внутренняя новость РФ, не является мировой.
+- [fr] срочность: [world] Straits Times — Le Kremlin confirme un cessez-le-feu à Oleshky et discute des modalités d'évacua — Событие произошло в зоне боевых действий, требует подтверждения, не повод для побудки.
+- [fr] чужое_мелкое: [world] BFMTV — Après avoir poussée une adolescente américaine au suicide sur le réseau social D — Арест по уголовному делу в Германии не является мировой новостью.
+- [fr] не_новость: [world] Futura-Sciences — Elon Musk doit réussir avec le Starship une manœuvre jamais tentée à cette échel — Разбор планов компании на 2028 год, анонс намерений.
+- [fr] курьёз: [world] La Dépêche — Elle abandonne ses enfants de huit et 14 ans en pleine montagne pour gravir le s — Частный случай происшествия в Польше без мирового значения.
+- [fr] не_новость: [world] Africanews FR — Afrique du Sud-Chine : Pretoria mise sur les exportations vers le marché chinois — Встреча для обсуждения планов, нет факта сделки.
+- [fr] чужое_мелкое: [world] TechCrunch — Le géant des analyses médicales Quest Diagnostics confirme le vol de données per — Кибератака на американскую компанию — бизнес-новость США, нет мировых последствий.
+- [fr] чужое_мелкое: [world] Courrier International — Arrestation de Luisa González, figure de l’opposition en Équateur : “Ils veulent — Внутренняя политика Эквадора, арест оппозиционера — локальное событие.
+- [fr] не_новость: [world] BBC Sport — Ian Poulter quitte le LIV Golf, poursuivant la vague de départs — Трансфер игрока в гольф — не мировое событие.
+- [fr] не_новость: [world] Courrier International — Plus de 625 millions d’euros destinés à la lutte contre Ebola manquent à l’appel — Предположение о пропаже средств, нет факта кражи или решения.
+- [fr] полка: [world] BBC News — Au moins un mort et quatre blessés lors d'une fusillade dans la banlieue parisie — Теракт в пригороде Парижа — это Франция, должна быть в «Местных».
+- [fr] не_новость: [world] BBC Sport — Michael Carrick refuse d'exclure une mise à l'écart de Bruno Fernandes — Слова тренера о возможном решении, нет факта увольнения или отстранения.
+- [fr] не_новость: [world] NPR News — Les autorités enquêtent sur un lien éventuel entre les premiers cas d'Ebola au K — Ведется расследование (процесс, не событие).
+- [fr] курьёз: [world] Sciences et Avenir — Génétique: le vin espagnol se révèle différent de tous les autres vins européens — Научный факт о вине, место в «Интересном».
+- [fr] курьёз: [world] Sciences et Avenir — Thrombose: aucun risque avec les traitements hormonaux cutanés pour la ménopause — Результаты исследования, место в «Интересном».
+- [fr] не_новость: [world] BBC World — L'Ukraine affirme que Starlink reste restreint malgré les propos de Donald Trump — Слова без факта изменения ситуации.
+- [fr] не_новость: [world] L'Express — Arabie saoudite : les attaques houthistes mettent à mal les ambitions de Riyad — Перенос форумов на 2027 год — плановое изменение.
+- [fr] курьёз: [world] Live Science — Les scientifiques peuvent désormais "filigraner" les protéines générées par IA p — Технологический факт, не событие.
+- [fr] не_новость: [world] TechCrunch — Le concurrent d'Uber, inDrive, prévoit des tests de robotaxis en Asie centrale e — Планы компании на 2027 год.
