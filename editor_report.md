@@ -1,124 +1,149 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-10-23 13:18 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-10-23 14:20 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [ru]: помечено 63 из 389 за 4 запросов
-  🧭 [ru] после отбора и отсечки полок: всего 80 — местных 32, соседей 16, мира 32; областных 52 в 17 регионах
-  🧭 [ru] после чистки текста: всего 79 — местных 32, соседей 16, мира 31; областных 52 в 17 регионах
-  🧭 [ru] после обзоров прессы: всего 77 — местных 33, соседей 16, мира 28; областных 52 в 17 регионах
-  🧭 [ru] после склейки пересказов: всего 61 — местных 25, соседей 13, мира 23; областных 49 в 17 регионах
-  🧭 [ru] после рубежа: всего 57 — местных 25, соседей 12, мира 20; областных 49 в 17 регионах
+  🧪 Этап 1 (боевой) [en]: помечено 206 из 1212 за 11 запросов
+  🧭 [en] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 300 в 78 регионах
+  🧭 [en] после чистки текста: всего 66 — местных 24, соседей 14, мира 28; областных 290 в 77 регионах
+  🧭 [en] после обзоров прессы: всего 53 — местных 24, соседей 12, мира 17; областных 226 в 54 регионах
+  🧭 [en] после склейки пересказов: всего 48 — местных 20, соседей 11, мира 17; областных 213 в 54 регионах
+  🧭 [en] после рубежа: всего 40 — местных 17, соседей 9, мира 14; областных 129 в 50 регионах
 
-  🗞 Редактор [ru] (В ЭФИРЕ): карточек 106, спрошено 88, вторым 0
-     память не сработала: новая 86, текст вырос 1, текст стал короче 1
-     снято: нет события 10, не для читателя 6, анонс без сути 3, реклама 1
-     починено: текст сокращён до сути 57, фото заменено 13, нужно другое фото 4
-     🎲 Любопытное [ru] (в полосу «Интересное»): 1
-       🎲 в эфире · [Live Science] Ученые научились «маркировать» белки, созданные ИИ, чтобы предотвратить создание биологического оружия. Но сра · https://www.livescience.com/technology/artificial-intelligence/scientists-can-now-watermark-ai-generated-proteins-to-deter-bioweapon-creation-but-will-it-really-work
-       ✂️ [Sputnik KG (кыргызча)] Үй-бүлөлүк зомбулукка жаза күчөтүлөт. Мыйзам долбоору — абзацы 3/4; убраны рассуждения
-       ✗ анонс без сути: [Sputnik KG (кыргызча)] Россия менен Украина аскер туткундарын алмашты — нет текста новости, только общие фразы
-       ✗ анонс без сути: [Sputnik KG (кыргызча)] Песков: Украина боюнча сүйлөшүүлөр ноябрда Абу-Дабиде үч тараптуу форматта өтөт — нет текста новости, только общие фразы
-       ✗ нет события: [Вечерний Бишкек] Кыргызстан и Узбекистан обсудили меры по сокращению бедности — дипломатический этикет, обсуждение без итога
-       ✂️ [Вечерний Бишкек] 22 борца из Кыргызстана выступят на ЧМ в Астане — абзацы 4/6; убрал воду и последний абзац
-       ✂️ [Вечерний Бишкек] Сборная Кыргызстана U-15 впервые выступает на турнире ФИФА — абзацы 3/5
-       ✗ анонс без сути: [24.kg] 24 октября: где в регионах отключат свет — в тексте нет информации об отключениях
-       ✂️ [24.kg] Новая госкомпания и 1,5 миллиарда сомов. Власти готовят пром — абзацы 7/11
-       ✗ нет события: [24.kg] Глава парламента Грузии приедет в Кыргызстан с официальным визитом — анонс будущего визита, обсуждение планов
-       ✂️ [24.kg] Промышленные предприятия хотят обязать платить до 2 проценто — абзацы 3/4
-       ✗ реклама: [Kaktus.media] СК Icon получила "красную книгу" на землю под ЖК Malina — промоушен ЖК
-       ✗ нет события: [24.kg] Жаны Достук год спустя: как освоились переселенцы приграничных районов — репортаж-воспоминание, нет свежего повода
-       ✂️ [24.kg] Алкоголь варили прямо в домах. ГНС выявила подпольные произв — абзацы 3/6
-       ✂️ [Knews.kg] Садыр Жапаров встретился с жителями городов Таш-Кумыр и Кара — абзацы 7/10
-       ✂️ [Knews.kg] «Караван безопасной миграции» продолжается в регионах Кыргыз — абзацы 4/5
-       ✂️ [Knews.kg] Арбитражный суд отклонил иски Казахстана по Кашагану о возме — абзацы 4/5; убран последний абзац
-       ✂️ [Kaktus.media] Депутаты предлагают меры для сокращения сроков рассмотрения  — абзацы 3/5
-       ✂️ [Kaktus.media] "Оказывали давление и забирали деньги". Президенту пожаловал — абзацы 6/7
-       ✂️ [Kaktus.media] 27 октября два больших района Бишкека останутся без холодной — абзацы 2/6
-       🖼 [Kaktus.media] 27 октября два больших района Бишкека останутся бе — фото: №2 вместо №1
-       ✂️ [Kabar.kg] Кыргызстан менен ЕККУ ПА парламенттик дипломатияны чыңдайт — абзацы 8/9
-       ✂️ [Азаттык] «Казатомпром» повторно вынесет на голосование сделку по прод — абзацы 7/9
-       ✗ нет события: [iXBT] Бум вокзального Wi-Fi в России — за 9 месяцев пользователи скачали более 5,4 тысячи ТБ дан — статистический отчёт, не событие
-       ✂️ [iXBT] В США впервые запретили устройства из-за китайских чипов вну — абзацы 3/4
-       ✂️ [Kun.uz] В пользу узбекистанцев, работающих за рубежом, взыскано 850  — абзацы 2/13
-       ✗ нет события: [Kun.uz] Зироатхон Мирзиёева и гости саммита «Инвестиции в благополучие детей» посетили комплекс Им — светское мероприятие, не новость
-       ✂️ [Kun.uz] Хокимият Ташкента взял на контроль ситуацию с повреждёнными  — абзацы 3/4
-       🖼 [Asia-Plus] Производство тканей сократилось почти вдвое, импор — фото: №2 вместо №1
-       🖼 [Asia-Plus] Искусственный интеллект для каждого жителя Таджики — фото: №2 вместо №1
-       ✂️ [Gazeta.uz] В Узбекистане 628 заправок не соответствуют требованиям о бе — абзацы 7/42
-       ✗ не для читателя: [RFI] Израиль: за четыре дня до парламентских выборов скандальный «14-й канал» оказался в центре — внутренняя политика Израиля
-       ✗ нет события: [Engadget] Обзор ASUS ProArt P16: демонстрация возможностей платформы NVIDIA RTX Spark — обзор/мнение
-       ✗ нет события: [Ars Technica] Безопасность Switch 2 под угрозой: хакеры получили доступ к запуску самодельного ПО — исследовательский взлом, не массовое событие
-       ✂️ [iXBT] Человека впервые заразили вирусом, созданным искусственным и — абзацы 5/7; убрал последний, лишние детали
-       ✂️ [178.ru — Санкт-Петербург] Москву атаковали дроны, все аэропорты закрыты — абзацы 6/8; убрал последний, сократил воду
-       ✂️ [59.ru — Пермь] Подробности атаки БПЛА на Прикамье: из-за упавших обломков н — абзацы 3/5; убрал последний, лишнее про поэта
-       ✂️ [71.ru — Тула] Больше 400 дронов ударили по России за ночь, одной из главны — абзацы 3/5; убрал последний, лишние цитаты
-       ✂️ [63.ru — Самара] «Помогите!» Сквозь едкий дым пожарные услышали крики и вынес — абзацы 6/8
-       ✂️ [62.ru — Рязань] Из Рязани депортировали мигрантов-наркоманов и поддельщиков — абзацы 3/4; заменил фото из-за повтора
-       🖼 [62.ru — Рязань] Из Рязани депортировали мигрантов-наркоманов и под — фото: №2 вместо №1
-       ✂️ [161.ru — Ростов-на-Дону] В Ростове задержали чиновника из-за капитального ремонта 13- — абзацы 3/5; убрал последний, оставил суть дела
-       ✂️ [74.ru — Челябинск] «Кровь пошла в легкие»: челябинские хирурги спасли пациента  — абзацы 8/10
-       🖼 [74.ru — Челябинск] «Кровь пошла в легкие»: челябинские хирурги спасли — фото: №2 вместо №1
-       ✂️ [ngs24.ru — Красноярск] Медведь убил сторожа на севере края в Богучанском округе. Эт — абзацы 6/8
-       🖼 [ngs24.ru — Красноярск] Медведь убил сторожа на севере края в Богучанском  — фото: №2 вместо №1
-       ✗ нет события: [51.ru — Мурманск] Мурманская область примет Высший горный совет России: что обсудят эксперты — анонс конференции
-       ✂️ [56.ru — Оренбург] В Орске скончался ветеран Великой Отечественной войны Розали — абзацы 5/6
-       ✂️ [60.ru — Псков] Суд Себежа вынес приговор за повторную пьяную езду — абзацы 4/5
-       🖼 [45.ru — Курган] В Шадринске депутаты избрали главу города. Кто он  — фото: №2 вместо №1
-       ✂️ [48.ru — Липецк] В Липецке приняли 17 отремонтированных дорог — абзацы 3/4; хвост: цитата, вода
-       ✂️ [35.ru — Вологда] В Вологде возбудили дело о смертельном избиении соседа — абзацы 4/5; убран 5-й абзац (последний)
-       ✂️ [43.ru — Киров] В Кирове задержали закладчика с 350 граммами наркотика — абзацы 3/4; убран 4-й абзац (последний)
-       ✂️ [14.ru — Якутск] Рекордный объем металлолома собрали в Якутии по проекту «Чис — абзацы 6/7; убран 7-й абзац (последний)
-       ✂️ [59.ru — Пермь] «Вокруг паника, кровь, все орут»: в Екатеринбурге полицейски — абзацы 1/22; выбрано фото с подписью
-       🖼 [59.ru — Пермь] «Вокруг паника, кровь, все орут»: в Екатеринбурге  — фото: №2 вместо №1
-       ✂️ [71.ru — Тула] В Тульской области в СИЗО отправили чиновника из Росимуществ — абзацы 3/5; убраны 4-5 абзацы (последний и хвост)
-       ✂️ [62.ru — Рязань] В Рязани на ночь перекроют дорогу к РНПК и изменят движение  — абзацы 1/4
-       🖼 [62.ru — Рязань] В Рязани на ночь перекроют дорогу к РНПК и изменят — фото: №2 вместо №1
-       ✂️ [51.ru — Мурманск] Оспу обезьян можно спутать с гриппом: биолог назвала мурманч — абзацы 1/14
-       🖼 [51.ru — Мурманск] Оспу обезьян можно спутать с гриппом: биолог назва — фото: №2 вместо №1
-       ✂️ [56.ru — Оренбург] Трибуны все равно остались довольны: волейбольный клуб «Орен — абзацы 4/9
-       ✂️ [60.ru — Псков] На Псковщине поймали трёх нетрезвых водителей — абзацы 4/14; снята лишняя вода
-       🖼 [45.ru — Курган] В Зауралье погибли два человека: горел многокварти — фото: №2 вместо №1
-       ✗ нет события: [48.ru — Липецк] Водоканал Липецка промыл 6 км сетей и убрал 229 засоров — отчет о плановой работе
-       ✂️ [53.ru — Великий Новгород] Житель Тверской области получил 6 лет за кражу Toyota RAV4 — абзацы 4/5
-       ✂️ [62.ru — Рязань] «Подняться с постели не могла»: рязанка чуть не умерла от да — абзацы 3/5; убрал прямую речь без фактов
-       ✂️ [51.ru — Мурманск] Еврокомиссия представила новую арктическую стратегию: что эт — абзацы 5/6
-       ✂️ [56.ru — Оренбург] Провал попытки № 14: мэрия Оренбурга снова не смогла найти п — абзацы 5/6; убрал анонс брифинга
-       ✗ не для читателя: [60.ru — Псков] Суд Порхова дал условный срок за кражу телефона — мелкое происшествие в чужом регионе
-       ✂️ [48.ru — Липецк] В Липецке раскрыли две кражи имущества — абзацы 4/5
-       ✂️ [53.ru — Великий Новгород] Школу в Демянске оштрафовали на 50 тысяч рублей — абзацы 4/5
-       ✂️ [59.ru — Пермь] В Перми проведут 11-дневный книжный фестиваль, где можно буд — абзацы 6/11
-       ✂️ [62.ru — Рязань] В Рязани предупредили о перебоях со светом в Московском райо — абзацы 3/4
-       ✂️ [51.ru — Мурманск] Аэропорт Мурманска продолжат обновлять: что изменится — абзацы 3/5
-       ✗ не для читателя: [56.ru — Оренбург] У плохих оценок за поведение всё-таки будут последствия: к чему готовиться ученикам и роди — внутренняя школьная система РФ
-       ✂️ [60.ru — Псков] Суд Порхова обязал школу искусств обследовать здание — абзацы 2/4; снимок — карточка с заголовком
-       🖼 [48.ru — Липецк] Девятиклассник из Липецка стал призёром IT-хакатон — фото: №2 вместо №1
-       ✂️ [59.ru — Пермь] Студенты стройфака ПНИПУ пожаловались на закрытые туалеты, о — абзацы 6/8
-       ✂️ [62.ru — Рязань] Жителей Рязани оставили без холодной воды: что произошло? — абзацы 1/4; №2 — чужой снимок (Владивосток)
-       ✂️ [60.ru — Псков] С наследницы взыскали долг за отопление квартиры — абзацы 3/6
-       ✂️ [62.ru — Рязань] Рязанец получил полтора года колонии за смертельное ДТП при  — абзацы 3/4; №2 — чужой снимок (Владивосток)
-       ✗ нет события: [60.ru — Псков] Суд арестовал великолучанку за уклонение от работ — происшествие, не для нашего читателя
-       ✂️ [60.ru — Псков] Рецидивистка украла миллион у великолучанки и получила срок — абзацы 3/4; убран лишний хвост
-       ✂️ [60.ru — Псков] Суд отказал в иске об отмене аннулирования вида на жительств — абзацы 3/6; исключены вводные/общие абзацы
-       ✂️ [60.ru — Псков] Директор подразделения «Деловых Линий» получил приговор за п — абзацы 4/7; исправлено: статья содержит 7 абзацев
-       ✂️ [60.ru — Псков] Суд отправил в колонию женщину за кражу из дачного дома — абзацы 4/5; исключен последний абзац
-       ✗ не для читателя: [60.ru — Псков] В Бежаницах осудили водителя за повторную езду в нетрезвом виде — мелкий криминал в чужой стране
-       ✗ не для читателя: [60.ru — Псков] Суд обязал «Авангард» и «Техстрой» провести работы в лесах — хозспор в чужой стране
-       ✗ не для читателя: [60.ru — Псков] Суд отправил островича в колонию за убийство почти 30-летней давности — криминал в чужой стране
-       🖼 [Knews.kg] Энергетики Бишкека отключат электричество у более  — фото: №2 вместо №1
-     лента: было 106, снято 20, добрано до полной 30, стало 116; фото: взято у соседа 1, убрано чужих 4
-     💰 редактор: $0.0317
-  🧭 [ru] после редактора (в эфир): всего 73 — местных 29, соседей 20, мира 24; областных 41 в 17 регионах
+  🗞 Редактор [en] (В ЭФИРЕ): карточек 169, спрошено 163, вторым 0
+     память не сработала: новая 162, текст вырос 1
+     снято: нет события 21, не для читателя 3, анонс без сути 2, мусор 2
+     починено: текст сокращён до сути 78, фото заменено 8, нужно другое фото 4, ложное «срочно» снято 1
+     🎲 Любопытное [en] (в полосу «Интересное»): 1
+       🎲 снято · [WyoFile] The mountain elite: A Teton guide worries about Wyoming’s future · https://wyofile.com/the-mountain-elite-a-teton-guide-worries-about-wyomings-future/ — портрет/история из практики, повода нет
+       ✂️ [WAFB] Woman charged after Facebook threat at Trump during planned  — абзацы 2/16
+       ✂️ [WJXT News4JAX] US designates helium as a critical material, citing its impo — абзацы 2/25
+       ✗ нет события: [NBC News] Meghan Markle Speaks Out About Accusations Against Her Father — личная история, слова без события
+       ✂️ [NPR News] Military reinforcements move to Mideast. And, millions of Am — абзацы 5/17; убрал заголовок и навигацию
+       ✗ нет события: [NPR News] Why Meta is charging to post more hyperlinks — дайджест новостей, основной текст — подборка тем
+       ✂️ [NBC News] Russian diesel tanker heads to the U.S., the first since Tru — абзацы 3/7
+       ✗ анонс без сути: [NBC News] World Series set to start as potential MLB lockout or strike looms for next season — текст не содержит фактов, только анонс видео
+       ✂️ [NBC News] New York AG James files opposition to effort to bar her from — абзацы 3/4
+       ✗ анонс без сути: [CBS News] Why a California DA is holding parents responsible for kids' electric motorcycle accidents — текст — подводка к видео, нет сути дела
+       ✂️ [CBS News] Kushner pushes back on report involving phone, spies, transf — абзацы 3/7
+       ✂️ [Texas Tribune] Fed up with data centers and Big Tech, rural Republican cros — абзацы 4/59
+       🖼 [Texas Tribune] Fed up with data centers and Big Tech, rural Repub — фото: №3 вместо №1
+       ✂️ [Premium Times NG] Rivers Boat Tragedy: Fubara vows probe as 10 reportedly die — абзацы 3/7; основная новость о происшествии
+       ✂️ [SMH Australia] Trump ordered to sit for deposition in defamation case again — абзацы 8/20; исключил повторы и детали про Jack Smith, не меняющие суть
+       🖼 [RTÉ Ireland] Investigation after man's body found on Cork golf  — фото: №3 вместо №1
+       ✂️ [RTÉ Ireland] No case against man accused of sexual assault in Citywest — абзацы 4/6; выбрал нейтральное фото из статьи, чтобы избежать повтора снимка
+       ✗ нет события: [Irish Times] The 18-year legal battle over a news report that a jury took just 48 minutes to dismiss — давняя история (22 года), судебный итог формальный
+       ✂️ [BBC World] Six shot dead by gunmen at church funeral in Jordan, officia — абзацы 5/11
+       ✂️ [UPI] 1 killed, 170 hurt in Taiwan as typhoon brings disruption, t — абзацы 3/10
+       ✗ нет события: [RFI] LIVE - Social unrest in France: Emmanuel Macron meets with high school students and law en — анонс встречи/LIVE
+       ✂️ [WTOP] Many feared trapped as a tall building collapses in Kenya — абзацы 7/8
+       ✂️ [TechCrunch] Uber rival inDrive eyes 2027 robotaxi tests in Central Asia  — абзацы 6/17
+       ✂️ [NPR News] Authorities investigating whether first Kenya and Nigeria Eb — абзацы 3/4
+       ✂️ [Time] Venezuelans Take to the Streets to Demand Democracy — абзацы 6/20
+       ✂️ [WJXT News4JAX] Europe's killer heat this summer claims 50,000 lives. Climat — абзацы 2/24; убран лишний абзац (recommended videos)
+       ✂️ [Live Science] Scientists can now 'watermark' AI-generated proteins to dete — абзацы 5/28; выбраны ключевые абзацы, без последнего
+       ✂️ [Mexico News Daily] Peso hits one-year low as Fed-Banxico rate gap narrows — абзацы 7/16; выбраны факты о курсе и причинах
+       🔕 [WBRC] Georgia woman killed after vehicle hits tree, catches fire on I-459
+       ✂️ [1011NOW] Teen killed, 4 others ejected in rollover crash near North P — абзацы 3/8
+       ✂️ [WRDW] Sheriff to give update on shooting that injured Aiken County — абзацы 6/9
+       ✂️ [KSL.com] Trump says Bombardier to invest $270 million in the US — абзацы 3/4
+       ✂️ [Local News] Historic dam removed in Northfield village could help lower  — абзацы 8/20
+       ✂️ [Portland Press Herald] State plans public hearing on Central Maine Healthcare as co — абзацы 5/19
+       ✂️ [NonDoc] State downgrades 67 school districts as ‘academic proficienc — абзацы 4/19
+       🖼 [NonDoc] State downgrades 67 school districts as ‘academic  — фото: №5 вместо №1
+       ✗ мусор: [Cascade PBS] DOJ and DHS election plans raise concerns of interference — заголовок не соответствует содержанию
+       ✂️ [Bridge Michigan] A Michigan clerk tried to kick voters off rolls. How her cou — абзацы 7/63
+       ✂️ [Connecticut Mirror] Judge blocks DHS from conducting election-related sweeps in  — абзацы 3/6
+       ✂️ [WBAL] ‘Rent’ musical celebrates its 30th Broadway anniversary with — абзацы 5/24; выбраны абзацы с фактами о событии
+       ✗ нет события: [NY Post] YouTuber Ethan Klein fired from ‘H3 Podcast’ after wife Hila accuses him of affair: ‘Unthi — личная драма, нет публичного/официального повода
+       ✂️ [WV MetroNews] Sen. Oliverio, Del. Williams, and Taylor Richmond highlight  — абзацы 6/23
+       ✂️ [Arizona's Family] Severe weather is leaving Arizona. Here’s what to expect nex — абзацы 5/7
+       ✗ нет события: [WyoFile] The mountain elite: A Teton guide worries about Wyoming’s future — портрет/история из практики, повода нет
+       ✂️ [Honolulu Star-Advertiser] Hawaii middle blocker Miliana Sylvester is riding the hottes — абзацы 3/7
+       ✂️ [WHYY] What happened to the GOP’s high hopes for Pa. governor candi — абзацы 7/39; убрал вопросы читателям, цитаты-эмоции, повторы
+       ✗ нет события: [14.ru] Record amount of scrap metal collected in Yakutia under the 'Clean Arctic' project with su — отчет о завершении планового проекта
+       ✂️ [KLKN-TVKLKN-TV] Vance visits North Platte, announces $1.3 billion investment — абзацы 6/12
+       ✂️ [Cardinal & Pine] At Greenville rally, Trump threatens to withhold money for v — абзацы 6/18; убрана вода и оценка автора
+       ✂️ [WRDW] Brother, sister injured in ‘serious dog attack’ in Georgia — абзацы 8/16
+       ✗ не для читателя: [178.ru] Cause of actor Andrey Terentyev's death revealed — местная новость для потока ru
+       ✂️ [OPB] ‘Could we have done something more?’ Bend school shooting sp — абзацы 5/38; выбрано фото с места событий
+       ✂️ [WBUR] Boston City Council votes to subpoena MBTA GM Phil Eng over  — абзацы 5/13
+       ✂️ [Seven Days] Beta Wins FAA Approval for Taking Potential Customers on Fli — абзацы 6/9; убраны общие слова и цитаты политиков
+       ✂️ [WFPL] United Nations report highlights significant increase in U.S — абзацы 6/22; убран повтор заголовка в тексте, убран последний абзац
+       ✗ не для читателя: [62.ru] “We were lucky to slip through the window”: a Ryazan resident spent 12 hours waiting for a — мелкий инцидент в чужой стране, полка 'мир'
+       ✗ нет события: [Startribune News] Roper: Can this Minneapolis City Hall marriage be saved? — мнение / колонка
+       ✂️ [NonDoc] Nick Coffey, Jon Echols clash over how to handle cases, part — абзацы 6/35
+       🖼 [NonDoc] Nick Coffey, Jon Echols clash over how to handle c — фото: №5 вместо №1
+       ✂️ [KOTA] South Dakota voters urged to verify polling locations ahead  — абзацы 6/8
+       ✂️ [WFSB] United Airlines adding nonstop flight to San Francisco from  — абзацы 6/7
+       ✗ нет события: [WBAL] Mike McDaniel, Brian Daboll and other first-year offensive coordinators are struggling — спортивная аналитика
+       ✗ нет события: [WV MetroNews] Justice for Kyneddi Miller Requires More Than Convictions — авторская колонка/мнение
+       ✗ нет события: [PennLive] Rural Pennsylvanians face higher obesity rates and fewer options for care — статья-спонсорский материал, нет события
+       ✂️ [CalMatters] What will Becerra and Hilton do on climate? — абзацы 5/35
+       ✂️ [The Colorado Sun] Colorado may increase taxes on the rich. When Massachusetts  — абзацы 4/58
+       ✂️ [WyoFile] Restoring Wyoming’s largest 2026 fire scar, one sagebrush se — абзацы 7/13
+       ✂️ [Spotlight Delaware] As early voting opens, Coons, Katz debate affordability, Isr — абзацы 6/35
+       🖼 [Spotlight Delaware] As early voting opens, Coons, Katz debate affordab — фото: №2 вместо №1
+       ✂️ [WTOP] AP Exclusive: Trump’s border chief defends wall plans in Tex — абзацы 6/25; выбраны суть и контекст, исключен последний абзац
+       ✂️ [Georgia Public Broadcasting] Brazil's runoff: Lula's legacy vs. Bolsonaro's dynasty — абзацы 8/19
+       ✂️ [KOB] Immigrants seeking US citizenship targeted in Trump administ — абзацы 3/11
+       ✗ не для читателя: [178.ru] Foreign national detained in St. Petersburg for repeated attempts to re-enter Russia — внутренняя новость РФ, не для англоязычного потока
+       ✂️ [OPB] Police identify victims in Clackamas County triple homicide — абзацы 5/10
+       ✂️ [WSMV] Lorenzo Washington, founder of Jefferson Street Sound Museum — абзацы 3/21
+       ✂️ [Portland Press Herald] At Acadia, a missing Wabanaki marker and the fight over what — абзацы 7/37; выбраны абзацы с сутью конфликта и фактами
+       ✂️ [NonDoc] Christine Galbraith, Neil West compete for southwest Oklahom — абзацы 5/27; выбраны ключевые факты о выборах и кандидатах
+       ✂️ [South Dakota News Watch] Pine Ridge solar nonprofit trains workers for high-paying jo — абзацы 4/16; включена информация о награде и деятельности центра
+       ✂️ [El Paso Matters] YISD renames César Chávez Academy, SISD draws 400-plus appli — абзацы 6/45; выбраны абзацы с сутью решения совета и комментариями
+       ✗ нет события: [NY Post] Dolly Parton’s nephew Bryan Seaver allegedly barred from CMA tribute to late singer amid l — личный конфликт, не имеющий общественно значимого повода
+       ✂️ [WV MetroNews] Webb sworn-in as Charleston’s new police chief — абзацы 4/12; выбраны факты о назначении и целях
+       ✂️ [Montana Free Press] The Trump administration is gutting the ESA. These six speci — абзацы 7/46; суть изменений ESA и их влияние на виды
+       ✂️ [CalMatters] Latino voters backed Karen Bass in June. Will she maintain t — абзацы 6/27; аналитика предпочтений избирателей
+       ✂️ [Cronkite News] Healthcare drives Arizona’s job growth, but can employers ke — абзацы 4/34; статистика роста рабочих мест
+       ✂️ [The Colorado Sun] Colorado has enough spare winter electricity to replace furn — абзацы 4/13; выбраны факты о потенциале и выгоде
+       ✂️ [WyoFile] Social Security’s math problem is not going away — абзацы 3/12; суть проблемы и последствия
+       ✂️ [WHYY] Bucks County museum owner’s book catalogues decades of chasi — абзацы 7/45; убраны личные размышления, оставлена суть
+       ✂️ [NJ Spotlight News] Lawmakers eye micro-hospitals as part of New Jersey’s health — абзацы 5/13; убраны редакторские примечания и прямая речь
+       ✂️ [Latest &amp; Breaking News] Masked thieves hit Culpeper data center site 3 times in a mo — абзацы 3/4; суть краж и призыв шерифа
+       ✗ нет события: [reviewjournal] Can Mike Washington Jr. help ignite Raiders rushing offense? — аналитический материал об игроке
+       ✗ нет события: [KLKN-TVKLKN-TV] Friday Morning Pep Rally: Northeast takes on Northwest in regular season finale — анонс спортивного матча
+       ✂️ [Georgia Public Broadcasting] With jet fuel prices near a record, holiday airfares soar hi — абзацы 2/27; рост цен на авиабилеты перед праздниками
+       ✗ мусор: [Santa Fe New Mexican] A scientist was pushed out for studying Iowa’s water. Now he’s running to regulate it. — техническая страница
+       ✗ нет события: [Seven Days] Essex Experience Goes Up for Sale, but Longtime Owner Peter Edelmann Plans to Stay Involve — владелец продает бизнес, но остается в деле
+       ✂️ [Portland Press Herald] UMF students can earn credits toward biotechnology master’s — абзацы 3/5
+       ✂️ [WBAL] For decades, he’s hunted tickets from Cal Ripken’s ‘Iron Man — абзацы 5/31
+       ✂️ [Gothamist] Are NJ schools unconstitutionally segregated? It's back to t — абзацы 7/19
+       ✗ нет события: [Inquirer.com] What the World Series teams and one stellar August can show the Phillies about improving i — аналитическая статья, не новость
+       ✂️ [CalMatters] California has more revenue than expected thanks to AI. Shou — абзацы 8/25; убран хвост и первый абзац (повтор)
+       ✂️ [Cronkite News] As Election Day looms, Arizona officials and advocates addre — абзацы 2/33
+       ✂️ [The Colorado Sun] Supersonic aircraft maker Boom will build turbines to power  — абзацы 6/22; выбраны ключевые абзацы, убран хвост
+       ✂️ [Oil City News] Game and Fish investigating poaching incidents in Fremont, B — абзацы 6/8; взят подходящий снимок из статьи
+       ✗ нет события: [Honolulu Star-Advertiser] ‘Iolani volleyball team earns top state seed — спортивная сетка турнира
+       ✗ нет события: [WHYY] University of Delaware welcomes new artistic director who combines her love of theater and — назначение на академическую должность
+       ✂️ [NJ Spotlight News] Lawmakers want NJ to lead the way on holding AI firms liable — абзацы 6/45
+       🖼 [Latest &amp; Breaking News] Police investigate after back-to-back night gunfir — фото: №2 вместо №1
+       🖼 [KLKN-TVKLKN-TV] Lincoln Southwest holds on in 5 sets to win HAC to — фото: №3 вместо №1
+       ✗ нет события: [WDBJ7] Cancer foundation to host health screenings, cooking demo at annual Pink Event — анонс мероприятия, нет события
+       ✂️ [KFVS12] Current boil water orders/advisories in the Heartland — абзацы 1/18
+       ✂️ [OPB] Cyrus Javadi switched parties. Will his Oregon district reel — абзацы 4/45
+       ✗ нет события: [The Salt Lake Tribune] Tribune editorial: Public infrastructure districts undermine public financing, public trus — editorial, не событие
+       ✂️ [VTDigger] The last Democratic legislator in Rutland County is leaving  — абзацы 3/16
+       ✂️ [WKYT] Several arrests made in connection with ‘major’ property dam — абзацы 3/5
+       ✗ нет события: [Portland Press Herald] With Gorham farm for sale, owner, employees reflect on 5 years — личная история, без события
+       ✂️ [OKC News] OSU Homecoming Events: Walkaround, Sea of Orange Parade and  — абзацы 3/27; фото — мусор (соцсети/ссылки), убрал
+       🖼 [OKC News] OSU Homecoming Events: Walkaround, Sea of Orange P — фото — мусор (соцсети/ссылки), убрал
+     лента: было 169, снято 27, добрано до полной 36, стало 178; фото: взято у соседа 0, убрано чужих 5
+     💰 редактор: $0.0497
+  🧭 [en] после редактора (в эфир): всего 68 — местных 27, соседей 14, мира 27; областных 105 в 44 регионах
 
-💰 Расход по этапам: всего $0.0766
-     редактор: $0.0306 (40%), запросов 20
-     отбор (этап 2): $0.0108 (14%), запросов 5
-     спасение текста: $0.0077 (10%), запросов 8
-     перевод: $0.0064 (8%), запросов 4
-     прочее: $0.0051 (7%), запросов 2
-     отсев (этап 1): $0.0049 (6%), запросов 4
-     склейка пересказов: $0.0040 (5%), запросов 1
-     мировые сюжеты: $0.0026 (3%), запросов 1
-     снимки происшествий: $0.0023 (3%), запросов 8
-     обзоры прессы: $0.0021 (3%), запросов 1
+💰 Расход по этапам: всего $0.1704
+     отбор (этап 2): $0.0499 (29%), запросов 18
+     редактор: $0.0485 (28%), запросов 36
+     спасение текста: $0.0259 (15%), запросов 15
+     перевод: $0.0165 (10%), запросов 9
+     отсев (этап 1): $0.0127 (7%), запросов 11
+     склейка пересказов: $0.0056 (3%), запросов 1
+     прочее: $0.0034 (2%), запросов 2
+     обзоры прессы: $0.0029 (2%), запросов 1
+     мировые сюжеты: $0.0027 (2%), запросов 1
+     снимки происшествий: $0.0024 (1%), запросов 8
 ```
