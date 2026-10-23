@@ -1,44 +1,25 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] G1 Globo — Tchuco, macaco-aranha de 23 anos, desembarca em Campinas para viver com três fêm — переезд животного в зоопарк — это любопытный факт, а не событие.
-- [pt] не_новость: [local] Folha de S.Paulo — Casas Bahia anuncia Camille Faria para liderar negociações de recuperação judici — назначение руководителя — внутреннее корпоративное событие, не влияющее на читателя.
-- [pt] курьёз: [local] G1 Minas — Gustavo Scarpa, do Atlético, é convidado para entregar Prêmio Jabuti após sucess — приглашение футболиста на церемонию — светская хроника, а не новость.
-- [pt] курьёз: [local] Poder360 — Meta diz que apps de edição podem causar bloqueios por IA — информация о возможных блокировках из-за ИИ-редакторов — это справочный совет для пользователей.
-- [pt] не_новость: [local] Estadão — Caso Isabelle Caracristi: Justiça arquiva investigação de feminicídio e indução  — архивирование дела и общие рассуждения о статистике фемицида без нового факта.
-- [pt] не_новость: [local] G1 Minas — Prefeitura de BH abre venda de concessões de jazigos perpétuos em quatro cemitér — объявление о начале продажи услуг мэрии (погребения) — рекламный характер.
-- [pt] чужое_мелкое: [pool] RTP Notícias — Gebalis explica que viúva não tinha direito à casa em Marvila — локальный спор о праве на жилье в Португалии для бразильской ленты.
-- [pt] не_новость: [pool] RTP Notícias — Farioli alerta para Gil Vicente entre as equipas em melhor forma — мнение тренера о форме другой команды — аналитика, а не событие.
-- [pt] не_новость: [pool] Notícias ao Minuto — Rafaela Schenkel, Tomás Azul e Joana Paraíso vencem Prémios Cargaleiro — вручение локальной премии — не является общественно значимым событием.
-- [pt] не_новость: [pool] Expresso das Ilhas — Cabo Verde vai reactivar comissão nacional para reforçar controlo de armas e mun — план по реактивации комиссии (намерение, а не действие).
-- [pt] курьёз: [pool] ECO — Alentejo apresenta garrafa de vinho mais leve para reduzir custos e emissões — разработка более легкой бутылки для вина — отраслевая заметка.
-- [pt] не_новость: [pool] Observador PT — Governo quer criar Código do Poder Local — создание рабочей группы для написания кодекса — бюрократический процесс.
-- [pt] не_новость: [pool] ECO — Governo deixa Parlamento sem resposta sobre abertura de candidaturas a prémio sa — отсутствие ответа парламента — это лишь жалоба на отсутствие новости.
-- [pt] курьёз: [world] Engadget — Apple Music tem um divertido 'easter egg' para o 25º aniversário do iPod — пасхалка в честь юбилея iPod — классический «надо же» факт.
-- [pt] курьёз: [world] Engadget — Análise do ASUS ProArt P16: uma vitrine elegante para o chip RTX Spark da NVIDIA — анализ ноутбука — это обзор техники, а не событие.
-- [pt] чужое_мелкое: [world] Ars Technica — Relatório de Foguetes: SpaceX recusa contratos militares; foguete espanhol está  — отказ SpaceX от контрактов и внутренние панели NASA — узкоспециализированная информация.
-- [pt] не_новость: [world] TechCrunch — Concorrente da Uber, inDrive planeja testes de robotáxis na Ásia Central em 2027 — планы на 2027 год — это намерение, а не совершенное действие.
-- [fr] полка: [local] Le Figaro — «Un incident majeur et inédit» : le patron d’Orange France explique au Figaro le — Инцидент с Orange — важная внутренняя новость Франции, должна быть в «Местных».
-- [fr] курьёз: [pool] La Presse TN — Octobre Rose : Tunisie Telecom fait danser l’espoir (vidéo) — Корпоративная рекламная кампания, а не новость.
-- [fr] не_новость: [pool] Radio Okapi — Championnat d'Afrique de boxe : la 22e édition lancée à Kinshasa — Запуск спортивного турнира (анонс события, нет результата).
-- [fr] чужое_мелкое: [pool] TSA Algérie — Sahara occidental : un projet américain profondément partial et déséquilibré — Обсуждение дипломатического документа, нет завершенного события.
-- [fr] не_новость: [pool] Radio-Canada — « Cessez d’expulser ceux qui travaillent déjà chez nous », lance le PDG de Canam — Призыв/выступление гендиректора, а не принятое решение.
-- [fr] не_новость: [pool] Le Nouvelliste — Antoine Simon International Airport in Les Cayes at the heart of a new moderniza — Планы по модернизации аэропорта — намерения, а не событие.
-- [fr] чужое_мелкое: [world] BFMTV — De Lille à Marseille, toute la France est à sa portée: la Russie construit un ra — Строительство радара в Калининграде — внутренняя новость РФ, не является мировой.
-- [fr] срочность: [world] Straits Times — Le Kremlin confirme un cessez-le-feu à Oleshky et discute des modalités d'évacua — Событие произошло в зоне боевых действий, требует подтверждения, не повод для побудки.
-- [fr] чужое_мелкое: [world] BFMTV — Après avoir poussée une adolescente américaine au suicide sur le réseau social D — Арест по уголовному делу в Германии не является мировой новостью.
-- [fr] не_новость: [world] Futura-Sciences — Elon Musk doit réussir avec le Starship une manœuvre jamais tentée à cette échel — Разбор планов компании на 2028 год, анонс намерений.
-- [fr] курьёз: [world] La Dépêche — Elle abandonne ses enfants de huit et 14 ans en pleine montagne pour gravir le s — Частный случай происшествия в Польше без мирового значения.
-- [fr] не_новость: [world] Africanews FR — Afrique du Sud-Chine : Pretoria mise sur les exportations vers le marché chinois — Встреча для обсуждения планов, нет факта сделки.
-- [fr] чужое_мелкое: [world] TechCrunch — Le géant des analyses médicales Quest Diagnostics confirme le vol de données per — Кибератака на американскую компанию — бизнес-новость США, нет мировых последствий.
-- [fr] чужое_мелкое: [world] Courrier International — Arrestation de Luisa González, figure de l’opposition en Équateur : “Ils veulent — Внутренняя политика Эквадора, арест оппозиционера — локальное событие.
-- [fr] не_новость: [world] BBC Sport — Ian Poulter quitte le LIV Golf, poursuivant la vague de départs — Трансфер игрока в гольф — не мировое событие.
-- [fr] не_новость: [world] Courrier International — Plus de 625 millions d’euros destinés à la lutte contre Ebola manquent à l’appel — Предположение о пропаже средств, нет факта кражи или решения.
-- [fr] полка: [world] BBC News — Au moins un mort et quatre blessés lors d'une fusillade dans la banlieue parisie — Теракт в пригороде Парижа — это Франция, должна быть в «Местных».
-- [fr] не_новость: [world] BBC Sport — Michael Carrick refuse d'exclure une mise à l'écart de Bruno Fernandes — Слова тренера о возможном решении, нет факта увольнения или отстранения.
-- [fr] не_новость: [world] NPR News — Les autorités enquêtent sur un lien éventuel entre les premiers cas d'Ebola au K — Ведется расследование (процесс, не событие).
-- [fr] курьёз: [world] Sciences et Avenir — Génétique: le vin espagnol se révèle différent de tous les autres vins européens — Научный факт о вине, место в «Интересном».
-- [fr] курьёз: [world] Sciences et Avenir — Thrombose: aucun risque avec les traitements hormonaux cutanés pour la ménopause — Результаты исследования, место в «Интересном».
-- [fr] не_новость: [world] BBC World — L'Ukraine affirme que Starlink reste restreint malgré les propos de Donald Trump — Слова без факта изменения ситуации.
-- [fr] не_новость: [world] L'Express — Arabie saoudite : les attaques houthistes mettent à mal les ambitions de Riyad — Перенос форумов на 2027 год — плановое изменение.
-- [fr] курьёз: [world] Live Science — Les scientifiques peuvent désormais "filigraner" les protéines générées par IA p — Технологический факт, не событие.
-- [fr] не_новость: [world] TechCrunch — Le concurrent d'Uber, inDrive, prévoit des tests de robotaxis en Asie centrale e — Планы компании на 2027 год.
+- [en] не_новость: [local] NY Post — UCLA continues bid for historic rise, will rock championship-inspired unis vs. M — рассказ о форме футболистов — не событие
+- [en] чужое_мелкое: [local] AL.com — Stevie Wonder seeks to evict former fiancée from Los Angeles home — частный спор о недвижимости, личное дело
+- [en] курьёз: [local] AL.com — LEGO confirms Daft Punk concert set with iconic pyramid stage — анонс игрушки, интересное без события
+- [en] не_новость: [local] Bangor Daily News — UMaine football hosting Campbell for Homecoming game — анонс матча, нет события
+- [en] не_новость: [local] WCAX — Vermont “I voted” sticker contest winners announced — результаты конкурса стикеров — не новость
+- [en] не_новость: [local] KPLC — ‘Jennings Alive’ festival brings free family fun and live entertainment downtown — анонс городского фестиваля, это не событие с последствиями
+- [en] курьёз: [local] WJXT News4JAX — Nease High School football field riddled with eggs, cottage cheese ahead of game — хулиганство на футбольном поле — локальный курьёз
+- [en] не_новость: [local] Mirror Indy — Developer proposes turning to Washington Square into a luxury resort — просто предложение девелопера, нет факта сделки
+- [en] не_новость: [local] Semafor — El-Sayed’s new ad pitch: Republicans love me — описание содержания рекламы — не событие
+- [en] не_новость: [local] KSTP — 5 ON YOUR SIDE: Millie Moon diapers — совет родителям по поводу подгузников — не событие
+- [en] курьёз: [pool] El Universo EC — Paris Hilton recreates Britney Spears’ iconic 2001 MTV look for Halloween — звезда в костюме — типичный курьёз для «Интересного»
+- [en] не_новость: [pool] Straits Times — Tyler Robinson requests 2029 trial for alleged murder of Charlie Kirk — назначение даты суда — это рутина, не событие
+- [en] не_новость: [pool] Sky Sports — Raskin 'really happy' at Rangers but unsure about future — цитата игрока о чувствах — не событие
+- [en] не_новость: [pool] Wired — Elon Musk Just Dumped Another $76 Million Into the Midterms — информация о пожертвованиях — не событие, ежедневный процесс
+- [en] не_новость: [pool] WFPL — How Kentucky's unregulated raw milk industry bypasses oversight — очерк о методах работы фермера — не новость
+- [en] не_новость: [pool] BBC Sport — Poulter leaves LIV as exodus of big names continues — уход гольфиста из тура — не событие
+- [en] не_новость: [pool] BBC Sport — Arsenal fear Saka could be out for two months — опасения врачей по поводу травмы — не факт
+- [en] не_новость: [pool] BBC Sport — Carrick refuses to rule out dropping Fernandes in emotional address — описание эмоционального выступления тренера — не событие
+- [en] не_новость: [pool] WFPL — In Floyd County, judicial candidates say they’re motivated by community — мнение кандидатов о мотивации — не событие
+- [en] анонс: [pool] RTÉ Ireland — Orange rain and wind warnings ahead of Storm Boelo — погодное предупреждение с ссылкой на сторонний контент
+- [en] повтор: [world] BBC World — Ukraine says Starlink still restricted after Trump says limits lifted ≈ «Ukraine says Starlink speed curbs remain» — тот же сюжет про Starlink
+- [en] не_новость: [world] BBC News — Meghan says she was informed about 'disturbing allegations' against her father i — интервью с подробностями событий 2018 года — не событие
+- [en] курьёз: [world] Live Science — Scientists can now 'watermark' AI-generated proteins to deter bioweapon creation — научное рассуждение — курьёз для рубрики интересное
