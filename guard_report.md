@@ -1,22 +1,23 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] чужое_мелкое: [local] Infobae — Lawyer for American falsely accused of child abuse at a Bogotá apartment balcony — Внутренняя ситуация в Колумбии с американцем не является мировой новостью.
-- [en] курьёз: [pool] WBAL — ‘Rent’ musical celebrates its 30th Broadway anniversary with a starry show: ‘No  — Юбилей мюзикла — развлекательная заметка, а не новость.
-- [en] курьёз: [pool] Rolling Stone — Christopher Abbott Isn’t Being Coy About Marvel — He Promises — Интервью с актером о Marvel — это чтиво, а не событие.
-- [en] чужое_мелкое: [pool] Straits Times — Iranian men to go on trial next year over alleged plot to target UK Jewish commu — Локальное судебное дело, нет глобальных последствий.
-- [en] курьёз: [pool] Rolling Stone — Ryan Gosling’s Band Dead Man’s Bones Returning With New Music After 17 Years — Возвращение музыкальной группы — развлекательный факт.
-- [en] чужое_мелкое: [pool] SMH Australia — Trump ordered to sit for deposition in defamation case against BBC — Давняя тяжба Трампа с BBC, не является важным событием для ленты.
-- [en] чужое_мелкое: [pool] BBC Sport — Cost of football regulator double initial estimate — Внутренние расходы британского футбольного регулятора.
-- [en] не_новость: [pool] BBC Sport — Conte plays down 'unfounded' Man Utd speculation — Опровержение слухов о контракте — типичный пример «слов, а не событий».
-- [en] чужое_мелкое: [pool] BBC Sport — World champion Jepchirchir fails drugs test — Допинговый скандал локального масштаба в Кении/Австралии.
-- [en] чужое_мелкое: [pool] Engadget — Tesla says it will no longer release the Cybertruck in Australia and New Zealand — Решение компании не продавать авто в конкретных странах — региональный бизнес-вопрос.
-- [en] чужое_мелкое: [world] Ars Technica — The reactor meant to showcase nuclear’s comeback keeps hitting problems — Обычная бюрократическая работа регулятора, нет события-катастрофы.
-- [en] курьёз: [world] Futura-Sciences — Two Silicon Valley billionaires raise $200 million to develop genetically modifi — Спекулятивный проект о «боевых собаках» без факта реального использования.
-- [en] чужое_мелкое: [world] Engadget — Greece enacts social media ban for kids under 15 — Законодательная инициатива Греции, не имеющая мирового веса.
-- [en] чужое_мелкое: [world] RFI — Israel: Four days before the general election, the controversial Channel 14 move — Локальная полемика вокруг телеканала перед выборами в Израиле.
-- [en] чужое_мелкое: [world] RFI — Western Sahara: Washington seeks to reform MINURSO; Polisario Front threatens to — Дипломатическая рутина (проект резолюции), событие не произошло.
-- [en] чужое_мелкое: [world] BBC World — Cyprus police open investigation into financial affairs of Roman Abramovich — Проверка финансовых дел частного лица в Кипре.
-- [en] чужое_мелкое: [world] RFI — France: National Rally (RN) gathers in Orléans, government strengthens security  — Организационные вопросы партийного съезда во Франции.
-- [en] курьёз: [world] Guardian Sport — ‘Slow news day at the office’: LeBron James shrugs off Trump’s national anthem a — Обмен репликами между Трампом и Джеймсом — инфошум.
-- [en] курьёз: [world] Guardian Sport — ‘The Bird Reich’: Atlanta Falcons roasted over throwback logo with Nazi resembla — Скандал из-за логотипа — развлекательная новость.
-- [en] чужое_мелкое: [world] TechCrunch — Mark Zuckerberg’s creative plan to pay California’s proposed billionaire tax wit — Внутренняя корпоративная процедура выпуска акций Meta.
+- [es] не_новость: [local] La Jornada — Senadores ven necesario llamar a comparecer a Zoé Robledo — Это обсуждение возможного вызова чиновника, а не состоявшееся действие.
+- [es] курьёз: [local] La Jornada — Sitúan la fecha en la que Van Gogh se inspiró para plasmar La noche estrellada — Научно-популярный факт, не имеющий новостного повода.
+- [es] не_новость: [local] Expansión MX — El trágico accidente que le dio su nombre al Autódromo Hermanos Rodríguez y tien — Исторический очерк об автодроме, не является новостным событием.
+- [es] не_новость: [pool] El Mundo — La Fiscalía pide investigar a Zapatero por malversación y el juez reclama el act — Требование прокуратуры о расследовании — это этап следствия, не имеющий прямого значения для читателя в MX.
+- [es] не_новость: [pool] El País — La estrategia de Vox en redes copia la IA del PP y agita el odio a la inmigració — Анализ стратегии партии в соцсетях без конкретного новостного повода.
+- [es] не_новость: [pool] El País — Pensiones, aborto y los pactos con Vox, los 10 titulares de la entrevista a Feij — Пересказ интервью политика, а не его действия или решения.
+- [es] курьёз: [world] Variety — El fondo Displacement Film Fund de Cate Blanchett se asocia con The New Yorker p — Анонс арт-проекта, не является событием для массового читателя.
+- [es] не_новость: [world] Variety — Bravo renueva 'In the City', 'Next Gen NYC' y 'Southern Hospitality', y ordena ' — Корпоративное обновление расписания телеканалов.
+- [es] курьёз: [world] La Nación AR — Se quedaron sin trabajo y construyeron una casa de 70 m² con más de 10.000 botel — История о переработке мусора, нет новостного повода.
+- [es] не_новость: [world] Marca — Verstappen se planta con los baches en Austin: "El año pasado tuve impactos vert — Жалоба гонщика на состояние трассы, нет события.
+- [es] не_новость: [world] Marca — Marta Bassino: "He aprendido a hablar con mi rodilla, a escucharla" — Личное высказывание спортсменки о восстановлении, нет новостного повода.
+- [es] курьёз: [world] Futura-Sciences — Dos multimillonarios de Silicon Valley recaudan 200 millones para crear perros d — Спекулятивный материал о генной инженерии без факта реализации.
+- [es] не_новость: [world] BBC Mundo — Meghan Markle dice que fue informada en 2018 de las "inquietantes acusaciones" c — Воспоминания и личные заявления светских персон не являются новостью.
+- [es] курьёз: [world] Muy Interesante — La verdad sobre la cucaracha decapitada — Биологический факт, нет новостного повода.
+- [es] курьёз: [world] Wired — El túnel dividido (split tunneling) es la mejor función de su VPN. — Технический совет по использованию VPN.
+- [es] не_новость: [world] BBC Mundo — Amina Helmi, la científica argentina que recibió el "Nobel de astrofísica" por e — Биография ученой, нет оперативного новостного события.
+- [es] курьёз: [world] Live Science — Científicos ahora pueden poner «marcas de agua» a proteínas generadas por IA par — Общие рассуждения ученых о потенциальных угрозах ИИ.
+- [es] не_новость: [world] BBC Mundo — "Me avergüenza trabajar en una empresa que impulsa la IA con fines militares": l — Личные мнения сотрудников о корпоративной политике, нет события.
+- [es] не_новость: [world] BBC Mundo — Quiénes son los "ciudadanos palestinos de Israel" y por qué pueden tener la llav — Аналитический обзор политической ситуации в Израиле без нового факта.
+- [es] курьёз: [world] TechCrunch — Dejados a su suerte, agentes de IA comenzaron a jugar — Наблюдение исследователей за ИИ, нет новостного события.
+- [es] не_новость: [world] El Mundo — Un pastor metodista para obrar el milagro demócrata en Kansas: "Jesús dice que h — Религиозно-политическое высказывание, нет конкретного события.
