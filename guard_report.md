@@ -1,14 +1,21 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] NY Post — 49ers’ Nick Bosa gets another brutal reality check after bold return prediction — Спортивная сплетня/мнение, не является событием.
-- [en] не_новость: [local] WBAY — Sports betting risks rise with Brewers in World Series — Обзор/мнение о рисках ставок, а не событие.
-- [en] полка: [pool] Sky Sports — Lankshear at the double as Middlesbrough thump Bolton to go top — Это новость из Британии, должна быть в «Новости из...», а не в «Местных».
-- [en] полка: [pool] Sky Sports — Wade equals try-scoring record in Newcastle win over Sale — Это новость из Британии, должна быть в «Новости из...».
-- [en] полка: [pool] BBC News — Watch: Trees ripped up as Storm Austen batters Britain — Это новость из Британии, должна быть в «Новости из...».
-- [en] полка: [pool] BBC Sport — Poulter & Hatton leave LIV as exodus continues — Это новость из Британии, должна быть в «Новости из...».
-- [en] полка: [pool] BBC Sport — Arsenal fear Saka could be out for two months — Это новость из Британии, должна быть в «Новости из...».
-- [en] полка: [pool] BBC Sport — Carrick refuses to rule out dropping Fernandes in emotional address — Это новость из Британии, должна быть в «Новости из...».
-- [en] курьёз: [world] UPI — Beirut Book Fair offers a cultural lifeline amid war, crisis — Культурная заметка, не является новостью в условиях войны.
-- [en] повтор: [world] Charleston Gazette-Mail — The Kremlin says a first tanker of Russian diesel sets sail for the US despite U ≈ «1st tanker of Russian diesel sets sail f» — Тот же сюжет о поставке дизеля из РФ в США.
-- [en] не_новость: [world] BBC News — Meghan says she was informed about 'disturbing allegations' against her father i — Обсуждение событий 2018 года, не является актуальным событием.
-- [en] полка: [world] BBC Sport — Kompany taken to hospital after collapsing at training — Это новость из Германии, должна быть в «Мировых».
+- [es] не_новость: [local] El Universal MX — Kevin Álvarez explica cómo viven la intensidad de Guillermo Almada en el América — мнение/комментарий игрока, нет события
+- [es] не_новость: [local] El Financiero — El arte de pensar en imágenes: Didi-Huberman en la Casa del Lago UNAM — анонс мероприятия, нет свершившегося события
+- [es] курьёз: [pool] La Nación AR — Quién es Anita B Queen, la telonera de los BTS: la DJ que dejó la carrera de med — история о диджее, не является мировой новостью
+- [es] не_новость: [pool] La Nación AR — Q’ Lokura, de agotar diez Movistar Arenas al desafío de su primer estadio Vélez: — анонс концерта группы, не событие
+- [es] не_новость: [pool] El País — Unos premios Princesa de Asturias por la unión de la humanidad, la democracia y  — описание церемонии, нет конкретного события
+- [es] чужое_мелкое: [pool] El Mundo — La Fiscalía pide investigar a Zapatero por malversación y el juez reclama el act — внутренняя судебная процедура Испании, нет последствий для мира
+- [es] чужое_мелкое: [pool] eldiario.es — El Supremo pide al Gobierno la lista de 160.000 nacionalizados con la ley de nie — внутренняя бюрократическая процедура Испании
+- [es] не_новость: [world] Marca — Xabi y su salida del Madrid: "Acabó antes de lo previsto..." — интервью тренера, нет события
+- [es] не_новость: [world] Variety — Sandra Hüller tendrá un cameo en 'Avengers: Doomsday' — слух/анонс роли в кино
+- [es] курьёз: [world] TechCrunch — ¿El juguete más popular para Navidad? — вирусное видео с роботами-игрушками
+- [es] не_новость: [world] Variety — Stephanie March regresará como Alexandra Cabot en 'Law & Order: SVU' — анонс возвращения персонажа в сериал
+- [es] курьёз: [world] Xataka — IBM tiene unas cifras que desafían a los gigantes de la IA cerrada: 90% del rend — технологический обзор, не событие
+- [es] курьёз: [world] Futura-Sciences — El cielo de 'La noche estrellada' de Van Gogh existe: científicos identificaron  — научно-популярная статья об искусстве
+- [es] не_новость: [world] Xataka — "Van a empeorar mucho más": Jason Clinton, subdirector de ciberseguridad de Anth — предостережение эксперта, нет свершившегося факта
+- [es] курьёз: [world] Muy Interesante — ¿Quién salvó este libro católico de la Reforma de Enrique VIII? — историческая справка
+- [es] не_новость: [world] Time — La energía limpia depende en gran medida del auge de los centros de datos de IA — аналитика/рассуждения инвесторов
+- [es] не_новость: [world] El Sol de México — Alertan ante la SIP sobre los riesgos de Trump para la libertad de prensa en EU — мнение редактора NYT, нет события
+- [es] чужое_мелкое: [world] El Sol de México — La SIP advierte que el Pentágono limita más el acceso a información pública — внутренние визовые правила США для журналистов
+- [es] не_новость: [world] Wired — Elon Musk aportó otros 76 millones de dólares para las elecciones legislativas — финансовый отчет о пожертвованиях (рутина политики)
