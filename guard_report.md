@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] чужое_мелкое: [pool] El Universal MX — Muere Saúl Blanch, primera voz de Rata Blanca; estaba hospitalizado — внутренняя новость Аргентины, смерть локального музыканта
-- [es] чужое_мелкое: [pool] La Nación AR — Buscan a un joven de 18 años que huyó de su casa en Martínez tras dejar una cart — поиск пропавшего человека в Аргентине — частный случай
-- [es] не_новость: [pool] Marca — Sorpresa Camavinga — спекуляции о составе команды перед матчем — это не событие
-- [es] чужое_мелкое: [pool] El Mundo — Registran una ONG en Ceuta y detienen a dos ceutíes acusados de repartir espray  — локальное полицейское происшествие в Сеуте
-- [es] не_новость: [pool] El País — El PSOE acepta un cara a cara con Feijóo el 16 de noviembre y sigue en el aire l — анонс политических дебатов, событие еще не произошло
-- [es] чужое_мелкое: [pool] El Mundo — 'Casa de los horrores' en Ceuta: la Policía detiene a un ceutí por alojar a 74 m — местная полицейская сводка из Сеуты
-- [es] чужое_мелкое: [pool] El País — El cabeza de lista de Vox por Tarragona debe sentarse en el banquillo en julio p — судебное дело местного политика в Испании
-- [es] не_новость: [pool] El País — El PP da un paso más en su campaña y suplanta la identidad de Begoña Gómez, Zapa — описание политической кампании/видеороликов, нет события
-- [es] чужое_мелкое: [world] Clarín AR — Jueza federal bloquea operativos de Trump por presunto fraude electoral en nueve — внутренний судебный процесс США, не имеет мировых последствий
-- [es] не_новость: [world] TechCrunch — OpenAI trabaja en una nueva ronda de financiación de 30.000 millones de dólares  — слухи о финансировании компании, не свершившееся событие
-- [es] курьёз: [world] BBC Mundo — Los anfitriones de Airbnb ya no pueden exigir a los huéspedes que quiten las sáb — корпоративные правила Airbnb — не мировое событие
-- [es] чужое_мелкое: [world] BBC Mundo — La justicia le ordena a Trump responder preguntas bajo juramento en su demanda c — процессуальный вопрос в частном иске Трампа
-- [es] не_новость: [world] TechCrunch — Rivian adquiere una startup de modelos mundiales para acelerar sus ambiciones en — бизнес-сделка стартапа, рядовое событие рынка
-- [es] не_новость: [world] Engadget — Un nuevo servicio de suscripción promete una colección cambiante de juegos indep — анонс сервиса подписки
-- [es] курьёз: [world] Wired — El altavoz Google Home ha estado consumiendo datos Wi-Fi de forma oculta — технический баг домашнего устройства
-- [es] не_новость: [world] TechCrunch — El navegador Arc cerrará el 22 de diciembre mientras The Browser Company se cent — плановое закрытие браузера
-- [es] курьёз: [world] Xataka — Los fallos críticos de PHP acaban de hacerse públicos. — теоретические размышления об уязвимостях PHP
-- [es] не_новость: [world] Fortune — El gigante de capital de riesgo Andreessen Horowitz elimina 'crypto' del nombre  — ребрендинг фонда
-- [es] повтор: [world] El Comercio PE — Terremoto de magnitud 7 sacude el Tíbet chino a solo 10 kilómetros de profundida ≈ «Un fuerte terremoto sacude la remota reg» — тот же сюжет про землетрясение в Китае
-- [es] не_новость: [world] BBC Mundo — ¿Qué es PHP y por qué generó una falla de seguridad en internet que desató una a — объяснение основ PHP, это разбор
-- [es] чужое_мелкое: [world] Азаттык — Rusia exigió «aclaraciones» sobre las nuevas reglas de entrada a Kazajistán — дипломатическая рутина (запрос разъяснений)
-- [es] не_новость: [world] RFI — Irán aumenta la presión y amenaza a Estados Unidos con reanudar los combates — угрозы и заявления, нет фактического события
-- [es] не_новость: [world] RFI — Manifestaciones en Francia: Emmanuel Macron prohíbe toda reunión que no esté org — заявление о запрете, нет информации о последствиях или акциях
-- [es] не_новость: [world] La Vanguardia — Italia y España levantan el bloqueo de Schengen — описание решения, которое по сути является бюрократическим актом
-- [es] срочность: [world] Reuters — Rusia bombardea Kiev y Ucrania lanza drones hacia Moscú a pesar de las conversac — ежедневная сводка боевых действий не требует побудки
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — В Екатеринбурге впервые выйдет на линию беспилотный трамвай — внутренняя инфраструктурная новость РФ, не имеет значимости для аудитории KG
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Как вырастут тарифы ЖКХ в Ярославской области в следующие три года — прогноз — локальный прогноз тарифов ЖКХ Ярославской области
+- [ru] курьёз: [pool] Onliner.by — «Заказали 100 000 кирпичей». Как реставраторы спасают Ружанский дворец? — реставрация дворца — не новость с последствиями, а познавательный материал
+- [ru] не_новость: [pool] BBC Русская служба — Рубио напомнил, что в Узбекистане русский язык не имеет официального статуса. — описание дискуссии вокруг высказывания политика, нет свершившегося факта-события
+- [ru] не_новость: [pool] 45.ru — Курган — В Кургане в компании «Водный Союз» сменился гендиректор. Кто занял пост? — плановая смена гендиректора в местной компании
+- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — «Уйдем от реверса»: на мосту у Телецентра запустят 4-ю полосу — локальное дорожное решение в Омске
+- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — «Суда перекрашивают в камуфляж». Кому грозит потеря активов из-за зернового колл — региональная проблема зернового рынка Ростовской области
+- [ru] курьёз: [pool] 45.ru — Курган — Юную вокалистку из Кургана покажут в шоу «Голос. Дети» — личное достижение, не имеющее значимости для широкого круга читателей
+- [ru] курьёз: [pool] 59.ru — Пермь — «Котик, прыгай!»: в Перми ищут дом коту Василию, чудом выжившему на пожаре в общ — частная история спасения животного
+- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Септики вместо канализации в Якутске. — локальная коммунальная проблема Якутска
+- [ru] не_новость: [pool] 29.ru — Архангельск — Зрительницу не пустили обратно в театральный зал после похода в туалет. — бытовая жалоба посетительницы театра
+- [ru] не_новость: [pool] Asia-Plus — «Книга Душанбе»: какие книги привезли издатели из 7 стран? — плановое культурное мероприятие, не имеющее влияния на читателя
+- [ru] не_новость: [pool] 76.ru — Ярославль — Ярославне выписали штрафы и арестовали счета после потери телефона — ее видеоист — частная жалоба на банковские услуги
+- [ru] не_новость: [pool] 93.ru — Краснодар — Парк «Краснодар» увеличится почти вдвое: где появятся новые очереди? — обсуждение планов развития парка
+- [ru] курьёз: [pool] 74.ru — Челябинск — Челябинск окутал густой туман — погодное явление, не имеющее последствий
+- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Ребенок поджег чипсы ради интереса и устроил пожар в магазине в Якутии. — мелкий бытовой инцидент годовой давности
+- [ru] не_новость: [pool] 45.ru — Курган — Тысячи участков с домами в Кургане оказались в зоне затопления: смогут ли они по — ответ на вопрос читателя, а не свершившееся событие
+- [ru] не_новость: [pool] 74.ru — Челябинск — «И тут в кабину прилетает BMW». Разбираем спорное ДТП, в котором обвинили водите — разбор старого ДТП, носит просветительский характер
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Штраф 150 тысяч рублей за контрафактный Adidas в Боровичах — локальный приговор по мелкому делу в районном суде РФ
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — В Боровичах судят участника ОПГ за наркотики — текущий ход судебного процесса без итога
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Вода в Неболчах не прошла проверку по железу и бору — мелкий административный штраф в РФ
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Девять краж из магазинов обернулись принудительными работами — локальный приговор за мелкую кражу
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Арест на трое суток за нецензурную брань при полицейских — мелкое административное правонарушение в РФ
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — С наследницы взыскали долг за отопление квартиры — локальный гражданский иск о задолженности
+- [ru] чужое_мелкое: [pool] 48.ru — Липецк — Условный срок за кражу кофе с несовершеннолетней — локальный приговор в РФ
