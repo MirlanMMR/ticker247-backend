@@ -1,33 +1,24 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] полка: [local] Metrópoles — Colisão entre aviões militares deixa quatro mortos nas Filipinas — Событие в Филиппинах — мировая новость, не местная (не BR).
-- [pt] срочность: [pool] Notícias ao Minuto — Mondlane fala em "quase guerra" com governo local por impedir reunião — Это политический конфликт, а не стихийное бедствие или катастрофа, не требует побудки.
-- [pt] курьёз: [world] Wired — A crise do PHP demonstra como a IA torna falhas mais exploráveis — Обсуждение проблем безопасности IT-инфраструктуры — это аналитика, а не событие.
-- [pt] повтор: [world] CBS News — Ucrânia afirma que velocidade da Starlink foi restaurada após longa interrupção ≈ «Como a lentidão do Starlink afetou solda» — Тот же сюжет о Starlink, что и в 90.
-- [pt] повтор: [world] Folha de S.Paulo — Nasa diz fazer seu máximo para levar humanos à superfície da Lua em 2028 ≈ «NASA atualiza planos para pousos lunares» — Тот же сюжет о планах NASA по полету на Луну.
-- [pt] курьёз: [world] Público — Futuro da revista Scientific American é incerto após venda e alegadas pressões e — Корпоративные изменения в издании — не мировая новость.
-- [pt] не_новость: [world] Азаттык — Concurso "Intervisão" não será realizado na Arábia Saudita em 2026 — Отмена планового мероприятия не является новостью мирового масштаба.
-- [pt] не_новость: [world] The Guardian — Violência, intimidação e medo: 10 anos após a 'Selva', a vida nos campos de migr — Описательная статья о ситуации 10-летней давности, события нет.
-- [pt] чужое_мелкое: [world] Guardian Sport — Líderes de torcida do Dallas Cowboys formam sindicato após anos de luta por salá — Создание профсоюза чирлидеров в США — внутренняя новость, не имеющая мирового значения.
-- [pt] чужое_мелкое: [world] Ars Technica — Hegseth alerta que apostas em mercados de previsão podem prejudicar julgamento m — Внутренняя директива Минобороны США для своих военных не является мировой новостью.
-- [fr] повтор: [local] BFMTV — 24 octobre à Lyon: "On est révoltés par cette interdiction des rassemblements",  ≈ «🔴 Mobilisation du 24 octobre en direct :» — Освещение тех же событий с анти-RN протестов.
-- [fr] повтор: [local] BFMTV — 24 octobre: "On ne lâchera rien, on continuera à se mobiliser", déclare la secré ≈ «🔴 Mobilisation du 24 octobre en direct :» — Та же тема протестов и цитаты с акции.
-- [fr] повтор: [local] BFMTV — Changement du parcours de la manifestation du 24 octobre à Paris: "Notre gouvern ≈ «DIRECT. Manifestations du 24 octobre : l» — Повторение сюжета о парижской манифестации.
-- [fr] повтор: [local] BFMTV — 24 octobre: "C'est important de soutenir les lycéens, de les protéger parce qu'i ≈ «DIRECT. Manifestations du 24 octobre : l» — Повторение темы протестов 24 октября.
-- [fr] повтор: [local] BFMTV — Manifestation contre la tenue d'un congrès du RN: la CRS-8, spécialisée dans le  ≈ «À Orléans, le congrès du Rassemblement N» — Повторение сюжета об Орлеане и развертывании сил.
-- [fr] повтор: [local] L'Express — "La journée sera longue" : une nouvelle journée de mobilisation sous haute tensi ≈ «DIRECT. Manifestations du 24 octobre : l» — Очередная заметка о той же демонстрации.
-- [fr] повтор: [local] RFI — France: réuni à Orléans autour de Marine Le Pen, le RN cherche une démonstration ≈ «À Orléans, le congrès du Rassemblement N» — Снова конгресс RN в Орлеане.
-- [fr] чужое_мелкое: [pool] The Independent — Protestations en France : les commerçants parisiens s'arment face à la crainte d — Новость о парижских событиях в разделе «Новости из...», хотя это местная для FR новость.
-- [fr] чужое_мелкое: [pool] RTBF — Manifestations en France : des villes sous haute sécurité, des manifestation int — Дублирование темы протестов Франции в другом разделе.
-- [fr] курьёз: [pool] Le Temps — Soubey, le petit village jurassien qui s’inquiète des projets de promoteurs libe — Локальный спор в швейцарской деревне не имеет мирового значения.
-- [fr] не_новость: [pool] Le Temps — Rosalie Beuret Siess, présidente du Gouvernement jurassien: «L’«Initiative Soube — Развернутый комментарий чиновника по поводу локального проекта.
-- [fr] не_новость: [pool] Le Temps — Quand des étudiants grévistes réinventent l’université populaire — Очерк о жизни студентов, нет свежего события.
-- [fr] повтор: [pool] Le Temps — La France sous-tension, les manifestants défilent déjà à Orléans, contre le RN e ≈ «À Orléans, le congrès du Rassemblement N» — Снова Орлеан и протесты против RN.
-- [fr] не_новость: [pool] RTBF — Manifestations : Emmanuel Macron entend les interdire en France, jusqu’où peut-o — Рассуждение «что если» вместо свершившегося факта.
-- [fr] не_новость: [world] Wired — La crise liée à PHP démontre comment l'IA facilite l'exploitation des failles de — Аналитическая статья о кибербезопасности, нет конкретного события.
-- [fr] повтор: [world] RFI — «Cela nous fait peur»: après l'attentat raciste à Trappes, l'émotion et l'indign ≈ «En France, une attaque à Trappes fait un» — Повторное обсуждение атаки в Траппе.
-- [fr] не_новость: [world] TSA Algérie — Sahara occidental : les États-Unis et la France activent la marche forcée de la  — Прогноз и обсуждение будущей резолюции ООН.
-- [fr] не_новость: [world] L'Express — "Nous avons peut-être frôlé le point de non-retour" : l'incident avec un satelli — Разбор инцидента с сателлитом, аналитика.
-- [fr] не_новость: [world] Le Devoir — Des républicains face à des vents électoraux défavorables — Аналитика настроений перед выборами, нет события.
-- [fr] не_новость: [world] Axios — Note confidentielle : les renseignements américains mettent en garde contre des  — Пересказ конфиденциальной записки, событие не произошло.
-- [fr] не_новость: [world] RTBF — Guerre au Moyen-Orient : les Etats-Unis pourraient frapper l'Iran dès ce week-en — Спекуляция о возможности удара, не свершившийся факт.
+- [en] не_новость: [local] KFVS12 — Current boil water orders/advisories in the Heartland — Плановое объявление (снятие ограничения) не является событием по белому списку.
+- [en] не_новость: [local] WBAL — Maryland-bred horses taking center stage for Maryland Million Day stakes — Анонс предстоящего спортивного события без результата.
+- [en] не_новость: [local] New Jersey 101.5 — Monmouth County gives NY Waterway 30 days to fix ferry service — Ультиматум и бизнес-контракт: процесс обсуждения/требования, а не свершившийся факт.
+- [en] курьёз: [local] Mississippi Today — Mississippi sculptor comes home to bring Walter Anderson’s art to life — Очерк об искусстве, не является новостным событием.
+- [en] не_новость: [local] WV MetroNews — WVU offense has its work cut out to maintain productive ways at TCU — Спортивная аналитика («есть работа, чтобы оставаться продуктивными») — это разбор, а не событие.
+- [en] не_новость: [local] VTDigger — Manchester weighs Flock camera alternatives ahead of Vermont ban on automated li — Обсуждение альтернатив на собрании совета — это процесс планирования, а не свершившееся решение.
+- [en] не_новость: [local] Wisconsin Watch — Can unarmed ICE agents watch voting? In Wisconsin that depends on who you ask — Разбор вопроса «могут ли агенты наблюдать за голосованием» — это аналитическая статья.
+- [en] не_новость: [local] Honolulu Star-Advertiser — Rainbow Warriors are all business in sleepy Illinois — Спортивная заметка о настрое команды («all business») без результата матча.
+- [en] не_новость: [local] WHYY — Who are the future voters of Pennsylvania and what do they want from their legis — Опрос/интервью, не является событием.
+- [en] не_новость: [pool] Rolling Stone — He Went to Document an Anti-ICE Protest. He Left Without an Eye — Личный очерк/история, не является актуальным новостным событием.
+- [en] курьёз: [pool] Fortune — Jamie Dimon poached Warren Buffett’s protégé to run a $10 billion fund—he says B — Бизнес-история о личном взаимодействии инвесторов, не является событием для читателя.
+- [en] не_новость: [pool] WFPL — Thousands already off Indiana's Medicaid rolls, before work requirements take ef — Описание ситуации с программой до вступления требований в силу, не является событием.
+- [en] не_новость: [pool] BBC News — Plan for Northern Olympics to get £7m in Healey's Budget — Анонс будущего бюджетного плана, который еще не принят.
+- [en] не_новость: [pool] Ars Technica — Hegseth warns prediction market bets warp military judgment, endanger troops — Предупреждение/мнение чиновника о рынках, не является событием по белому списку.
+- [en] курьёз: [world] TechCrunch — Here are the top AI agents that can live in your text messages — Подборка сервисов («здесь топ агентов»), не является событием.
+- [en] курьёз: [world] Engadget — The beneficial purpose of 'IQ' on your Anker chargers — Разбор технологии зарядки, не является событием.
+- [en] не_новость: [world] Fortune — Half of workers are ‘revenge quitting’ and walking out on their jobs without not — Статья об очередном тренде на рынке труда, не является событием.
+- [en] курьёз: [world] Ars Technica — A 1,000-mile cloud on Mars may reveal physics never seen in nature — Научно-популярный факт о Марсе, не является событием.
+- [en] не_новость: [world] Time — The Fight Over Who Counts in India — Литературно-политический разбор, не является новостным событием.
+- [en] не_новость: [world] BBC News — Infantino tells BBC Sport he is backed by 'vast majority' of world football — Словесная реакция чиновника на критику, не является событием.
+- [en] курьёз: [world] Time — The AI-Discovered Bug That Could Have Become a Cybersecurity Disaster — Описание того, что могло бы быть, не является новостным событием.
+- [en] не_новость: [world] Semafor — Betting operators and prediction markets spent record amounts on campaign donati — Анализ данных о лоббизме, не является событийным фактом на текущий день.
