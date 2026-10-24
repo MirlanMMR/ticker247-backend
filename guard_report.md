@@ -1,17 +1,28 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] курьёз: [local] El Financiero — Consultorios vacíos, médicos indispensables — портрет врача, нет события
-- [es] курьёз: [pool] El Comercio PE — El cambio de horario en España 2026 llega hoy, domingo 25 de octubre: a las 03:0 — информирование о переводе часов — рутина, не новость
-- [es] курьёз: [pool] El Universo EC — Los 75 de Charly García: recibe en casa a cientos de admiradores y estrena en Ne — день рождения музыканта, не новость
-- [es] курьёз: [pool] Clarín AR — El llanto del pibe Jaime en Uruguay: el argentino quiso ayudar a un rival caído  — обсуждение спортивного жеста, не новость
-- [es] курьёз: [pool] 14ymedio — Recogiendo basura con las manos en La Habana, la otra cara del proyecto piloto E — описание бытовой сцены без события
-- [es] не_новость: [pool] Diario Libre DO — Inauguración del Centro Cultural Rainieri en Punta Cana — плановое мероприятие, не новость
-- [es] не_новость: [world] TechCrunch — Forzados a elegir, el modelo de IA Grok elige a los republicanos y OpenAI a los  — мнения моделей ИИ не являются событием
-- [es] курьёз: [world] Fortune — Estados Unidos escatima en Halloween debido a que los altos precios del combusti — аналитика потребительского поведения, нет события
-- [es] не_новость: [world] Fortune — Jamie Dimon contrató al protegido de Warren Buffett para dirigir un fondo de 10. — кадровые назначения конца 2025 года — не новость
-- [es] курьёз: [world] Fortune — Jeff Bezos necesitó 60 reuniones para recaudar el primer millón de dólares para  — старая история успеха (ретроспектива), не новость
-- [es] повтор: [world] Guardian Sport — Los Brewers sobreviven a un caótico drama en la novena entrada y vencen a los Ra ≈ «¡Drama en el último out! Milwaukee Brewe» — тот же матч и результат
-- [es] курьёз: [world] Time — El error descubierto por la IA que pudo convertirse en un desastre de cibersegur — исследовательский факт, нет события
-- [es] не_новость: [world] Ars Technica — Pete Hegseth advierte que las apuestas en mercados de predicción distorsionan el — предупреждение чиновника, нет события
-- [es] чужое_мелкое: [world] Semafor — Los demócratas compiten por un escaño en Kansas mientras los republicanos observ — внутренняя политика США (выборы в штатах), без влияния на MX
-- [es] чужое_мелкое: [world] Semafor — Los operadores de apuestas y los mercados de predicción han destinado cantidades — лоббизм в Вашингтоне, нет последствий для региона
+- [pt] чужое_мелкое: [local] Folha de S.Paulo — Infantino afirma contar com amplo apoio para presidir a Fifa — внутренняя политика FIFA, нет последствий для читателя в Бразилии
+- [pt] курьёз: [local] G1 Distrito Federal — Fio de cabelo de São Carlo Acutis, padroeiro da internet, é exposto para visitaç — религиозный артефакт/традиция, не является событием по белому списку
+- [pt] не_новость: [local] G1 Rio — Família diz que homem preso após soltar pipa em refinaria está detido injustamen — жалоба семьи на задержание, нет нового факта, подтверждающего событие
+- [pt] курьёз: [pool] Expresso das Ilhas — Começa hoje o 26.º Campeonato Nacional de Ginástica — открытие местного чемпионата по гимнастике, масштаб события крайне мал
+- [pt] чужое_мелкое: [world] The Independent — Kristi Noem é acusada de publicar um comunicado de imprensa falso sobre sua saíd — внутренний конфликт в США из-за пресс-релиза, не имеет значения для мира
+- [pt] чужое_мелкое: [world] The Independent — Six Flags faz mudanças importantes para manter a segurança dos visitantes após m — внутренние изменения безопасности в сети парков США
+- [pt] курьёз: [world] TechCrunch — Forçado a escolher, o modelo de IA Grok prefere Republicanos. — исследование предпочтений ИИ, не меняет положение дел в реальности
+- [pt] повтор: [world] Wired — A crise do PHP demonstra como a IA torna falhas mais exploráveis ≈ «A falha de segurança descoberta por IA q» — тот же инцидент с PHP и ИИ
+- [pt] не_новость: [world] Superinteressante — Inquisição: a história dos tribunais da Igreja Católica que perseguiram hereges — историческая справка об Инквизиции, нет события
+- [pt] полка: [world] AKIpress Эко — Alerta de tempestade: geadas atingirão -5 graus no norte da região de Chuy — новость из Кыргызстана в португальской ленте (PT) — событие не задевает читателя в BR, PT, AO или MZ
+- [pt] не_новость: [world] Ars Technica — Hegseth alerta que apostas em mercados de previsão podem prejudicar julgamento m — служебная инструкция/меморандум, не является событием для широкой аудитории
+- [pt] не_новость: [world] Time — Fatherland é um dos filmes mais silenciosamente surpreendentes do ano — рецензия на фильм, не является событием
+- [pt] курьёз: [world] Naked Science — Biólogos mostram o que acontece sob a pele durante a picada de um mosquito da ma — научно-популярное видео про насекомых, не является событием
+- [fr] чужое_мелкое: [local] L'Express — Pourquoi plusieurs pays européens, dont la France, s'opposent au statut de "memb — Внутренняя европейская дискуссия о статусе Канады не является мировой новостью для французского читателя.
+- [fr] чужое_мелкое: [pool] RTBF — Manifestation à Bruxelles : la police a illégalement confisqué du sérum physiolo — Конфискация вещей полицией в Брюсселе — мелкий местный инцидент, не значимый для франкоязычного мира.
+- [fr] чужое_мелкое: [pool] RTBF — Tempête Austen : le numéro 1733 pour l'aide médicale non-urgente a été difficile — Локальные проблемы со связью в бельгийском городе — местная новость, не имеющая мирового масштаба.
+- [fr] не_новость: [pool] RTBF — Maël bénéficie du RIS en tant qu'étudiant : "Le CPAS ne m'encourage pas à travai — История студента об отношениях с соцслужбой (CPAS) — это очерк/интервью, не событие.
+- [fr] чужое_мелкое: [pool] BBC Mundo — Fatima Zahra El Mansouri : comment la première femme à diriger le gouvernement d — Анализ политического положения министра Марокко — это внутренняя политика, не мировое событие.
+- [fr] не_новость: [world] 20 Minutes — Ballon d’or 2026 : Le rappeur French Montana et la chanteuse Jorja Smith se prod — Анонс артистов на церемонии не является событием, пока она не состоялась.
+- [fr] не_новость: [world] Courrier International — La route maritime du Nord-Est, une voie prometteuse mais risquée — Рекламный анонс содержания журнала, продаваемого в киосках.
+- [fr] не_новость: [world] Courrier International — Des réseaux sociaux aux sièges d’élus : l’ascension des influenceurs politiques  — Обзорный материал (анализ феномена) об «инфлюенсерах», а не фиксация конкретного события.
+- [fr] чужое_мелкое: [world] L'Express — Un projet gazier en Alaska financé par la Russie dans l’ombre de son rapprocheme — Корпоративные перестановки в одной американской компании — не мировое событие.
+- [fr] чужое_мелкое: [world] RFI — Élections en Israël: l’heure des comptes pour Benyamin Netanyahu — Обычный анонс выборов в Израиле, где еще не произошло никаких событий.
+- [fr] чужое_мелкое: [world] BBC — Élections législatives en Serbie : Belgrade maintiendra-t-elle sa neutralité et  — Анонс выборов в Сербии, не имеющий международного влияния на момент публикации.
+- [fr] чужое_мелкое: [world] Le Devoir — Des républicains face à des vents électoraux défavorables — Предвыборная аналитика республиканцев США — внутренняя политика, нет события.
+- [fr] курьёз: [world] Africanews FR — Afrique du Sud : des hommes courent pour sensibiliser au cancer de la prostate — Благотворительный забег — типичное локальное мероприятие, не имеющее мирового значения.
