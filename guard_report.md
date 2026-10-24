@@ -1,24 +1,17 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] KFVS12 — Current boil water orders/advisories in the Heartland — Плановое объявление (снятие ограничения) не является событием по белому списку.
-- [en] не_новость: [local] WBAL — Maryland-bred horses taking center stage for Maryland Million Day stakes — Анонс предстоящего спортивного события без результата.
-- [en] не_новость: [local] New Jersey 101.5 — Monmouth County gives NY Waterway 30 days to fix ferry service — Ультиматум и бизнес-контракт: процесс обсуждения/требования, а не свершившийся факт.
-- [en] курьёз: [local] Mississippi Today — Mississippi sculptor comes home to bring Walter Anderson’s art to life — Очерк об искусстве, не является новостным событием.
-- [en] не_новость: [local] WV MetroNews — WVU offense has its work cut out to maintain productive ways at TCU — Спортивная аналитика («есть работа, чтобы оставаться продуктивными») — это разбор, а не событие.
-- [en] не_новость: [local] VTDigger — Manchester weighs Flock camera alternatives ahead of Vermont ban on automated li — Обсуждение альтернатив на собрании совета — это процесс планирования, а не свершившееся решение.
-- [en] не_новость: [local] Wisconsin Watch — Can unarmed ICE agents watch voting? In Wisconsin that depends on who you ask — Разбор вопроса «могут ли агенты наблюдать за голосованием» — это аналитическая статья.
-- [en] не_новость: [local] Honolulu Star-Advertiser — Rainbow Warriors are all business in sleepy Illinois — Спортивная заметка о настрое команды («all business») без результата матча.
-- [en] не_новость: [local] WHYY — Who are the future voters of Pennsylvania and what do they want from their legis — Опрос/интервью, не является событием.
-- [en] не_новость: [pool] Rolling Stone — He Went to Document an Anti-ICE Protest. He Left Without an Eye — Личный очерк/история, не является актуальным новостным событием.
-- [en] курьёз: [pool] Fortune — Jamie Dimon poached Warren Buffett’s protégé to run a $10 billion fund—he says B — Бизнес-история о личном взаимодействии инвесторов, не является событием для читателя.
-- [en] не_новость: [pool] WFPL — Thousands already off Indiana's Medicaid rolls, before work requirements take ef — Описание ситуации с программой до вступления требований в силу, не является событием.
-- [en] не_новость: [pool] BBC News — Plan for Northern Olympics to get £7m in Healey's Budget — Анонс будущего бюджетного плана, который еще не принят.
-- [en] не_новость: [pool] Ars Technica — Hegseth warns prediction market bets warp military judgment, endanger troops — Предупреждение/мнение чиновника о рынках, не является событием по белому списку.
-- [en] курьёз: [world] TechCrunch — Here are the top AI agents that can live in your text messages — Подборка сервисов («здесь топ агентов»), не является событием.
-- [en] курьёз: [world] Engadget — The beneficial purpose of 'IQ' on your Anker chargers — Разбор технологии зарядки, не является событием.
-- [en] не_новость: [world] Fortune — Half of workers are ‘revenge quitting’ and walking out on their jobs without not — Статья об очередном тренде на рынке труда, не является событием.
-- [en] курьёз: [world] Ars Technica — A 1,000-mile cloud on Mars may reveal physics never seen in nature — Научно-популярный факт о Марсе, не является событием.
-- [en] не_новость: [world] Time — The Fight Over Who Counts in India — Литературно-политический разбор, не является новостным событием.
-- [en] не_новость: [world] BBC News — Infantino tells BBC Sport he is backed by 'vast majority' of world football — Словесная реакция чиновника на критику, не является событием.
-- [en] курьёз: [world] Time — The AI-Discovered Bug That Could Have Become a Cybersecurity Disaster — Описание того, что могло бы быть, не является новостным событием.
-- [en] не_новость: [world] Semafor — Betting operators and prediction markets spent record amounts on campaign donati — Анализ данных о лоббизме, не является событийным фактом на текущий день.
+- [es] курьёз: [local] El Financiero — Consultorios vacíos, médicos indispensables — портрет врача, нет события
+- [es] курьёз: [pool] El Comercio PE — El cambio de horario en España 2026 llega hoy, domingo 25 de octubre: a las 03:0 — информирование о переводе часов — рутина, не новость
+- [es] курьёз: [pool] El Universo EC — Los 75 de Charly García: recibe en casa a cientos de admiradores y estrena en Ne — день рождения музыканта, не новость
+- [es] курьёз: [pool] Clarín AR — El llanto del pibe Jaime en Uruguay: el argentino quiso ayudar a un rival caído  — обсуждение спортивного жеста, не новость
+- [es] курьёз: [pool] 14ymedio — Recogiendo basura con las manos en La Habana, la otra cara del proyecto piloto E — описание бытовой сцены без события
+- [es] не_новость: [pool] Diario Libre DO — Inauguración del Centro Cultural Rainieri en Punta Cana — плановое мероприятие, не новость
+- [es] не_новость: [world] TechCrunch — Forzados a elegir, el modelo de IA Grok elige a los republicanos y OpenAI a los  — мнения моделей ИИ не являются событием
+- [es] курьёз: [world] Fortune — Estados Unidos escatima en Halloween debido a que los altos precios del combusti — аналитика потребительского поведения, нет события
+- [es] не_новость: [world] Fortune — Jamie Dimon contrató al protegido de Warren Buffett para dirigir un fondo de 10. — кадровые назначения конца 2025 года — не новость
+- [es] курьёз: [world] Fortune — Jeff Bezos necesitó 60 reuniones para recaudar el primer millón de dólares para  — старая история успеха (ретроспектива), не новость
+- [es] повтор: [world] Guardian Sport — Los Brewers sobreviven a un caótico drama en la novena entrada y vencen a los Ra ≈ «¡Drama en el último out! Milwaukee Brewe» — тот же матч и результат
+- [es] курьёз: [world] Time — El error descubierto por la IA que pudo convertirse en un desastre de cibersegur — исследовательский факт, нет события
+- [es] не_новость: [world] Ars Technica — Pete Hegseth advierte que las apuestas en mercados de predicción distorsionan el — предупреждение чиновника, нет события
+- [es] чужое_мелкое: [world] Semafor — Los demócratas compiten por un escaño en Kansas mientras los republicanos observ — внутренняя политика США (выборы в штатах), без влияния на MX
+- [es] чужое_мелкое: [world] Semafor — Los operadores de apuestas y los mercados de predicción han destinado cantidades — лоббизм в Вашингтоне, нет последствий для региона
