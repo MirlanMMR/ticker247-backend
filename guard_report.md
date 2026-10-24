@@ -1,16 +1,19 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Universal MX — Emilio Escalante se disculpa con los aficionados del Atlante por malos resultado — Это спортивный комментарий о поражении и плохой форме, а не факт события.
-- [es] не_новость: [local] El Universal MX — Senado "congela" exhortos para buscar solución a crisis del IMSS Bienestar; PAN, — Обычная бюрократическая рутина, нет события.
-- [es] не_новость: [local] El Financiero — ¿Qué sabemos de Magic, la casa de cambio de una mujer que fue pareja de 2 lídere — Статья-обзор/очерк о компании, не событие.
-- [es] не_новость: [pool] El Comercio PE — Keiko Fujimori recibe facultades: ¿Cuáles serán los primeros decretos legislativ — Общий обзор политической ситуации, нет конкретного события.
-- [es] полка: [pool] Infobae — Aumentan hasta 700% decomisos de droga en la frontera de Chihuhua con Texas: CBP — Новость США-Мексика пограничного характера, для MX это региональное или мировое, но не должно быть в разделе соседей.
-- [es] чужое_мелкое: [pool] El Nacional VE — Bolivia tendría una cárcel inspirada en el modelo de Bukele — Спекулятивное обсуждение планов в Боливии, не событие.
-- [es] чужое_мелкое: [pool] El Nacional VE — Miles de personas protestaron en México exigiendo una solución a la contaminació — Старая новость (18 октября) о протестах в Мексике, уже не актуально.
-- [es] повтор: [pool] El Mundo — Disturbios, cargas, quema de contenedores y tiendas cerradas en el centro de Bar ≈ «Mossos y Guàrdia Urbana dispersan una co» — Один и тот же сюжет о протестах в Барселоне.
-- [es] не_новость: [pool] eldiario.es — Feijóo acusa a Sánchez de adelantar las elecciones por los casos de corrupción:  — Предвыборная риторика и обещания, нет свершившегося события.
-- [es] не_новость: [pool] eldiario.es — Sánchez reivindica "la España de Lorca" frente a "las tijeras" de Feijóo y "la m — Политическая риторика, нет события.
-- [es] не_новость: [pool] eldiario.es — Cómo afecta el sistema electoral a la izquierda alternativa: escaños en las gran — Аналитическая статья о системе выборов, не событие.
-- [es] не_новость: [world] TechCrunch — Instacart habría discutido una posible venta a DoorDash y Uber — Слухи/обсуждения о возможной продаже, а не закрытая сделка.
-- [es] повтор: [world] BBC Mundo — Casi 1.000 detenidos en Francia después de que miles de personas salieran a las  ≈ «VIDEOS: Disturbios estallan en distintas» — Тот же сюжет о протестах и задержаниях во Франции.
-- [es] не_новость: [world] El Mundo — El reto "inasumible" y la "paliza brutal" de poner nombre a todos los 'nietos':  — Жалобы на административные процессы, не событие.
+- [pt] чужое_мелкое: [local] Metrópoles — Primeira Turma do STF torna Oswaldo Eustáquio réu por associação criminosa — Внутренняя политика Бразилии (решение суда), не мировое событие.
+- [pt] чужое_мелкое: [local] Poder360 — Campanha de Lula vê debate na “Globo” como chance de atrair indecisos — Внутренняя предвыборная оценка штаба кандидата — не событие.
+- [pt] чужое_мелкое: [local] Metrópoles — Bloco do 11 e 22: apoiadores de Celina e Flávio chegam à Torre de TV — Обычная предвыборная активность (митинг) — не событие.
+- [pt] чужое_мелкое: [local] Poder360 — Veja fotos do ato de Lula na Paulista antes do 2º turno — Фотоотчет с предвыборного митинга — не событие.
+- [pt] чужое_мелкое: [local] Poder360 — Ato de Lula em Copacabana tem bandeirão do Brasil — Описание предвыборного митинга — не событие.
+- [pt] чужое_мелкое: [local] G1 Rio — Flávio Bolsonaro reúne apoiadores em ato na Barra da Tijuca, no Rio — Обычный предвыборный митинг — не событие.
+- [pt] не_новость: [local] Agência Brasil — Cartórios lançam ferramenta que permite pesquisar imóveis no país — Запуск сервиса/инструмента — это бизнес-анонс, а не событие.
+- [pt] чужое_мелкое: [local] Gazeta do Povo — Lula e Flávio Bolsonaro levam multidões às ruas de BH e Rio na reta final da ele — Обычный предвыборный митинг — не событие.
+- [pt] не_новость: [local] G1 Rio — Futebol infantil na Praia de Icaraí: projeto incentiva esporte e redução de tela — Запуск социального проекта — не событие (анонс).
+- [pt] чужое_мелкое: [local] G1 Pernambuco — Passeata em apoio à reeleição de Lula reúne moradores em Fernando de Noronha — Местный предвыборный митинг — не событие.
+- [pt] чужое_мелкое: [world] The Independent — Katie Miller alerta que democratas pretendem responsabilizar funcionários de Tru — Внутренняя политика США (заявление о намерениях) — не мировое событие.
+- [pt] чужое_мелкое: [world] The Hill — China insta ao Departamento do Tesouro dos EUA a interromper restrições proposta — Дипломатический призыв, а не факт введения ограничений.
+- [pt] не_новость: [world] Fortune — Candidato republicano ao governo da Geórgia, que saiu de lares adotivos para bil — Портрет кандидата, нет события.
+- [pt] чужое_мелкое: [world] The Independent — Obama participará da campanha democrata neste sábado antes das eleições de meio  — Обычное участие в предвыборной кампании — не мировое событие.
+- [pt] чужое_мелкое: [world] The Independent — Donald Trump afirma que pesquisas são falsas e insiste que sua taxa de aprovação — Политические споры о рейтингах — не событие.
+- [pt] чужое_мелкое: [world] Ars Technica — Hegseth alerta que apostas em mercados de previsão podem prejudicar julgamento m — Внутренняя административная директива США (запрет ставок) — не мировое событие.
+- [pt] не_новость: [world] Semafor — Warhound arrecada US$ 200 milhões para criar cães militares geneticamente modifi — Привлечение инвестиций стартапом без конкретной сделки (запуск операций) — бизнес-PR.
