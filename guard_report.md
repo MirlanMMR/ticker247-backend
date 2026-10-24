@@ -1,28 +1,25 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] чужое_мелкое: [local] Folha de S.Paulo — Infantino afirma contar com amplo apoio para presidir a Fifa — внутренняя политика FIFA, нет последствий для читателя в Бразилии
-- [pt] курьёз: [local] G1 Distrito Federal — Fio de cabelo de São Carlo Acutis, padroeiro da internet, é exposto para visitaç — религиозный артефакт/традиция, не является событием по белому списку
-- [pt] не_новость: [local] G1 Rio — Família diz que homem preso após soltar pipa em refinaria está detido injustamen — жалоба семьи на задержание, нет нового факта, подтверждающего событие
-- [pt] курьёз: [pool] Expresso das Ilhas — Começa hoje o 26.º Campeonato Nacional de Ginástica — открытие местного чемпионата по гимнастике, масштаб события крайне мал
-- [pt] чужое_мелкое: [world] The Independent — Kristi Noem é acusada de publicar um comunicado de imprensa falso sobre sua saíd — внутренний конфликт в США из-за пресс-релиза, не имеет значения для мира
-- [pt] чужое_мелкое: [world] The Independent — Six Flags faz mudanças importantes para manter a segurança dos visitantes após m — внутренние изменения безопасности в сети парков США
-- [pt] курьёз: [world] TechCrunch — Forçado a escolher, o modelo de IA Grok prefere Republicanos. — исследование предпочтений ИИ, не меняет положение дел в реальности
-- [pt] повтор: [world] Wired — A crise do PHP demonstra como a IA torna falhas mais exploráveis ≈ «A falha de segurança descoberta por IA q» — тот же инцидент с PHP и ИИ
-- [pt] не_новость: [world] Superinteressante — Inquisição: a história dos tribunais da Igreja Católica que perseguiram hereges — историческая справка об Инквизиции, нет события
-- [pt] полка: [world] AKIpress Эко — Alerta de tempestade: geadas atingirão -5 graus no norte da região de Chuy — новость из Кыргызстана в португальской ленте (PT) — событие не задевает читателя в BR, PT, AO или MZ
-- [pt] не_новость: [world] Ars Technica — Hegseth alerta que apostas em mercados de previsão podem prejudicar julgamento m — служебная инструкция/меморандум, не является событием для широкой аудитории
-- [pt] не_новость: [world] Time — Fatherland é um dos filmes mais silenciosamente surpreendentes do ano — рецензия на фильм, не является событием
-- [pt] курьёз: [world] Naked Science — Biólogos mostram o que acontece sob a pele durante a picada de um mosquito da ma — научно-популярное видео про насекомых, не является событием
-- [fr] чужое_мелкое: [local] L'Express — Pourquoi plusieurs pays européens, dont la France, s'opposent au statut de "memb — Внутренняя европейская дискуссия о статусе Канады не является мировой новостью для французского читателя.
-- [fr] чужое_мелкое: [pool] RTBF — Manifestation à Bruxelles : la police a illégalement confisqué du sérum physiolo — Конфискация вещей полицией в Брюсселе — мелкий местный инцидент, не значимый для франкоязычного мира.
-- [fr] чужое_мелкое: [pool] RTBF — Tempête Austen : le numéro 1733 pour l'aide médicale non-urgente a été difficile — Локальные проблемы со связью в бельгийском городе — местная новость, не имеющая мирового масштаба.
-- [fr] не_новость: [pool] RTBF — Maël bénéficie du RIS en tant qu'étudiant : "Le CPAS ne m'encourage pas à travai — История студента об отношениях с соцслужбой (CPAS) — это очерк/интервью, не событие.
-- [fr] чужое_мелкое: [pool] BBC Mundo — Fatima Zahra El Mansouri : comment la première femme à diriger le gouvernement d — Анализ политического положения министра Марокко — это внутренняя политика, не мировое событие.
-- [fr] не_новость: [world] 20 Minutes — Ballon d’or 2026 : Le rappeur French Montana et la chanteuse Jorja Smith se prod — Анонс артистов на церемонии не является событием, пока она не состоялась.
-- [fr] не_новость: [world] Courrier International — La route maritime du Nord-Est, une voie prometteuse mais risquée — Рекламный анонс содержания журнала, продаваемого в киосках.
-- [fr] не_новость: [world] Courrier International — Des réseaux sociaux aux sièges d’élus : l’ascension des influenceurs politiques  — Обзорный материал (анализ феномена) об «инфлюенсерах», а не фиксация конкретного события.
-- [fr] чужое_мелкое: [world] L'Express — Un projet gazier en Alaska financé par la Russie dans l’ombre de son rapprocheme — Корпоративные перестановки в одной американской компании — не мировое событие.
-- [fr] чужое_мелкое: [world] RFI — Élections en Israël: l’heure des comptes pour Benyamin Netanyahu — Обычный анонс выборов в Израиле, где еще не произошло никаких событий.
-- [fr] чужое_мелкое: [world] BBC — Élections législatives en Serbie : Belgrade maintiendra-t-elle sa neutralité et  — Анонс выборов в Сербии, не имеющий международного влияния на момент публикации.
-- [fr] чужое_мелкое: [world] Le Devoir — Des républicains face à des vents électoraux défavorables — Предвыборная аналитика республиканцев США — внутренняя политика, нет события.
-- [fr] курьёз: [world] Africanews FR — Afrique du Sud : des hommes courent pour sensibiliser au cancer de la prostate — Благотворительный забег — типичное локальное мероприятие, не имеющее мирового значения.
+- [en] курьёз: [local] NY Post — Living past 100: This is the real secret — and what scientists have gotten wrong — Событие 2010 года, не является актуальной новостью для ленты.
+- [en] не_новость: [local] WOWT — Omaha City Council agenda notes for October 27 — Повестка заседания совета — это анонс, а не свершившееся событие.
+- [en] чужое_мелкое: [local] CBS News — Iran says U.S. military not allowed in Gulf "under any circumstance" — Очередное дипломатическое заявление Ирана, не имеющее конкретных последствий.
+- [en] не_новость: [local] KOLD — Car seen decimated near Prince and Flowing Wells — Наблюдение машины на обочине без деталей происшествия — не событие.
+- [en] не_новость: [local] LA Times — Hope and despair simmer among California Republicans ahead of election day — Аналитическая статья о настроениях избирателей, а не факт.
+- [en] не_новость: [local] Deseret News — Utah business, government leaders deepen connections in Ireland — Описание визита без конкретных подписанных контрактов или итогов.
+- [en] не_новость: [local] New Jersey 101.5 — Westfield, New Jersey street wins top trick-or-treating ranking — Рейтинг улиц для празднования Хэллоуина — развлекательный контент, не событие.
+- [en] не_новость: [local] WALB — Albany church to host harvest festival and trunk-or-treat — Анонс предстоящего церковного мероприятия (будущее событие).
+- [en] не_новость: [local] KOLD — ROADSHOW: University of Arizona celebrates Homecoming — Празднование юбилея университета — плановое мероприятие.
+- [en] не_новость: [local] County 17 — Gillette to host public workshop on unified development code rewrite — Анонс предстоящего общественного воркшопа.
+- [en] не_новость: [local] Untitled RSS Feed — After 54 Years Of Wind, Ice And Mud, Hulett Family Retires From 66-Mile Mail Rou — История о выходе на пенсию почтальона — личный очерк, не новость.
+- [en] чужое_мелкое: [pool] WTOP — UK police says letter with claims against Meghan’s father was not shared with ot — Детали частной переписки отца Меган Маркл не являются мировой новостью.
+- [en] не_новость: [pool] Variety — Sylvester Stallone Says Daughter’s ‘Tulsa King’ Casting is ‘Of Course’ Nepotism: — Мнение Сильвестра Сталлоне о кумовстве — это интервью, не новость.
+- [en] не_новость: [pool] The Independent — Donald Trump says polls are fake and insists his approval rating is really at 60 — Очередная перепалка Трампа с опросами — не событие, а риторика.
+- [en] не_новость: [pool] TechCrunch — These clever apps show off the iPhone Duo’s potential — Обзор приложений — это технический очерк, а не новость.
+- [en] курьёз: [world] OPB — Americans can't get enough of mahjong. These traditional makers are cashing in — Заметка о популярности игры маджонг — это интересное, не мировая новость.
+- [en] не_новость: [world] OPB — The Pentagon's guidelines for "responsible AI" aren't always followed, report sh — Анализ соблюдения правил Пентагоном — это расследование/критика, а не событие.
+- [en] не_новость: [world] TechCrunch — Block’s new voice model sounds eerily human — Описание характеристик новой технологии (релиз продукта без сделки).
+- [en] не_новость: [world] Wired — The PHP Meltdown Shows How AI Makes Bugs More Exploitable — Технический разбор уязвимостей — это экспертный комментарий.
+- [en] курьёз: [world] Ars Technica — A 1,000-mile cloud on Mars may reveal physics never seen in nature — Научное описание облака на Марсе — это «Интересное».
+- [en] не_новость: [world] Time — The Fight Over Who Counts in India — Рецензия на роман — это культурный очерк.
+- [en] не_новость: [world] Time — The AI-Discovered Bug That Could Have Become a Cybersecurity Disaster — Объяснение того, как ИИ нашел баг — это разбор.
+- [en] не_новость: [world] Semafor — Betting operators and prediction markets spent record amounts on campaign donati — Статистика лоббизма — аналитика, а не разовое событие.
