@@ -1,25 +1,16 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] NY Post — Living past 100: This is the real secret — and what scientists have gotten wrong — Событие 2010 года, не является актуальной новостью для ленты.
-- [en] не_новость: [local] WOWT — Omaha City Council agenda notes for October 27 — Повестка заседания совета — это анонс, а не свершившееся событие.
-- [en] чужое_мелкое: [local] CBS News — Iran says U.S. military not allowed in Gulf "under any circumstance" — Очередное дипломатическое заявление Ирана, не имеющее конкретных последствий.
-- [en] не_новость: [local] KOLD — Car seen decimated near Prince and Flowing Wells — Наблюдение машины на обочине без деталей происшествия — не событие.
-- [en] не_новость: [local] LA Times — Hope and despair simmer among California Republicans ahead of election day — Аналитическая статья о настроениях избирателей, а не факт.
-- [en] не_новость: [local] Deseret News — Utah business, government leaders deepen connections in Ireland — Описание визита без конкретных подписанных контрактов или итогов.
-- [en] не_новость: [local] New Jersey 101.5 — Westfield, New Jersey street wins top trick-or-treating ranking — Рейтинг улиц для празднования Хэллоуина — развлекательный контент, не событие.
-- [en] не_новость: [local] WALB — Albany church to host harvest festival and trunk-or-treat — Анонс предстоящего церковного мероприятия (будущее событие).
-- [en] не_новость: [local] KOLD — ROADSHOW: University of Arizona celebrates Homecoming — Празднование юбилея университета — плановое мероприятие.
-- [en] не_новость: [local] County 17 — Gillette to host public workshop on unified development code rewrite — Анонс предстоящего общественного воркшопа.
-- [en] не_новость: [local] Untitled RSS Feed — After 54 Years Of Wind, Ice And Mud, Hulett Family Retires From 66-Mile Mail Rou — История о выходе на пенсию почтальона — личный очерк, не новость.
-- [en] чужое_мелкое: [pool] WTOP — UK police says letter with claims against Meghan’s father was not shared with ot — Детали частной переписки отца Меган Маркл не являются мировой новостью.
-- [en] не_новость: [pool] Variety — Sylvester Stallone Says Daughter’s ‘Tulsa King’ Casting is ‘Of Course’ Nepotism: — Мнение Сильвестра Сталлоне о кумовстве — это интервью, не новость.
-- [en] не_новость: [pool] The Independent — Donald Trump says polls are fake and insists his approval rating is really at 60 — Очередная перепалка Трампа с опросами — не событие, а риторика.
-- [en] не_новость: [pool] TechCrunch — These clever apps show off the iPhone Duo’s potential — Обзор приложений — это технический очерк, а не новость.
-- [en] курьёз: [world] OPB — Americans can't get enough of mahjong. These traditional makers are cashing in — Заметка о популярности игры маджонг — это интересное, не мировая новость.
-- [en] не_новость: [world] OPB — The Pentagon's guidelines for "responsible AI" aren't always followed, report sh — Анализ соблюдения правил Пентагоном — это расследование/критика, а не событие.
-- [en] не_новость: [world] TechCrunch — Block’s new voice model sounds eerily human — Описание характеристик новой технологии (релиз продукта без сделки).
-- [en] не_новость: [world] Wired — The PHP Meltdown Shows How AI Makes Bugs More Exploitable — Технический разбор уязвимостей — это экспертный комментарий.
-- [en] курьёз: [world] Ars Technica — A 1,000-mile cloud on Mars may reveal physics never seen in nature — Научное описание облака на Марсе — это «Интересное».
-- [en] не_новость: [world] Time — The Fight Over Who Counts in India — Рецензия на роман — это культурный очерк.
-- [en] не_новость: [world] Time — The AI-Discovered Bug That Could Have Become a Cybersecurity Disaster — Объяснение того, как ИИ нашел баг — это разбор.
-- [en] не_новость: [world] Semafor — Betting operators and prediction markets spent record amounts on campaign donati — Статистика лоббизма — аналитика, а не разовое событие.
+- [es] не_новость: [local] El Universal MX — Emilio Escalante se disculpa con los aficionados del Atlante por malos resultado — Это спортивный комментарий о поражении и плохой форме, а не факт события.
+- [es] не_новость: [local] El Universal MX — Senado "congela" exhortos para buscar solución a crisis del IMSS Bienestar; PAN, — Обычная бюрократическая рутина, нет события.
+- [es] не_новость: [local] El Financiero — ¿Qué sabemos de Magic, la casa de cambio de una mujer que fue pareja de 2 lídere — Статья-обзор/очерк о компании, не событие.
+- [es] не_новость: [pool] El Comercio PE — Keiko Fujimori recibe facultades: ¿Cuáles serán los primeros decretos legislativ — Общий обзор политической ситуации, нет конкретного события.
+- [es] полка: [pool] Infobae — Aumentan hasta 700% decomisos de droga en la frontera de Chihuhua con Texas: CBP — Новость США-Мексика пограничного характера, для MX это региональное или мировое, но не должно быть в разделе соседей.
+- [es] чужое_мелкое: [pool] El Nacional VE — Bolivia tendría una cárcel inspirada en el modelo de Bukele — Спекулятивное обсуждение планов в Боливии, не событие.
+- [es] чужое_мелкое: [pool] El Nacional VE — Miles de personas protestaron en México exigiendo una solución a la contaminació — Старая новость (18 октября) о протестах в Мексике, уже не актуально.
+- [es] повтор: [pool] El Mundo — Disturbios, cargas, quema de contenedores y tiendas cerradas en el centro de Bar ≈ «Mossos y Guàrdia Urbana dispersan una co» — Один и тот же сюжет о протестах в Барселоне.
+- [es] не_новость: [pool] eldiario.es — Feijóo acusa a Sánchez de adelantar las elecciones por los casos de corrupción:  — Предвыборная риторика и обещания, нет свершившегося события.
+- [es] не_новость: [pool] eldiario.es — Sánchez reivindica "la España de Lorca" frente a "las tijeras" de Feijóo y "la m — Политическая риторика, нет события.
+- [es] не_новость: [pool] eldiario.es — Cómo afecta el sistema electoral a la izquierda alternativa: escaños en las gran — Аналитическая статья о системе выборов, не событие.
+- [es] не_новость: [world] TechCrunch — Instacart habría discutido una posible venta a DoorDash y Uber — Слухи/обсуждения о возможной продаже, а не закрытая сделка.
+- [es] повтор: [world] BBC Mundo — Casi 1.000 detenidos en Francia después de que miles de personas salieran a las  ≈ «VIDEOS: Disturbios estallan en distintas» — Тот же сюжет о протестах и задержаниях во Франции.
+- [es] не_новость: [world] El Mundo — El reto "inasumible" y la "paliza brutal" de poner nombre a todos los 'nietos':  — Жалобы на административные процессы, не событие.
