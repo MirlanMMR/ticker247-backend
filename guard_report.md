@@ -1,27 +1,33 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Водитель легковушки попытался обогнать грузовик на «трассе смерти» и погиб — внутреннее ДТП в РФ без значимых последствий
-- [ru] чужое_мелкое: [pool] Азаттык — В Атырау чиновника департамента соцзащиты обнаружили мёртвым в собственной кварт — криминальная хроника: смерть чиновника в Казахстане
-- [ru] чужое_мелкое: [pool] NewsGeorgia — В Тбилиси задержали лжеадвоката, выманившего 21 тыс. лари за «выигранный» суд — мелкое мошенничество (лжеадвокат) в Грузии
-- [ru] не_новость: [pool] Onliner.by — «МЛ Витебск» ищет переводчика с испанского для главного тренера. Зарплата уже из — поиск вакансии переводчика клубом — не событие
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самаре 21-летняя девушка украла из особняка родных два раритетных пистолета — кража пистолетов частным лицом в Самаре
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Управляющий магазинами в Рязани попался на покупках с чужой карты — кража с карты частным лицом в Рязани
-- [ru] чужое_мелкое: [pool] Onliner.by — В Кобрине горел жилой дом. Двух человек спасли, один погиб — пожар в частном доме в Беларуси
-- [ru] не_новость: [pool] 29.ru — Архангельск — На месте центрального рынка в Архангельске спроектировали жилой дом — общественные обсуждения проекта — не свершившееся событие
-- [ru] не_новость: [pool] 62.ru — Рязань — Игры с последствиями: сотни рязанских детей попали в травмпункт — статистика обращений в травмпункт
-- [ru] не_новость: [pool] 56.ru — Оренбург — «Чем победа тяжелее, тем она слаще»: орский «Южный Урал» перевернул неудачно скл — спортивный обзор матча
-- [ru] чужое_мелкое: [pool] Kaktus.media — Долина, Волочкова и Шаляпин оказались в центре скандала с мошенничеством на 10 м — скандал артистов в РФ
-- [ru] не_новость: [pool] 59.ru — Пермь — В Перми продают ресторан «Данилин» — поговорили с вдовой иллюзиониста о том, что — продажа ресторана (бизнес-объявление)
-- [ru] не_новость: [pool] 62.ru — Рязань — Рязанским медикам выплатили более миллиарда рублей с начала года — отчет о выплатах за период
-- [ru] не_новость: [pool] 56.ru — Оренбург — Лучше не рисковать, а заплатить за такси: в Оренбуржье будут штрафовать самокатч — намерения властей штрафовать (планы)
-- [ru] чужое_мелкое: [pool] 45.ru — Курган — Алиса Соснина из Кургана спела в шоу «Голос. Дети» — выступление ребенка на ТВ (не событие)
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — В Псковской области осудили мужчину за убийство 1998 года — приговор по делу 1998 года (частное дело)
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Суд Себежа вынес приговор за повторную пьяную езду — приговор за пьяную езду (мелкое)
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — На Псковщине поймали трёх нетрезвых водителей — задержание трех нетрезвых водителей
-- [ru] не_новость: [pool] 60.ru — Псков — Суд Порхова обязал школу искусств обследовать здание — решение суда об обязательстве обследовать здание
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — С наследницы взыскали долг за отопление квартиры — взыскание долга ЖКХ с физического лица
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Рецидивистка украла миллион у великолучанки и получила срок — приговор за кражу (частное лицо)
-- [ru] повтор: [world] Sputnik KG (кыргызча) — Гуманитардык операциядан улам Алешкиде ок атышуу убактылуу токтотулат. Чоо-жайы ≈ «В Алешках Херсонской области введут лока» — дублирует новость о прекращении огня
-- [ru] курьёз: [world] 60.ru — Псков — Пиар-война: Уильям на ТВ против Сассексов — светская хроника (пиар принца)
-- [ru] чужое_мелкое: [world] Guardian Sport — Черлидеры Dallas Cowboys объединились в профсоюз после многолетней борьбы за спр — внутреннее решение профсоюза черлидеров в США
-- [ru] не_новость: [world] Engadget — Apple Music представила «пасхалку» в честь 25-летия iPod — пасхалка в приложении — не событие
+- [pt] полка: [local] Metrópoles — Colisão entre aviões militares deixa quatro mortos nas Filipinas — Событие в Филиппинах — мировая новость, не местная (не BR).
+- [pt] срочность: [pool] Notícias ao Minuto — Mondlane fala em "quase guerra" com governo local por impedir reunião — Это политический конфликт, а не стихийное бедствие или катастрофа, не требует побудки.
+- [pt] курьёз: [world] Wired — A crise do PHP demonstra como a IA torna falhas mais exploráveis — Обсуждение проблем безопасности IT-инфраструктуры — это аналитика, а не событие.
+- [pt] повтор: [world] CBS News — Ucrânia afirma que velocidade da Starlink foi restaurada após longa interrupção ≈ «Como a lentidão do Starlink afetou solda» — Тот же сюжет о Starlink, что и в 90.
+- [pt] повтор: [world] Folha de S.Paulo — Nasa diz fazer seu máximo para levar humanos à superfície da Lua em 2028 ≈ «NASA atualiza planos para pousos lunares» — Тот же сюжет о планах NASA по полету на Луну.
+- [pt] курьёз: [world] Público — Futuro da revista Scientific American é incerto após venda e alegadas pressões e — Корпоративные изменения в издании — не мировая новость.
+- [pt] не_новость: [world] Азаттык — Concurso "Intervisão" não será realizado na Arábia Saudita em 2026 — Отмена планового мероприятия не является новостью мирового масштаба.
+- [pt] не_новость: [world] The Guardian — Violência, intimidação e medo: 10 anos após a 'Selva', a vida nos campos de migr — Описательная статья о ситуации 10-летней давности, события нет.
+- [pt] чужое_мелкое: [world] Guardian Sport — Líderes de torcida do Dallas Cowboys formam sindicato após anos de luta por salá — Создание профсоюза чирлидеров в США — внутренняя новость, не имеющая мирового значения.
+- [pt] чужое_мелкое: [world] Ars Technica — Hegseth alerta que apostas em mercados de previsão podem prejudicar julgamento m — Внутренняя директива Минобороны США для своих военных не является мировой новостью.
+- [fr] повтор: [local] BFMTV — 24 octobre à Lyon: "On est révoltés par cette interdiction des rassemblements",  ≈ «🔴 Mobilisation du 24 octobre en direct :» — Освещение тех же событий с анти-RN протестов.
+- [fr] повтор: [local] BFMTV — 24 octobre: "On ne lâchera rien, on continuera à se mobiliser", déclare la secré ≈ «🔴 Mobilisation du 24 octobre en direct :» — Та же тема протестов и цитаты с акции.
+- [fr] повтор: [local] BFMTV — Changement du parcours de la manifestation du 24 octobre à Paris: "Notre gouvern ≈ «DIRECT. Manifestations du 24 octobre : l» — Повторение сюжета о парижской манифестации.
+- [fr] повтор: [local] BFMTV — 24 octobre: "C'est important de soutenir les lycéens, de les protéger parce qu'i ≈ «DIRECT. Manifestations du 24 octobre : l» — Повторение темы протестов 24 октября.
+- [fr] повтор: [local] BFMTV — Manifestation contre la tenue d'un congrès du RN: la CRS-8, spécialisée dans le  ≈ «À Orléans, le congrès du Rassemblement N» — Повторение сюжета об Орлеане и развертывании сил.
+- [fr] повтор: [local] L'Express — "La journée sera longue" : une nouvelle journée de mobilisation sous haute tensi ≈ «DIRECT. Manifestations du 24 octobre : l» — Очередная заметка о той же демонстрации.
+- [fr] повтор: [local] RFI — France: réuni à Orléans autour de Marine Le Pen, le RN cherche une démonstration ≈ «À Orléans, le congrès du Rassemblement N» — Снова конгресс RN в Орлеане.
+- [fr] чужое_мелкое: [pool] The Independent — Protestations en France : les commerçants parisiens s'arment face à la crainte d — Новость о парижских событиях в разделе «Новости из...», хотя это местная для FR новость.
+- [fr] чужое_мелкое: [pool] RTBF — Manifestations en France : des villes sous haute sécurité, des manifestation int — Дублирование темы протестов Франции в другом разделе.
+- [fr] курьёз: [pool] Le Temps — Soubey, le petit village jurassien qui s’inquiète des projets de promoteurs libe — Локальный спор в швейцарской деревне не имеет мирового значения.
+- [fr] не_новость: [pool] Le Temps — Rosalie Beuret Siess, présidente du Gouvernement jurassien: «L’«Initiative Soube — Развернутый комментарий чиновника по поводу локального проекта.
+- [fr] не_новость: [pool] Le Temps — Quand des étudiants grévistes réinventent l’université populaire — Очерк о жизни студентов, нет свежего события.
+- [fr] повтор: [pool] Le Temps — La France sous-tension, les manifestants défilent déjà à Orléans, contre le RN e ≈ «À Orléans, le congrès du Rassemblement N» — Снова Орлеан и протесты против RN.
+- [fr] не_новость: [pool] RTBF — Manifestations : Emmanuel Macron entend les interdire en France, jusqu’où peut-o — Рассуждение «что если» вместо свершившегося факта.
+- [fr] не_новость: [world] Wired — La crise liée à PHP démontre comment l'IA facilite l'exploitation des failles de — Аналитическая статья о кибербезопасности, нет конкретного события.
+- [fr] повтор: [world] RFI — «Cela nous fait peur»: après l'attentat raciste à Trappes, l'émotion et l'indign ≈ «En France, une attaque à Trappes fait un» — Повторное обсуждение атаки в Траппе.
+- [fr] не_новость: [world] TSA Algérie — Sahara occidental : les États-Unis et la France activent la marche forcée de la  — Прогноз и обсуждение будущей резолюции ООН.
+- [fr] не_новость: [world] L'Express — "Nous avons peut-être frôlé le point de non-retour" : l'incident avec un satelli — Разбор инцидента с сателлитом, аналитика.
+- [fr] не_новость: [world] Le Devoir — Des républicains face à des vents électoraux défavorables — Аналитика настроений перед выборами, нет события.
+- [fr] не_новость: [world] Axios — Note confidentielle : les renseignements américains mettent en garde contre des  — Пересказ конфиденциальной записки, событие не произошло.
+- [fr] не_новость: [world] RTBF — Guerre au Moyen-Orient : les Etats-Unis pourraient frapper l'Iran dès ce week-en — Спекуляция о возможности удара, не свершившийся факт.
