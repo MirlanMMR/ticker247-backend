@@ -1,27 +1,22 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] срочность: [local] KFVS12 — MSHP: New Madrid, Mo. man seriously injured in crash — рядовое ДТП с одним пострадавшим не требует побудки.
-- [en] курьёз: [local] Cleveland.com — At Cadillac Mountain, a missing Wabanaki marker and the fight over what national — история о споре вокруг знака в парке — это познавательное чтиво, а не новость.
-- [en] не_новость: [local] WDBJ7 — Roanoke Valley SPCA waives adoption fees through Oct. 31 — плановая акция приюта по сбору средств — это реклама/анонс, а не событие.
-- [en] не_новость: [local] WJXT News4JAX — NFL and players' union working together to review the handling of Jalen Hurts' b — рабочая проверка союза не является свершившимся фактом-событием.
-- [en] срочность: [local] Latest &amp; Breaking News — DC police ramp up search for suspect in Northwest triple shooting — поиск подозреваемого по делу шестинедельной давности не требует срочной метки.
-- [en] не_новость: [local] WV MetroNews — Education West Virginia leaders flag concerns over student enrollment decrease — выражение озабоченности профсоюзом — это слова, а не событие.
-- [en] срочность: [local] WTOP — Maryland members of Congress, elections officials targeted by suspicious letters — событие (получение писем) не требует немедленного прерывания дел читателя.
-- [en] курьёз: [local] WBAL — ‘Big, furry pillow lounging next to that tree’: Man snaps selfie with black bear — селфи с медведем — развлекательная история, не событие.
-- [en] не_новость: [local] El Paso Matters — Amphitheater developer used El Paso property to secure $20 million loan for anot — детали использования кредита разработчиком — бизнес-детали, не событие для общества.
-- [en] курьёз: [local] VTDigger — ‘Anti-homelessness landscaping’ in Middlebury raises questions over approaches t — спор об оформлении ландшафта — локальный очерк, не событие.
-- [en] срочность: [local] NH Union Leader Latest News — $5K reward offered for missing drone boat in Gulf of Maine — кража/потеря дрона — не повод будить человека.
-- [en] не_новость: [local] Mississippi Today — House speaker’s poll: Mississippians want to eliminate property tax even if it m — результаты опроса политиков не являются событием (слова о будущем).
-- [en] курьёз: [local] Honolulu Star-Advertiser — Giant trolls help transform an Adirondack mill town — инсталляция троллей в парке — интересная заметка для раздела 'Интересное', а не новость.
-- [en] не_новость: [local] Honolulu Star-Advertiser — Local advocate Cheryl Dickerson dies at 86 — некролог частного лица (волонтера) — не общественно-политическое событие.
-- [en] не_новость: [local] Deseret News — Poll data reveals widening divide over Israel that could reshape Senate control — интерпретация данных опроса — это аналитика, а не событие.
-- [en] не_новость: [local] LA Times — Job training, housing, students' basic needs: L.A. community college candidates  — обещания кандидатов перед выборами — это слова, не событие.
-- [en] не_новость: [local] LA Times — More storms a-brewin': Could L.A. see its first rainy Halloween in over a decade — прогноз погоды ('может пойти дождь') — не событие.
-- [en] курьёз: [local] Colorado Public Radio — When children describe a life before this one — история про воспоминания ребенка — типичный курьёз/очерк.
-- [en] не_новость: [local] Startribune News — Minnesota clergy take their mission to the polls — участие духовенства в выборах как акция — не событие, пока не нарушен закон или не случилось ЧП.
-- [en] курьёз: [local] WCTV — Man cooking chicken for roadside barbecue finds dead snake in charcoal bag — находка змеи в пакете с углем — курьез, не новость.
-- [en] не_новость: [local] NPR News — More dads taking paid family leave for a new baby, sometimes as much as moms are — общая тенденция по декретам — аналитический материал, не событие.
-- [en] не_новость: [pool] Variety — ESPN Taps Marvel’s Vision to Boost ElClásico’s Debut on ABC — маркетинговый ход (коллаборация) — не новость, а PR.
-- [en] не_новость: [pool] The Independent — Trump is still claiming vandals destroyed the Reflecting Pool - ignoring the fac — спор о словах Трампа — это дискуссия, а не событие.
-- [en] не_новость: [pool] The Hill — America the Beautiful Act honors Theodore Roosevelt’s conservation legacy — предложение закона (акта) — это намерение, не событие.
-- [en] не_новость: [pool] Irish Times — AIG executive accused of posting anti-Semitic comments no longer working for com — увольнение сотрудника за пост в соцсетях — внутреннее кадровое решение компании, не новость общего масштаба.
+- [es] не_новость: [local] El Financiero — ⁠¿Te imaginas estudiar ‘Noviazgo, compromiso y matrimonio’? En la Universidad An — этот материал — обзор университетских курсов, не событие.
+- [es] курьёз: [local] El Financiero — ⁠Así controlan el VIH sin medicamentos: Esto sabemos del experimento científico  — старая научная новость/факт, не событие для читателя.
+- [es] не_новость: [local] El Financiero — GP de Estados Unidos 2026 de F1: ¿A qué hora y dónde ver EN VIVO HOY la posible  — анонс спортивного события с расписанием, а не результат.
+- [es] не_новость: [pool] El Tiempo CO — En video, emotivas palabras del presidente De La Espriella a la mamá de la polic — этикет, официальные слова президента, нет нового факта.
+- [es] не_новость: [pool] Semana CO — Juan Camilo Restrepo reclama por demora del Gobierno en presentar plan de ajuste — политическое высказывание/жалоба, а не свершившееся событие.
+- [es] не_новость: [pool] eldiario.es — Rufián ve "probable" que detrás de los disturbios de Barcelona esté "la extrema  — мнение политика о причинах беспорядков, а не факт события.
+- [es] не_новость: [world] France 24 — La líder de la extrema derecha francesa, Marine Le Pen, busca aprovechar el desc — анонс предвыборной кампании, не событие.
+- [es] курьёз: [world] Xataka — Lo nuevo de MrBeast: apoyar con un cuarto de millón de dólares una bola intelige — развлекательный контент про блогера, не мировая новость.
+- [es] не_новость: [world] RFI — Control de redes sociales para menores: «Dondequiera que se han implementado est — аналитика/рассуждение о регулировании соцсетей, а не событие.
+- [es] чужое_мелкое: [world] The Independent — Padre e hijo condenados en California por minería de oro ilegal: «Esto no es 184 — мелкое локальное правонарушение в США, не значимо для мира.
+- [es] не_новость: [world] The Independent — Trump sigue afirmando que unos vándalos destruyeron el Reflecting Pool, ignorand — политическая риторика/спор о версии событий, не новое событие.
+- [es] не_новость: [world] RFI — «Hay racismo aquí»: la minoría árabe en Israel espera influir en las elecciones  — обзор настроений группы избирателей перед выборами, не событие.
+- [es] чужое_мелкое: [world] Guardian Sport — Jokić afirma que los aficionados que abuchean «no son bienvenidos» tras la remon — детали поведения фанатов и игрока после матча, не значимо для мира.
+- [es] не_новость: [world] BBC Mundo — Quién es Gadi Eisenkot, el general retirado que perdió un hijo en Gaza y desafía — портрет/биография кандидата, не событие.
+- [es] не_новость: [world] Expansión MX — Trump vota por anticipado en Florida para las elecciones intermedias de EU — плановое голосование, сам факт участия президента — не событие.
+- [es] чужое_мелкое: [world] Time — Trump teme que los habitantes de Alaska voten al Sullivan equivocado: ¿qué puede — внутренний судебный спор штата США, не мировая новость.
+- [es] полка: [world] AKIpress Эко — Se llevó a cabo una jornada de plantación de árboles en la arboleda de Karagache — событие в Кыргызстане, должно быть в местном, а не в мировом.
+- [es] не_новость: [world] Ars Technica — Pete Hegseth advierte que las apuestas en mercados de predicción distorsionan el — предупреждение/меморандум, не свершившееся событие.
+- [es] чужое_мелкое: [world] Semafor — Los demócratas compiten por un escaño en Kansas mientras los republicanos observ — обзор текущей предвыборной гонки в штатах, не событие.
+- [es] не_новость: [world] Semafor — Los operadores de apuestas y los mercados de predicción han destinado cantidades — аналитика расходов на лоббизм, а не свершившееся событие.
