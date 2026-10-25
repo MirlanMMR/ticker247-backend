@@ -1,25 +1,46 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] не_новость: [local] 24.kg — Температурные рекорды: когда Бишкек пережил самое холодное 25 октября — климатическая справка, не событие
-- [ru] не_новость: [local] Азаттык (кыргызча) — Сыймык Жапыкеев "Кыргызтесттин" сынагынан өткөнүн билдирди — информация о прохождении теста, не событие
-- [ru] чужое_мелкое: [pool] РБК — Умер бард и правозащитник Петр Старчик — новость о деятеле культуры РФ, не имеет последствий для KG
-- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — У гостиницы в Москве нашли тело подростка. СМИ сообщают, что он из Архангельска — криминальное происшествие в РФ, не имеет последствий для KG
-- [ru] не_новость: [pool] 72.ru — Тюмень — Названы самые высокооплачиваемые профессии среди тюменских осужденных — аналитическая информация о зарплатах, не событие
-- [ru] не_новость: [pool] ngs24.ru — Красноярск — Музей ретроавто в Красноярске открылся снова, но не со всеми машинами — реорганизация музея, не событие
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Екатеринбуржцев из нового войска Минобороны начнут увозить в Москву — внутренняя военная логистика РФ
-- [ru] не_новость: [pool] 63.ru — Самара — В Самарской области проводили на пенсию «главного тушилу» — фото — плановый уход на пенсию
-- [ru] не_новость: [pool] ngs.ru — Новосибирск — В Новосибирске выставили на продажу трехэтажный ТЦ по цене двухкомнатной квартир — объявление о продаже коммерческой недвижимости
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Из-за угрозы атак дронами в Тюмени сорвался концерт со звездами — отмена концерта в РФ из-за внутренних проблем
-- [ru] не_новость: [pool] 60.ru — Псков — Следствие ищет жертв мошенника Лащенко в Псковском районе — рутинная работа полиции по поиску свидетелей
-- [ru] курьёз: [pool] Knews.kg — Глава NVIDIA предложил Казахстану развивать физический ИИ — предложение ИИ-индустрии, не событие
-- [ru] не_новость: [pool] Knews.kg — В Таджикистане гадалок, колдунов и проституток проституток заносят в базу МВД вм — канцелярское сообщение о создании базы данных
-- [ru] не_новость: [world] 24.kg — Маск обвинил ВСУ в использовании Starlink для атак «с целью убийства людей» — мнение Илона Маска, не событие
-- [ru] не_новость: [world] BBC Русская служба — Может ли Дональд Трамп вернуть российский газ в Европу? — рассуждения о политике, а не факт
-- [ru] не_новость: [world] BBC Русская служба — Бернем заявил, что не против возвращения свободы передвижения между Британией и  — мнение политика, а не принятое решение
-- [ru] не_новость: [world] The Independent — Обама обрушился с критикой на Трампа из-за войны с Ираном и высмеял его дипломат — критика между политиками, а не событие
-- [ru] не_новость: [world] BBC Русская служба — Глава ФИФА Инфантино говорит о поддержке большинства в мировом футболе и об отст — заявление о намерениях остаться на посту
-- [ru] не_новость: [world] TechCrunch — СМИ: Instacart обсуждает возможность продажи компании DoorDash и Uber — слухи о сделке, не событие
-- [ru] не_новость: [world] Wired — Кризис с уязвимостями в PHP показывает, как ИИ облегчает использование багов — обзор ситуации с уязвимостями, не событие
-- [ru] не_новость: [world] Азаттык — «Интервидения» в Саудовской Аравии в 2026 году не будет — отмена планового мероприятия, не событие
-- [ru] не_новость: [world] Avesta.tj — Гутерриш: протесты граждан по всему миру связаны с экономическими последствиями  — мнение генсека ООН, не событие
-- [ru] не_новость: [world] Knews.kg — Дональд Трамп заявил о праве баллотироваться на третий срок — высказывание о будущем, не событие
+- [pt] курьёз: [local] Poder360 — Somado a estresse, horário do jantar pode influenciar na saúde intestinal — научный факт о здоровье, нет события.
+- [pt] не_новость: [local] CNN Brasil — Cuca evita julgar expulsão de Neymar e promete papo: “Temos que entender” — комментарий тренера после матча без последствий.
+- [pt] не_новость: [local] G1 São Paulo — Fred Bruno diz que pé está 'quase zero' após lesão causada por tiro de arma de d — личная новость об окончании реабилитации.
+- [pt] курьёз: [local] G1 Distrito Federal — Secretaria de Saúde do DF convoca para exame paciente falecida há três meses — ошибка секретариата, не событие для ленты.
+- [pt] курьёз: [local] G1 Rio Grande do Sul — Bênçãos pelo celular: entenda como benzedeiras adaptam rituais para seguir tradi — повествование о традициях, а не событие.
+- [pt] не_новость: [local] G1 Bahia — Prefeitura de Feira de Santana convoca aprovados em concurso público; veja lista — плановая административная процедура.
+- [pt] курьёз: [local] G1 Bahia — Menino de 11 anos do sertão baiano é aprovado no Bolshoi após pesquisar seleção  — личная история успеха, интересное, но не новость.
+- [pt] не_новость: [pool] Notícias ao Minuto — O gesto de Samu depois de Borja Sainz marcar e celebrar em Barcelos — подробности празднования гола.
+- [pt] не_новость: [pool] Jornal de Negócios — Cauções das rendas: “Se há celeuma” Governo deve recuar, diz presidente da CIP — мнение эксперта/чиновника, а не событие.
+- [pt] не_новость: [pool] Expresso das Ilhas — CFP pede maior fundamentação de previsões económicas e análise aprofundada dos r — аналитический отчет/прогноз, а не событие.
+- [pt] не_новость: [pool] Expresso das Ilhas — Abertura do Ano Judicial: Morosidade processual e capacidade de resposta dos tri — отчет о состоянии дел, нет события.
+- [pt] курьёз: [pool] Téla Nón — Criação de Búzio D’obô “Ex situ” — информация о виде улитки, нет события.
+- [pt] не_новость: [pool] Téla Nón — Projeto de pesca responsável impulsiona adoção da técnica de palangre — анонс внедрения метода.
+- [pt] курьёз: [world] Wired — Cientistas aprisionaram uma partícula de antimatéria por meses para estudar seus — фундаментальное научное исследование, нет события.
+- [pt] курьёз: [world] Muy Interesante — Descoberto na Turquia um sarcófago romano de 2.000 anos com um rosto misterioso  — археологическая находка, место в 'Интересном'.
+- [pt] курьёз: [world] Muy Interesante — Encontrado na China um possível templo de 5.000 anos usado para venerar governan — археологическая находка, место в 'Интересном'.
+- [pt] курьёз: [world] Futura-Sciences — Uma IA que se autorreplica como um organismo vivo: pesquisadores exploram um cen — исследование сценариев ИИ, нет события.
+- [pt] не_новость: [world] Variety — Prêmios Serielizados: 'Etty', de Hagai Levi, e 'Killing a Bear' conquistam grand — результаты награждения не являются мировым событием.
+- [pt] курьёз: [world] Live Science — 'Gaivota' cósmica encara o Observatório Vera C. Rubin em imagem de teste aguarda — публикация фото, не новость.
+- [pt] курьёз: [world] Superinteressante — Essa cobra foge do perigo dando cambalhota; veja vídeo — биологический факт.
+- [pt] не_новость: [world] Sciences et Avenir — Desmistificando falsos discursos científicos com a seleção de livros da redação — подборка книг редакции.
+- [pt] курьёз: [world] Naked Science — Cientistas criam formigas com corpo de operária e cabeça de soldado — биологический эксперимент.
+- [pt] не_новость: [world] Sciences et Avenir — Restrição calórica no menu da exploração espacial — описание эксперимента, нет события.
+- [pt] курьёз: [world] Smithsonian Magazine — Equipe de astrônomos acredita ter identificado o céu noturno exato que inspirou  — искусствоведческая гипотеза.
+- [pt] не_новость: [world] Semafor — Warhound arrecada US$ 200 milhões para criar cães militares geneticamente modifi — привлечение инвестиций стартапом, не является событием.
+- [fr] курьёз: [local] L'Express — L’Homme est-il naturellement violent ? Ce que révèle l’histoire de notre espèce — научно-популярный разбор, а не новость
+- [fr] курьёз: [local] Le Figaro — «Une erreur en régie» : CNews et France Info diffusent par erreur des images de  — мелкая ошибка в эфире, не событие
+- [fr] курьёз: [local] La Dépêche — "J'ai mis toutes mes économies et je ne pouvais plus tenir" : ancien mécanicien, — личная история, не событие
+- [fr] курьёз: [local] L'Express — Solitude, écrans, IA érotiques : "Nous sombrons dans le monde de l’obsolescence  — мнение автора, не событие
+- [fr] курьёз: [local] La Dépêche — "Le vendeur choisit le montant du don" : Ce Toulousain lance une plateforme de v — запуск стартапа, реклама
+- [fr] курьёз: [local] Le Figaro — Manifestations du 24 octobre : qu’est-ce que Bitchat, cette appli de messagerie  — обзор приложения, не событие
+- [fr] чужое_мелкое: [pool] Radio-Canada — Le Bloc présente une candidate pour souligner le « déficit d’autorité morale de  — внутренняя политика Канады, не мировое событие
+- [fr] не_новость: [pool] Radio-Canada — Enjeux et attentes de taille pour la rencontre Premières Nations–premiers minist — ожидания от встречи, анонс
+- [fr] чужое_мелкое: [world] La Tribune — Donald Trump annonce un « énorme investissement » d'Audi aux États-Unis — предвыборное обещание кандидата, не событие
+- [fr] чужое_мелкое: [world] La Dépêche — Donald Trump : "Pourquoi devons-nous toujours prendre des gens venant de pays de — высказывание кандидата, не событие
+- [fr] не_новость: [world] France 24 FR — À Tel-Aviv, la gauche se mobilise contre Netanyahu à deux jours des législatives — обычный митинг, не событие
+- [fr] не_новость: [world] France 24 FR — Éthiopie : un forum consacré aux enjeux de sécurité en Afrique — анонс форума без итогов
+- [fr] курьёз: [world] Futura-Sciences — Une IA qui se reproduit comme un organisme vivant : les chercheurs explorent un  — теоретическое исследование, не новость
+- [fr] повтор: [world] France 24 FR — Manifestations en France, frappes en Ukraine, présidentielle au Brésil : la sema ≈ «"Pas la solution magique": les président» — обзорный материал, объединяющий другие новости
+- [fr] чужое_мелкое: [world] Bénin Web TV — Real Madrid : Courtois forfait pour le Clasico en raison d’un syndrome grippal — новость спорта, не мировая
+- [fr] курьёз: [world] Nice-Matin — Les stars du tennis mondial de demain ont fait le show à Monaco sur la terre bat — обзор юниорского турнира, не мировая новость
+- [fr] курьёз: [world] Futura-Sciences — Cancer du sein : ce n’est pas toujours une boule, ces changements doivent aussi  — медицинский совет, не новость
+- [fr] не_новость: [world] Franceinfo — "La sécurité" plutôt que "la paix" : dans la campagne pour les législatives en I — анализ кампании, а не событие
+- [fr] курьёз: [world] Sciences et Avenir — La restriction calorique au menu de l'exploration spatiale — научный эксперимент, не событие
