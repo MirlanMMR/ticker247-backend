@@ -1,46 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Poder360 — Somado a estresse, horário do jantar pode influenciar na saúde intestinal — научный факт о здоровье, нет события.
-- [pt] не_новость: [local] CNN Brasil — Cuca evita julgar expulsão de Neymar e promete papo: “Temos que entender” — комментарий тренера после матча без последствий.
-- [pt] не_новость: [local] G1 São Paulo — Fred Bruno diz que pé está 'quase zero' após lesão causada por tiro de arma de d — личная новость об окончании реабилитации.
-- [pt] курьёз: [local] G1 Distrito Federal — Secretaria de Saúde do DF convoca para exame paciente falecida há três meses — ошибка секретариата, не событие для ленты.
-- [pt] курьёз: [local] G1 Rio Grande do Sul — Bênçãos pelo celular: entenda como benzedeiras adaptam rituais para seguir tradi — повествование о традициях, а не событие.
-- [pt] не_новость: [local] G1 Bahia — Prefeitura de Feira de Santana convoca aprovados em concurso público; veja lista — плановая административная процедура.
-- [pt] курьёз: [local] G1 Bahia — Menino de 11 anos do sertão baiano é aprovado no Bolshoi após pesquisar seleção  — личная история успеха, интересное, но не новость.
-- [pt] не_новость: [pool] Notícias ao Minuto — O gesto de Samu depois de Borja Sainz marcar e celebrar em Barcelos — подробности празднования гола.
-- [pt] не_новость: [pool] Jornal de Negócios — Cauções das rendas: “Se há celeuma” Governo deve recuar, diz presidente da CIP — мнение эксперта/чиновника, а не событие.
-- [pt] не_новость: [pool] Expresso das Ilhas — CFP pede maior fundamentação de previsões económicas e análise aprofundada dos r — аналитический отчет/прогноз, а не событие.
-- [pt] не_новость: [pool] Expresso das Ilhas — Abertura do Ano Judicial: Morosidade processual e capacidade de resposta dos tri — отчет о состоянии дел, нет события.
-- [pt] курьёз: [pool] Téla Nón — Criação de Búzio D’obô “Ex situ” — информация о виде улитки, нет события.
-- [pt] не_новость: [pool] Téla Nón — Projeto de pesca responsável impulsiona adoção da técnica de palangre — анонс внедрения метода.
-- [pt] курьёз: [world] Wired — Cientistas aprisionaram uma partícula de antimatéria por meses para estudar seus — фундаментальное научное исследование, нет события.
-- [pt] курьёз: [world] Muy Interesante — Descoberto na Turquia um sarcófago romano de 2.000 anos com um rosto misterioso  — археологическая находка, место в 'Интересном'.
-- [pt] курьёз: [world] Muy Interesante — Encontrado na China um possível templo de 5.000 anos usado para venerar governan — археологическая находка, место в 'Интересном'.
-- [pt] курьёз: [world] Futura-Sciences — Uma IA que se autorreplica como um organismo vivo: pesquisadores exploram um cen — исследование сценариев ИИ, нет события.
-- [pt] не_новость: [world] Variety — Prêmios Serielizados: 'Etty', de Hagai Levi, e 'Killing a Bear' conquistam grand — результаты награждения не являются мировым событием.
-- [pt] курьёз: [world] Live Science — 'Gaivota' cósmica encara o Observatório Vera C. Rubin em imagem de teste aguarda — публикация фото, не новость.
-- [pt] курьёз: [world] Superinteressante — Essa cobra foge do perigo dando cambalhota; veja vídeo — биологический факт.
-- [pt] не_новость: [world] Sciences et Avenir — Desmistificando falsos discursos científicos com a seleção de livros da redação — подборка книг редакции.
-- [pt] курьёз: [world] Naked Science — Cientistas criam formigas com corpo de operária e cabeça de soldado — биологический эксперимент.
-- [pt] не_новость: [world] Sciences et Avenir — Restrição calórica no menu da exploração espacial — описание эксперимента, нет события.
-- [pt] курьёз: [world] Smithsonian Magazine — Equipe de astrônomos acredita ter identificado o céu noturno exato que inspirou  — искусствоведческая гипотеза.
-- [pt] не_новость: [world] Semafor — Warhound arrecada US$ 200 milhões para criar cães militares geneticamente modifi — привлечение инвестиций стартапом, не является событием.
-- [fr] курьёз: [local] L'Express — L’Homme est-il naturellement violent ? Ce que révèle l’histoire de notre espèce — научно-популярный разбор, а не новость
-- [fr] курьёз: [local] Le Figaro — «Une erreur en régie» : CNews et France Info diffusent par erreur des images de  — мелкая ошибка в эфире, не событие
-- [fr] курьёз: [local] La Dépêche — "J'ai mis toutes mes économies et je ne pouvais plus tenir" : ancien mécanicien, — личная история, не событие
-- [fr] курьёз: [local] L'Express — Solitude, écrans, IA érotiques : "Nous sombrons dans le monde de l’obsolescence  — мнение автора, не событие
-- [fr] курьёз: [local] La Dépêche — "Le vendeur choisit le montant du don" : Ce Toulousain lance une plateforme de v — запуск стартапа, реклама
-- [fr] курьёз: [local] Le Figaro — Manifestations du 24 octobre : qu’est-ce que Bitchat, cette appli de messagerie  — обзор приложения, не событие
-- [fr] чужое_мелкое: [pool] Radio-Canada — Le Bloc présente une candidate pour souligner le « déficit d’autorité morale de  — внутренняя политика Канады, не мировое событие
-- [fr] не_новость: [pool] Radio-Canada — Enjeux et attentes de taille pour la rencontre Premières Nations–premiers minist — ожидания от встречи, анонс
-- [fr] чужое_мелкое: [world] La Tribune — Donald Trump annonce un « énorme investissement » d'Audi aux États-Unis — предвыборное обещание кандидата, не событие
-- [fr] чужое_мелкое: [world] La Dépêche — Donald Trump : "Pourquoi devons-nous toujours prendre des gens venant de pays de — высказывание кандидата, не событие
-- [fr] не_новость: [world] France 24 FR — À Tel-Aviv, la gauche se mobilise contre Netanyahu à deux jours des législatives — обычный митинг, не событие
-- [fr] не_новость: [world] France 24 FR — Éthiopie : un forum consacré aux enjeux de sécurité en Afrique — анонс форума без итогов
-- [fr] курьёз: [world] Futura-Sciences — Une IA qui se reproduit comme un organisme vivant : les chercheurs explorent un  — теоретическое исследование, не новость
-- [fr] повтор: [world] France 24 FR — Manifestations en France, frappes en Ukraine, présidentielle au Brésil : la sema ≈ «"Pas la solution magique": les président» — обзорный материал, объединяющий другие новости
-- [fr] чужое_мелкое: [world] Bénin Web TV — Real Madrid : Courtois forfait pour le Clasico en raison d’un syndrome grippal — новость спорта, не мировая
-- [fr] курьёз: [world] Nice-Matin — Les stars du tennis mondial de demain ont fait le show à Monaco sur la terre bat — обзор юниорского турнира, не мировая новость
-- [fr] курьёз: [world] Futura-Sciences — Cancer du sein : ce n’est pas toujours une boule, ces changements doivent aussi  — медицинский совет, не новость
-- [fr] не_новость: [world] Franceinfo — "La sécurité" plutôt que "la paix" : dans la campagne pour les législatives en I — анализ кампании, а не событие
-- [fr] курьёз: [world] Sciences et Avenir — La restriction calorique au menu de l'exploration spatiale — научный эксперимент, не событие
+- [ru] чужое_мелкое: [local] Kaktus.media — Кубок Азии - 2027 с участием Кыргызстана могут перенести на 2028 год — Спекуляции о переносе Кубка Азии (не KG событие) для местной ленты.
+- [ru] не_новость: [local] 24.kg — Ущелье Адыгене и иссык-кульские облака. Мгновения жизни: фото и видео читателей — Рубрика с фотографиями — не событие по белому списку.
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Фильм ярославского актера и продюсера Романа Курцына покажут на фестивале в Лонд — Локальное событие РФ (фильм актера из Ярославля) не является новостью для пула KG.
+- [ru] курьёз: [pool] ufa1.ru — Уфа — «Хоккей подарил мне все»: капитан «Салавата Юлаева» получил золотую клюшку за 10 — Спортивное достижение игрока РФ не является значимым для читателя в KG.
+- [ru] не_новость: [pool] Sputnik KG — Это перебор — Путин ответил на обвинения России в провоцировании беспорядков в Е — Словесная реакция политика на обвинения — это не событие (этикет).
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самаре парк с альпаками и ламами работал с нарушениями — Локальная инспекция частного зоопарка в Самаре.
+- [ru] курьёз: [pool] ngs.ru — Новосибирск — «Сбылась мечта девочки из Новосибирска»: Пелагея попробовала себя в рэпе — видео — Развлекательный контент с участием российской певицы.
+- [ru] курьёз: [pool] e1.ru — Екатеринбург — «Надо было битой в лобовуху дать». Пешеход отдубасил портфелем машину, не до кон — Бытовой конфликт в Екатеринбурге не является новостью для читателя в KG.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Шацкая больница получила новый автомобиль скорой помощи — Передача автомобиля скорой помощи в РФ.
+- [ru] чужое_мелкое: [pool] Onliner.by — Не учла погоду и оказалась на встречке. В Минске легковушка столкнулась с фурой — Мелкое ДТП в Минске без участия граждан KG.
+- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — «Какой-то бред»: в Ростове вынесли приговор арбалетчику, который убивал собак в  — Локальный приговор в РФ по делу о жестоком обращении с животными.
+- [ru] курьёз: [pool] 116.ru — Казань — На Алтае камера сняла снежного барса с тремя котятами. — Видео с леопардом не является новостью, место в 'Интересном'.
+- [ru] не_новость: [pool] Onliner.by — В «Минсктрансе» рассказали, что мешает запустить оплату проезда банковской карто — Обсуждение (а не принятие) возможности оплаты картой.
+- [ru] чужое_мелкое: [pool] Onliner.by — Двое суток в лесу. Под Витебском нашли пенсионера, который застрял в болоте — Происшествие в Беларуси с местным жителем.
+- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — «Зенит» удалил эпиграмму после протеста махачкалинцев — Удаление поста в соцсетях — не событие.
+- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — «Чкаловскую» временно закрыли на вход — Временное закрытие эскалатора в метро (рутинная неисправность).
+- [ru] не_новость: [pool] 72.ru — Тюмень — Названы самые высокооплачиваемые профессии среди тюменских осужденных — Справка о зарплатах заключенных без конкретного события.
+- [ru] не_новость: [pool] ngs24.ru — Красноярск — Музей ретроавто в Красноярске открылся снова, но не со всеми машинами — Очередное открытие частного музея.
+- [ru] чужое_мелкое: [pool] Knews.kg — Китайская компания планирует выйти на рынок такси Узбекистана — Планы китайской компании по выходу на рынок Узбекистана.
+- [ru] полка: [world] Reuters — Медведев защитил титул на турнире Almaty Open, приблизившись к итоговому турниру — Победа Медведева на турнире в Алматы — региональная новость, а не мировая.
+- [ru] не_новость: [world] Fortune — Стартап Билли Эванса «Theranos 2.0» обладает патентами и инвесторами, но не имее — Корпоративные дрязги в стартапе США не являются мировым событием.
+- [ru] не_новость: [world] Variety — Премия Serielizados: сериалы «Этти» Хагая Леви и «Убить медведя» стали победител — Результаты локальной премии сериалов.
+- [ru] чужое_мелкое: [world] BBC Русская служба — Меган Маркл разорвала отношения с отцом, обвинив его в насилии над детьми — Личные семейные отношения Меган Маркл.
+- [ru] не_новость: [world] Азаттык — «Интервидения» в Саудовской Аравии в 2026 году не будет — Отмена музыкального конкурса — не событие мирового масштаба.
+- [ru] не_новость: [world] Semafor — Операторы ставок и рынки предсказаний потратили рекордные суммы на пожертвования — Аналитическая заметка о расходах на лоббизм, нет события.
