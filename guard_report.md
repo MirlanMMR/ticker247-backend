@@ -1,27 +1,20 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] NY Post — John Harbaugh gets ‘tackled’ by Devin Singletary in wild Giants celebration — Это развлекательная заметка о поведении тренера, а не новость о спортивном событии.
-- [en] не_новость: [local] NY Post — NYC subway mayhem mounts on Kathy Hochul’s watch — and she hopes you won’t notic — Авторская колонка с мнением, а не новостной факт.
-- [en] не_новость: [local] Oil City News — Lawmakers propose $11M fix to restore school sports and activities funding — Законодательное предложение (планы), а не свершившееся решение.
-- [en] не_новость: [local] KFVS12 — Fuel Tacos & Burgers in Jackson officially closes — Закрытие частного бизнеса — рядовое событие, не имеющее значимости для широкого круга читателей.
-- [en] курьёз: [local] Arizona's Family — Chiricahua now a national park with “no confirmed timeline” for updated souvenir — Отсутствие сувениров — бытовая деталь, не является новостным событием.
-- [en] не_новость: [local] Portland Press Herald — Portland’s Sacred Heart Church holds final Mass — Плановое закрытие объекта из-за стоимости ремонта.
-- [en] не_новость: [local] NH Union Leader Latest News — Dear Abby: Mom isn't keen on walk down memory lane with son — Рубрика советов Dear Abby не является новостью.
-- [en] не_новость: [local] San Antonio Report — How can San Antonio regulate data centers? — Аналитическая статья с вопросом, а не факт события.
-- [en] курьёз: [local] NH Union Leader Latest News — Improving UNH men's hockey team earns series split with high powered Michigan St — Спортивный обзор-аналитика, не является срочным или значимым новостным фактом.
-- [en] курьёз: [local] WKYT — ‘Watercolor girl’: Lexington artist finds new calling painting horses ahead of B — История о художнике перед мероприятием — это развлекательный материал.
-- [en] курьёз: [local] Cleveland.com — Daylight saving time and Halloween meet this year: It won’t happen again for mor — Любопытный факт про календарь и время, не является новостью.
-- [en] не_новость: [local] WDBJ7 — Unrestrained traffic deaths drop 16% since Virginia seatbelt law took effect — Статистический отчет о годовой давности не является оперативной новостью.
-- [en] курьёз: [local] WBAL — VIDEO | ‘Not all cat rescues happen in trees’: Kitten rescued from busy freeway — Спасение котенка — типичный «милый» контент, не является новостью.
-- [en] курьёз: [local] KCRG — Cedar Bend Humane Society waives fees for its longest-waiting dogs and cats — Рядовая маркетинговая акция приюта.
-- [en] не_новость: [local] WV MetroNews — AG subpoenas environmental group West Virginia Rivers over climate claims — Запрос документов (субпоэна) — это процедурный этап, а не финал расследования или обвинение.
-- [en] курьёз: [pool] Rolling Stone — Elon Musk’s Grok Finally Delivers First Installment of ‘Historically Accurate’ ‘ — Обзор работы чат-бота, не является новостным событием.
-- [en] не_новость: [pool] WISH-TV — Indianapolis office market shows signs of rebound, report says — Публикация рыночного отчета без свершившегося факта сделок.
-- [en] не_новость: [pool] KSL.com — Utah business, government leaders deepen connections in Ireland — Рабочая поездка делегации (установление контактов) без итоговых соглашений.
-- [en] не_новость: [pool] Ars Technica — Hegseth warns prediction market bets warp military judgment, endanger troops — Предупреждение (мемо) чиновника, а не свершившееся событие.
-- [en] повтор: [world] Reuters — Antonelli gana el Gran Premio de EEUU, pero tendrá que esperar para proclamarse  ≈ «Kimi Antonelli edges closer to title aft» — Дублирует сюжет о победе Антонелли.
-- [en] повтор: [world] Reuters — Supremo Tribunal Federal de Brasil amplía en dos horas horario de votación en ba ≈ «The Latest: Brazilians vote in a tense r» — Дублирует сюжет о выборах в Бразилии.
-- [en] не_новость: [world] TechCrunch — TechCrunch Mobility: Blue-green is the color of autonomy — Анонс рассылки (Hub for the future), не является новостью.
-- [en] повтор: [world] Reuters — Machado sorprende con llegada a Venezuela, seguidores celebran su vuelta ≈ «Opposition leader María Corina Machado r» — Дублирует сюжет о возвращении Мачадо.
-- [en] не_новость: [world] Wired — Wallhack M-001 Review: When Fun Overrides Specs — Обзор компьютерной мыши, не является новостью.
-- [en] курьёз: [world] Ars Technica — A 1,000-mile cloud on Mars may reveal physics never seen in nature — Научное наблюдение без практического применения или события.
+- [es] курьёз: [local] El Universal MX — Roedores en el hogar; guía práctica para deshacerte de ellos de forma segura — Советы по борьбе с грызунами — это бытовая статья, а не новость.
+- [es] не_новость: [local] El Universal MX — INE difunde renuncia de Taddei; decisión busca proteger al Instituto, afirma — Это анонс будущей отставки, которая еще не состоялась.
+- [es] чужое_мелкое: [local] El Financiero — No solo es con México: Negociación entre EU y Canadá ‘cobra impulso’ y ‘están ce — Переговоры между США и Канадой — внутренняя тема этих стран без влияния на Мексику.
+- [es] не_новость: [local] El Financiero — ‘Ni corrupción ni privilegios’, dice Sheinbaum en medio del escándalo de Guadalu — Цитата политика («ни коррупции, ни привилегий») не является событием.
+- [es] не_новость: [local] El Sol de México — INE abre portal ciudadano para consultar sus procesos de contratación — Запуск портала для ознакомления — служебная информация, не меняет положение дел.
+- [es] не_новость: [pool] El Universo EC — Willian Pacho, nominado al Balón de Oro: dónde ver la gala EN VIVO desde Ecuador — Номинация на премию — это не событие с последствиями, а факт из сферы культуры/спорта.
+- [es] повтор: [pool] El Comercio PE — VIDEO: Boca Juniors derrotó agónicamente a Independiente en Avellaneda por Liga  ≈ «¡Con gol de ‘Jagger’! Boca Juniors venci» — Один и тот же матч и результат.
+- [es] не_новость: [pool] Infobae — Transportistas acuerdan diálogo con Segob; CANACAR mantiene convocatoria de prot — Договоренность о диалоге — это намерения, а не состоявшееся решение.
+- [es] курьёз: [pool] Infobae — Anamá Ferreira votó en el balotaje de Brasil y tuvo un altercado con un votante  — Бытовой конфликт на избирательном участке не имеет общественной значимости.
+- [es] не_новость: [pool] La Nación AR — “Cruzó un límite”: Bullrich criticó los ataques de Milei a la prensa y volvió a  — Мнение политика о другом политике («критиковала», «взяла дистанцию») — это не событие.
+- [es] не_новость: [pool] Marca — "Eso se paga..." — Цитата игрока после матча без конкретного результата.
+- [es] повтор: [pool] Marca — "Lamine es muy bueno y, además, es listo..." ≈ «El mejor Real Madrid nace en el Camp Nou» — Один и тот же футбольный матч.
+- [es] курьёз: [pool] Marca — Otra celebración en el Camp Nou que ya es historia: puro Mou — Описание празднования тренером гола — спортивная аналитика/интересное.
+- [es] чужое_мелкое: [pool] Montevideo Portal — De héroe a la cárcel: imputaron a exjefe policial por robar bienes de la casa de — Арест полицейского в Боливии по делу Марасета — локальная новость другой страны.
+- [es] не_новость: [world] Clarín AR — La rapera Nicki Minaj sube al avión presidencial y acompaña a Trump a un mitin e — Кто с кем летел в самолете — светская хроника, не событие.
+- [es] не_новость: [world] Clarín AR — Trump quiere que El-Sayed pase por un detector de metales si gana las elecciones — Заявление Трампа о желании использовать детектор лжи — это просто слова.
+- [es] не_новость: [world] RFI — Elecciones de mitad de mandato 2026: en Texas, la rebelión contra los centros de — Недовольство жителей центрами данных — описание протестных настроений, не событие с результатом.
+- [es] не_новость: [world] Expansión MX — Trump vota por anticipado en Florida para las elecciones intermedias de EU — Трамп проголосовал заранее — рутинная процедура, не новость.
