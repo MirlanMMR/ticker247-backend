@@ -1,37 +1,15 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Folha de S.Paulo — Um em cada quatro adultos com diabetes tem perda auditiva, aponta estudo — исследование без последствий для читателя, не событие
-- [pt] не_новость: [local] Folha de S.Paulo — Nova exposição no Palácio Capanema revela bastidores dos murais de Portinari — описание выставки, не событие
-- [pt] не_новость: [local] Poder360 — “Vai se catar, meu filho”, diz Janja a jornalista — этикет/перепалка, не меняет положение дел
-- [pt] не_новость: [local] G1 São Paulo — Fred Bruno diz que pé está 'quase zero' após lesão causada por tiro de arma de d — отчет о состоянии здоровья, не событие
-- [pt] курьёз: [local] G1 Rio Grande do Sul — ANTES e DEPOIS: veja como era e como ficou Galaxie retirado do 9º andar de prédi — история об автомобиле, не событие
-- [pt] не_новость: [pool] Terra BR — Ancelotti inclui Luciano Juba em pré-lista da Seleção Brasileira — спортивный анонс (предварительный список)
-- [pt] курьёз: [pool] Público — Rick e Megan Prelinger abrem o futuro ao cinema efémero do passado — архивное кино, не событие
-- [pt] не_новость: [pool] Téla Nón — Criação de Búzio D’obô “Ex situ” — информация о виде улиток, не событие
-- [pt] не_новость: [world] The Independent — Advogado de Trump, Todd Blanche, perde a calma ao ser questionado sobre a revers — перепалка в интервью, не событие
-- [pt] курьёз: [world] Naked Science — Químicos sintetizaram um parafuso de Arquimedes molecular — научный факт, не событие
-- [pt] курьёз: [world] Rolling Stone — Alex Winter explica como trouxe humanidade a um predador em 'Primetime' — история о съемках, не событие
-- [pt] курьёз: [world] Superinteressante — Melatonina: uma aliada inesperada contra o mais agressivo dos cânceres do cérebr — медицинское исследование, не событие
-- [pt] не_новость: [world] Variety — Os criadores de 'The New Stanford Prison Experiment' explicam o seu final chocan — объяснение финала фильма, не событие
-- [pt] курьёз: [world] Good News Network — Encontro casual em restaurante chinês salva a vida de um homem — частная история, не событие
-- [pt] курьёз: [world] Muy Interesante — Um menu de cobras e lagartos: estudo comprova o consumo de répteis nas terras da — археологическое исследование, не событие
-- [pt] курьёз: [world] Wired — Cientistas aprisionaram uma partícula de antimatéria por meses para estudar seus — научный эксперимент, не событие
-- [pt] курьёз: [world] Live Science — 'Gaivota' cósmica encara o Observatório Vera C. Rubin em imagem de teste aguarda — тестовый снимок телескопа, не событие
-- [pt] курьёз: [world] Good News Network — Estudo mostra que aglomerados de estrelas em 'A Noite Estrelada', de Van Gogh, c — исследование картины, не событие
-- [pt] курьёз: [world] Smithsonian Magazine — Equipe de astrônomos acredita ter identificado o céu noturno exato que inspirou  — дублирует тему 82, не событие
-- [fr] курьёз: [local] BFMTV — Cette voiture est fabriquée avec... du lin ! — Это любопытный факт о дизайне авто, не является новостным событием.
-- [fr] курьёз: [local] Nice-Matin — « Jamais de ma vie je n’ai vu une telle efficacité » : cambriolée chez elle à Ni — Частная история благодарности полиции, не имеющая общественного значения.
-- [fr] курьёз: [local] La Dépêche — "Je me retrouve sans travail parce que j’avais envie de faire un gros caca" : à  — Нелепый инцидент с участием комика, не является общественно значимой новостью.
-- [fr] не_новость: [local] Nice-Matin — « Une petite Fête de l’Huma » : c’est quoi ce rassemblement d’associations, ONG  — Описание состава участников собрания без события как такового.
-- [fr] курьёз: [local] L'Obs — « Les Enfants de mon père » : quand une petite fille refuse d’effacer ses frères — Психологическая зарисовка, не является новостным событием.
-- [fr] не_новость: [local] L'Express — L’Homme est-il naturellement violent ? Ce que révèle l’histoire de notre espèce — Аналитическая статья-размышление, нет конкретного события.
-- [fr] чужое_мелкое: [pool] Le Devoir — Le meurtrier condamné qui étudiait à McGill est de retour en détention — Внутренняя административная новость Канады без международного влияния.
-- [fr] чужое_мелкое: [pool] Radio-Canada — Le Bloc présente une candidate pour souligner le « déficit d’autorité morale de  — Предвыборная рутина (выдвижение кандидата) в Канаде.
-- [fr] не_новость: [pool] Radio-Canada — Alto testerait les premiers TGV du pays à l’est d’Ottawa — Тестирование инфраструктуры — это процесс, нет факта запуска или ввода.
-- [fr] не_новость: [pool] Radio-Canada — Enjeux et attentes de taille pour la rencontre Premières Nations–premiers minist — Описание ожиданий от встречи — это анонс и разбор, не событие.
-- [fr] курьёз: [world] Futura-Sciences — Une caméra jetée sur la Lune, des œuvres d'art, des objets secrets : un chercheu — Историко-научная справка о предметах в космосе, не новость.
-- [fr] чужое_мелкое: [world] RTBF — Une "importante quantité de matériel pédopornographique" trouvée à l’ancien domi — Сплетни вокруг семьи Меган Маркл, не является мировой новостью.
-- [fr] курьёз: [world] Courrier International — En Pologne, les sangliers envahissent les villes — Заметка о поведении животных в польских городах.
-- [fr] повтор: [world] RFI — Attentat raciste en France: la garde à vue du tireur levée pour raisons psychiat ≈ «Attaque dans les Yvelines : la garde à v» — То же событие, что и в карточке 1 (отмена меры пресечения из-за психиатрии).
-- [fr] чужое_мелкое: [world] Africanews FR — Nigeria : Bola Tinubu lance sa campagne pour un second mandat sur fond de crise  — Начало предвыборной кампании в Нигерии — внутренняя политика, не задевает FR.
-- [fr] чужое_мелкое: [world] Africanews FR — Haïti : l’ancien président Michel Martelly se porte candidat malgré les sanction — Выдвижение кандидата в Гаити, не имеет международного масштаба.
+- [en] курьёз: [local] Cleveland.com — Raiders teammates debate animals they could fight — Спор спортсменов о вымышленных драках с животными — развлекательный контент.
+- [en] не_новость: [local] WBAL — ‘You Can See Everything’ surges with $19.5M at box office; ‘Clayface’ takes No.  — Это обзор кассовых сборов за выходные, а не событие.
+- [en] чужое_мелкое: [pool] El Tiempo CO — United States sentences Peruvian-American to prison for sexual exploitation of a — Внутренний уголовный приговор в Колумбии — для US это не мировая новость.
+- [en] чужое_мелкое: [pool] Hindustan Times — Mumbai Police detains 25, including comedian Masoom Rajwani, over candle march f — Задержание на митинге в Индии — локальное событие без влияния на мир.
+- [en] повтор: [pool] Guardian Sport — Michael Carrick on the brink after Manchester United are humiliated by Bournemou ≈ «Neville fears Carrick set to be sacked a» — Один и тот же сюжет об увольнении тренера МЮ.
+- [en] не_новость: [pool] Cleveland.com — Beloved TV star dies at 51 — Биографическая заметка о смерти актрисы второго плана.
+- [en] анонс: [world] Reuters — Thousands protest Czech government's public media overhaul after rushed vote — Заметка обрывается, нет сути происходящего.
+- [en] курьёз: [world] Variety — Elon Musk’s Grok Releases First AI-Generated ‘Odyssey’ Episode, Months After Pro — Новости об ИИ-фильмах — это технологический курьёз, а не значимое событие.
+- [en] не_новость: [world] TechCrunch — AI delivers ‘zero financial payoff’ to most companies, Apollo economist says — Мнение экономиста об эффективности ИИ — это аналитика, а не свершившееся событие.
+- [en] не_новость: [world] Fortune — Tech leaders want to use religion to teach AI right from wrong. — Размышления о будущем ИИ — это обсуждение концепций, а не событие.
+- [en] курьёз: [world] Wired — Scientists Trapped an Antimatter Particle for Months to Study Its Secrets — Научный факт об антиматерии — место в разделе «Интересное».
+- [en] курьёз: [world] Ars Technica — A 1,000-mile cloud on Mars may reveal physics never seen in nature — Наблюдение за облаками на Марсе — это познавательный контент, а не новость.
+- [en] не_новость: [world] Semafor — Betting operators and prediction markets spent record amounts on campaign donati — Подборка данных о лоббизме — это аналитический обзор, а не событие.
