@@ -1,22 +1,37 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Financiero — ⁠¿Te imaginas estudiar ‘Noviazgo, compromiso y matrimonio’? En la Universidad An — этот материал — обзор университетских курсов, не событие.
-- [es] курьёз: [local] El Financiero — ⁠Así controlan el VIH sin medicamentos: Esto sabemos del experimento científico  — старая научная новость/факт, не событие для читателя.
-- [es] не_новость: [local] El Financiero — GP de Estados Unidos 2026 de F1: ¿A qué hora y dónde ver EN VIVO HOY la posible  — анонс спортивного события с расписанием, а не результат.
-- [es] не_новость: [pool] El Tiempo CO — En video, emotivas palabras del presidente De La Espriella a la mamá de la polic — этикет, официальные слова президента, нет нового факта.
-- [es] не_новость: [pool] Semana CO — Juan Camilo Restrepo reclama por demora del Gobierno en presentar plan de ajuste — политическое высказывание/жалоба, а не свершившееся событие.
-- [es] не_новость: [pool] eldiario.es — Rufián ve "probable" que detrás de los disturbios de Barcelona esté "la extrema  — мнение политика о причинах беспорядков, а не факт события.
-- [es] не_новость: [world] France 24 — La líder de la extrema derecha francesa, Marine Le Pen, busca aprovechar el desc — анонс предвыборной кампании, не событие.
-- [es] курьёз: [world] Xataka — Lo nuevo de MrBeast: apoyar con un cuarto de millón de dólares una bola intelige — развлекательный контент про блогера, не мировая новость.
-- [es] не_новость: [world] RFI — Control de redes sociales para menores: «Dondequiera que se han implementado est — аналитика/рассуждение о регулировании соцсетей, а не событие.
-- [es] чужое_мелкое: [world] The Independent — Padre e hijo condenados en California por minería de oro ilegal: «Esto no es 184 — мелкое локальное правонарушение в США, не значимо для мира.
-- [es] не_новость: [world] The Independent — Trump sigue afirmando que unos vándalos destruyeron el Reflecting Pool, ignorand — политическая риторика/спор о версии событий, не новое событие.
-- [es] не_новость: [world] RFI — «Hay racismo aquí»: la minoría árabe en Israel espera influir en las elecciones  — обзор настроений группы избирателей перед выборами, не событие.
-- [es] чужое_мелкое: [world] Guardian Sport — Jokić afirma que los aficionados que abuchean «no son bienvenidos» tras la remon — детали поведения фанатов и игрока после матча, не значимо для мира.
-- [es] не_новость: [world] BBC Mundo — Quién es Gadi Eisenkot, el general retirado que perdió un hijo en Gaza y desafía — портрет/биография кандидата, не событие.
-- [es] не_новость: [world] Expansión MX — Trump vota por anticipado en Florida para las elecciones intermedias de EU — плановое голосование, сам факт участия президента — не событие.
-- [es] чужое_мелкое: [world] Time — Trump teme que los habitantes de Alaska voten al Sullivan equivocado: ¿qué puede — внутренний судебный спор штата США, не мировая новость.
-- [es] полка: [world] AKIpress Эко — Se llevó a cabo una jornada de plantación de árboles en la arboleda de Karagache — событие в Кыргызстане, должно быть в местном, а не в мировом.
-- [es] не_новость: [world] Ars Technica — Pete Hegseth advierte que las apuestas en mercados de predicción distorsionan el — предупреждение/меморандум, не свершившееся событие.
-- [es] чужое_мелкое: [world] Semafor — Los demócratas compiten por un escaño en Kansas mientras los republicanos observ — обзор текущей предвыборной гонки в штатах, не событие.
-- [es] не_новость: [world] Semafor — Los operadores de apuestas y los mercados de predicción han destinado cantidades — аналитика расходов на лоббизм, а не свершившееся событие.
+- [pt] курьёз: [local] Folha de S.Paulo — Um em cada quatro adultos com diabetes tem perda auditiva, aponta estudo — исследование без последствий для читателя, не событие
+- [pt] не_новость: [local] Folha de S.Paulo — Nova exposição no Palácio Capanema revela bastidores dos murais de Portinari — описание выставки, не событие
+- [pt] не_новость: [local] Poder360 — “Vai se catar, meu filho”, diz Janja a jornalista — этикет/перепалка, не меняет положение дел
+- [pt] не_новость: [local] G1 São Paulo — Fred Bruno diz que pé está 'quase zero' após lesão causada por tiro de arma de d — отчет о состоянии здоровья, не событие
+- [pt] курьёз: [local] G1 Rio Grande do Sul — ANTES e DEPOIS: veja como era e como ficou Galaxie retirado do 9º andar de prédi — история об автомобиле, не событие
+- [pt] не_новость: [pool] Terra BR — Ancelotti inclui Luciano Juba em pré-lista da Seleção Brasileira — спортивный анонс (предварительный список)
+- [pt] курьёз: [pool] Público — Rick e Megan Prelinger abrem o futuro ao cinema efémero do passado — архивное кино, не событие
+- [pt] не_новость: [pool] Téla Nón — Criação de Búzio D’obô “Ex situ” — информация о виде улиток, не событие
+- [pt] не_новость: [world] The Independent — Advogado de Trump, Todd Blanche, perde a calma ao ser questionado sobre a revers — перепалка в интервью, не событие
+- [pt] курьёз: [world] Naked Science — Químicos sintetizaram um parafuso de Arquimedes molecular — научный факт, не событие
+- [pt] курьёз: [world] Rolling Stone — Alex Winter explica como trouxe humanidade a um predador em 'Primetime' — история о съемках, не событие
+- [pt] курьёз: [world] Superinteressante — Melatonina: uma aliada inesperada contra o mais agressivo dos cânceres do cérebr — медицинское исследование, не событие
+- [pt] не_новость: [world] Variety — Os criadores de 'The New Stanford Prison Experiment' explicam o seu final chocan — объяснение финала фильма, не событие
+- [pt] курьёз: [world] Good News Network — Encontro casual em restaurante chinês salva a vida de um homem — частная история, не событие
+- [pt] курьёз: [world] Muy Interesante — Um menu de cobras e lagartos: estudo comprova o consumo de répteis nas terras da — археологическое исследование, не событие
+- [pt] курьёз: [world] Wired — Cientistas aprisionaram uma partícula de antimatéria por meses para estudar seus — научный эксперимент, не событие
+- [pt] курьёз: [world] Live Science — 'Gaivota' cósmica encara o Observatório Vera C. Rubin em imagem de teste aguarda — тестовый снимок телескопа, не событие
+- [pt] курьёз: [world] Good News Network — Estudo mostra que aglomerados de estrelas em 'A Noite Estrelada', de Van Gogh, c — исследование картины, не событие
+- [pt] курьёз: [world] Smithsonian Magazine — Equipe de astrônomos acredita ter identificado o céu noturno exato que inspirou  — дублирует тему 82, не событие
+- [fr] курьёз: [local] BFMTV — Cette voiture est fabriquée avec... du lin ! — Это любопытный факт о дизайне авто, не является новостным событием.
+- [fr] курьёз: [local] Nice-Matin — « Jamais de ma vie je n’ai vu une telle efficacité » : cambriolée chez elle à Ni — Частная история благодарности полиции, не имеющая общественного значения.
+- [fr] курьёз: [local] La Dépêche — "Je me retrouve sans travail parce que j’avais envie de faire un gros caca" : à  — Нелепый инцидент с участием комика, не является общественно значимой новостью.
+- [fr] не_новость: [local] Nice-Matin — « Une petite Fête de l’Huma » : c’est quoi ce rassemblement d’associations, ONG  — Описание состава участников собрания без события как такового.
+- [fr] курьёз: [local] L'Obs — « Les Enfants de mon père » : quand une petite fille refuse d’effacer ses frères — Психологическая зарисовка, не является новостным событием.
+- [fr] не_новость: [local] L'Express — L’Homme est-il naturellement violent ? Ce que révèle l’histoire de notre espèce — Аналитическая статья-размышление, нет конкретного события.
+- [fr] чужое_мелкое: [pool] Le Devoir — Le meurtrier condamné qui étudiait à McGill est de retour en détention — Внутренняя административная новость Канады без международного влияния.
+- [fr] чужое_мелкое: [pool] Radio-Canada — Le Bloc présente une candidate pour souligner le « déficit d’autorité morale de  — Предвыборная рутина (выдвижение кандидата) в Канаде.
+- [fr] не_новость: [pool] Radio-Canada — Alto testerait les premiers TGV du pays à l’est d’Ottawa — Тестирование инфраструктуры — это процесс, нет факта запуска или ввода.
+- [fr] не_новость: [pool] Radio-Canada — Enjeux et attentes de taille pour la rencontre Premières Nations–premiers minist — Описание ожиданий от встречи — это анонс и разбор, не событие.
+- [fr] курьёз: [world] Futura-Sciences — Une caméra jetée sur la Lune, des œuvres d'art, des objets secrets : un chercheu — Историко-научная справка о предметах в космосе, не новость.
+- [fr] чужое_мелкое: [world] RTBF — Une "importante quantité de matériel pédopornographique" trouvée à l’ancien domi — Сплетни вокруг семьи Меган Маркл, не является мировой новостью.
+- [fr] курьёз: [world] Courrier International — En Pologne, les sangliers envahissent les villes — Заметка о поведении животных в польских городах.
+- [fr] повтор: [world] RFI — Attentat raciste en France: la garde à vue du tireur levée pour raisons psychiat ≈ «Attaque dans les Yvelines : la garde à v» — То же событие, что и в карточке 1 (отмена меры пресечения из-за психиатрии).
+- [fr] чужое_мелкое: [world] Africanews FR — Nigeria : Bola Tinubu lance sa campagne pour un second mandat sur fond de crise  — Начало предвыборной кампании в Нигерии — внутренняя политика, не задевает FR.
+- [fr] чужое_мелкое: [world] Africanews FR — Haïti : l’ancien président Michel Martelly se porte candidat malgré les sanction — Выдвижение кандидата в Гаити, не имеет международного масштаба.
