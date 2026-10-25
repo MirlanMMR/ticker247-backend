@@ -1,18 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] Metrópoles — Botafogo: Tite iguala marca de Tiago Nunes e tem pior início na era SAF — Результаты спортивного матча — это норма, но здесь оценка «худший старт» без существенного события.
-- [pt] не_новость: [local] Metrópoles — Key Alves chora ao falar das dificuldades em ser mãe: “Não vou romantizar" — Личные эмоциональные высказывания знаменитости о материнстве не являются событием.
-- [pt] курьёз: [world] Variety — ‘You Seem Pretty Sad for a Girl So in Love’, de Olivia Rodrigo, retorna ao topo  — Рейтинги песен и музыкальные ремиксы не являются общественно значимым событием.
-- [pt] курьёз: [world] The Independent — Nem todos os heróis usam capas: Mulher fantasiada de banana viraliza após ligar  — Странный факт, не имеющий значения для читателя.
-- [pt] не_новость: [world] Variety — O ator de 'I Play Rocky', Stephan James, homenageia Carl Weathers com seu visual — Выход актера на ковровую дорожку в определенном костюме — не событие.
-- [pt] курьёз: [world] Muy Interesante — Tudo começa com um carro pequeno em 1976: 50 anos depois, esta fábrica valencian — Ретроспективный факт из истории завода.
-- [pt] не_новость: [world] Rolling Stone — Grok, de Elon Musk, finalmente entrega a primeira parte da versão 'historicament — Творческие публикации ИИ на тему литературы — не событие.
-- [pt] не_новость: [world] The Independent — Nicki Minaj compartilha vídeo a bordo do Air Force One — Заметки о стиле жизни или присутствии знаменитостей не являются новостным событием.
-- [pt] не_новость: [world] The Independent — Salgadinhos com sabor de carne podem passar por rebrand devido a novas regras da — Опасения бизнеса по поводу будущих регуляций — не состоявшееся решение.
-- [pt] курьёз: [world] Fortune — Os EUA possuem as maiores reservas de ouro do mundo — avaliadas em 1 trilhão de  — Статистический факт о резервах золота, без привязки к конкретному решению или сделке.
-- [pt] повтор: [world] UPI — Lula e Bolsonaro enfrentam segundo turno nas eleições brasileiras ≈ «Eleições no Brasil. Milhões de eleitores» — Дублирует тему выборов в Бразилии.
-- [pt] не_новость: [world] TechCrunch — TechCrunch Mobility: Ciano é a cor da autonomia — Предложение министерства по освещению авто — не завершенное решение.
-- [pt] курьёз: [world] Superinteressante — Melatonina: uma aliada inesperada contra o mais agressivo dos cânceres do cérebr — Научно-популярная заметка об исследовании без прикладного события.
-- [pt] курьёз: [world] Wired — Cientistas aprisionaram uma partícula de antimatéria por meses para estudar seus — Научный факт о частицах, не является событием для читателя.
-- [pt] полка: [world] AKIpress Эко — Alerta de tempestade: geadas atingirão -5 graus no norte da região de Chuy — Новость из Кыргызстана (KG) ошибочно попала в мировой пул.
-- [pt] не_новость: [world] Semafor — Warhound arrecada US$ 200 milhões para criar cães militares geneticamente modifi — Привлечение инвестиций стартапом — не является событием по белому списку.
+- [en] курьёз: [local] NY Post — John Harbaugh gets ‘tackled’ by Devin Singletary in wild Giants celebration — Это развлекательная заметка о поведении тренера, а не новость о спортивном событии.
+- [en] не_новость: [local] NY Post — NYC subway mayhem mounts on Kathy Hochul’s watch — and she hopes you won’t notic — Авторская колонка с мнением, а не новостной факт.
+- [en] не_новость: [local] Oil City News — Lawmakers propose $11M fix to restore school sports and activities funding — Законодательное предложение (планы), а не свершившееся решение.
+- [en] не_новость: [local] KFVS12 — Fuel Tacos & Burgers in Jackson officially closes — Закрытие частного бизнеса — рядовое событие, не имеющее значимости для широкого круга читателей.
+- [en] курьёз: [local] Arizona's Family — Chiricahua now a national park with “no confirmed timeline” for updated souvenir — Отсутствие сувениров — бытовая деталь, не является новостным событием.
+- [en] не_новость: [local] Portland Press Herald — Portland’s Sacred Heart Church holds final Mass — Плановое закрытие объекта из-за стоимости ремонта.
+- [en] не_новость: [local] NH Union Leader Latest News — Dear Abby: Mom isn't keen on walk down memory lane with son — Рубрика советов Dear Abby не является новостью.
+- [en] не_новость: [local] San Antonio Report — How can San Antonio regulate data centers? — Аналитическая статья с вопросом, а не факт события.
+- [en] курьёз: [local] NH Union Leader Latest News — Improving UNH men's hockey team earns series split with high powered Michigan St — Спортивный обзор-аналитика, не является срочным или значимым новостным фактом.
+- [en] курьёз: [local] WKYT — ‘Watercolor girl’: Lexington artist finds new calling painting horses ahead of B — История о художнике перед мероприятием — это развлекательный материал.
+- [en] курьёз: [local] Cleveland.com — Daylight saving time and Halloween meet this year: It won’t happen again for mor — Любопытный факт про календарь и время, не является новостью.
+- [en] не_новость: [local] WDBJ7 — Unrestrained traffic deaths drop 16% since Virginia seatbelt law took effect — Статистический отчет о годовой давности не является оперативной новостью.
+- [en] курьёз: [local] WBAL — VIDEO | ‘Not all cat rescues happen in trees’: Kitten rescued from busy freeway — Спасение котенка — типичный «милый» контент, не является новостью.
+- [en] курьёз: [local] KCRG — Cedar Bend Humane Society waives fees for its longest-waiting dogs and cats — Рядовая маркетинговая акция приюта.
+- [en] не_новость: [local] WV MetroNews — AG subpoenas environmental group West Virginia Rivers over climate claims — Запрос документов (субпоэна) — это процедурный этап, а не финал расследования или обвинение.
+- [en] курьёз: [pool] Rolling Stone — Elon Musk’s Grok Finally Delivers First Installment of ‘Historically Accurate’ ‘ — Обзор работы чат-бота, не является новостным событием.
+- [en] не_новость: [pool] WISH-TV — Indianapolis office market shows signs of rebound, report says — Публикация рыночного отчета без свершившегося факта сделок.
+- [en] не_новость: [pool] KSL.com — Utah business, government leaders deepen connections in Ireland — Рабочая поездка делегации (установление контактов) без итоговых соглашений.
+- [en] не_новость: [pool] Ars Technica — Hegseth warns prediction market bets warp military judgment, endanger troops — Предупреждение (мемо) чиновника, а не свершившееся событие.
+- [en] повтор: [world] Reuters — Antonelli gana el Gran Premio de EEUU, pero tendrá que esperar para proclamarse  ≈ «Kimi Antonelli edges closer to title aft» — Дублирует сюжет о победе Антонелли.
+- [en] повтор: [world] Reuters — Supremo Tribunal Federal de Brasil amplía en dos horas horario de votación en ba ≈ «The Latest: Brazilians vote in a tense r» — Дублирует сюжет о выборах в Бразилии.
+- [en] не_новость: [world] TechCrunch — TechCrunch Mobility: Blue-green is the color of autonomy — Анонс рассылки (Hub for the future), не является новостью.
+- [en] повтор: [world] Reuters — Machado sorprende con llegada a Venezuela, seguidores celebran su vuelta ≈ «Opposition leader María Corina Machado r» — Дублирует сюжет о возвращении Мачадо.
+- [en] не_новость: [world] Wired — Wallhack M-001 Review: When Fun Overrides Specs — Обзор компьютерной мыши, не является новостью.
+- [en] курьёз: [world] Ars Technica — A 1,000-mile cloud on Mars may reveal physics never seen in nature — Научное наблюдение без практического применения или события.
