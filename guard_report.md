@@ -1,15 +1,19 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] повтор: [local] El Economista MX — Sheinbaum descarta crisis en el INE ≈ «‘Alito’ Moreno pide que sucesor de Tadde» — Это одна и та же новость об отставке Тадеи в INE.
-- [es] повтор: [local] El Financiero — Humphrey pide ‘purga’ en el INE: Exige renuncia de funcionarios cercanos a Tadde ≈ «‘Alito’ Moreno pide que sucesor de Tadde» — Развитие того же события с отставкой в INE.
-- [es] повтор: [local] El Sol de México — Cercanos a Taddei podrían ser separados del cargo a petición de consejeros del I ≈ «Humphrey pide ‘purga’ en el INE: Exige r» — Повторение темы кадровых перестановок в INE.
-- [es] повтор: [local] La Jornada — Morena pide garantizar la certeza de todos los procesos comiciales ≈ «‘Alito’ Moreno pide que sucesor de Tadde» — Очередной отклик на ту же отставку в INE.
-- [es] чужое_мелкое: [pool] El Mundo — Feijóo 'ficha' al consejero de Emergencias de Ayuso y revoluciona Sol: el titula — Внутренняя кадровая политика партий в Испании не является мировой новостью.
-- [es] чужое_мелкое: [pool] El Mundo — Acuerdo en la derecha para las elecciones al Senado: Vox renuncia a presentarse  — Местные предвыборные соглашения партий в Испании — локальная повестка.
-- [es] чужое_мелкое: [pool] La Vanguardia — La Fiscalía pide el internamiento de seis de los 76 menores detenidos — Локальные беспорядки в Барселоне не имеют мирового масштаба.
-- [es] чужое_мелкое: [pool] El País — El Ayuntamiento recalifica la ciudad del Real Madrid con un informe que calcula  — Местный административный спор о недвижимости в Мадриде.
-- [es] курьёз: [world] Engadget — Apple responde a los informes sobre grietas en la pantalla interna del iPhone Du — Технический брак отдельного устройства — не событие мирового масштаба.
-- [es] курьёз: [world] TechCrunch — Las excavadoras autónomas de esta startup logran una financiación de 600 millone — Финансирование стартапа — бизнес-новость, не имеющая общемирового значения.
-- [es] курьёз: [world] Engadget — Instagram busca fomentar el consumo de videos de 90 minutos en televisores — Эксперименты с форматом видео в Instagram — интересное, а не мировая новость.
-- [es] курьёз: [world] TechCrunch — SpaceX asegura un acuerdo de financiación de 40 000 millones de dólares en GPU c — Сделка по закупке чипов — частная бизнес-новость.
-- [es] чужое_мелкое: [world] El Sol de México — Microsoft propone retiros voluntarios a 60 mil empleados en EU, Canadá, India y  — Внутренняя кадровая политика компании в США не является мировой новостью.
+- [pt] не_новость: [local] Exame — Fonteles nega que vá para a Fazenda: 'quero tomar posse para cuidar do povo do P — заявление о намерениях («descartou a possibilidade»), не событие.
+- [pt] не_новость: [local] Metrópoles — Centrão busca mérito por vitória de Lula, mas aliados contestam versão — аналитика и комментарии о политических спекуляциях, нет факта события.
+- [pt] не_новость: [local] Poder360 — Planalto não vê impacto de silêncio de Trump e Milei na eleição — оценка «невидимого» (silêncio), нет события.
+- [pt] не_новость: [local] G1 Rio Grande do Sul — Belchior 80 anos: relembre como amigos e fãs ajudaram cantor a passar últimas di — ретроспективный очерк о жизни артиста, нет свежего новостного повода.
+- [pt] не_новость: [local] G1 Minas — Por que Minas Gerais, onde Lula ganhou mais de 1 milhão de votos do 1º para o 2º — аналитика и разбор причин («Por que...»), не событие.
+- [pt] не_новость: [local] G1 São Paulo — 'É preciso respeitar o resultado das urnas', afirma João Doria após vitória de L — мнение бывшего политика («afirma»), не событие.
+- [pt] не_новость: [pool] Observador PT — A extensa lista de riscos da Anthropic antes da bolsa — обзор рисков из проспекта перед IPO, не свершившееся событие.
+- [pt] не_новость: [pool] RTP Notícias — Manifestantes detidos no Porto julgados a 13 de novembro — анонс даты суда (плановое событие), нет новой сути.
+- [pt] не_новость: [pool] Público — Mesmo sem Moeve, Galp quer ter nova vida e admite novos parceiros para refinaria — изложение планов и позиций руководства, нет сделки.
+- [pt] не_новость: [world] BBC Brasil — Virada de Lula aponta caminho para a esquerda voltar a vencer, diz pesquisador a — мнение исследователя («diz pesquisador»), не новость.
+- [pt] не_новость: [world] Terra BR — Internautas pedem intervenção de Trump após derrota de Flávio Bolsonaro nas elei — реакция пользователей соцсетей, шум, а не событие.
+- [pt] курьёз: [world] CNN Brasil — Dictonary.com elege “Maxxing” como a palavra do ano de 2026 — выбор слова года — это любопытный факт, а не важная новость.
+- [pt] не_новость: [world] Азаттык (кыргызча) — Tajiquistão: Barragem de Rogun será mais alta que a Torre Eiffel em Paris — описание проекта строительства, нет прогресса или завершения.
+- [pt] не_новость: [world] Clarín AR — Finlândia autoriza o primeiro cemitério nuclear do mundo: conheça a megaobra a 4 — описание проекта, нет старта работ или открытия.
+- [pt] не_новость: [world] Fortune — Fatores de risco da Anthropic incluem fim da humanidade, conflito com o Pentágon — перечисление гипотетических рисков из документа IPO, не событие.
+- [pt] не_новость: [world] France 24 — Líderes de uniões estudantis francesas pedem 'mobilização contínua' após reunião — призыв к мобилизации, нет факта свершившегося действия.
+- [pt] не_новость: [world] Superinteressante — Câncer de pulmão do Papa Leão 14 alerta para número crescente de não fumantes di — медицинская статья-разбор на основе состояния Папы, не событие.
