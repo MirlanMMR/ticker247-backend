@@ -1,24 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] чужое_мелкое: [local] CNN Brasil — Bola de Ouro 2026: veja cronograma e ordem das premiações — Премия Bola de Ouro в Лондоне не является мировой новостью для бразильского читателя.
-- [pt] повтор: [world] ABC Australia — Anthropic entra com pedido de oferta pública inicial com avaliação potencial de  ≈ «Prospecto de IPO da Anthropic revela rec» — Дублирует информацию об IPO Anthropic и финансовых показателях.
-- [pt] не_новость: [world] ECO — Assistência médica é a cobertura mais acionada nos seguros de viagem da IATI — Аналитика/статистика страховой компании, а не событие.
-- [pt] не_новость: [world] ECO — Carat apresenta novo posicionamento estratégico global — Корпоративный ребрендинг (PR-заявление) не является новостью.
-- [pt] не_новость: [world] Fortune — Os jogos em nuvem já foram anunciados como uma opção mais barata do que a compra — Рассуждения о рынке облачных игр без конкретного события.
-- [pt] курьёз: [world] Smithsonian Magazine — Cientistas estimam que o forte calor de verão na Europa matou mais de 50.000 pes — Исследование о прошлых событиях без оперативного повода, место в «Интересном».
-- [pt] не_новость: [world] TechCrunch — Matiks arrecada US$ 10 milhões para expandir sua plataforma de jogos de matemáti — Обычная бизнес-сделка (инвестиции в индийский стартап) без мировых последствий.
-- [pt] курьёз: [world] Naked Science — Veterinários descobrem como a dieta vegana afetou gatos — Исследование о котах, не является событием для общей новостной ленты.
-- [pt] не_новость: [world] Ars Technica — De compra por impulso a estúdio de bolso: o M-Vave FM-1 — Обзор потребительского гаджета, а не событие.
-- [pt] не_новость: [world] Time — A escolha de Israel — Аналитическая статья/очерк перед выборами, нет свершившегося факта.
-- [fr] срочность: [local] La Dépêche — Un homme de 78 ans retrouvé mort, ligoté, à Villeneuve-sur-Lot : "Quelqu'un sans — Криминальная хроника: событие произошло, но не требует немедленного уведомления читателя в режиме «СРОЧНО».
-- [fr] не_новость: [local] BFMTV — Vaucluse: les sapeurs-pompiers débutent leur traditionnelle tournée de la vente  — Традиционная продажа календарей — это ежегодный ритуал, а не новостное событие.
-- [fr] не_новость: [local] Sud Ouest — Lidl ouvre son premier magasin Parkside, dédié à sa marque de bricolage — Открытие магазина брендом Lidl — это рекламная активность, а не общественно значимое событие.
-- [fr] срочность: [local] La Dépêche — Agression à Saint-Gaudens : Roué de coups ce week-end, José Capela, commerçant l — Гибель человека в происшествии — трагедия, но не повод для побудки (отсутствуют массовые последствия).
-- [fr] не_новость: [local] Nice-Matin — « Rappeler l’importance de ne jamais oublier les victimes » : Éric Ciotti a reçu — Церемониальное получение мяча политиком — этикет и пиар-акция без реальных изменений для граждан.
-- [fr] не_новость: [local] Franceinfo — "Une déclaration d'amour à la culture et à la création" : l'exposition du rappeu — Анонс выставки в декабре — это событие будущего, не меняющее день читателя сейчас.
-- [fr] не_новость: [local] L'Obs — LFI accuse BFM-TV de relayer des propos « racistes », la chaîne dénonce « une ca — Словесная перепалка между медиа и политической партией — шум, не являющийся значимым событием.
-- [fr] полка: [pool] BBC — Marine Le Pen candidate à la présidence : l'extrême droite française promet de r — Новость о кандидате в президенты Франции должна быть на полке «МЕСТНЫЕ», так как это внутренняя политика Франции.
-- [fr] курьёз: [world] La Tribune — Aéronautique : une innovation toulousaine pour désinfecter les avions s’exporte  — История о NASA и телескопе Sofia носит познавательный характер, место в «Интересном».
-- [fr] не_новость: [world] Futura-Sciences — Voici la toute première photo de la Terre prise depuis l'espace : son histoire e — Исторический факт о первой фотографии Земли — это познавательный контент, не событие.
-- [fr] чужое_мелкое: [world] Franceinfo — Image d'une explosion atomique, brouille avec l'Etat-major... Benyamin Nétanyaho — Внутриполитическая борьба в Израиле и споры с оппозицией — это местная новость страны, не имеющая мирового статуса.
-- [fr] срочность: [world] BBC News — La tempestad Boelo laisse 90 000 foyers sans électricité — Стихийные бедствия и отключения света в других странах (Великобритания) — новости для Франции, но не уровня «СРОЧНО».
+- [en] чужое_мелкое: [local] CBS News — Microsoft offers buyouts to 60,000 workers as it invests more in AI — Microsoft offers buyouts - это внутреннее корпоративное решение, не требующее побудки читателя.
+- [en] курьёз: [local] Arizona's Family — Florida man walked 3,100 miles, raised thousands to benefit Phoenix-based nonpro — История про благотворительный поход жителя Флориды — интересное, но не новость.
+- [en] не_новость: [local] NY Post — ‘All My Children’ star Alan Dysert dead at 75 after ‘incurable cancer’ diagnosis — Смерть актера в 75 лет после долгой болезни — личная трагедия, не событие для ленты.
+- [en] чужое_мелкое: [local] WV MetroNews — Competition for teachers and special education costs drive Berkeley County lawsu — Локальный спор о финансировании школ в одном округе США.
+- [en] не_новость: [local] Cleveland.com — Gas prices for 10/26/26: National average well above $4, expert warns relief unl — Прогноз эксперта о ценах на бензин — это мнение/рассуждение, а не факт.
+- [en] не_новость: [local] CBS News — Walter Koenig, actor who played Chekov on "Star Trek," dies at 90 — Смерть актера в 90 лет — естественный уход, нет события.
+- [en] не_новость: [local] WJXT News4JAX — Jacksonville Icemen, Waves partner with San Diego-based Xenco Medical on athlete — Партнерство двух локальных спортивных команд — это бизнес-PR, а не новость.
+- [en] чужое_мелкое: [local] KCUR — This Missouri jail has housed hundreds of ICE detainees. There are now only 5 le — Детали содержания задержанных в локальной тюрьме штата.
+- [en] повтор: [local] KCRG — Cedar Rapids man sentenced for illegally carrying gun ≈ «Mississippi woman sentenced in $538K Med» — Повтор сюжета о приговоре суда в США.
+- [en] не_новость: [local] Deseret News — BYU-Utah rivalry matchup will have a morning kickoff — Анонс времени начала спортивного матча.
+- [en] не_новость: [local] Startribune News — Another closed Minnesota brewery is getting a second chance — Открытие бара после смены владельцев — мелкое локальное событие.
+- [en] не_новость: [local] WECT — Wynonna Judd bringing ‘The Hard Truth Tour’ to Wilmington — Анонс гастрольного тура исполнителя.
+- [en] курьёз: [local] WFSB — Foster Family Farm celebrates National Pumpkin Day Lieutenant Governor Susan Bys — Празднование «Национального дня тыквы» на ферме.
+- [en] курьёз: [local] WCTV — Detected: How artificial intelligence is changing breast cancer detection — Обзорная статья об ИИ в медицине, а не новость о событии.
+- [en] не_новость: [local] KOLO — Washoe County to come up with new flood risk management plan — Планы окружного совета разработать документ — это обсуждение, а не принятое решение.
+- [en] не_новость: [pool] Variety — ‘Coven Academy’ Renewed for Season 2 at Disney — Продление сериала на сезон — PR-новость индустрии развлечений.
+- [en] не_новость: [pool] Variety — Bill Nighy Joins Caitriona Balfe in Alfonso Cuaron Series ‘Ascension’ at Apple T — Кастинг актера в сериал — PR-новость.
+- [en] не_новость: [pool] Variety — ‘Baywatch’ Reboot Sets January Premiere Date on Fox — Объявление даты премьеры сериала.
+- [en] не_новость: [pool] The Hill — Massie says he'll move to impeach Hegseth if he's not gone after midterms — Заявление политика о *планах* инициировать импичмент — это слова, нет события.
+- [en] не_новость: [pool] Engadget — Instagram wants you to watch 90-minute videos on your TV — Instagram «экспериментирует» — это не решение и не изменение, а просто процесс.
+- [en] чужое_мелкое: [pool] KSFY — SD nicotine retailers must obtain state license under new law — Лицензирование продавцов никотина в штате — мелкая бюрократическая процедура.
+- [en] не_новость: [pool] The Hill — Pulte vows action against ‘abusive monopolies’ in mortgage market — Заявление чиновника о том, что он «не потерпит» монополий — это декларация, не событие.
+- [en] чужое_мелкое: [pool] Time — New Details of Rape Allegation Against Trump Revealed in House Democrats’ Epstei — Внутренняя политическая отчетность США (Epstein report) — не является событием мирового масштаба.
+- [en] не_новость: [pool] WFPL — What Louisville’s nonpartisan elections mean for voters — Разъяснение того, что такое непартийные выборы — это ликбез, а не новость.
+- [en] не_новость: [world] Fortune — Trump said China was headed for ‘big trouble.’ Yet its economy is growing faster — Аналитическая колонка (мнение о тарифах и экономике), нет события.
