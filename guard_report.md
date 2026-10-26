@@ -1,19 +1,19 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] Exame — Fonteles nega que vá para a Fazenda: 'quero tomar posse para cuidar do povo do P — заявление о намерениях («descartou a possibilidade»), не событие.
-- [pt] не_новость: [local] Metrópoles — Centrão busca mérito por vitória de Lula, mas aliados contestam versão — аналитика и комментарии о политических спекуляциях, нет факта события.
-- [pt] не_новость: [local] Poder360 — Planalto não vê impacto de silêncio de Trump e Milei na eleição — оценка «невидимого» (silêncio), нет события.
-- [pt] не_новость: [local] G1 Rio Grande do Sul — Belchior 80 anos: relembre como amigos e fãs ajudaram cantor a passar últimas di — ретроспективный очерк о жизни артиста, нет свежего новостного повода.
-- [pt] не_новость: [local] G1 Minas — Por que Minas Gerais, onde Lula ganhou mais de 1 milhão de votos do 1º para o 2º — аналитика и разбор причин («Por que...»), не событие.
-- [pt] не_новость: [local] G1 São Paulo — 'É preciso respeitar o resultado das urnas', afirma João Doria após vitória de L — мнение бывшего политика («afirma»), не событие.
-- [pt] не_новость: [pool] Observador PT — A extensa lista de riscos da Anthropic antes da bolsa — обзор рисков из проспекта перед IPO, не свершившееся событие.
-- [pt] не_новость: [pool] RTP Notícias — Manifestantes detidos no Porto julgados a 13 de novembro — анонс даты суда (плановое событие), нет новой сути.
-- [pt] не_новость: [pool] Público — Mesmo sem Moeve, Galp quer ter nova vida e admite novos parceiros para refinaria — изложение планов и позиций руководства, нет сделки.
-- [pt] не_новость: [world] BBC Brasil — Virada de Lula aponta caminho para a esquerda voltar a vencer, diz pesquisador a — мнение исследователя («diz pesquisador»), не новость.
-- [pt] не_новость: [world] Terra BR — Internautas pedem intervenção de Trump após derrota de Flávio Bolsonaro nas elei — реакция пользователей соцсетей, шум, а не событие.
-- [pt] курьёз: [world] CNN Brasil — Dictonary.com elege “Maxxing” como a palavra do ano de 2026 — выбор слова года — это любопытный факт, а не важная новость.
-- [pt] не_новость: [world] Азаттык (кыргызча) — Tajiquistão: Barragem de Rogun será mais alta que a Torre Eiffel em Paris — описание проекта строительства, нет прогресса или завершения.
-- [pt] не_новость: [world] Clarín AR — Finlândia autoriza o primeiro cemitério nuclear do mundo: conheça a megaobra a 4 — описание проекта, нет старта работ или открытия.
-- [pt] не_новость: [world] Fortune — Fatores de risco da Anthropic incluem fim da humanidade, conflito com o Pentágon — перечисление гипотетических рисков из документа IPO, не событие.
-- [pt] не_новость: [world] France 24 — Líderes de uniões estudantis francesas pedem 'mobilização contínua' após reunião — призыв к мобилизации, нет факта свершившегося действия.
-- [pt] не_новость: [world] Superinteressante — Câncer de pulmão do Papa Leão 14 alerta para número crescente de não fumantes di — медицинская статья-разбор на основе состояния Папы, не событие.
+- [en] курьёз: [local] PennLive — Keanu Reeves lands lead role in ‘Die Hard’-inspired Netflix movie — новость из мира кино, нет события — просто слух о кастинге.
+- [en] срочность: [local] Arkansas Times — Death row inmate who shot and killed wife and daughter receives life sentence in — приговор пожизненного заключения не требует прерывать дела читателя.
+- [en] срочность: [local] WCAX — 4 injured in Shelburne crash — рядовое ДТП без массовых последствий не требует побудки.
+- [en] не_новость: [local] WBAY — Trick or treat hours for Northeast Wisconsin in 2026 — информация о времени «trick-or-treat» — это плановое расписание, не событие.
+- [en] чужое_мелкое: [pool] Clarín AR — Miami island home to Jeff Bezos trains its police as immigration agents — местные полицейские процедуры на острове — не мировая новость.
+- [en] курьёз: [pool] Ars Technica — Meet the real-life Scottish surgeon who inspired Sherlock Holmes — историческая справка об авторе Шерлока Холмса — не новость.
+- [en] чужое_мелкое: [pool] UPI — Brand’s former assistant describes ‘insane’ appetite in court statement — показания в суде по давнему делу Рассела Брэнда — внутренние дела Британии.
+- [en] курьёз: [world] WBAL — Ballon d’Or ‘winners’ published by mistake hours before men’s award — ошибка организаторов премии — курьез, не меняющий жизнь читателя.
+- [en] курьёз: [world] Rolling Stone — Jack Antonoff Knocks Ed Sheeran for Caving to Billionaire’s Demand to Drop Mackl — спор музыкантов о туре — светская хроника, не событие.
+- [en] не_новость: [world] TechCrunch — Watch out, YouTube — Instagram goes from short-form to 90-minute videos — сравнение соцсетей — это аналитика, а не свершившееся событие.
+- [en] повтор: [world] Axios — Brazil's election ignites MAGA's midterm warnings ≈ «Trump calls Lula's election win in Brazi» — обсуждение выборов в Бразилии и позиция Трампа.
+- [en] курьёз: [world] Ars Technica — Worms mate in man's eyes, get plucked out right before larvae burst out — медицинский случай с червями в глазах — чистый курьез.
+- [en] не_новость: [world] Ars Technica — Apple releases iOS and macOS 27.2 with new Siri AI features, new Music logo — выпуск обновления ОС — рутинное событие, если нет критических исправлений.
+- [en] повтор: [world] TechCrunch — Uh-oh, it sounds like the iPhone Duo keeps cracking and users aren’t happy about ≈ «Apple responds to reports of the iPhone » — жалобы пользователей на экран iPhone Duo.
+- [en] курьёз: [world] Futura-Sciences — The Earth is changing shape, and faster: what scientists have just discovered — научный факт об изменении формы Земли — это любопытно, но не событие.
+- [en] не_новость: [world] Ars Technica — Apple reveals updated iPad mini with a bigger OLED screen for $700 — анонс нового планшета — это бизнес-релиз, а не событие для всех.
+- [en] не_новость: [world] Guardian Sport — Potential WNBA finals decider to be played at 12.30pm on a Thursday — назначение времени матча — плановое расписание, не событие.
