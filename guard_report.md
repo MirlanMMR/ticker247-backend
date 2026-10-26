@@ -1,42 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] Metrópoles — Viúva de Rick faz desabafo um mês após morte do cantor: "Vazio" — Homenagem em rede social um mês após o falecimento não é um fato noticioso.
-- [pt] не_новость: [local] Metrópoles — Quadra comercial da Asa Norte fecha para limpeza após festa pró-Lula — Limpeza de rua após um evento é uma nota de serviço menor, não um fato relevante.
-- [pt] курьёз: [local] Estadão — "O Outro Lado das Redes" explica didaticamente como somos manipulados — Resenha ou dica de filme educativo não é evento.
-- [pt] не_новость: [local] Poder360 — Duda Salabert diz ter pedido apreensão do passaporte de Flávio — Pedido de um deputado não é um fato consumado ou decisão judicial.
-- [pt] не_новость: [local] Gazeta do Povo — TSE responde Flávio e diz que fiscais do PL não foram retirados da sala-cofre — Resposta de assessoria de imprensa a alegações políticas é rotina e não evento.
-- [pt] не_новость: [local] Gazeta do Povo — Justiça proíbe jornalista de abordar funcionários da escola de filha de Flávio B — Decisão judicial de plantão em caso privado de interesse político menor.
-- [pt] не_новость: [local] G1 São Paulo — Irmã de delegada encontra R$ 1,2 milhão, 120 mil dólares e 12 mil euros escondid — Notícia baseada em investigação doméstica e depoimento não confirmado de policial.
-- [pt] не_новость: [local] G1 Distrito Federal — Brasil elege 20 brancos, 6 pardos, 1 indígena e nenhum preto entre os 27 governa — Análise estatística de perfil dos governadores sem evento gerador.
-- [pt] не_новость: [local] G1 Distrito Federal — Mulheres são 3 entre os 27 eleitos para comandar os governos dos estados — Análise demográfica dos governadores eleitos sem fato novo.
-- [pt] не_новость: [local] Agência Brasil — Flávio não reconhece vitória de Lula e tentará anulação do pleito — Ameaça de contestar eleição não é fato jurídico consumado.
-- [pt] не_новость: [local] Agência Brasil — Motta e Alcolumbre, líderes do Congresso Nacional, parabenizam Lula — Congratulações políticas são etiqueta, não notícia de impacto.
-- [pt] не_новость: [local] Agência Brasil — Fachin diz que vontade dos eleitores deve ser respeitada — Declaração de princípios de magistrado sem efeito prático imediato.
-- [pt] чужое_мелкое: [pool] Observador PT — Homem detido por maus-tratos à ex-namorada em Arraiolos — Caso isolado de violência doméstica em Portugal não é notícia internacional.
-- [pt] не_новость: [pool] Expresso das Ilhas — Alberto Koenig convidado do Ciclo 2026 do Concerto do Bolso — Anúncio de convite para evento cultural é serviço.
-- [pt] не_новость: [pool] RTP Notícias — FNAM acusa Governo de desviar médicos das enfermarias para as urgências — Acusações sindicais sem novo fato ou greve deflagrada.
-- [pt] курьёз: [pool] Público — O mar também se protege em casa — Dicas ambientais domésticas sem evento.
-- [pt] не_новость: [world] Poder360 — Conselheiro de Trump divulga discurso de Flávio em inglês — Compartilhamento de redes sociais por conselheiro não é notícia de política externa.
-- [pt] курьёз: [world] Superinteressante — Uma pista da matéria escura? — Fato científico sem evento ou descoberta aplicada.
-- [pt] курьёз: [world] The Independent — Conheça o 'Picasso' da escultura em abóboras que celebra 40 anos de arte de Hall — História curiosa sobre artista de Halloween.
-- [pt] не_новость: [world] Poder360 — Eduardo Bolsonaro pede que estrangeiros não reconheçam eleição — Pedido de Eduardo Bolsonaro sem força ou efeito prático.
-- [pt] не_новость: [world] Fortune — Investidores mantêm otimismo apesar da queda nas ações de tecnologia na semana p — Análise de humor de mercado sem evento concreto de fechamento ou crise.
-- [pt] курьёз: [world] Engadget — Desmontagem do iPhone Duo pela iFixit revela possíveis causas para telas trincad — Análise técnica de produto sem recall ou erro sistêmico confirmado.
-- [pt] курьёз: [world] Rolling Stone — Grok, de Elon Musk, finalmente entrega a primeira parte da versão 'historicament — Lançamento de conteúdo por IA é curiosidade tecnológica, não notícia.
-- [fr] курьёз: [local] La Dépêche — Line Renaud, maman pour la première fois à 93 ans : l'État peut-il l'autoriser à — Событие не несет последствий: сплетни об усыновлении знаменитостями.
-- [fr] курьёз: [local] La Dépêche — "Ils aiment le pain et la charcuterie" : il pêche un silure géant de 2,30 m et 8 — Обычная история о рыбалке, не имеющая общественной значимости.
-- [fr] не_новость: [local] 20 Minutes — Ballon d’or 2026 : « Je suis une tombe »… Comment le boss du trophée a ajouté «  — Это анонс церемонии, обсуждение процесса голосования, а не факт вручения.
-- [fr] курьёз: [local] 20 Minutes — Violences contre les enfants : « Ça ne fonctionne pas beaucoup mieux qu’en Franc — Аналитическая статья-сравнение моделей защиты детей, не событие.
-- [fr] не_новость: [pool] Radio-Canada — Les pesticides dans l’eau potable réglementés… par leurs fabricants — Обзор старых исследований, нет нового события.
-- [fr] не_новость: [pool] Le Devoir — Pêcher l’anguille au Québec, «un privilège» qui existe encore — Очерк о жизни фермера, отсутствует новостной повод.
-- [fr] не_новость: [world] BFMTV — esport: Cyanide, devenu le plus jeune champion du monde de "League of Legends" à — Сообщение о смерти бывшего игрока, который закончил карьеру: не событие мирового масштаба.
-- [fr] чужое_мелкое: [world] Courrier International — Avant les “midterms”, Barack Obama sort de sa réserve et étrille Donald Trump — Внутренняя предвыборная риторика США, не имеет последствий для Франции.
-- [fr] чужое_мелкое: [world] RTBF — Essence, courses, engrais ... "Tout coûte cher" : en Géorgie, les démocrates fon — Локальная агитация в штате Джорджия, не мировая новость.
-- [fr] не_новость: [world] Courrier International — Boudé par la Chine, le luxe européen s’enfonce dans la crise — Экономический разбор/аналитика кризиса сектора, без конкретного события.
-- [fr] курьёз: [world] Nice-Matin — Une « importante quantité de matériel pédopornographique » retrouvée chez le pèr — Сплетни о семье знаменитости, не имеющие отношения к политике или обществу.
-- [fr] повтор: [world] France 24 FR — Le Ballon d’or promet une soirée de suspense ≈ «Ballon d’or 2026 : « Je suis une tombe »» — Тот же сюжет про церемонию Ballon d'Or.
-- [fr] повтор: [world] Franceinfo — À Londres, les supporters anglais voient déjà Harry Kane remporter le Ballon d'O ≈ «Ballon d’or 2026 : « Je suis une tombe »» — Снова спекуляции о победителе Ballon d'Or.
-- [fr] курьёз: [world] Africanews FR — Mexique : les morts prennent vie dans un carnaval de couleurs — Описание карнавала, не событие.
-- [fr] чужое_мелкое: [world] Africanews FR — Midterms 2026 : Nicki Minaj affiche son soutien à Trump dans le Michigan — Агитация частного лица (певицы) на митинге, не мировая новость.
-- [fr] повтор: [world] BBC — « Nous avons perdu les élections » : Aleksandar Vucic reconnaît la victoire du m ≈ «Législatives en Serbie: Aleksandar Vucic» — Тот же сюжет про выборы в Сербии.
-- [fr] повтор: [world] BBC World — La dirigeante de l'opposition vénézuélienne María Corina Machado revient après d ≈ «Venezuela : le retour de l'opposante Mar» — Тот же сюжет про возвращение оппозиционерки в Венесуэлу.
+- [ru] курьёз: [local] Kabar.kg — Алтындан жасалат: Дубайда дүйнөдөгү эң узун сейилдөөчү жол пайда болот — новость о жёлтом пешеходном переходе в Дубае не имеет значения для читателя в Кыргызстане
+- [ru] курьёз: [local] 24.kg — Дочь певицы Анжелики Кайратовой завоевала корону на конкурсе красоты в Индии — победа на конкурсе красоты — частное событие, не имеет общественного веса
+- [ru] чужое_мелкое: [pool] РИА Новости — Самойлова просит ограничить Джигана в родительских правах на полгода — личные судебные тяжбы российских блогеров не являются мировой новостью
+- [ru] чужое_мелкое: [pool] chita.ru — Чита — Крупное предприятие в Забайкалье подтвердило вспышку дизентерии и рассказало о с — локальная вспышка инфекции в одном российском регионе — чужая внутренняя повестка
+- [ru] не_новость: [pool] Onliner.by — В Минске девушку с маленькой собакой попросили выйти из автобуса. В чем причина? — бытовая ситуация в автобусе не является новостным событием
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Пассажир погиб в ДТП на М-5 под Рязанью: водителя Volkswagen приговорили к году  — приговор по ДТП в одном российском регионе без глобальных последствий
+- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — «Отправил пятерых, четверо погибли»: челябинец находил добровольцев для СВО, жен — уголовное дело частного лица в РФ, даже связанное с СВО, — внутренняя хроника
+- [ru] не_новость: [pool] sochi1.ru — Сочи — Дмитрия Плишкина назначили главой Сириуса на второй пятилетний срок — плановое назначение местного чиновника — рутина
+- [ru] не_новость: [pool] ngs24.ru — Красноярск — Красноярск накроют мокрый снег и сильный ветер — обычный прогноз погоды
+- [ru] не_новость: [pool] iXBT — Просторный гибрид с сервисами «Яндекса», 344 л.с. и полным приводом. — рекламный материал о запуске продаж конкретной модели авто
+- [ru] не_новость: [pool] 14.ru — Якутск — «Уверенности нет ни в чем»: в Якутии рассказали, что может быть с популяцией сте — экспертное мнение/рассуждение без события
+- [ru] чужое_мелкое: [pool] 43.ru — Киров — Лжеаналитик обманул кировчанина на 4 миллиона рублей — мелкое мошенничество в РФ — чужая криминальная хроника
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — «Ничего не предвещало»: что известно о смертельном ДТП в центре Рязани — погибли — подробности регионального ДТП без общемирового значения
+- [ru] не_новость: [pool] 35.ru — Вологда — Череповецкие футболисты победили «Луки-Энергию» дома — результат локального матча региональной лиги РФ
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — В Череповце остановили шесть водителей без прав — обычный рейд ГАИ в российском городе
+- [ru] чужое_мелкое: [pool] 45.ru — Курган — В Курганском городском суде рассмотрели меру пресечения для сестер Камшиловых — процессуальные детали дела местного суда в РФ
+- [ru] курьёз: [pool] 48.ru — Липецк — Юные рок-музыканты из Липецка дали концерт в БАРТеневке — выступление местных рок-музыкантов в кластере
+- [ru] чужое_мелкое: [pool] 48.ru — Липецк — Житель Усманского района обвиняется в покушении на убийство знакомого — уголовная хроника одного района РФ
+- [ru] чужое_мелкое: [pool] 43.ru — Киров — Девушка из Кирово-Чепецка ответит за ножевые ранения мужа и гостя — уголовная хроника одного города РФ
+- [ru] не_новость: [pool] 45.ru — Курган — В Зауралье многодетные семьи могут сэкономить на услугах такси — рекламная акция частной компании
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Рязанец спустя два дня после освобождения снова чуть не попал в СИЗО: за что на  — мелкая кража в РФ
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — Под Самарой пенсионер собирал патроны «на брелоки» — теперь его ждёт суд — уголовная хроника одного района РФ
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — Мольбу мамы услышали: виновника ДТП под Осой, в котором погибли парень и девушка — приговор по ДТП, не влияющий на широкую аудиторию
+- [ru] чужое_мелкое: [pool] 48.ru — Липецк — Двое липчан стали фигурантами дела о мошенничестве с пенсионеркой — уголовная хроника одного города РФ
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Мошенники похитили у жителей Пскова и Печор более 1,5 млн рублей — мошенничества в РФ — чужая криминальная хроника
