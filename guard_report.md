@@ -1,14 +1,24 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] чужое_мелкое: [local] Expansión MX — Vales de despensa, bajo la lupa antimonopolio; un beneficio que alcanza a 40 mil — расследование антимонопольной комиссии — текущий процесс, нет события
-- [es] полка: [pool] El Nacional VE — Kimi Antonelli quiere coronarse “con estilo” en México — спорт (Формула-1) в Мексике должен быть на местной полке, а не в «Новости из...»
-- [es] курьёз: [world] Variety — Nikolaj Coster-Waldau protagonizará la serie «The Black Tapes» en MGM+ basada en — запуск сериала — это индустриальная новость без масштаба, не для общей ленты
-- [es] срочность: [world] Semana CO — Escalofriante lesión en la NBA: salió en ambulancia y sus compañeros terminaron  — спортивная травма не требует побудки
-- [es] чужое_мелкое: [world] El Economista MX — Chris Brown, condenado a prisión en suspenso por pelea en una discoteca de Londr — криминальная хроника из Лондона для мексиканского читателя не является мировой новостью
-- [es] не_новость: [world] Semafor — El sector empresarial muestra menos escepticismo que Trump respecto a Sudáfrica — аналитика и мнения бизнеса, а не состоявшееся событие
-- [es] курьёз: [world] TechCrunch — Matiks recauda 10 millones de dólares para expandir su plataforma de juegos mate — стартап привлек инвестиции — типичная индустриальная заметка
-- [es] не_новость: [world] Engadget — Even Realities lanza una versión en color marrón de sus gafas inteligentes G2 — выпуск новой расцветки очков — это реклама
-- [es] чужое_мелкое: [world] Semafor — Kodal Minerals busca expandir su negocio de litio — локальные планы горнодобывающей компании в Мали
-- [es] не_новость: [world] TechCrunch — Tesla recurre a Turo para fomentar el uso de su sistema Full Self-Driving (Super — партнерство сервиса аренды авто с Tesla — это бизнес-PR, а не событие
-- [es] не_новость: [world] Guardian Sport — ¿Un veterano en busca de su despedida? Aaron Rodgers aún podría aspirar al Super — спортивная колонка, размышление о форме игрока, а не результат матча
-- [es] повтор: [world] Guardian Sport — Gilgeous-Alexander, conmocionado tras la grave lesión de Williams ≈ «Escalofriante lesión en la NBA: salió en» — одна и та же травма игрока NBA
+- [pt] чужое_мелкое: [local] CNN Brasil — Bola de Ouro 2026: veja cronograma e ordem das premiações — Премия Bola de Ouro в Лондоне не является мировой новостью для бразильского читателя.
+- [pt] повтор: [world] ABC Australia — Anthropic entra com pedido de oferta pública inicial com avaliação potencial de  ≈ «Prospecto de IPO da Anthropic revela rec» — Дублирует информацию об IPO Anthropic и финансовых показателях.
+- [pt] не_новость: [world] ECO — Assistência médica é a cobertura mais acionada nos seguros de viagem da IATI — Аналитика/статистика страховой компании, а не событие.
+- [pt] не_новость: [world] ECO — Carat apresenta novo posicionamento estratégico global — Корпоративный ребрендинг (PR-заявление) не является новостью.
+- [pt] не_новость: [world] Fortune — Os jogos em nuvem já foram anunciados como uma opção mais barata do que a compra — Рассуждения о рынке облачных игр без конкретного события.
+- [pt] курьёз: [world] Smithsonian Magazine — Cientistas estimam que o forte calor de verão na Europa matou mais de 50.000 pes — Исследование о прошлых событиях без оперативного повода, место в «Интересном».
+- [pt] не_новость: [world] TechCrunch — Matiks arrecada US$ 10 milhões para expandir sua plataforma de jogos de matemáti — Обычная бизнес-сделка (инвестиции в индийский стартап) без мировых последствий.
+- [pt] курьёз: [world] Naked Science — Veterinários descobrem como a dieta vegana afetou gatos — Исследование о котах, не является событием для общей новостной ленты.
+- [pt] не_новость: [world] Ars Technica — De compra por impulso a estúdio de bolso: o M-Vave FM-1 — Обзор потребительского гаджета, а не событие.
+- [pt] не_новость: [world] Time — A escolha de Israel — Аналитическая статья/очерк перед выборами, нет свершившегося факта.
+- [fr] срочность: [local] La Dépêche — Un homme de 78 ans retrouvé mort, ligoté, à Villeneuve-sur-Lot : "Quelqu'un sans — Криминальная хроника: событие произошло, но не требует немедленного уведомления читателя в режиме «СРОЧНО».
+- [fr] не_новость: [local] BFMTV — Vaucluse: les sapeurs-pompiers débutent leur traditionnelle tournée de la vente  — Традиционная продажа календарей — это ежегодный ритуал, а не новостное событие.
+- [fr] не_новость: [local] Sud Ouest — Lidl ouvre son premier magasin Parkside, dédié à sa marque de bricolage — Открытие магазина брендом Lidl — это рекламная активность, а не общественно значимое событие.
+- [fr] срочность: [local] La Dépêche — Agression à Saint-Gaudens : Roué de coups ce week-end, José Capela, commerçant l — Гибель человека в происшествии — трагедия, но не повод для побудки (отсутствуют массовые последствия).
+- [fr] не_новость: [local] Nice-Matin — « Rappeler l’importance de ne jamais oublier les victimes » : Éric Ciotti a reçu — Церемониальное получение мяча политиком — этикет и пиар-акция без реальных изменений для граждан.
+- [fr] не_новость: [local] Franceinfo — "Une déclaration d'amour à la culture et à la création" : l'exposition du rappeu — Анонс выставки в декабре — это событие будущего, не меняющее день читателя сейчас.
+- [fr] не_новость: [local] L'Obs — LFI accuse BFM-TV de relayer des propos « racistes », la chaîne dénonce « une ca — Словесная перепалка между медиа и политической партией — шум, не являющийся значимым событием.
+- [fr] полка: [pool] BBC — Marine Le Pen candidate à la présidence : l'extrême droite française promet de r — Новость о кандидате в президенты Франции должна быть на полке «МЕСТНЫЕ», так как это внутренняя политика Франции.
+- [fr] курьёз: [world] La Tribune — Aéronautique : une innovation toulousaine pour désinfecter les avions s’exporte  — История о NASA и телескопе Sofia носит познавательный характер, место в «Интересном».
+- [fr] не_новость: [world] Futura-Sciences — Voici la toute première photo de la Terre prise depuis l'espace : son histoire e — Исторический факт о первой фотографии Земли — это познавательный контент, не событие.
+- [fr] чужое_мелкое: [world] Franceinfo — Image d'une explosion atomique, brouille avec l'Etat-major... Benyamin Nétanyaho — Внутриполитическая борьба в Израиле и споры с оппозицией — это местная новость страны, не имеющая мирового статуса.
+- [fr] срочность: [world] BBC News — La tempestad Boelo laisse 90 000 foyers sans électricité — Стихийные бедствия и отключения света в других странах (Великобритания) — новости для Франции, но не уровня «СРОЧНО».
