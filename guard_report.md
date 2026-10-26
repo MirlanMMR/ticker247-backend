@@ -1,27 +1,42 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] не_новость: [local] Kaktus.media — Учителя-пенсионеры не уходят из школ. Минпросвещения хочет изменить Трудовой код — предложение изменить закон — это намерение, не событие
-- [ru] полка: [local] Вечерний Бишкек — Проведение Кубка Азии-2027 в Саудовской Аравии оказалось под вопросом — новость о Саудовской Аравии не местная для KG, должна быть в мировых
-- [ru] чужое_мелкое: [pool] Onliner.by — Водитель отвлекся и устроил массовое ДТП. Пострадал один человек (видео) — рядовое ДТП в Беларуси не является мировой новостью
-- [ru] чужое_мелкое: [pool] Onliner.by — В России при счете 1:1 вратарь пошел исполнять штрафной и красиво забил (видео) — спортивный эпизод в РФ не является мировой новостью
-- [ru] курьёз: [pool] ngs55.ru — Омск — На окраине Омска лошадь провалилась в яму — видео — лошадь в яме — типичное «интересное», а не новость
-- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — В Новосибирске запустят новый «нищемаркет» — где именно он появится и с кем ему  — открытие магазина в РФ не является мировой новостью
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Молодой омич на новом Lexus за 1,5 месяца нарушил ПДД 59 раз — нарушения ПДД частным лицом в РФ не являются мировой новостью
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — В Казани разработали правила для курьеров на электровелосипедах: что им теперь з — локальные правила для курьеров в Казани не мировой уровень
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — Тульские пожарные спасли трёх человек из многоквартирного дома в Ефремове — пожар в Тульской области — региональное событие РФ
-- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — Тронулись. Поезда через Ростовскую область снова идут, но все еще опаздывают — с — задержки поездов внутри РФ не являются мировой новостью
-- [ru] чужое_мелкое: [pool] Kun.uz — На развитие инфраструктуры Ташкента направят более 4 млрд сумов. — плановое выделение средств из местного бюджета Ташкента
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Екатеринбуржцам подняли тарифы на сотовую связь. Как оператор объяснил повышение — повышение цен на связь локальным оператором в Екатеринбурге
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Легковушка снесла островок безопасности рядом с омской школой — фото — мелкое ДТП в Омске не является мировой новостью
-- [ru] не_новость: [pool] 161.ru — Ростов-на-Дону — В сиянии трех тысяч свечей: симфонический оркестр исполнит «Мировые хиты» в Рост — анонс концерта не является новостью
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Все больницы в Красноярском крае объединят по 10 медицинским округам. Как это бу — реорганизация больниц в Красноярском крае
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — Больше 20 троллейбусов застряли в центре Казани: что случилось — застрявшие троллейбусы в Казани
-- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — У лосей Ленобласти закончился брачный период — окончание брачного периода у животных — не событие
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — «Горит знатно». В Академическом вспыхнул коттедж в элитном квартале — бытовой пожар в Екатеринбурге
-- [ru] не_новость: [pool] ngs.ru — Новосибирск — Сквер и парк откроют в Новосибирске в конце недели — даты — анонс открытия сквера
-- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Гран-при в Петербурге: мотоцикл, падения и победы — локальный турнир по фигурному катанию в Петербурге
-- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — На Бердском шоссе в Новосибирске добавили камеры — показываем участок на карте — установка камер в Новосибирске
-- [ru] курьёз: [pool] 178.ru — Санкт-Петербург — Во Владивостоке спасли пенсионера, проглотившего зубной протез — случай с пенсионером во Владивостоке — не новость мирового масштаба
-- [ru] чужое_мелкое: [world] The Independent — Австралийский парламентарий сообщил о слежке после того, как на его автомобиле о — угроза австралийскому политику — локальный инцидент
-- [ru] не_новость: [world] The Guardian — «Я увидела, как дрон резко опускается в мою сторону. Сердце забилось, и я подума — личный рассказ (интервью) спустя полгода после событий
-- [ru] не_новость: [world] 60.ru — Псков — Трамп расхвалил фигуру Кеннеди-младшего и «красивых» генералов — высказывания Трампа о фигуре — не событие, а обсуждение
+- [pt] не_новость: [local] Metrópoles — Viúva de Rick faz desabafo um mês após morte do cantor: "Vazio" — Homenagem em rede social um mês após o falecimento não é um fato noticioso.
+- [pt] не_новость: [local] Metrópoles — Quadra comercial da Asa Norte fecha para limpeza após festa pró-Lula — Limpeza de rua após um evento é uma nota de serviço menor, não um fato relevante.
+- [pt] курьёз: [local] Estadão — "O Outro Lado das Redes" explica didaticamente como somos manipulados — Resenha ou dica de filme educativo não é evento.
+- [pt] не_новость: [local] Poder360 — Duda Salabert diz ter pedido apreensão do passaporte de Flávio — Pedido de um deputado não é um fato consumado ou decisão judicial.
+- [pt] не_новость: [local] Gazeta do Povo — TSE responde Flávio e diz que fiscais do PL não foram retirados da sala-cofre — Resposta de assessoria de imprensa a alegações políticas é rotina e não evento.
+- [pt] не_новость: [local] Gazeta do Povo — Justiça proíbe jornalista de abordar funcionários da escola de filha de Flávio B — Decisão judicial de plantão em caso privado de interesse político menor.
+- [pt] не_новость: [local] G1 São Paulo — Irmã de delegada encontra R$ 1,2 milhão, 120 mil dólares e 12 mil euros escondid — Notícia baseada em investigação doméstica e depoimento não confirmado de policial.
+- [pt] не_новость: [local] G1 Distrito Federal — Brasil elege 20 brancos, 6 pardos, 1 indígena e nenhum preto entre os 27 governa — Análise estatística de perfil dos governadores sem evento gerador.
+- [pt] не_новость: [local] G1 Distrito Federal — Mulheres são 3 entre os 27 eleitos para comandar os governos dos estados — Análise demográfica dos governadores eleitos sem fato novo.
+- [pt] не_новость: [local] Agência Brasil — Flávio não reconhece vitória de Lula e tentará anulação do pleito — Ameaça de contestar eleição não é fato jurídico consumado.
+- [pt] не_новость: [local] Agência Brasil — Motta e Alcolumbre, líderes do Congresso Nacional, parabenizam Lula — Congratulações políticas são etiqueta, não notícia de impacto.
+- [pt] не_новость: [local] Agência Brasil — Fachin diz que vontade dos eleitores deve ser respeitada — Declaração de princípios de magistrado sem efeito prático imediato.
+- [pt] чужое_мелкое: [pool] Observador PT — Homem detido por maus-tratos à ex-namorada em Arraiolos — Caso isolado de violência doméstica em Portugal não é notícia internacional.
+- [pt] не_новость: [pool] Expresso das Ilhas — Alberto Koenig convidado do Ciclo 2026 do Concerto do Bolso — Anúncio de convite para evento cultural é serviço.
+- [pt] не_новость: [pool] RTP Notícias — FNAM acusa Governo de desviar médicos das enfermarias para as urgências — Acusações sindicais sem novo fato ou greve deflagrada.
+- [pt] курьёз: [pool] Público — O mar também se protege em casa — Dicas ambientais domésticas sem evento.
+- [pt] не_новость: [world] Poder360 — Conselheiro de Trump divulga discurso de Flávio em inglês — Compartilhamento de redes sociais por conselheiro não é notícia de política externa.
+- [pt] курьёз: [world] Superinteressante — Uma pista da matéria escura? — Fato científico sem evento ou descoberta aplicada.
+- [pt] курьёз: [world] The Independent — Conheça o 'Picasso' da escultura em abóboras que celebra 40 anos de arte de Hall — História curiosa sobre artista de Halloween.
+- [pt] не_новость: [world] Poder360 — Eduardo Bolsonaro pede que estrangeiros não reconheçam eleição — Pedido de Eduardo Bolsonaro sem força ou efeito prático.
+- [pt] не_новость: [world] Fortune — Investidores mantêm otimismo apesar da queda nas ações de tecnologia na semana p — Análise de humor de mercado sem evento concreto de fechamento ou crise.
+- [pt] курьёз: [world] Engadget — Desmontagem do iPhone Duo pela iFixit revela possíveis causas para telas trincad — Análise técnica de produto sem recall ou erro sistêmico confirmado.
+- [pt] курьёз: [world] Rolling Stone — Grok, de Elon Musk, finalmente entrega a primeira parte da versão 'historicament — Lançamento de conteúdo por IA é curiosidade tecnológica, não notícia.
+- [fr] курьёз: [local] La Dépêche — Line Renaud, maman pour la première fois à 93 ans : l'État peut-il l'autoriser à — Событие не несет последствий: сплетни об усыновлении знаменитостями.
+- [fr] курьёз: [local] La Dépêche — "Ils aiment le pain et la charcuterie" : il pêche un silure géant de 2,30 m et 8 — Обычная история о рыбалке, не имеющая общественной значимости.
+- [fr] не_новость: [local] 20 Minutes — Ballon d’or 2026 : « Je suis une tombe »… Comment le boss du trophée a ajouté «  — Это анонс церемонии, обсуждение процесса голосования, а не факт вручения.
+- [fr] курьёз: [local] 20 Minutes — Violences contre les enfants : « Ça ne fonctionne pas beaucoup mieux qu’en Franc — Аналитическая статья-сравнение моделей защиты детей, не событие.
+- [fr] не_новость: [pool] Radio-Canada — Les pesticides dans l’eau potable réglementés… par leurs fabricants — Обзор старых исследований, нет нового события.
+- [fr] не_новость: [pool] Le Devoir — Pêcher l’anguille au Québec, «un privilège» qui existe encore — Очерк о жизни фермера, отсутствует новостной повод.
+- [fr] не_новость: [world] BFMTV — esport: Cyanide, devenu le plus jeune champion du monde de "League of Legends" à — Сообщение о смерти бывшего игрока, который закончил карьеру: не событие мирового масштаба.
+- [fr] чужое_мелкое: [world] Courrier International — Avant les “midterms”, Barack Obama sort de sa réserve et étrille Donald Trump — Внутренняя предвыборная риторика США, не имеет последствий для Франции.
+- [fr] чужое_мелкое: [world] RTBF — Essence, courses, engrais ... "Tout coûte cher" : en Géorgie, les démocrates fon — Локальная агитация в штате Джорджия, не мировая новость.
+- [fr] не_новость: [world] Courrier International — Boudé par la Chine, le luxe européen s’enfonce dans la crise — Экономический разбор/аналитика кризиса сектора, без конкретного события.
+- [fr] курьёз: [world] Nice-Matin — Une « importante quantité de matériel pédopornographique » retrouvée chez le pèr — Сплетни о семье знаменитости, не имеющие отношения к политике или обществу.
+- [fr] повтор: [world] France 24 FR — Le Ballon d’or promet une soirée de suspense ≈ «Ballon d’or 2026 : « Je suis une tombe »» — Тот же сюжет про церемонию Ballon d'Or.
+- [fr] повтор: [world] Franceinfo — À Londres, les supporters anglais voient déjà Harry Kane remporter le Ballon d'O ≈ «Ballon d’or 2026 : « Je suis une tombe »» — Снова спекуляции о победителе Ballon d'Or.
+- [fr] курьёз: [world] Africanews FR — Mexique : les morts prennent vie dans un carnaval de couleurs — Описание карнавала, не событие.
+- [fr] чужое_мелкое: [world] Africanews FR — Midterms 2026 : Nicki Minaj affiche son soutien à Trump dans le Michigan — Агитация частного лица (певицы) на митинге, не мировая новость.
+- [fr] повтор: [world] BBC — « Nous avons perdu les élections » : Aleksandar Vucic reconnaît la victoire du m ≈ «Législatives en Serbie: Aleksandar Vucic» — Тот же сюжет про выборы в Сербии.
+- [fr] повтор: [world] BBC World — La dirigeante de l'opposition vénézuélienne María Corina Machado revient après d ≈ «Venezuela : le retour de l'opposante Mar» — Тот же сюжет про возвращение оппозиционерки в Венесуэлу.
