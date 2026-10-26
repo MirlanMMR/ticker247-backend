@@ -1,27 +1,15 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] чужое_мелкое: [local] CBS News — Microsoft offers buyouts to 60,000 workers as it invests more in AI — Microsoft offers buyouts - это внутреннее корпоративное решение, не требующее побудки читателя.
-- [en] курьёз: [local] Arizona's Family — Florida man walked 3,100 miles, raised thousands to benefit Phoenix-based nonpro — История про благотворительный поход жителя Флориды — интересное, но не новость.
-- [en] не_новость: [local] NY Post — ‘All My Children’ star Alan Dysert dead at 75 after ‘incurable cancer’ diagnosis — Смерть актера в 75 лет после долгой болезни — личная трагедия, не событие для ленты.
-- [en] чужое_мелкое: [local] WV MetroNews — Competition for teachers and special education costs drive Berkeley County lawsu — Локальный спор о финансировании школ в одном округе США.
-- [en] не_новость: [local] Cleveland.com — Gas prices for 10/26/26: National average well above $4, expert warns relief unl — Прогноз эксперта о ценах на бензин — это мнение/рассуждение, а не факт.
-- [en] не_новость: [local] CBS News — Walter Koenig, actor who played Chekov on "Star Trek," dies at 90 — Смерть актера в 90 лет — естественный уход, нет события.
-- [en] не_новость: [local] WJXT News4JAX — Jacksonville Icemen, Waves partner with San Diego-based Xenco Medical on athlete — Партнерство двух локальных спортивных команд — это бизнес-PR, а не новость.
-- [en] чужое_мелкое: [local] KCUR — This Missouri jail has housed hundreds of ICE detainees. There are now only 5 le — Детали содержания задержанных в локальной тюрьме штата.
-- [en] повтор: [local] KCRG — Cedar Rapids man sentenced for illegally carrying gun ≈ «Mississippi woman sentenced in $538K Med» — Повтор сюжета о приговоре суда в США.
-- [en] не_новость: [local] Deseret News — BYU-Utah rivalry matchup will have a morning kickoff — Анонс времени начала спортивного матча.
-- [en] не_новость: [local] Startribune News — Another closed Minnesota brewery is getting a second chance — Открытие бара после смены владельцев — мелкое локальное событие.
-- [en] не_новость: [local] WECT — Wynonna Judd bringing ‘The Hard Truth Tour’ to Wilmington — Анонс гастрольного тура исполнителя.
-- [en] курьёз: [local] WFSB — Foster Family Farm celebrates National Pumpkin Day Lieutenant Governor Susan Bys — Празднование «Национального дня тыквы» на ферме.
-- [en] курьёз: [local] WCTV — Detected: How artificial intelligence is changing breast cancer detection — Обзорная статья об ИИ в медицине, а не новость о событии.
-- [en] не_новость: [local] KOLO — Washoe County to come up with new flood risk management plan — Планы окружного совета разработать документ — это обсуждение, а не принятое решение.
-- [en] не_новость: [pool] Variety — ‘Coven Academy’ Renewed for Season 2 at Disney — Продление сериала на сезон — PR-новость индустрии развлечений.
-- [en] не_новость: [pool] Variety — Bill Nighy Joins Caitriona Balfe in Alfonso Cuaron Series ‘Ascension’ at Apple T — Кастинг актера в сериал — PR-новость.
-- [en] не_новость: [pool] Variety — ‘Baywatch’ Reboot Sets January Premiere Date on Fox — Объявление даты премьеры сериала.
-- [en] не_новость: [pool] The Hill — Massie says he'll move to impeach Hegseth if he's not gone after midterms — Заявление политика о *планах* инициировать импичмент — это слова, нет события.
-- [en] не_новость: [pool] Engadget — Instagram wants you to watch 90-minute videos on your TV — Instagram «экспериментирует» — это не решение и не изменение, а просто процесс.
-- [en] чужое_мелкое: [pool] KSFY — SD nicotine retailers must obtain state license under new law — Лицензирование продавцов никотина в штате — мелкая бюрократическая процедура.
-- [en] не_новость: [pool] The Hill — Pulte vows action against ‘abusive monopolies’ in mortgage market — Заявление чиновника о том, что он «не потерпит» монополий — это декларация, не событие.
-- [en] чужое_мелкое: [pool] Time — New Details of Rape Allegation Against Trump Revealed in House Democrats’ Epstei — Внутренняя политическая отчетность США (Epstein report) — не является событием мирового масштаба.
-- [en] не_новость: [pool] WFPL — What Louisville’s nonpartisan elections mean for voters — Разъяснение того, что такое непартийные выборы — это ликбез, а не новость.
-- [en] не_новость: [world] Fortune — Trump said China was headed for ‘big trouble.’ Yet its economy is growing faster — Аналитическая колонка (мнение о тарифах и экономике), нет события.
+- [es] повтор: [local] El Economista MX — Sheinbaum descarta crisis en el INE ≈ «‘Alito’ Moreno pide que sucesor de Tadde» — Это одна и та же новость об отставке Тадеи в INE.
+- [es] повтор: [local] El Financiero — Humphrey pide ‘purga’ en el INE: Exige renuncia de funcionarios cercanos a Tadde ≈ «‘Alito’ Moreno pide que sucesor de Tadde» — Развитие того же события с отставкой в INE.
+- [es] повтор: [local] El Sol de México — Cercanos a Taddei podrían ser separados del cargo a petición de consejeros del I ≈ «Humphrey pide ‘purga’ en el INE: Exige r» — Повторение темы кадровых перестановок в INE.
+- [es] повтор: [local] La Jornada — Morena pide garantizar la certeza de todos los procesos comiciales ≈ «‘Alito’ Moreno pide que sucesor de Tadde» — Очередной отклик на ту же отставку в INE.
+- [es] чужое_мелкое: [pool] El Mundo — Feijóo 'ficha' al consejero de Emergencias de Ayuso y revoluciona Sol: el titula — Внутренняя кадровая политика партий в Испании не является мировой новостью.
+- [es] чужое_мелкое: [pool] El Mundo — Acuerdo en la derecha para las elecciones al Senado: Vox renuncia a presentarse  — Местные предвыборные соглашения партий в Испании — локальная повестка.
+- [es] чужое_мелкое: [pool] La Vanguardia — La Fiscalía pide el internamiento de seis de los 76 menores detenidos — Локальные беспорядки в Барселоне не имеют мирового масштаба.
+- [es] чужое_мелкое: [pool] El País — El Ayuntamiento recalifica la ciudad del Real Madrid con un informe que calcula  — Местный административный спор о недвижимости в Мадриде.
+- [es] курьёз: [world] Engadget — Apple responde a los informes sobre grietas en la pantalla interna del iPhone Du — Технический брак отдельного устройства — не событие мирового масштаба.
+- [es] курьёз: [world] TechCrunch — Las excavadoras autónomas de esta startup logran una financiación de 600 millone — Финансирование стартапа — бизнес-новость, не имеющая общемирового значения.
+- [es] курьёз: [world] Engadget — Instagram busca fomentar el consumo de videos de 90 minutos en televisores — Эксперименты с форматом видео в Instagram — интересное, а не мировая новость.
+- [es] курьёз: [world] TechCrunch — SpaceX asegura un acuerdo de financiación de 40 000 millones de dólares en GPU c — Сделка по закупке чипов — частная бизнес-новость.
+- [es] чужое_мелкое: [world] El Sol de México — Microsoft propone retiros voluntarios a 60 mil empleados en EU, Canadá, India y  — Внутренняя кадровая политика компании в США не является мировой новостью.
