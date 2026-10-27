@@ -1,27 +1,26 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] Poder360 — Câmara aprova convite para Roberta Luchsinger falar sobre ameaças — Одобрение приглашения для дачи показаний — это процедурный этап, а не состоявшееся событие.
-- [pt] не_новость: [local] Poder360 — Sóstenes declara apoio a Flávio e família após paradeiro desconhecido — Публикация в соцсетях в поддержку кого-либо не является значимым политическим событием.
-- [pt] чужое_мелкое: [local] Folha de S.Paulo — Imprensa internacional repercute fuga de Flávio Bolsonaro do Brasil — Реакция иностранной прессы на внутренние дела страны не является мировой новостью.
-- [pt] не_новость: [local] Metrópoles — Pulgar revela conversa entre atletas do Flamengo antes de pênalti decisivo — Пересказ разговора игроков — это спортивная околоновостная информация.
-- [pt] не_новость: [local] InfoMoney — Após tombo na véspera, Magalu, Hapvida e construtoras lideram recuperação na Bol — Комментарий рыночной динамики без конкретного события (сделки или отчета) — это аналитика.
-- [pt] не_новость: [local] CNN Brasil — São Paulo faz acordo com jogador por dívida de R$ 2 milhões; entenda — Урегулирование частного долгового спора — это рутина, не имеющая общественного веса.
-- [pt] чужое_мелкое: [local] CNN Brasil — Em crise, clube português mira Abel Ferreira e Leonardo Jardim, diz jornal — Слухи о трансфере тренеров — это спортивный шум, не является важным событием для читателя.
-- [pt] не_новость: [local] G1 Rio Grande do Sul — RS tem sete das 10 cidades com maiores percentuais de votos em Flávio Bolsonaro — Статистический анализ итогов выборов по регионам — это аналитика, а не новость.
-- [pt] чужое_мелкое: [local] Agência Brasil — Justiça italiana adia julgamento sobre extradição de Zambelli — Очередной перенос технического заседания по экстрадиции — это юридическая рутина.
-- [pt] не_новость: [local] G1 Minas — Conheça quem são os doze mineiros finalistas ao Prêmio Jabuti 2026 — Объявление списка финалистов премии — это событийный шум, не меняющий жизнь читателей.
-- [pt] не_новость: [local] Agência Brasil — MPT registra quase 2 mil denúncias de assédio eleitoral no Brasil — Регистрация жалоб — это текущий процесс, не является завершенным событием.
-- [pt] не_новость: [local] G1 São Paulo — Lula resgata Hino da Independência em atos na Paulista em disputa por símbolos n — Политический жест с гимном на митинге — это описание процесса, а не новостной факт.
-- [pt] не_новость: [local] G1 São Paulo — MP abre investigação contra Lucas Pavanato por supostas ofensas a minorias — Начало расследования — предварительный этап, до предъявления обвинений или санкций это не новость.
-- [pt] повтор: [pool] NPR News — Partido de Bolsonaro aceita derrota na eleição brasileira, mas ele se recusa a r ≈ «Flávio Bolsonaro não faz declarações púb» — Тот же сюжет о Flávio Bolsonaro и его нежелании признавать выборы.
-- [pt] чужое_мелкое: [world] InfoMoney — Trump flexibiliza controle de metano sobre petroleiras e empresas de gás nos EUA — Внутренняя регуляторная политика США, не имеющая глобального веса.
-- [pt] не_новость: [world] InfoMoney — iPhone Duo que custa US$ 1.999 racha em horas e vira dor de cabeça para novo CEO — Техническая поломка устройства у покупателей — это проблема продукта, а не новостное событие.
-- [pt] курьёз: [world] Engadget — Grand Theft Auto VI exigirá um download de 210 GB — Размер файла игры — информация для узкого круга геймеров, не является новостью.
-- [pt] не_новость: [world] Ars Technica — Google começa a certificar lojas de aplicativos registradas para Android, exceto — Начало процесса сертификации — техническая новость для разработчиков, не для широкого читателя.
-- [pt] не_новость: [world] CNN Brasil — Milho perde 1,37% em Chicago com avanço da colheita nos EUA e câmbio — Ежедневные рыночные колебания цен на зерно — это биржевая сводка, а не новость.
-- [pt] не_новость: [world] The Independent — Representante de Trump é chamado de 'mentiroso' durante bate-boca com autoridade — Словесная перепалка на заседании ООН — это этикет и шум.
-- [pt] не_новость: [world] The Hill — Kalshi amplia proteções para usuários entre 18 e 20 anos — Внутренние изменения правил платформы для трейдеров — это рутина сервиса.
-- [pt] не_новость: [world] El Mundo — Ex-gendarme que chegou a Ceuta a nado identifica altos comandantes do Ministério — Показания беженцев — это процесс, не подтвержденный официальным решением или действием ведомств.
-- [pt] не_новость: [world] El Mundo — Asisa e Adeslas ignoram o Governo e abandonam o sistema de saúde militar — Отказ компаний от контрактов — это корпоративный конфликт, а не новость для широкого читателя.
-- [pt] не_новость: [world] Semafor — FTC demonstra oposição a acordo de US$ 5 bilhões no setor de uniformes — Демонстрация намерения заблокировать сделку — это лишь этап переговоров, не событие.
-- [pt] полка: [world] AKIpress — Ministério dos Recursos Naturais propõe expandir áreas protegidas de 11,8% para  — Новость из Кыргызстана (KG) в потоке португальского языка (PT) должна быть в «Мировых», а не в «Новости из...».
+- [en] курьёз: [local] WBAL — Options considered to return statue, believed to be haunted, back to Pikesville — легенда о призраках не является новостным событием
+- [en] не_новость: [local] KSTP — Minnesota has $111M for heating help as applications decline; Brainerd woman sti — стандартное информирование о доступных фондах, не является срочным событием
+- [en] не_новость: [local] CBS News — Grand jury won't indict Cassidy Hutchinson over Jan. 6 testimony — отказ присяжных от обвинения — техническое решение суда, не имеющее глобальных последствий
+- [en] не_новость: [local] WABI — Washington County Commission advised to hold confirmatory vote Wednesday on budg — обычная бюрократическая процедура: советуют провести голосование
+- [en] не_новость: [local] 1011NOW — Blind and visually impaired students get hands-on tour of Museum of American Spe — ознакомительная экскурсия для школьников
+- [en] не_новость: [local] WFSB — I-Team: CSCU board of regents using private emails to discuss controversies — расследование журналистов о переписке не является событием с последствиями
+- [en] не_новость: [local] Deseret News — The U.S. is changing its Canada tariff list. Here’s what’s in and what’s out — разбор торговых тарифов, а не конкретное свершившееся событие
+- [en] не_новость: [local] KFYR-TV — Ward County voting options — справочная информация об организации голосования, не событие
+- [en] не_новость: [local] WBAY — Record high possible on Wednesday — прогноз погоды не является новостным событием
+- [en] не_новость: [local] WKYT — Downtown Lexington ice rink will not open this holiday season — решение не открывать каток — это анонс изменений, а не событие
+- [en] не_новость: [local] KSTP — Kyler Murray thanks Vikings fans during New Hope appearance — визит спортсмена на встречу с фанатами
+- [en] не_новость: [local] WKYT — Kentucky Blood Center reports critical need of donors — призыв к донорству не является событием
+- [en] не_новость: [local] VTDigger — Pownal will consider a 5-year permitting pause on data center facilities — планы по рассмотрению моратория (анонс обсуждения)
+- [en] не_новость: [pool] TechCrunch — Bank of America kindly asks that you don’t share your banking password with your — банковское предупреждение пользователям
+- [en] не_новость: [pool] TechCrunch — Who’s really in charge at Anthropic after the IPO? — аналитическая статья о структуре управления компании
+- [en] курьёз: [pool] Engadget — Why is there a random arm taking over the X composer? — эксперимент интерфейса соцсети не является новостью
+- [en] не_новость: [pool] Engadget — iPhone 18e reportedly comes with 2nm A20 chip and 60Hz screen — слухи о будущих продуктах Apple
+- [en] не_новость: [pool] TechCrunch — Discord is making its public communities more searchable, and people have concer — обновление функционала поиска в приложении
+- [en] не_новость: [pool] Forbes — One UI 9 Release Date: Android 17 Lands On More Samsung Phones — информация о выходе обновления ПО
+- [en] не_новость: [pool] Guardian Sport — An unmanageable club? Carrick the latest to suffer in Manchester United’s faded  — мнение обозревателя о ситуации в клубе
+- [en] не_новость: [pool] The Guardian — ‘How on earth is this man not sweating?’ Director Brett Morgen’s painstaking 10- — статья о процессе создания документального фильма
+- [en] не_новость: [pool] Guardian Sport — Kane’s Ballon d’Or triumph a glorious riposte to celebrity fawning of ceremony | — колумнистика и личное мнение автора
+- [en] курьёз: [world] Variety — Elmo Is Going as Meryl Streep’s Evil Fashion Editor Miranda Priestly for Hallowe — костюм персонажа на Хэллоуин
+- [en] курьёз: [world] Fortune — Ex–Google engineer Nate Soares hasn’t added to his 401(k) in a decade because he — личное мнение инженера о личных сбережениях
