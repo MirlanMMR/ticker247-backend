@@ -1,26 +1,22 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] WBAL — Options considered to return statue, believed to be haunted, back to Pikesville — легенда о призраках не является новостным событием
-- [en] не_новость: [local] KSTP — Minnesota has $111M for heating help as applications decline; Brainerd woman sti — стандартное информирование о доступных фондах, не является срочным событием
-- [en] не_новость: [local] CBS News — Grand jury won't indict Cassidy Hutchinson over Jan. 6 testimony — отказ присяжных от обвинения — техническое решение суда, не имеющее глобальных последствий
-- [en] не_новость: [local] WABI — Washington County Commission advised to hold confirmatory vote Wednesday on budg — обычная бюрократическая процедура: советуют провести голосование
-- [en] не_новость: [local] 1011NOW — Blind and visually impaired students get hands-on tour of Museum of American Spe — ознакомительная экскурсия для школьников
-- [en] не_новость: [local] WFSB — I-Team: CSCU board of regents using private emails to discuss controversies — расследование журналистов о переписке не является событием с последствиями
-- [en] не_новость: [local] Deseret News — The U.S. is changing its Canada tariff list. Here’s what’s in and what’s out — разбор торговых тарифов, а не конкретное свершившееся событие
-- [en] не_новость: [local] KFYR-TV — Ward County voting options — справочная информация об организации голосования, не событие
-- [en] не_новость: [local] WBAY — Record high possible on Wednesday — прогноз погоды не является новостным событием
-- [en] не_новость: [local] WKYT — Downtown Lexington ice rink will not open this holiday season — решение не открывать каток — это анонс изменений, а не событие
-- [en] не_новость: [local] KSTP — Kyler Murray thanks Vikings fans during New Hope appearance — визит спортсмена на встречу с фанатами
-- [en] не_новость: [local] WKYT — Kentucky Blood Center reports critical need of donors — призыв к донорству не является событием
-- [en] не_новость: [local] VTDigger — Pownal will consider a 5-year permitting pause on data center facilities — планы по рассмотрению моратория (анонс обсуждения)
-- [en] не_новость: [pool] TechCrunch — Bank of America kindly asks that you don’t share your banking password with your — банковское предупреждение пользователям
-- [en] не_новость: [pool] TechCrunch — Who’s really in charge at Anthropic after the IPO? — аналитическая статья о структуре управления компании
-- [en] курьёз: [pool] Engadget — Why is there a random arm taking over the X composer? — эксперимент интерфейса соцсети не является новостью
-- [en] не_новость: [pool] Engadget — iPhone 18e reportedly comes with 2nm A20 chip and 60Hz screen — слухи о будущих продуктах Apple
-- [en] не_новость: [pool] TechCrunch — Discord is making its public communities more searchable, and people have concer — обновление функционала поиска в приложении
-- [en] не_новость: [pool] Forbes — One UI 9 Release Date: Android 17 Lands On More Samsung Phones — информация о выходе обновления ПО
-- [en] не_новость: [pool] Guardian Sport — An unmanageable club? Carrick the latest to suffer in Manchester United’s faded  — мнение обозревателя о ситуации в клубе
-- [en] не_новость: [pool] The Guardian — ‘How on earth is this man not sweating?’ Director Brett Morgen’s painstaking 10- — статья о процессе создания документального фильма
-- [en] не_новость: [pool] Guardian Sport — Kane’s Ballon d’Or triumph a glorious riposte to celebrity fawning of ceremony | — колумнистика и личное мнение автора
-- [en] курьёз: [world] Variety — Elmo Is Going as Meryl Streep’s Evil Fashion Editor Miranda Priestly for Hallowe — костюм персонажа на Хэллоуин
-- [en] курьёз: [world] Fortune — Ex–Google engineer Nate Soares hasn’t added to his 401(k) in a decade because he — личное мнение инженера о личных сбережениях
+- [es] не_новость: [local] La Jornada — Editorial: INE: restaurar la certidumbre — мнение редакции о текущих событиях, а не новость
+- [es] не_новость: [local] La Jornada — MC pide árbitro electoral imparcial — выражение политического требования, а не событие
+- [es] курьёз: [local] La Jornada — Detectan IA que secuestra y ataca a otros modelos — отвлеченная научная заметка, не событие
+- [es] не_новость: [local] La Jornada — Alerta diputada sobre edificación de 4 desarrollos en San Pedro Cuajimalpa — депутат «предупреждает» о будущем, нет свершившегося факта
+- [es] не_новость: [local] La Jornada — Acusan colonos a la Miguel Hidalgo de abdicar de su autoridad ante el poder inmo — обвинения и жалобы без юридического факта или решения
+- [es] курьёз: [local] AKIpress — Video: avistan un ciervo de gran tamaño en el distrito de Jeti-Oguz que no había — находка животного — типичное «интересное», не новость
+- [es] не_новость: [pool] El Tiempo CO — Asamblea de Santander eligió como vicepresidente a un diputado investigado por p — описание состава руководящего органа без свершившегося действия
+- [es] не_новость: [pool] Infobae — En un duelo clave por el título de la Tabla Anual, Argentinos Juniors iguala sin — промежуточный результат матча (0-0 в перерыве)
+- [es] курьёз: [pool] Infobae — El iPhone y el Mac ya ejecutan juegos de Nintendo Switch como aplicaciones nativ — технический факт об эмуляции, нет события
+- [es] курьёз: [pool] La Nación AR — El “Caribe” escondido de la Patagonia: ofrece playas de caracoles, agua turquesa — описание туристического места, не новость
+- [es] не_новость: [pool] La Nación AR — Visita de León XIV: cómo será el operativo de seguridad en la zona donde estará  — описание планового графика безопасности
+- [es] срочность: [pool] Marca — El árbitro activó el protocolo antirracismo por insultos a Haitam — мелкое нарушение на матче, не требует пробуждения
+- [es] не_новость: [pool] Clarín AR — Dólar blue: apelan un “escandaloso” fallo del juez Kreplak que frenó una multa m — процессуальное действие (подача апелляции), не итог
+- [es] не_новость: [pool] El Informador — Alejandra Giadands propone endurecer sanciones por permitir transporte de pasaje — депутатская инициатива (предложение), нет закона
+- [es] не_новость: [pool] El Informador — Piden garantizar apoyos para productores del campo en Presupuesto de Egresos 202 — обращение с просьбой включить пункты в бюджет
+- [es] не_новость: [pool] El País — Comuns acuerda con el PSC retirar sus candidaturas al Senado en Girona, Lleida y — политическая договоренность, не событие-решение
+- [es] повтор: [world] El Universal MX — Arsenal cae ante Fleetwood Town; queda eliminado de la Copa de la Liga inglesa e ≈ «Fleetwood logra una sorprendente victori» — тот же матч, что в 55
+- [es] повтор: [world] eldiario.es — Netanyahu gana, pero la oposición suma más escaños en las primeras elecciones en ≈ «Elecciones en Israel: las encuestas mues» — тот же сюжет про выборы в Израиле
+- [es] повтор: [world] La Vanguardia — Ninguno de los dos bloques tiene una clara mayoría en Israel, según sondeos a pi ≈ «Elecciones en Israel: las encuestas mues» — тот же сюжет про выборы в Израиле
+- [es] не_новость: [world] BBC Mundo — Quién es Gadi Eisenkot, el general retirado que perdió un hijo en Gaza y desafía — портрет/справка об участнике выборов, а не событие
