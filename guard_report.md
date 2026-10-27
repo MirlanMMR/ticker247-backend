@@ -1,21 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Universal MX — Día de Muertos 2026: ¿Qué día llegan las almas de quienes murieron de forma trág — традиционный праздник, не событие
-- [es] курьёз: [local] El Universal MX — La hermana de Octavio Ocaña, Benito Rivers en "Vecinos", recuerda con dolor su ú — личное воспоминание, не событие
-- [es] срочность: [local] El Universal MX — VIDEO: Estados Unidos ataca otra presunta narcolancha en el Pacífico; reportan 5 — событие US, не требует побудки в Мексике
-- [es] курьёз: [local] La Jornada — Detectan IA que secuestra y ataca a otros modelos — техническая заметка, не новость
-- [es] курьёз: [local] AKIpress — Video: avistan un ciervo de gran tamaño en el distrito de Jeti-Oguz que no había — отчет об avistamiento, не событие
-- [es] курьёз: [local] Expansión MX — Millones de vistas, criptomonedas y estafas: el negocio detrás de los influencer — обзор бизнеса/трендов, не новость
-- [es] чужое_мелкое: [pool] Infobae — Excampeón del mundo le “echó flores” a Álvaro Montero tras su victoria en el clá — спортивная колонка, не событие
-- [es] курьёз: [pool] La Nación AR — Nelson, de 62 años, produce huevos de color azul con gallinas adaptadas al frío: — история про фермера, не событие
-- [es] не_новость: [pool] BBC Mundo — Análisis: los retos de María Corina Machado tras regresar a una Venezuela transf — аналитический разбор, нет факта события
-- [es] не_новость: [world] Variety — Reinicio de 'Los pájaros': Sarah Snook protagonizará la serie limitada de HBO ba — анонс разработки фильма, не событие
-- [es] курьёз: [world] Xataka — Atomic-6 ha mandado su armadura para satélites al espacio y reza para que reciba — научно-популярный факт
-- [es] курьёз: [world] Xataka — El Ayuntamiento de Burgos no encuentra a uno de sus empleados que cobró sin trab — локальный казус муниципалитета
-- [es] курьёз: [world] Engadget — Este viejo teléfono Nokia recibe una actualización de IA para la que nunca fue d — технический факт
-- [es] не_новость: [world] Wired — Anthropic señala el suministro de gas como uno de sus mayores riesgos a corto pl — описание рисков, не событие
-- [es] не_новость: [world] Ars Technica — Warner Bros. publica el tráiler final de Dune: Parte tres — анонс трейлера фильма
-- [es] не_новость: [world] TechCrunch — Los laboratorios de IA de vanguardia afirman que sus modelos refutaron la Hipóte — теоретическое утверждение лабораторий
-- [es] не_новость: [world] Ars Technica — DeepMind presenta Genie 4, un modelo de mundo que promete una física y unos huma — анонс обновления модели, не событие
-- [es] чужое_мелкое: [world] El Sol de México — Irán condena a 5 años de prisión al cineasta Jafar Panahi y la confiscación de s — приговор частному лицу в Иране, не событие
-- [es] не_новость: [world] BBC Mundo — La hazaña de Charlyn Corral, la jugadora que hizo historia para México al ganar  — пересказ вручения премии, событие уже прошло
+- [pt] не_новость: [local] Poder360 — Câmara aprova convite para Roberta Luchsinger falar sobre ameaças — Одобрение приглашения для дачи показаний — это процедурный этап, а не состоявшееся событие.
+- [pt] не_новость: [local] Poder360 — Sóstenes declara apoio a Flávio e família após paradeiro desconhecido — Публикация в соцсетях в поддержку кого-либо не является значимым политическим событием.
+- [pt] чужое_мелкое: [local] Folha de S.Paulo — Imprensa internacional repercute fuga de Flávio Bolsonaro do Brasil — Реакция иностранной прессы на внутренние дела страны не является мировой новостью.
+- [pt] не_новость: [local] Metrópoles — Pulgar revela conversa entre atletas do Flamengo antes de pênalti decisivo — Пересказ разговора игроков — это спортивная околоновостная информация.
+- [pt] не_новость: [local] InfoMoney — Após tombo na véspera, Magalu, Hapvida e construtoras lideram recuperação na Bol — Комментарий рыночной динамики без конкретного события (сделки или отчета) — это аналитика.
+- [pt] не_новость: [local] CNN Brasil — São Paulo faz acordo com jogador por dívida de R$ 2 milhões; entenda — Урегулирование частного долгового спора — это рутина, не имеющая общественного веса.
+- [pt] чужое_мелкое: [local] CNN Brasil — Em crise, clube português mira Abel Ferreira e Leonardo Jardim, diz jornal — Слухи о трансфере тренеров — это спортивный шум, не является важным событием для читателя.
+- [pt] не_новость: [local] G1 Rio Grande do Sul — RS tem sete das 10 cidades com maiores percentuais de votos em Flávio Bolsonaro — Статистический анализ итогов выборов по регионам — это аналитика, а не новость.
+- [pt] чужое_мелкое: [local] Agência Brasil — Justiça italiana adia julgamento sobre extradição de Zambelli — Очередной перенос технического заседания по экстрадиции — это юридическая рутина.
+- [pt] не_новость: [local] G1 Minas — Conheça quem são os doze mineiros finalistas ao Prêmio Jabuti 2026 — Объявление списка финалистов премии — это событийный шум, не меняющий жизнь читателей.
+- [pt] не_новость: [local] Agência Brasil — MPT registra quase 2 mil denúncias de assédio eleitoral no Brasil — Регистрация жалоб — это текущий процесс, не является завершенным событием.
+- [pt] не_новость: [local] G1 São Paulo — Lula resgata Hino da Independência em atos na Paulista em disputa por símbolos n — Политический жест с гимном на митинге — это описание процесса, а не новостной факт.
+- [pt] не_новость: [local] G1 São Paulo — MP abre investigação contra Lucas Pavanato por supostas ofensas a minorias — Начало расследования — предварительный этап, до предъявления обвинений или санкций это не новость.
+- [pt] повтор: [pool] NPR News — Partido de Bolsonaro aceita derrota na eleição brasileira, mas ele se recusa a r ≈ «Flávio Bolsonaro não faz declarações púb» — Тот же сюжет о Flávio Bolsonaro и его нежелании признавать выборы.
+- [pt] чужое_мелкое: [world] InfoMoney — Trump flexibiliza controle de metano sobre petroleiras e empresas de gás nos EUA — Внутренняя регуляторная политика США, не имеющая глобального веса.
+- [pt] не_новость: [world] InfoMoney — iPhone Duo que custa US$ 1.999 racha em horas e vira dor de cabeça para novo CEO — Техническая поломка устройства у покупателей — это проблема продукта, а не новостное событие.
+- [pt] курьёз: [world] Engadget — Grand Theft Auto VI exigirá um download de 210 GB — Размер файла игры — информация для узкого круга геймеров, не является новостью.
+- [pt] не_новость: [world] Ars Technica — Google começa a certificar lojas de aplicativos registradas para Android, exceto — Начало процесса сертификации — техническая новость для разработчиков, не для широкого читателя.
+- [pt] не_новость: [world] CNN Brasil — Milho perde 1,37% em Chicago com avanço da colheita nos EUA e câmbio — Ежедневные рыночные колебания цен на зерно — это биржевая сводка, а не новость.
+- [pt] не_новость: [world] The Independent — Representante de Trump é chamado de 'mentiroso' durante bate-boca com autoridade — Словесная перепалка на заседании ООН — это этикет и шум.
+- [pt] не_новость: [world] The Hill — Kalshi amplia proteções para usuários entre 18 e 20 anos — Внутренние изменения правил платформы для трейдеров — это рутина сервиса.
+- [pt] не_новость: [world] El Mundo — Ex-gendarme que chegou a Ceuta a nado identifica altos comandantes do Ministério — Показания беженцев — это процесс, не подтвержденный официальным решением или действием ведомств.
+- [pt] не_новость: [world] El Mundo — Asisa e Adeslas ignoram o Governo e abandonam o sistema de saúde militar — Отказ компаний от контрактов — это корпоративный конфликт, а не новость для широкого читателя.
+- [pt] не_новость: [world] Semafor — FTC demonstra oposição a acordo de US$ 5 bilhões no setor de uniformes — Демонстрация намерения заблокировать сделку — это лишь этап переговоров, не событие.
+- [pt] полка: [world] AKIpress — Ministério dos Recursos Naturais propõe expandir áreas protegidas de 11,8% para  — Новость из Кыргызстана (KG) в потоке португальского языка (PT) должна быть в «Мировых», а не в «Новости из...».
