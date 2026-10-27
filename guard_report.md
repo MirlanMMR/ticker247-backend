@@ -1,25 +1,9 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] NY Post — Warriors’ Yaxel Lendeborg makes stunning ‘wet the bed’ admission after crushing  — Это спортивный околофутбольный факт, не влияющий на читателя.
-- [en] срочность: [local] 11Alive — Study ranks Atlanta as the 32nd deadliest city for pedestrians in the U.S., as H — Статистическое исследование (рейтинг городов) не является поводом для экстренного оповещения.
-- [en] курьёз: [local] KSTP — Pair of nyala calves born at Como Park Zoo 3 weeks apart — Рождение животных в зоопарке — развлекательный факт, а не новость.
-- [en] курьёз: [local] WDBJ7 — HOMETOWN HEALTH: What happens when you get pregnant too soon after having a baby — Научпоп-заметка об исследовании Harvard University без конкретных последствий.
-- [en] не_новость: [local] WKYT — Community invited to watch Breeders’ Cup garland creation — Мероприятие по созданию цветочной гирлянды не является новостным событием.
-- [en] не_новость: [local] WCTV — ‘You can’t go any higher’: American Airlines’ most senior flight attendant retir — Уход сотрудника на пенсию после долгой работы (даже рекордной) — плановое событие.
-- [en] не_новость: [pool] Rolling Stone — Early Voting Data Is Everywhere. What Can It Actually Tell Us? — Аналитический обзор электоральных настроений без совершившегося факта.
-- [en] курьёз: [pool] TechCrunch — Anduril, Qualcomm launch BlueChip, a new kind of US-made laptop — Анонс нового гаджета — это бизнес-новость, но не событие, меняющее жизнь читателя.
-- [en] не_новость: [pool] BBC Sport — How 'anti-superstar' Kane defied doubters to become world's best — Очерк/аналитическая статья о карьере спортсмена.
-- [en] не_новость: [pool] Sky Sports — Are Chelsea back? Have Man Utd weathered early-season storm? — Колонка спортивного обозревателя с разбором матчей.
-- [en] не_новость: [pool] Sky Sports — Brundle's verdict on 'outstanding' Antonelli and Piastri 'pain' in 2026 cars — Вердикт эксперта («Brundle's verdict») не является событием.
-- [en] не_новость: [pool] The Guardian — ‘If a person isn’t conscious, they’re not saying yes’: Cynthia Erivo on her sear — Интервью с актрисой не является новостным событием.
-- [en] не_новость: [pool] Guardian Sport — Kane’s Ballon d’Or triumph a glorious riposte to celebrity fawning of ceremony | — Авторская колонка/мнение («riposte to celebrity fawning») не событие.
-- [en] не_новость: [pool] The Guardian — My advice for Burnham’s first budget? Hit the banks – and hit them hard | Polly  — Авторские советы по бюджету («My advice for...») не событие.
-- [en] курьёз: [world] Portland Press Herald — Shipwreck found in Gulf of Maine more than 80 years after WWII sinking — Находка кораблекрушения 80-летней давности — исторический факт.
-- [en] курьёз: [world] Rolling Stone — Ryan Gosling’s Band Dead Man’s Bones Get ‘Lost in the Night’ on First Song in 17 — Выход песни музыкальной группы — развлекательный контент.
-- [en] не_новость: [world] Variety — ‘Miraculous: Tales of Ladybug & Cat Noir’ Sets Global Season 7 Rollout on Disney — Анонс графиков выхода серий мультфильма.
-- [en] курьёз: [world] Ars Technica — Sculpture recreates odd optical effects of famed Lycurgus Cup — Научный факт о древней чаше.
-- [en] не_новость: [world] Engadget — Apple's iMac with M6 arrives promising a 'huge leap' in AI performance — Анонс нового устройства Apple.
-- [en] курьёз: [world] Engadget — A jailbroken PlayStation 5 can play PS2 discs, but Sony is giving users a tough  — Технический лайфхак/эксперимент с приставкой.
-- [en] курьёз: [world] Superinteressante — Almost all shallow-water coral reefs in the world are threatened with extinction — Экологический отчет без конкретного произошедшего события.
-- [en] не_новость: [world] Fortune — Anthropic’s S-1, by the numbers: A thriving business—with a $498 billion asteris — Обзор документации перед IPO — аналитика, а не свершившаяся сделка.
-- [en] курьёз: [world] Ars Technica — Worms mate in man's eyes, get plucked out right before larvae burst out — Медицинская кунсткамера (описание случая с червями), не новость для широкого читателя.
+- [es] чужое_мелкое: [pool] Clarín AR — Caso $LIBRA: uno de los inversores apeló el sobreseimiento de los Milei y pidió  — внутренняя судебная тяжба частных лиц в Аргентине, не имеет мирового значения
+- [es] не_новость: [pool] El Comercio PE — Alcalde de Lima Renzo Reggiardo: “Hemos venido conversando extraoficialmente” co — разговоры политиков между собой не являются фактом принятия решения или событием
+- [es] не_новость: [pool] El Mundo — Feijóo lanza con Ayuso la lista electoral de Madrid: "Vamos a gobernar. Calentad — выступление политика на мероприятии без конкретных решений — предвыборная риторика
+- [es] повтор: [pool] El Mundo — PSC y Frente Amplio pactan en Cataluña para contrarrestar el acuerdo entre PP y  ≈ «Comuns acuerda con el PSC retirar sus ca» — один и тот же сюжет о пакте между PSC и Comuns
+- [es] повтор: [world] El Universal MX — China suspende difusión de los partidos de la liga de España por declaraciones d ≈ «Kylian Mbappé, arrepentido por ofender "» — развитие одного сюжета о высказывании Мбаппе
+- [es] не_новость: [world] Expansión MX — ¿Quién ganó el Balón de Oro 2026? Así quedaron Harry Kane, Lamine Yamal y Kylian — подборка итогов награждения в формате 'кто победил' не является новостным событием
+- [es] курьёз: [world] Fortune — El Pentágono ordena a sus bases prepararse para 90 días sin red eléctrica mientr — спекулятивные рекомендации по выживанию от разных ведомств без факта начала кризиса
