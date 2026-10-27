@@ -1,19 +1,25 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [fr] чужое_мелкое: [pool] Radio-Canada — Sommet Canada-Union européenne : PSPP refuse de servir des « crevettes cocktail  — Внутренняя политическая процедура Канады без значимых последствий для Франции.
-- [fr] курьёз: [pool] RTBF — "Acotar", le phénomène de romantasy qui bouscule les librairies — Обзор литературного феномена не является новостным событием.
-- [fr] не_новость: [pool] Radio-Canada — Une lettre bourrée de fautes destinée à une prestataire de l’aide sociale — Описание письма с ошибками — частный случай, не имеющий общественного значения.
-- [fr] не_новость: [pool] Radio-Canada — Recomptage dans Vachon : un avocat radié du Barreau a agi comme conseiller du PQ — Детали кадрового состава штаба или консультантов политической партии не являются новостью.
-- [fr] чужое_мелкое: [world] La Tribune — Rachat TAP Portugal : pourquoi Lufthansa l'a emporté face à Air France-KLM — Сделка между португальской компанией и иностранным холдингом не является мировой новостью для французского читателя.
-- [fr] чужое_мелкое: [world] La Tribune — IA : la bulle s'effondre en Chine, 480 milliards de dollars déjà partis en fumée — Финансовые колебания на фондовом рынке Китая требуют подтвержденных глобальных последствий, здесь — лишь статистика рынк
-- [fr] не_новость: [world] Radio-Canada — Donald Trump félicite PSPP pour sa victoire, trois semaines après l’élection — Вежливое поздравление политиком другого политика спустя три недели — этикет, а не событие.
-- [fr] не_новость: [world] Courrier International — Le patron d’Audi s’affiche avec Donald Trump : “un comportement inexcusable” — Мнение о «неподобающем поведении» бизнесмена — это оценочное суждение, а не факт изменения реальности.
-- [fr] чужое_мелкое: [world] BFMTV — Les grands médias norvégiens saisissent la justice pour empêcher Meta d'utiliser — Судебный иск норвежских СМИ против Meta — локальный юридический процесс без мирового эффекта.
-- [fr] чужое_мелкое: [world] Courrier International — Tchéquie : la réforme de l’audiovisuel public provoque une fronde contre le gouv — Внутренняя дискуссия о реформе СМИ в Чехии не является мировой новостью.
-- [fr] не_новость: [world] RFI — RDC: l'opposition rejette tout changement constitutionnel et recours aux armes e — Намерение оппозиции встретиться с властями — это слова о планах, а не свершившееся событие.
-- [fr] повтор: [world] Radio-Canada — Israël : participation historique aux premières élections depuis l’attaque d’oct ≈ «Elections législatives en Israël : taux » — Тот же сюжет о выборах в Израиле.
-- [fr] чужое_мелкое: [world] RTBF — Elections législatives en Israël : taux de participation record à mi-scrutin — Промежуточный результат явки на выборах в Израиле не имеет мирового значения.
-- [fr] повтор: [world] L'Obs — Brésil : lâché par Trump, Bolsonaro fait volte-face et reconnaît sa défaite à la ≈ «Victoire de Lula au Brésil : Flavio Bols» — Тот же сюжет о признании поражения Болсонару.
-- [fr] не_новость: [world] L'Express — Législatives en Israël : Gadi Eisenkot, novice en politique et adversaire numéro — Портрет политика-новичка перед выборами — это аналитика, а не событие.
-- [fr] не_новость: [world] BBC — Poutine s'entretient avec le président finlandais et le Premier ministre norvégi — Телефонные разговоры лидеров перед переговорами — рутина без итогов.
-- [fr] не_новость: [world] AKIpress — Le ministère des Ressources naturelles propose d'étendre les zones protégées de  — Предложение министерства (планы на 2035 год) не является принятым решением или событием.
+- [en] курьёз: [local] NY Post — Jorge Posada feels unwelcome around Yankees in shocking reveal: ‘I don’t think t — Это личное мнение игрока о своей карьере, не событие в жизни общества.
+- [en] не_новость: [local] Deseret News — Apostle announces new Latter-day Saint missionary record during BYU devotional — Отчет о росте числа миссионеров — внутренняя статистика организации, нет события.
+- [en] не_новость: [local] WTOP — Trump returning to Texas for a high-stakes push to keep the state in Republican  — Анонс визита президента, нет конкретной даты или результата.
+- [en] не_новость: [local] WCTV — Search for Florida State athletic director to begin soon, university president s — Поиск кандидата на пост — это процесс, а не событие.
+- [en] не_новость: [local] Untitled RSS Feed — Judge Declines To Hold Sheriff Kozak In Contempt, Says He Didn't Willfully Withh — Суд отказал в иске — нормальная работа системы, значимого события нет.
+- [en] курьёз: [local] KOLO — Voting machine concerns: Machines are calibrated properly, accurately functionin — Слухи от знакомого о калибровке машин — не новость и не событие.
+- [en] не_новость: [local] El Financiero — OFFICIAL: Jay-Z to perform at the 2027 Super Bowl halftime show — Анонс артиста на событие 2027 года слишком преждевременен.
+- [en] не_новость: [pool] Rolling Stone — Drake ‘Janice STFU’ Copyright Lawsuit Dismissed — Отклонение иска об авторских правах — рядовая судебная рутина.
+- [en] курьёз: [pool] BBC Sport — Lancashire treatment of Anderson disrespectful — Личное мнение игрока о неуважении клуба к спортсмену.
+- [en] курьёз: [pool] The Independent — Massachusetts school cancels Halloween for ‘black-and-orange spirit day’. Outrag — Спор о праздновании Хэллоуина в школе — локальный инфоповод, а не новость.
+- [en] курьёз: [pool] The Independent — A vet said a family’s beloved ‘Cha Cha’ had to be euthanized. — Случай в ветеринарной клинике — частная история, не общественное событие.
+- [en] не_новость: [pool] Rolling Stone — Christina Applegate Tells MS Community She’s Still ‘Your Warrior’ After Misdiagn — Актриса на подкасте — нет значимого события.
+- [en] не_новость: [pool] Variety — Lionsgate Promotes Scott Herbst to President of Television Group — Внутреннее назначение в компании — не новость для широкого круга.
+- [en] не_новость: [pool] Forbes — UK Startup Bets $40 Million That It Can Train Robots ‘Instantly’ Via Simulation — Стартап привлек инвестиции — рядовая бизнес-заметка без конкретного продукта.
+- [en] не_новость: [pool] Engadget — Apple Creator Studio update adds MotionVFX to Final Cut, and AI to everywhere — Обновление ПО — это не событие, а маркетинговый пресс-релиз.
+- [en] не_новость: [pool] Engadget — Apple iPhone Duo vs Google Pixel 11 Pro Fold: The differences beyond foldable st — Обзор-сравнение гаджетов — это чтение, а не новость.
+- [en] не_новость: [pool] Ars Technica — DeepMind unveils Genie 4 world model promising more realistic physics and humans — Анонс модели нейросети — это технический релиз, а не событие с последствиями.
+- [en] курьёз: [pool] Sky Sports — 'Everything about him is world class' - Neville hails Kane after Ballon d'Or win — Комментарий эксперта о футболисте — не новость.
+- [en] не_новость: [pool] The Guardian — ‘How on earth is this man not sweating?’ Director Brett Morgen’s painstaking 10- — Разбор документального фильма — это статья, а не событие.
+- [en] не_новость: [world] Forbes — This $600 Million Startup Is Helping Keep Company Secrets Away From AI Agents — Общий обзор стартапа без факта сделки или прорыва.
+- [en] не_новость: [world] Engadget — Pokémon Unite is shutting down — Закрытие игры — плановое бизнес-решение, событие для фанатов, но не общественное.
+- [en] не_новость: [world] Wired — A 28-Year-Old DOGE Operative Gutted USAID. HR Had No Record of Him Working There — Расследование о кадровой ошибке в госагентстве без увольнений или последствий.
+- [en] курьёз: [world] Superinteressante — Almost all shallow-water coral reefs in the world are threatened with extinction — Научный отчет об экологии без даты и конкретного нового события — типичный «интересный» факт.
