@@ -1,27 +1,48 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] полка: [local] Kabar.kg — Анталияда куюндан улам чоң кыйроолор болду — Событие в Турции (Анталия) — это не местная новость для KG.
-- [ru] срочность: [local] 24.kg — Девочки и женщины стали чаще погибать в зонах конфликтов — Статистика по миру за 2025 год — не повод будить читателя.
-- [ru] полка: [local] Kabar.kg — Акын Алтынай Темирова Италиянын эл аралык сыйлыгына татыды — Событие в Италии — не местное.
-- [ru] чужое_мелкое: [local] Sputnik KG — О напряженном разговоре Уиткоффа и Буданова* из-за России пишут СМИ — Подробности переговоров спецпосланника США с украинским чиновником — второстепенная мировая политика, не требует внимани
-- [ru] полка: [pool] 93.ru — Краснодар — Отрубил голову лопатой. Новые подробности страшного убийства младенца на Кубани — Внутренняя криминальная хроника РФ (Краснодар) лежит в «Новости из...», но по правилам для ru-потока регионом является т
-- [ru] полка: [pool] РБК — Таможенники изъяли у пассажирки из Турции брендовые вещи на ₽22 млн — Внутреннее происшествие в РФ (таможня Шереметьево).
-- [ru] полка: [pool] 71.ru — Тула — Тулячка отдала мошенникам 3,4 млн после обвинений в финансировании терроризма — Внутреннее мошенничество в РФ (Тула).
-- [ru] полка: [pool] 29.ru — Архангельск — Из деревни Архангельской области, где жителей держали в страхе медведи, улетает  — Внутренняя хроника РФ (Архангельск).
-- [ru] полка: [pool] ngs24.ru — Красноярск — Пропавшую в Ачинске 16-летнюю девочку нашли мертвой — что известно — Внутреннее происшествие в РФ (Ачинск).
-- [ru] полка: [pool] 63.ru — Самара — В Самаре у девочки-подростка вырезали из трахеи опухоль. Она не проявляется особ — Внутреннее происшествие в РФ (Самара).
-- [ru] полка: [pool] 62.ru — Рязань — Минздрав Рязанской области скрывает информацию о состоянии выживших в трагическо — Внутренняя хроника РФ (Рязань).
-- [ru] полка: [pool] iXBT — В России готовят ограничения для виртуальных операторов связи: тарифы могут подн — Внутренняя политика РФ (Минцифры).
-- [ru] полка: [pool] 161.ru — Ростов-на-Дону — Осужденную экс-председателя ростовского суда лишили статуса судьи — Внутренняя хроника РФ (Ростов).
-- [ru] полка: [pool] Onliner.by — «Раздался грохот, подумала, что стены рухнули». Подробности ЧП на Алтайской — Внутреннее происшествие в РФ (Минск/Алтайская — источник Onliner.by, но событие в РФ).
-- [ru] полка: [pool] 62.ru — Рязань — Улице Фурманова могут вернуть прошлое название — Внутренняя хроника РФ (Рязань).
-- [ru] полка: [pool] ngs.ru — Новосибирск — Взятка в 108 миллионов рублей: в Новосибирске осудили бывшего сотрудника ФСБ — е — Внутренний суд РФ (Новосибирск).
-- [ru] полка: [pool] 59.ru — Пермь — Солист «Иванушки International» спел а капелла, чтобы компенсировать задержку ко — Внутренняя хроника РФ (Пермь).
-- [ru] полка: [pool] 45.ru — Курган — В Курганскую область прибудет Поезд Деда Мороза — Внутреннее мероприятие в РФ (Курган).
-- [ru] полка: [pool] 62.ru — Рязань — Из-за ремонта на Московском шоссе изменили схему движения — Внутренняя хроника РФ (Рязань).
-- [ru] полка: [pool] 14.ru — Якутск — Вертолет снова будет возить людей из Якутска в Нижний Бестях во время ледостава — Внутренняя хроника РФ (Якутск).
-- [ru] полка: [pool] 56.ru — Оренбург — Без бумажки ты букашка, а не экскурсовод: в Оренбуржье легализуют гидов с помощь — Внутреннее регулирование в РФ (Оренбург).
-- [ru] полка: [pool] 63.ru — Самара — Возбуждено 2 уголовных дела: следком и прокуратура разбираются в истории с броше — Внутреннее происшествие в РФ (Самара).
-- [ru] полка: [pool] 51.ru — Мурманск — Трагедия под водой: в Заполярье погиб водолаз во время очистки решёток гидросоор — Внутреннее происшествие в РФ (Мурманск).
-- [ru] полка: [pool] 59.ru — Пермь — Утром в соцсетях писали про хлопки в Закамске, в то же время над Пермью заметили — Внутреннее происшествие в РФ (Пермь).
-- [ru] полка: [pool] 62.ru — Рязань — Ключ к самостоятельной жизни: в Рязанской области расширяют возможности для дете — Внутренняя хроника РФ (Рязань).
+- [pt] не_новость: [local] Poder360 — BC diz não ver risco relevante para estabilidade financeira — Оценка центробанка об отсутствии риска — мнение/аналитика, а не свершившееся событие.
+- [pt] не_новость: [local] Gazeta do Povo — Pavanato pede que apoiadores de Flávio não participem de atos “que não sejam ofi — Призыв депутата не участвовать в акциях — это политическое заявление, а не событие.
+- [pt] не_новость: [local] Agência Brasil — Um ano depois, mortes da Operação Contenção ainda são investigadas — Ретроспективная заметка о годовщине операции без нового факта.
+- [pt] повтор: [local] G1 Bahia — Secretário de Salvador diz que TSE não determinou uso de 100% da frota no 2º tur ≈ «Secretário investigado por retenção de ô» — Один сюжет о сокращении автобусов в Сальвадоре.
+- [pt] не_новость: [local] G1 São Paulo — Instituições presididas por produtora de filme sobre Bolsonaro somam R$ 184 milh — Подсчет сумм контрактов за длительный период без конкретного события (сделки/нарушения).
+- [pt] не_новость: [local] G1 São Paulo — Abstenção cai em todas as 39 cidades da Grande SP; capital concentra cerca de 60 — Статистический анализ явки после выборов — это разбор, а не событие.
+- [pt] не_новость: [local] G1 Distrito Federal — Eleições no DF: 2º turno na capital tem queda na abstenção, nos votos em branco  — Анализ статистики по выборам (явка, нули) — это разбор.
+- [pt] не_новость: [local] G1 Bahia — Emancipada há apenas 26 anos, cidade onde Nikolas gravou vídeo sobre o Nordeste  — Историко-статистическая справка о городе, нет события.
+- [pt] не_новость: [local] Gazeta do Povo — Alcolumbre e Motta visitam Lula após reeleição e defendem diálogo entre Poderes — Визит вежливости/диалог без принятия решений.
+- [pt] не_новость: [local] G1 Minas — Abstenção cai 10,9% em MG no 2º turno, e número de eleitores que votaram aumenta — Сравнение данных о явке на выборах — это разбор.
+- [pt] не_новость: [local] G1 Rio — Governador eleito do RJ, Douglas Ruas publica vídeo reconhecendo vitória de Lula — Видео-мнение политика о результатах выборов.
+- [pt] не_новость: [pool] RTP Notícias — Debate na generalidade da proposta de Orçamento do Estado para 2027 — Обсуждение проекта бюджета, событие — только принятие.
+- [pt] не_новость: [pool] Jornal de Negócios — Durão Barroso: América Latina tem "magníficas oportunidades", mas "dificuldades  — Мнение эксперта (интервью) — не событие.
+- [pt] не_новость: [pool] Observador PT — Gases com efeito de estufa atingiram novo recorde em 2025 — Публикация отчета о рекордах выбросов в 2025 году — это данные, не событие.
+- [pt] не_новость: [pool] BBC Brasil — O que Lula propõe para enfrentar os sinais preocupantes da economia que terá no  — Анонс планов и предложений (аналитика) — не событие.
+- [pt] не_новость: [world] Variety — Série de 'Harry Potter' na HBO escala James Potter, Lily Potter e marca a estrei — Кастинг актеров в сериал — не новость в нашем понимании (обычная рабочая процедура).
+- [pt] не_новость: [world] The Independent — Democratas abrem vantagem de dois dígitos sobre republicanos dias antes das elei — Публикация данных опроса — не событие.
+- [pt] срочность: [world] The Independent — Tornado mata 4 pessoas após atingir destino turístico na Turquia — Происшествие произошло в другой стране (Турция), не требует побудки для бразильца.
+- [pt] не_новость: [world] Engadget — Slate forma parceria com a Smarties para adicionar cores de doces aos seus camin — Рекламный проект (брендинг) — не новость.
+- [pt] не_новость: [world] Público — Os 0,1% mais ricos poluem mais do que 3,5 mil milhões de pessoas, denuncia Oxfam — Публикация отчета НКО — не событие.
+- [pt] не_новость: [world] Wired — Instagram torna-se um serviço de streaming — Тестирование функции в приложении — не событие.
+- [pt] чужое_мелкое: [world] Азаттык — Página do Facebook da fundação de defesa da liberdade de imprensa Adil Söz é blo — Блокировка страницы фонда в другой стране (KZ) для бразильского потока.
+- [pt] чужое_мелкое: [world] AKIpress — Ministério dos Recursos Naturais propõe expandir áreas protegidas de 11,8% para  — Предложение министерства (KG) — не событие и не касается BR.
+- [pt] курьёз: [world] Ars Technica — Vermes acasalam nos olhos de um homem e são removidos pouco antes do nascimento  — Медицинский случай без общемировых последствий, место в интересном.
+- [pt] не_новость: [world] Ars Technica — Apple lança iOS e macOS 27.2 com novos recursos de IA para a Siri e novo logotip — Обновление ПО — рутинное событие для гаджетов.
+- [fr] не_новость: [local] BFMTV — Ils craignent que Marine Le Pen ne coupe tout si elle est élue: les développeurs — предположения и рассуждения, а не свершившийся факт
+- [fr] не_новость: [local] BFMTV — Colère lycéenne: François Hollande juge les revendications "légitimes" et "finan — мнение политика, нет события
+- [fr] повтор: [local] France Bleu — "Casseurs-payeurs" : ce que contient le projet de loi qui arrive au Sénat, après ≈ «Loi casseurs-payeurs: le gouvernement ve» — тот же сюжет, что и в карточке 1
+- [fr] курьёз: [local] L'Obs — Comment un microbiote déréglé pourrait favoriser la dépression et l’anxiété — научно-популярная статья, а не событие
+- [fr] повтор: [local] BFMTV — DIRECT. Crise des lycées: les syndicats enseignants estiment que "le compte n'y  ≈ «Colère lycéenne: François Hollande juge » — развитие сюжета о протестах
+- [fr] не_новость: [local] Le Figaro — Attentat terroriste dans les Yvelines : un hommage rendu à Paris aux victimes, E — ретроспективный отчет, событие произошло два года назад
+- [fr] курьёз: [world] La Tribune — Nvidia veut faire de Microduck le terrain de jeu robotique de tous les développe — описание развлекательного стенда на выставке
+- [fr] не_новость: [world] BFMTV — "Des investissements supplémentaires seraient nécessaires": Porsche "ne prévoit  — декларация о намерениях компании, не событие
+- [fr] чужое_мелкое: [world] BBC News — Kylian Mbappé présente ses excuses pour une remarque « mal avisée » sur Mao aprè — бытовая скандальная хроника, не имеющая мирового веса
+- [fr] не_новость: [world] Sud Ouest — Royaume-Uni : « Be Ready », le gouvernement conseille à chaque Britannique de se — рекомендация властей, а не свершившееся событие
+- [fr] повтор: [world] BFMTV — Polémique Mbappé-Chine: la Liga se désolidarise et "regrette profondément" les d ≈ «Kylian Mbappé présente ses excuses pour » — развитие скандала с Мбаппе
+- [fr] не_новость: [world] Le Figaro — Législatives en Israël : le parti de Netanyahou a contesté les aides au voyage d — процедурная жалоба партии, а не событие
+- [fr] не_новость: [world] BFMTV — "Un programme Captain America pour les chiens": aux États-Unis, une start-up veu — описание идеи стартапа, а не реализованный факт
+- [fr] не_новость: [world] Le Figaro — Guerre en Ukraine : échange «franc et substantiel» entre Poutine et les dirigean — описание дипломатических переговоров без конкретного результата
+- [fr] срочность: [world] Le Temps — Royaume-Uni, deux hommes inculpés pour atteinte à la sécurité nationale — обычное следственное действие, не требует побудки
+- [fr] не_новость: [world] RFI — Russie: une commission d’enquête détaille le «trafic d'êtres humains» envoyés su — аналитический доклад комиссии о прошлом, а не событие
+- [fr] не_новость: [world] Futura-Sciences — Il avait pavé la voie aux ordinateurs quantiques avec atomes froids : le prix No — некролог человека, умершего в 2017 году
+- [fr] не_новость: [world] L'Obs — Elections de mi-mandat aux Etats-Unis : Trump et les républicains sous pression — общий анонс выборов, событие еще не произошло
+- [fr] не_новость: [world] RTBF — Trump riposte aux attaques d’Obama sur ses travaux à la Maison Blanche — обмен словесными колкостями, не событие
+- [fr] полка: [world] AKIpress — Le ministère des Ressources naturelles propose d'étendre les zones protégées de  — кыргызская новость в ленте французского потока
+- [fr] повтор: [world] BBC World — La Jordanie mène une frappe meurtrière en Syrie en représailles à une attaque co ≈ «La Jordanie affirme avoir tué plus de 20» — повторение новости об ударах Иордании по Сирии
