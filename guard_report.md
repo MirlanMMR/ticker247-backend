@@ -1,25 +1,21 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] NY Post — Jorge Posada feels unwelcome around Yankees in shocking reveal: ‘I don’t think t — Это личное мнение игрока о своей карьере, не событие в жизни общества.
-- [en] не_новость: [local] Deseret News — Apostle announces new Latter-day Saint missionary record during BYU devotional — Отчет о росте числа миссионеров — внутренняя статистика организации, нет события.
-- [en] не_новость: [local] WTOP — Trump returning to Texas for a high-stakes push to keep the state in Republican  — Анонс визита президента, нет конкретной даты или результата.
-- [en] не_новость: [local] WCTV — Search for Florida State athletic director to begin soon, university president s — Поиск кандидата на пост — это процесс, а не событие.
-- [en] не_новость: [local] Untitled RSS Feed — Judge Declines To Hold Sheriff Kozak In Contempt, Says He Didn't Willfully Withh — Суд отказал в иске — нормальная работа системы, значимого события нет.
-- [en] курьёз: [local] KOLO — Voting machine concerns: Machines are calibrated properly, accurately functionin — Слухи от знакомого о калибровке машин — не новость и не событие.
-- [en] не_новость: [local] El Financiero — OFFICIAL: Jay-Z to perform at the 2027 Super Bowl halftime show — Анонс артиста на событие 2027 года слишком преждевременен.
-- [en] не_новость: [pool] Rolling Stone — Drake ‘Janice STFU’ Copyright Lawsuit Dismissed — Отклонение иска об авторских правах — рядовая судебная рутина.
-- [en] курьёз: [pool] BBC Sport — Lancashire treatment of Anderson disrespectful — Личное мнение игрока о неуважении клуба к спортсмену.
-- [en] курьёз: [pool] The Independent — Massachusetts school cancels Halloween for ‘black-and-orange spirit day’. Outrag — Спор о праздновании Хэллоуина в школе — локальный инфоповод, а не новость.
-- [en] курьёз: [pool] The Independent — A vet said a family’s beloved ‘Cha Cha’ had to be euthanized. — Случай в ветеринарной клинике — частная история, не общественное событие.
-- [en] не_новость: [pool] Rolling Stone — Christina Applegate Tells MS Community She’s Still ‘Your Warrior’ After Misdiagn — Актриса на подкасте — нет значимого события.
-- [en] не_новость: [pool] Variety — Lionsgate Promotes Scott Herbst to President of Television Group — Внутреннее назначение в компании — не новость для широкого круга.
-- [en] не_новость: [pool] Forbes — UK Startup Bets $40 Million That It Can Train Robots ‘Instantly’ Via Simulation — Стартап привлек инвестиции — рядовая бизнес-заметка без конкретного продукта.
-- [en] не_новость: [pool] Engadget — Apple Creator Studio update adds MotionVFX to Final Cut, and AI to everywhere — Обновление ПО — это не событие, а маркетинговый пресс-релиз.
-- [en] не_новость: [pool] Engadget — Apple iPhone Duo vs Google Pixel 11 Pro Fold: The differences beyond foldable st — Обзор-сравнение гаджетов — это чтение, а не новость.
-- [en] не_новость: [pool] Ars Technica — DeepMind unveils Genie 4 world model promising more realistic physics and humans — Анонс модели нейросети — это технический релиз, а не событие с последствиями.
-- [en] курьёз: [pool] Sky Sports — 'Everything about him is world class' - Neville hails Kane after Ballon d'Or win — Комментарий эксперта о футболисте — не новость.
-- [en] не_новость: [pool] The Guardian — ‘How on earth is this man not sweating?’ Director Brett Morgen’s painstaking 10- — Разбор документального фильма — это статья, а не событие.
-- [en] не_новость: [world] Forbes — This $600 Million Startup Is Helping Keep Company Secrets Away From AI Agents — Общий обзор стартапа без факта сделки или прорыва.
-- [en] не_новость: [world] Engadget — Pokémon Unite is shutting down — Закрытие игры — плановое бизнес-решение, событие для фанатов, но не общественное.
-- [en] не_новость: [world] Wired — A 28-Year-Old DOGE Operative Gutted USAID. HR Had No Record of Him Working There — Расследование о кадровой ошибке в госагентстве без увольнений или последствий.
-- [en] курьёз: [world] Superinteressante — Almost all shallow-water coral reefs in the world are threatened with extinction — Научный отчет об экологии без даты и конкретного нового события — типичный «интересный» факт.
+- [es] не_новость: [local] El Universal MX — Día de Muertos 2026: ¿Qué día llegan las almas de quienes murieron de forma trág — традиционный праздник, не событие
+- [es] курьёз: [local] El Universal MX — La hermana de Octavio Ocaña, Benito Rivers en "Vecinos", recuerda con dolor su ú — личное воспоминание, не событие
+- [es] срочность: [local] El Universal MX — VIDEO: Estados Unidos ataca otra presunta narcolancha en el Pacífico; reportan 5 — событие US, не требует побудки в Мексике
+- [es] курьёз: [local] La Jornada — Detectan IA que secuestra y ataca a otros modelos — техническая заметка, не новость
+- [es] курьёз: [local] AKIpress — Video: avistan un ciervo de gran tamaño en el distrito de Jeti-Oguz que no había — отчет об avistamiento, не событие
+- [es] курьёз: [local] Expansión MX — Millones de vistas, criptomonedas y estafas: el negocio detrás de los influencer — обзор бизнеса/трендов, не новость
+- [es] чужое_мелкое: [pool] Infobae — Excampeón del mundo le “echó flores” a Álvaro Montero tras su victoria en el clá — спортивная колонка, не событие
+- [es] курьёз: [pool] La Nación AR — Nelson, de 62 años, produce huevos de color azul con gallinas adaptadas al frío: — история про фермера, не событие
+- [es] не_новость: [pool] BBC Mundo — Análisis: los retos de María Corina Machado tras regresar a una Venezuela transf — аналитический разбор, нет факта события
+- [es] не_новость: [world] Variety — Reinicio de 'Los pájaros': Sarah Snook protagonizará la serie limitada de HBO ba — анонс разработки фильма, не событие
+- [es] курьёз: [world] Xataka — Atomic-6 ha mandado su armadura para satélites al espacio y reza para que reciba — научно-популярный факт
+- [es] курьёз: [world] Xataka — El Ayuntamiento de Burgos no encuentra a uno de sus empleados que cobró sin trab — локальный казус муниципалитета
+- [es] курьёз: [world] Engadget — Este viejo teléfono Nokia recibe una actualización de IA para la que nunca fue d — технический факт
+- [es] не_новость: [world] Wired — Anthropic señala el suministro de gas como uno de sus mayores riesgos a corto pl — описание рисков, не событие
+- [es] не_новость: [world] Ars Technica — Warner Bros. publica el tráiler final de Dune: Parte tres — анонс трейлера фильма
+- [es] не_новость: [world] TechCrunch — Los laboratorios de IA de vanguardia afirman que sus modelos refutaron la Hipóte — теоретическое утверждение лабораторий
+- [es] не_новость: [world] Ars Technica — DeepMind presenta Genie 4, un modelo de mundo que promete una física y unos huma — анонс обновления модели, не событие
+- [es] чужое_мелкое: [world] El Sol de México — Irán condena a 5 años de prisión al cineasta Jafar Panahi y la confiscación de s — приговор частному лицу в Иране, не событие
+- [es] не_новость: [world] BBC Mundo — La hazaña de Charlyn Corral, la jugadora que hizo historia para México al ganar  — пересказ вручения премии, событие уже прошло
