@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] курьёз: [local] Knews.kg — Бобров переселили спасать реки от засухи, но они разбежались: учёные выяснили по — научное наблюдение о животных, не влияет на читателя в КР
-- [ru] полка: [local] Sputnik KG — Запад активно пытается загнать Африку в долговую кабалу — Путин — заявление президента РФ на саммите с Африкой — мировая новость, не местная
-- [ru] полка: [local] Kabar.kg — Төртүнчү мөөнөт: Бразилиянын 81 жаштагы президенти кайра шайланып келди — выборы в Бразилии — мировая новость, не местная
-- [ru] чужое_мелкое: [pool] РИА Новости — Россия производит денежные купюры для ряда стран Африки, заявил Путин — технические детали производства купюр РФ для других стран
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Сотрудника рязанской УК осудили за травмы прохожего из-за снега с крыши — локальное происшествие (приговор в Рязани)
-- [ru] чужое_мелкое: [pool] iXBT — Автобусы под прицелом: дорожные камеры научились вычислять нелегальные рейсы — тестирование камер в РФ
-- [ru] чужое_мелкое: [pool] iXBT — Робот вместо космонавта: на МКС готовят «Теледроида» к работе за бортом — технический эксперимент на МКС
-- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — Иностранец получил 7 лет за закладки с наркотиками — локальное уголовное дело в Тамбове
-- [ru] чужое_мелкое: [pool] 93.ru — Краснодар — Мужчина застрелил жену и 15-летнюю падчерицу на Урале — семья недавно переехала  — бытовое убийство в РФ
-- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — За взятку. Прокурор запросил 20 лет колонии для экс-председателя Ленинского суда — суд над чиновником в Ростове-на-Дону
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — На посту директора Драмтеатра Оренбурга Павла Церемпилова сменила Татьяна Симоно — смена директора театра в Оренбурге
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Рязани впервые выступил театр танца из Карачаево-Черкесии — локальное культурное событие в Рязани
-- [ru] чужое_мелкое: [pool] 35.ru — Вологда — Беременной из Белозерска в Череповце удалили желчный пузырь — медицинская операция в Вологде
-- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — В Тамбове открывают «Термы Наутико» — открытие комплекса в Тамбове
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самаре запустили новый фонтан. Но совсем ненадолго — тестовый запуск фонтана в Самаре
-- [ru] чужое_мелкое: [pool] 43.ru — Киров — Житель Кирова осужден за покупку наркотика в крупном размере — локальный приговор в Кирове
-- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — В Маловишерском округе освободили берег Малой Вишерки — проверка прокуратуры в Новгородской области
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Убийца из Костромы украл квадроцикл со двора дома в Алеканово — кража квадроцикла в Рязани
-- [ru] чужое_мелкое: [pool] 35.ru — Вологда — В Вологодском округе подростка подозревают в краже с банковской карты — локальное дело о краже в Вологде
-- [ru] чужое_мелкое: [pool] 35.ru — Вологда — В Череповце стартовал новый сезон «ДедСада» — открытие сезона для пенсионеров в Череповце
-- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — Под Тамбовом уничтожили очаг дикорастущей конопли — уничтожение конопли под Тамбовом
-- [ru] курьёз: [pool] 14.ru — Якутск — «Запах дошел до 7-го этажа»: умершая старушка полтора месяца пролежала в заперто — криминально-бытовая история из Якутска, не имеет значения для КР
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Короткое замыкание: в Грачевке сгорел частный дом — ожоги у пенсионера — бытовой пожар в Оренбургской области
-- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — В Новгородской области вынесли приговор за перевозку 10 кг мефедрона — локальный приговор в Новгородской области
-- [ru] курьёз: [world] 63.ru — Самара — «Так и должен выглядеть праздник годовасика»: день рождения маленького самарца в — вирусное видео, не является новостью
+- [en] не_новость: [local] WTOP — Jason Reynolds turns to adult fiction with ‘Father, Father,’ a road novel about  — авторская статья, обзор книги
+- [en] не_новость: [local] Seven Days — New Hemp Rule Upends Industry for Vermont CBD Producers — аналитический разбор, а не событие
+- [en] не_новость: [local] Seven Days — Vermont School Districts Already Face Tough Budget Decisions — аналитика о бюджетных сложностях, а не принятое решение
+- [en] не_новость: [local] Seven Days — Private Equity Firms Are Quietly Buying Up Local Funeral Homes — журналистское расследование, очерк
+- [en] курьёз: [local] 11Alive — This 1,800-pound pop-up book just broke a world record — мировой рекорд книги — интересное, не местное событие
+- [en] не_новость: [local] reviewjournal — From benched to hero: Knights forward makes most of opportunity — спортивный очерк о карьере игрока
+- [en] чужое_мелкое: [local] Cleveland.com — Chiefs sign 8-time All-Pro who was suspended after allegations of sexual miscond — подписание контракта в NFL — рутина
+- [en] чужое_мелкое: [local] KWCH — Reports: Chiefs sign former All-Pro kicker Justin Tucker as Butker’s struggles c — спортивная рутина, дубль к 20
+- [en] не_новость: [local] WECT — Pups, contests and adoptions take over Long Leaf Park for annual fundraiser — анонс мероприятия, развлекательный очерк
+- [en] не_новость: [local] WDBJ7 — CAREER CORNER: Greater Roanoke workforce board joins five-board Appalachian Adva — участие в инициативе, нет конкретного события
+- [en] курьёз: [local] OPB — Northwest research trial tests whether a little spit swapping can solve chronic  — научный эксперимент без последствий для читателя
+- [en] не_новость: [local] MinnPost — Edwards surgery throws a wrench into a beautiful Wolves start — спортивная колонка, а не событие
+- [en] не_новость: [local] New Jersey 101.5 — Police warn Halloween thrill-seekers: Stay out of Clementon Park — полицейское предупреждение, не событие
+- [en] не_новость: [local] WBAY — Black Creek bakery hosts first Cake Fest on Sunday — анонс фестиваля еды
+- [en] чужое_мелкое: [pool] TechCrunch — Free Fire returns to India as Garena launches localized version four years after — релиз локальной игры в Индии
+- [en] не_новость: [pool] Sky Sports — Lewis: I've earned my England RL World Cup spot — интервью игрока
+- [en] чужое_мелкое: [pool] Sports.ru — Foul play in wrestling: American athlete twice pokes Russian opponent in the eye — конфликт на соревнованиях — не мировая новость
+- [en] не_новость: [pool] Sky Sports — Ref Watch: Arsenal's red card appeal will fail — мнение эксперта (Ref Watch)
+- [en] не_новость: [pool] Wired — Amazon Adds an Alexa Photo Frame and a Bedside Clock to Its Echo Family — анонс продуктов Amazon (реклама)
+- [en] не_новость: [pool] Sky Sports — Carrick and Fernandes hold clear-the-air talks ahead of Chelsea fixture — слухи и «разговоры» внутри клуба
+- [en] не_новость: [pool] BBC Sport — Liverpool gambled on Jacquet and it is paying off — спортивный очерк
+- [en] не_новость: [world] TechCrunch — Meta has a new AI pet app called Waddle World — анонс приложения
+- [en] не_новость: [world] BBC Sport — 'Relax, I love Kane and Lamine Yamal' - Henry defends his Ballon d'Or hosting — защита репутации/мнение, а не событие
+- [en] чужое_мелкое: [world] The Guardian — Kylian Mbappé’s China crisis shows how sensitive Mao’s legacy remains — личные дела футболиста в Китае
+- [en] не_новость: [world] BBC Sport — Goodbye to Wawrinka - an everyman who gatecrashed the greats — спортивный некролог/очерк
