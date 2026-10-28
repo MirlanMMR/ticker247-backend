@@ -1,17 +1,12 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] WIBW — Topeka Zoo wishes fond farewell to African lion — переезд животного в другой зоопарк — рядовое событие, не влияющее на жизнь людей.
-- [en] не_новость: [local] Deseret News — High school cross country: North Summit girls win 6th straight 2A title, Grand b — спортивные результаты региональных школьных команд — не новость общенационального масштаба.
-- [en] не_новость: [local] Homepage — Ozaukee County small business’ balloon displays in the Brewers World Series spot — местная частная инициатива (декорации на стадионе) — не является новостью.
-- [en] курьёз: [local] Deseret News — This cereal brand is getting a resealable bag — изменение упаковки хлопьев — маркетинговая деталь, а не новость.
-- [en] полка: [local] WBRC — Venezuelan man pleads guilty to ATM conspiracy, possession of child sexual abuse — местная новость об уголовном деле в Алабаме не должна быть в ленте, если это не резонансное событие для всей страны.
-- [en] не_новость: [local] KFVS12 — A century of infamy: How Charlie Birger became southern Illinois’ most notorious — исторический очерк о гангстере столетней давности.
-- [en] повтор: [pool] Time — Activist Dolores Huerta Dies at 96. Here's What To Know About Her Trailblazing L ≈ «Dolores Huerta, Labor Leader and Civil R» — дублирующий сюжет о смерти Долорес Уэрта.
-- [en] не_новость: [pool] Sky Sports — PREM Rugby wants English expansion despite Welsh interest — спортивно-административные планы лиги без факта реализации.
-- [en] не_новость: [pool] The Guardian — ‘This isn’t supposed to happen’: giant-slaying Fleetwood revels in fairytale Ars — рядовой матч Carabao Cup (футбольный кубок) — спортивная рутина.
-- [en] не_новость: [world] WJXT News4JAX — Man City wins penalty shootout to advance in English League Cup — результат матча английского кубка лиги — не мировая новость для американского читателя.
-- [en] не_новость: [world] Engadget — Meta weighs delaying 'alarming' new business terms as backlash grows — обсуждение компанией своих условий — не событие (пока нет решения).
-- [en] курьёз: [world] Engadget — The PlayStation 5 just might be Sony's final Blu-Ray player — предположение о будущем консолей — аналитика, а не свершившийся факт.
-- [en] не_новость: [world] Engadget — OpenAI now lets you text your Dot agent — обычное обновление функционала чат-бота.
-- [en] не_новость: [world] Ars Technica — Google announces Gemini 4 Carbon, its latest frontier AI model that you can't us — анонс модели ИИ, которую нельзя использовать — не новость для потребителя.
-- [en] чужое_мелкое: [world] RTÉ Ireland — Bolsonaro says he is Brazil's leader after fleeing to US — политические заявления проигравшего кандидата в Бразилии не являются мировыми событиями уровня США.
+- [es] курьёз: [local] El Universal MX — Luis Bayardo cumple 91 años; el actor mexicano que ha prestado su voz a sinfín d — День рождения актера не является новостным событием.
+- [es] не_новость: [local] El Financiero — ¿Quién es Víctor Hugo Carvente, titular del Órgano Interno de Control del INE qu — Обычный вопрос о личности чиновника, без события.
+- [es] курьёз: [local] El Universal MX — Ernesto Chavana, conductor de "Es Show", patea dron en plena transmisión en vivo — Бытовое происшествие на шоу не является общественно значимым событием.
+- [es] повтор: [local] La Jornada — SCJN tira por segunda vez Ley de Comunicación de Veracruz — Событие дублирует тематику политики INE.
+- [es] курьёз: [pool] Infobae — Andrea San Martín rompe su silencio sobre la denuncia en su contra: “No se trata — Бытовые разборки знаменитостей в соцсетях не являются новостью.
+- [es] не_новость: [pool] RPP PE — JNE condena "expresiones agraviantes" y alusiones de "connotación sexual" de Car — Осуждение высказываний — это этикет, а не событие.
+- [es] не_новость: [world] Wired — La pantalla OLED de 2000 nits en el nuevo MacBook de Apple es un avance signific — Обзор характеристик нового гаджета, нет события (продаж/запуска).
+- [es] не_новость: [world] El Financiero — Gadi Eisenkot, el exmilitar que podría derrocar a Benjamin Netanyahu como primer — Рассуждение о политических шансах, нет события.
+- [es] повтор: [world] La Vanguardia — Puente ve “inexplicable” que el operador de Adif autorizara marchar al tren de R ≈ «Las líneas de alta velocidad española vu» — Развитие темы аварии, дублирует суть карточек 41, 42, 43.
+- [es] повтор: [world] eldiario.es — Óscar Puente ve "inexplicable" la orden del centro de control que permitió al AV ≈ «Puente ve “inexplicable” que el operador» — Повтор цитаты министра из карточки 58.
