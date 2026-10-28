@@ -1,26 +1,15 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Financiero — Cuauhtémoc Blanco ‘explota’ con reporteros que preguntaron por detención de su e — Это светская хроника и реакция на вопрос, а не событие.
-- [es] не_новость: [local] El Financiero — Hospitalizan a Jesús Ochoa tras caer de un elevador: ‘No podía caminar y quería  — Состояние здоровья публичного лица — личное дело, без последствий для читателя.
-- [es] полка: [local] El Financiero — San Judas Tadeo y ‘Checo’ Pérez complican movilidad en CDMX: ¿Qué estaciones del — Перекрытие дорог и изменения в графике метро — это местная новость, не мировая.
-- [es] не_новость: [local] El Economista MX — Pausa bilateral congela queja laboral contra Pirelli bajo el T-MEC; Liga Sindica — Рабочие процессы и бюрократические проволочки без реального итога.
-- [es] курьёз: [local] El Financiero — Apple presenta la MacBook Pro con pantalla táctil: ¿Cuánto costará en México? — Презентация потребительского гаджета — это не событие в жизни страны.
-- [es] не_новость: [local] El Sol de México — Industria Mexicana espera que elecciones de EU destraben aranceles contra el ace — Ожидания и домыслы промышленности относительно будущего — не событие.
-- [es] не_новость: [local] La Jornada — Diputados avalan la cuenta pública 2024, último año de López Obrador — Утверждение отчета о расходах — плановая бюрократическая процедура.
-- [es] не_новость: [local] La Jornada — Plantean en San Lázaro que otra mujer sustituya a Taddei — Обсуждение теоретических планов замены чиновника не является событием.
-- [es] курьёз: [pool] El Tiempo CO — Como en el cine, el letal ingenio criminal por los falsos bolígrafos que dispara — Криминальная история в стиле кино — это происшествие, но подано как курьез.
-- [es] не_новость: [pool] Infobae — Luciana Fuster es anunciada como nueva directora de Miss Grand Perú: ¿Y Jessica  — Кадровые перестановки в конкурсах красоты не являются значимым событием.
-- [es] курьёз: [pool] El Economista MX — Descubren posible nuevo planeta enano que orbita más allá de Plutón — Научное предположение без доказанного статуса события.
-- [es] не_новость: [pool] Marca — Gordon le gana la partida a Adeyemi — Спортивное мнение/аналитика, а не результат матча.
-- [es] не_новость: [pool] Clarín AR — Boeing pronostica que el tráfico aéreo de mercancías se duplicará en los próximo — Прогнозы Boeing на 20 лет вперед не являются новостью.
-- [es] не_новость: [pool] Marca — Jorge de Juan anuncia que padece un cáncer que no se puede operar: "No sé cuánto — Частная история болезни артиста.
-- [es] курьёз: [world] Xataka — Un hacker reventó toda la seguridad de PS5. Ahora otro ha cobrado 50.000 dólares — Информация о выплатах хакерам за баги — это интересное, не событие.
-- [es] не_новость: [world] El Nacional VE — Anthony Edwards estará fuera de acción dos meses por una lesión en la rodilla — Спортивная травма — часть рутины профессионального спорта.
-- [es] курьёз: [world] Xataka — Los despidos tecnológicos de 2026 ya rozan los 197.000 en pleno giro del capital — Статистический обзор рынка труда не является событием.
-- [es] курьёз: [world] TechCrunch — Xreal Aura es un nuevo visor con cable impulsado por Android XR — Анонс гаджета на конференции.
-- [es] курьёз: [world] TechCrunch — A medida que los agentes de IA transforman la web, Google abre Gemini y Search a — Обновление API Google для разработчиков.
-- [es] курьёз: [world] TechCrunch — El autorrelleno de Chrome basado en IA ahora puede buscar en Gmail para completa — Обновление функции браузера.
-- [es] повтор: [world] La Vanguardia — Puente ve “inexplicable” que el operador de Adif autorizara marchar al tren de R ≈ «Iryo contradice la versión de Puente y a» — Развитие темы аварии, уже есть в ленте.
-- [es] повтор: [world] eldiario.es — Óscar Puente ve "inexplicable" la orden del centro de control que permitió al AV ≈ «Iryo contradice la versión de Puente y a» — Развитие темы аварии, уже есть в ленте.
-- [es] повтор: [world] El Sol de México — Una orden equivocada y casi 20 minutos sin detectar el error: las causas del cho ≈ «Iryo contradice la versión de Puente y a» — Развитие темы аварии, уже есть в ленте.
-- [es] повтор: [world] Diario Libre DO — Lo que se sabe hasta ahora del accidente ferroviario en España ≈ «Iryo contradice la versión de Puente y a» — Развитие темы аварии, уже есть в ленте.
+- [pt] курьёз: [local] Folha de S.Paulo — 1926: Ladrão é detido ao agir na casa do procurador-geral da República — Исторический факт из 1926 года не является новостью.
+- [pt] полка: [local] CNN Brasil — Legislação proíbe entrada de menores de 5 anos na final da Sul-Americana — Событие в Колумбии для португальского потока (Бразилия) должно быть в «Мировых», а не «Местных».
+- [pt] не_новость: [local] G1 Santa Catarina — 'Desculpa, pai, a gente falhou', diz Carlos Bolsonaro em vídeo após derrota elei — Эмоциональное высказывание родственника после выборов не содержит фактов.
+- [pt] не_новость: [local] G1 Rio — Após anunciar saída, Mileide Mihaile volta atrás e segue como rainha de bateria  — Внутренняя административная перестановка в школе самбы — не событие для ленты новостей.
+- [pt] курьёз: [pool] Notícias ao Minuto — Habitação: Cerca de 300 pessoas voltam à Praça D. João I no Porto — Обычный протест без эскалации — не событие (не_новость).
+- [pt] анонс: [pool] Observador PT — Moedas: limpar Rossio custou 138 mil euros, não 100 mil — В тексте только техническая информация (рекламный скрипт), новость отсутствует.
+- [pt] курьёз: [pool] Público — Ópera tranca brasileiros e portugueses num elevador e ri com as diferenças cultu — Сюжет об опере не является новостью.
+- [pt] не_новость: [world] Variety — LaKeith Stanfield deixa o filme de terror ‘Molepeople’, diretor Ben Wheatley sub — Замена режиссёра или актёра в проекте — индустриальный шум.
+- [pt] курьёз: [world] Terra BR — A cantora que Robert Plant define como 'a rainha da música bonita' — Субъективное мнение музыканта о другом — не новость.
+- [pt] курьёз: [world] Engadget — O PlayStation 5 pode ser o último reprodutor de Blu-Ray da Sony — Прогнозы об устаревании технологий не являются событием.
+- [pt] курьёз: [world] Variety — Cynthia Erivo critica o 'incômodo' do público com sua amizade com Ariana Grande: — Обсуждение личных отношений актрис — светская хроника, не новость.
+- [pt] не_новость: [world] Rolling Stone — The Beach Boys cancelaram mais um show. Um grupo derivado com John Stamos ocupar — Замена артистов в плановом концерте — не событие.
+- [pt] не_новость: [world] Sciences et Avenir — Mudança climática: rumo a uma "emergência sanitária mundial"? — Пересказ старого отчёта без конкретного нового события — не новость.
