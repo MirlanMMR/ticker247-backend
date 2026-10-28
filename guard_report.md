@@ -1,27 +1,36 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — «Вывезли в лес»: в Ярославле задержали участника банды, похитившей 84 млн у крип — криминальная хроника из РФ для кыргызского потока — не местная, не мировая
-- [ru] чужое_мелкое: [pool] 45.ru — Курган — С тренажерами, зоной отдыха и дорожками: стало известно когда в Кургане откроетс — открытие бегового центра в российском Кургане — избыточно для ленты
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — К председателю Совета депутатов Новоорского района Сергею Кретинину возникли воп — местная политика РФ (депутат Новоорского района) не имеет мирового значения
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самарской области станет меньше на одно министерство — реорганизация министерства в Самарской области РФ не является мировой новостью
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Тюменцу начислили немыслимый налог на доход. Сколько он оказался должен — частный налоговый спор в Тюмени РФ не имеет мирового масштаба
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — Сделал замечание и получил по лицу: в Кимовске мужчина ударил полицейского и зап — мелкий инцидент с полицией в Тульской области РФ
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самаре задержали мать, бросившую грудничка на помойке, — видео — криминальная хроника из Самары, не имеющая мировых последствий
-- [ru] не_новость: [pool] 63.ru — Самара — «Крылья Советов» отправили в отставку главного тренера. Не своего — развлекательная заметка о футбольном тренере, не новость
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Успели в срок: в Оренбурге после капитального ремонта открылась верхняя набережн — ремонт набережной в Оренбурге не является мировой новостью
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Тюменские власти планируют занять еще больше денег — внутренний госдолг Тюменской области РФ
-- [ru] не_новость: [pool] 62.ru — Рязань — В Рязани 11% женщин столкнулись с недовольством начальства из-за беременности — социологический опрос/исследование, не событие по списку
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Около 50 ударов ножом: в Орске суд арестовал обвиняемого в зверском убийстве суп — бытовое убийство в Орске РФ
-- [ru] не_новость: [pool] 59.ru — Пермь — Промышленность и экология — едины: в Перми запустили экомаршрут по нефтехимическ — маркетинговое мероприятие компании (экскурсия) не событие
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — ДТП с автобусом на Ряжском шоссе: пострадали дети — рядовое ДТП в Рязани РФ
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — На ремонт большой тюменской концертной площадки выделят более полутора миллиардо — ремонт концертной площадки в Тюмени РФ
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Отголоски «оптимизации»: в Первомайском районе выставлены на торги здания детско — торги по недвижимости в Оренбургской области РФ
-- [ru] не_новость: [pool] 59.ru — Пермь — «Их бьешь — они не падают!» Кикбоксеры из Прикамья с триумфом вернулись с чемпио — отчет о возвращении спортсменов с чемпионата не событие
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Туле судят директора «Турбара» за хищение 17 миллионов рублей у туристов — суд над директором турфирмы в Туле РФ
-- [ru] не_новость: [pool] 63.ru — Самара — Иван Носков взял под личный контроль очистку водоемов Самары — плановая чистка водоемов в Самаре — рутина
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Стала известна криминальная биография обвиняемого в гибели трех женщин на Циолко — подробности биографии участника ДТП в Рязани
-- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — Жилой дом-памятник горел ночью в Архангельской области — пожар в жилом доме в Архангельской области РФ
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Под Орском в кювет слетела «Мазда» — пострадал пассажир — рядовое ДТП в Оренбургской области
-- [ru] курьёз: [pool] 59.ru — Пермь — «Плита уходит в воду, зацепиться не за что». У Перми I прохожий спас мальчика из — человеческая история спасения, место в Интересном, а не в новостях
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — В Перми открыли проезд по улице Борчанинова и вернули туда автобусы — дорожный ремонт в Перми
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Уголовное дело против экс-губернатора Омской области прекратили — в чем причина — прекращение дела против экс-губернатора Омской области РФ
+- [pt] не_новость: [local] CNN Brasil — Lucas Guedez expõe atitudes de Vini Jr. com Virginia: “Nunca fui seu fã” — конфликт влиятельных лиц в соцсетях не является значимым событием
+- [pt] курьёз: [local] G1 Globo — Menor que uma unha, aranha revela detalhes impressionantes em registro feito no  — макрофотография паука не является новостью
+- [pt] не_новость: [local] Folha de S.Paulo — CCSP exibe curtas de Buster Keaton com música ao vivo e entrada gratuita — афиша культурного мероприятия без масштаба события
+- [pt] не_новость: [local] G1 Rio — Rio teve apenas 7 dias sem chuva em setembro e outubro; El Niño pode influenciar — общий обзор погоды за два месяца
+- [pt] не_новость: [local] Estadão — Notícia no Seu Tempo: Após dizer que não fugiria, Flávio voa em segredo para os  — анонс аудиоподкаста
+- [pt] не_новость: [pool] Terra BR — Depois de gastar centenas de bilhões de dólares em placas da Nvidia, os hiperesc — аналитика о складских запасах компаний, а не событие
+- [pt] не_новость: [world] Variety — Josh O’Connor é um boxeador relutante em clipe de ‘Golden Boy’ do National Theat — анонс показа театральной постановки
+- [pt] не_новость: [world] Variety — Show de despedida de Alan Jackson será transmitido pela NBC em dezembro — анонс телевизионной передачи
+- [pt] не_новость: [world] Engadget — O novo despertador inteligente Echo Time da Amazon busca tornar o despertar meno — анонс потребительского товара (реклама)
+- [pt] не_новость: [world] Engadget — Amazon adiciona tela nanomatte antirreflexo ao seu novo Echo Show 16 — анонс потребительского товара (реклама)
+- [pt] не_новость: [world] Engadget — A nova câmera do Amazon Echo Studio permite monitorar animais de estimação ou au — анонс потребительского товара (реклама)
+- [pt] повтор: [world] Engadget — Todos os dispositivos Amazon Echo anunciados hoje: Echo Time, Alexa Photo Frame  ≈ «O novo despertador inteligente Echo Time» — анонс ряда устройств Amazon
+- [pt] срочность: [world] El Mundo — Sebastián, passageiro do vagão 7 do trem Iryo acidentado: "Não param de tirar ca — описание последствий трагедии не требует побудки
+- [pt] повтор: [world] NPR News — Pelo menos 30 mortos em colisão entre dois trens no centro da Espanha, segundo a ≈ «Sebastián, passageiro do vagão 7 do trem» — событие уже описано в 77
+- [pt] курьёз: [world] Guardian Sport — Crise de Kylian Mbappé na China demonstra a sensibilidade em torno do legado de  — медийный скандал вокруг мема
+- [pt] курьёз: [world] Superinteressante — Cardápio vegano pode ajudar no controle de peso, indica estudo — исследование о влиянии диеты
+- [pt] курьёз: [world] Superinteressante — Por que as bananas estão ameaçadas de extinção? — познавательная заметка о сельском хозяйстве
+- [pt] курьёз: [world] TechCrunch — O crescimento dos centros de dados traz um lado positivo: inovação para a rede e — размышление о технологиях и инфраструктуре
+- [fr] не_новость: [local] Sud Ouest — Inéligibilité de Marine Le Pen : la candidate d’extrême droite saisit le Conseil — Это текущий юридический процесс и дискуссия, а не окончательное решение.
+- [fr] чужое_мелкое: [pool] TSA Algérie — Karim Zéribi réplique sèchement à Éric Zemmour qui l’a renvoyé à ses origines al — Словесная перепалка двух политиков не является событием для французского читателя.
+- [fr] не_новость: [pool] RTBF — Baisse annuelle de la demande d’emploi en Wallonie sauf chez les jeunes — Ежемесячная статистика по безработице — рутина, не имеющая остроты события.
+- [fr] не_новость: [pool] Le Temps — Drame de Crans-Montana: la confrontation entre Jessica et Jacques Moretti est an — Отмена или перенос встречи — это техническое изменение графика, а не новость.
+- [fr] не_новость: [pool] Radio-Canada — La CAQ souhaite avoir accès à l’Assemblée nationale du Québec — Намерение партии написать письмо в парламент — не событие, пока нет действий или решений.
+- [fr] курьёз: [world] La Dépêche — Elle reçoit l’appel d’un faux policier réclamant sa carte bancaire : la Japonais — История про бабушку и мошенника — типичный курьёз, место в «Интересном».
+- [fr] повтор: [world] Africanews FR — Brésil : Flávio Bolsonaro aurait fui vers l’Équateur après sa défaite électorale ≈ «Flávio Bolsonaro a quitté le Brésil pour» — Один и тот же сюжет об отъезде Флавио Болсонару.
+- [fr] чужое_мелкое: [world] Radio Okapi — Félix Tshisekedi à Moscou pour le sommet Russie-Afrique — Саммит в Москве с участием африканских лидеров не требует побудки и не является срочным.
+- [fr] не_новость: [world] Franceinfo — "Bien sûr que j'en ai marre" : à Moscou, les habitants exaspérés par de nouvelle — Жалобы жителей на интернет — это очерк, а не событие с четким фактом.
+- [fr] не_новость: [world] Africanews FR — Arrêt sur images du 28 octobre 2026 : les principaux exportateurs de gaz naturel — Общие призывы к сотрудничеству на саммитах — дипломатический этикет.
+- [fr] чужое_мелкое: [world] Africanews FR — Yémen : une cimenterie frappée par les forces loyalistes, selon les Houthis — Очередной локальный инцидент в Йемене без последствий для мира — не мировая новость.
+- [fr] не_новость: [world] Africanews FR — Brésil : Lula fête ses 81 ans après sa victoire à la présidentielle — Празднование дня рождения политика — частное событие, не новость.
+- [fr] не_новость: [world] L'Express — "Un désaveu pour Benyamin Netanyahou" : l'analyse du politologue Dov Waxman sur  — Анализ и мнение политолога — это разбор, а не событие.
+- [fr] не_новость: [world] RFI — Législatives en Serbie: les étudiants demandent la démission de la direction de  — Требования студентов — это политический жест, а не свершившееся решение.
+- [fr] повтор: [world] Radio-Canada — Israël : Eisenkot et Nétanyahou tous deux prêts à gouverner, pas de majorité ≈ «Israël : le bloc de Netanyahu en tête de» — Повторение сюжета об итогах выборов в Израиле.
+- [fr] повтор: [world] RFI — Brésil: Flavio Bolsonaro a fait escale en Équateur alors qu'il serait en route v ≈ «Flávio Bolsonaro a quitté le Brésil pour» — Один и тот же сюжет об отъезде Флавио Болсонару.
