@@ -1,27 +1,26 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] повтор: [local] NY Post — Fed holds interest rates steady – but investors bet on December rate hike ≈ «Fed holds interest rates steady even as » — Центральная тема заседания ФРС и ставок повторена в 71.
-- [en] не_новость: [local] Missoula Current — Missoula response to domestic violence better, challenges remain — Анализ статистики преступности за периоды, нет конкретного события.
-- [en] не_новость: [local] KOTA — BHCT to stage world premiere of apocalyptic comedy ‘The Four Horsemen! — Анонс театральной премьеры, не является событием.
-- [en] не_новость: [local] WBAY — David Crowley widens lead over Tom Tiffany in final Marquette poll — Обсуждение предвыборных рейтингов, а не свершившийся факт.
-- [en] не_новость: [local] WTOP — Alvin K. Hellerstein, a federal judge who handled Trump, Maduro and 9/11 cases,  — Некролог, не является новостным событием по белому списку.
-- [en] не_новость: [local] New Jersey 101.5 — NJ fossil museum hosts Halloween party for adults on Friday — Анонс частной вечеринки.
-- [en] не_новость: [local] WABI — John Mulaney show in Bangor canceled — Отмена выступления (не массовое событие, а частная услуга).
-- [en] не_новость: [local] KLKN-TVKLKN-TV — Nebraska ranked nation’s best for job seekers and workers — Результаты рейтинга-исследования, нет события.
-- [en] не_новость: [local] PennLive — Some Social Security recipients will get November payments this week: Benefit sc — Плановое расписание выплат, а не событие.
-- [en] не_новость: [local] Portland Press Herald — Maine-inspired video game is now ready to play — Релиз видеоигры (коммерческий продукт).
-- [en] курьёз: [local] New Jersey 101.5 — Oops! New Jersey ranks among the clumsiest states for tech — Рейтинг 'самых неуклюжих штатов' — любопытный факт, не новость.
-- [en] не_новость: [local] OPB — Opponents of Eugene Clean Energy Fund see uptick in fundraising, but supporters  — Анализ динамики сбора пожертвований перед выборами.
-- [en] не_новость: [local] Cleveland.com — Beloved actor who survived being shot in the face dies at 68 — Некролог.
-- [en] не_новость: [local] Cleveland.com — When veterans can expect VA disability checks for October — Обычное расписание выплат пособий.
-- [en] не_новость: [local] WLBT — Warm and dry week before a rainy weekend — Прогноз погоды.
-- [en] не_новость: [local] KOLO — Hyatt Regency Lake Tahoe hosts family-friendly Halloween carnival — Анонс развлекательного мероприятия.
-- [en] не_новость: [local] KLKN-TVKLKN-TV — Husker cornerback Andrew Marshall named to award watch list — Спорт: номинация в список кандидатов (не результат матча).
-- [en] не_новость: [local] Arizona's Family — Emergency drill being held at Sky Harbor; here’s what you should know — Плановое учение, предупреждение.
-- [en] не_новость: [local] Anchorage Daily News — Republicans emphasize transgender ads, putting cultural issues over voters’ econ — Анализ рекламной кампании, а не свершившееся событие.
-- [en] не_новость: [pool] Variety — Video-Game Rating Group ESRB Names Netflix and MPA Alum Orit Michiel President — Назначение в частной компании.
-- [en] не_новость: [pool] Variety — A+E Global Media’s Dan Silberman Joins AI Company Sol as Its New Head of Marketi — Переход сотрудника в другую компанию.
-- [en] не_новость: [pool] Ars Technica — Apple announces touchscreen MacBook Pro with OLED display — Анонс продукта (Apple), событие — старт продаж.
-- [en] не_новость: [pool] Fortune — Atlanta Dream says it warned the WNBA 2 months ago about scheduling conflict con — Мнение о планировании расписания лиги.
-- [en] не_новость: [pool] TechCrunch — Chrome’s AI-powered Autofill can now dig through your Gmail to fill out forms — Анонс обновления ПО.
-- [en] не_новость: [pool] Time — Why NASA's Artemis III Mission Will Be One of its Most Complex Flights Ever — Научно-популярный разбор миссии NASA.
+- [es] не_новость: [local] El Financiero — Cuauhtémoc Blanco ‘explota’ con reporteros que preguntaron por detención de su e — Это светская хроника и реакция на вопрос, а не событие.
+- [es] не_новость: [local] El Financiero — Hospitalizan a Jesús Ochoa tras caer de un elevador: ‘No podía caminar y quería  — Состояние здоровья публичного лица — личное дело, без последствий для читателя.
+- [es] полка: [local] El Financiero — San Judas Tadeo y ‘Checo’ Pérez complican movilidad en CDMX: ¿Qué estaciones del — Перекрытие дорог и изменения в графике метро — это местная новость, не мировая.
+- [es] не_новость: [local] El Economista MX — Pausa bilateral congela queja laboral contra Pirelli bajo el T-MEC; Liga Sindica — Рабочие процессы и бюрократические проволочки без реального итога.
+- [es] курьёз: [local] El Financiero — Apple presenta la MacBook Pro con pantalla táctil: ¿Cuánto costará en México? — Презентация потребительского гаджета — это не событие в жизни страны.
+- [es] не_новость: [local] El Sol de México — Industria Mexicana espera que elecciones de EU destraben aranceles contra el ace — Ожидания и домыслы промышленности относительно будущего — не событие.
+- [es] не_новость: [local] La Jornada — Diputados avalan la cuenta pública 2024, último año de López Obrador — Утверждение отчета о расходах — плановая бюрократическая процедура.
+- [es] не_новость: [local] La Jornada — Plantean en San Lázaro que otra mujer sustituya a Taddei — Обсуждение теоретических планов замены чиновника не является событием.
+- [es] курьёз: [pool] El Tiempo CO — Como en el cine, el letal ingenio criminal por los falsos bolígrafos que dispara — Криминальная история в стиле кино — это происшествие, но подано как курьез.
+- [es] не_новость: [pool] Infobae — Luciana Fuster es anunciada como nueva directora de Miss Grand Perú: ¿Y Jessica  — Кадровые перестановки в конкурсах красоты не являются значимым событием.
+- [es] курьёз: [pool] El Economista MX — Descubren posible nuevo planeta enano que orbita más allá de Plutón — Научное предположение без доказанного статуса события.
+- [es] не_новость: [pool] Marca — Gordon le gana la partida a Adeyemi — Спортивное мнение/аналитика, а не результат матча.
+- [es] не_новость: [pool] Clarín AR — Boeing pronostica que el tráfico aéreo de mercancías se duplicará en los próximo — Прогнозы Boeing на 20 лет вперед не являются новостью.
+- [es] не_новость: [pool] Marca — Jorge de Juan anuncia que padece un cáncer que no se puede operar: "No sé cuánto — Частная история болезни артиста.
+- [es] курьёз: [world] Xataka — Un hacker reventó toda la seguridad de PS5. Ahora otro ha cobrado 50.000 dólares — Информация о выплатах хакерам за баги — это интересное, не событие.
+- [es] не_новость: [world] El Nacional VE — Anthony Edwards estará fuera de acción dos meses por una lesión en la rodilla — Спортивная травма — часть рутины профессионального спорта.
+- [es] курьёз: [world] Xataka — Los despidos tecnológicos de 2026 ya rozan los 197.000 en pleno giro del capital — Статистический обзор рынка труда не является событием.
+- [es] курьёз: [world] TechCrunch — Xreal Aura es un nuevo visor con cable impulsado por Android XR — Анонс гаджета на конференции.
+- [es] курьёз: [world] TechCrunch — A medida que los agentes de IA transforman la web, Google abre Gemini y Search a — Обновление API Google для разработчиков.
+- [es] курьёз: [world] TechCrunch — El autorrelleno de Chrome basado en IA ahora puede buscar en Gmail para completa — Обновление функции браузера.
+- [es] повтор: [world] La Vanguardia — Puente ve “inexplicable” que el operador de Adif autorizara marchar al tren de R ≈ «Iryo contradice la versión de Puente y a» — Развитие темы аварии, уже есть в ленте.
+- [es] повтор: [world] eldiario.es — Óscar Puente ve "inexplicable" la orden del centro de control que permitió al AV ≈ «Iryo contradice la versión de Puente y a» — Развитие темы аварии, уже есть в ленте.
+- [es] повтор: [world] El Sol de México — Una orden equivocada y casi 20 minutos sin detectar el error: las causas del cho ≈ «Iryo contradice la versión de Puente y a» — Развитие темы аварии, уже есть в ленте.
+- [es] повтор: [world] Diario Libre DO — Lo que se sabe hasta ahora del accidente ferroviario en España ≈ «Iryo contradice la versión de Puente y a» — Развитие темы аварии, уже есть в ленте.
