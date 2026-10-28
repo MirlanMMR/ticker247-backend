@@ -1,31 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] повтор: [pool] BBC Brasil — O mapa que revela avanço generalizado de Lula no 2º turno: petista só 'piorou' e ≈ «Com Lula, PT tem melhor desempenho em Sã» — Один и тот же сюжет: выборы и результаты в штате/муниципалитетах.
-- [pt] не_новость: [world] Expresso das Ilhas — Vladimir Putin denuncia colonialismo ocidental em África — Риторика лидера, а не принятое решение или изменение ситуации.
-- [pt] чужое_мелкое: [world] Variety — Audiência da Fox News cai 27% em outubro, mas emissora mantém vantagem sobre CNN — Внутренняя статистика аудитории американского телеканала.
-- [pt] не_новость: [world] Fortune — Nova ferramenta de IA da Waters visa uma das tarefas mais tediosas da indústria  — Запуск узкоспециализированного рабочего инструмента (B2B).
-- [pt] курьёз: [world] Superinteressante — Como os documentários de vida marinha conseguem imagens tão nítidas? — Популярно-научный ликбез, а не событие.
-- [pt] повтор: [world] NPR News — Pelo menos 30 mortos em colisão entre dois trens no centro da Espanha, segundo a ≈ «Última hora do acidente ferroviário em T» — Тот же инцидент с поездом в Испании, факты дублируются.
-- [pt] курьёз: [world] The Guardian — Crise de Kylian Mbappé na China demonstra a sensibilidade em torno do legado de  — Скандал из-за мема, не несет последствий мирового масштаба.
-- [pt] курьёз: [world] Superinteressante — Cardápio vegano pode ajudar no controle de peso, indica estudo — Общие сведения о пользе диеты, а не научное открытие или событие.
-- [pt] не_новость: [world] RFI — Cúpula Rússia-África: Moscou em operação de sedução para a terceira edição — Формальный запуск саммита (дипломатический этикет).
-- [fr] чужое_мелкое: [local] La Dépêche — Incendie de l'hôtel de ville de Limoges : le maire a reçu le soutien du vice-pré — Поддержка мэра другой страны — не новость для Франции
-- [fr] не_новость: [local] L'Express — Dette : à quel moment les taux deviennent-ils insoutenables ? — Аналитическая статья о долге без конкретного события
-- [fr] повтор: [local] BFMTV — DIRECT. Colère sociale: les organisations de lycéens reçues demain par Laurent N ≈ «Manifestations, grève à la rentrée et bl» — Дублирует тему протестов и встреч с властями
-- [fr] не_новость: [pool] Radio-Canada — Sommet Canada-UE : Carney inflexible, PSPP entretient le flou sur sa présence — Политический спор без принятого решения
-- [fr] не_новость: [pool] Le Temps — De livreurs salariés à indépendants, ce que la volte-face de Just Eat en Suisse  — Разбор стратегии компании без события
-- [fr] не_новость: [pool] Le Devoir — Les entreprises européennes ont plus profité du libre-échange que celles du Québ — Анализ торгового соглашения, нет события
-- [fr] не_новость: [pool] Radio-Canada — Des journées de 14 heures pour des pilotes d’avion canadiens? — Описание профсоюзного спора, решение не принято
-- [fr] не_новость: [pool] Le Devoir — Les résultats de l’élection du 5 octobre dans le détail — Запоздалый разбор выборов, состоявшихся 5 октября
-- [fr] чужое_мелкое: [world] Le Devoir — Snapchat face à un jury pour la première fois avec Instagram — Внутренний судебный процесс IT-компаний в США
-- [fr] не_новость: [world] L'Express — Guerre en Ukraine : cette spectaculaire opération de Kiev qui a retourné une tac — Описание тактического маневра без итога
-- [fr] повтор: [world] Franceinfo — On vous raconte la fuite de Flavio Bolsonaro vers les Etats-Unis après sa défait ≈ «Flávio Bolsonaro, battu aux élections pa» — Тот же факт отъезда Болсонару
-- [fr] повтор: [world] Franceinfo — Une deuxième collision meurtrière en moins d'un an sur le réseau ferroviaire esp ≈ «Une des pires catastrophes ferroviaires » — Обсуждение аварии, дублирует новость
-- [fr] чужое_мелкое: [world] BBC — Flávio Bolsonaro, battu aux élections par Lula da Silva, est arrivé aux États-Un — Перемещение проигравшего кандидата Бразилии в США
-- [fr] чужое_мелкое: [world] Le Devoir — Les républicains ont dépensé 183 millions pour des publicités anti-trans — Внутренняя статистика рекламных расходов партии США
-- [fr] повтор: [world] RTBF — Percée des partis arabes lors des élections législatives en Israël : une minorit ≈ «Elections en Israël : après plus de 85 %» — Анализ выборов в Израиле, дубль
-- [fr] повтор: [world] RTBF — Elections législatives en Israël : Isaac Herzog, le discret président qui détien ≈ «Elections en Israël : après plus de 85 %» — Анализ выборов в Израиле, дубль
-- [fr] повтор: [world] Le Figaro — Corruption, blanchiment, fraude fiscale : poursuivi dans plusieurs affaires, Flá ≈ «Flávio Bolsonaro, battu aux élections pa» — Тот же сюжет об отъезде Болсонару
-- [fr] чужое_мелкое: [world] Le Figaro — Donald Trump se dit favorable à la venue de Flavio Bolsonaro aux États-Unis — Мнение Трампа — не событие
-- [fr] повтор: [world] RFI — DIRECT - Législatives en Israël: Benyamin Netanyahu toujours en tête, les partis ≈ «Elections en Israël : après plus de 85 %» — Повтор сюжета о выборах в Израиле
-- [fr] курьёз: [world] RFI — Chine: après la tension, la désescalade suite aux propos de Kylian Mbappé sur Ma — Событие вокруг высказывания игрока, не мировая новость
+- [en] повтор: [local] NY Post — Fed holds interest rates steady – but investors bet on December rate hike ≈ «Fed holds interest rates steady even as » — Центральная тема заседания ФРС и ставок повторена в 71.
+- [en] не_новость: [local] Missoula Current — Missoula response to domestic violence better, challenges remain — Анализ статистики преступности за периоды, нет конкретного события.
+- [en] не_новость: [local] KOTA — BHCT to stage world premiere of apocalyptic comedy ‘The Four Horsemen! — Анонс театральной премьеры, не является событием.
+- [en] не_новость: [local] WBAY — David Crowley widens lead over Tom Tiffany in final Marquette poll — Обсуждение предвыборных рейтингов, а не свершившийся факт.
+- [en] не_новость: [local] WTOP — Alvin K. Hellerstein, a federal judge who handled Trump, Maduro and 9/11 cases,  — Некролог, не является новостным событием по белому списку.
+- [en] не_новость: [local] New Jersey 101.5 — NJ fossil museum hosts Halloween party for adults on Friday — Анонс частной вечеринки.
+- [en] не_новость: [local] WABI — John Mulaney show in Bangor canceled — Отмена выступления (не массовое событие, а частная услуга).
+- [en] не_новость: [local] KLKN-TVKLKN-TV — Nebraska ranked nation’s best for job seekers and workers — Результаты рейтинга-исследования, нет события.
+- [en] не_новость: [local] PennLive — Some Social Security recipients will get November payments this week: Benefit sc — Плановое расписание выплат, а не событие.
+- [en] не_новость: [local] Portland Press Herald — Maine-inspired video game is now ready to play — Релиз видеоигры (коммерческий продукт).
+- [en] курьёз: [local] New Jersey 101.5 — Oops! New Jersey ranks among the clumsiest states for tech — Рейтинг 'самых неуклюжих штатов' — любопытный факт, не новость.
+- [en] не_новость: [local] OPB — Opponents of Eugene Clean Energy Fund see uptick in fundraising, but supporters  — Анализ динамики сбора пожертвований перед выборами.
+- [en] не_новость: [local] Cleveland.com — Beloved actor who survived being shot in the face dies at 68 — Некролог.
+- [en] не_новость: [local] Cleveland.com — When veterans can expect VA disability checks for October — Обычное расписание выплат пособий.
+- [en] не_новость: [local] WLBT — Warm and dry week before a rainy weekend — Прогноз погоды.
+- [en] не_новость: [local] KOLO — Hyatt Regency Lake Tahoe hosts family-friendly Halloween carnival — Анонс развлекательного мероприятия.
+- [en] не_новость: [local] KLKN-TVKLKN-TV — Husker cornerback Andrew Marshall named to award watch list — Спорт: номинация в список кандидатов (не результат матча).
+- [en] не_новость: [local] Arizona's Family — Emergency drill being held at Sky Harbor; here’s what you should know — Плановое учение, предупреждение.
+- [en] не_новость: [local] Anchorage Daily News — Republicans emphasize transgender ads, putting cultural issues over voters’ econ — Анализ рекламной кампании, а не свершившееся событие.
+- [en] не_новость: [pool] Variety — Video-Game Rating Group ESRB Names Netflix and MPA Alum Orit Michiel President — Назначение в частной компании.
+- [en] не_новость: [pool] Variety — A+E Global Media’s Dan Silberman Joins AI Company Sol as Its New Head of Marketi — Переход сотрудника в другую компанию.
+- [en] не_новость: [pool] Ars Technica — Apple announces touchscreen MacBook Pro with OLED display — Анонс продукта (Apple), событие — старт продаж.
+- [en] не_новость: [pool] Fortune — Atlanta Dream says it warned the WNBA 2 months ago about scheduling conflict con — Мнение о планировании расписания лиги.
+- [en] не_новость: [pool] TechCrunch — Chrome’s AI-powered Autofill can now dig through your Gmail to fill out forms — Анонс обновления ПО.
+- [en] не_новость: [pool] Time — Why NASA's Artemis III Mission Will Be One of its Most Complex Flights Ever — Научно-популярный разбор миссии NASA.
