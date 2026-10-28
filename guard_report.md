@@ -1,15 +1,17 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Folha de S.Paulo — 1926: Ladrão é detido ao agir na casa do procurador-geral da República — Исторический факт из 1926 года не является новостью.
-- [pt] полка: [local] CNN Brasil — Legislação proíbe entrada de menores de 5 anos na final da Sul-Americana — Событие в Колумбии для португальского потока (Бразилия) должно быть в «Мировых», а не «Местных».
-- [pt] не_новость: [local] G1 Santa Catarina — 'Desculpa, pai, a gente falhou', diz Carlos Bolsonaro em vídeo após derrota elei — Эмоциональное высказывание родственника после выборов не содержит фактов.
-- [pt] не_новость: [local] G1 Rio — Após anunciar saída, Mileide Mihaile volta atrás e segue como rainha de bateria  — Внутренняя административная перестановка в школе самбы — не событие для ленты новостей.
-- [pt] курьёз: [pool] Notícias ao Minuto — Habitação: Cerca de 300 pessoas voltam à Praça D. João I no Porto — Обычный протест без эскалации — не событие (не_новость).
-- [pt] анонс: [pool] Observador PT — Moedas: limpar Rossio custou 138 mil euros, não 100 mil — В тексте только техническая информация (рекламный скрипт), новость отсутствует.
-- [pt] курьёз: [pool] Público — Ópera tranca brasileiros e portugueses num elevador e ri com as diferenças cultu — Сюжет об опере не является новостью.
-- [pt] не_новость: [world] Variety — LaKeith Stanfield deixa o filme de terror ‘Molepeople’, diretor Ben Wheatley sub — Замена режиссёра или актёра в проекте — индустриальный шум.
-- [pt] курьёз: [world] Terra BR — A cantora que Robert Plant define como 'a rainha da música bonita' — Субъективное мнение музыканта о другом — не новость.
-- [pt] курьёз: [world] Engadget — O PlayStation 5 pode ser o último reprodutor de Blu-Ray da Sony — Прогнозы об устаревании технологий не являются событием.
-- [pt] курьёз: [world] Variety — Cynthia Erivo critica o 'incômodo' do público com sua amizade com Ariana Grande: — Обсуждение личных отношений актрис — светская хроника, не новость.
-- [pt] не_новость: [world] Rolling Stone — The Beach Boys cancelaram mais um show. Um grupo derivado com John Stamos ocupar — Замена артистов в плановом концерте — не событие.
-- [pt] не_новость: [world] Sciences et Avenir — Mudança climática: rumo a uma "emergência sanitária mundial"? — Пересказ старого отчёта без конкретного нового события — не новость.
+- [en] не_новость: [local] WIBW — Topeka Zoo wishes fond farewell to African lion — переезд животного в другой зоопарк — рядовое событие, не влияющее на жизнь людей.
+- [en] не_новость: [local] Deseret News — High school cross country: North Summit girls win 6th straight 2A title, Grand b — спортивные результаты региональных школьных команд — не новость общенационального масштаба.
+- [en] не_новость: [local] Homepage — Ozaukee County small business’ balloon displays in the Brewers World Series spot — местная частная инициатива (декорации на стадионе) — не является новостью.
+- [en] курьёз: [local] Deseret News — This cereal brand is getting a resealable bag — изменение упаковки хлопьев — маркетинговая деталь, а не новость.
+- [en] полка: [local] WBRC — Venezuelan man pleads guilty to ATM conspiracy, possession of child sexual abuse — местная новость об уголовном деле в Алабаме не должна быть в ленте, если это не резонансное событие для всей страны.
+- [en] не_новость: [local] KFVS12 — A century of infamy: How Charlie Birger became southern Illinois’ most notorious — исторический очерк о гангстере столетней давности.
+- [en] повтор: [pool] Time — Activist Dolores Huerta Dies at 96. Here's What To Know About Her Trailblazing L ≈ «Dolores Huerta, Labor Leader and Civil R» — дублирующий сюжет о смерти Долорес Уэрта.
+- [en] не_новость: [pool] Sky Sports — PREM Rugby wants English expansion despite Welsh interest — спортивно-административные планы лиги без факта реализации.
+- [en] не_новость: [pool] The Guardian — ‘This isn’t supposed to happen’: giant-slaying Fleetwood revels in fairytale Ars — рядовой матч Carabao Cup (футбольный кубок) — спортивная рутина.
+- [en] не_новость: [world] WJXT News4JAX — Man City wins penalty shootout to advance in English League Cup — результат матча английского кубка лиги — не мировая новость для американского читателя.
+- [en] не_новость: [world] Engadget — Meta weighs delaying 'alarming' new business terms as backlash grows — обсуждение компанией своих условий — не событие (пока нет решения).
+- [en] курьёз: [world] Engadget — The PlayStation 5 just might be Sony's final Blu-Ray player — предположение о будущем консолей — аналитика, а не свершившийся факт.
+- [en] не_новость: [world] Engadget — OpenAI now lets you text your Dot agent — обычное обновление функционала чат-бота.
+- [en] не_новость: [world] Ars Technica — Google announces Gemini 4 Carbon, its latest frontier AI model that you can't us — анонс модели ИИ, которую нельзя использовать — не новость для потребителя.
+- [en] чужое_мелкое: [world] RTÉ Ireland — Bolsonaro says he is Brazil's leader after fleeing to US — политические заявления проигравшего кандидата в Бразилии не являются мировыми событиями уровня США.
