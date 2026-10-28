@@ -1,10 +1,31 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] La Jornada — Diputados avalan la cuenta pública 2024, último año de López Obrador — Утверждение отчета о работе правительства за прошлый год — рутинная канцелярия.
-- [es] курьёз: [pool] Infobae — Alessandra Rosaldo dedica un altar a Fiona y conmueve al recordar a sus mascotas — Частная история об алтаре для домашних животных — не событие.
-- [es] курьёз: [pool] La Nación AR — Más de medio kilómetro de salame: la insólita competencia entre dos ciudades bon — Конкурс на самый длинный салями — любопытный факт, не новость.
-- [es] не_новость: [pool] Semana CO — Juan Fernando Quintero anunció demanda contra periodista deportivo: “No se dejen — Словесная перепалка и угроза иска — не событие.
-- [es] не_новость: [pool] Marca — Henry alucina con Bellingham: "Lo que hizo fue una auténtica locura" — Комментарий эксперта/легенды футбола о чьей-то игре — это мнение, а не новость.
-- [es] курьёз: [pool] Clarín AR — La fanática de Madonna que se convirtió en un ícono de la comunidad LGBTIQ+ — История о фанатке 90-х годов — развлекательный контент.
-- [es] повтор: [world] BBC Mundo — Imágenes muestran a Flávio Bolsonaro aterrizando en Miami luego de su derrota en ≈ «Flávio Bolsonaro baja del avión tras ate» — Дублирует сюжет о прилете Флавио Болсонару в США.
-- [es] повтор: [world] RFI — Brasil: Flavio Bolsonaro huyó a Estados Unidos y Washington anuncia que le conce ≈ «Flávio Bolsonaro baja del avión tras ate» — Дублирует сюжет о прилете Флавио Болсонару в США.
+- [pt] повтор: [pool] BBC Brasil — O mapa que revela avanço generalizado de Lula no 2º turno: petista só 'piorou' e ≈ «Com Lula, PT tem melhor desempenho em Sã» — Один и тот же сюжет: выборы и результаты в штате/муниципалитетах.
+- [pt] не_новость: [world] Expresso das Ilhas — Vladimir Putin denuncia colonialismo ocidental em África — Риторика лидера, а не принятое решение или изменение ситуации.
+- [pt] чужое_мелкое: [world] Variety — Audiência da Fox News cai 27% em outubro, mas emissora mantém vantagem sobre CNN — Внутренняя статистика аудитории американского телеканала.
+- [pt] не_новость: [world] Fortune — Nova ferramenta de IA da Waters visa uma das tarefas mais tediosas da indústria  — Запуск узкоспециализированного рабочего инструмента (B2B).
+- [pt] курьёз: [world] Superinteressante — Como os documentários de vida marinha conseguem imagens tão nítidas? — Популярно-научный ликбез, а не событие.
+- [pt] повтор: [world] NPR News — Pelo menos 30 mortos em colisão entre dois trens no centro da Espanha, segundo a ≈ «Última hora do acidente ferroviário em T» — Тот же инцидент с поездом в Испании, факты дублируются.
+- [pt] курьёз: [world] The Guardian — Crise de Kylian Mbappé na China demonstra a sensibilidade em torno do legado de  — Скандал из-за мема, не несет последствий мирового масштаба.
+- [pt] курьёз: [world] Superinteressante — Cardápio vegano pode ajudar no controle de peso, indica estudo — Общие сведения о пользе диеты, а не научное открытие или событие.
+- [pt] не_новость: [world] RFI — Cúpula Rússia-África: Moscou em operação de sedução para a terceira edição — Формальный запуск саммита (дипломатический этикет).
+- [fr] чужое_мелкое: [local] La Dépêche — Incendie de l'hôtel de ville de Limoges : le maire a reçu le soutien du vice-pré — Поддержка мэра другой страны — не новость для Франции
+- [fr] не_новость: [local] L'Express — Dette : à quel moment les taux deviennent-ils insoutenables ? — Аналитическая статья о долге без конкретного события
+- [fr] повтор: [local] BFMTV — DIRECT. Colère sociale: les organisations de lycéens reçues demain par Laurent N ≈ «Manifestations, grève à la rentrée et bl» — Дублирует тему протестов и встреч с властями
+- [fr] не_новость: [pool] Radio-Canada — Sommet Canada-UE : Carney inflexible, PSPP entretient le flou sur sa présence — Политический спор без принятого решения
+- [fr] не_новость: [pool] Le Temps — De livreurs salariés à indépendants, ce que la volte-face de Just Eat en Suisse  — Разбор стратегии компании без события
+- [fr] не_новость: [pool] Le Devoir — Les entreprises européennes ont plus profité du libre-échange que celles du Québ — Анализ торгового соглашения, нет события
+- [fr] не_новость: [pool] Radio-Canada — Des journées de 14 heures pour des pilotes d’avion canadiens? — Описание профсоюзного спора, решение не принято
+- [fr] не_новость: [pool] Le Devoir — Les résultats de l’élection du 5 octobre dans le détail — Запоздалый разбор выборов, состоявшихся 5 октября
+- [fr] чужое_мелкое: [world] Le Devoir — Snapchat face à un jury pour la première fois avec Instagram — Внутренний судебный процесс IT-компаний в США
+- [fr] не_новость: [world] L'Express — Guerre en Ukraine : cette spectaculaire opération de Kiev qui a retourné une tac — Описание тактического маневра без итога
+- [fr] повтор: [world] Franceinfo — On vous raconte la fuite de Flavio Bolsonaro vers les Etats-Unis après sa défait ≈ «Flávio Bolsonaro, battu aux élections pa» — Тот же факт отъезда Болсонару
+- [fr] повтор: [world] Franceinfo — Une deuxième collision meurtrière en moins d'un an sur le réseau ferroviaire esp ≈ «Une des pires catastrophes ferroviaires » — Обсуждение аварии, дублирует новость
+- [fr] чужое_мелкое: [world] BBC — Flávio Bolsonaro, battu aux élections par Lula da Silva, est arrivé aux États-Un — Перемещение проигравшего кандидата Бразилии в США
+- [fr] чужое_мелкое: [world] Le Devoir — Les républicains ont dépensé 183 millions pour des publicités anti-trans — Внутренняя статистика рекламных расходов партии США
+- [fr] повтор: [world] RTBF — Percée des partis arabes lors des élections législatives en Israël : une minorit ≈ «Elections en Israël : après plus de 85 %» — Анализ выборов в Израиле, дубль
+- [fr] повтор: [world] RTBF — Elections législatives en Israël : Isaac Herzog, le discret président qui détien ≈ «Elections en Israël : après plus de 85 %» — Анализ выборов в Израиле, дубль
+- [fr] повтор: [world] Le Figaro — Corruption, blanchiment, fraude fiscale : poursuivi dans plusieurs affaires, Flá ≈ «Flávio Bolsonaro, battu aux élections pa» — Тот же сюжет об отъезде Болсонару
+- [fr] чужое_мелкое: [world] Le Figaro — Donald Trump se dit favorable à la venue de Flavio Bolsonaro aux États-Unis — Мнение Трампа — не событие
+- [fr] повтор: [world] RFI — DIRECT - Législatives en Israël: Benyamin Netanyahu toujours en tête, les partis ≈ «Elections en Israël : après plus de 85 %» — Повтор сюжета о выборах в Израиле
+- [fr] курьёз: [world] RFI — Chine: après la tension, la désescalade suite aux propos de Kylian Mbappé sur Ma — Событие вокруг высказывания игрока, не мировая новость
