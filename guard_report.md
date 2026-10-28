@@ -1,36 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] CNN Brasil — Lucas Guedez expõe atitudes de Vini Jr. com Virginia: “Nunca fui seu fã” — конфликт влиятельных лиц в соцсетях не является значимым событием
-- [pt] курьёз: [local] G1 Globo — Menor que uma unha, aranha revela detalhes impressionantes em registro feito no  — макрофотография паука не является новостью
-- [pt] не_новость: [local] Folha de S.Paulo — CCSP exibe curtas de Buster Keaton com música ao vivo e entrada gratuita — афиша культурного мероприятия без масштаба события
-- [pt] не_новость: [local] G1 Rio — Rio teve apenas 7 dias sem chuva em setembro e outubro; El Niño pode influenciar — общий обзор погоды за два месяца
-- [pt] не_новость: [local] Estadão — Notícia no Seu Tempo: Após dizer que não fugiria, Flávio voa em segredo para os  — анонс аудиоподкаста
-- [pt] не_новость: [pool] Terra BR — Depois de gastar centenas de bilhões de dólares em placas da Nvidia, os hiperesc — аналитика о складских запасах компаний, а не событие
-- [pt] не_новость: [world] Variety — Josh O’Connor é um boxeador relutante em clipe de ‘Golden Boy’ do National Theat — анонс показа театральной постановки
-- [pt] не_новость: [world] Variety — Show de despedida de Alan Jackson será transmitido pela NBC em dezembro — анонс телевизионной передачи
-- [pt] не_новость: [world] Engadget — O novo despertador inteligente Echo Time da Amazon busca tornar o despertar meno — анонс потребительского товара (реклама)
-- [pt] не_новость: [world] Engadget — Amazon adiciona tela nanomatte antirreflexo ao seu novo Echo Show 16 — анонс потребительского товара (реклама)
-- [pt] не_новость: [world] Engadget — A nova câmera do Amazon Echo Studio permite monitorar animais de estimação ou au — анонс потребительского товара (реклама)
-- [pt] повтор: [world] Engadget — Todos os dispositivos Amazon Echo anunciados hoje: Echo Time, Alexa Photo Frame  ≈ «O novo despertador inteligente Echo Time» — анонс ряда устройств Amazon
-- [pt] срочность: [world] El Mundo — Sebastián, passageiro do vagão 7 do trem Iryo acidentado: "Não param de tirar ca — описание последствий трагедии не требует побудки
-- [pt] повтор: [world] NPR News — Pelo menos 30 mortos em colisão entre dois trens no centro da Espanha, segundo a ≈ «Sebastián, passageiro do vagão 7 do trem» — событие уже описано в 77
-- [pt] курьёз: [world] Guardian Sport — Crise de Kylian Mbappé na China demonstra a sensibilidade em torno do legado de  — медийный скандал вокруг мема
-- [pt] курьёз: [world] Superinteressante — Cardápio vegano pode ajudar no controle de peso, indica estudo — исследование о влиянии диеты
-- [pt] курьёз: [world] Superinteressante — Por que as bananas estão ameaçadas de extinção? — познавательная заметка о сельском хозяйстве
-- [pt] курьёз: [world] TechCrunch — O crescimento dos centros de dados traz um lado positivo: inovação para a rede e — размышление о технологиях и инфраструктуре
-- [fr] не_новость: [local] Sud Ouest — Inéligibilité de Marine Le Pen : la candidate d’extrême droite saisit le Conseil — Это текущий юридический процесс и дискуссия, а не окончательное решение.
-- [fr] чужое_мелкое: [pool] TSA Algérie — Karim Zéribi réplique sèchement à Éric Zemmour qui l’a renvoyé à ses origines al — Словесная перепалка двух политиков не является событием для французского читателя.
-- [fr] не_новость: [pool] RTBF — Baisse annuelle de la demande d’emploi en Wallonie sauf chez les jeunes — Ежемесячная статистика по безработице — рутина, не имеющая остроты события.
-- [fr] не_новость: [pool] Le Temps — Drame de Crans-Montana: la confrontation entre Jessica et Jacques Moretti est an — Отмена или перенос встречи — это техническое изменение графика, а не новость.
-- [fr] не_новость: [pool] Radio-Canada — La CAQ souhaite avoir accès à l’Assemblée nationale du Québec — Намерение партии написать письмо в парламент — не событие, пока нет действий или решений.
-- [fr] курьёз: [world] La Dépêche — Elle reçoit l’appel d’un faux policier réclamant sa carte bancaire : la Japonais — История про бабушку и мошенника — типичный курьёз, место в «Интересном».
-- [fr] повтор: [world] Africanews FR — Brésil : Flávio Bolsonaro aurait fui vers l’Équateur après sa défaite électorale ≈ «Flávio Bolsonaro a quitté le Brésil pour» — Один и тот же сюжет об отъезде Флавио Болсонару.
-- [fr] чужое_мелкое: [world] Radio Okapi — Félix Tshisekedi à Moscou pour le sommet Russie-Afrique — Саммит в Москве с участием африканских лидеров не требует побудки и не является срочным.
-- [fr] не_новость: [world] Franceinfo — "Bien sûr que j'en ai marre" : à Moscou, les habitants exaspérés par de nouvelle — Жалобы жителей на интернет — это очерк, а не событие с четким фактом.
-- [fr] не_новость: [world] Africanews FR — Arrêt sur images du 28 octobre 2026 : les principaux exportateurs de gaz naturel — Общие призывы к сотрудничеству на саммитах — дипломатический этикет.
-- [fr] чужое_мелкое: [world] Africanews FR — Yémen : une cimenterie frappée par les forces loyalistes, selon les Houthis — Очередной локальный инцидент в Йемене без последствий для мира — не мировая новость.
-- [fr] не_новость: [world] Africanews FR — Brésil : Lula fête ses 81 ans après sa victoire à la présidentielle — Празднование дня рождения политика — частное событие, не новость.
-- [fr] не_новость: [world] L'Express — "Un désaveu pour Benyamin Netanyahou" : l'analyse du politologue Dov Waxman sur  — Анализ и мнение политолога — это разбор, а не событие.
-- [fr] не_новость: [world] RFI — Législatives en Serbie: les étudiants demandent la démission de la direction de  — Требования студентов — это политический жест, а не свершившееся решение.
-- [fr] повтор: [world] Radio-Canada — Israël : Eisenkot et Nétanyahou tous deux prêts à gouverner, pas de majorité ≈ «Israël : le bloc de Netanyahu en tête de» — Повторение сюжета об итогах выборов в Израиле.
-- [fr] повтор: [world] RFI — Brésil: Flavio Bolsonaro a fait escale en Équateur alors qu'il serait en route v ≈ «Flávio Bolsonaro a quitté le Brésil pour» — Один и тот же сюжет об отъезде Флавио Болсонару.
+- [ru] курьёз: [local] Knews.kg — Бобров переселили спасать реки от засухи, но они разбежались: учёные выяснили по — научное наблюдение о животных, не влияет на читателя в КР
+- [ru] полка: [local] Sputnik KG — Запад активно пытается загнать Африку в долговую кабалу — Путин — заявление президента РФ на саммите с Африкой — мировая новость, не местная
+- [ru] полка: [local] Kabar.kg — Төртүнчү мөөнөт: Бразилиянын 81 жаштагы президенти кайра шайланып келди — выборы в Бразилии — мировая новость, не местная
+- [ru] чужое_мелкое: [pool] РИА Новости — Россия производит денежные купюры для ряда стран Африки, заявил Путин — технические детали производства купюр РФ для других стран
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Сотрудника рязанской УК осудили за травмы прохожего из-за снега с крыши — локальное происшествие (приговор в Рязани)
+- [ru] чужое_мелкое: [pool] iXBT — Автобусы под прицелом: дорожные камеры научились вычислять нелегальные рейсы — тестирование камер в РФ
+- [ru] чужое_мелкое: [pool] iXBT — Робот вместо космонавта: на МКС готовят «Теледроида» к работе за бортом — технический эксперимент на МКС
+- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — Иностранец получил 7 лет за закладки с наркотиками — локальное уголовное дело в Тамбове
+- [ru] чужое_мелкое: [pool] 93.ru — Краснодар — Мужчина застрелил жену и 15-летнюю падчерицу на Урале — семья недавно переехала  — бытовое убийство в РФ
+- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — За взятку. Прокурор запросил 20 лет колонии для экс-председателя Ленинского суда — суд над чиновником в Ростове-на-Дону
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — На посту директора Драмтеатра Оренбурга Павла Церемпилова сменила Татьяна Симоно — смена директора театра в Оренбурге
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Рязани впервые выступил театр танца из Карачаево-Черкесии — локальное культурное событие в Рязани
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — Беременной из Белозерска в Череповце удалили желчный пузырь — медицинская операция в Вологде
+- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — В Тамбове открывают «Термы Наутико» — открытие комплекса в Тамбове
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самаре запустили новый фонтан. Но совсем ненадолго — тестовый запуск фонтана в Самаре
+- [ru] чужое_мелкое: [pool] 43.ru — Киров — Житель Кирова осужден за покупку наркотика в крупном размере — локальный приговор в Кирове
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — В Маловишерском округе освободили берег Малой Вишерки — проверка прокуратуры в Новгородской области
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Убийца из Костромы украл квадроцикл со двора дома в Алеканово — кража квадроцикла в Рязани
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — В Вологодском округе подростка подозревают в краже с банковской карты — локальное дело о краже в Вологде
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — В Череповце стартовал новый сезон «ДедСада» — открытие сезона для пенсионеров в Череповце
+- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — Под Тамбовом уничтожили очаг дикорастущей конопли — уничтожение конопли под Тамбовом
+- [ru] курьёз: [pool] 14.ru — Якутск — «Запах дошел до 7-го этажа»: умершая старушка полтора месяца пролежала в заперто — криминально-бытовая история из Якутска, не имеет значения для КР
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Короткое замыкание: в Грачевке сгорел частный дом — ожоги у пенсионера — бытовой пожар в Оренбургской области
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — В Новгородской области вынесли приговор за перевозку 10 кг мефедрона — локальный приговор в Новгородской области
+- [ru] курьёз: [world] 63.ru — Самара — «Так и должен выглядеть праздник годовасика»: день рождения маленького самарца в — вирусное видео, не является новостью
