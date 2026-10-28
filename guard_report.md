@@ -1,27 +1,10 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] WTOP — Jason Reynolds turns to adult fiction with ‘Father, Father,’ a road novel about  — авторская статья, обзор книги
-- [en] не_новость: [local] Seven Days — New Hemp Rule Upends Industry for Vermont CBD Producers — аналитический разбор, а не событие
-- [en] не_новость: [local] Seven Days — Vermont School Districts Already Face Tough Budget Decisions — аналитика о бюджетных сложностях, а не принятое решение
-- [en] не_новость: [local] Seven Days — Private Equity Firms Are Quietly Buying Up Local Funeral Homes — журналистское расследование, очерк
-- [en] курьёз: [local] 11Alive — This 1,800-pound pop-up book just broke a world record — мировой рекорд книги — интересное, не местное событие
-- [en] не_новость: [local] reviewjournal — From benched to hero: Knights forward makes most of opportunity — спортивный очерк о карьере игрока
-- [en] чужое_мелкое: [local] Cleveland.com — Chiefs sign 8-time All-Pro who was suspended after allegations of sexual miscond — подписание контракта в NFL — рутина
-- [en] чужое_мелкое: [local] KWCH — Reports: Chiefs sign former All-Pro kicker Justin Tucker as Butker’s struggles c — спортивная рутина, дубль к 20
-- [en] не_новость: [local] WECT — Pups, contests and adoptions take over Long Leaf Park for annual fundraiser — анонс мероприятия, развлекательный очерк
-- [en] не_новость: [local] WDBJ7 — CAREER CORNER: Greater Roanoke workforce board joins five-board Appalachian Adva — участие в инициативе, нет конкретного события
-- [en] курьёз: [local] OPB — Northwest research trial tests whether a little spit swapping can solve chronic  — научный эксперимент без последствий для читателя
-- [en] не_новость: [local] MinnPost — Edwards surgery throws a wrench into a beautiful Wolves start — спортивная колонка, а не событие
-- [en] не_новость: [local] New Jersey 101.5 — Police warn Halloween thrill-seekers: Stay out of Clementon Park — полицейское предупреждение, не событие
-- [en] не_новость: [local] WBAY — Black Creek bakery hosts first Cake Fest on Sunday — анонс фестиваля еды
-- [en] чужое_мелкое: [pool] TechCrunch — Free Fire returns to India as Garena launches localized version four years after — релиз локальной игры в Индии
-- [en] не_новость: [pool] Sky Sports — Lewis: I've earned my England RL World Cup spot — интервью игрока
-- [en] чужое_мелкое: [pool] Sports.ru — Foul play in wrestling: American athlete twice pokes Russian opponent in the eye — конфликт на соревнованиях — не мировая новость
-- [en] не_новость: [pool] Sky Sports — Ref Watch: Arsenal's red card appeal will fail — мнение эксперта (Ref Watch)
-- [en] не_новость: [pool] Wired — Amazon Adds an Alexa Photo Frame and a Bedside Clock to Its Echo Family — анонс продуктов Amazon (реклама)
-- [en] не_новость: [pool] Sky Sports — Carrick and Fernandes hold clear-the-air talks ahead of Chelsea fixture — слухи и «разговоры» внутри клуба
-- [en] не_новость: [pool] BBC Sport — Liverpool gambled on Jacquet and it is paying off — спортивный очерк
-- [en] не_новость: [world] TechCrunch — Meta has a new AI pet app called Waddle World — анонс приложения
-- [en] не_новость: [world] BBC Sport — 'Relax, I love Kane and Lamine Yamal' - Henry defends his Ballon d'Or hosting — защита репутации/мнение, а не событие
-- [en] чужое_мелкое: [world] The Guardian — Kylian Mbappé’s China crisis shows how sensitive Mao’s legacy remains — личные дела футболиста в Китае
-- [en] не_новость: [world] BBC Sport — Goodbye to Wawrinka - an everyman who gatecrashed the greats — спортивный некролог/очерк
+- [es] не_новость: [local] La Jornada — Diputados avalan la cuenta pública 2024, último año de López Obrador — Утверждение отчета о работе правительства за прошлый год — рутинная канцелярия.
+- [es] курьёз: [pool] Infobae — Alessandra Rosaldo dedica un altar a Fiona y conmueve al recordar a sus mascotas — Частная история об алтаре для домашних животных — не событие.
+- [es] курьёз: [pool] La Nación AR — Más de medio kilómetro de salame: la insólita competencia entre dos ciudades bon — Конкурс на самый длинный салями — любопытный факт, не новость.
+- [es] не_новость: [pool] Semana CO — Juan Fernando Quintero anunció demanda contra periodista deportivo: “No se dejen — Словесная перепалка и угроза иска — не событие.
+- [es] не_новость: [pool] Marca — Henry alucina con Bellingham: "Lo que hizo fue una auténtica locura" — Комментарий эксперта/легенды футбола о чьей-то игре — это мнение, а не новость.
+- [es] курьёз: [pool] Clarín AR — La fanática de Madonna que se convirtió en un ícono de la comunidad LGBTIQ+ — История о фанатке 90-х годов — развлекательный контент.
+- [es] повтор: [world] BBC Mundo — Imágenes muestran a Flávio Bolsonaro aterrizando en Miami luego de su derrota en ≈ «Flávio Bolsonaro baja del avión tras ate» — Дублирует сюжет о прилете Флавио Болсонару в США.
+- [es] повтор: [world] RFI — Brasil: Flavio Bolsonaro huyó a Estados Unidos y Washington anuncia que le conce ≈ «Flávio Bolsonaro baja del avión tras ate» — Дублирует сюжет о прилете Флавио Болсонару в США.
