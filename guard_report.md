@@ -1,13 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] курьёз: [local] El Universal MX — Selena Gomez y Demi Lovato reviven su era de princesas con Rare Beauty — Это светская хроника и развлекательный контент, не является значимым событием.
-- [es] не_новость: [local] El Financiero — Hay que mirar también el envejecimiento de las personas autistas — Это публицистическое мнение/колонка, а не новостное событие.
-- [es] не_новость: [local] La Jornada — Empiezan a fluir inversiones de empresas mexicanas: CCE — Размытое заявление о планах инвестиций, нет свершившегося факта (события).
-- [es] срочность: [pool] El Tiempo CO — ‘Sentí el primer golpe, luego el bus dio vueltas y salimos expulsados’: sobreviv — Происшествие случилось в прошлом, нет причин для побудки.
-- [es] курьёз: [pool] La Nación AR — Premios Ídolo 2026: el momento en que Momo, el hijo de Jimena Barón, cumplió su  — Светская хроника (награждение блогеров), не является важным событием.
-- [es] курьёз: [pool] Marca — Alfonso Cabello sigue imbatible: ¡campeón del mundo por octava vez! — Спортивная новость, но в данном контексте подана как частное достижение без общемирового влияния.
-- [es] курьёз: [pool] El Informador — Guadalajara acogerá las exclusivas cenas colaborativas de The 50 Best Restaurant — Гастрономическое мероприятие, не является новостным событием в широком смысле.
-- [es] не_новость: [world] Xataka — El Trump Mobile ya está aquí y presume de ser 100% hecho en EEUU. — Маркетинговая заметка о продукте, нет конкретного события (сделка/старт продаж).
-- [es] не_новость: [world] Wired — Las matemáticas complejas que podrían salvar a la codificación automatizada — Научно-популярный разбор метода, а не новостное событие.
-- [es] не_новость: [world] Diario Libre DO — Candidatos dominicanos en elecciones de Estados Unidos — Это анонс-справочник (кто баллотируется), не является событием.
-- [es] курьёз: [world] BBC Mundo — "Tengo 96 años y 15 millones de seguidores": las abuelas que encontraron fama y  — Развлекательный материал про TikTok, не является новостью.
+- [en] срочность: [local] WKYC — Community leaders call emergency meeting after fatal shootings of 2 Northeast Oh — Это текущая криминальная сводка, не требующая прерывания дел читателя.
+- [en] курьёз: [local] Inquirer.com — A Philly diner is going viral for allegedly throwing out a customer’s belongings — Локальный инцидент в закусочной не является новостью для широкой аудитории.
+- [en] не_новость: [local] KPLC — Jennings Main Street Trick-or-Treat Brings Halloween Fun Downtown — Анонс праздничного мероприятия.
+- [en] не_новость: [local] KOLO — The Eddy permanently closing its doors — Плановое закрытие заведения.
+- [en] не_новость: [local] KCRG — New Lion habitat opens at Blank Park Zoo — Открытие экспозиции в зоопарке не является событием для страны.
+- [en] не_новость: [local] WDBJ7 — TAP holds annual “Bringing Hope Home” event — Отчет о проведении ежегодного мероприятия.
+- [en] не_новость: [local] WBAY — Local doctor says new CTE study of former NFL players is alarming — Пересказ исследования экспертами.
+- [en] не_новость: [local] OKC News — Steve Lutz updates Oklahoma State basketball injuries ahead of season opener — Спортивная рутина перед матчем (комментарии тренера).
+- [en] не_новость: [local] KLKN-TVKLKN-TV — Fred Hoiberg, Cale Jacobsen speak to media ahead of Nebraska’s season opener aga — Спортивная рутина перед матчем (комментарии игроков).
+- [en] не_новость: [local] WBAY — Packers fans gather outside Lambeau Field hours before game against Panthers — Болельщики собрались у стадиона — событийного наполнения нет.
+- [en] срочность: [local] Latest &amp; Breaking News (fox35orlando) — Man arrested in deadly Tavares shooting investigation, officials say — Задержание подозреваемого в рамках расследования — обычная работа полиции.
+- [en] срочность: [local] WFMY RSS Feed: news — Alamance Crossing shooting suspect arrested — Задержание подозреваемого не является событием для побудки.
+- [en] срочность: [local] Untitled RSS Feed — Casper Man Accused Of Fleeing Police At Up To 105 MPH In The Dark With Lights Of — Происшествие случилось в прошлом, не требует срочности.
+- [en] срочность: [local] WLBT — Man charged with felony arson for setting fire to wooded area — Задержание за мелкое преступление.
+- [en] срочность: [local] WECT — Man charged with murder in 2023 Riegelwood shooting — Арест по делу годовой давности не требует срочности.
+- [en] срочность: [local] WLTX — 2 more arrested in Newberry block party shooting; police expect more arrests — Продолжение арестов по делу о стрельбе — рабочая рутина следствия.
+- [en] срочность: [local] FOX 2 — New charges for woman accused in teen's I-170 shooting death — Предъявление новых обвинений — рабочая рутина суда.
+- [en] не_новость: [pool] KSFY — FOOTBALL FRIDAY (On Thursday!)-Week 11 (QUARTERFINAL PLAYOFFS) — Анонс спортивных игр.
+- [en] курьёз: [pool] Engadget — Google fixes an annoying Photos bug that hid edited images from other apps — Исправление бага в приложении — не событие.
+- [en] срочность: [pool] BBC News — Jury shown CCTV of Huntingdon train staff using frying pan in defence — Запись с камер в суде не является срочной новостью.
+- [en] курьёз: [pool] BBC Sport — Grealish dropped by Everton after 'breach of club discipline' — Внутренняя дисциплинарная мера футбольного клуба.
+- [en] повтор: [pool] BBC Sport — Duckett and Dawson deliver in England's consolation win ≈ «Careless dismissals give Australia route» — Один и тот же матч, дублирующий сюжет.
+- [en] не_новость: [world] Engadget — VRChat says it's not adding AI labels despite user survey showing people want th — Опрос пользователей VRChat не является событием.
+- [en] курьёз: [world] Futura-Sciences — An exceptional dinosaur discovered in France is set to be sold: a revolting stor — Продажа костей динозавра не является мировой новостью.
+- [en] не_новость: [world] Guardian Sport — The low-budget Brewers won the World Series – and exposed baseball’s biggest lie — Это аналитическая колонка (мнение), а не новость.
