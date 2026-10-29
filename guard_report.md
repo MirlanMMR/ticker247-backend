@@ -1,27 +1,13 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] NY Post — Sophie Cunningham says she has 20 ‘stalkers’ the FBI is monitoring — мониторинг ФБР не является событием, это продолжение темы
-- [en] курьёз: [local] NPR News — Even birds get jet lagged, study shows — научный факт без влияния на жизнь читателя
-- [en] не_новость: [local] Bangor Daily News — First National Bank named a 2026 Best Place to Work in Maine — корпоративный рейтинг, не является общественно значимым событием
-- [en] не_новость: [local] KOLO — Metcalf breaks ground on new affordable housing in Reno — закладка фундамента — плановое событие
-- [en] не_новость: [local] WAFF — Decatur mayor wants city to grow to 75,000 residents, plans more housing and apa — планы мэра по развитию города, а не принятое решение
-- [en] курьёз: [local] Cleveland.com — Actress, 62, makes rare public appearance six years after near-fatal overdose, s — светская хроника
-- [en] не_новость: [local] CBS News — Trump says two Dan Sullivans on Alaska Senate ballot is "very unfair" — мнение политика о ходе выборов, не является событием
-- [en] курьёз: [local] 1011NOW — Twisted Turtle Pub draws diners to Rushville for wood-fired pizza — обзор локального заведения
-- [en] не_новость: [local] WKYT — Lexington launches public database to track code violations, landlords — запуск базы данных — техническая новость
-- [en] не_новость: [local] Cleveland.com — Avon Lake council confirms Fabrice Dongo as finance director — назначение на должность в совете города — рутина
-- [en] не_новость: [local] Untitled RSS Feed — Cheyenne Frontier Days CEO Tom Hirsig Stepping Down, 2027 Will Be Last Year — плановый уход на пенсию в 2027 году
-- [en] не_новость: [local] OPB — University of Oregon weighs eliminating some postgraduate programs — обсуждение возможных сокращений, решение не принято
-- [en] не_новость: [pool] Rolling Stone — Phoebe Bridgers Releases ‘Live at Madison Square Garden’ EP via Tidal — релиз музыкального альбома — не событие
-- [en] не_новость: [pool] Fortune — ‘The most European of non-European countries’: Canada looks to become an ‘associ — политические рассуждения и экономическая аналитика
-- [en] не_новость: [pool] Global News CA — Competition Bureau chief urges limits on non-compete clauses for workers — призыв бюро к действиям, а не принятое решение
-- [en] не_новость: [pool] Variety — ‘PUBG’ Live-Action Series From Donald Glover, Stephen Glover in Development at N — стадия разработки проекта (анонс)
-- [en] чужое_мелкое: [pool] TechCrunch — US investigated Chinese spy plot aimed at Nvidia CEO — расследование дел компании в Сингапуре
-- [en] не_новость: [pool] Rolling Stone — LL Cool J Lands Rock the Bells Las Vegas Residency — анонс серии концертов
-- [en] не_новость: [pool] TechCrunch — Ex-Palantir execs launch Dream with $17M from a16z to build AI world models for  — привлечение инвестиций стартапом
-- [en] не_новость: [pool] BBC News — Burnham says he wants to cut welfare bill 'as soon as we possibly can' — заявление о намерениях без конкретных мер
-- [en] курьёз: [world] TechCrunch — Granola crunches up a dictation feature to compete with Wispr — запуск функции в приложении
-- [en] не_новость: [world] TechCrunch — SuperMe raises $20M for its network of AI expert profiles — привлечение инвестиций стартапом
-- [en] курьёз: [world] Wired — The ‘Pain in the Ass’ Math That Could Save Vibe Coding From Itself — исследовательский ИИ-инструмент
-- [en] не_новость: [world] Deseret News — Ernie Johnson says this is his last season on ‘Inside the NBA’ — плановый уход ведущего в конце сезона
-- [en] курьёз: [world] Wired — Mistral Says Its AI Model ‘Le Chonk’ Has Leapfrogged China in the Open-Weight Ra — гонка ИИ-моделей
+- [es] курьёз: [local] El Universal MX — Selena Gomez y Demi Lovato reviven su era de princesas con Rare Beauty — Это светская хроника и развлекательный контент, не является значимым событием.
+- [es] не_новость: [local] El Financiero — Hay que mirar también el envejecimiento de las personas autistas — Это публицистическое мнение/колонка, а не новостное событие.
+- [es] не_новость: [local] La Jornada — Empiezan a fluir inversiones de empresas mexicanas: CCE — Размытое заявление о планах инвестиций, нет свершившегося факта (события).
+- [es] срочность: [pool] El Tiempo CO — ‘Sentí el primer golpe, luego el bus dio vueltas y salimos expulsados’: sobreviv — Происшествие случилось в прошлом, нет причин для побудки.
+- [es] курьёз: [pool] La Nación AR — Premios Ídolo 2026: el momento en que Momo, el hijo de Jimena Barón, cumplió su  — Светская хроника (награждение блогеров), не является важным событием.
+- [es] курьёз: [pool] Marca — Alfonso Cabello sigue imbatible: ¡campeón del mundo por octava vez! — Спортивная новость, но в данном контексте подана как частное достижение без общемирового влияния.
+- [es] курьёз: [pool] El Informador — Guadalajara acogerá las exclusivas cenas colaborativas de The 50 Best Restaurant — Гастрономическое мероприятие, не является новостным событием в широком смысле.
+- [es] не_новость: [world] Xataka — El Trump Mobile ya está aquí y presume de ser 100% hecho en EEUU. — Маркетинговая заметка о продукте, нет конкретного события (сделка/старт продаж).
+- [es] не_новость: [world] Wired — Las matemáticas complejas que podrían salvar a la codificación automatizada — Научно-популярный разбор метода, а не новостное событие.
+- [es] не_новость: [world] Diario Libre DO — Candidatos dominicanos en elecciones de Estados Unidos — Это анонс-справочник (кто баллотируется), не является событием.
+- [es] курьёз: [world] BBC Mundo — "Tengo 96 años y 15 millones de seguidores": las abuelas que encontraron fama y  — Развлекательный материал про TikTok, не является новостью.
