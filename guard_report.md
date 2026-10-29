@@ -1,27 +1,18 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] срочность: [local] WKYC — Community leaders call emergency meeting after fatal shootings of 2 Northeast Oh — Это текущая криминальная сводка, не требующая прерывания дел читателя.
-- [en] курьёз: [local] Inquirer.com — A Philly diner is going viral for allegedly throwing out a customer’s belongings — Локальный инцидент в закусочной не является новостью для широкой аудитории.
-- [en] не_новость: [local] KPLC — Jennings Main Street Trick-or-Treat Brings Halloween Fun Downtown — Анонс праздничного мероприятия.
-- [en] не_новость: [local] KOLO — The Eddy permanently closing its doors — Плановое закрытие заведения.
-- [en] не_новость: [local] KCRG — New Lion habitat opens at Blank Park Zoo — Открытие экспозиции в зоопарке не является событием для страны.
-- [en] не_новость: [local] WDBJ7 — TAP holds annual “Bringing Hope Home” event — Отчет о проведении ежегодного мероприятия.
-- [en] не_новость: [local] WBAY — Local doctor says new CTE study of former NFL players is alarming — Пересказ исследования экспертами.
-- [en] не_новость: [local] OKC News — Steve Lutz updates Oklahoma State basketball injuries ahead of season opener — Спортивная рутина перед матчем (комментарии тренера).
-- [en] не_новость: [local] KLKN-TVKLKN-TV — Fred Hoiberg, Cale Jacobsen speak to media ahead of Nebraska’s season opener aga — Спортивная рутина перед матчем (комментарии игроков).
-- [en] не_новость: [local] WBAY — Packers fans gather outside Lambeau Field hours before game against Panthers — Болельщики собрались у стадиона — событийного наполнения нет.
-- [en] срочность: [local] Latest &amp; Breaking News (fox35orlando) — Man arrested in deadly Tavares shooting investigation, officials say — Задержание подозреваемого в рамках расследования — обычная работа полиции.
-- [en] срочность: [local] WFMY RSS Feed: news — Alamance Crossing shooting suspect arrested — Задержание подозреваемого не является событием для побудки.
-- [en] срочность: [local] Untitled RSS Feed — Casper Man Accused Of Fleeing Police At Up To 105 MPH In The Dark With Lights Of — Происшествие случилось в прошлом, не требует срочности.
-- [en] срочность: [local] WLBT — Man charged with felony arson for setting fire to wooded area — Задержание за мелкое преступление.
-- [en] срочность: [local] WECT — Man charged with murder in 2023 Riegelwood shooting — Арест по делу годовой давности не требует срочности.
-- [en] срочность: [local] WLTX — 2 more arrested in Newberry block party shooting; police expect more arrests — Продолжение арестов по делу о стрельбе — рабочая рутина следствия.
-- [en] срочность: [local] FOX 2 — New charges for woman accused in teen's I-170 shooting death — Предъявление новых обвинений — рабочая рутина суда.
-- [en] не_новость: [pool] KSFY — FOOTBALL FRIDAY (On Thursday!)-Week 11 (QUARTERFINAL PLAYOFFS) — Анонс спортивных игр.
-- [en] курьёз: [pool] Engadget — Google fixes an annoying Photos bug that hid edited images from other apps — Исправление бага в приложении — не событие.
-- [en] срочность: [pool] BBC News — Jury shown CCTV of Huntingdon train staff using frying pan in defence — Запись с камер в суде не является срочной новостью.
-- [en] курьёз: [pool] BBC Sport — Grealish dropped by Everton after 'breach of club discipline' — Внутренняя дисциплинарная мера футбольного клуба.
-- [en] повтор: [pool] BBC Sport — Duckett and Dawson deliver in England's consolation win ≈ «Careless dismissals give Australia route» — Один и тот же матч, дублирующий сюжет.
-- [en] не_новость: [world] Engadget — VRChat says it's not adding AI labels despite user survey showing people want th — Опрос пользователей VRChat не является событием.
-- [en] курьёз: [world] Futura-Sciences — An exceptional dinosaur discovered in France is set to be sold: a revolting stor — Продажа костей динозавра не является мировой новостью.
-- [en] не_новость: [world] Guardian Sport — The low-budget Brewers won the World Series – and exposed baseball’s biggest lie — Это аналитическая колонка (мнение), а не новость.
+- [es] не_новость: [local] El Universal MX — Motel convierte un vagón del Tren Suburbano en escenario; así fue su concierto r — Это развлекательное событие, а не новость.
+- [es] не_новость: [local] El Economista MX — Felifer abre la puerta a nuevas inversiones con trámites ágiles en Querétaro — Это декларация о намерениях («открыл дверь»), а не свершившийся факт.
+- [es] срочность: [local] El Sol de México — Poner la ofrenda del Día de Muertos va a costar más caro por la inflación; el ga — Инфляция — долгосрочный процесс, а не повод для побудки.
+- [es] курьёз: [local] La Jornada — En Atlamajalcingo iluminan el camino para las ánimas — Это культурная заметка/традиция, а не новостное событие.
+- [es] не_новость: [local] La Jornada — Empiezan a fluir inversiones de empresas mexicanas: CCE — Общие рассуждения эксперта без конкретных фактов.
+- [es] не_новость: [local] Expansión MX — Ley de Economía Digital no será draconiana; la implementación de pagos digitales — Это обсуждение планов и политики, а не принятое решение.
+- [es] не_новость: [pool] Marca — El brutal golazo de falta que ilusionó a la Lebrijana — Описание спортивного эпизода без общественной значимости.
+- [es] не_новость: [pool] Clarín AR — El detrás de escena de la reunión de AFA en la que se volvió a cambiar el format — Сплетни и описание процесса переговоров без итогового решения.
+- [es] не_новость: [pool] Marca — Araujo vuelve a su 'prime': "Le debo una disculpa" — Это личное высказывание (интервью), а не событие.
+- [es] не_новость: [pool] 14ymedio — María Corina Machado desafía el régimen venezolano: "Soy la antítesis de Delcy R — Это политическая риторика, а не событие.
+- [es] курьёз: [pool] El País — Dos vidas cruzadas en la cabina: Antonio y Daniel, los maquinistas treintañeros  — Это очерк о жизни людей, а не новость.
+- [es] не_новость: [pool] El Informador — Claudia Salas rinde segundo informe legislativo; buscará repetir como diputada f — Отчет об активности депутата не является событием по белому списку.
+- [es] не_новость: [world] France 24 — La presidenta del BCE, Christine Lagarde, dimite para poder expresarse librement — Плановая отставка или уход («собирается уйти») не является срочной новостью.
+- [es] не_новость: [world] RFI — Covid-19, guerras e inflación: siete años turbulentos para Christine Lagarde al  — Это аналитический разбор/ретроспектива работы чиновника, а не событие.
+- [es] курьёз: [world] Futura-Sciences — Un dinosaurio excepcional descubierto en Francia será subastado: una historia in — История про аукцион динозавра — развлекательный факт.
+- [es] чужое_мелкое: [world] La Jornada — Corte iraní sentencia al cineasta Jafar Panahi a cinco años de prisión — Суд над деятелем культуры в другой стране без последствий для Мексики.
