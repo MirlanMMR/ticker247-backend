@@ -1,20 +1,33 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Universal MX — Peña Nieto lamenta fallecimiento de Cuauhtémoc Cárdenas; lo llama "figura fundam — этикет: Peña Nieto выражает соболезнования, нет нового факта
-- [es] курьёз: [pool] La Nación AR — Eugenio Derbez anuncia junto a su esposa la llegada de un integrante a su famili — личная жизнь знаменитости, не новость
-- [es] чужое_мелкое: [pool] Marca — Un chófer de Uber emprende la marcha y se lleva a un compañero sobre el capó — мелкий инцидент в Испании без последствий для MX
-- [es] полка: [pool] El Nacional VE — Perú presenta el Papacóptero, un helicóptero Mi17 para trasladar a León XIV en s — новость из Перу, должна быть в 'Новости из...'
-- [es] повтор: [pool] La Vanguardia — Circulan en redes imágenes y vídeos del accidente de tren en Toledo generados co ≈ «Una orden "errónea" habría sido la causa» — сюжет об аварии в Испании
-- [es] повтор: [pool] La Vanguardia — Los cuerpos de seguridad alertan de SMS falsos a las familias para la identifica ≈ «Una orden "errónea" habría sido la causa» — сюжет об аварии в Испании
-- [es] повтор: [pool] eldiario.es — La comisión de accidentes pidió en 2024 reforzar protocolos ante posibles fallos ≈ «Una orden "errónea" habría sido la causa» — сюжет об аварии в Испании
-- [es] повтор: [pool] La Vanguardia — Sánchez garantiza que reforzará la seguridad y esclarecerá “hasta el último deta ≈ «Una orden "errónea" habría sido la causa» — сюжет об аварии в Испании
-- [es] не_новость: [pool] El Mundo — Vida y llanto en 7,7 kilómetros: del hospital a la morgue, la vía dolorosa y de  — аналитический репортаж, а не событие
-- [es] курьёз: [world] Xataka — Han subastado objetos del Pazo de Meirás y, para sorpresa de nadie, los nostálgi — аукцион вещей — интересное, не мировая новость
-- [es] чужое_мелкое: [world] El Universal MX — Esposa de Russell Brand declara en juicio por violación; “Era evidente que le re — суд над актером в Британии
-- [es] чужое_мелкое: [world] Prensa Libre GT — Robó US$760 mil en diamantes y se los tragó durante un interrogatorio: Así fue d — криминальный курьёз в США, для Мексики не событие
-- [es] курьёз: [world] Wired — Mistral afirma que su modelo de IA 'Le Chonk' ha superado a China en la carrera  — релиз модели ИИ без глобальных последствий
-- [es] не_новость: [world] Marca — Jake Paul anuncia su regreso al boxeo... ¡un día antes de Navidad! — анонс боя в будущем
-- [es] курьёз: [world] Montevideo Portal — Habló el creador del meme de Mbappé que generó un conflicto millonario con China — история с мемом
-- [es] не_новость: [world] RFI — Estados Unidos e Irán: ¿en vísperas de reanudar las conversaciones o de la guerr — обсуждение возможных переговоров, нет события
-- [es] курьёз: [world] BBC Mundo — "Tengo 96 años y 15 millones de seguidores": las abuelas que encontraron fama y  — история о популярности блогеров
-- [es] повтор: [world] El País — ¿Por qué chocaron los trenes? Tres fallos catastróficos que han costado 69 vidas ≈ «Una orden "errónea" habría sido la causa» — анализ причин аварии в Испании
+- [pt] не_новость: [local] Folha de S.Paulo — Janones e militância deram impulso decisivo à campanha de Lula — Аналитическая статья о предвыборной кампании, а не событие.
+- [pt] чужое_мелкое: [local] Poder360 — Lula pediu que eu não tomasse partido nas eleições, diz Trump — Мнение Трампа о прошлых выборах не является мировой новостью.
+- [pt] не_новость: [local] Metrópoles — Governo Tarcísio deve ter ao menos seis secretários mantidos em 2027 — Прогноз кадровых перестановок на 2027 год, нет свершившегося факта.
+- [pt] не_новость: [local] Metrópoles — Autoproclamação de Flávio não recebe apoio interno e nem internacional — Оценочное суждение о действиях политика, а не свершившееся событие.
+- [pt] не_новость: [local] CNN Brasil — Irmã de Lua Blanco desabafa sobre morte da atriz: “Nada disso é aceitável” — Эмоциональный комментарий родственника о смерти, событие (смерть) было ранее.
+- [pt] не_новость: [local] Poder360 — Janones diz poder ajudar mais Lula como deputado do que como ministro — Рассуждения депутата о том, как он может быть полезен — слова, не событие.
+- [pt] не_новость: [pool] Público — Torreense troca Luís Tralhão, treinador que levou a equipa à Europa, por João Nu — Смена тренера клуба — типичная спортивная рутина.
+- [pt] не_новость: [pool] Observador PT — O impacto de um saco que faz a diferença — Транскрипт подкаста, не является новостным событием.
+- [pt] курьёз: [world] Variety — ‘The Other Bennet Sister’: Mary se adapta à vida de casada em novas imagens do e — Анонс изображений к сериалу — не новость.
+- [pt] не_новость: [world] Variety — Autora de ‘Queen Sugar’ desenvolverá romance ‘Friends and Family’ em série com a — Анонс разработки сериала (процесс, а не результат).
+- [pt] не_новость: [world] Variety — Série ‘Everyone in My Family Has Killed Someone’ adiciona oito nomes ao elenco,  — Анонс кастинга сериала, не является событием по списку.
+- [pt] не_новость: [world] Wired — Mistral afirma que seu modelo de IA 'Le Chonk' ultrapassou a China na corrida de — Заявление компании о превосходстве модели ИИ — слова, не событие.
+- [fr] повтор: [local] Le Figaro — EN DIRECT - Collision de trains en Espagne : la France sans nouvelles de «plusie ≈ «Après l’accident ferroviaire en Espagne,» — Один сюжет: катастрофа поездов в Испании.
+- [fr] не_новость: [local] Nice-Matin — Une soixantaine de jeunes footballeurs récompensés au centre de performance de l — Награждение детей за примерное поведение — плановое корпоративное мероприятие.
+- [fr] полка: [local] Nice-Matin — Le résident monégasque Tom Mattoni décroche l’or aux championnats du monde de pa — Событие произошло в США, не является мировой новостью.
+- [fr] срочность: [local] Franceinfo — Un homme de 63 ans est mort après une altercation sur la route à Chalon-sur-Saôn — Событие произошло более недели назад, срочность неуместна.
+- [fr] не_новость: [local] 20 Minutes — Présidentielle 2027 : WhatsApp, invisibiliser le RN… LFI lance son « armée » sur — Анализ стратегии партии и слухи о планах, а не свершившееся событие.
+- [fr] не_новость: [local] 20 Minutes — Colère des lycéens : Pourquoi les propositions du gouvernement devraient accentu — Мнение автора о том, почему предложения правительства не сработают.
+- [fr] не_новость: [world] Sud Ouest — Incendie géant de Hong Kong : les autorités « doivent porter en partie la respon — Разбор старого отчета по инциденту годовой давности.
+- [fr] повтор: [world] Courrier International — Après l’accident ferroviaire en Espagne, le ministre Óscar Puente dans la tourme ≈ «"Les responsables doivent être punis" : » — Один сюжет: последствия катастрофы в Испании.
+- [fr] чужое_мелкое: [world] Courrier International — Le “New York Times” révèle une magouille démocrate en Alaska, Trump en profite — Внутренние партийные дрязги в США (Аляска) не являются мировой новостью.
+- [fr] не_новость: [world] Radio-Canada — Von der Leyen insiste : le Canada devrait être un « membre associé » de l’Union  — Обсуждение терминологии в проекте документа, а не принятое решение.
+- [fr] чужое_мелкое: [world] Fortune — « La tromperie a réussi parce que les pratiques des régulateurs l'ont permis » : — Отставка чиновника по итогам расследования — локальное событие Гонконга.
+- [fr] не_новость: [world] Courrier International — Superprofits des compagnies pétrolières : “Ils sabrent le champagne sur le pont  — Публицистическое рассуждение о прибыли нефтяных компаний без нового факта.
+- [fr] не_новость: [world] Le Figaro — Après l’accident ferroviaire en Espagne, Iberia et Air Europa multiplient les vo — Обзор ситуации: реакция авиакомпаний на событие, а не самостоятельное событие.
+- [fr] повтор: [world] Sud Ouest — Turquie : deux morts et cinq blessés après l’effondrement d’une « cheminée de fé ≈ «Un éboulement fait deux morts en Cappado» — Один сюжет: инцидент в Каппадокии.
+- [fr] курьёз: [world] Sciences et Avenir — Que sait-on du virus Shamonda qui aurait fait sa première victime en France ? — Научный разбор вируса без текущей угрозы для читателя.
+- [fr] полка: [world] Азаттык (кыргызча) — L'Arabie saoudite annonce avoir intercepté un missile balistique tiré par les Ho — Новость из кыргызского источника на кыргызском языке в французском потоке.
+- [fr] повтор: [world] BBC — « Aucune violation ». Un cessez-le-feu est respecté depuis deux jours à Oleshky, ≈ «Guerre en Ukraine : une trêve rarissime » — Развитие темы trêve в Украине.
+- [fr] не_новость: [world] Radio-Canada — Saab redouble d’efforts pour vendre ses chasseurs Gripen E au Canada — Планы компании по продаже истребителей, а не сделка.
+- [fr] не_новость: [world] RFI — Législatives en Israël: les partis arabes en position de «faiseurs de roi» — Анализ итогов выборов (оценка положения партий), а не официальный результат.
