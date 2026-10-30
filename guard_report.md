@@ -1,34 +1,26 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Exame — 'Dom de Iludir': a nova série brasileira da Netflix é baseada em fatos reais? Re — Это разбор сериала/кино, не событие в реальности.
-- [pt] не_новость: [local] InfoMoney — VALE3: Queda expressiva das ações dá oportunidade de recompras, diz CFO — Рассуждения финансового директора об инвестиционной возможности — не новость.
-- [pt] не_новость: [local] InfoMoney — Ibovespa cai pela 5ª vez com temor fiscal e externo, rumo à queda histórica sema — Ежедневная рыночная сводка об очередном падении индекса.
-- [pt] не_новость: [local] Estadão — Dia 30 de outubro é feriado? Entenda decisão sobre a data — Разбор того, является ли день праздничным — бюрократическая справка.
-- [pt] не_новость: [pool] BBC Brasil — Petista 'liberal'? Como governador Rafael Fonteles entrou no radar de Lula para  — Аналитическая статья о политике, не основанная на текущем событии.
-- [pt] не_новость: [world] Variety — Drama de conspiração ‘Hotline’ está em desenvolvimento na Hulu e Sony por John S — Анонс разработки сериала (находится в производстве).
-- [pt] курьёз: [world] Wired — Usuários criam 'guias de sobrevivência' para lidar com a suspensão do AO3 — Инструкция для пользователей сайта — не новость.
-- [pt] не_новость: [world] Folha de S.Paulo — Crítico de Trump, Leão 14 vota pelo correio nas eleições de meio de mandato dos  — Персонаж «Папа Леон XIV» вымышлен, это ошибка источника или сатира.
-- [pt] не_новость: [world] Variety — CEO da Amazon afirma que o Prime Video é lucrativo e gera ‘dezenas de bilhões de — Финансовый отчет и колебание акций — рутина бизнеса.
-- [pt] не_новость: [world] Variety — Jerry Seinfeld define residência em Las Vegas em 2027 — Анонс выступлений артиста в будущем (2027 год).
-- [pt] не_новость: [world] Engadget — Primeiro teaser trailer do anime de Death Stranding é lançado antes da estreia n — Анонс трейлера/адаптации — не событие.
-- [pt] курьёз: [world] Superinteressante — Como funcionam as usinas nucleares de fusão e como podem revolucionar a indústri — Научно-популярная статья о том, как работают АЭС.
-- [pt] не_новость: [world] Engadget — Meta lança silenciosamente um aplicativo de moda com IA para provar roupas virtu — Запуск приложения с функциями ИИ — это рекламный запуск продукта.
-- [pt] не_новость: [world] Good News Network — Em vez de flores ou homenagens, a família de Sir Patrick Stewart sugere doação p — Смерть пожилого актера от болезни после долгой борьбы — это не срочная новость, а некролог.
-- [pt] чужое_мелкое: [world] RFI — China: Xi Jinping continua expurgos no topo do Estado visando um quarto mandato — Внутренние кадровые перестановки в руководстве Китая, не имеющие международного события-последствия.
-- [fr] чужое_мелкое: [local] Le Figaro — Effondrement en Turquie : une Française figure parmi les victimes — Гибель одного иностранного туриста — локальное событие для Турции, не мировая новость.
-- [fr] чужое_мелкое: [local] Nice-Matin — Il continue de briller : le Monégasque Valentin Vacherot bat Holger Rune et se q — Результат теннисного матча в Швейцарии — локальная спортивная новость, не мировая.
-- [fr] курьёз: [local] Franceinfo — Les musées Centre Pompidou, MoMA et M+ désormais au sein d'une "alliance culture — Партнерство музеев — не событие, нет изменений для читателя.
-- [fr] чужое_мелкое: [pool] RTBF — Participation à une organisation criminelle : le parquet requiert deux ans de pr — Судебный процесс над футболистом — внутреннее дело Бельгии, не мировая новость.
-- [fr] не_новость: [pool] Radio-Canada — L’IA, une occasion d’appuyer sur l’accélérateur de la production de gaz, selon O — Аналитическая заметка о «возможностях» в документах — нет события.
-- [fr] чужое_мелкое: [pool] Radio-Canada — Le Parti conservateur du Québec dévoile son cabinet fantôme — Внутренняя политика Канады — локальная новость для этого пула, не мировая.
-- [fr] чужое_мелкое: [world] BBC News — Un conducteur reconnu coupable d'avoir percuté et traîné un cycliste jusqu'à la  — Криминальная хроника Британии (единичное ДТП/убийство) — не мировая новость.
-- [fr] чужое_мелкое: [world] Courrier International — Zhang Shengmin, l’âme damnée de Xi Jinping dans l’armée, promu au politburo du P — Внутренние кадровые перестановки в руководстве КНР — не мировая новость для Франции.
-- [fr] чужое_мелкое: [world] Bénin Web TV — Canaries : deux corps retrouvés après une traversée depuis la Gambie — Локальное происшествие у берегов Канар — не мировая новость.
-- [fr] чужое_мелкое: [world] Africanews FR — Kenya : un premier corps retrouvé dans un immeuble effondré à Nairobi — Единичная находка тела в Кении — не мировая новость.
-- [fr] курьёз: [world] Africanews FR — Indonésie : neuf orangs-outans relâchés dans une forêt de Bornéo — Реинтродукция животных в Индонезии — типичный курьёз для рубрики «интересное».
-- [fr] повтор: [world] RFI — Évacuations humanitaires à Olechky, dans la région de Kherson, en Ukraine ≈ «Olecky en Ukraine : les habitants évacué» — Тот же сюжет, что и в карточке 42.
-- [fr] чужое_мелкое: [world] L'Express — Midterms : en Alaska, une magouille politique démocrate tourne à l'affaire judic — Внутренние политические махинации в штате США — не мировая новость.
-- [fr] чужое_мелкое: [world] BBC World — Un important journal russe cesse ses activités sous la pression des autorités — Закрытие газеты в РФ — внутреннее дело РФ, не мировая новость (согласно инструкции).
-- [fr] не_новость: [world] RFI — La CAF décide un retour à une CAN tous les deux ans — Регламентное решение о частоте проведения турнира — это не экстренное событие.
-- [fr] не_новость: [world] Fortune — Prix du pétrole au 29 octobre 2026 — Ежедневная сводка цен на нефть без контекста событий — не новость.
-- [fr] чужое_мелкое: [world] Le Nouvelliste — President Nayib Bukele Addresses the Haitian People Directly — Вмешательство лидера Сальвадора в дела Гаити — региональное событие Америки, для Франции это не мировая новость.
+- [en] чужое_мелкое: [local] ABC4 Utah — Box Elder County Sheriff on leave following crash in Weber County — Внутренняя кадровая перестановка местного уровня (шериф в отпуске).
+- [en] курьёз: [local] WIBW — 103 year-old skydiver — Мировой или местный рекорд долголетия — это любопытный факт, а не событие.
+- [en] не_новость: [local] WIBW — Emporia State’s Ella Favot named MIAA Offensive Player of the Year — Типовая спортивная награда местного уровня.
+- [en] не_новость: [local] WDBJ7 — Non-profit donates body armor to Campbell County K-9 — Благотворительность (подарок собаке) — не событие.
+- [en] не_новость: [local] WHO 13 — Big 12 Commissioner Brett Yormark is leaving after 4 years of transformational c — Плановая отставка комиссара лиги после 4 лет работы.
+- [en] курьёз: [local] WCTV — Twiggy, the water skiing squirrel — Развлекательный факт из рубрики «Интересное».
+- [en] не_новость: [local] Cardinal & Pine — That viral ‘Jonestown’ guy at the Trump rally? He’s from Charlotte — Личное мнение о человеке с митинга.
+- [en] не_новость: [local] KOLO — New treatment aims to stop cheatgrass from taking over Hawk Fire burn area — Подготовка к работам (план), а не само событие.
+- [en] чужое_мелкое: [local] Cleveland.com — Ohio State professor resigns months after confrontation caught on video — Локальный инцидент в университете, не имеющий широких последствий.
+- [en] не_новость: [local] 1011NOW — Nebraska QB Anthony Colandrea signs deal to return in 2027 — Плановое продление контракта игрока на 2027 год.
+- [en] не_новость: [local] WFSB — Hurley to sign extension with UConn, per CBS Sports — Анонс будущего продления контракта.
+- [en] не_новость: [local] WIBW — Shawnee Heights boys soccer advances to 5A state quarterfinal — Обычный результат матча, не имеющий глобального значения.
+- [en] чужое_мелкое: [local] WIBW — Manhattan man jailed on battery, trespass charges Friday — Обычное задержание за мелкую драку (не является срочной новостью).
+- [en] не_новость: [local] WTHR — Indianapolis City-County Councilor Crista Lee Wells announces resignation — Уведомление об отставке локального чиновника.
+- [en] не_новость: [local] CBS News — How LADWP's rates compare to other utilities in Southern California — Аналитический обзор/сравнение тарифов, не событие.
+- [en] не_новость: [local] Portland Press Herald — Some addiction treatment services in Maine aren’t financially sustainable, provi — Жалоба на финансовую устойчивость (мнение), а не факт события.
+- [en] чужое_мелкое: [local] KFYR-TV — Man charged in Oct. 2 fatal accident gets judge changed in case — Техническая замена судьи в местном процессе.
+- [en] не_новость: [local] WTHR — Retailers, USPS hiring for holiday rush | What's the Deal? — Обычный набор сотрудников к праздникам — это рутина.
+- [en] не_новость: [local] WV MetroNews — 2026 WVSSAC State Soccer Tournament Pairings — Публикация сетки турнира (анонс).
+- [en] не_новость: [pool] WIBW — Former ESU football star named CFL Most Outstanding Rookie — Спортивное достижение игрока, не являющееся мировым событием.
+- [en] не_новость: [pool] WFPL — Longtime KET CEO and executive director dies — Естественная смерть руководителя, не связанная с инцидентом или скандалом.
+- [en] не_новость: [pool] Guardian Sport — ‘We are not in Disneyland’: Arteta warns Dowman of Arsenal’s demands — Мнение тренера о молодом игроке.
+- [en] курьёз: [pool] The Guardian — ‘Ceilidh renaissance’ lures gen Z offline in search of real-life joy — Описание культурного тренда (ренессанс танцев), не новость.
+- [en] не_новость: [world] Engadget — The Wikimedia Foundation weighs in on the NYT's case against OpenAI — Комментарий фонда о чужом судебном деле.
