@@ -1,20 +1,19 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] чужое_мелкое: [local] CBS News — Trump predicts Iran war will end soon as Qatar pushes for a deal — Внутренняя политика Ирана/Катара не является мировой новостью для США.
-- [en] курьёз: [local] WCAX — Canadian man rescued from Adirondacks after standing in same spot for 7 hours — История об одном человеке, застрявшем в лесу — локальный курьез, не событие для ленты.
-- [en] не_новость: [local] WSMV — Police report reveals 3 former Nashville firefighters were at Broadway bar — Увольнение сотрудников за поведение в баре — дисциплинарная рутина, а не новость.
-- [en] не_новость: [local] Colorado Public Radio — A rough transition could mean a short term closure of the Royal Gorge Bridge and — Анонс смены оператора парка не является событием для читателя.
-- [en] не_новость: [local] WCAX — UVM researchers say time change can disrupt sleep, health — Ежегодный переход на зимнее время — календарное событие, а не новость.
-- [en] не_новость: [local] reviewjournal — Knights goalie returns from injury, but not starting against Devils — Спортивная заметка о том, что игрок будет на скамейке запасных — не новость.
-- [en] курьёз: [local] Fort Worth Report — North Texas collectors lend African American art for Fort Worth exhibition — Выставка искусства — не новость, если нет скандала или значимого социального события.
-- [en] курьёз: [pool] Sky Sports — Sherrock wins leg to beat Littler and claim £501,000 prize — Развлекательное шоу с призом не является новостью.
-- [en] не_новость: [pool] Ars Technica — Supersonic airliner in doubt as company shifts to powering AI data centers — Смена стратегии компании без факта увольнений или сделки — не новость.
-- [en] не_новость: [pool] The Independent — There are so many karaoke bars in Los Angeles’ Koreatown that an official want t — Обсуждение (предложение) чиновников — не новость, пока нет принятого закона.
-- [en] не_новость: [pool] BBC Sport — From her own Barbie doll to bench - how Ellie Kildunne slipped from Red Roses' X — Портретный очерк об игроке, не содержащий свежего события.
-- [en] не_новость: [pool] BBC Sport — Britain's first £100m man facing defining moment — Размышления о карьере игрока — не событие.
-- [en] курьёз: [pool] The Guardian — ‘Ceilidh renaissance’ lures gen Z offline in search of real-life joy — Тренд на танцы в пабах — интересная тема, но не новость.
-- [en] не_новость: [pool] RTÉ Ireland — Unions warn of major strike action if pay talks fail — Предупреждение о возможных забастовках — намерение, а не факт.
-- [en] повтор: [world] UPI — One of Russia's last independent newspapers shuts down under pressure ≈ «Novaya Gazeta announces cessation of ope» — Тот же сюжет о закрытии газеты «Новая газета».
-- [en] не_новость: [world] Engadget — Bluesky now has a dedicated 'moderation inbox' — Обновление функции модерации в соцсети — не новость.
-- [en] курьёз: [world] Wired — People Are Creating ‘Survival Guides’ to Cope With the ‘AO3 Apocalypse’ — Обсуждение фанатского сайта в сети — не событие.
-- [en] повтор: [world] NBC News — Binance says user funds are safe after thieves make off with billions in largest ≈ «Blockchain intelligence firms link North» — Тот же сюжет о взломе Binance.
+- [es] чужое_мелкое: [local] El Financiero — Pemex y Petrobras buscan concretar proyectos petroleros en corto plazo tras triu — Партнерство компаний — не мировое событие без последствий для других стран.
+- [es] не_новость: [local] Expansión MX — El pan de muerto no solo se vende en Halloween y Día de Muertos: se disparan ped — Тренды продаж еды — обзор, а не конкретное событие.
+- [es] не_новость: [local] Expansión MX — México debe reducir la incertidumbre para atraer la inversión, dice Vanessa Rubi — Мнение эксперта без совершённого действия.
+- [es] курьёз: [local] Expansión MX — La vez que Checo Pérez demandó al equipo de F1 de un magnate indio, salvó 400 em — Давняя история (2018 год), не является актуальной новостью.
+- [es] чужое_мелкое: [pool] RPP PE — Nadie lo detiene: Diego Elías se coronó campeón del SmartCentres Canada Cup 2026 — Победа в спортивном турнире регионального уровня — не мировая новость.
+- [es] повтор: [pool] Marca — Sergio García deja huella: "Se ha visto a un gran equipo" ≈ «Villarreal 0-1 Espanyol | Resumen» — Тот же матч Villarreal - Espanyol.
+- [es] повтор: [pool] Marca — Pau Navarro señala a la grada de La Cerámica: "No puede ser..." ≈ «Villarreal 0-1 Espanyol | Resumen» — Тот же матч Villarreal - Espanyol.
+- [es] чужое_мелкое: [pool] Marca — Una carambola de Brizuela da al Barça otra victoria apretada contra el Valencia — Местный спортивный результат (испанская лига) для Мексики.
+- [es] курьёз: [pool] Marca — Alonso se tira al cuello de Albon... para hacer las paces — Спортивная байка, не является событием.
+- [es] повтор: [pool] eldiario.es — El maquinista del AVE informó al centro de control de que su sistema de segurida ≈ «Cómo funcionan los sistemas de seguridad» — Один сюжет про аварию поезда в Испании.
+- [es] курьёз: [world] Prensa Libre GT — Papa León XIV vota en las elecciones de EE. UU.: por qué su participación es iné — Любопытный факт про голосование, не меняющий политическую ситуацию.
+- [es] повтор: [world] TechCrunch — Se espera que Anthropic reciba una calificación crediticia de «bono basura» tras ≈ «Blackstone advierte de que Anthropic se » — Один сюжет про рейтинг Anthropic.
+- [es] чужое_мелкое: [world] BBC Mundo — Cuán relevante es Binance en América Latina y cómo el hackeo de US$6.300 millone — Анализ влияния, нет свежего факта события.
+- [es] курьёз: [world] Superinteressante — Demencia por cuerpos de Lewy: qué es la enfermedad que padecía el actor Patrick  — Биографическая заметка о смерти актёра, нет плашки «интересное».
+- [es] курьёз: [world] BBC Mundo — "Hay más en la vida que solo competir y ganar": la atleta que defecó durante una — Жёлтая спортивная заметка.
+- [es] повтор: [world] El Sol de México — Han matado a Nóvaya Gazeta: cierra destacado diario independiente ruso ≈ «Novaya Gazeta anuncia el cese de sus act» — Тот же сюжет про закрытие газеты.
+- [es] повтор: [world] BBC Mundo — "No ha habido un solo momento desde esa noche en que no sienta dolor": Christa P ≈ ««Me había preparado para morir»: tras su» — Тот же сюжет про Christa Pike.
