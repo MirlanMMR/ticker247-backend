@@ -1,23 +1,18 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Universal MX — Cuauhtémoc Cárdenas recibe homenaje en Bellas Artes rodeado de su familia; asist — Это протокольное мероприятие (похороны/прощание), а не событие с последствиями.
-- [es] не_новость: [local] El Financiero — Oficiada por Ian McKellen: Así fue la boda de Patrick Stewart y Sunny Ozell en u — Архивное воспоминание о свадьбе актера, умершего в 86 лет, не является актуальной новостью.
-- [es] не_новость: [local] Expansión MX — El aguinaldo de un fallecido no se pierde: así es como su familia puede recupera — Разъяснительная статья/совет, не является новостным событием.
-- [es] не_новость: [local] Expansión MX — Intel agota sus chips para laptops económicas y anticipa más presión sobre los p — Прогноз/аналитика рынка, а не свершившееся событие.
-- [es] не_новость: [local] El Sol de México — IECM inicia procedimiento contra alcalde de Álvaro Obregón por propaganda de su  — Инициация процедуры проверки (не решение суда/вердикт).
-- [es] не_новость: [local] El Sol de México — Fallece Fernando Castillo Castro, cantante de Yaguarú — Смерть музыканта — событие, но без деталей это просто некролог, не несущий новостной нагрузки для приложения.
-- [es] не_новость: [local] La Jornada — Comienza hoy la consulta nacional para la nueva Usicamm — Начало консультаций — процесс, а не завершенное решение.
-- [es] не_новость: [pool] La Nación AR — Se aproximan 72 horas de lluvias y tormentas fuertes, con mejoras transitorias,  — Прогноз погоды не является новостным событием (если нет ЧС).
-- [es] не_новость: [pool] La Nación AR — A qué hora llegan las tormentas fuertes a Buenos Aires hoy, según el SMN — Повтор темы прогноза погоды, не является событием.
-- [es] не_новость: [pool] El Nacional VE — Santa Teresa 1796 XO: cien años de carácter, una noche de Venezuela — Рекламный текст/очерк о бренде рома.
-- [es] не_новость: [pool] Infobae — El 31% de las pymes en América Latina perdió dinero por ciberataques: phishing y — Обзор статистики/отчета, не является событием.
-- [es] не_новость: [pool] 14ymedio — Más enfermedades y mortalidad en Cuba, mientras baja un 32,5% el número de médic — Анализ данных ежегодника — это отчет, а не оперативное событие.
-- [es] не_новость: [pool] El Nacional VE — La consigna de David Peralta como líder de Bravos: "Nunca nos rendimos" — Спортивный комментарий/очерк, а не оперативный результат.
-- [es] не_новость: [pool] 14ymedio — "Ni clientes ni luz": los apagones de más de 40 horas asfixian a La Habana — Очерк/репортаж о бытовых условиях, а не конкретное событие (анонсированные отключения были бы новостью).
-- [es] не_новость: [pool] El Informador — Premio Adolf Horn: Llaman a impulsar equidad de género — Призыв на церемонии награждения — это мнение, а не событие.
-- [es] не_новость: [pool] El País — Los expertos señalan problemas en el sistema que van más allá del error cometido — Разбор/анализ причин, а не текущее событие (повтор темы 46/49).
-- [es] не_новость: [pool] El País — Las llamadas entre Atocha y los maquinistas antes del choque de Urda, explicadas — Разбор прошлых записей (повтор темы 46/48).
-- [es] курьёз: [world] Rolling Stone — Escuche la versión de Glen Hansard de una canción de The Pogues publicada póstum — Любопытный факт из музыкального мира, место в «Интересном».
-- [es] курьёз: [world] BBC Mundo — "Hay más en la vida que solo competir y ganar": la atleta que defecó durante una — Странный случай на соревновании, не влияющий на читателя.
-- [es] не_новость: [world] BBC Mundo — "No ha habido un solo momento desde esa noche en que no sienta dolor": Christa P — Интервью/мнение спустя долгое время после события, а не новость.
-- [es] чужое_мелкое: [world] Азаттык — Alemania deportó a 27 ciudadanos de Tayikistán y más de 150 enfrentan una expuls — Статистика депортаций Германии граждан Таджикистана не является значимой для Мексики и мира.
+- [pt] курьёз: [local] Metrópoles — Adultos que tiveram amigo imaginário sentem mais a presença de terceiros — исследование психологии, не является новостным событием
+- [pt] полка: [local] Gazeta do Povo — Itamaraty cobra explicações da Argentina sobre passagem de Flávio pelo país vizi — новость о дипломатии между BR и AR — это мировая новость, а не местная
+- [pt] не_новость: [local] Poder360 — Lula cogita ir ao Piauí convidar Fonteles para Fazenda e anima mercado — слухи и предположения о назначении не являются свершившимся фактом
+- [pt] не_новость: [local] G1 Distrito Federal — Diretora do Serviço de Limpeza Urbana do DF deixa o cargo após postar críticas a — плановая отставка чиновника по этическим причинам — это не массовое событие
+- [pt] повтор: [local] G1 Rio — 'História do Crime': Moïse fugiu da guerra no Congo e foi morto a pauladas em qu — ретроспективный разбор старого дела (2022 год) без нового повода
+- [pt] курьёз: [pool] Notícias ao Minuto — Hilaria sobreviveu a 73 cancros da pele. Agora, espera reconstruir nariz — человеческая история без события и последствий для читателя
+- [pt] повтор: [pool] Terra BR — Samuel Lino detalha 'abandono' por parte de jogadores do Flamengo — дублирует сюжет матча из карточки 19
+- [pt] не_новость: [pool] Público — O Guru Vinha da Calçada distraiu-nos do Pintas — обзор вина, маркетинговый текст
+- [pt] повтор: [pool] BBC Brasil — Petista 'liberal'? Como governador Rafael Fonteles entrou no radar de Lula para  — дублирует сюжет из карточки 18
+- [pt] не_новость: [world] Variety — ‘Criminal Minds: Evolution’ terminará na 20ª temporada no Paramount+ — завершение сериала на 20-м сезоне — плановое бизнес-решение
+- [pt] не_новость: [world] Superinteressante — Demência por corpos de Lewy: entenda a doença do ator Patrick Stewart, morto aos — смерть актера — это новость, но текст представляет собой биографическую справку/некролог
+- [pt] не_новость: [world] Rolling Stone — Ouça o cover de Pogues lançado postumamente por Glen Hansard em homenagem a Shan — релиз старой записи, творческий контент, не событие
+- [pt] курьёз: [world] TechCrunch — Satlyt avança na transformação de satélites em centros de dados espaciais — техническое достижение, нет последствий для читателя
+- [pt] курьёз: [world] TechCrunch — Novo agente de IA da Zest encontra restaurantes e faz reservas via mensagem de t — реклама функции приложения
+- [pt] курьёз: [world] Superinteressante — Congo inicia testes de vacina em meio ao surto da espécie mais letal já registra — научно-популярная статья, а не отчет о событии
+- [pt] не_новость: [world] Wired — Usuários criam 'guias de sobrevivência' para lidar com a suspensão do AO3 — технический сбой сайта — не мировая новость, если не затрагивает глобальную инфраструктуру
