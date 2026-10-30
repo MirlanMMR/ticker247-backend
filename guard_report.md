@@ -1,16 +1,34 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Universal MX — Además del INE, va ASF también contra UNAM — анонс о том, что завтра анонсируют «продвижение» расследования — нет события
-- [es] курьёз: [local] Expansión MX — Paleta Payaso, Carlos V y Pelón Pelo Rico ya no son mexicanos: los dulces de la  — познавательная заметка об истории брендов сладостей — это интересно, но не событие
-- [es] не_новость: [pool] El Tiempo CO — Murió exgobernador de Santander y excongresista Jorge Agustín Sedano: desde la r — некролог бывшего политика не является новостным событием без связи со скандалом или сменой власти
-- [es] не_новость: [pool] Infobae — Vicepresidente de los Estados Unidos J. D. Vance prepara visita a Colombia en no — анонс будущего визита, который может измениться; нет свершившегося факта
-- [es] не_новость: [pool] El Comercio PE — Keiko Fujimori invita a empresarios de El Salvador a que inviertan en el Perú — дипломатическая вежливость («пригласила инвестировать»); нет сделки или подписанного договора
-- [es] курьёз: [pool] La Nación AR — Startups argentinas: la obligación de nacer con la mirada puesta en el exterior — разбор стратегии стартапов — это аналитика/обзор, а не новость
-- [es] не_новость: [pool] El Informador — Premio Adolf Horn: Llaman a impulsar equidad de género — репортаж о прошедшем на прошлой неделе мероприятии/награждении — это архив, а не свежая новость
-- [es] курьёз: [world] Infobae — ¿Guerra? ¿Desempleo? Finlandia ofrece una dosis de perritos para tiempos difícil — наблюдение за щенками в Финляндии — чистый курьёз, место в «Интересном»
-- [es] не_новость: [world] 14ymedio — Con 39 millones de votantes potenciales, los latinos serán clave en las eleccion — общий обзор статистики избирателей — аналитический материал перед выборами
-- [es] срочность: [world] Global News CA — Tres muertos en una colisión de helicópteros en el aire cerca de un aeropuerto d — авиакатастрофы — трагические происшествия, но для читателя в Мексике это не повод для побудки («срочно»)
-- [es] не_новость: [world] BBC Mundo — "No ha habido un solo momento desde esa noche que no sienta dolor": Christa Pike — описание личных чувств заключенной — это не новостное событие
-- [es] чужое_мелкое: [world] Азаттык — Alemania deportó a 27 ciudadanos de Tayikistán y más de 150 enfrentan una expuls — депортация 27 человек — это внутренняя административная работа Германии, не мировая новость
-- [es] курьёз: [world] El Sol de México — León XIV votó por correo para comicios de EU; es el primer Papa que participa en — история о голосовании церковного деятеля — любопытный факт, не мировое событие
-- [es] не_новость: [world] RFI — China: Xi Jinping continúa con las purgas en la cúpula del Estado de cara a un c — плановая чистка аппарата перед съездом — рутинный политический процесс в КНР
+- [pt] курьёз: [local] Exame — 'Dom de Iludir': a nova série brasileira da Netflix é baseada em fatos reais? Re — Это разбор сериала/кино, не событие в реальности.
+- [pt] не_новость: [local] InfoMoney — VALE3: Queda expressiva das ações dá oportunidade de recompras, diz CFO — Рассуждения финансового директора об инвестиционной возможности — не новость.
+- [pt] не_новость: [local] InfoMoney — Ibovespa cai pela 5ª vez com temor fiscal e externo, rumo à queda histórica sema — Ежедневная рыночная сводка об очередном падении индекса.
+- [pt] не_новость: [local] Estadão — Dia 30 de outubro é feriado? Entenda decisão sobre a data — Разбор того, является ли день праздничным — бюрократическая справка.
+- [pt] не_новость: [pool] BBC Brasil — Petista 'liberal'? Como governador Rafael Fonteles entrou no radar de Lula para  — Аналитическая статья о политике, не основанная на текущем событии.
+- [pt] не_новость: [world] Variety — Drama de conspiração ‘Hotline’ está em desenvolvimento na Hulu e Sony por John S — Анонс разработки сериала (находится в производстве).
+- [pt] курьёз: [world] Wired — Usuários criam 'guias de sobrevivência' para lidar com a suspensão do AO3 — Инструкция для пользователей сайта — не новость.
+- [pt] не_новость: [world] Folha de S.Paulo — Crítico de Trump, Leão 14 vota pelo correio nas eleições de meio de mandato dos  — Персонаж «Папа Леон XIV» вымышлен, это ошибка источника или сатира.
+- [pt] не_новость: [world] Variety — CEO da Amazon afirma que o Prime Video é lucrativo e gera ‘dezenas de bilhões de — Финансовый отчет и колебание акций — рутина бизнеса.
+- [pt] не_новость: [world] Variety — Jerry Seinfeld define residência em Las Vegas em 2027 — Анонс выступлений артиста в будущем (2027 год).
+- [pt] не_новость: [world] Engadget — Primeiro teaser trailer do anime de Death Stranding é lançado antes da estreia n — Анонс трейлера/адаптации — не событие.
+- [pt] курьёз: [world] Superinteressante — Como funcionam as usinas nucleares de fusão e como podem revolucionar a indústri — Научно-популярная статья о том, как работают АЭС.
+- [pt] не_новость: [world] Engadget — Meta lança silenciosamente um aplicativo de moda com IA para provar roupas virtu — Запуск приложения с функциями ИИ — это рекламный запуск продукта.
+- [pt] не_новость: [world] Good News Network — Em vez de flores ou homenagens, a família de Sir Patrick Stewart sugere doação p — Смерть пожилого актера от болезни после долгой борьбы — это не срочная новость, а некролог.
+- [pt] чужое_мелкое: [world] RFI — China: Xi Jinping continua expurgos no topo do Estado visando um quarto mandato — Внутренние кадровые перестановки в руководстве Китая, не имеющие международного события-последствия.
+- [fr] чужое_мелкое: [local] Le Figaro — Effondrement en Turquie : une Française figure parmi les victimes — Гибель одного иностранного туриста — локальное событие для Турции, не мировая новость.
+- [fr] чужое_мелкое: [local] Nice-Matin — Il continue de briller : le Monégasque Valentin Vacherot bat Holger Rune et se q — Результат теннисного матча в Швейцарии — локальная спортивная новость, не мировая.
+- [fr] курьёз: [local] Franceinfo — Les musées Centre Pompidou, MoMA et M+ désormais au sein d'une "alliance culture — Партнерство музеев — не событие, нет изменений для читателя.
+- [fr] чужое_мелкое: [pool] RTBF — Participation à une organisation criminelle : le parquet requiert deux ans de pr — Судебный процесс над футболистом — внутреннее дело Бельгии, не мировая новость.
+- [fr] не_новость: [pool] Radio-Canada — L’IA, une occasion d’appuyer sur l’accélérateur de la production de gaz, selon O — Аналитическая заметка о «возможностях» в документах — нет события.
+- [fr] чужое_мелкое: [pool] Radio-Canada — Le Parti conservateur du Québec dévoile son cabinet fantôme — Внутренняя политика Канады — локальная новость для этого пула, не мировая.
+- [fr] чужое_мелкое: [world] BBC News — Un conducteur reconnu coupable d'avoir percuté et traîné un cycliste jusqu'à la  — Криминальная хроника Британии (единичное ДТП/убийство) — не мировая новость.
+- [fr] чужое_мелкое: [world] Courrier International — Zhang Shengmin, l’âme damnée de Xi Jinping dans l’armée, promu au politburo du P — Внутренние кадровые перестановки в руководстве КНР — не мировая новость для Франции.
+- [fr] чужое_мелкое: [world] Bénin Web TV — Canaries : deux corps retrouvés après une traversée depuis la Gambie — Локальное происшествие у берегов Канар — не мировая новость.
+- [fr] чужое_мелкое: [world] Africanews FR — Kenya : un premier corps retrouvé dans un immeuble effondré à Nairobi — Единичная находка тела в Кении — не мировая новость.
+- [fr] курьёз: [world] Africanews FR — Indonésie : neuf orangs-outans relâchés dans une forêt de Bornéo — Реинтродукция животных в Индонезии — типичный курьёз для рубрики «интересное».
+- [fr] повтор: [world] RFI — Évacuations humanitaires à Olechky, dans la région de Kherson, en Ukraine ≈ «Olecky en Ukraine : les habitants évacué» — Тот же сюжет, что и в карточке 42.
+- [fr] чужое_мелкое: [world] L'Express — Midterms : en Alaska, une magouille politique démocrate tourne à l'affaire judic — Внутренние политические махинации в штате США — не мировая новость.
+- [fr] чужое_мелкое: [world] BBC World — Un important journal russe cesse ses activités sous la pression des autorités — Закрытие газеты в РФ — внутреннее дело РФ, не мировая новость (согласно инструкции).
+- [fr] не_новость: [world] RFI — La CAF décide un retour à une CAN tous les deux ans — Регламентное решение о частоте проведения турнира — это не экстренное событие.
+- [fr] не_новость: [world] Fortune — Prix du pétrole au 29 octobre 2026 — Ежедневная сводка цен на нефть без контекста событий — не новость.
+- [fr] чужое_мелкое: [world] Le Nouvelliste — President Nayib Bukele Addresses the Haitian People Directly — Вмешательство лидера Сальвадора в дела Гаити — региональное событие Америки, для Франции это не мировая новость.
