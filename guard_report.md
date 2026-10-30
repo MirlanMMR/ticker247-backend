@@ -1,25 +1,16 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] NY Post — A.J. Brown’s troubling Patriots injury bubbles up with ‘degenerative’ issue — Спортивная травма игрока — обычная рутина, не событие.
-- [en] не_новость: [local] CBS News — Actor and cancer survivor Colin Egglesfield on his reasons to run the NYC Marath — Участие актера в марафоне — личное дело, не событие.
-- [en] не_новость: [local] UPI — Proposals to ditch clock changes weigh health impacts, recreation — Обсуждение предложений в Конгрессе без принятия закона — слова.
-- [en] не_новость: [local] WBAY — Jurassic Quest brings dinosaurs to Green Bay for one weekend — Плановое посещение выставки — это анонс события, а не само событие.
-- [en] не_новость: [local] WBAY — Seasonable today, then a slight rain chance for Halloween — Прогноз погоды не является новостью в приложении.
-- [en] курьёз: [local] New Jersey 101.5 — Our neighbor Al gave out full-size candy bars. Now we do too — Личная история о соседе и конфетах — развлекательный контент.
-- [en] не_новость: [local] Arizona's Family — Undefeated Snowflake travels to Arcadia for fierce cross-state matchup — Анонс предстоящего матча по футболу.
-- [en] не_новость: [local] OPB — Morant leaves in fourth quarter of Blazers’ 124-103 loss to Grizzlies — Отчет об игровом моменте матча — спортивная рутина.
-- [en] курьёз: [local] LA Times — 'They come in droves': How robotaxis hog EV chargers in one corner of Southern C — Жалоба жителя на роботакси — частный случай.
-- [en] не_новость: [local] reviewjournal — Survivor Sweat marketplace offers Circa contestants life after elimination — Статистика участия в игровом конкурсе.
-- [en] не_новость: [local] WABI — The Modern Mind Readers performing at Rockport Opera House — Анонс выступления артистов.
-- [en] не_новость: [local] WKYT — Awareness posters at Keeneland serve as a stark reminder of the human traffickin — Наличие плакатов — не событие.
-- [en] не_новость: [pool] Sky Sports — Doyle: Glad to be back in the saddle — Предматчевая колонка и интервью.
-- [en] не_новость: [pool] BBC Sport — Popular and talented - but Grealish is running out of chances — Аналитическая статья о перспективах игрока.
-- [en] не_новость: [pool] Fortune — Goldman says AI layoffs are starting to leave a ‘long-lasting’ scar, just like t — Аналитический отчет банка — мнение, а не событие.
-- [en] не_новость: [pool] Ars Technica — 2027 Nissan Rogue Hybrid: Drives like an EV, but there's no plug involved — Обзор новой модели автомобиля.
-- [en] не_новость: [pool] BBC Sport — F1 has never had anyone like me - Hamilton — Цитата гонщика о себе.
-- [en] курьёз: [world] Variety — ‘A Court of Thorns and Roses’ Book 6 Breaks Sarah J. Maas’ Release Day Record Wi — Продажи книги — не общественно значимое событие.
-- [en] не_новость: [world] Forbes — Can Crypto Exchanges Defend Against Attackers Who Move Billions In Minutes? — Вопрос о потенциальных атаках — это разбор, а не факт взлома.
-- [en] курьёз: [world] TechCrunch — Can AI data centers be mass-produced like cars? This startup aims to find out — Стартап с концепцией массового производства — интересная заметка.
-- [en] курьёз: [world] Cascade PBS — WaPo’s Heidi Levine Speaks Out After Brutal Attack by Israeli Settlers — Личное мнение журналиста о нападении.
-- [en] не_новость: [world] Engadget — Meta quietly launches an AI fashion app for virtually trying on clothes — Запуск приложения с ограниченным доступом — маркетинговый шум.
-- [en] курьёз: [world] BBC Sport — How talking about Man Utd's cycle of doom became an industry — Мнение о том, что обсуждение клуба — это индустрия.
+- [es] не_новость: [local] El Universal MX — Además del INE, va ASF también contra UNAM — анонс о том, что завтра анонсируют «продвижение» расследования — нет события
+- [es] курьёз: [local] Expansión MX — Paleta Payaso, Carlos V y Pelón Pelo Rico ya no son mexicanos: los dulces de la  — познавательная заметка об истории брендов сладостей — это интересно, но не событие
+- [es] не_новость: [pool] El Tiempo CO — Murió exgobernador de Santander y excongresista Jorge Agustín Sedano: desde la r — некролог бывшего политика не является новостным событием без связи со скандалом или сменой власти
+- [es] не_новость: [pool] Infobae — Vicepresidente de los Estados Unidos J. D. Vance prepara visita a Colombia en no — анонс будущего визита, который может измениться; нет свершившегося факта
+- [es] не_новость: [pool] El Comercio PE — Keiko Fujimori invita a empresarios de El Salvador a que inviertan en el Perú — дипломатическая вежливость («пригласила инвестировать»); нет сделки или подписанного договора
+- [es] курьёз: [pool] La Nación AR — Startups argentinas: la obligación de nacer con la mirada puesta en el exterior — разбор стратегии стартапов — это аналитика/обзор, а не новость
+- [es] не_новость: [pool] El Informador — Premio Adolf Horn: Llaman a impulsar equidad de género — репортаж о прошедшем на прошлой неделе мероприятии/награждении — это архив, а не свежая новость
+- [es] курьёз: [world] Infobae — ¿Guerra? ¿Desempleo? Finlandia ofrece una dosis de perritos para tiempos difícil — наблюдение за щенками в Финляндии — чистый курьёз, место в «Интересном»
+- [es] не_новость: [world] 14ymedio — Con 39 millones de votantes potenciales, los latinos serán clave en las eleccion — общий обзор статистики избирателей — аналитический материал перед выборами
+- [es] срочность: [world] Global News CA — Tres muertos en una colisión de helicópteros en el aire cerca de un aeropuerto d — авиакатастрофы — трагические происшествия, но для читателя в Мексике это не повод для побудки («срочно»)
+- [es] не_новость: [world] BBC Mundo — "No ha habido un solo momento desde esa noche que no sienta dolor": Christa Pike — описание личных чувств заключенной — это не новостное событие
+- [es] чужое_мелкое: [world] Азаттык — Alemania deportó a 27 ciudadanos de Tayikistán y más de 150 enfrentan una expuls — депортация 27 человек — это внутренняя административная работа Германии, не мировая новость
+- [es] курьёз: [world] El Sol de México — León XIV votó por correo para comicios de EU; es el primer Papa que participa en — история о голосовании церковного деятеля — любопытный факт, не мировое событие
+- [es] не_новость: [world] RFI — China: Xi Jinping continúa con las purgas en la cúpula del Estado de cara a un c — плановая чистка аппарата перед съездом — рутинный политический процесс в КНР
