@@ -1,27 +1,31 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] курьёз: [local] 24.kg — Никогда такого не было, и вот опять. В Бишкеке автобус столкнулся с легковушкой — рядовое ДТП без пострадавших или значимых последствий — не новость
-- [ru] чужое_мелкое: [pool] NewsGeorgia — ВВП Грузии в сентябре вырос на 6%: строительство и банки компенсировали спад в п — внутренняя экономическая статистика Грузии не является значимой для читателя в КР
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — «Даже деталей не видели»: с пилота, посадившего самолет в поле, потребовали 127  — локальное судебное разбирательство в РФ
-- [ru] не_новость: [pool] Onliner.by — Стало известно, как могут вырасти пенсии в 2027 году — прогноз бюджета — это обсуждение, а не принятое решение
-- [ru] полка: [pool] 71.ru — Тула — Мэр Новомосковска рассказал о состоянии коммунальной инфраструктуры города после — последствия атаки БПЛА — мировая новость, так как это военный конфликт
-- [ru] чужое_мелкое: [pool] Kapital.kz — Құны 227,8 млн теңгені құрайтын алтын мемлекет кірісіне тәркіленді — внутренняя криминальная сводка Казахстана
-- [ru] курьёз: [pool] iXBT — Сериал за минуту: метро Петербурга проверили на скорость 5G — рейтинг мобильного интернета в метро РФ не имеет значения для КР
-- [ru] курьёз: [pool] iXBT — Сбер: Jetour Dashing стал лидером онлайн-продаж новых авто, Kia Rio — машин с пр — статистика продаж авто в РФ не является новостью
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — Может дойти до поражения почек: в Татарстане зафиксировали случаи заболевания мы — локальная вспышка болезни в одном из регионов РФ
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Взятка жилым домом: в Оренбурге в суд поступило еще одно уголовное дело экс-дире — уголовное дело муниципального чиновника РФ
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Туле весь ноябрь общественный транспорт будет двигаться по новым схемам — изменения маршрутов транспорта в Туле
-- [ru] не_новость: [pool] 72.ru — Тюмень — Бывший мэр Тюмени Куйвашев создал новую компанию. Чем он теперь займется? — бизнес-деятельность бывшего чиновника
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Семейный подряд. Две пары из Коркино организовали отправку маргиналов на СВО и з — криминальная хроника локального масштаба в РФ
-- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — Новодвинца, сознавшегося в жестоком убийстве пенсионерки, пока не будут судить:  — частный уголовный эпизод в РФ
-- [ru] курьёз: [pool] 62.ru — Рязань — «Виновные будут найдены»: под Рязанью подожгли базу экстрим-парка «Здесь квадрик — поджог частной базы отдыха в Рязани
-- [ru] курьёз: [pool] 62.ru — Рязань — 11-летняя рязанка попала под колёса электросамоката — бытовое происшествие с самокатом
-- [ru] курьёз: [pool] 56.ru — Оренбург — Под Сорочинском пенсионер на «Ладе-Калине» догнал МАЗ — легковушка перевернулась — рядовое ДТП в РФ
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Злой комментарий довел до «уголовки» жительницу Волжского района — суд за комментарий в соцсети в РФ
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — Беременная женщина и ее муж погибли из-за угарного газа: в Дубне вынесли пригово — уголовный приговор по локальному делу в РФ
-- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — Мурманского экс-депутата Степахно обвиняют в госизмене: ему грозит пожизненный с — суд над экс-депутатом регионального уровня в РФ
-- [ru] курьёз: [pool] 45.ru — Курган — В Кургане 15-летний студент на «девятке» уходил от ДПС и влетел в дерево на улиц — погоня и ДТП в Кургане — локальное происшествие
-- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Якутянин насмерть забил сожительницу мутовкой для взбивания сливок — бытовое убийство в РФ
-- [ru] чужое_мелкое: [pool] 48.ru — Липецк — В Тербунском округе изъяли 333 грамма марихуаны — изъятие наркотиков в одном районе РФ
-- [ru] курьёз: [world] Вечерний Бишкек — Тренера "Баварии" Компани выписали из больницы — спортивное событие низкого масштаба (выписка тренера из больницы)
-- [ru] чужое_мелкое: [world] Wired — Polymarket приостановила международные торги после взлома аккаунтов — локальный инцидент с британской IT-платформой
+- [pt] чужое_мелкое: [local] Gazeta do Povo — Jornal dos EUA diz que caso Flávio expõe preocupações sobre Estado de Direito no — мнение американской газеты о бразильской политике — не новость
+- [pt] чужое_мелкое: [local] CNN Brasil — Governo Trump não pretende apoiar Flávio como líder do Brasil, diz Reuters — внешнеполитическая позиция США по поводу лидера бразильской оппозиции
+- [pt] не_новость: [local] CNN Brasil — Ex-São Paulo detona convocação de André, do Corinthians: “Acabou o futebol” — мнение футбольного эксперта о составе сборной
+- [pt] чужое_мелкое: [world] G1 Globo — Polícia britânica investigará gestão de carta de acusação contra pai de Meghan M — бытовое расследование дела родственника знаменитости, не имеет глобального веса
+- [pt] чужое_мелкое: [world] Fortune — Empresa de private equity detém todas as clínicas de metadona em Montana — узкая региональная проблема доступа к лечению в США
+- [pt] курьёз: [world] Xataka — Meta, Google e Amazon podiam dar-se ao luxo de gastos colossais em IA enquanto o — аналитическая заметка о бизнесе IT-гигантов
+- [pt] не_новость: [world] The Independent — Congresso analisa proibição de aplicativos de entrega listarem restaurantes sem  — обсуждение законопроекта в Конгрессе, а не принятое решение
+- [pt] чужое_мелкое: [world] ECO — Única agência noticiosa da Finlândia vai encerrar informação e fotografia — закрытие одного локального СМИ в Финляндии
+- [pt] срочность: [world] The Independent — Família lamenta morte de criança atropelada em plantação de abóboras — трагическое происшествие без последствий для других стран
+- [pt] чужое_мелкое: [world] Азаттык — Alemanha deportou 27 cidadãos do Tajiquistão e mais de 150 enfrentam expulsão fo — статистика депортаций внутри Германии, не является мировой новостью
+- [pt] чужое_мелкое: [world] Semafor — Xi Jinping intensifica expurgo da elite do partido — внутренняя кадровая чистка в партии Китая
+- [pt] чужое_мелкое: [world] El Nacional VE — Marco Rubio reúne ministros de Relações Exteriores do G20 em Atlanta, incluindo  — встреча G20 в США, описание рядовой рабочей повестки
+- [pt] не_новость: [world] Agência Brasil — Risco de invasão de Cuba pelos EUA é real, avalia embaixador — мнение/оценка риска, а не свершившееся событие
+- [pt] не_новость: [world] Engadget — Waymo e Toyota começarão em breve a testar os seus robotáxis no Japão — планы на будущее, а не запуск услуги
+- [pt] не_новость: [world] Engadget — Senadores investigam 'sérios riscos à privacidade' com óculos de IA da Meta — начало расследования сенаторами (процесс, а не итог)
+- [pt] не_новость: [world] Guardian Sport — FIFA não cumprirá ambição de igualar premiação da Copa do Mundo Feminina à mascu — решение ФИФА не менять правила — это отсутствие события
+- [pt] срочность: [world] Guardian Sport — Packers vencem Panthers após retorno de Christian Watson do hospital — результат матча не требует побудки
+- [pt] не_новость: [world] Fortune — 'A União Europeia deve mudar': líder da oposição na Polônia sugere negociações d — предложение оппозиционного политика — слова, не решение
+- [pt] не_новость: [world] Ars Technica — Reddit passará a exigir login de usuários, afirma CEO — намерение CEO изменить правила логина
+- [pt] не_новость: [world] Ars Technica — Microsoft corrige funcionalidade do Windows 11 em meio à queda na receita de PCs — исправление мелкой ошибки в ПО, не является значимым событием
+- [fr] не_новость: [local] Le Figaro — Attentat de Trappes : le maire Ali Rabeh veut rendre «illégale» la théorie du «g — Это статья-обзор (портрет) о прошлом, а не новость о событии.
+- [fr] полка: [local] Sciences et Avenir — Aux Philippines, le bambou et les huîtres contre les inondations — Это «Интересное» (наука/экология), а не новость из региона/мира.
+- [fr] чужое_мелкое: [world] L'Express — Midterms : en Alaska, une magouille politique démocrate tourne à l'affaire judic — Внутренние политические интриги штата США — не мировая новость.
+- [fr] не_новость: [world] La Dépêche — Affaire Epstein : le prince Andrew en vacances avec Jeffrey Epstein et Ghislaine — Слухи/расследование о событиях 1999 года, нет актуального события.
+- [fr] не_новость: [world] Africanews FR — États-Unis : hommage à Patrick Stewart sur le Walk of Fame de Los Angeles — Возложение цветов — это не событие с общественным значением, а этикет.
+- [fr] повтор: [world] RFI — La CAF décide un retour à une CAN tous les deux ans ≈ «CAN chaque quatre ans : la CAF fait mach» — Дублирующий сюжет о решении CAF.
+- [fr] курьёз: [world] Futura-Sciences — Le mystère du lac qui a fait 1 746 victimes : une nuit d'horreur que personne n' — История про озеро — «Интересное», нет события.
+- [fr] чужое_мелкое: [world] Le Nouvelliste — President Nayib Bukele Addresses the Haitian People Directly — Популистские заявления лидера одной страны в адрес другой — не новость без реальных действий.
+- [fr] чужое_мелкое: [world] L'Obs — En Alaska, deux candidats aux « midterms » nommés Dan Sullivan sèment la pagaill — Мелкая путаница кандидатов на местных выборах в США — не мировая новость.
