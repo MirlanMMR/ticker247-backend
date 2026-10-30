@@ -1,26 +1,23 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] чужое_мелкое: [local] ABC4 Utah — Box Elder County Sheriff on leave following crash in Weber County — Внутренняя кадровая перестановка местного уровня (шериф в отпуске).
-- [en] курьёз: [local] WIBW — 103 year-old skydiver — Мировой или местный рекорд долголетия — это любопытный факт, а не событие.
-- [en] не_новость: [local] WIBW — Emporia State’s Ella Favot named MIAA Offensive Player of the Year — Типовая спортивная награда местного уровня.
-- [en] не_новость: [local] WDBJ7 — Non-profit donates body armor to Campbell County K-9 — Благотворительность (подарок собаке) — не событие.
-- [en] не_новость: [local] WHO 13 — Big 12 Commissioner Brett Yormark is leaving after 4 years of transformational c — Плановая отставка комиссара лиги после 4 лет работы.
-- [en] курьёз: [local] WCTV — Twiggy, the water skiing squirrel — Развлекательный факт из рубрики «Интересное».
-- [en] не_новость: [local] Cardinal & Pine — That viral ‘Jonestown’ guy at the Trump rally? He’s from Charlotte — Личное мнение о человеке с митинга.
-- [en] не_новость: [local] KOLO — New treatment aims to stop cheatgrass from taking over Hawk Fire burn area — Подготовка к работам (план), а не само событие.
-- [en] чужое_мелкое: [local] Cleveland.com — Ohio State professor resigns months after confrontation caught on video — Локальный инцидент в университете, не имеющий широких последствий.
-- [en] не_новость: [local] 1011NOW — Nebraska QB Anthony Colandrea signs deal to return in 2027 — Плановое продление контракта игрока на 2027 год.
-- [en] не_новость: [local] WFSB — Hurley to sign extension with UConn, per CBS Sports — Анонс будущего продления контракта.
-- [en] не_новость: [local] WIBW — Shawnee Heights boys soccer advances to 5A state quarterfinal — Обычный результат матча, не имеющий глобального значения.
-- [en] чужое_мелкое: [local] WIBW — Manhattan man jailed on battery, trespass charges Friday — Обычное задержание за мелкую драку (не является срочной новостью).
-- [en] не_новость: [local] WTHR — Indianapolis City-County Councilor Crista Lee Wells announces resignation — Уведомление об отставке локального чиновника.
-- [en] не_новость: [local] CBS News — How LADWP's rates compare to other utilities in Southern California — Аналитический обзор/сравнение тарифов, не событие.
-- [en] не_новость: [local] Portland Press Herald — Some addiction treatment services in Maine aren’t financially sustainable, provi — Жалоба на финансовую устойчивость (мнение), а не факт события.
-- [en] чужое_мелкое: [local] KFYR-TV — Man charged in Oct. 2 fatal accident gets judge changed in case — Техническая замена судьи в местном процессе.
-- [en] не_новость: [local] WTHR — Retailers, USPS hiring for holiday rush | What's the Deal? — Обычный набор сотрудников к праздникам — это рутина.
-- [en] не_новость: [local] WV MetroNews — 2026 WVSSAC State Soccer Tournament Pairings — Публикация сетки турнира (анонс).
-- [en] не_новость: [pool] WIBW — Former ESU football star named CFL Most Outstanding Rookie — Спортивное достижение игрока, не являющееся мировым событием.
-- [en] не_новость: [pool] WFPL — Longtime KET CEO and executive director dies — Естественная смерть руководителя, не связанная с инцидентом или скандалом.
-- [en] не_новость: [pool] Guardian Sport — ‘We are not in Disneyland’: Arteta warns Dowman of Arsenal’s demands — Мнение тренера о молодом игроке.
-- [en] курьёз: [pool] The Guardian — ‘Ceilidh renaissance’ lures gen Z offline in search of real-life joy — Описание культурного тренда (ренессанс танцев), не новость.
-- [en] не_новость: [world] Engadget — The Wikimedia Foundation weighs in on the NYT's case against OpenAI — Комментарий фонда о чужом судебном деле.
+- [es] не_новость: [local] El Universal MX — Cuauhtémoc Cárdenas recibe homenaje en Bellas Artes rodeado de su familia; asist — Это протокольное мероприятие (похороны/прощание), а не событие с последствиями.
+- [es] не_новость: [local] El Financiero — Oficiada por Ian McKellen: Así fue la boda de Patrick Stewart y Sunny Ozell en u — Архивное воспоминание о свадьбе актера, умершего в 86 лет, не является актуальной новостью.
+- [es] не_новость: [local] Expansión MX — El aguinaldo de un fallecido no se pierde: así es como su familia puede recupera — Разъяснительная статья/совет, не является новостным событием.
+- [es] не_новость: [local] Expansión MX — Intel agota sus chips para laptops económicas y anticipa más presión sobre los p — Прогноз/аналитика рынка, а не свершившееся событие.
+- [es] не_новость: [local] El Sol de México — IECM inicia procedimiento contra alcalde de Álvaro Obregón por propaganda de su  — Инициация процедуры проверки (не решение суда/вердикт).
+- [es] не_новость: [local] El Sol de México — Fallece Fernando Castillo Castro, cantante de Yaguarú — Смерть музыканта — событие, но без деталей это просто некролог, не несущий новостной нагрузки для приложения.
+- [es] не_новость: [local] La Jornada — Comienza hoy la consulta nacional para la nueva Usicamm — Начало консультаций — процесс, а не завершенное решение.
+- [es] не_новость: [pool] La Nación AR — Se aproximan 72 horas de lluvias y tormentas fuertes, con mejoras transitorias,  — Прогноз погоды не является новостным событием (если нет ЧС).
+- [es] не_новость: [pool] La Nación AR — A qué hora llegan las tormentas fuertes a Buenos Aires hoy, según el SMN — Повтор темы прогноза погоды, не является событием.
+- [es] не_новость: [pool] El Nacional VE — Santa Teresa 1796 XO: cien años de carácter, una noche de Venezuela — Рекламный текст/очерк о бренде рома.
+- [es] не_новость: [pool] Infobae — El 31% de las pymes en América Latina perdió dinero por ciberataques: phishing y — Обзор статистики/отчета, не является событием.
+- [es] не_новость: [pool] 14ymedio — Más enfermedades y mortalidad en Cuba, mientras baja un 32,5% el número de médic — Анализ данных ежегодника — это отчет, а не оперативное событие.
+- [es] не_новость: [pool] El Nacional VE — La consigna de David Peralta como líder de Bravos: "Nunca nos rendimos" — Спортивный комментарий/очерк, а не оперативный результат.
+- [es] не_новость: [pool] 14ymedio — "Ni clientes ni luz": los apagones de más de 40 horas asfixian a La Habana — Очерк/репортаж о бытовых условиях, а не конкретное событие (анонсированные отключения были бы новостью).
+- [es] не_новость: [pool] El Informador — Premio Adolf Horn: Llaman a impulsar equidad de género — Призыв на церемонии награждения — это мнение, а не событие.
+- [es] не_новость: [pool] El País — Los expertos señalan problemas en el sistema que van más allá del error cometido — Разбор/анализ причин, а не текущее событие (повтор темы 46/49).
+- [es] не_новость: [pool] El País — Las llamadas entre Atocha y los maquinistas antes del choque de Urda, explicadas — Разбор прошлых записей (повтор темы 46/48).
+- [es] курьёз: [world] Rolling Stone — Escuche la versión de Glen Hansard de una canción de The Pogues publicada póstum — Любопытный факт из музыкального мира, место в «Интересном».
+- [es] курьёз: [world] BBC Mundo — "Hay más en la vida que solo competir y ganar": la atleta que defecó durante una — Странный случай на соревновании, не влияющий на читателя.
+- [es] не_новость: [world] BBC Mundo — "No ha habido un solo momento desde esa noche en que no sienta dolor": Christa P — Интервью/мнение спустя долгое время после события, а не новость.
+- [es] чужое_мелкое: [world] Азаттык — Alemania deportó a 27 ciudadanos de Tayikistán y más de 150 enfrentan una expuls — Статистика депортаций Германии граждан Таджикистана не является значимой для Мексики и мира.
