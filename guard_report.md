@@ -1,17 +1,17 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] чужое_мелкое: [local] CNN Brasil — Marco Rubio denies that the US 'facilitated' Flávio Bolsonaro's entry into the c — Внутренняя политика и заявления чиновников Бразилии не являются мировыми новостями.
-- [en] чужое_мелкое: [pool] Guardian Sport — Packers’ Josh Jacobs faces fresh abuse allegations from three women in police re — Местные обвинения против игрока не являются общемировым событием.
-- [en] не_новость: [pool] Variety — Producer Will Packer Stumps to Get Out the Vote and Launch a Private HBCU Fundra — Анонс личной инициативы продюсера, нет свершившегося события.
-- [en] курьёз: [pool] BBC News — 'It's been killing me!' Celebrity Traitors winners relieved the secret is out — Итоги реалити-шоу — развлекательный контент для полки «Интересное».
-- [en] не_новость: [pool] Fortune — AI boom hits a wall on Wall Street as OpenAI cuts fundraising target — Спекуляции о рынке венчурного капитала без конкретной сделки.
-- [en] курьёз: [pool] WFPL — Listen to Rannygazoo's radio play, 'The Strange Case of Dr. Jekyll & Mr. Hyde' — Ретроспективная история о радиопостановке — чисто развлекательный контент.
-- [en] не_новость: [pool] WFPL — Democrats muster support for Booker in longshot Senate bid ahead of Election Day — Описание предвыборной кампании и надежд кандидата, а не свершившийся факт.
-- [en] не_новость: [pool] WFPL — Longtime KET CEO and executive director dies — Плановая смерть пожилого человека (естественные причины) — не новость в приложении.
-- [en] не_новость: [world] The Hindu — Modi says Opposition has become destructive force; calls for unity — Обычная политическая риторика и критика оппозиции без конкретных решений.
-- [en] не_новость: [world] Engadget — These Samsung Galaxy Watches won't be getting the new One UI update — Перечисление списка устройств без обновления — это не событие для пользователя.
-- [en] не_новость: [world] Rolling Stone — Deep Purple Postpone Concerts After Singer Ian Gillan’s ‘Medical Emergency’ — Отмена концертов из-за болезни — личное дело артиста, не влияющее на жизнь общества.
-- [en] срочность: [world] The Independent — Secret Service deploys missile defense systems at Mar-a-Lago and Trump airport i — Меры безопасности — рутинная работа спецслужб, не требует побудки.
-- [en] не_новость: [world] Time — Americans Lost Nearly $18 Billion Last Year to Cyberscams. Is Washington Doing E — Заголовок с вопросом и аналитический обзор, а не новостной факт.
-- [en] курьёз: [world] Ars Technica — Seabirds racing home over the ocean can get jet-lagged — Научный факт о птицах — классический контент для «Интересного».
-- [en] не_новость: [world] Ars Technica — Once again, NASA is asking for ideas to rescue Hubble from certain death — NASA «просит идей» — это призыв, а не результат исследования или спасательная операция.
+- [es] чужое_мелкое: [pool] El Informador — Policías viales detienen a conductor con licencia falsa en Zapopan — мелкий инцидент с лицензией, не имеет общественного значения
+- [es] повтор: [pool] BBC Mundo — Cómo el desastre ferroviario en España ensombrece las posibilidades de reelecció ≈ «El guardia civil Salvador rescató a Almu» — один сюжет об аварии в Испании
+- [es] повтор: [pool] eldiario.es — Las vidas que segó la tragedia de Urda ≈ «El guardia civil Salvador rescató a Almu» — один сюжет об аварии в Испании
+- [es] чужое_мелкое: [world] El Universal MX — Detienen a 48 personas en Londres durante protesta en apoyo a Palestine Action;  — протест в Лондоне не является мировой новостью для читателя в Мексике
+- [es] курьёз: [world] The Independent — La guerra de Vladimir Putin en Ucrania es señalada como la causa de la muerte de — исследование без последствий, скорее экологический очерк
+- [es] чужое_мелкое: [world] RFI — Rubio asegura que Washington no estuvo «directamente implicado» en la huida de F — детали внутренней политики Бразилии и США, не меняющие ход мировой политики
+- [es] чужое_мелкое: [world] BBC Mundo — Refugiados ucranianos se reúnen con sus familias luego de estar años atrapados e — частная история, не имеющая мирового масштаба
+- [es] не_новость: [world] France 24 — Turquía propone al exministro de Asuntos Exteriores Sinirlioglu como jefe de la  — выдвижение кандидатуры — это анонс обсуждения, а не назначение
+- [es] курьёз: [world] The Guardian — «¡Liberamos a Patrick Stewart!»: Marina Sirtis sobre cómo logró conectar con su  — старое интервью актера, не является событием
+- [es] курьёз: [world] Ars Technica — Las aves marinas que regresan a casa sobre el océano pueden sufrir jet lag — научно-популярный факт, не является новостью
+- [es] курьёз: [world] The Guardian — Desde la fiebre del oro hasta preguntas cósmicas: una mina en Dakota del Sur y l — описание научного проекта, не является событием
+- [es] курьёз: [world] Wired — Un nuevo tipo de whisky francés elaborado en huevos de hormigón — гастрономический факт, не является новостью
+- [es] курьёз: [world] BBC Mundo — La historia de cómo una sobreviviente de agresión sexual del siglo XV buscó just — исторический очерк, не является новостью
+- [es] чужое_мелкое: [world] BBC Mundo — Investigación BBC: los saboteadores rusos que atentan desde dentro del país para — репортаж о внутренней деятельности диверсантов, не меняет общий ход войны
+- [es] не_новость: [world] Ars Technica — La NASA vuelve a solicitar ideas para salvar al telescopio Hubble de una muerte  — запрос идей — это анонс, события нет
