@@ -1,30 +1,17 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] Folha de S.Paulo — Expectativas de inflação para 2027 e 2028 saltam após segundo turno — Аналитика рыночных ожиданий по инфляции — это прогноз, а не состоявшееся событие.
-- [pt] не_новость: [local] Folha de S.Paulo — Boulos fala em chantagem do mercado sobre ajuste fiscal e defende corte em deson — Мнение министра о поведении рынка — это слова, а не новость с конкретным фактом.
-- [pt] не_новость: [local] Poder360 — Comissão do Senado analisa alíquota da CBS a partir de 11 de novembro — Анонс начала анализа комиссии — это не принятое решение.
-- [pt] не_новость: [local] InfoMoney — Ônibus parados e caronas: como apoiadores de Lula se mobilizaram em Salvador — Исторический очерк о политической мобилизации в прошлом — не новость.
-- [pt] курьёз: [local] G1 Globo — Banoffee: aprenda a receita no Chef JPB — Рецепт торта — не новость, место в «Интересном».
-- [pt] не_новость: [local] Agência Brasil — Programa oferece cursos gratuitos sobre IA para professores — Предложение пройти курс — анонс, а не событие.
-- [pt] не_новость: [local] Agência Brasil — Alcolumbre marca votação da PEC da Segurança Pública para terça-feira — Анонс даты голосования — это план, а не результат.
-- [pt] не_новость: [local] Gazeta do Povo — Fachin quer colocar fim no inquérito das fake news ainda em 2026 — Намерение министра ускорить анализ — это желание, а не завершенное событие.
-- [pt] не_новость: [local] G1 Rio — Mãe tentou convencer o filho a se entregar, encontrou-o morto e hoje acolhe famí — Статья-ретроспектива о трагедии годовой давности.
-- [pt] курьёз: [local] G1 Rio — Instrumentos tocando sozinhos, aparições, fumaça misteriosa: funcionários do The — Байки сотрудников о призраках — не новость.
-- [pt] не_новость: [local] G1 São Paulo — Obra contratada sem licitação pela Prefeitura de SP tem indícios de R$ 44 milhõe — Отчет с «индициями» — это мнение экспертов/аудиторов, не свершившийся факт нарушения.
-- [pt] не_новость: [pool] Notícias ao Minuto — Académico de Viseu foge das euforias e quer pontuar frente ao Rio Ave — Предматчевые заявления тренера — не событие.
-- [pt] не_новость: [pool] BBC Brasil — Petista 'liberal'? Como governador Rafael Fonteles entrou no radar de Lula para  — Портретная статья о политике.
-- [pt] не_новость: [pool] Téla Nón — Onda de assaltos inquieta população da ilha do Príncipe — Жалоба на «рост волны преступности» без конкретного факта (ареста, инцидента).
-- [pt] не_новость: [world] Jamaica Observer — Primeiro-ministro do Reino Unido está 'aberto' a pedido de desculpas pela escrav — Заявление о том, что премьер-министр «открыт для обсуждения» — это слова.
-- [pt] не_новость: [world] Variety — Canelo Alvarez vs. Christian M’billi no DAZN: veja como assistir à luta pelo tít — Рекламный анонс того, как посмотреть бой.
-- [pt] не_новость: [world] RFI — Em Israel, o dilema da oposição para encontrar uma maioria no Knesset — Анализ политического расклада в Кнессете — это обсуждение, а не событие.
-- [pt] не_новость: [world] Wired — Novo malware de roubo de dados usa IA para 'autodoxar' vítimas — Обзор исследования о новом типе малвари — это технологическая справка.
-- [pt] не_новость: [world] TechCrunch — Aportes, pagamentos e pressão por ritmo: os investidores por trás das VCs revela — Мнение инвесторов о рыночном сценарии — размышления, а не событие.
-- [pt] не_новость: [world] TechCrunch — Nvidia avalia atuar como coassinante do data center de IA da Nscale na Virgínia  — Переговоры о финансировании — это не закрытая сделка.
-- [pt] не_новость: [world] Ars Technica — Mais uma vez, a NASA busca ideias para salvar o telescópio Hubble da destruição — Поиск идей (просьба NASA) — это не принятое решение и не спасение телескопа.
-- [pt] не_новость: [world] Guardian Sport — Festa aguarda na Cidade do México enquanto Kimi Antonelli acelera para a históri — Анонс возможного достижения (рекорда) до того, как гонка состоялась.
-- [fr] повтор: [world] France 24 FR — En Ukraine, des habitants d'Olechky retrouvent leurs proches après avoir été éva ≈ «Des habitants évacués d'Olechky, ville s» — Один и тот же сюжет об эвакуации жителей из Олешек.
-- [fr] не_новость: [world] La Dépêche — Midterms 2026 : Donald Trump admet qu'un président "perd généralement" les élect — Прогнозы и комментарии Трампа перед выборами не являются свершившимся событием.
-- [fr] повтор: [world] Courrier International — “Gen Z regelt”, le mouvement allemand qui s’inspire des lycéens français ≈ «Allemagne : la police sur le qui-vive av» — Тот же сюжет о движении GenZ в Германии.
-- [fr] не_новость: [world] Courrier International — Midterms : Trump et les républicains dans une situation “encore plus difficile”  — Аналитика и прогнозы перед выборами, нет конкретного события.
-- [fr] не_новость: [world] Sciences et Avenir — "Le nombre de cancers augmente, mais la mortalité diminue" — Общее интервью эксперта о медицине без привязки к конкретному открытию или событию.
-- [fr] анонс: [world] 20 Minutes — Guerre en Ukraine : Kiev reprend ses tirs sur les raffineries russes et une « ph — Сборка-дайджест новостей, нет единого события.
+- [en] чужое_мелкое: [local] CNN Brasil — Marco Rubio denies that the US 'facilitated' Flávio Bolsonaro's entry into the c — Внутренняя политика и заявления чиновников Бразилии не являются мировыми новостями.
+- [en] чужое_мелкое: [pool] Guardian Sport — Packers’ Josh Jacobs faces fresh abuse allegations from three women in police re — Местные обвинения против игрока не являются общемировым событием.
+- [en] не_новость: [pool] Variety — Producer Will Packer Stumps to Get Out the Vote and Launch a Private HBCU Fundra — Анонс личной инициативы продюсера, нет свершившегося события.
+- [en] курьёз: [pool] BBC News — 'It's been killing me!' Celebrity Traitors winners relieved the secret is out — Итоги реалити-шоу — развлекательный контент для полки «Интересное».
+- [en] не_новость: [pool] Fortune — AI boom hits a wall on Wall Street as OpenAI cuts fundraising target — Спекуляции о рынке венчурного капитала без конкретной сделки.
+- [en] курьёз: [pool] WFPL — Listen to Rannygazoo's radio play, 'The Strange Case of Dr. Jekyll & Mr. Hyde' — Ретроспективная история о радиопостановке — чисто развлекательный контент.
+- [en] не_новость: [pool] WFPL — Democrats muster support for Booker in longshot Senate bid ahead of Election Day — Описание предвыборной кампании и надежд кандидата, а не свершившийся факт.
+- [en] не_новость: [pool] WFPL — Longtime KET CEO and executive director dies — Плановая смерть пожилого человека (естественные причины) — не новость в приложении.
+- [en] не_новость: [world] The Hindu — Modi says Opposition has become destructive force; calls for unity — Обычная политическая риторика и критика оппозиции без конкретных решений.
+- [en] не_новость: [world] Engadget — These Samsung Galaxy Watches won't be getting the new One UI update — Перечисление списка устройств без обновления — это не событие для пользователя.
+- [en] не_новость: [world] Rolling Stone — Deep Purple Postpone Concerts After Singer Ian Gillan’s ‘Medical Emergency’ — Отмена концертов из-за болезни — личное дело артиста, не влияющее на жизнь общества.
+- [en] срочность: [world] The Independent — Secret Service deploys missile defense systems at Mar-a-Lago and Trump airport i — Меры безопасности — рутинная работа спецслужб, не требует побудки.
+- [en] не_новость: [world] Time — Americans Lost Nearly $18 Billion Last Year to Cyberscams. Is Washington Doing E — Заголовок с вопросом и аналитический обзор, а не новостной факт.
+- [en] курьёз: [world] Ars Technica — Seabirds racing home over the ocean can get jet-lagged — Научный факт о птицах — классический контент для «Интересного».
+- [en] не_новость: [world] Ars Technica — Once again, NASA is asking for ideas to rescue Hubble from certain death — NASA «просит идей» — это призыв, а не результат исследования или спасательная операция.
