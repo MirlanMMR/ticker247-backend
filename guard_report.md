@@ -1,26 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] NY Post — Holocaust survivor, 95, delivers defiant message to Hitler after winning Emmy fo — История об Эмми — это личный очерк, не новостное событие.
-- [en] не_новость: [local] Georgia Public Broadcasting — Oil company earnings skyrocket — again — Отчет о прибылях корпораций — это бизнес-аналитика, а не событие.
-- [en] не_новость: [local] masslive.com — Cambridge's Lizard Lounge to close after nearly 30 years — Закрытие заведения после 30 лет — это не событие с последствиями, а лайфстайл-новость.
-- [en] не_новость: [local] CBS News — Pope meets Villanova and Notre Dame basketball teams at the Vatican — Визит спортивных команд к Папе — светская хроника, не событие.
-- [en] курьёз: [local] Cleveland.com — Rock star with just 2-to-3 years to live gets married. Here’s what we know — Личная история музыканта — это «интересное», а не новость.
-- [en] не_новость: [local] 11Alive — Once Upon a Farm recalls bars over potentially fatal choking hazard for toddlers — Отзыв товара — это рутина ритейла, не новость, если нет массового ЧП.
-- [en] не_новость: [local] The Salt Lake Tribune — This historic Sugar House home’s reinvention as a record store began with a kiss — История о том, как пара познакомилась — не новость.
-- [en] не_новость: [local] WRDW — First Alert Forecast: Staying dry for Halloween, a few showers possible Sunday — Прогноз погоды — не событие.
-- [en] не_новость: [pool] BBC Sport — Carragher apologises to Villa for 'wrong' language — Извинения футболиста — это спортивная светская хроника, не новость.
-- [en] не_новость: [pool] Variety — Sanjay Gupta, Indian Director of ‘Kaante’ and ‘Zinda,’ Dies at 59 — Смерть режиссера — это биография/некролог, не новостное событие.
-- [en] не_новость: [pool] Guardian Sport — He was one of the NFL’s most feared runners. — Воспоминания о спортивной карьере игрока — очерк, не новость.
-- [en] не_новость: [pool] RTÉ Ireland — Funeral of musician Dónal Lunny takes place in Kildare — Похороны музыканта — не новость.
-- [en] не_новость: [pool] Guardian Sport — Fiesta awaits in Mexico City as Kimi Antonelli speeds towards F1 history — Анонс предстоящей гонки и ожидания фанатов — не событие.
-- [en] не_новость: [pool] WFPL — Longtime KET CEO and executive director dies — Смерть руководителя образовательного телеканала — частный случай, не событие.
-- [en] не_новость: [world] Time — Americans Lost Nearly $18 Billion Last Year to Cyberscams. Is Washington Doing E — Риторический вопрос о работе агентств — это аналитика/мнение.
-- [en] не_новость: [world] Fortune — EqualAI CEO: Your AI assistant is acting in your name. Who signed off? — Рассуждения о будущем AI — это экспертная колонка, не событие.
-- [en] не_новость: [world] Fortune — The ex-CEO of the agency behind ‘Jerry Maguire’ says NIL is still the Wild West— — Мнение эксперта о студенческом спорте — это разбор/аналитика.
-- [en] не_новость: [world] BBC Sport — Briton Dart reaches first WTA Tour singles final — Победа в полуфинале — рядовое спортивное событие, не «срочно».
-- [en] курьёз: [world] Ars Technica — Seabirds racing home over the ocean can get jet-lagged — Факт о «джетлаге» у птиц — типичное «интересное».
-- [en] не_новость: [world] Guardian Sport — Hyrox athlete who soiled herself puts ‘confronting’ matter behind her to win ret — Возвращение атлета после курьезного случая — не новость.
-- [en] не_новость: [world] TechCrunch — Pile-ins, payouts, and pacing pressure: the investors behind the VCs open up — Мнение инвесторов о рынке — аналитика, не событие.
-- [en] не_новость: [world] Ars Technica — Once again, NASA is asking for ideas to rescue Hubble from certain death — NASA просит идей — это призыв, а не свершившееся событие.
-- [en] курьёз: [world] BBC News — After 28 years and 36,000 miles, Karl Bushby is almost home — Личная история путешественника — «интересное».
-- [en] курьёз: [world] Smithsonian Magazine — Crafted From Bone, This 2,800-Year-Old Flute Unearthed in Troy May Have Been Pla — Археологическая находка — «интересное».
+- [es] курьёз: [local] El Informador — El oscuro motivo por el que los camiones paran en Halloween — Спекуляции о причинах задержки автобусов в Хэллоуин, нет реального события.
+- [es] курьёз: [local] El Informador — El peligro de comer en los panteones este Día de Muertos — Советы о еде на кладбище — не новость с событием.
+- [es] чужое_мелкое: [local] El Financiero — La cúpula de La Mayiza: ¿Qué sabemos de ‘Aldo’, ‘El Güero Chompas’ y los cómplic — Анализ оргструктуры картеля по данным США — аналитический разбор, а не событие.
+- [es] срочность: [local] La Jornada — Emite recomendación defensoría de derechos humanos por crimen del periodista Ale — Выдача рекомендации правозащитниками — плановая работа, не требует побудки.
+- [es] срочность: [local] La Jornada — Comparecerá titular de DH de Jalisco por represión a protesta por el agua sucia — Одобрение парламентом явки чиновника на допрос — рутинная процедура, не экстренная.
+- [es] не_новость: [local] El Financiero — Diputado Sergio Luna niega presunto cobro de diezmos en Órgano Interno del INE:  — Политические опровержения обвинений без официального обвинения или приговора.
+- [es] срочность: [local] El Financiero — Despliegue en Uruapan: Reportan presencia de fuerzas armadas en sede del Movimie — «Сообщают о присутствии» — нет свершившегося события, расплывчатая формулировка.
+- [es] чужое_мелкое: [pool] Infobae — Ceuta lamenta que tres meses después se hayan producido "cero devoluciones" — Жалоба правительства города на события трехмесячной давности — не новость.
+- [es] курьёз: [pool] Marca — Bernardos y el sueldo en ADIF: "No está remunerado dirigir el tránsito de los tr — Мнение экономиста о зарплатах в ADIF — частное суждение, а не событие.
+- [es] курьёз: [pool] Marca — Uno a uno del Atlético ante el Levante: Cucurella le hizo un 'favor' al Atlético — Спортивная колонка с субъективным разбором игры «один на один».
+- [es] полка: [pool] Semana CO — Video muestra el angustiante momento en que se incendia el disfraz de catrina de — Происшествие в Мексике должно быть в «Местных», а не в «Новостях из...».
+- [es] не_новость: [pool] La Nación AR — El Niño no tendrá un desarrollo parejo en todo el país — Пояснение климатического цикла, нет события.
+- [es] не_новость: [pool] La Nación AR — Un tesoro de 150 años: restaurarán una emblemática iglesia de Barracas construid — Планы по реставрации церкви — не свершившееся событие.
+- [es] не_новость: [pool] Semana CO — Iván Cepeda le advierte a Abelardo De La Espriella lo que pasará si sigue adelan — Угрозы политиков друг другу в интервью — это слова, а не событие.
+- [es] не_новость: [pool] La Nación CR — ¿Dos Pinos traerá más productos de Estados Unidos? Esto respondió la cooperativa — Запрос комментария у компании — не событие.
+- [es] курьёз: [pool] 14ymedio — Calabazas, esqueletos y apagones: Halloween a la cubana — Описание атмосферы Хэллоуина в стране, не новость.
+- [es] не_новость: [pool] La Vanguardia — “El maquinista se ha acostumbrado a trabajar en condiciones degradadas” — Мнение профсоюза о причинах аварии — это слова/оценка, не событие.
+- [es] не_новость: [pool] eldiario.es — ¿Por qué el tren Iryo no arrancó en Urda? — Попытка анализа «почему не стартовал поезд» — это не новость, а статья-разбор.
+- [es] не_новость: [pool] Guardian Sport — Kimi Antonelli se encamina a la historia de la F1 en el Gran Premio de México — Анонс предстоящего события (будет чемпионом) — прогноз, не свершившийся факт.
+- [es] не_новость: [world] La Nación AR — Elecciones en Estados Unidos: qué espera Wall Street y en qué Cedears invertir a — Анализ ожиданий рынка перед выборами — это прогноз, не событие.
+- [es] срочность: [world] CNN Brasil — El líder supremo de Irán ordena una respuesta militar a cualquier amenaza enemig — Угрозы лидера Ирана — рутинная риторика, не требующая побудки.
+- [es] не_новость: [world] Time — Los estadounidenses perdieron casi 18 mil millones de dólares en ciberestafas el — Исследование о потерях за прошлый год — не свежее событие.
+- [es] курьёз: [world] Wired — Nuevo malware de robo de información utiliza IA para identificar víctimas automá — Техническое описание нового вида вредоносного ПО — не новость.
+- [es] курьёз: [world] Ars Technica — Las aves marinas que regresan a casa sobre el océano pueden sufrir jet lag — Научный факт о джетлаге у птиц — место в «Интересном».
+- [es] курьёз: [world] Guardian Sport — Larry Johnson, uno de los corredores más temidos de la NFL, teme por las consecu — Личные опасения бывшего игрока за здоровье — не новость.
