@@ -1,18 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] не_новость: [local] Gazeta do Povo — A estratégia de Flávio para sair do Brasil: veículos de apoio e jatos alternativ — описание оперативных маневров без свершившегося факта (спекуляция)
-- [pt] чужое_мелкое: [local] Gazeta do Povo — Polícia Federal deixa ministros do STF fora de indiciamentos do caso Master — внутренняя процедура следствия в Бразилии, не имеющая мирового веса
-- [pt] не_новость: [local] G1 Rio — Em processo sobre megaoperação, MPRJ pede condenação de 15 e absolvição de cadei — текущий ход судебного процесса, просьба прокурора — не свершившийся приговор
-- [pt] не_новость: [local] G1 Rio — 'Quer morrer logo?': vídeo em celular de segurança do traficante Doca revela tor — описание старых улик в деле, нет нового события
-- [pt] не_новость: [local] G1 Rio — Mãe tentou convencer o filho a se entregar, encontrou-o morto e hoje acolhe famí — очерк о социальной работе, нет нового события
-- [pt] не_новость: [local] G1 Rio Grande do Sul — Denúncia aponta falhas em operação que terminou com morte de agricultor e tornou — описание содержания обвинения, а не итоговое решение суда
-- [pt] курьёз: [world] Metrópoles — Trump posta imagem da Groenlândia como sendo base aérea militar dos EUA — пост Трампа в соцсети — не событие, а повод для обсуждения
-- [pt] повтор: [world] The Hill — Binance recupera 90 por cento dos ativos roubados em ataque hacker ≈ «Binance diz que já repôs 90% das criptom» — тот же сюжет про восстановление активов Binance
-- [pt] не_новость: [world] ECO — Ucrânia, Médio Oriente e China: o que pode mudar na política externa dos EUA com — аналитический разбор «что может измениться», а не событие
-- [pt] повтор: [world] UPI — Protestos de jovens franceses se espalham para a Alemanha no Halloween ≈ «Mais de 180 mil manifestam-se na Alemanh» — тот же сюжет про протесты в Германии
-- [pt] не_новость: [world] France 24 — Turquia indica o ex-ministro das Relações Exteriores Sinirlioglu para chefe da O — выдвижение кандидатуры (анонс/процедура), а не назначение
-- [pt] не_новость: [world] Time — Americanos perderam quase 18 bilhões de dólares em golpes cibernéticos no ano pa — отчет о прошлогодней статистике, нет нового события
-- [pt] не_новость: [world] Wired — Novo malware de roubo de dados usa IA para 'autodoxar' vítimas — общий обзор угрозы (исследование), нет инцидента
-- [pt] не_новость: [world] TechCrunch — Aportes, pagamentos e pressão por ritmo: os investidores por trás das VCs revela — разбор настроений инвесторов, нет события
-- [pt] повтор: [world] Ars Technica — Mais uma vez, a NASA busca ideias para salvar o telescópio Hubble da destruição ≈ «Telescópio da NASA está prestes a cair n» — тот же сюжет про проблемы с телескопом NASA
-- [pt] не_новость: [world] Semafor — Líder da maioria no Senado Chuck Schumer se prepara para embate com Trump sobre  — подготовка к возможным событиям будущего, нет факта
+- [en] не_новость: [local] NY Post — NYPD K9 back on duty to honor detective handler who died after retiring — К-9 вернулась на службу в честь умершего хозяина — это очерковая история, а не событие.
+- [en] курьёз: [local] WTOP — ‘One man’s greed and ego’: Golfer suing Trump blasts East Potomac Park plans — Протест против планов Трампа — это не новость с последствиями, а эпизод.
+- [en] не_новость: [local] 1011NOW — Southeast Community College and the University of Nebraska–Lincoln launch On Cou — Запуск партнерской программы между вузами — плановое событие, не имеет остроты или массовых последствий.
+- [en] не_новость: [local] WIBW — Holton sweeps Silver Lake to win 3A state volleyball championship — Обычный спортивный отчет о победе в штате, не имеет значения за пределами локальной лиги.
+- [en] не_новость: [local] WV MetroNews — Marshall Marathon set for Sunday — Анонс планового ежегодного марафона.
+- [en] не_новость: [local] WSFA — Huntingdon storms back in second half to knock off LaGrange 15-11 — Обычный отчет о матче студенческой лиги.
+- [en] не_новость: [local] WDAM — Two Marion County ministries host brunch honoring cancer survivors — Благотворительный бранч — это местное мероприятие, не имеющее значимых последствий.
+- [en] не_новость: [local] UPI — McDonald's must face lawsuit alleging McRib contains no rib meat — Судебная тяжба о составе сэндвича «МакРиб» — курьез, не меняющий правила для всех.
+- [en] не_новость: [local] WDBJ7 — Boones Mill family farm closes doors after decades of business — Закрытие семейной фермы — частное дело бизнеса, не событие для общественности.
+- [en] не_новость: [local] New Jersey 101.5 — Dave's Hot Chicken opens in Somers Point, New Jersey — Открытие новой точки фастфуда — рекламный повод.
+- [en] не_новость: [local] San Antonio Report — Adults with learning disabilities get on-the-job training via coffee truck and p — Очерк о программе обучения для людей с особенностями развития.
+- [en] не_новость: [local] WCTV — Ambulance driver accused of abandoning patient, said he was ‘done driving for th — Инцидент с водителем скорой — частный случай нарушения, не меняющий жизнь города.
+- [en] не_новость: [local] Portland Press Herald — Elias Lindholm’s OT goal lifts Bruins pat Blackhawks — Обычный спортивный счет матча НХЛ.
+- [en] не_новость: [local] Portland Press Herald — Greely volleyball completes storybook season with Class B title — Обычный отчет о победе школьной команды.
+- [en] не_новость: [local] WABI — Veazie mobile home park joins pilot to replace oil furnaces with heat pumps — Установка тепловых насосов в парке — локальный хозяйственный вопрос.
+- [en] не_новость: [local] WHYY — A spotlight on Halloween’s roots in an ancient Celtic holiday grows in the Phila — Разбор корней Хэллоуина — это статья, а не новостное событие.
+- [en] не_новость: [local] WLBT — Ole Miss beats the Auburn Tigers 45-15 in SEC matchup — Обычный спортивный счет матча SEC.
+- [en] не_новость: [pool] BBC Sport — Are De Zerbi's Spurs finding elusive consistency? — Аналитический обзор формы клуба «Тоттенхэм».
+- [en] не_новость: [pool] Forbes — The Final Frontier Of Higher Education — Аналитическая статья о будущем образования.
+- [en] не_новость: [pool] Engadget — Xbox manager says AI is already being used in game development — Обсуждение технологий ИИ — это мнение и рассуждение, а не свершившееся событие.
+- [en] не_новость: [pool] Sky Sports — 'The same s*** situation' - ANGRY Glasner vows to change - or be sacked — Эмоциональное заявление тренера об угрозе увольнения — слова, не событие.
+- [en] не_новость: [pool] Sky Sports — England's Mitchell injured as Northampton, Bath, Saracens, Quins pick up Prem wi — Обычный отчет о травме игрока и результатах матчей.
+- [en] не_новость: [pool] KSFY — GOP Senate candidate Michele Tafoya slams Kristi Noem over Minnesota immigration — Словесная критика одного политика другим — этикет и риторика, не событие.
+- [en] не_новость: [world] Rolling Stone — Deep Purple Postpone Concerts After Singer Ian Gillan’s ‘Medical Emergency’ — Отмена концертов из-за болезни артиста — частное событие, не требующее внимания вне индустрии развлечений.
+- [en] не_новость: [world] Jamaica Observer — Udinese striker Davis eyeing Reggae Boyz spot — Слухи и обсуждения трансфера футболиста — нет факта сделки.
