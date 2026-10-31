@@ -1,79 +1,125 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-10-31 19:17 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-10-31 20:20 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [es]: помечено 97 из 328 за 3 запросов
-  🧭 [es] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 21 в 13 регионах
-  🧭 [es] после чистки текста: всего 69 — местных 28, соседей 14, мира 27; областных 21 в 13 регионах
-  🧭 [es] после обзоров прессы: всего 61 — местных 24, соседей 13, мира 24; областных 5 в 4 регионах
-  🧭 [es] после склейки пересказов: всего 57 — местных 23, соседей 11, мира 23; областных 5 в 4 регионах
-  🧭 [es] после рубежа: всего 49 — местных 18, соседей 11, мира 20; областных 5 в 4 регионах
+  🧪 Этап 1 (боевой) [pt]: помечено 96 из 402 за 4 запросов
+  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 25, соседей 14, мира 31; областных 62 в 20 регионах
+  🧭 [pt] после чистки текста: всего 68 — местных 25, соседей 14, мира 29; областных 62 в 20 регионах
+  🧭 [pt] после обзоров прессы: всего 56 — местных 23, соседей 14, мира 19; областных 49 в 12 регионах
+  🧭 [pt] после склейки пересказов: всего 49 — местных 18, соседей 13, мира 18; областных 49 в 12 регионах
+  🧭 [pt] после рубежа: всего 46 — местных 16, соседей 13, мира 17; областных 47 в 12 регионах
 
-  🗞 Редактор [es] (В ЭФИРЕ): карточек 54, спрошено 33, вторым 0
-     память не сработала: новая 33
-     снято: нет события 9, повтор 1, анонс без сути 1, не для читателя 1
-     починено: текст сокращён до сути 24, фото заменено 5, ложное «срочно» снято 1
-     🎲 Любопытное [es] (в полосу «Интересное»): 4
-       🎲 снято · [La Nación AR] El sorpresivo anuncio de Jessica Lange: “Siento que estoy llegando al final de mi carrera” · https://www.lanacion.com.ar/espectaculos/personajes/el-sorpresivo-anuncio-de-jessica-lange-siento-que-estoy-llegando-al-final-de-mi-carrera-nid31102026/ — интервью, мысли о завершении карьеры
-       🎲 в эфире · [Wired] Un nuevo tipo de whisky francés elaborado en huevos de hormigón · https://www.wired.com/story/theres-a-completely-new-type-of-whisky-its-french-and-made-in-concrete-eggs/
-       🎲 снято · [The Guardian] «¡Liberamos a Patrick Stewart!»: Marina Sirtis sobre cómo logró conectar con su serio coprotagonista de Star T · https://www.theguardian.com/culture/2026/oct/31/patrick-stewart-star-trek-marina-sirtis-picard-shakespearean — интервью, история без события
-       🎲 в эфире · [Ars Technica] Las aves marinas que regresan a casa sobre el océano pueden sufrir jet lag · https://arstechnica.com/science/2026/10/seabirds-racing-home-over-the-ocean-can-get-jet-lagged/
-       ✂️ [El Financiero] ASF detecta que factureras y ‘empresas fantasma’ defraudaron — абзацы 4/9; выбраны факты о хищении и механизм работы
-       ✂️ [El Financiero] México advierte a Texas: La frontera con EU no puede cambiar — абзацы 3/13; суть позиции МИД по спору об островах
-       ✂️ [El Universal MX] FGR designa a Sol Salgado Ambros como fiscal especializada d — абзацы 4/22; назначение, ФИО и краткая справка
-       ✂️ [El Universal MX] Francia vive nueva jornada de protestas este sábado de Hallo — абзацы 4/34; масштаб событий, география и число задержанных
-       ✂️ [El Universal MX] Elecciones en EU: Voto anticipado supera los 51 millones; so — абзацы 4/6; убрал повтор заголовка из текста
-       ✂️ [El Universal MX] Detienen a 246 motociclistas durante Mega Rodada del Terror  — абзацы 5/13; убрал рекламу и лишние ссылки
-       ✂️ [La Jornada] Emite recomendación defensoría de derechos humanos por crime — абзацы 7/8; подробности дела, исключен последний абзац
-       ✂️ [La Jornada] Comparecerá titular de DH de Jalisco por represión a protest — абзацы 7/8; суть требования конгресса, исключен последний абзац
-       ✂️ [Expansión MX] SAT hasta en la tumba: qué pasa con las deudas y los saldos  — абзацы 5/10; добавил фото с документом
-       🖼 [Expansión MX] SAT hasta en la tumba: qué pasa con las deudas y l — фото: №2 вместо №1
-       ✂️ [Expansión MX] Ollamani de Emilio Azcárraga pierde casi 1,000 millones de p — абзацы 5/11; финансовые показатели, исключен последний абзац
-       ✗ повтор: [Expansión MX] Cuota cero IEPS del diésel va por su octava semana consecutiva, mientras sube carga por im — информация уже была в других материалах издания
-       ✂️ [Expansión MX] Recaudación del ISR queda 137,000 millones debajo de lo prog — абзацы 3/5
-       ✗ нет события: [Reforma] Bonanza petrolera... y Pemex ¡en rojo! — аналитический разбор финансовых показателей
-       ✂️ [El Financiero] ¿La maldición dé Moctezuma en el Gran Premio de México 2026? — абзацы 5/18; снял воду, оставил суть
-       ✂️ [El Financiero] CFE busca mil millones de dólares entre inversionistas: ¿A q — абзацы 8/26
-       🖼 [El Financiero] CFE busca mil millones de dólares entre inversioni — фото: №2 вместо №1
-       ✂️ [El Financiero] Muere el bebé de Alfredo Ríos, ‘El Komander’: ‘Dios te recoj — абзацы 5/25; убрал лишние подробности, оставил факт
-       ✂️ [El Financiero] EU no detendrá la importación de ganado de México pese a inc — абзацы 8/15; добавил ключевые факты
-       🖼 [El Financiero] EU no detendrá la importación de ganado de México  — фото: №2 вместо №1
-       ✂️ [eldiario.es] Las vidas que segó la tragedia de Urda — абзацы 4/27; убраны лишние подробности, оставлена суть трагедии
-       ✂️ [Semana CO] Voraz incendio en una vivienda de Santa Marta dejó tres muer — абзацы 3/5; убраны 3, 5 (предыстория и детали расследования)
-       ✂️ [El Nacional VE] México despliega 1.600 militares navales más en Sinaloa ante — абзацы 6/12; убраны 4, 5 (цитаты о планах экономики) и 8, 10
-       ✂️ [El Nacional VE] Gobierno recibió 87 equipos pesados desde China para remover — абзацы 5/6; убран 6 (анонс)
-       ✂️ [El Nacional VE] Diputado Ramón López destacó avances para reformar leyes que — абзацы 7/13; убраны 8 (цитата) и 9, 10
-       ✂️ [Semana CO] Nuevo crimen de guardia del Inpec en Cali: Gobierno De La Es — абзацы 4/5; убран 5 (последний абзац)
-       ✗ нет события: [La Nación AR] El sorpresivo anuncio de Jessica Lange: “Siento que estoy llegando al final de mi carrera” — интервью, мысли о завершении карьеры
-       ✂️ [La Nación AR] Franco Colapinto quedó 12° en los entrenamientos del Gran Pr — абзацы 4/13; выбрал фото с Colapinto; убрал лишний абзац
-       🖼 [La Nación AR] Franco Colapinto quedó 12° en los entrenamientos d — фото: №2 вместо №1
-       ✂️ [La Nación AR] De la joya española a la decadencia: cómo el AVE se convirti — абзацы 4/10; добавлена подпись к фото; убрал лишнее
-       ✗ нет события: [France 24] Residentes de Oleshky, bajo ocupación rusa, se reúnen con sus familias tras una operación  — событие с участием Melania Trump как посредника — фейк/вымысел
-       🔕 [The Independent] La guerra de Vladimir Putin en Ucrania es señalada como la causa de la
-       ✗ нет события: [TechCrunch] Inversiones masivas y presión de resultados: los inversores detrás de las firmas de capita — аналитика/обзор индустрии
-       ✗ нет события: [Variety] Joshua Jackson anticipa «sexo, drogas y rock 'n' roll» en la nueva serie de HBO Max «How t — анонс промо серии
-       ✗ нет события: [Variety] Jack Nicholson ha «desaparecido» de la vida pública pero está «bien», afirma Michael Dougl — светская хроника/слухи
-       ✗ анонс без сути: [NPR News] Una guía sencilla sobre el enorme robo de criptomonedas de 6300 millones de dólares en Bin — список из 5 пунктов, самой сути нет
-       ✗ нет события: [The Guardian] «¡Liberamos a Patrick Stewart!»: Marina Sirtis sobre cómo logró conectar con su serio copr — интервью, история без события
-       ✂️ [El Informador] Policías viales detienen a conductor con licencia falsa en Z — абзацы 3/5; выбраны основные факты, исключены [4, 5]
-       ✗ не для читателя: [60.ru] Oficial del ICE acusado de atropellar a un trabajador en Houston — мелкий криминал США, не мировая
-       ✗ нет события: [Wisconsin Watch] El caso de un detenido por el ICE en Wisconsin llega a la Corte Suprema de EE. UU. — судебный процесс продолжается, нового факта нет
-       🖼 [ngs.ru] Una tostadora de café de Novosibirsk gana un concu — фото: №2 вместо №1
-       ✗ нет события: [60.ru] Una investigación revela cientos de víctimas en la iglesia — заявление о давних событиях без нового повода
-     лента: было 54, снято 10, добрано до полной 23, стало 67; фото: взято у соседа 0, убрано чужих 0
-     💰 редактор: $0.0167
-  🧭 [es] после редактора (в эфир): всего 58 — местных 14, соседей 24, мира 20; областных 1 в 1 регионах
+  🗞 Редактор [pt] (В ЭФИРЕ): карточек 93, спрошено 49, вторым 0
+     память не сработала: новая 46, текст стал короче 2, текст вырос 1
+     снято: нет события 5, повтор 1
+     починено: текст сокращён до сути 60, фото заменено 21
+     🎲 Любопытное [pt] (в полосу «Интересное»): 5
+       🎲 снято · [G1 São Paulo] 30 anos da queda do Fokker 100 da TAM: o que mudou na segurança aérea e nos direitos das vítimas · https://g1.globo.com/sp/sao-paulo/noticia/2026/10/31/30-anos-da-queda-do-fokker-100-da-tam-o-que-mudou-na-seguranca-aerea-e-nos-direitos-das-vitimas.ghtml — давняя история без сегодняшнего повода
+       🎲 в эфире · [Wired] Um novo tipo de uísque: produto francês é elaborado em tanques de concreto · https://www.wired.com/story/theres-a-completely-new-type-of-whisky-its-french-and-made-in-concrete-eggs/
+       🎲 снято · [Time] A guerra é um inferno — e The Mosquito Bowl não nos deixa esquecer disso · https://time.com/article/2026/10/31/the-mosquito-bowl-review/ — рассказ о фильме, события нет
+       🎲 в эфире · [The Guardian] Da corrida do ouro a questões cósmicas: uma mina em Dakota do Sul e a busca pelos segredos do universo · https://www.theguardian.com/science/2026/oct/31/south-dakota-mine-search-secrets-universe-dark-matter-antimatter
+       🎲 в эфире · [Ars Technica] Aves marinhas que cruzam o oceano podem sofrer de jet lag · https://arstechnica.com/science/2026/10/seabirds-racing-home-over-the-ocean-can-get-jet-lagged/
+       ✂️ [Metrópoles] PT convoca ato no DF para comemorar vitória de Lula neste do — абзацы 1/3; убрал повторы и «читайте также»
+       ✂️ [Poder360] Binance diz que já repôs 90% das criptomoedas roubadas — абзацы 3/10; убрал последний абзац и лишние детали
+       ✂️ [G1 Globo] Região Serrana do Rio teve o mês de outubro mais chuvoso des — абзацы 5/7; убрал первый абзац-подпись и последний абзац
+       ✂️ [G1 Globo] Encontro reúne Ferrari, Porsche e outros carros de luxo em J — абзацы 3/4; выбрал суть, убрал подпись фото и последний абзац
+       ✂️ [G1 Globo] Mega-Sena 3079: apostas de Sergipe acertam a quadra; veja ci — абзацы 6/18; убрал хвост
+       ✂️ [G1 Globo] Ex-namorado diz que trabalhou de graça para namorada por 18  — абзацы 5/19; убрал последний абзац
+       ✂️ [Agência Brasil] Aluno é ameaçado de morte no DF por opção política — абзацы 5/11; выбраны абзацы с сутью угрозы и контекстом
+       ✂️ [Agência Brasil] Corinthians encerra jejum com vitória sobre o Mirassol: 2 a  — абзацы 6/9; убраны лишние подробности матча
+       ✂️ [Agência Brasil] Estudantes relatam violência relacionada à eleição presidenc — абзацы 3/4; убрана предыстория, оставлены основные факты насилия
+       ✂️ [Estadão] Davi Alcolumbre pauta votação da PEC da Segurança no Senado  — абзацы 4/7
+       ✂️ [Poder360] Senador propõe dedução de despesas veterinárias no IR — абзацы 4/5; убрано упоминание будущего вступления в силу
+       ✂️ [InfoMoney] Chilli Beans pede recuperação extrajudicial para renegociar  — абзацы 4/8
+       ✂️ [Exame] Morre Solano Ribeiro, produtor dos históricos festivais da M — абзацы 3/4
+       ✗ нет события: [G1 São Paulo] 30 anos da queda do Fokker 100 da TAM: o que mudou na segurança aérea e nos direitos das v — давняя история без сегодняшнего повода
+       ✂️ [BBC Brasil] Petista 'liberal'? Como governador Rafael Fonteles entrou no — абзацы 8/55; отрезал лишнее, выбрал суть
+       ✗ нет события: [Terra BR] Processo contra Lexa e MC Guimê chega ao fim: aberta em 2024 na Justiça, ação envolvia ped — предыстория дела, завершившегося ранее
+       ✂️ [Terra BR] Pedrinho reage à oferta do Consórcio Fla-Flu: "Sei muito bem — абзацы 8/9
+       ✂️ [Observador PT] O mecanismo da Provedoria nos protestos a monitorizar a PSP — абзацы 3/7
+       ✂️ [Observador PT] Contas aprovadas, novo símbolo, queixa contra sócio Proença — абзацы 3/14; убрал рекламу
+       ✂️ [Notícias ao Minuto] PCP e Livre exigem que Governo deixe cair lei das rendas — абзацы 8/14; убрал последний абзац
+       ✂️ [RTP Notícias] I Liga. FC Porto - Estoril — абзацы 1/12
+       ✂️ [RTP Notícias] Ventura pede ao Chega que mostre maturidade perante "ameaças — абзацы 5/7; убрал повтор заголовка и последний абзац
+       ✂️ [ECO] Mais de mil pessoas no Largo de Camões a caminho do Rossio p — абзацы 1/12; текст короткий, взят целиком
+       ✂️ [ECO] Carneiro diz-se solidário com manifestantes e disponível par — абзацы 1/14; текст короткий, взят целиком
+       ✗ нет события: [Time] A guerra é um inferno — e The Mosquito Bowl não nos deixa esquecer disso — рассказ о фильме, события нет
+       ✗ нет события: [The Guardian] ‘Nós libertamos Patrick Stewart!’ Marina Sirtis, de Star Trek, sobre como descontraiu seu  — интервью/воспоминания, события нет
+       ✂️ [G1 Pernambuco] VÍDEO: Lancha pega fogo e explode perto de píer em praia de  — абзацы 4/6; инцидент на воде, жизн. важно для региона
+       🖼 [G1 Pernambuco] VÍDEO: Lancha pega fogo e explode perto de píer em — фото: №3 вместо №1
+       ✂️ [G1 Rio] Investigado por mais de 20 mortes: quem é Colete, traficante — абзацы 4/5; убрал абзац с досье, выбрал фото с места
+       🖼 [G1 Rio] Investigado por mais de 20 mortes: quem é Colete,  — фото: №2 вместо №1
+       ✂️ [G1 Ceará] Colisão entre micro-ônibus e poste deixa feridos e atinge re — абзацы 5/8
+       🖼 [G1 Ceará] Colisão entre micro-ônibus e poste deixa feridos e — фото: №2 вместо №1
+       ✂️ [G1 Bahia] Condutor morre após ser arremessado de carro que capotou em  — абзацы 3/5
+       ✂️ [G1 Santa Catarina] Casal sai para pescar e homem é encontrado morto na Grande F — абзацы 4/10
+       🖼 [G1 Santa Catarina] Casal sai para pescar e homem é encontrado morto n — фото: №3 вместо №1
+       ✂️ [G1 Distrito Federal] Jovem de 18 anos é baleada e morre no DF; três adolescentes  — абзацы 6/9
+       ✂️ [G1 Rio Grande do Sul] Seis meses após queda de avião que deixou 4 mortos no RS, re — абзацы 7/25; снят последний абзац
+       ✗ нет события: [Gazeta do Povo] Resumo da semana: O que Trump vai cobrar de Lula no encontro em Miami — аналитический обзор недели
+       ✂️ [G1 Bahia] Soldado da PM morre após acidente com motocicleta na Bahia — абзацы 4/5; убрана подпись фото в первом абзаце и последний абзац
+       🖼 [60.ru] Oficial do ICE é acusado de atropelar trabalhador  — фото: №2 вместо №1
+       ✂️ [G1 Rio] Traficante Colete e outros 4 são presos após madrugada de ti — абзацы 3/19
+       🖼 [G1 Rio] Traficante Colete e outros 4 são presos após madru — фото: №2 вместо №1
+       ✂️ [G1 Ceará] Polícia flagra assalto a posto de combustíveis, atira e pren — абзацы 4/11
+       🖼 [G1 Ceará] Polícia flagra assalto a posto de combustíveis, at — фото: №2 вместо №1
+       ✂️ [G1 Santa Catarina] Segurança é morto a tiros pelo pai de jovem agredido durante — абзацы 6/11; выбраны факты события, убран мусор (подписи, ссылки, повторы)
+       ✂️ [G1 Distrito Federal] Após críticas de aliados, Michelle diz que Bolsonaro pediu p — абзацы 6/18
+       ✂️ [G1 Rio Grande do Sul] Denúncia aponta falhas em operação que terminou com morte de — абзацы 4/15; отбрасываю воду и повторы обвинений
+       ✂️ [Gazeta do Povo] A estratégia de Flávio para sair do Brasil: veículos de apoi — абзацы 6/23
+       ✂️ [G1 Minas] MG registrou 467 acidentes ligados ao uso de celular ao vola — абзацы 5/12; выбраны абзацы с сутью, снят последний
+       ✂️ [G1 São Paulo] Metrô de SP encerra uso de bilhete magnético após mais de 50 — абзацы 3/24; взят другой снимок, старый уже был использован
+       🖼 [G1 São Paulo] Metrô de SP encerra uso de bilhete magnético após  — фото: №2 вместо №1
+       ✂️ [G1 Pernambuco] Professora agredida pelo ex e encontrada desacordada pelos f — абзацы 6/40; выбраны факты о смерти и расследовании
+       ✂️ [G1 Rio] Meningocócica ACWY: último dia da campanha no Rio tem filas  — абзацы 4/23
+       🖼 [G1 Rio] Meningocócica ACWY: último dia da campanha no Rio  — фото: №3 вместо №1
+       ✂️ [G1 Ceará] Trio especializado em arrombamento de cofres e caixas eletrô — абзацы 4/15; убран лишний текст и подписи
+       🖼 [G1 Ceará] Trio especializado em arrombamento de cofres e cai — фото: №2 вместо №1
+       ✂️ [G1 Santa Catarina] Câmeras corporais da PMSC: Justiça suspende volta imediata d — абзацы 3/23; суть решения суда
+       ✂️ [G1 Distrito Federal] Diretora do Serviço de Limpeza Urbana do DF deixa o cargo ap — абзацы 4/12; отставка директора
+       ✂️ [Gazeta do Povo] Kassab cobra medidas econômicas para PSD ter “relação profun — абзацы 7/12
+       ✂️ [G1 São Paulo] Porsche: namorada de condenado por morte de motorista é mult — абзацы 4/43
+       🖼 [G1 São Paulo] Porsche: namorada de condenado por morte de motori — фото: №2 вместо №1
+       ✂️ [G1 Rio] Rodrigo Bacellar será transferido de presídio federal para o — абзацы 3/11
+       🖼 [G1 Rio] Rodrigo Bacellar será transferido de presídio fede — фото: №2 вместо №1
+       ✂️ [G1 Ceará] Justiça manda reintegrar 22 funcionários demitidos por motiv — абзацы 3/11
+       🖼 [G1 Ceará] Justiça manda reintegrar 22 funcionários demitidos — фото: №2 вместо №1
+       ✂️ [G1 Santa Catarina] Prefeito da 'capital da telha' é afastado do cargo por 180 d — абзацы 3/20
+       🖼 [G1 Santa Catarina] Prefeito da 'capital da telha' é afastado do cargo — фото: №2 вместо №1
+       ✂️ [Gazeta do Povo] Polícia Federal deixa ministros do STF fora de indiciamentos — абзацы 1/10
+       ✂️ [G1 São Paulo] Jockey faz acordo com Prefeitura de SP, ganha desconto de R$ — абзацы 4/22; сменил снимок из-за повтора
+       🖼 [G1 São Paulo] Jockey faz acordo com Prefeitura de SP, ganha desc — фото: №2 вместо №1
+       🖼 [60.ru] Investigação revela centenas de vítimas em igreja — фото: №2 вместо №1
+       ✂️ [G1 Rio] RJ registra 211 casos de Mpox em 2026, supera total de 2025  — абзацы 4/20; снят хвост, выбрано фото без лишнего текста
+       ✂️ [G1 Ceará] Justiça absolve coronel aposentado da PM acusado de estuprar — абзацы 1/6
+       ✗ повтор: [G1 São Paulo] Procon-SP cobra explicações de ateliê que fechou as portas após deixar cerca de 300 noivas — повтор события
+       ✂️ [G1 Rio] Homem morre e outro fica ferido em ataque a bar na Taquara — абзацы 4/8; убрана подпись под фото
+       ✂️ [G1 São Paulo] VÍDEO: imagens aéreas mostram estádio Morumbis tomado por fã — абзацы 6/46
+       🖼 [G1 São Paulo] VÍDEO: imagens aéreas mostram estádio Morumbis tom — фото: №2 вместо №1
+       ✂️ [G1 Rio] Em processo sobre megaoperação, MPRJ pede condenação de 15 e — абзацы 3/8; первые 3 абзаца содержат суть
+       🖼 [G1 Rio] 'Quer morrer logo?': vídeo em celular de segurança — фото: №2 вместо №1
+       🖼 [G1 Rio] 'Quer morrer logo?': vídeo em celular de segurança — фото №1 дублирует связанный материал
+       ✂️ [G1 São Paulo] Obra contratada sem licitação pela Prefeitura de SP tem indí — абзацы 8/30; убраны подписи к фото, выбран снимок с подписью
+       🖼 [G1 Rio] Mãe tentou convencer o filho a se entregar, encont — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Mulher leva choque elétrico e fica inconsciente após fio de  — абзацы 8/12; убран 1-й абзац (повтор заголовка и подпись)
+       ✂️ [G1 Rio] Festival Carioca Matsuri reúne gastronomia, cosplay, shows e — абзацы 3/37
+       ✂️ [G1 São Paulo] PM encontra R$ 100 mil em carro de luxo sem placa de Toguro; — абзацы 7/13
+       🖼 [G1 São Paulo] PM encontra R$ 100 mil em carro de luxo sem placa  — фото: №2 вместо №1
+       ✂️ [G1 Rio] Instrumentos tocando sozinhos, aparições, fumaça misteriosa: — абзацы 3/24; выбраны факты о визитах, исключены слухи
+     лента: было 93, снято 5, добрано до полной 27, стало 115; фото: взято у соседа 0, убрано чужих 0
+     💰 редактор: $0.0205
+  🧭 [pt] после редактора (в эфир): всего 67 — местных 16, соседей 13, мира 38; областных 42 в 10 регионах
 
-💰 Расход по этапам: всего $0.0673
-     спасение текста: $0.0226 (34%), запросов 12
-     редактор: $0.0167 (25%), запросов 11
-     отбор (этап 2): $0.0075 (11%), запросов 3
-     перевод: $0.0051 (8%), запросов 5
-     отсев (этап 1): $0.0043 (6%), запросов 3
-     мировые сюжеты: $0.0027 (4%), запросов 1
-     прочее: $0.0025 (4%), запросов 1
-     снимки происшествий: $0.0024 (3%), запросов 8
-     склейка пересказов: $0.0019 (3%), запросов 1
-     обзоры прессы: $0.0017 (3%), запросов 1
+💰 Расход по этапам: всего $0.0792
+     спасение текста: $0.0264 (33%), запросов 13
+     редактор: $0.0177 (22%), запросов 13
+     отбор (этап 2): $0.0092 (12%), запросов 4
+     перевод: $0.0073 (9%), запросов 6
+     отсев (этап 1): $0.0052 (7%), запросов 4
+     прочее: $0.0035 (4%), запросов 2
+     склейка пересказов: $0.0031 (4%), запросов 1
+     мировые сюжеты: $0.0027 (3%), запросов 1
+     снимки происшествий: $0.0023 (3%), запросов 8
+     обзоры прессы: $0.0018 (2%), запросов 1
 ```
