@@ -1,41 +1,17 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] Exame — BTS no Brasil: o que esperar do último show em SP, neste sábado, 31? — новость о концерте BTS не является событием для приложения
-- [pt] не_новость: [local] Exame — Eles começaram ganhando comida grátis. — история успеха бизнеса без конкретного новостного повода
-- [pt] курьёз: [local] Poder360 — Dieta à base de vegetais contribui para perda de peso, diz estudo — обычная заметка о диете, нет события
-- [pt] не_новость: [local] Metrópoles — Petista propõe declarar Flávio Bolsonaro “persona non grata” em São Paulo — законодательная инициатива (предложение), не принятое решение
-- [pt] не_новость: [local] G1 Rio — Mãe tentou convencer o filho a se entregar, encontrou-o morto e hoje acolhe famí — очерк о жизни матери, а не новостное событие
-- [pt] не_новость: [local] G1 São Paulo — 30 anos da queda do Fokker 100 da TAM: o que mudou na segurança aérea e nos dire — ретроспективный разбор к 30-летию события
-- [pt] курьёз: [local] G1 Rio — Instrumentos tocando sozinhos, aparições, fumaça misteriosa: funcionários do The — истории о призраках не являются новостным событием
-- [pt] не_новость: [local] Agência Brasil — Família denuncia agressão a Marielle em grupo de WhatsApp da PUC-Rio — реакция на пост в соцсетях без институционального последствия
-- [pt] не_новость: [local] Agência Brasil — Terceira edição do CNU pode ter até 3 mil vagas — прогноз или план на 2027 год, не свершившееся событие
-- [pt] не_новость: [local] G1 Rio — Lojistas do Rio estimam alta de 3% nas vendas para o Halloween — прогноз продаж ритейлеров — это анализ, а не событие
-- [pt] полка: [local] Agência Brasil — Caseiro explorado e usado como laranja no DF receberá pensão mensal — местная новость лежит в ленте «Местные», но по важности это частный случай, не требующий побудки
-- [pt] срочность: [local] G1 Minas — Aluno usa spray de pimenta durante festa de Halloween em escola de Contagem — мелкий инцидент со школьником не требует срочной метки
-- [pt] не_новость: [local] G1 Santa Catarina — Câmeras corporais da PMSC: Justiça suspende volta imediata do programa e congela — юридическая процедура (замораживание штрафов) не является завершенным событием
-- [pt] не_новость: [pool] BBC Brasil — Médicos são acusados de perseguir colegas e sugerir boicote a pacientes por posi — интервью/жалоба о дискриминации, не событие по списку
-- [pt] не_новость: [pool] BBC Brasil — Petista 'liberal'? Como governador Rafael Fonteles entrou no radar de Lula para  — портрет политика/аналитика, не новость
-- [pt] не_новость: [pool] Téla Nón — Onda de assaltos inquieta população da ilha do Príncipe — жалоба на «климат обеспокоенности» без конкретных фактов преступлений
-- [pt] чужое_мелкое: [world] The Independent — Trump ataca um manifestante durante comício na Flórida: 'Cale a boca, seu idiota — внутренний конфликт политика с манифестантом в США — шум для бразильца
-- [pt] курьёз: [world] Fortune — CEO da Ben & Jerry's: a democracia está em jogo e as empresas precisam se posici — мнение CEO компании не является новостным событием
-- [pt] повтор: [world] Axios — Como a Coreia do Norte aperfeiçoou os roubos de criptomoedas ≈ «Binance é atingida por roubo de 6,3 bilh» — тот же сюжет про взлом Binance, что и в №64
-- [pt] курьёз: [world] Superinteressante — Corvos tomam decisões duas vezes mais rápido que humanos e macacos, mostra estud — научное исследование о воронах — типичное «Интересное»
-- [pt] не_новость: [world] Variety — Veterano do 'Pink Film', Zeze Takahisa defende histórias originais em masterclas — анонс или описание мастер-класса в кино
-- [pt] не_новость: [world] TechCrunch — Aportes, pagamentos e pressão por ritmo: os investidores por trás das VCs revela — анализ рыночных настроений инвесторов, нет события
-- [pt] чужое_мелкое: [world] Semafor — Líder da maioria no Senado Chuck Schumer se prepara para embate com Trump sobre  — партийная подготовка сенатора в США — внутренняя политика, нет внешних последствий
-- [fr] срочность: [local] Franceinfo — Une lettre au contenu raciste contenant une poudre blanche a été adressée au mai — Письмо с угрозами — криминальный инцидент, а не событие, требующее немедленного оповещения читателя.
-- [fr] срочность: [local] Le Figaro — Manifestation du 31 octobre : le Conseil d'État annule la décision du tribunal a — Решение суда по маршруту манифестации — рутина, не требующая побудки читателя.
-- [fr] полка: [local] Le Figaro — Manifestation du 31 octobre : ces villes où un couvre-feu est décrété ce week-en — Информация о комендантском чате — местная новость, должна быть на полке «Местные».
-- [fr] срочность: [local] Franceinfo — "Clermont-Ferrand est en deuil" : trois corps découverts dans les décombres d'un — Обнаружение тел после пожара — трагедия, но не событие, требующее статуса срочного (произошло вчера/накануне).
-- [fr] не_новость: [local] Sud Ouest — Intelligence artificielle : les géants de la tech promettent un bouton unique po — Это анонс или обсуждение инициативы, а не свершившийся факт внедрения.
-- [fr] не_новость: [local] 20 Minutes — « Pas envie de perdre une main » : Comment la peur de manifester s’est lentement — Это социологический очерк/мнение, а не новостное событие.
-- [fr] курьёз: [local] 20 Minutes — Toussaint : « J’aime être seule »… Sylvie, 70 ans, est l’une des dernières grave — История о граверше — это очерк, место в «Интересном».
-- [fr] полка: [local] La Dépêche — "Quatre enfants vivent sous l’emprise de papa" : un adolescent de 16 ans parle d — Местный судебный процесс должен быть на полке «Местные».
-- [fr] не_новость: [local] Le Figaro — «Ils auraient volé n’importe quoi» : 25 commerçants de toute la France racontent — Это подборка свидетельств пострадавших, а не отчет о событии.
-- [fr] не_новость: [pool] La Presse TN — Fiscalité : la Direction Générale des Impôts dévoile le calendrier des déclarati — Публикация налогового календаря — это плановое объявление, не новость.
-- [fr] не_новость: [pool] Radio-Canada — Croissance à zéro au Québec : « C’est moche! » — Комментарий/аналитика о нулевом росте — не является событием.
-- [fr] не_новость: [pool] Le Devoir — Soraya Martinez Ferrada et le défi de piloter le paquebot montréalais — Портрет политика, а не описание события.
-- [fr] не_новость: [world] Courrier International — Midterms : Trump et les républicains dans une situation “encore plus difficile”  — Аналитика/мнение о ситуации на выборах, а не новость.
-- [fr] повтор: [world] La Libre — Les géants de l'IA font une promesse ≈ «Intelligence artificielle : les géants d» — Дублирует содержание новости про технологических гигантов.
-- [fr] не_новость: [world] 20 Minutes — Guerre en Ukraine : Kiev reprend ses tirs sur les raffineries russes et une « ph — Это «дайджест»/сводка, а не единое новостное событие.
-- [fr] повтор: [world] BBC Mundo — Le piratage de Binance affecte 6,3 milliards de dollars en actifs numériques dan ≈ «« La cryptomonnaie n’est pas un gage de » — Дублирует сюжет о взломе Binance.
+- [ru] полка: [local] Kabar.kg — Тоо жана тузсуз суу экосистемасы: Кыргызстан Ереван платформасын колдоду — Событие в Армении (AM) должно быть в «Новости из...», а не в «Местных» (KG).
+- [ru] курьёз: [local] 24.kg — 5,03 триллиона долларов. Apple вернула себе статус самой дорогой компании мира — Изменение капитализации Apple — мировая новость, не местная. Нет события для Кыргызстана.
+- [ru] чужое_мелкое: [local] 24.kg — В России поддельный диплом лишил кыргызстанку шансов на получение гражданства — Частная история гражданки в РФ не является значимой новостью для ленты Кыргызстана.
+- [ru] полка: [local] Knews.kg — Эрназар Акматалиев вышел в финал чемпионата мира — Событие в Казахстане (KZ) должно быть в «Новости из...», а не в «Местных» (KG).
+- [ru] повтор: [local] Knews.kg — Две вороны прошли классический психологический тест. ≈ «Исследование показало, что вороны приним» — Дублирует тематику и суть эксперимента с воронами.
+- [ru] полка: [local] Kabar.kg — Жакынкы Чыгышта кырдаал курчуса мунайдын баасы дагы көтөрүлүшү мүмкүн — Событие в Ираке (IQ) — мировая аналитика, не местная.
+- [ru] полка: [pool] Kaktus.media — В "Шереметьево" массово задерживают рейсы после атаки беспилотников на Москву (в — Событие в РФ — мировая новость (атака БПЛА на столицу), не должна быть в «Новости из...» (местные/региональные).
+- [ru] повтор: [pool] 71.ru — Тула — Были взрывы: подробности о ночной атаке БПЛА в Тульской области ≈ «В "Шереметьево" массово задерживают рейс» — Дублирует сюжет про атаку беспилотников.
+- [ru] чужое_мелкое: [world] 178.ru — Санкт-Петербург — Собчак и Богомолову закрыли въезд в Латвию — Частный запрет на въезд в Латвию персонам не является важным событием для читателя в Кыргызстане.
+- [ru] повтор: [world] 71.ru — Тула — И украинские, и из НАТО. 9 ракет сбила ПВО над Россией за неделю — они могли уда ≈ «Были взрывы: подробности о ночной атаке » — Повтор темы атак БПЛА.
+- [ru] чужое_мелкое: [world] Knews.kg — Президент Польши обвинил правительство в «силовом захвате» Конституционного триб — Внутренняя политика Польши без последствий за пределами страны.
+- [ru] повтор: [world] BBC Русская служба — Что происходит в Польше: «государственный переворот» или «восстановление верхове ≈ «Президент Польши обвинил правительство в» — Тот же политический конфликт в Польше.
+- [ru] не_новость: [world] BBC Русская служба — Папа римский Лев XIV проголосовал на промежуточных выборах в Конгресс США — Папа Римский по имени Лев XIV не существует (ныне Франциск), новость является фейком или ошибкой.
+- [ru] чужое_мелкое: [world] 60.ru — Псков — Офицер ICE обвинён в наезде на рабочего в Хьюстоне — Мелкое происшествие с офицером в США не является мировой новостью.
+- [ru] чужое_мелкое: [world] Semafor — Шумер готовится к борьбе с Трампом по поводу результатов выборов — Внутренняя предвыборная риторика в США не является мировым событием.
