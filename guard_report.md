@@ -1,27 +1,24 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] NY Post — NYPD K9 back on duty to honor detective handler who died after retiring — К-9 вернулась на службу в честь умершего хозяина — это очерковая история, а не событие.
-- [en] курьёз: [local] WTOP — ‘One man’s greed and ego’: Golfer suing Trump blasts East Potomac Park plans — Протест против планов Трампа — это не новость с последствиями, а эпизод.
-- [en] не_новость: [local] 1011NOW — Southeast Community College and the University of Nebraska–Lincoln launch On Cou — Запуск партнерской программы между вузами — плановое событие, не имеет остроты или массовых последствий.
-- [en] не_новость: [local] WIBW — Holton sweeps Silver Lake to win 3A state volleyball championship — Обычный спортивный отчет о победе в штате, не имеет значения за пределами локальной лиги.
-- [en] не_новость: [local] WV MetroNews — Marshall Marathon set for Sunday — Анонс планового ежегодного марафона.
-- [en] не_новость: [local] WSFA — Huntingdon storms back in second half to knock off LaGrange 15-11 — Обычный отчет о матче студенческой лиги.
-- [en] не_новость: [local] WDAM — Two Marion County ministries host brunch honoring cancer survivors — Благотворительный бранч — это местное мероприятие, не имеющее значимых последствий.
-- [en] не_новость: [local] UPI — McDonald's must face lawsuit alleging McRib contains no rib meat — Судебная тяжба о составе сэндвича «МакРиб» — курьез, не меняющий правила для всех.
-- [en] не_новость: [local] WDBJ7 — Boones Mill family farm closes doors after decades of business — Закрытие семейной фермы — частное дело бизнеса, не событие для общественности.
-- [en] не_новость: [local] New Jersey 101.5 — Dave's Hot Chicken opens in Somers Point, New Jersey — Открытие новой точки фастфуда — рекламный повод.
-- [en] не_новость: [local] San Antonio Report — Adults with learning disabilities get on-the-job training via coffee truck and p — Очерк о программе обучения для людей с особенностями развития.
-- [en] не_новость: [local] WCTV — Ambulance driver accused of abandoning patient, said he was ‘done driving for th — Инцидент с водителем скорой — частный случай нарушения, не меняющий жизнь города.
-- [en] не_новость: [local] Portland Press Herald — Elias Lindholm’s OT goal lifts Bruins pat Blackhawks — Обычный спортивный счет матча НХЛ.
-- [en] не_новость: [local] Portland Press Herald — Greely volleyball completes storybook season with Class B title — Обычный отчет о победе школьной команды.
-- [en] не_новость: [local] WABI — Veazie mobile home park joins pilot to replace oil furnaces with heat pumps — Установка тепловых насосов в парке — локальный хозяйственный вопрос.
-- [en] не_новость: [local] WHYY — A spotlight on Halloween’s roots in an ancient Celtic holiday grows in the Phila — Разбор корней Хэллоуина — это статья, а не новостное событие.
-- [en] не_новость: [local] WLBT — Ole Miss beats the Auburn Tigers 45-15 in SEC matchup — Обычный спортивный счет матча SEC.
-- [en] не_новость: [pool] BBC Sport — Are De Zerbi's Spurs finding elusive consistency? — Аналитический обзор формы клуба «Тоттенхэм».
-- [en] не_новость: [pool] Forbes — The Final Frontier Of Higher Education — Аналитическая статья о будущем образования.
-- [en] не_новость: [pool] Engadget — Xbox manager says AI is already being used in game development — Обсуждение технологий ИИ — это мнение и рассуждение, а не свершившееся событие.
-- [en] не_новость: [pool] Sky Sports — 'The same s*** situation' - ANGRY Glasner vows to change - or be sacked — Эмоциональное заявление тренера об угрозе увольнения — слова, не событие.
-- [en] не_новость: [pool] Sky Sports — England's Mitchell injured as Northampton, Bath, Saracens, Quins pick up Prem wi — Обычный отчет о травме игрока и результатах матчей.
-- [en] не_новость: [pool] KSFY — GOP Senate candidate Michele Tafoya slams Kristi Noem over Minnesota immigration — Словесная критика одного политика другим — этикет и риторика, не событие.
-- [en] не_новость: [world] Rolling Stone — Deep Purple Postpone Concerts After Singer Ian Gillan’s ‘Medical Emergency’ — Отмена концертов из-за болезни артиста — частное событие, не требующее внимания вне индустрии развлечений.
-- [en] не_новость: [world] Jamaica Observer — Udinese striker Davis eyeing Reggae Boyz spot — Слухи и обсуждения трансфера футболиста — нет факта сделки.
+- [es] курьёз: [local] El Universal MX — Mía Rubín "borra" las fotos que tenía con su novio Tarik Othón; aclara qué pasó  — сплетни о личной жизни знаменитости не являются новостью.
+- [es] чужое_мелкое: [local] El Financiero — China acusa a EU de ‘alimentar’ al narco: ‘Armas y dinero agravan la violencia e — дипломатические перепалки между Китаем и США — внутренняя мировая повестка, не касающаяся Мексики напрямую.
+- [es] не_новость: [local] El Sol de México — Deep Purple cancela shows por hospitalización del vocalista Ian Gillan — отмена концертов из-за болезни — личное дело артиста, не событие для ленты.
+- [es] не_новость: [local] La Jornada — “No hay claridad” sobre el futuro de Usicamm, reprochan maestros — жалобы учителей без конкретного решения или изменения — это обсуждение.
+- [es] полка: [pool] Semana CO — Vapuleada del Barcelona al Alavés mueve la tabla de posiciones en España: presió — испанский футбол не является региональной новостью для Мексики (испанский язык — это не пул стран одного региона).
+- [es] полка: [pool] Marca — "Nuestra reacción tras las derrotas ha sido buena" — испанский футбол не является региональной новостью для Мексики.
+- [es] срочность: [pool] Infobae — Tragedia en Mendoza: murió una niña de 2 años tras ser hallada con la cabeza sum — трагическое происшествие без широких последствий не должно «будить» читателя.
+- [es] курьёз: [pool] La Nación AR — Mientras Lali se casaba en San Telmo, la China Suárez organizó una fiesta de Hal — светская хроника (вечеринка в Хэллоуин) не является событием.
+- [es] полка: [pool] Marca — El Alonso más roto: "La frustración es indescriptible" — спортивная неудача атлета не является региональной новостью для Мексики.
+- [es] курьёз: [pool] La Nación AR — El refugio secreto a 445 kilómetros de Buenos Aires que nació sin nombre y hoy e — туристический обзор места для отдыха.
+- [es] полка: [pool] Marca — En el Aston Martin de Alonso todos los días son Halloween — спортивная колонка не является региональной новостью.
+- [es] полка: [pool] El Universal MX — Museo Nacional de Colombia reinstala 63 piezas retiradas por el Gobierno; obras  — культурное событие в Колумбии — мировая новость, не региональная (Колумбия вне пула Латинской Америки в данной логике).
+- [es] не_новость: [pool] BBC Mundo — "Yo no pinto gordas": qué hay detrás del estilo único del célebre artista colomb — биографический очерк об артисте.
+- [es] курьёз: [world] Variety — El drama asiático 'Jani Be Good' explora el silencio y la maternidad en una fami — анонс драматического фильма.
+- [es] повтор: [world] La Nación CR — El Barcelona impone su ritmo y sella una goleada ≈ «Vapuleada del Barcelona al Alavés mueve » — повтор сюжета о победе Барселоны.
+- [es] чужое_мелкое: [world] The Independent — La policía de París dispara gases lacrimógenos mientras más de 300.000 personas  — очередная протестная акция в Париже без особых последствий — мировой шум.
+- [es] чужое_мелкое: [world] Expansión MX — Miles de personas salen a las calles disfrazadas de Halloween para protestar con — повтор протестов во Франции, поданных через призму Хэллоуина.
+- [es] курьёз: [world] BBC Mundo — "Nos fuimos de vacaciones con nuestros vecinos e intercambiamos las familias: es — личная история из жизни соседей.
+- [es] курьёз: [world] The Guardian — «¡Liberamos a Patrick Stewart!»: Marina Sirtis sobre cómo logró conectar con su  — воспоминания актера о съемках.
+- [es] курьёз: [world] Ars Technica — Las aves marinas que regresan a casa sobre el océano pueden sufrir jet lag — биологическое исследование без последствий для читателя.
+- [es] курьёз: [world] Wired — Un nuevo tipo de whisky francés elaborado en huevos de hormigón — описание способа производства виски.
+- [es] не_новость: [world] BBC Mundo — La historia de cómo una sobreviviente de agresión sexual del siglo XV buscó just — исторический очерк, не является актуальной новостью.
