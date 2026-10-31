@@ -1,17 +1,26 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] полка: [local] Kabar.kg — Тоо жана тузсуз суу экосистемасы: Кыргызстан Ереван платформасын колдоду — Событие в Армении (AM) должно быть в «Новости из...», а не в «Местных» (KG).
-- [ru] курьёз: [local] 24.kg — 5,03 триллиона долларов. Apple вернула себе статус самой дорогой компании мира — Изменение капитализации Apple — мировая новость, не местная. Нет события для Кыргызстана.
-- [ru] чужое_мелкое: [local] 24.kg — В России поддельный диплом лишил кыргызстанку шансов на получение гражданства — Частная история гражданки в РФ не является значимой новостью для ленты Кыргызстана.
-- [ru] полка: [local] Knews.kg — Эрназар Акматалиев вышел в финал чемпионата мира — Событие в Казахстане (KZ) должно быть в «Новости из...», а не в «Местных» (KG).
-- [ru] повтор: [local] Knews.kg — Две вороны прошли классический психологический тест. ≈ «Исследование показало, что вороны приним» — Дублирует тематику и суть эксперимента с воронами.
-- [ru] полка: [local] Kabar.kg — Жакынкы Чыгышта кырдаал курчуса мунайдын баасы дагы көтөрүлүшү мүмкүн — Событие в Ираке (IQ) — мировая аналитика, не местная.
-- [ru] полка: [pool] Kaktus.media — В "Шереметьево" массово задерживают рейсы после атаки беспилотников на Москву (в — Событие в РФ — мировая новость (атака БПЛА на столицу), не должна быть в «Новости из...» (местные/региональные).
-- [ru] повтор: [pool] 71.ru — Тула — Были взрывы: подробности о ночной атаке БПЛА в Тульской области ≈ «В "Шереметьево" массово задерживают рейс» — Дублирует сюжет про атаку беспилотников.
-- [ru] чужое_мелкое: [world] 178.ru — Санкт-Петербург — Собчак и Богомолову закрыли въезд в Латвию — Частный запрет на въезд в Латвию персонам не является важным событием для читателя в Кыргызстане.
-- [ru] повтор: [world] 71.ru — Тула — И украинские, и из НАТО. 9 ракет сбила ПВО над Россией за неделю — они могли уда ≈ «Были взрывы: подробности о ночной атаке » — Повтор темы атак БПЛА.
-- [ru] чужое_мелкое: [world] Knews.kg — Президент Польши обвинил правительство в «силовом захвате» Конституционного триб — Внутренняя политика Польши без последствий за пределами страны.
-- [ru] повтор: [world] BBC Русская служба — Что происходит в Польше: «государственный переворот» или «восстановление верхове ≈ «Президент Польши обвинил правительство в» — Тот же политический конфликт в Польше.
-- [ru] не_новость: [world] BBC Русская служба — Папа римский Лев XIV проголосовал на промежуточных выборах в Конгресс США — Папа Римский по имени Лев XIV не существует (ныне Франциск), новость является фейком или ошибкой.
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Офицер ICE обвинён в наезде на рабочего в Хьюстоне — Мелкое происшествие с офицером в США не является мировой новостью.
-- [ru] чужое_мелкое: [world] Semafor — Шумер готовится к борьбе с Трампом по поводу результатов выборов — Внутренняя предвыборная риторика в США не является мировым событием.
+- [en] курьёз: [local] NY Post — Holocaust survivor, 95, delivers defiant message to Hitler after winning Emmy fo — История об Эмми — это личный очерк, не новостное событие.
+- [en] не_новость: [local] Georgia Public Broadcasting — Oil company earnings skyrocket — again — Отчет о прибылях корпораций — это бизнес-аналитика, а не событие.
+- [en] не_новость: [local] masslive.com — Cambridge's Lizard Lounge to close after nearly 30 years — Закрытие заведения после 30 лет — это не событие с последствиями, а лайфстайл-новость.
+- [en] не_новость: [local] CBS News — Pope meets Villanova and Notre Dame basketball teams at the Vatican — Визит спортивных команд к Папе — светская хроника, не событие.
+- [en] курьёз: [local] Cleveland.com — Rock star with just 2-to-3 years to live gets married. Here’s what we know — Личная история музыканта — это «интересное», а не новость.
+- [en] не_новость: [local] 11Alive — Once Upon a Farm recalls bars over potentially fatal choking hazard for toddlers — Отзыв товара — это рутина ритейла, не новость, если нет массового ЧП.
+- [en] не_новость: [local] The Salt Lake Tribune — This historic Sugar House home’s reinvention as a record store began with a kiss — История о том, как пара познакомилась — не новость.
+- [en] не_новость: [local] WRDW — First Alert Forecast: Staying dry for Halloween, a few showers possible Sunday — Прогноз погоды — не событие.
+- [en] не_новость: [pool] BBC Sport — Carragher apologises to Villa for 'wrong' language — Извинения футболиста — это спортивная светская хроника, не новость.
+- [en] не_новость: [pool] Variety — Sanjay Gupta, Indian Director of ‘Kaante’ and ‘Zinda,’ Dies at 59 — Смерть режиссера — это биография/некролог, не новостное событие.
+- [en] не_новость: [pool] Guardian Sport — He was one of the NFL’s most feared runners. — Воспоминания о спортивной карьере игрока — очерк, не новость.
+- [en] не_новость: [pool] RTÉ Ireland — Funeral of musician Dónal Lunny takes place in Kildare — Похороны музыканта — не новость.
+- [en] не_новость: [pool] Guardian Sport — Fiesta awaits in Mexico City as Kimi Antonelli speeds towards F1 history — Анонс предстоящей гонки и ожидания фанатов — не событие.
+- [en] не_новость: [pool] WFPL — Longtime KET CEO and executive director dies — Смерть руководителя образовательного телеканала — частный случай, не событие.
+- [en] не_новость: [world] Time — Americans Lost Nearly $18 Billion Last Year to Cyberscams. Is Washington Doing E — Риторический вопрос о работе агентств — это аналитика/мнение.
+- [en] не_новость: [world] Fortune — EqualAI CEO: Your AI assistant is acting in your name. Who signed off? — Рассуждения о будущем AI — это экспертная колонка, не событие.
+- [en] не_новость: [world] Fortune — The ex-CEO of the agency behind ‘Jerry Maguire’ says NIL is still the Wild West— — Мнение эксперта о студенческом спорте — это разбор/аналитика.
+- [en] не_новость: [world] BBC Sport — Briton Dart reaches first WTA Tour singles final — Победа в полуфинале — рядовое спортивное событие, не «срочно».
+- [en] курьёз: [world] Ars Technica — Seabirds racing home over the ocean can get jet-lagged — Факт о «джетлаге» у птиц — типичное «интересное».
+- [en] не_новость: [world] Guardian Sport — Hyrox athlete who soiled herself puts ‘confronting’ matter behind her to win ret — Возвращение атлета после курьезного случая — не новость.
+- [en] не_новость: [world] TechCrunch — Pile-ins, payouts, and pacing pressure: the investors behind the VCs open up — Мнение инвесторов о рынке — аналитика, не событие.
+- [en] не_новость: [world] Ars Technica — Once again, NASA is asking for ideas to rescue Hubble from certain death — NASA просит идей — это призыв, а не свершившееся событие.
+- [en] курьёз: [world] BBC News — After 28 years and 36,000 miles, Karl Bushby is almost home — Личная история путешественника — «интересное».
+- [en] курьёз: [world] Smithsonian Magazine — Crafted From Bone, This 2,800-Year-Old Flute Unearthed in Troy May Have Been Pla — Археологическая находка — «интересное».
