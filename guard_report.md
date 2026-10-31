@@ -1,27 +1,30 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] курьёз: [local] El Informador — El oscuro motivo por el que los camiones paran en Halloween — Спекуляции о причинах задержки автобусов в Хэллоуин, нет реального события.
-- [es] курьёз: [local] El Informador — El peligro de comer en los panteones este Día de Muertos — Советы о еде на кладбище — не новость с событием.
-- [es] чужое_мелкое: [local] El Financiero — La cúpula de La Mayiza: ¿Qué sabemos de ‘Aldo’, ‘El Güero Chompas’ y los cómplic — Анализ оргструктуры картеля по данным США — аналитический разбор, а не событие.
-- [es] срочность: [local] La Jornada — Emite recomendación defensoría de derechos humanos por crimen del periodista Ale — Выдача рекомендации правозащитниками — плановая работа, не требует побудки.
-- [es] срочность: [local] La Jornada — Comparecerá titular de DH de Jalisco por represión a protesta por el agua sucia — Одобрение парламентом явки чиновника на допрос — рутинная процедура, не экстренная.
-- [es] не_новость: [local] El Financiero — Diputado Sergio Luna niega presunto cobro de diezmos en Órgano Interno del INE:  — Политические опровержения обвинений без официального обвинения или приговора.
-- [es] срочность: [local] El Financiero — Despliegue en Uruapan: Reportan presencia de fuerzas armadas en sede del Movimie — «Сообщают о присутствии» — нет свершившегося события, расплывчатая формулировка.
-- [es] чужое_мелкое: [pool] Infobae — Ceuta lamenta que tres meses después se hayan producido "cero devoluciones" — Жалоба правительства города на события трехмесячной давности — не новость.
-- [es] курьёз: [pool] Marca — Bernardos y el sueldo en ADIF: "No está remunerado dirigir el tránsito de los tr — Мнение экономиста о зарплатах в ADIF — частное суждение, а не событие.
-- [es] курьёз: [pool] Marca — Uno a uno del Atlético ante el Levante: Cucurella le hizo un 'favor' al Atlético — Спортивная колонка с субъективным разбором игры «один на один».
-- [es] полка: [pool] Semana CO — Video muestra el angustiante momento en que se incendia el disfraz de catrina de — Происшествие в Мексике должно быть в «Местных», а не в «Новостях из...».
-- [es] не_новость: [pool] La Nación AR — El Niño no tendrá un desarrollo parejo en todo el país — Пояснение климатического цикла, нет события.
-- [es] не_новость: [pool] La Nación AR — Un tesoro de 150 años: restaurarán una emblemática iglesia de Barracas construid — Планы по реставрации церкви — не свершившееся событие.
-- [es] не_новость: [pool] Semana CO — Iván Cepeda le advierte a Abelardo De La Espriella lo que pasará si sigue adelan — Угрозы политиков друг другу в интервью — это слова, а не событие.
-- [es] не_новость: [pool] La Nación CR — ¿Dos Pinos traerá más productos de Estados Unidos? Esto respondió la cooperativa — Запрос комментария у компании — не событие.
-- [es] курьёз: [pool] 14ymedio — Calabazas, esqueletos y apagones: Halloween a la cubana — Описание атмосферы Хэллоуина в стране, не новость.
-- [es] не_новость: [pool] La Vanguardia — “El maquinista se ha acostumbrado a trabajar en condiciones degradadas” — Мнение профсоюза о причинах аварии — это слова/оценка, не событие.
-- [es] не_новость: [pool] eldiario.es — ¿Por qué el tren Iryo no arrancó en Urda? — Попытка анализа «почему не стартовал поезд» — это не новость, а статья-разбор.
-- [es] не_новость: [pool] Guardian Sport — Kimi Antonelli se encamina a la historia de la F1 en el Gran Premio de México — Анонс предстоящего события (будет чемпионом) — прогноз, не свершившийся факт.
-- [es] не_новость: [world] La Nación AR — Elecciones en Estados Unidos: qué espera Wall Street y en qué Cedears invertir a — Анализ ожиданий рынка перед выборами — это прогноз, не событие.
-- [es] срочность: [world] CNN Brasil — El líder supremo de Irán ordena una respuesta militar a cualquier amenaza enemig — Угрозы лидера Ирана — рутинная риторика, не требующая побудки.
-- [es] не_новость: [world] Time — Los estadounidenses perdieron casi 18 mil millones de dólares en ciberestafas el — Исследование о потерях за прошлый год — не свежее событие.
-- [es] курьёз: [world] Wired — Nuevo malware de robo de información utiliza IA para identificar víctimas automá — Техническое описание нового вида вредоносного ПО — не новость.
-- [es] курьёз: [world] Ars Technica — Las aves marinas que regresan a casa sobre el océano pueden sufrir jet lag — Научный факт о джетлаге у птиц — место в «Интересном».
-- [es] курьёз: [world] Guardian Sport — Larry Johnson, uno de los corredores más temidos de la NFL, teme por las consecu — Личные опасения бывшего игрока за здоровье — не новость.
+- [pt] не_новость: [local] Folha de S.Paulo — Expectativas de inflação para 2027 e 2028 saltam após segundo turno — Аналитика рыночных ожиданий по инфляции — это прогноз, а не состоявшееся событие.
+- [pt] не_новость: [local] Folha de S.Paulo — Boulos fala em chantagem do mercado sobre ajuste fiscal e defende corte em deson — Мнение министра о поведении рынка — это слова, а не новость с конкретным фактом.
+- [pt] не_новость: [local] Poder360 — Comissão do Senado analisa alíquota da CBS a partir de 11 de novembro — Анонс начала анализа комиссии — это не принятое решение.
+- [pt] не_новость: [local] InfoMoney — Ônibus parados e caronas: como apoiadores de Lula se mobilizaram em Salvador — Исторический очерк о политической мобилизации в прошлом — не новость.
+- [pt] курьёз: [local] G1 Globo — Banoffee: aprenda a receita no Chef JPB — Рецепт торта — не новость, место в «Интересном».
+- [pt] не_новость: [local] Agência Brasil — Programa oferece cursos gratuitos sobre IA para professores — Предложение пройти курс — анонс, а не событие.
+- [pt] не_новость: [local] Agência Brasil — Alcolumbre marca votação da PEC da Segurança Pública para terça-feira — Анонс даты голосования — это план, а не результат.
+- [pt] не_новость: [local] Gazeta do Povo — Fachin quer colocar fim no inquérito das fake news ainda em 2026 — Намерение министра ускорить анализ — это желание, а не завершенное событие.
+- [pt] не_новость: [local] G1 Rio — Mãe tentou convencer o filho a se entregar, encontrou-o morto e hoje acolhe famí — Статья-ретроспектива о трагедии годовой давности.
+- [pt] курьёз: [local] G1 Rio — Instrumentos tocando sozinhos, aparições, fumaça misteriosa: funcionários do The — Байки сотрудников о призраках — не новость.
+- [pt] не_новость: [local] G1 São Paulo — Obra contratada sem licitação pela Prefeitura de SP tem indícios de R$ 44 milhõe — Отчет с «индициями» — это мнение экспертов/аудиторов, не свершившийся факт нарушения.
+- [pt] не_новость: [pool] Notícias ao Minuto — Académico de Viseu foge das euforias e quer pontuar frente ao Rio Ave — Предматчевые заявления тренера — не событие.
+- [pt] не_новость: [pool] BBC Brasil — Petista 'liberal'? Como governador Rafael Fonteles entrou no radar de Lula para  — Портретная статья о политике.
+- [pt] не_новость: [pool] Téla Nón — Onda de assaltos inquieta população da ilha do Príncipe — Жалоба на «рост волны преступности» без конкретного факта (ареста, инцидента).
+- [pt] не_новость: [world] Jamaica Observer — Primeiro-ministro do Reino Unido está 'aberto' a pedido de desculpas pela escrav — Заявление о том, что премьер-министр «открыт для обсуждения» — это слова.
+- [pt] не_новость: [world] Variety — Canelo Alvarez vs. Christian M’billi no DAZN: veja como assistir à luta pelo tít — Рекламный анонс того, как посмотреть бой.
+- [pt] не_новость: [world] RFI — Em Israel, o dilema da oposição para encontrar uma maioria no Knesset — Анализ политического расклада в Кнессете — это обсуждение, а не событие.
+- [pt] не_новость: [world] Wired — Novo malware de roubo de dados usa IA para 'autodoxar' vítimas — Обзор исследования о новом типе малвари — это технологическая справка.
+- [pt] не_новость: [world] TechCrunch — Aportes, pagamentos e pressão por ritmo: os investidores por trás das VCs revela — Мнение инвесторов о рыночном сценарии — размышления, а не событие.
+- [pt] не_новость: [world] TechCrunch — Nvidia avalia atuar como coassinante do data center de IA da Nscale na Virgínia  — Переговоры о финансировании — это не закрытая сделка.
+- [pt] не_новость: [world] Ars Technica — Mais uma vez, a NASA busca ideias para salvar o telescópio Hubble da destruição — Поиск идей (просьба NASA) — это не принятое решение и не спасение телескопа.
+- [pt] не_новость: [world] Guardian Sport — Festa aguarda na Cidade do México enquanto Kimi Antonelli acelera para a históri — Анонс возможного достижения (рекорда) до того, как гонка состоялась.
+- [fr] повтор: [world] France 24 FR — En Ukraine, des habitants d'Olechky retrouvent leurs proches après avoir été éva ≈ «Des habitants évacués d'Olechky, ville s» — Один и тот же сюжет об эвакуации жителей из Олешек.
+- [fr] не_новость: [world] La Dépêche — Midterms 2026 : Donald Trump admet qu'un président "perd généralement" les élect — Прогнозы и комментарии Трампа перед выборами не являются свершившимся событием.
+- [fr] повтор: [world] Courrier International — “Gen Z regelt”, le mouvement allemand qui s’inspire des lycéens français ≈ «Allemagne : la police sur le qui-vive av» — Тот же сюжет о движении GenZ в Германии.
+- [fr] не_новость: [world] Courrier International — Midterms : Trump et les républicains dans une situation “encore plus difficile”  — Аналитика и прогнозы перед выборами, нет конкретного события.
+- [fr] не_новость: [world] Sciences et Avenir — "Le nombre de cancers augmente, mais la mortalité diminue" — Общее интервью эксперта о медицине без привязки к конкретному открытию или событию.
+- [fr] анонс: [world] 20 Minutes — Guerre en Ukraine : Kiev reprend ses tirs sur les raffineries russes et une « ph — Сборка-дайджест новостей, нет единого события.
