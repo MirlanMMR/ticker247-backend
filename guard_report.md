@@ -1,26 +1,23 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] срочность: [local] OPB — A morning with a Bend family returning to school after the Silver Rail shooting — Это история о семье, не экстренное событие, требующее побудки.
-- [en] курьёз: [local] VTDigger — Public phone now available in downtown Middlebury — Установка телефона в парке — не новость для широкого круга читателей.
-- [en] полка: [local] Bangor Daily News — BU men’s hockey rallies with 3 unanswered goals to beat UMaine in OT — Спортивный матч между американскими вузами — местная новость для US, а не «Новости из…».
-- [en] не_новость: [local] Deseret News — BYU, Utah take care of business, setting stage for huge rivalry showdown — Анонс предстоящего спортивного события (rivalry week), а не итог матча.
-- [en] не_новость: [local] Colorado Public Radio — Older adults are enrolling at Colorado’s two-year colleges at a higher rate — Аналитическая заметка о статистике зачислений, а не конкретное событие.
-- [en] не_новость: [pool] The Independent — Trump administration promises US farmers $15 billion in weeks before the midterm — Обещания администрации — намерения, а не состоявшееся действие.
-- [en] курьёз: [pool] Engadget — Tesla is ditching its solar roof tiles for a good reason — Изменение в дизайне продукта компании — это бизнес-новость, но подана как интересная деталь.
-- [en] не_новость: [pool] The Independent — Every eligible child under 18 now has a Trump Account - whether parents want one — Описание процесса или темы, нет события (принятого решения или действия).
-- [en] не_новость: [pool] Fortune — Voters usually decide one or two income or wealth tax measures a year. — Общий обзор ситуации с налогами, нет конкретного события.
-- [en] срочность: [pool] Guardian Sport — Ciara Mageean, European 1500m gold medallist with Ireland, dies aged 34 — Важное событие, но не требует пометки «срочно», так как это отчет о трагедии.
-- [en] не_новость: [pool] BBC News — Healey risks breaking minimum wage promise for younger workers — Рассуждения о возможном нарушении обещаний, а не факт свершившегося действия.
-- [en] курьёз: [pool] The Guardian — ‘The term is becoming unrecognisable’: have the experts who believed in a single — Научный/культурный обзор, нет события.
-- [en] не_новость: [pool] WFPL — Trump's VA killed a home loan program. Thousands of veterans are paying the pric — Описание давнего процесса (с прошлого года), а не свежее событие.
-- [en] курьёз: [world] TechCrunch — Here’s what ‘renoa’ — the first new fiber in 25 years — feels like — Научпоп-заметка об инновациях в текстиле.
-- [en] не_новость: [world] Fortune — Nebex CEO: NASA wants a commercial space economy. Here’s how it can enable one — Мнение руководителя компании (Nebex) о планах NASA.
-- [en] не_новость: [world] The Independent — How Pope Leo is preparing for high altitude South America trip just weeks after  — Подготовка к поездке — не событие (нет даты, нет свершившегося факта).
-- [en] срочность: [world] CNA — Saibari and Gnabry ruled out indefinitely, say Bayern — Спортивная травма — не событие для срочной пометки.
-- [en] курьёз: [world] Wired — The Hollywood Color Nerd Who Shot ‘Knives Out’ Explains His Viral iPhone Camera  — Обзор приложения для обработки фото.
-- [en] не_новость: [world] Time — Why Doctors Are Last to Know What’s in the Drug Supply — Обзорная статья об изменении состава наркотиков, нет события.
-- [en] повтор: [world] Guardian Sport — Gabby Williams powers Valkyries past Dream in Game 7 for historic WNBA title ≈ «Golden State Valkyries win first WNBA ch» — Тот же сюжет о победе Valkyries.
-- [en] не_новость: [world] Time — D.C. and Virginia Join the Fight to Block Trump’s Triumphal Arch. What Happens N — Последние попытки заблокировать строительство — процесс, а не событие.
-- [en] не_новость: [world] Time — Americans Lost Nearly $18 Billion Last Year to Cyberscams. Is Washington Doing E — Аналитическая статья о расследовании, нет конкретного итога.
-- [en] курьёз: [world] Ars Technica — Seabirds racing home over the ocean can get jet-lagged — Биологическое исследование, нет события.
-- [en] не_новость: [world] Ars Technica — Once again, NASA is asking for ideas to rescue Hubble from certain death — Общий запрос идей, а не факт спасения или решения.
+- [es] полка: [local] El Economista MX — Binance reanuda retiros de bitcóin y ether tras cubrir 95% de los 6,300 millones — Это мировая новость (криптовалютный взлом на 6,3 млрд), не местная мексиканская.
+- [es] не_новость: [pool] Marca — El Granada se apunta a lo de "no hay quinto malo" — Спортивная сводка (пятая победа подряд) — не событие по списку.
+- [es] курьёз: [pool] Clarín AR — Medio metro de largo, una caña de pescar en la cabeza y piel camuflable: así es  — Описание рыбы не является новостным событием.
+- [es] не_новость: [pool] Marca — Pleno keniano en el Cross de San Sebastián, con María Forero segunda — Результаты кросса — спортивная рутина.
+- [es] повтор: [pool] La Vanguardia — La jueza urge a las grúas a tener operarios de forma ininterrumpida y trabajar t ≈ «Accidente de tren en Urda, última hora e» — Тот же сюжет о поиске вагонов в Урде.
+- [es] курьёз: [pool] El Informador — Mascotas lucen disfraces en desfile de Día de Muertos en Tlaquepaque — Развлекательное мероприятие (парад собак) не является общественно значимым событием.
+- [es] не_новость: [pool] eldiario.es — Renfe dará consignas a los maquinistas para reanudar la marcha a 40 km/hora si c — Анонс внутренних инструкций компании без факта внедрения.
+- [es] не_новость: [pool] El País — El maquinista de Angrois al operador de Atocha: “Que se aísle de la tele y la pr — Интервью с машинистом (личное мнение, не событие).
+- [es] полка: [pool] 14ymedio — Cupet reanuda la venta de cilindros de gas en Sancti Spíritus al precio de 80 dó — Кубинская новость должна быть в 'Новости из...' (региональная), а не в 'Мировых'.
+- [es] чужое_мелкое: [world] Notícias ao Minuto — Detenido en Rusia un adolescente tras una alerta por un posible ataque en Moscú — Задержание подростка в РФ не имеет мирового значения.
+- [es] повтор: [world] Notícias ao Minuto — Casi 800 detenidos en manifestaciones sin incidentes graves en Francia ≈ «Francia: investigación por «tentativa de» — Тот же сюжет о протестах во Франции.
+- [es] срочность: [world] Guardian Sport — Una persona muere en un tiroteo durante el partido de fútbol americano Magic Cit — Происшествие (стрельба) с задержкой не требует побудки.
+- [es] курьёз: [world] Clarín AR — El mayor cañón natural del sistema solar está activo y hace temblar a Marte — Научный факт о Марсе — 'интересное', не мировая новость.
+- [es] чужое_мелкое: [world] France 24 — Polonia se ve sacudida por una crisis constitucional — Внутренняя политическая криза в Польше без внешних последствий.
+- [es] чужое_мелкое: [world] RFI — Israel: tras las elecciones legislativas, la oposición busca pasar a la ofensiva — Внутриполитические интриги израильской оппозиции.
+- [es] не_новость: [world] The Hill — Trump declara la guerra a la Corte Penal Internacional — Заявление без конкретного юридического факта ('декларирует войну').
+- [es] курьёз: [world] Futura-Sciences — «Las IA tienen conciencia»: el premio Nobel Geoffrey Hinton plantea la cuestión  — Философское высказывание о сознании ИИ.
+- [es] не_новость: [world] Sciences et Avenir — La ecuación de Schrödinger cumple 100 años: una mirada a la revolución científic — Юбилей формулы (100 лет) — не новость.
+- [es] курьёз: [world] Naked Science — Perseverance reveló que el polvo marciano es peligroso para los astronautas — Научный факт без события.
+- [es] не_новость: [world] AKIpress Эко — Más de 500 árboles plantados en un día en Biskek — Плановая посадка деревьев.
+- [es] не_новость: [world] El Mundo — El sistema de señalización en el tramo Madrid-Sevilla, explicado en gráficos — Графическое объяснение системы, не является событием.
