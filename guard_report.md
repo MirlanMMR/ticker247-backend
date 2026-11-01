@@ -1,23 +1,30 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] полка: [local] El Economista MX — Binance reanuda retiros de bitcóin y ether tras cubrir 95% de los 6,300 millones — Это мировая новость (криптовалютный взлом на 6,3 млрд), не местная мексиканская.
-- [es] не_новость: [pool] Marca — El Granada se apunta a lo de "no hay quinto malo" — Спортивная сводка (пятая победа подряд) — не событие по списку.
-- [es] курьёз: [pool] Clarín AR — Medio metro de largo, una caña de pescar en la cabeza y piel camuflable: así es  — Описание рыбы не является новостным событием.
-- [es] не_новость: [pool] Marca — Pleno keniano en el Cross de San Sebastián, con María Forero segunda — Результаты кросса — спортивная рутина.
-- [es] повтор: [pool] La Vanguardia — La jueza urge a las grúas a tener operarios de forma ininterrumpida y trabajar t ≈ «Accidente de tren en Urda, última hora e» — Тот же сюжет о поиске вагонов в Урде.
-- [es] курьёз: [pool] El Informador — Mascotas lucen disfraces en desfile de Día de Muertos en Tlaquepaque — Развлекательное мероприятие (парад собак) не является общественно значимым событием.
-- [es] не_новость: [pool] eldiario.es — Renfe dará consignas a los maquinistas para reanudar la marcha a 40 km/hora si c — Анонс внутренних инструкций компании без факта внедрения.
-- [es] не_новость: [pool] El País — El maquinista de Angrois al operador de Atocha: “Que se aísle de la tele y la pr — Интервью с машинистом (личное мнение, не событие).
-- [es] полка: [pool] 14ymedio — Cupet reanuda la venta de cilindros de gas en Sancti Spíritus al precio de 80 dó — Кубинская новость должна быть в 'Новости из...' (региональная), а не в 'Мировых'.
-- [es] чужое_мелкое: [world] Notícias ao Minuto — Detenido en Rusia un adolescente tras una alerta por un posible ataque en Moscú — Задержание подростка в РФ не имеет мирового значения.
-- [es] повтор: [world] Notícias ao Minuto — Casi 800 detenidos en manifestaciones sin incidentes graves en Francia ≈ «Francia: investigación por «tentativa de» — Тот же сюжет о протестах во Франции.
-- [es] срочность: [world] Guardian Sport — Una persona muere en un tiroteo durante el partido de fútbol americano Magic Cit — Происшествие (стрельба) с задержкой не требует побудки.
-- [es] курьёз: [world] Clarín AR — El mayor cañón natural del sistema solar está activo y hace temblar a Marte — Научный факт о Марсе — 'интересное', не мировая новость.
-- [es] чужое_мелкое: [world] France 24 — Polonia se ve sacudida por una crisis constitucional — Внутренняя политическая криза в Польше без внешних последствий.
-- [es] чужое_мелкое: [world] RFI — Israel: tras las elecciones legislativas, la oposición busca pasar a la ofensiva — Внутриполитические интриги израильской оппозиции.
-- [es] не_новость: [world] The Hill — Trump declara la guerra a la Corte Penal Internacional — Заявление без конкретного юридического факта ('декларирует войну').
-- [es] курьёз: [world] Futura-Sciences — «Las IA tienen conciencia»: el premio Nobel Geoffrey Hinton plantea la cuestión  — Философское высказывание о сознании ИИ.
-- [es] не_новость: [world] Sciences et Avenir — La ecuación de Schrödinger cumple 100 años: una mirada a la revolución científic — Юбилей формулы (100 лет) — не новость.
-- [es] курьёз: [world] Naked Science — Perseverance reveló que el polvo marciano es peligroso para los astronautas — Научный факт без события.
-- [es] не_новость: [world] AKIpress Эко — Más de 500 árboles plantados en un día en Biskek — Плановая посадка деревьев.
-- [es] не_новость: [world] El Mundo — El sistema de señalización en el tramo Madrid-Sevilla, explicado en gráficos — Графическое объяснение системы, не является событием.
+- [pt] чужое_мелкое: [local] InfoMoney — Após derrota de Flávio, quais caminhos podem tirar Bolsonaro da prisão? — Внутренняя политика/судьба политиков США не является мировой новостью для бразильца.
+- [pt] повтор: [world] RTP Notícias — Detido na Rússia adolescente após alerta dos EUA para possível ataque em Moscovo ≈ «Ameaça de atentado em Moscou: jovem russ» — Один и тот же инцидент с задержанием подростка в России.
+- [pt] повтор: [world] Metrópoles — Leão XIV pede que trégua entre Rússia e Ucrânia abra caminho para a paz ≈ «Moradores de Oleshky retornam para terri» — Один и тот же сюжет об эвакуации из Олешек (Oleshky).
+- [pt] курьёз: [world] CNN Brasil — Cineasta Michael Mann atira na própria perna acidentalmente, diz site — Личное происшествие с режиссером не имеет масштаба мировой новости.
+- [pt] чужое_мелкое: [world] Poder360 — ICE publica vídeo em que debocha de migrantes presos nos EUA — Действия агентства ICE (видео в соцсетях) — внутренняя повестка США без глобального веса.
+- [pt] чужое_мелкое: [world] The Independent — Departamento de polícia sob investigação sofre incêndio em meio à revolta por ho — Локальный криминал и пожар в полицейском участке штата Миссисипи не имеют мирового значения.
+- [pt] чужое_мелкое: [world] Gazeta do Povo — Ida de Flávio Bolsonaro aos Estados Unidos impulsiona direita na eleição do Sena — Внутренняя политическая реакция на поездку сенатора — локальное событие.
+- [pt] чужое_мелкое: [world] Time — Washington, D.C. e Virgínia unem-se para bloquear o Arco do Triunfo de Trump — Судебный спор штатов и федерального агентства о строительстве — внутренняя повестка США.
+- [pt] чужое_мелкое: [world] Semafor — Líder da maioria no Senado Chuck Schumer se prepara para embate com Trump sobre  — Подготовка сенатора к спорам — текущая политическая рутина США, не событие.
+- [fr] курьёз: [local] La Dépêche — VIDÉO. Un point de deal décoré pour Halloween à Toulouse : citrouilles, squelett — Смешная история про украшение точки наркоторговцев — не новость с последствиями.
+- [fr] курьёз: [local] L'Express — Cancer : Alexandre Puissant, le chercheur qui déjoue les rechutes leucémiques — Научно-популярный очерк об исследователе без событийного повода.
+- [fr] курьёз: [pool] 20 Minutes — Incendie de Crans Montana : Un avocat des victimes demande une enquête sur les f — Юридический комментарий/мнение адвоката не является фактом текущего события.
+- [fr] не_новость: [pool] RTBF — Les navettes dans les allées de plusieurs cimetières namurois séduisent les visi — Работа общественного транспорта на кладбище — рутина.
+- [fr] не_новость: [pool] Radio-Canada — La vie après l’Assemblée nationale des députés solidaires — Аналитика о карьере бывших депутатов — это разбор, а не событие.
+- [fr] не_новость: [world] Sud Ouest — Midterms aux États-Unis. Informations trompeuses sur le vote, propagande russe…  — Аналитическая статья о влиянии ИИ на выборы — разбор тренда, а не событие.
+- [fr] повтор: [world] Sud Ouest — Tensions au Moyen-Orient : l’Iran met en garde les États-Unis contre une guerre  ≈ «Une nouvelle guerre risque de durer, ave» — Тот же сюжет об угрозах между Ираном и США.
+- [fr] курьёз: [world] Sud Ouest — Corée du Nord : ce qu’il faut savoir sur TraderTraitor, le groupe de pirates inf — Обзор хакерской группы — это справочная информация/разбор.
+- [fr] курьёз: [world] Futura-Sciences — Photo de la semaine : des scientifiques tombent sur une créature si étrange qu'i — Научный факт о глубоководном существе — типичное «интересное» без привязки.
+- [fr] курьёз: [world] Sud Ouest — Singapour : la « nation de la climatisation » cherche des alternatives moins con — Технологический эксперимент в Сингапуре — это научно-популярный факт.
+- [fr] курьёз: [world] L'Express — Azeem Azhar (Exponential View) : "Le prochain grand gisement de revenus de l'IA  — Мнение эксперта о будущем ИИ — это прогноз, а не событие.
+- [fr] не_новость: [world] RTBF — Aux États-Unis, le boom des data centers bouleverse la campagne américaine et s’ — Обзорная статья о влиянии дата-центров на экономику — разбор.
+- [fr] не_новость: [world] RTBF — Le "dia de los muertos" : une fête mexicaine traditionnelle qui attire de plus e — Описательная статья о традициях праздника — это не событие.
+- [fr] не_новость: [world] L'Express — Comment l’affaire Epstein s’est imposée dans la campagne des midterms — Аналитическая статья о политическом влиянии старого дела Epstein.
+- [fr] не_новость: [world] France 24 FR — États-Unis : ces Afro-Américains séduits par Donald Trump et ses valeurs conserv — Анализ электоральных предпочтений — это публицистика, а не новость.
+- [fr] курьёз: [world] RFI — Au Mexique, un autel érigé en hommage aux victimes de l’ICE pour la fête des mor — Описание культурного обычая (День мертвых) — не новость.
+- [fr] курьёз: [world] L'Express — Un week-end à Vienne : le grand retour de la "vraie Sissi" — Туристический очерк о музее в Вене.
+- [fr] курьёз: [world] Sciences et Avenir — L’équation de Schrödinger fête ses 100 ans : retour sur une révolution scientifi — Научно-популярная статья к столетию уравнения — не новость.
+- [fr] повтор: [world] BBC World — Des Ukrainiens évacués de la ville d'Oleshky, occupée par la Russie, sont arrivé ≈ «Guerre en Ukraine : c’est le dernier jou» — Повторение сюжета об эвакуации из Олешек.
