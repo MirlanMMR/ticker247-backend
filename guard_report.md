@@ -1,23 +1,17 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] NY Post — Global law firm Vedder getting new NYC digs with move to Sixth Ave. tower — Сделка по аренде офиса — бизнес-рутина, не событие для читателя.
-- [en] не_новость: [local] WTOC — Descendants gather at Fort Stewart to honor historic Pleasant Grove AME Church — Мероприятие по воспоминаниям о прошлом, без события в настоящем.
-- [en] курьёз: [local] Untitled RSS Feed — Investigators Try Again To ID Human Bones Found On Teton County Trail In 1998 — Древние находки (1998 год) не являются актуальной новостью.
-- [en] не_новость: [local] reviewjournal — Raiders WR a healthy scratch, won’t make season debut vs. Jets — Спортивная замена игрока — рядовая тренерская рутина.
-- [en] курьёз: [local] Bangor Daily News — Augusta woman finds strength and purpose through bakery stand — История об открытии пекарни — очерк, а не событие.
-- [en] курьёз: [local] Untitled RSS Feed — Wyoming Woman Who Played With Uranium As A Kid Still Sets Off Geiger Counters — Любопытный факт из детства не является новостью.
-- [en] не_новость: [local] Seven Days — Glazed Donuts’ New Essex Café to Replace Leo & Co. — Плановая смена арендатора в кафе — не событие.
-- [en] курьёз: [local] Georgia Public Broadcasting — How one family gave a critical boost to gene therapy research — История семьи в рубрике «интересное» не подходит для новостной ленты.
-- [en] не_новость: [pool] Straits Times — Explainer-How Trump’s noncitizen voter lists could affect the midterms — Разбор (explainer) предвыборных списков, а не событие.
-- [en] курьёз: [pool] WFPL — Nearly 2 out of 3 teens and tweens use AI chatbots, new research shows — Результаты опроса об использовании чат-ботов — это исследование, а не событие.
-- [en] не_новость: [pool] Rolling Stone — Brian May Clears Up Queen’s Live Future: ‘I’m on a Break’ — Заявление о творческом отпуске — не событие.
-- [en] не_новость: [pool] Rolling Stone — BigXthaPlug Wrestles With Success on ‘Better Over Time’ — Обзор музыкального альбома — не событие.
-- [en] курьёз: [pool] The Guardian — ‘The term is becoming unrecognisable’: have the experts who believed in a single — Разбор научных дискуссий о природе аутизма — это научпоп/аналитика.
-- [en] не_новость: [world] TechCrunch — Here’s what ‘renoa’ — the first new fiber in 25 years — feels like — Обзор текстильного волокна (рекламно-потребительский текст).
-- [en] курьёз: [world] Wired — There’s a Free Video Editor Inside Google Drive That Anyone Can Use — Инструкция/совет по использованию функций Google Drive.
-- [en] курьёз: [world] Wired — The Hollywood Color Nerd Who Shot ‘Knives Out’ Explains His Viral iPhone Camera  — Разбор работы приложения для обработки фото.
-- [en] не_новость: [world] Time — Why Doctors Are Last to Know What’s in the Drug Supply — Медицинский разбор ситуации с наркотиками — это статья, а не событие.
-- [en] курьёз: [world] The Guardian — Japan’s Jimi Halloween, a celebration of all things mundane – in pictures — Фоторепортаж с костюмированного праздника в Японии.
-- [en] не_новость: [world] Time — Americans Lost Nearly $18 Billion Last Year to Cyberscams. Is Washington Doing E — Аналитика потерь от кибермошенничества, не событие.
-- [en] курьёз: [world] Ars Technica — Seabirds racing home over the ocean can get jet-lagged — Научный факт о биологии морских птиц.
-- [en] курьёз: [world] Ars Technica — Once again, NASA is asking for ideas to rescue Hubble from certain death — Общая дискуссия о будущем телескопа, не событие.
+- [es] не_новость: [local] El Financiero — ‘Recordar es mantener viva la memoria’: Sheinbaum celebra Día de Muertos con alt — Празднование Дня мертвых — плановое культурное событие, не является новостью по белому списку.
+- [es] курьёз: [local] El Universal MX — "Río de sapos" se adentra en el mundo de la brujería mexicana — Мистическая история про экзорцизм — не событие, место в рубрике «Интересное».
+- [es] не_новость: [pool] Infobae — Flores, recuerdos y largas filas en cementerios de Lima en el Día de los Muertos — Массовое посещение кладбищ в День мертвых — традиционное ежегодное событие.
+- [es] не_новость: [pool] El Nacional VE — Familias de Caraballeda pidieron actualizar etiquetas de edificios afectados por — Запрос жителей на обновление документов — это обращение, а не свершившийся факт или решение.
+- [es] не_новость: [pool] El Nacional VE — La feligresía zuliana resguardó a la Chinita en medio del aguacero — Традиционное религиозное шествие в праздник — ежегодная рутина.
+- [es] не_новость: [pool] Prensa Libre GT — Entre colores, memoria y tradición: Santiago Sacatepéquez y Sumpango celebran lo — Ежегодный фестиваль воздушных змеев — плановое праздничное мероприятие.
+- [es] не_новость: [pool] El Informador — Clima perfecto para esta noche del Día de Todos los Santos en Guadalajara — Прогноз погоды не является новостным событием.
+- [es] курьёз: [pool] 14ymedio — Ni los teléfonos obedecen al Gobierno cubano: el ‘no-cambio’ de hora desata el c — Техническая накладка с часами в телефонах — бытовой курьёз, не событие.
+- [es] не_новость: [pool] El Informador — ¿Hay contingencia hoy? Esta es la calidad del aire en el AMG este 1 de noviembre — Ежедневный отчет о качестве воздуха — мониторинг, не событие.
+- [es] не_новость: [pool] El Informador — Mascotas lucen disfraces en desfile de Día de Muertos en Tlaquepaque — Парад домашних животных — развлекательное мероприятие, не новость.
+- [es] курьёз: [world] Variety — Taquilla: El reboot de 'Resident Evil' de Zach Cregger alcanza los 400 millones  — Финансовый успех фильма — рыночный показатель, а не новостное событие.
+- [es] курьёз: [world] The Independent — Un antiguo telescopio de la NASA regresará a la Tierra para estrellarse — Научно-популярный факт об устаревшем оборудовании NASA, нет срочных последствий.
+- [es] курьёз: [world] The Guardian — «¡Liberamos a Patrick Stewart!»: Marina Sirtis sobre cómo logró conectar con su  — Воспоминания актрисы — интервью, не новость.
+- [es] курьёз: [world] Ars Technica — Las aves marinas que regresan a casa sobre el océano pueden sufrir jet lag — Научное исследование о поведении птиц — место в «Интересном».
+- [es] не_новость: [world] Fortune — Un quórum de una sola persona: sin debate ni disidencia en la SEC — Изменение внутреннего регламента SEC без конкретных последствий — канцелярия.
