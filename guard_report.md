@@ -1,6 +1,26 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] чужое_мелкое: [world] The Hill — Presidente do Comitê Nacional Republicano admite problema com comparecimento de  — Внутренняя партийная логистика США не имеет мирового значения.
-- [pt] чужое_мелкое: [world] The Hill — RNC afirma que Michigan deve prestar atenção ao apoio de Stevens a Rogers — Местная политическая повестка штата Мичиган для США.
-- [pt] чужое_мелкое: [world] Engadget — Juíza decide que xAI deve enfrentar processo da NAACP sobre poluição em data cen — Локальный судебный процесс компании США в Мемфисе.
-- [pt] не_новость: [world] Semafor — Boom da IA cria mercado de trabalho para mediadores de data centers — Обзор рынка вакансий, а не конкретное событие.
+- [en] курьёз: [local] NY Post — Yaxel Lendeborg dunking on girlfriend during basketball beatdown turns heads — незначительный инцидент, не имеющий последствий для читателя
+- [en] не_новость: [local] NH Union Leader Latest News — Newsmakers: Dartmouth Cancer Center director elected to National Academy of Medi — плановая выборная должность/награда, нет события
+- [en] не_новость: [local] WIBW — K-State volleyball drops to TCU in four sets — рутинный спортивный результат
+- [en] не_новость: [local] WSMV — Titans fall 43-36 in overtime in offensive shootout in Cincinnati — рутинный спортивный результат
+- [en] курьёз: [local] OPB — Drain’s Pass Creek Covered Bridge added to the National Registry of Historic Pla — историческая справка/событие 1925 года
+- [en] не_новость: [local] Hawaii News Now — FEAST Summit brings business, agriculture and tourism leaders to the table — анонс мероприятия без конкретики и влияния
+- [en] не_новость: [local] WIBW — Atchison man dies Saturday after attempting to avoid crash — описание смерти в ДТП без широкого резонанса или последствий
+- [en] не_новость: [local] KSTP — Goff throws go-ahead touchdown pass to Williams and Lions beat Vikings 19-15 for — рутинный спортивный результат
+- [en] не_новость: [local] WRDW — Georgia moves up to No. 2 in new rankings — обновление рейтинга команд
+- [en] не_новость: [local] WABI — Purrfect Pawty: Cat cafe celebrates one-year anniversary — годовщина открытия малого бизнеса
+- [en] не_новость: [local] WIBW — ESU soccer shuts out Central Oklahoma, advances to MIAA semifinals — рутинный спортивный результат
+- [en] не_новость: [local] Bangor Daily News — Northern Light Cancer Care highlights advanced therapies at Dana-Farber symposiu — отчет о прошедшем мероприятии (15-16 октября)
+- [en] не_новость: [local] KOLO — RECAP: Nevada shut out by #7 UCLA — рутинный спортивный результат
+- [en] не_новость: [local] WISH-TV — Colts fall to Jaguars in lopsided fashion as losing streak reaches four games — рутинный спортивный результат
+- [en] курьёз: [local] WALB — First-ever ‘Pop-Up Sensory Zone’ debuts in Bainbridge — местное событие малого масштаба, нет значимых последствий
+- [en] не_новость: [pool] Engadget — Anthropic updates Claude to stop it from recreating existing video games — обновление политики компании (AI)
+- [en] не_новость: [pool] BBC Sport — I'll tell my players to dive in future - Iraola — мнение тренера, не событие
+- [en] не_новость: [pool] BBC Sport — From Fleetwood embarrassment to 'magical' Anfield win 14 years in making — спортивный анализ матча
+- [en] не_новость: [pool] Sky Sports — Isak's non-penalty and Madueke-Mac Allister 'headbutt' - were big calls right? — анализ судейских решений в матче
+- [en] не_новость: [pool] BBC Sport — Are Celtic club in regression amid run of six defeats in 10? — анализ спортивного клуба
+- [en] не_новость: [pool] Guardian Sport — ‘We have effing unbreakable love’: how the maverick Natalie Nakase led the Valky — спортивный очерк
+- [en] курьёз: [world] Wired — The Hollywood Color Nerd Who Shot ‘Knives Out’ Explains His Viral iPhone Camera  — информация о приложении, не является новостным событием
+- [en] курьёз: [world] Ars Technica — Seabirds racing home over the ocean can get jet-lagged — научный факт о птицах, не событие
+- [en] не_новость: [world] Ars Technica — Once again, NASA is asking for ideas to rescue Hubble from certain death — плановый запрос идей NASA, нет свершившегося действия
