@@ -1,30 +1,23 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] чужое_мелкое: [local] InfoMoney — Após derrota de Flávio, quais caminhos podem tirar Bolsonaro da prisão? — Внутренняя политика/судьба политиков США не является мировой новостью для бразильца.
-- [pt] повтор: [world] RTP Notícias — Detido na Rússia adolescente após alerta dos EUA para possível ataque em Moscovo ≈ «Ameaça de atentado em Moscou: jovem russ» — Один и тот же инцидент с задержанием подростка в России.
-- [pt] повтор: [world] Metrópoles — Leão XIV pede que trégua entre Rússia e Ucrânia abra caminho para a paz ≈ «Moradores de Oleshky retornam para terri» — Один и тот же сюжет об эвакуации из Олешек (Oleshky).
-- [pt] курьёз: [world] CNN Brasil — Cineasta Michael Mann atira na própria perna acidentalmente, diz site — Личное происшествие с режиссером не имеет масштаба мировой новости.
-- [pt] чужое_мелкое: [world] Poder360 — ICE publica vídeo em que debocha de migrantes presos nos EUA — Действия агентства ICE (видео в соцсетях) — внутренняя повестка США без глобального веса.
-- [pt] чужое_мелкое: [world] The Independent — Departamento de polícia sob investigação sofre incêndio em meio à revolta por ho — Локальный криминал и пожар в полицейском участке штата Миссисипи не имеют мирового значения.
-- [pt] чужое_мелкое: [world] Gazeta do Povo — Ida de Flávio Bolsonaro aos Estados Unidos impulsiona direita na eleição do Sena — Внутренняя политическая реакция на поездку сенатора — локальное событие.
-- [pt] чужое_мелкое: [world] Time — Washington, D.C. e Virgínia unem-se para bloquear o Arco do Triunfo de Trump — Судебный спор штатов и федерального агентства о строительстве — внутренняя повестка США.
-- [pt] чужое_мелкое: [world] Semafor — Líder da maioria no Senado Chuck Schumer se prepara para embate com Trump sobre  — Подготовка сенатора к спорам — текущая политическая рутина США, не событие.
-- [fr] курьёз: [local] La Dépêche — VIDÉO. Un point de deal décoré pour Halloween à Toulouse : citrouilles, squelett — Смешная история про украшение точки наркоторговцев — не новость с последствиями.
-- [fr] курьёз: [local] L'Express — Cancer : Alexandre Puissant, le chercheur qui déjoue les rechutes leucémiques — Научно-популярный очерк об исследователе без событийного повода.
-- [fr] курьёз: [pool] 20 Minutes — Incendie de Crans Montana : Un avocat des victimes demande une enquête sur les f — Юридический комментарий/мнение адвоката не является фактом текущего события.
-- [fr] не_новость: [pool] RTBF — Les navettes dans les allées de plusieurs cimetières namurois séduisent les visi — Работа общественного транспорта на кладбище — рутина.
-- [fr] не_новость: [pool] Radio-Canada — La vie après l’Assemblée nationale des députés solidaires — Аналитика о карьере бывших депутатов — это разбор, а не событие.
-- [fr] не_новость: [world] Sud Ouest — Midterms aux États-Unis. Informations trompeuses sur le vote, propagande russe…  — Аналитическая статья о влиянии ИИ на выборы — разбор тренда, а не событие.
-- [fr] повтор: [world] Sud Ouest — Tensions au Moyen-Orient : l’Iran met en garde les États-Unis contre une guerre  ≈ «Une nouvelle guerre risque de durer, ave» — Тот же сюжет об угрозах между Ираном и США.
-- [fr] курьёз: [world] Sud Ouest — Corée du Nord : ce qu’il faut savoir sur TraderTraitor, le groupe de pirates inf — Обзор хакерской группы — это справочная информация/разбор.
-- [fr] курьёз: [world] Futura-Sciences — Photo de la semaine : des scientifiques tombent sur une créature si étrange qu'i — Научный факт о глубоководном существе — типичное «интересное» без привязки.
-- [fr] курьёз: [world] Sud Ouest — Singapour : la « nation de la climatisation » cherche des alternatives moins con — Технологический эксперимент в Сингапуре — это научно-популярный факт.
-- [fr] курьёз: [world] L'Express — Azeem Azhar (Exponential View) : "Le prochain grand gisement de revenus de l'IA  — Мнение эксперта о будущем ИИ — это прогноз, а не событие.
-- [fr] не_новость: [world] RTBF — Aux États-Unis, le boom des data centers bouleverse la campagne américaine et s’ — Обзорная статья о влиянии дата-центров на экономику — разбор.
-- [fr] не_новость: [world] RTBF — Le "dia de los muertos" : une fête mexicaine traditionnelle qui attire de plus e — Описательная статья о традициях праздника — это не событие.
-- [fr] не_новость: [world] L'Express — Comment l’affaire Epstein s’est imposée dans la campagne des midterms — Аналитическая статья о политическом влиянии старого дела Epstein.
-- [fr] не_новость: [world] France 24 FR — États-Unis : ces Afro-Américains séduits par Donald Trump et ses valeurs conserv — Анализ электоральных предпочтений — это публицистика, а не новость.
-- [fr] курьёз: [world] RFI — Au Mexique, un autel érigé en hommage aux victimes de l’ICE pour la fête des mor — Описание культурного обычая (День мертвых) — не новость.
-- [fr] курьёз: [world] L'Express — Un week-end à Vienne : le grand retour de la "vraie Sissi" — Туристический очерк о музее в Вене.
-- [fr] курьёз: [world] Sciences et Avenir — L’équation de Schrödinger fête ses 100 ans : retour sur une révolution scientifi — Научно-популярная статья к столетию уравнения — не новость.
-- [fr] повтор: [world] BBC World — Des Ukrainiens évacués de la ville d'Oleshky, occupée par la Russie, sont arrivé ≈ «Guerre en Ukraine : c’est le dernier jou» — Повторение сюжета об эвакуации из Олешек.
+- [en] не_новость: [local] NY Post — Global law firm Vedder getting new NYC digs with move to Sixth Ave. tower — Сделка по аренде офиса — бизнес-рутина, не событие для читателя.
+- [en] не_новость: [local] WTOC — Descendants gather at Fort Stewart to honor historic Pleasant Grove AME Church — Мероприятие по воспоминаниям о прошлом, без события в настоящем.
+- [en] курьёз: [local] Untitled RSS Feed — Investigators Try Again To ID Human Bones Found On Teton County Trail In 1998 — Древние находки (1998 год) не являются актуальной новостью.
+- [en] не_новость: [local] reviewjournal — Raiders WR a healthy scratch, won’t make season debut vs. Jets — Спортивная замена игрока — рядовая тренерская рутина.
+- [en] курьёз: [local] Bangor Daily News — Augusta woman finds strength and purpose through bakery stand — История об открытии пекарни — очерк, а не событие.
+- [en] курьёз: [local] Untitled RSS Feed — Wyoming Woman Who Played With Uranium As A Kid Still Sets Off Geiger Counters — Любопытный факт из детства не является новостью.
+- [en] не_новость: [local] Seven Days — Glazed Donuts’ New Essex Café to Replace Leo & Co. — Плановая смена арендатора в кафе — не событие.
+- [en] курьёз: [local] Georgia Public Broadcasting — How one family gave a critical boost to gene therapy research — История семьи в рубрике «интересное» не подходит для новостной ленты.
+- [en] не_новость: [pool] Straits Times — Explainer-How Trump’s noncitizen voter lists could affect the midterms — Разбор (explainer) предвыборных списков, а не событие.
+- [en] курьёз: [pool] WFPL — Nearly 2 out of 3 teens and tweens use AI chatbots, new research shows — Результаты опроса об использовании чат-ботов — это исследование, а не событие.
+- [en] не_новость: [pool] Rolling Stone — Brian May Clears Up Queen’s Live Future: ‘I’m on a Break’ — Заявление о творческом отпуске — не событие.
+- [en] не_новость: [pool] Rolling Stone — BigXthaPlug Wrestles With Success on ‘Better Over Time’ — Обзор музыкального альбома — не событие.
+- [en] курьёз: [pool] The Guardian — ‘The term is becoming unrecognisable’: have the experts who believed in a single — Разбор научных дискуссий о природе аутизма — это научпоп/аналитика.
+- [en] не_новость: [world] TechCrunch — Here’s what ‘renoa’ — the first new fiber in 25 years — feels like — Обзор текстильного волокна (рекламно-потребительский текст).
+- [en] курьёз: [world] Wired — There’s a Free Video Editor Inside Google Drive That Anyone Can Use — Инструкция/совет по использованию функций Google Drive.
+- [en] курьёз: [world] Wired — The Hollywood Color Nerd Who Shot ‘Knives Out’ Explains His Viral iPhone Camera  — Разбор работы приложения для обработки фото.
+- [en] не_новость: [world] Time — Why Doctors Are Last to Know What’s in the Drug Supply — Медицинский разбор ситуации с наркотиками — это статья, а не событие.
+- [en] курьёз: [world] The Guardian — Japan’s Jimi Halloween, a celebration of all things mundane – in pictures — Фоторепортаж с костюмированного праздника в Японии.
+- [en] не_новость: [world] Time — Americans Lost Nearly $18 Billion Last Year to Cyberscams. Is Washington Doing E — Аналитика потерь от кибермошенничества, не событие.
+- [en] курьёз: [world] Ars Technica — Seabirds racing home over the ocean can get jet-lagged — Научный факт о биологии морских птиц.
+- [en] курьёз: [world] Ars Technica — Once again, NASA is asking for ideas to rescue Hubble from certain death — Общая дискуссия о будущем телескопа, не событие.
