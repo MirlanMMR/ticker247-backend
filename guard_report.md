@@ -1,26 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] NY Post — Yaxel Lendeborg dunking on girlfriend during basketball beatdown turns heads — незначительный инцидент, не имеющий последствий для читателя
-- [en] не_новость: [local] NH Union Leader Latest News — Newsmakers: Dartmouth Cancer Center director elected to National Academy of Medi — плановая выборная должность/награда, нет события
-- [en] не_новость: [local] WIBW — K-State volleyball drops to TCU in four sets — рутинный спортивный результат
-- [en] не_новость: [local] WSMV — Titans fall 43-36 in overtime in offensive shootout in Cincinnati — рутинный спортивный результат
-- [en] курьёз: [local] OPB — Drain’s Pass Creek Covered Bridge added to the National Registry of Historic Pla — историческая справка/событие 1925 года
-- [en] не_новость: [local] Hawaii News Now — FEAST Summit brings business, agriculture and tourism leaders to the table — анонс мероприятия без конкретики и влияния
-- [en] не_новость: [local] WIBW — Atchison man dies Saturday after attempting to avoid crash — описание смерти в ДТП без широкого резонанса или последствий
-- [en] не_новость: [local] KSTP — Goff throws go-ahead touchdown pass to Williams and Lions beat Vikings 19-15 for — рутинный спортивный результат
-- [en] не_новость: [local] WRDW — Georgia moves up to No. 2 in new rankings — обновление рейтинга команд
-- [en] не_новость: [local] WABI — Purrfect Pawty: Cat cafe celebrates one-year anniversary — годовщина открытия малого бизнеса
-- [en] не_новость: [local] WIBW — ESU soccer shuts out Central Oklahoma, advances to MIAA semifinals — рутинный спортивный результат
-- [en] не_новость: [local] Bangor Daily News — Northern Light Cancer Care highlights advanced therapies at Dana-Farber symposiu — отчет о прошедшем мероприятии (15-16 октября)
-- [en] не_новость: [local] KOLO — RECAP: Nevada shut out by #7 UCLA — рутинный спортивный результат
-- [en] не_новость: [local] WISH-TV — Colts fall to Jaguars in lopsided fashion as losing streak reaches four games — рутинный спортивный результат
-- [en] курьёз: [local] WALB — First-ever ‘Pop-Up Sensory Zone’ debuts in Bainbridge — местное событие малого масштаба, нет значимых последствий
-- [en] не_новость: [pool] Engadget — Anthropic updates Claude to stop it from recreating existing video games — обновление политики компании (AI)
-- [en] не_новость: [pool] BBC Sport — I'll tell my players to dive in future - Iraola — мнение тренера, не событие
-- [en] не_новость: [pool] BBC Sport — From Fleetwood embarrassment to 'magical' Anfield win 14 years in making — спортивный анализ матча
-- [en] не_новость: [pool] Sky Sports — Isak's non-penalty and Madueke-Mac Allister 'headbutt' - were big calls right? — анализ судейских решений в матче
-- [en] не_новость: [pool] BBC Sport — Are Celtic club in regression amid run of six defeats in 10? — анализ спортивного клуба
-- [en] не_новость: [pool] Guardian Sport — ‘We have effing unbreakable love’: how the maverick Natalie Nakase led the Valky — спортивный очерк
-- [en] курьёз: [world] Wired — The Hollywood Color Nerd Who Shot ‘Knives Out’ Explains His Viral iPhone Camera  — информация о приложении, не является новостным событием
-- [en] курьёз: [world] Ars Technica — Seabirds racing home over the ocean can get jet-lagged — научный факт о птицах, не событие
-- [en] не_новость: [world] Ars Technica — Once again, NASA is asking for ideas to rescue Hubble from certain death — плановый запрос идей NASA, нет свершившегося действия
+- [es] чужое_мелкое: [local] El Economista MX — Redadas y malestar económico alimentan descontento latino y abren vía a demócrat — Внутренняя политика штата Техас — это США, не Мексика.
+- [es] полка: [local] El Informador — Detienen a peruano señalado de robar carteras en el Macrobús — Событие в Мексике (Гвадалахара) — должно быть в местных.
+- [es] полка: [local] El Universal MX — Culiacán registra dos asesinatos en distintos ataques armados; una agresión ocur — Событие в Мексике (Кульякан) — должно быть в местных.
+- [es] полка: [local] El Informador — Chapala se llena de fiesta con el Festival de las Almas 2026 — Событие в Мексике (Чапала) — должно быть в местных.
+- [es] полка: [local] El Universal MX — Aláine López Briceño asume Comunicación Social de Yucatán; es la cuarta titular  — Событие в Мексике (Юкатан) — должно быть в местных.
+- [es] полка: [local] El Financiero — Uruapan marcha a un año del asesinato de Carlos Manzo: Grecia Quiroz pide no nor — Событие в Мексике (Уруапан) — должно быть в местных.
+- [es] полка: [local] El Financiero — Envenenamiento de perros en La Condesa: Vinculan a proceso a Salvador ‘N’ por cr — Событие в Мексике (Мехико) — должно быть в местных.
+- [es] полка: [local] El Informador — Pide UdeG ayuda para localizar a Santiago Méndez — Событие в Мексике (Гвадалахара) — должно быть в местных.
+- [es] полка: [local] El Informador — Inician desvíos en carretera a Chapala, a la altura del aeropuerto, por paviment — Событие в Мексике (Халиско) — должно быть в местных.
+- [es] полка: [local] El Informador — Conagua apoya a Tlaquepaque con cinco pipas de agua para reforzar abastecimiento — Событие в Мексике (Тлакепаке) — должно быть в местных.
+- [es] полка: [local] La Jornada — Construcción de trenes y vivienda fortalecen la economía: Presidenta — Событие в Мексике — должно быть в местных.
+- [es] полка: [local] La Jornada — Destinarán $1 billón 25 mil millones a programas sociales el año entrante — Событие в Мексике — должно быть в местных.
+- [es] полка: [local] Expansión MX — Hamilton buscará su tercer triunfo desde la 'pole' en el GP de México: así queda — Событие в Мексике (GP MX) — должно быть в местных.
+- [es] полка: [local] Expansión MX — “No podemos depender de un solo sector”: Puebla acelera su diversificación tras  — Событие в Мексике (Пуэбла) — должно быть в местных.
+- [es] полка: [local] Expansión MX — Renault, Hyundai y Nissan bajan 50,000 pesos los precios de Kwid, Grand i10 y Ma — Событие в Мексике (рынок страны) — должно быть в местных.
+- [es] полка: [local] Expansión MX — SAT hasta en la tumba: qué pasa con las deudas y los saldos a favor cuando algui — Событие в Мексике (налоговая MX) — должно быть в местных.
+- [es] полка: [pool] Infobae — SEP rechaza que las Becas para el Bienestar alejen a estudiantes de las aulas — Событие в Мексике (SEP) — должно быть в местных.
+- [es] полка: [pool] Infobae — Dictan sentencia de 5 años contra "El Pozoles", señalado como uno de los líderes — Событие в Мексике (суд) — должно быть в местных.
+- [es] полка: [pool] El Informador — Estas colonias integran la Zona 6 del nuevo esquema de agua del SIAPA — Событие в Мексике (Гвадалахара) — должно быть в местных.
+- [es] повтор: [pool] eldiario.es — Accidente de tren en Urda, última hora en directo: la jueza exige con urgencia m ≈ «Accidente en Urda: las cinco incógnitas » — Тот же сюжет об аварии в Урде.
+- [es] курьёз: [world] Xataka — Unos investigadores han decidido ponerle patas a un teléfono móvil y el resultad — Робот из телефона — интересное, но не новость.
+- [es] курьёз: [world] Xataka — La Luna tendrá su propio superordenador: procesar datos en la Tierra no es una o — Суперкомпьютер на Луне — интересное, но не новость.
+- [es] курьёз: [world] The Guardian — Michael Carroll aborda los mitos sobre la fertilidad masculina en su nuevo libro — Книга о фертильности — не событие.
+- [es] не_новость: [world] Wired — El director de fotografía Steve Yedlin lanza una aplicación de cámara para iPhon — Запуск приложения для фото — реклама продукта.
+- [es] курьёз: [world] Ars Technica — Las aves marinas que regresan a casa sobre el océano pueden sufrir jet lag — Джетлаг у птиц — научный факт, не новость.
