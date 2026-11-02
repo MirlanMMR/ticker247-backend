@@ -1,27 +1,23 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] полка: [local] Knews.kg — Кыргызстанца депортировали из Казахстана за домогательства — Событие в Казахстане для киргизского потока — не местная новость, а региональная (соседняя страна).
-- [ru] полка: [local] Kabar.kg — Абдраев мектебинин окуучулары Алматыдагы сынакта байгелүү орунга ээ болду — Событие в Казахстане — не местная новость для KG, это региональная новость.
-- [ru] полка: [local] Kabar.kg — Казакстан менен Азербайжан Каспий деңизинде паром системасын түзөт — Событие между Казахстаном и Азербайджаном не является местной новостью для Кыргызстана.
-- [ru] чужое_мелкое: [pool] Avesta.tj — За 10 месяцев 2026 года более 9 тысяч мигрантов из Таджикистана трудоустроились  — Внутренняя статистика миграции Таджикистана — не мировая новость.
-- [ru] курьёз: [pool] Onliner.by — Под Могилевом зацвело целое поле васильков. Да, в ноябре — Аномалия с цветами — чисто любопытный факт, без последствий.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — В матче «Оренбурга» и ЦСКА на глазах 6666 зрителей на первый план вышло судейств — Результат матча чемпионата России — внутренняя новость РФ, не мировая.
-- [ru] курьёз: [pool] ngs.ru — Новосибирск — Сноубордист выехал на дорогу и протаранил машину в Шерегеше — видео — Бытовое происшествие в Шерегеше без глобальных последствий.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Новомосковске проверили квартиры, поврежденные после атаки БПЛА — Локальные восстановительные работы в Новомосковске — не мировая новость.
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — «Жители не должны от этого страдать»: в Казани подтвердили проблему с вывозом му — Проблемы с мусором в Казани — локальная повестка РФ.
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Тюменцу поменяли категорию годности и отправили на службу — Частный случай с мобилизацией в Тюмени — не мировая новость.
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — За отсутствие вакансий для участников СВО омские компании начнут штрафовать — Местные штрафы в Омске — внутренняя повестка РФ.
-- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — Кадровые изменения в правительстве РБ. У Минпрома новый глава — Кадровое назначение в Башкирии — локальная новость РФ.
-- [ru] чужое_мелкое: [pool] nn.ru — Нижний Новгород — Полосы перекрыты: на проспекте Гагарина в Нижнем Новгороде ограничили движение — Ограничение движения в Нижнем Новгороде — внутренняя новость РФ.
-- [ru] чужое_мелкое: [pool] Kun.uz — В Нукусе оштрафованы 22 газонаполнительные станции — Локальные штрафы на заправках в Нукусе — не мировая новость.
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — В Волгограде потратят 260 миллионов рублей на камеры, штрафующие за нарушение пр — Закупка камер в Волгограде — внутренняя повестка РФ.
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — Дальнобойщик врезался в опору ЛЭП под Волгоградом: машина сгорела дотла — ДТП под Волгоградом — не мировая новость.
-- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — Цифра дня — 4 млн: в Уфе за год подскочили цены на квартиры-студии — Статистика цен на квартиры в Уфе — не мировая новость.
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Ярославцы рискуют стать владельцами нелегального жилья — кого это коснется — Проблемы регистрации жилья в Ярославле — локальная новость РФ.
-- [ru] курьёз: [pool] 161.ru — Ростов-на-Дону — «Налетели как на бандита»: как фермер на Дону отстаивал право на землю и получил — История фермера — очерк, не событие с общественным значением.
-- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Глюк онлайн-карты завел женщину с детьми в Якутске в лесную глушь. Их нашли спас — Частный случай в лесу Якутии — не мировая новость.
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — «В семье две машины, а льгота одна»: многодетного отца возмутили условия работы  — Жалоба жителя на парковки в Челябинске — локальная новость РФ.
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — С ярославны потребовали 35 млн рублей за связь с Блиновской: «Разгребаю геморрой — Личное дело блогера в РФ — не мировая новость.
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Развязку Северного шоссе у Солонцов закрыли до конца лета. Как ездить? — Закрытие развязки в Красноярске — локальная новость РФ.
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Ведерников оценил ремонт Советской в Пскове — Ремонт улицы в Пскове — локальная новость РФ.
-- [ru] чужое_мелкое: [world] Avesta.tj — Трамп может обвинить главу Пентагона в провале операции против Ирана — Предположение о внутриполитическом конфликте в США — не является свершившимся фактом.
+- [pt] чужое_мелкое: [local] Gazeta do Povo — Flávio Bolsonaro questiona imparcialidade da Justiça e critica emissora de TV — política doméstica interna dos EUA não é notícia para o público brasileiro
+- [pt] курьёз: [world] Ars Technica — Este display de papel eletrônico de 48 dólares pode ser o que você quiser — produto DIY, sem impacto ou importância mundial
+- [pt] чужое_мелкое: [world] ECO — Gigante da advocacia norte-americana fecha portas após saída de dezenas de sócio — fechamento de escritório de advocacia nos EUA é fato local sem impacto global
+- [pt] повтор: [world] BBC Brasil — Nove pessoas morrem em acidente de avião na Flórida; veja o que se sabe ≈ «Jato vindo do Texas cai próximo a residê» — mesmo acidente aéreo na Flórida
+- [pt] чужое_мелкое: [world] Guardian Sport — Lions abalados após linebacker All-Pro Jack Campbell ser levado ao hospital com  — lesão de jogador de futebol americano em liga nacional é notícia local (EUA)
+- [pt] курьёз: [world] Ars Technica — Aves marinhas que cruzam o oceano podem sofrer de jet lag — estudo curioso sobre aves, sem impacto para o leitor
+- [fr] не_новость: [local] La Dépêche — Retraites complémentaires Agirc-Arrco : "Les salariés ne font pas de bonnes affa — Аналитика и рассуждения об управлении фондом, нет конкретного события.
+- [fr] курьёз: [local] La Dépêche — Il lui avait servi un gâteau breton "sans beurre" : dix ans après, l'homme de 51 — Событие десятилетней давности, подано как забавный факт, не новость.
+- [fr] не_новость: [local] La Dépêche — "Le tatouage de ma joue cache des blessures", "j'ai les dents cassées" : cette f — Портрет человека, нет актуального события.
+- [fr] не_новость: [local] L'Express — Construction : les isolants biosourcés font de la résistance — Обзор ситуации в секторе строительства, нет конкретного события.
+- [fr] не_новость: [local] 20 Minutes — « On prend des trucs dans le nez »… Près des Chantiers de l’Atlantique, les habi — Репортаж о текущей экологической ситуации, нет события.
+- [fr] чужое_мелкое: [pool] TSA Algérie — Maroc : un jeune dessinateur lourdement condamné pour avoir caricaturé Mohammed  — Внутренний суд и приговор в Марокко, не имеет последствий для французского читателя.
+- [fr] чужое_мелкое: [pool] RTBF — Décès d’Esekia : le père filmait son fils quelques instants avant sa mort. Sa re — Внутренний судебный процесс в Бельгии по частному делу.
+- [fr] не_новость: [pool] Le Devoir — Chez les Abbatiello, les liens du sang à l’épreuve des affaires — Очерк о бизнес-династии, не событие.
+- [fr] не_новость: [world] Jeune Afrique — Soudan : un an après sa prise par Hemetti, El-Fasher reste une ville fantôme — Описание ситуации в городе, нет актуального события.
+- [fr] не_новость: [world] Semafor — La résilience des infrastructures pétrolières du Golfe a ses limites — Аналитическая статья о состоянии инфраструктуры, нет события.
+- [fr] не_новость: [world] Semafor — La croissance manufacturière en Chine ralentit, attisant les inquiétudes — Экономическая аналитика о замедлении роста, нет конкретного факта-события.
+- [fr] не_новость: [world] Semafor — Le développement pétrolier au Venezuela confronté à une pénurie de main-d'œuvre — Аналитическая заметка о рынке труда в Венесуэле, нет события.
+- [fr] чужое_мелкое: [world] Africanews FR — Israël : la droite fustige toute alliance d'Eisenkot avec des partis arabes — Внутренняя политическая полемика в Израиле.
+- [fr] не_новость: [world] La Dépêche — Christine Lagarde : "La fonctionnaire la mieux payée d'Europe..." Combien gagnai — Спекуляции о доходах и пенсии, нет события.
+- [fr] не_новость: [world] Africanews FR — Éthiopie : au Tigré, le TPLF confronté au désaveu d'anciens partisans — Анализ политической ситуации в регионе, нет события.
