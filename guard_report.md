@@ -1,27 +1,16 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] NY Post — Texas prosecutor, child advocate who was accused of ‘emotional affair’ with Eva  — Смерть частного лица, связанного с медийными персонами — не общественно значимое событие.
-- [en] не_новость: [local] NY Post — Dodgers face new big-market contender for Tarik Skubal who want him ‘badly’ — Аналитика/слухи о трансфере без факта сделки.
-- [en] не_новость: [local] MinnPost — Minnesota is telling more people to seek mental health care. Who will help them? — Общий обзор ситуации с ментальным здоровьем без конкретного события.
-- [en] не_новость: [local] Deseret News — Conservative climate group faces a midterm reckoning. — Рассуждения о перспективах политической группы перед выборами.
-- [en] курьёз: [local] WCTV — Meet a Model A Ford club keeping the classic cars on the road — Рассказ о клубе любителей ретро-авто — это интересное, не новость.
-- [en] не_новость: [local] WV MetroNews — West Virginia revenue misses October target by about $8 million — Отчёт о недоборе выручки — внутренняя рутина госорганов без последствий для граждан.
-- [en] курьёз: [local] News — Protecting golden eagles from man-made threats — Общая статья о защите орлов, нет события.
-- [en] не_новость: [local] CBS News — Election law expert says legal system is working as judges toss midterms-related — Мнение эксперта о работе судебной системы.
-- [en] курьёз: [local] Untitled RSS Feed — Big Horn County Property Dispute Over Buried Tires May Trigger Erosion Disaster — Спор о старых шинах — локальный бытовой конфликт.
-- [en] не_новость: [local] WIS-TV — Annual Champions for Children golf tournament hits the links for local youth — Благотворительный турнир — плановое мероприятие без существенных последствий.
-- [en] не_новость: [pool] WFPL — Here are six Kentucky counties where data centers could factor into local electi — Обзор влияния центров обработки данных на выборы — аналитика.
-- [en] не_новость: [pool] Sky Sports — England to host South Africa live on Sky Sports in Netball World Cup prep — Анонс спортивных матчей на февраль.
-- [en] не_новость: [pool] Toronto Star — El-Sayed, Michigan Democrats push to galvanize voters after stunning Senate race — Попытки политиков привлечь внимание избирателей — не событие.
-- [en] курьёз: [pool] Cleveland.com — Beloved ‘Doctor Who’ actor dies at 83 after ‘summer of illness’ — Смерть актёра озвучки — новость культуры, но не мирового масштаба.
-- [en] не_новость: [pool] Wired — A Right-Wing Think Tank Has a Plan to Prevent Democrats From Being Seated in Con — Обсуждение плана «мозгового центра» — не действие.
-- [en] не_новость: [pool] BBC News — Channel 4 documentary and journalists 'poisoned the well' against Russell Brand, — Выступление адвоката в суде — часть процесса, не итог.
-- [en] не_новость: [pool] BBC News — King's role is not policy making, says Palace in slavery apology row — Разъяснение роли монарха Букингемским дворцом — риторика.
-- [en] не_новость: [pool] Sky Sports — Canelo could have ‘influenced’ referee, says Mbilli’s team — Заявления промоутера о возможном влиянии на судью — слова.
-- [en] не_новость: [pool] BBC Sport — Carrick says it's 'crazy' but he's looking forward to Roma game — Эмоциональное высказывание тренера перед матчем.
-- [en] не_новость: [pool] Sky Sports — Sherrock 'should not have been selected to play' for Beat Luke Littler show — Мнение пундита о выборе участника шоу.
-- [en] не_новость: [pool] BBC Sport — 'We've got big problems' - Hamilton says Ferrari need 'serious talks' — Цитата гонщика о необходимости переговоров.
-- [en] не_новость: [pool] Guardian Sport — NFL roundup: Cowboys and Chiefs suffer late collapses; Lamar Jackson’s season co — Спортивный обзор-дайджест.
-- [en] курьёз: [world] TechCrunch — 42AI comes out of stealth with $62.5M and a world model that can ‘predict human  — Стартап с научной концепцией — не событие, а интересное.
-- [en] курьёз: [world] Азаттык — Second Amur tiger released into the wild in Kazakhstan — Реинтродукция животных в Казахстане — интересное для пула KZ, не мировое событие.
-- [en] не_новость: [world] BBC Sport — How Antonelli 'blew everyone away' to make F1 history — Ретроспективный рассказ о том, как гонщик стал чемпионом.
+- [es] курьёз: [local] El Universal MX — André-Pierre Gignac provoca bronca en partido de la Talacha; empujó a un rival — Это инцидент в любительском матче, не событие для ленты новостей.
+- [es] полка: [local] El Financiero — Inés Gómez Mont pide libertad en EU: ¿Qué sabemos del amparo que tramitó la cond — Новость о мексиканке в суде США — это зарубежная новость, а не местная.
+- [es] не_новость: [local] El Financiero — Con Karely Ruiz y Paolita Suárez: Lista de participantes de ‘La Mansión VIP’ 2 A — Анонс участников шоу, а не свершившееся событие.
+- [es] чужое_мелкое: [pool] Infobae — Massa se reunió con Janones, “el general de Lula”: la experiencia de Brasil, la  — Встреча политиков без конкретных итогов — это процесс, а не новость.
+- [es] чужое_мелкое: [pool] La Nación AR — El Presidente recibió a expertos en Educación, pero no se habló de los recortes  — Внутренняя политика Аргентины, не имеющая мирового веса.
+- [es] не_новость: [pool] Marca — Adiós a una era: El 'superequipo' que dice adiós al pelotón en 2027 — Это спортивный обзор конца эпохи, а не конкретный факт трансфера или результата.
+- [es] срочность: [pool] Marca — Retirados los últimos vagones del accidente de Urda mientras continúa la búsqued — Работы по расчистке места давней катастрофы — не повод для побудки.
+- [es] срочность: [pool] Montevideo Portal — Violenta rapiña a un delivery en Montevideo: video muestra cómo le disparan a la — Обычное криминальное происшествие, не требующее прерывать дела читателя.
+- [es] срочность: [pool] Diario Libre DO — Siete muertos en presuntos intercambios de disparos en 72 horas — Сводка преступлений за 72 часа не является экстренной новостью.
+- [es] курьёз: [pool] El País — Una reconciliación antes del final — Личная история, не имеющая общественной значимости.
+- [es] чужое_мелкое: [world] BBC Mundo — Quién era Nathalia Gadelha Filgueiras, la copiloto de 20 años que murió al estre — Частная авиакатастрофа в США без мировых последствий.
+- [es] не_новость: [world] Engadget — SpaceX estaría evaluando la compra de Boost Mobile o el uso de su red celular — Слухи и оценка возможности сделки, а не состоявшийся факт.
+- [es] не_новость: [world] BBC Mundo — "Cerró la frontera, pero vivimos peor": el descontento de los votantes latinos q — Аналитический материал о мнении избирателей, а не событие.
+- [es] не_новость: [world] BBC Mundo — "Es Gaza o nada": cómo el apoyo a Israel se convirtió en un punto clave de la co — Разбор предвыборной повестки, а не свершившееся событие.
