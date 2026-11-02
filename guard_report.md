@@ -1,19 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] KTHV RSS Feed: news — Trader Joe’s is bringing back its mystery bags. Here’s what shoppers can expect — возврат сумок в магазин — потребительская информация, не событие
-- [en] не_новость: [local] WDBJ7 — Virginia Tech hosts annual science festival — анонс ежегодного планового мероприятия
-- [en] срочность: [local] KREM — Police investigating shooting on Spokane's South Hill — криминальная сводка, нет оснований для побудки
-- [en] не_новость: [local] KOB — Lamar Jackson needs surgery for thumb injury and could miss rest of season, Rave — спортивная травма — часть рутины
-- [en] не_новость: [local] 11Alive — What is Native American Heritage Month? — календарный праздник, нет события
-- [en] срочность: [local] New Jersey 101.5 — Rutgers sexual assault and aggravated assaults reported — криминальная сводка, нет оснований для побудки
-- [en] курьёз: [local] KOTA — Ian-credible Science: Gummy bear osmosis — научный эксперимент для детей, не событие
-- [en] срочность: [local] FOX 2 — Police investigating several Halloween weekend shootings across St. Louis region — сводка происшествий за выходные, не требует прерывания дел
-- [en] срочность: [local] WWLTV — Inmate injured, hospitalized after fight at Orleans Justice Center — рядовое происшествие в тюрьме, не требует побудки
-- [en] срочность: [local] WJXT News4JAX — Firefighters battle overnight blaze at Salt Life in Fernandina Beach — локальный пожар без массовых последствий, не требует побудки
-- [en] не_новость: [pool] KSFY — Widespread rain and blustery winds continue early this week — прогноз погоды
-- [en] не_новость: [pool] BBC News — Mother told to book appointment to give birth to her baby who had died — личная трагедия, нет общественно значимого события
-- [en] не_новость: [pool] BBC Sport — Villa drop legal action threat against Carragher — угроза судом, которая была снята — этикет
-- [en] не_новость: [pool] Sky Sports — Merse: Man Utd will be in relegation zone in a month — прогноз/мнение эксперта
-- [en] не_новость: [pool] BBC Sport — 'We've got big problems' - Hamilton says Ferrari need 'serious talks' — внутренний конфликт в команде, слова, а не решение
-- [en] курьёз: [pool] Rolling Stone — My Chemical Romance Tops the Billboard 200 With 20-Year-Old Album — музыкальный чарт, не событие
-- [en] курьёз: [world] Ars Technica — This $48 e-paper display can be whatever you want it to be — обзор гаджета, не событие
+- [es] не_новость: [local] El Universal MX — Juan Reynoso hace llorar a futbolista del Necaxa; fuerte regaño desata las lágri — Спортивный разбор/слух о конфликте в раздевалке, не является значимым событием.
+- [es] не_новость: [local] Reforma — Promueve Gobierno... a ¡huachicoleros! — Критическая статья-мнение, нет факта совершившегося события.
+- [es] не_новость: [local] El Informador — Enfrentan acuíferos presión y déficit — Аналитический обзор состояния аквиферов без привязки к конкретному событию.
+- [es] не_новость: [local] La Jornada — Entre flores y ofrendas, perdura la tradición mexicana de reunir a vivos y muert — Культурологический очерк о традиции, а не событие.
+- [es] не_новость: [local] La Jornada — Al alza, nacimientos de inmigrantes: Conapo — Статистический отчет о демографии, нет конкретного события.
+- [es] чужое_мелкое: [pool] Infobae — Olise y Neuer entrenan con al Bayern antes del choque con el Atlético — Рутинная тренировка игроков клуба не является значимой новостью для общего потока.
+- [es] чужое_мелкое: [pool] Infobae — La acampada de Sol se mantiene pero la mayoría de los organizadores continuarán  — Местная протестная активность в Мадриде без глобальных последствий.
+- [es] чужое_мелкое: [pool] El Comercio PE — “Tienen que comer asado, tomar una cerveza, un vino”: Riquelme, una frase especi — Комментарий тренера после матча — не является событием.
+- [es] чужое_мелкое: [pool] Semana CO — Polémica por jugada previa al gol de Jackson Martínez contra Alianza FC: ¿Debió  — Споры о судействе матча — шум, а не событие.
+- [es] чужое_мелкое: [pool] La Nación AR — Los dueños de Adecoagro compraron las tierras de Benetton en la Argentina — Корпоративная сделка (покупка земель) частными лицами/компаниями.
+- [es] курьёз: [pool] La Nación AR — Cuándo es la Olimpiada de Asadores en Núñez, qué se podrá comer y cuánto cuestan — Анонс локального гастрономического мероприятия.
+- [es] курьёз: [pool] RPP PE — Jude Bellingham se quita la camiseta del Real Madrid y posa en ropa interior par — Знаменитость в рекламе нижнего белья.
+- [es] чужое_мелкое: [pool] Marca — El Atlético se mueve para fichar a Stefan Džodić — Слух о трансферных планах футбольного клуба.
+- [es] чужое_мелкое: [pool] Marca — Urko Berrade da el salto al WorldTour con el XDS Astana hasta 2028 — Переход велогонщика в команду — мелкое спортивное событие.
+- [es] курьёз: [pool] Marca — Confirmado el cartel completo de WOW 34 con el fichaje de un ex UFC... y la desp — Анонс локального турнира по ММА.
+- [es] чужое_мелкое: [pool] El País — Feijóo se reivindica como gestor tras el accidente de Urda: “España no se arregl — Политическая риторика оппозиционера, нет принятых решений.
+- [es] чужое_мелкое: [pool] La Vanguardia — “Ya no me fío del AVE para ir a trabajar”: las empresas reducen el uso del tren  — Мнение бизнесмена о работе транспорта.
+- [es] курьёз: [pool] El País — Una reconciliación antes del final — Личная история (не новость).
+- [es] чужое_мелкое: [pool] El Mundo — La travesía clandestina de un joven marroquí de Ceuta al norte de España gracias — История частного лица о миграции.
+- [es] не_новость: [pool] eldiario.es — España, el país de la UE con más muertos en accidentes de tren en los últimos 25 — Статистическое сравнение за 25 лет.
+- [es] чужое_мелкое: [world] Variety — Druski prepara la serie de Netflix «Collect & Praise» basada en su sketch de meg — Производственные планы ТВ-шоу.
+- [es] чужое_мелкое: [world] Variety — Jordan Jensen anuncia una gira por Norteamérica — Анонс гастрольного тура комика.
+- [es] не_новость: [world] BBC Mundo — "Cerró la frontera, pero vivimos peor": el descontento de los votantes latinos q — Аналитика/мнение о настроениях избирателей.
+- [es] не_новость: [world] BBC Mundo — Cuál es el futuro del bolsonarismo tras la salida de Flávio de Brasil y cómo ser — Политический анализ/прогноз.
+- [es] чужое_мелкое: [world] El Sol de México — Herzog iniciará el miércoles las consultas para decidir a quién encarga formar e — Плановые консультации по формированию правительства.
