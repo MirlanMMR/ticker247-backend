@@ -1,25 +1,20 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] KRQE — 'Let the site rest': Photos show collapse of northwest New Mexico rock formation — Это природное событие, не имеющее последствий или значимости для читателя.
-- [en] курьёз: [local] Untitled RSS Feed — 'Peter Pan' Salamanders That Get Bigger, But Never Grow Up, Found In Laramie Lak — Научный факт о саламандрах, не является новостью в классическом понимании.
-- [en] не_новость: [local] NY Post — Top LA wine bar calls it quits after 12-year-run: ‘I’ve been worn down’ — Закрытие бара из-за экономических причин — бизнес-процесс, не является событием для общей ленты.
-- [en] курьёз: [local] KSTP — Secretly Paying It Forward — Благотворительная история, не является значимым событием.
-- [en] не_новость: [local] KOLO — Nevada Senators accuse Twitter of bias towards Polymarket — Политическое обвинение без юридических последствий или действий.
-- [en] не_новость: [local] WBAL — Ravens sign Austin Reed to practice squad as quarterback injuries loom in Baltim — Рутинная спортивная новость о составе тренировочного состава.
-- [en] курьёз: [local] UPI — The case of the missing oxygen: Hubble telescope research highlights mystery — Научное исследование, не является новостным событием.
-- [en] не_новость: [local] WBAL — Baltimore gas averages near $4 as drivers head toward midterms — Обзор цен и мнений, а не событие.
-- [en] не_новость: [local] WKYT — Several Kentucky races uncontested on Tuesday’s ballot — Констатация факта отсутствия конкуренции на выборах — рутина.
-- [en] не_новость: [local] CommonWealth Beacon — Galvin uncertain about beating voter turnout in 2022, 2018 — Статистика явки, не является самостоятельным событием.
-- [en] не_новость: [pool] The Independent — Trump drops jaws with low-energy Reflecting Pool ramble day before Americans dec — Описание поведения политика, не является новостным событием.
-- [en] курьёз: [pool] Rolling Stone — Steel Guitars by the Dozen: A Cultish Concert Pays Tribute to the Most Country I — Тематический очерк о музыкальном инструменте.
-- [en] курьёз: [pool] Forbes — ‘Paws At The Polls’ Provides Adoptable Puppies On Election Day — Милая акция в парке.
-- [en] не_новость: [pool] The Independent — Election denier Tina Peters is pushing near-Martial Law move to Trump ahead of m — Пересказ встреч и мнений без факта изменения ситуации.
-- [en] не_новость: [pool] Guardian Sport — Longtime host Michael Wilbon steps away from ESPN due to ‘health issues’ — Личное решение ведущего об уходе по состоянию здоровья.
-- [en] не_новость: [pool] The Guardian — Five dimensional chess: inside James Talarico’s extraordinary bid to break Texas — Аналитический лонгрид о политической стратегии.
-- [en] не_новость: [pool] Time — Could a Democrat Win the Race for the Late Lindsey Graham's Seat in Deep-Red Sou — Рассуждения и опросы, а не событие.
-- [en] курьёз: [world] Engadget — Casio's new keyboard lets anyone play along to songs without ever hitting a wron — Описание гаджета и его функций.
-- [en] курьёз: [world] Mental Floss — 2026's Safest—And Least Safe—Cities in America — Рейтинг безопасности городов — субъективный список.
-- [en] не_новость: [world] Engadget — Why some websites are blocking AI agents from accessing the web — Объяснительный материал о работе ИИ и блокировках.
-- [en] курьёз: [world] The Guardian — Tomb Raider’s creators on how the game changed their lives: ‘Skint staff were su — Воспоминания создателей игры 30-летней давности.
-- [en] не_новость: [world] Guardian Sport — Zero passing yards, one win. Did the Bucs just reinvent the NFL in all the wrong — Спортивная колонка/аналитика.
-- [en] не_новость: [world] Fortune — The $13 billion startup racing to close America’s hypersonic gap — Обзор индустрии и стартапа, а не новостное событие.
+- [es] чужое_мелкое: [local] El Sol de México — FGR confirma tres órdenes de captura contra la conductora Inés N; irá por ella s — внутреннее следствие и судебный процесс в Мексике/США, не мировой масштаб
+- [es] курьёз: [pool] Infobae — El iPhone 18 Pro Max supera al Galaxy S26 Ultra en batería: hasta 2,5 horas más  — тест гаджетов — это разбор/обзор, а не событие
+- [es] не_новость: [pool] La Nación AR — El Renatre ya certificó a 17 empresas por sus prácticas laborales y otras 15 bus — сертификация компаний — это рутина бизнеса, а не событие
+- [es] не_новость: [pool] La Nación AR — Alquileres: cuál es el aumento para los contratos que se ajustan en noviembre 20 — плановое ежемесячное изменение цен — не событие
+- [es] не_новость: [pool] Semana CO — Papá de Jaime Esteban Moreno le respondió a Juan Carlos Suárez tras pedir perdón — реакция частного лица на слова другого лица через год после события
+- [es] чужое_мелкое: [pool] El Nacional VE — Concluye la retirada de los vagones del accidente ferroviario de Urda — завершение работ по уборке места аварии — не новость
+- [es] не_новость: [pool] Marca — Si remonta Aubameyang, remonta el Dépor — спортивная колонка/разбор, нет факта события
+- [es] чужое_мелкое: [pool] eldiario.es — El cabecilla de Blocus estuvo en París antes de organizar saqueos en España y te — детали перемещений подозреваемого в рамках расследования в Испании
+- [es] не_новость: [pool] El Informador — Canirac: 5% de los restaurantes de GDL han sido afectados por crisis del agua — мнение торговой ассоциации о влиянии кризиса, не событие
+- [es] не_новость: [pool] 14ymedio — Una feria deslucida para el 13 aniversario de la Zona Especial de Desarrollo de  — описание оформления ярмарки — нет события
+- [es] чужое_мелкое: [pool] El Sol de México — Jóvenes en Madrid buscan rentas de hasta 600 euros para tener una vivienda — мнения протестующих о ценах на жилье в Мадриде — не событие
+- [es] не_новость: [world] Semafor — Fabricantes de automóviles de EE. UU. presionan por la prohibición de importació — лоббизм производителей — это слова, нет принятого решения
+- [es] повтор: [world] El Nacional VE — Avión de accidente en EE UU que dejó 9 muertos "estaba rompiéndose" en el aire:  ≈ «Empresario tecnológico, su esposa, hijos» — одно и то же происшествие
+- [es] чужое_мелкое: [world] TechCrunch — La empresa de alojamiento web Squarespace despide al 19% de su plantilla — корпоративное решение компании США о штате, не мировое событие
+- [es] не_новость: [world] TechCrunch — The New York Times y otros medios demandan al navegador Brave por presunta extra — подача иска — это юридическая рутина, а не мировое событие
+- [es] повтор: [world] BBC Mundo — Quién era Nathalia Gadelha Filgueiras, la copiloto de 20 años que murió al estre ≈ «Empresario tecnológico, su esposa, hijos» — развитие сюжета о той же катастрофе
+- [es] курьёз: [world] Mental Floss — Las ciudades más seguras —y menos seguras— de Estados Unidos en 2026 — рейтинг городов — исследовательский материал
+- [es] не_новость: [world] BBC Mundo — "Cerró la frontera, pero vivimos peor": el descontento de los votantes latinos q — аналитический материал/репортаж об общественном мнении, нет события
