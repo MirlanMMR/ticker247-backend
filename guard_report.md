@@ -1,29 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] курьёз: [local] CNN Brasil — Thiago Oliveira passa por cirurgia após apresentar “É de Casa”; confira — новость о личной жизни/здоровье знаменитости не является событием для общей ленты.
-- [pt] не_новость: [local] G1 Rio — Menina passa por cirurgia para corrigir deformidade no pé, fica sem órtese no In — частная медицинская проблема ребенка, не имеющая общественного значения.
-- [pt] не_новость: [local] G1 Rio — Dudu Nobre relata roubo de carro durante show no Andaraí; veículo e pertences fo — бытовая кража личного имущества, уже разрешенная, не является новостью.
-- [pt] не_новость: [local] G1 Minas — Família e amigos de Lô Borges realizam evento gratuito em memória do artista nes — плановое мероприятие, не имеющее широкого общественно-политического влияния.
-- [pt] курьёз: [local] Estadão — 2,37 metros e sapato 60: homem mais alto do Brasil volta a andar após receber pr — частная история человека, не имеющая последствий для общества.
-- [pt] курьёз: [local] G1 Rio — Moradores de condomínio na Zona Norte do Rio relatam infestação de aranhas peçon — локальная бытовая жалоба жителей, не является событием.
-- [pt] не_новость: [local] G1 Rio — Advogado de Fernandinho Beira-Mar é investigado por apropriação indébita e estel — индивидуальное расследование по заявлению частных лиц, не является событием для ленты.
-- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Influencer morre aos 29 anos após acidente de mota — гибель частного лица за рубежом — не мировая новость.
-- [pt] анонс: [pool] Observador PT — Ministro da Defesa alvo de ataque informático — текст содержит служебный технический код вместо новости.
-- [pt] анонс: [pool] Observador PT — Administração Interna não vai recorrer de decisão judicial — текст содержит служебный технический код вместо новости.
-- [pt] курьёз: [world] Metrópoles — MIT cria "robô serpente" para investigar interior do intestino delgado — описание научного эксперимента без прикладного результата или последствий.
-- [pt] не_новость: [world] RTP Notícias — Bolsa de Nova Iorque negoceia a subir animada com queda do preço do petróleo — ежедневное описание биржевых колебаний без конкретного повода.
-- [pt] курьёз: [world] Engadget — O Fitbit Edge não possui recurso de pagamento por aproximação — обзор функционала потребительского гаджета, рекламный материал.
-- [pt] чужое_мелкое: [world] The Independent — Ex-juiz é preso por disparar arma contra crianças no Halloween, segundo a políci — криминальное происшествие с участием частного лица в США.
-- [pt] повтор: [world] UPI — Refrigeradores e freezers de supermercados são hackeados na Bélgica e em outros  ≈ «Nova onda de ataques cibernéticos atinge» — одно и то же событие (взлом холодильников в Европе).
-- [pt] не_новость: [world] TechCrunch — Omen AI adiciona conhecimento sobre fluidos com a aquisição da Aquatic Labs por  — корпоративная сделка поглощения без описания влияния на потребителя или рынок.
-- [pt] не_новость: [world] Guardian Sport — Resumo da NFL: Cowboys e Chiefs sofrem derrotas no final; temporada de Lamar Jac — спортивный обзор матчей, не являющийся фактом трансфера или результата турнира.
-- [fr] не_новость: [world] La Tribune — La Grèce commande 3 Embraer KC-390 avec trois options supplémentaires — Это бизнес-контракт на поставку в 2027 году, нет срочности и непосредственного события для читателя.
-- [fr] повтор: [world] La Tribune — Un avion d’affaires Learjet 60 s’écrase en Floride ≈ «Neuf morts dans le crash d'un jet privé » — Тот же сюжет об авиакатастрофе в США.
-- [fr] не_новость: [world] France 24 FR — Présidentielle au Brésil : quand Lula brandit la constitution — Описание действий президента без конкретного события (решения или указа).
-- [fr] курьёз: [world] Futura-Sciences — Fruit entier ou jus de fruits : une enquête révèle une différence chez ceux qui  — Научный факт о мозге, не является новостью события по белому списку.
-- [fr] не_новость: [world] Courrier International — Mort de Juan Atkins, celui “qui a imaginé la musique techno avant tout le monde” — Некролог/статья о музыканте, не является событием по белому списку.
-- [fr] курьёз: [world] Азаттык — Un deuxième tigre de l'Amour a été relâché dans la nature au Kazakhstan — Событие локального значения (экология Казахстана), не имеет мирового масштаба.
-- [fr] не_новость: [world] Africanews FR — Football : la Chine maintient la pression sur la Liga pour les propos de Mbappé — Раздувание полемики и частное решение телеканала, не является событием для мировой ленты.
-- [fr] курьёз: [world] Sciences et Avenir — Le traitement anti-obésité Wegovy arrive en comprimé dans les pharmacies françai — Это коммерческий запуск продукта в аптеках, не является важным событием по белому списку.
-- [fr] курьёз: [world] Guardian Sport — Résumé de la NFL : effondrements tardifs des Cowboys et des Chiefs ; la saison d — Спортивный обзор (NFL) — это разбор/аналитика, а не новость о результате конкретного матча.
-- [fr] не_новость: [world] Le Nouvelliste — Operation in Haiti: Bukele spoke with Trump — Разговор между политиками без официального итога или подписанного соглашения.
+- [en] курьёз: [local] NY Post — Texas prosecutor, child advocate who was accused of ‘emotional affair’ with Eva  — Смерть частного лица, связанного с медийными персонами — не общественно значимое событие.
+- [en] не_новость: [local] NY Post — Dodgers face new big-market contender for Tarik Skubal who want him ‘badly’ — Аналитика/слухи о трансфере без факта сделки.
+- [en] не_новость: [local] MinnPost — Minnesota is telling more people to seek mental health care. Who will help them? — Общий обзор ситуации с ментальным здоровьем без конкретного события.
+- [en] не_новость: [local] Deseret News — Conservative climate group faces a midterm reckoning. — Рассуждения о перспективах политической группы перед выборами.
+- [en] курьёз: [local] WCTV — Meet a Model A Ford club keeping the classic cars on the road — Рассказ о клубе любителей ретро-авто — это интересное, не новость.
+- [en] не_новость: [local] WV MetroNews — West Virginia revenue misses October target by about $8 million — Отчёт о недоборе выручки — внутренняя рутина госорганов без последствий для граждан.
+- [en] курьёз: [local] News — Protecting golden eagles from man-made threats — Общая статья о защите орлов, нет события.
+- [en] не_новость: [local] CBS News — Election law expert says legal system is working as judges toss midterms-related — Мнение эксперта о работе судебной системы.
+- [en] курьёз: [local] Untitled RSS Feed — Big Horn County Property Dispute Over Buried Tires May Trigger Erosion Disaster — Спор о старых шинах — локальный бытовой конфликт.
+- [en] не_новость: [local] WIS-TV — Annual Champions for Children golf tournament hits the links for local youth — Благотворительный турнир — плановое мероприятие без существенных последствий.
+- [en] не_новость: [pool] WFPL — Here are six Kentucky counties where data centers could factor into local electi — Обзор влияния центров обработки данных на выборы — аналитика.
+- [en] не_новость: [pool] Sky Sports — England to host South Africa live on Sky Sports in Netball World Cup prep — Анонс спортивных матчей на февраль.
+- [en] не_новость: [pool] Toronto Star — El-Sayed, Michigan Democrats push to galvanize voters after stunning Senate race — Попытки политиков привлечь внимание избирателей — не событие.
+- [en] курьёз: [pool] Cleveland.com — Beloved ‘Doctor Who’ actor dies at 83 after ‘summer of illness’ — Смерть актёра озвучки — новость культуры, но не мирового масштаба.
+- [en] не_новость: [pool] Wired — A Right-Wing Think Tank Has a Plan to Prevent Democrats From Being Seated in Con — Обсуждение плана «мозгового центра» — не действие.
+- [en] не_новость: [pool] BBC News — Channel 4 documentary and journalists 'poisoned the well' against Russell Brand, — Выступление адвоката в суде — часть процесса, не итог.
+- [en] не_новость: [pool] BBC News — King's role is not policy making, says Palace in slavery apology row — Разъяснение роли монарха Букингемским дворцом — риторика.
+- [en] не_новость: [pool] Sky Sports — Canelo could have ‘influenced’ referee, says Mbilli’s team — Заявления промоутера о возможном влиянии на судью — слова.
+- [en] не_новость: [pool] BBC Sport — Carrick says it's 'crazy' but he's looking forward to Roma game — Эмоциональное высказывание тренера перед матчем.
+- [en] не_новость: [pool] Sky Sports — Sherrock 'should not have been selected to play' for Beat Luke Littler show — Мнение пундита о выборе участника шоу.
+- [en] не_новость: [pool] BBC Sport — 'We've got big problems' - Hamilton says Ferrari need 'serious talks' — Цитата гонщика о необходимости переговоров.
+- [en] не_новость: [pool] Guardian Sport — NFL roundup: Cowboys and Chiefs suffer late collapses; Lamar Jackson’s season co — Спортивный обзор-дайджест.
+- [en] курьёз: [world] TechCrunch — 42AI comes out of stealth with $62.5M and a world model that can ‘predict human  — Стартап с научной концепцией — не событие, а интересное.
+- [en] курьёз: [world] Азаттык — Second Amur tiger released into the wild in Kazakhstan — Реинтродукция животных в Казахстане — интересное для пула KZ, не мировое событие.
+- [en] не_новость: [world] BBC Sport — How Antonelli 'blew everyone away' to make F1 history — Ретроспективный рассказ о том, как гонщик стал чемпионом.
