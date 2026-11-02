@@ -1,23 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] чужое_мелкое: [local] Gazeta do Povo — Flávio Bolsonaro questiona imparcialidade da Justiça e critica emissora de TV — política doméstica interna dos EUA não é notícia para o público brasileiro
-- [pt] курьёз: [world] Ars Technica — Este display de papel eletrônico de 48 dólares pode ser o que você quiser — produto DIY, sem impacto ou importância mundial
-- [pt] чужое_мелкое: [world] ECO — Gigante da advocacia norte-americana fecha portas após saída de dezenas de sócio — fechamento de escritório de advocacia nos EUA é fato local sem impacto global
-- [pt] повтор: [world] BBC Brasil — Nove pessoas morrem em acidente de avião na Flórida; veja o que se sabe ≈ «Jato vindo do Texas cai próximo a residê» — mesmo acidente aéreo na Flórida
-- [pt] чужое_мелкое: [world] Guardian Sport — Lions abalados após linebacker All-Pro Jack Campbell ser levado ao hospital com  — lesão de jogador de futebol americano em liga nacional é notícia local (EUA)
-- [pt] курьёз: [world] Ars Technica — Aves marinhas que cruzam o oceano podem sofrer de jet lag — estudo curioso sobre aves, sem impacto para o leitor
-- [fr] не_новость: [local] La Dépêche — Retraites complémentaires Agirc-Arrco : "Les salariés ne font pas de bonnes affa — Аналитика и рассуждения об управлении фондом, нет конкретного события.
-- [fr] курьёз: [local] La Dépêche — Il lui avait servi un gâteau breton "sans beurre" : dix ans après, l'homme de 51 — Событие десятилетней давности, подано как забавный факт, не новость.
-- [fr] не_новость: [local] La Dépêche — "Le tatouage de ma joue cache des blessures", "j'ai les dents cassées" : cette f — Портрет человека, нет актуального события.
-- [fr] не_новость: [local] L'Express — Construction : les isolants biosourcés font de la résistance — Обзор ситуации в секторе строительства, нет конкретного события.
-- [fr] не_новость: [local] 20 Minutes — « On prend des trucs dans le nez »… Près des Chantiers de l’Atlantique, les habi — Репортаж о текущей экологической ситуации, нет события.
-- [fr] чужое_мелкое: [pool] TSA Algérie — Maroc : un jeune dessinateur lourdement condamné pour avoir caricaturé Mohammed  — Внутренний суд и приговор в Марокко, не имеет последствий для французского читателя.
-- [fr] чужое_мелкое: [pool] RTBF — Décès d’Esekia : le père filmait son fils quelques instants avant sa mort. Sa re — Внутренний судебный процесс в Бельгии по частному делу.
-- [fr] не_новость: [pool] Le Devoir — Chez les Abbatiello, les liens du sang à l’épreuve des affaires — Очерк о бизнес-династии, не событие.
-- [fr] не_новость: [world] Jeune Afrique — Soudan : un an après sa prise par Hemetti, El-Fasher reste une ville fantôme — Описание ситуации в городе, нет актуального события.
-- [fr] не_новость: [world] Semafor — La résilience des infrastructures pétrolières du Golfe a ses limites — Аналитическая статья о состоянии инфраструктуры, нет события.
-- [fr] не_новость: [world] Semafor — La croissance manufacturière en Chine ralentit, attisant les inquiétudes — Экономическая аналитика о замедлении роста, нет конкретного факта-события.
-- [fr] не_новость: [world] Semafor — Le développement pétrolier au Venezuela confronté à une pénurie de main-d'œuvre — Аналитическая заметка о рынке труда в Венесуэле, нет события.
-- [fr] чужое_мелкое: [world] Africanews FR — Israël : la droite fustige toute alliance d'Eisenkot avec des partis arabes — Внутренняя политическая полемика в Израиле.
-- [fr] не_новость: [world] La Dépêche — Christine Lagarde : "La fonctionnaire la mieux payée d'Europe..." Combien gagnai — Спекуляции о доходах и пенсии, нет события.
-- [fr] не_новость: [world] Africanews FR — Éthiopie : au Tigré, le TPLF confronté au désaveu d'anciens partisans — Анализ политической ситуации в регионе, нет события.
+- [ru] не_новость: [local] Kabar.kg — Маданият күнү: Өнөрдү өнүктүрүүгө багытталган иштер жана өзгөрүүлөр — День работников культуры — плановый праздник, событие отсутствует.
+- [ru] не_новость: [local] Kaktus.media — Садыр Жапаров поручил обеспечить жителей областей бесплатными адвокатами — Поручение президента, а не свершившийся факт запуска программы.
+- [ru] не_новость: [local] Knews.kg — В Судебном департаменте Кыргызстана отметили 32-ю годовщину со дня образования — Торжественное мероприятие в честь годовщины — этикет, не событие.
+- [ru] не_новость: [local] Knews.kg — Нацбанк Кыргызстана предупреждает о рисках передачи денег организациям, которые  — Предупреждение регулятора не является фактом совершившегося нарушения или действия.
+- [ru] не_новость: [local] Kaktus.media — В кабинете налогоплательщика в КР внедрили автопроверку в отчете по косвенным на — Техническое обновление функционала в личном кабинете — не событие.
+- [ru] не_новость: [pool] Kun.uz — Система отправки на работу за рубеж полностью перейдет в частный сектор — Заявление о планах по передаче функций в частный сектор — намерение, не событие.
+- [ru] полка: [pool] Onliner.by — Брестчанин забрал у 14-летней девочки брендовую кофту за 1000 рублей и решил вещ — Криминальная хроника из Беларуси — мелкое событие, не имеет значимости для читателя в Кыргызстане.
+- [ru] курьёз: [pool] 93.ru — Краснодар — В Черном и Азовском морях нашли 25 новых видов живых организмов за 15 лет — Открытие видов организмов за 15 лет — это обзор/научная подборка, место в «Интересном».
+- [ru] не_новость: [pool] 53.ru — Великий Новгород — Прокуратура добилась лицензий для четырёх скважин водоканала — Плановая проверка прокуратуры и исполнение лицензионных требований — рутина.
+- [ru] не_новость: [pool] 62.ru — Рязань — В Рязанской области до конца года откроют еще две модельные библиотеки — Сообщение о планах губернатора открыть библиотеки в будущем — не событие.
+- [ru] курьёз: [pool] iXBT — Полмиллиона сайтов-призраков: в Рунете растет число заброшенных ресурсов — Статистика по сайтам — аналитика, а не новостное событие.
+- [ru] не_новость: [pool] 63.ru — Самара — В самарском планетарии появятся 2 чуда — фото — Начало подготовки конструкций — промежуточный технический этап строительства, а не открытие.
+- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — Госпочта для бизнеса станет платной — Правительство вводит (планирует) — событие не завершено.
+- [ru] не_новость: [pool] 62.ru — Рязань — Рязанская область стала финалистом всероссийской премии «Больше, чем путешествие — Выход в финал премии — это не событие, а номинация.
+- [ru] не_новость: [pool] Gazeta.uz — Президент призвал в первую очередь трудоустраивать узбекистанцев на новые рабочи — Призыв президента на совещании — слова о намерениях, не новость.
+- [ru] не_новость: [pool] 53.ru — Великий Новгород — В Хвойной чиновника наказали за конфликт интересов — Наказание чиновника за конфликт интересов — частная рутина.
+- [ru] полка: [pool] 60.ru — Псков — На Урале ожидают НМУ с 1 по 3 ноября 2026 года — Прогноз погоды (НМУ) в регионе РФ — не местная, не мировая.
+- [ru] не_новость: [pool] 68.ru — Тамбов — Спектакль тамбовского драмтеатра отметили во Владимире — Получение диплома на фестивале — не новостное событие.
+- [ru] не_новость: [pool] 68.ru — Тамбов — В Знаменском округе ликвидировали очаг дикой конопли — Плановая ликвидация очагов дикорастущих растений — рутинная работа служб.
+- [ru] не_новость: [pool] 68.ru — Тамбов — Тамбовское УФАС выявило нарушение в рекламе розыгрыша телефона — Выявление нарушения в рекламе — рутинная работа антимонопольного органа.
+- [ru] чужое_мелкое: [world] Straits Times — Угроза Трампа в адрес Ирана возобновила опасения стран Персидского залива перед  — Аналитика рисков вокруг угроз Трампа — это слова/мнение, а не факт.
+- [ru] не_новость: [world] Knews.kg — Apple нарушила три принципа Стива Джобса: MacBook получил сенсорный экран, а iPh — Мнение о нарушении принципов Джобса — это разбор/колонка, а не новость.
+- [ru] не_новость: [world] Engadget — По сообщениям, Apple планирует выпуск трех новых моделей iPad в начале следующег — Слухи и планы выпуска продуктов Apple — не событие.
+- [ru] чужое_мелкое: [world] Asia-Plus — Суд в США вновь приостановил начало регистрации для участия в лотерее «Green Car — Техническая приостановка регистрации в визовой лотерее — не мировое событие.
+- [ru] не_новость: [world] RFI — Война с Ираном: несмотря на переговоры в Катаре, Тегеран ужесточает риторику в а — Риторика Тегерана — слова, не событие.
