@@ -1,27 +1,29 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Universal MX — Juan Reynoso hace llorar a futbolista del Necaxa; fuerte regaño desata las lágri — Спортивный разбор/слух о конфликте в раздевалке, не является значимым событием.
-- [es] не_новость: [local] Reforma — Promueve Gobierno... a ¡huachicoleros! — Критическая статья-мнение, нет факта совершившегося события.
-- [es] не_новость: [local] El Informador — Enfrentan acuíferos presión y déficit — Аналитический обзор состояния аквиферов без привязки к конкретному событию.
-- [es] не_новость: [local] La Jornada — Entre flores y ofrendas, perdura la tradición mexicana de reunir a vivos y muert — Культурологический очерк о традиции, а не событие.
-- [es] не_новость: [local] La Jornada — Al alza, nacimientos de inmigrantes: Conapo — Статистический отчет о демографии, нет конкретного события.
-- [es] чужое_мелкое: [pool] Infobae — Olise y Neuer entrenan con al Bayern antes del choque con el Atlético — Рутинная тренировка игроков клуба не является значимой новостью для общего потока.
-- [es] чужое_мелкое: [pool] Infobae — La acampada de Sol se mantiene pero la mayoría de los organizadores continuarán  — Местная протестная активность в Мадриде без глобальных последствий.
-- [es] чужое_мелкое: [pool] El Comercio PE — “Tienen que comer asado, tomar una cerveza, un vino”: Riquelme, una frase especi — Комментарий тренера после матча — не является событием.
-- [es] чужое_мелкое: [pool] Semana CO — Polémica por jugada previa al gol de Jackson Martínez contra Alianza FC: ¿Debió  — Споры о судействе матча — шум, а не событие.
-- [es] чужое_мелкое: [pool] La Nación AR — Los dueños de Adecoagro compraron las tierras de Benetton en la Argentina — Корпоративная сделка (покупка земель) частными лицами/компаниями.
-- [es] курьёз: [pool] La Nación AR — Cuándo es la Olimpiada de Asadores en Núñez, qué se podrá comer y cuánto cuestan — Анонс локального гастрономического мероприятия.
-- [es] курьёз: [pool] RPP PE — Jude Bellingham se quita la camiseta del Real Madrid y posa en ropa interior par — Знаменитость в рекламе нижнего белья.
-- [es] чужое_мелкое: [pool] Marca — El Atlético se mueve para fichar a Stefan Džodić — Слух о трансферных планах футбольного клуба.
-- [es] чужое_мелкое: [pool] Marca — Urko Berrade da el salto al WorldTour con el XDS Astana hasta 2028 — Переход велогонщика в команду — мелкое спортивное событие.
-- [es] курьёз: [pool] Marca — Confirmado el cartel completo de WOW 34 con el fichaje de un ex UFC... y la desp — Анонс локального турнира по ММА.
-- [es] чужое_мелкое: [pool] El País — Feijóo se reivindica como gestor tras el accidente de Urda: “España no se arregl — Политическая риторика оппозиционера, нет принятых решений.
-- [es] чужое_мелкое: [pool] La Vanguardia — “Ya no me fío del AVE para ir a trabajar”: las empresas reducen el uso del tren  — Мнение бизнесмена о работе транспорта.
-- [es] курьёз: [pool] El País — Una reconciliación antes del final — Личная история (не новость).
-- [es] чужое_мелкое: [pool] El Mundo — La travesía clandestina de un joven marroquí de Ceuta al norte de España gracias — История частного лица о миграции.
-- [es] не_новость: [pool] eldiario.es — España, el país de la UE con más muertos en accidentes de tren en los últimos 25 — Статистическое сравнение за 25 лет.
-- [es] чужое_мелкое: [world] Variety — Druski prepara la serie de Netflix «Collect & Praise» basada en su sketch de meg — Производственные планы ТВ-шоу.
-- [es] чужое_мелкое: [world] Variety — Jordan Jensen anuncia una gira por Norteamérica — Анонс гастрольного тура комика.
-- [es] не_новость: [world] BBC Mundo — "Cerró la frontera, pero vivimos peor": el descontento de los votantes latinos q — Аналитика/мнение о настроениях избирателей.
-- [es] не_новость: [world] BBC Mundo — Cuál es el futuro del bolsonarismo tras la salida de Flávio de Brasil y cómo ser — Политический анализ/прогноз.
-- [es] чужое_мелкое: [world] El Sol de México — Herzog iniciará el miércoles las consultas para decidir a quién encarga formar e — Плановые консультации по формированию правительства.
+- [pt] курьёз: [local] CNN Brasil — Thiago Oliveira passa por cirurgia após apresentar “É de Casa”; confira — новость о личной жизни/здоровье знаменитости не является событием для общей ленты.
+- [pt] не_новость: [local] G1 Rio — Menina passa por cirurgia para corrigir deformidade no pé, fica sem órtese no In — частная медицинская проблема ребенка, не имеющая общественного значения.
+- [pt] не_новость: [local] G1 Rio — Dudu Nobre relata roubo de carro durante show no Andaraí; veículo e pertences fo — бытовая кража личного имущества, уже разрешенная, не является новостью.
+- [pt] не_новость: [local] G1 Minas — Família e amigos de Lô Borges realizam evento gratuito em memória do artista nes — плановое мероприятие, не имеющее широкого общественно-политического влияния.
+- [pt] курьёз: [local] Estadão — 2,37 metros e sapato 60: homem mais alto do Brasil volta a andar após receber pr — частная история человека, не имеющая последствий для общества.
+- [pt] курьёз: [local] G1 Rio — Moradores de condomínio na Zona Norte do Rio relatam infestação de aranhas peçon — локальная бытовая жалоба жителей, не является событием.
+- [pt] не_новость: [local] G1 Rio — Advogado de Fernandinho Beira-Mar é investigado por apropriação indébita e estel — индивидуальное расследование по заявлению частных лиц, не является событием для ленты.
+- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Influencer morre aos 29 anos após acidente de mota — гибель частного лица за рубежом — не мировая новость.
+- [pt] анонс: [pool] Observador PT — Ministro da Defesa alvo de ataque informático — текст содержит служебный технический код вместо новости.
+- [pt] анонс: [pool] Observador PT — Administração Interna não vai recorrer de decisão judicial — текст содержит служебный технический код вместо новости.
+- [pt] курьёз: [world] Metrópoles — MIT cria "robô serpente" para investigar interior do intestino delgado — описание научного эксперимента без прикладного результата или последствий.
+- [pt] не_новость: [world] RTP Notícias — Bolsa de Nova Iorque negoceia a subir animada com queda do preço do petróleo — ежедневное описание биржевых колебаний без конкретного повода.
+- [pt] курьёз: [world] Engadget — O Fitbit Edge não possui recurso de pagamento por aproximação — обзор функционала потребительского гаджета, рекламный материал.
+- [pt] чужое_мелкое: [world] The Independent — Ex-juiz é preso por disparar arma contra crianças no Halloween, segundo a políci — криминальное происшествие с участием частного лица в США.
+- [pt] повтор: [world] UPI — Refrigeradores e freezers de supermercados são hackeados na Bélgica e em outros  ≈ «Nova onda de ataques cibernéticos atinge» — одно и то же событие (взлом холодильников в Европе).
+- [pt] не_новость: [world] TechCrunch — Omen AI adiciona conhecimento sobre fluidos com a aquisição da Aquatic Labs por  — корпоративная сделка поглощения без описания влияния на потребителя или рынок.
+- [pt] не_новость: [world] Guardian Sport — Resumo da NFL: Cowboys e Chiefs sofrem derrotas no final; temporada de Lamar Jac — спортивный обзор матчей, не являющийся фактом трансфера или результата турнира.
+- [fr] не_новость: [world] La Tribune — La Grèce commande 3 Embraer KC-390 avec trois options supplémentaires — Это бизнес-контракт на поставку в 2027 году, нет срочности и непосредственного события для читателя.
+- [fr] повтор: [world] La Tribune — Un avion d’affaires Learjet 60 s’écrase en Floride ≈ «Neuf morts dans le crash d'un jet privé » — Тот же сюжет об авиакатастрофе в США.
+- [fr] не_новость: [world] France 24 FR — Présidentielle au Brésil : quand Lula brandit la constitution — Описание действий президента без конкретного события (решения или указа).
+- [fr] курьёз: [world] Futura-Sciences — Fruit entier ou jus de fruits : une enquête révèle une différence chez ceux qui  — Научный факт о мозге, не является новостью события по белому списку.
+- [fr] не_новость: [world] Courrier International — Mort de Juan Atkins, celui “qui a imaginé la musique techno avant tout le monde” — Некролог/статья о музыканте, не является событием по белому списку.
+- [fr] курьёз: [world] Азаттык — Un deuxième tigre de l'Amour a été relâché dans la nature au Kazakhstan — Событие локального значения (экология Казахстана), не имеет мирового масштаба.
+- [fr] не_новость: [world] Africanews FR — Football : la Chine maintient la pression sur la Liga pour les propos de Mbappé — Раздувание полемики и частное решение телеканала, не является событием для мировой ленты.
+- [fr] курьёз: [world] Sciences et Avenir — Le traitement anti-obésité Wegovy arrive en comprimé dans les pharmacies françai — Это коммерческий запуск продукта в аптеках, не является важным событием по белому списку.
+- [fr] курьёз: [world] Guardian Sport — Résumé de la NFL : effondrements tardifs des Cowboys et des Chiefs ; la saison d — Спортивный обзор (NFL) — это разбор/аналитика, а не новость о результате конкретного матча.
+- [fr] не_новость: [world] Le Nouvelliste — Operation in Haiti: Bukele spoke with Trump — Разговор между политиками без официального итога или подписанного соглашения.
