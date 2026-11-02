@@ -1,27 +1,19 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] чужое_мелкое: [local] El Economista MX — Redadas y malestar económico alimentan descontento latino y abren vía a demócrat — Внутренняя политика штата Техас — это США, не Мексика.
-- [es] полка: [local] El Informador — Detienen a peruano señalado de robar carteras en el Macrobús — Событие в Мексике (Гвадалахара) — должно быть в местных.
-- [es] полка: [local] El Universal MX — Culiacán registra dos asesinatos en distintos ataques armados; una agresión ocur — Событие в Мексике (Кульякан) — должно быть в местных.
-- [es] полка: [local] El Informador — Chapala se llena de fiesta con el Festival de las Almas 2026 — Событие в Мексике (Чапала) — должно быть в местных.
-- [es] полка: [local] El Universal MX — Aláine López Briceño asume Comunicación Social de Yucatán; es la cuarta titular  — Событие в Мексике (Юкатан) — должно быть в местных.
-- [es] полка: [local] El Financiero — Uruapan marcha a un año del asesinato de Carlos Manzo: Grecia Quiroz pide no nor — Событие в Мексике (Уруапан) — должно быть в местных.
-- [es] полка: [local] El Financiero — Envenenamiento de perros en La Condesa: Vinculan a proceso a Salvador ‘N’ por cr — Событие в Мексике (Мехико) — должно быть в местных.
-- [es] полка: [local] El Informador — Pide UdeG ayuda para localizar a Santiago Méndez — Событие в Мексике (Гвадалахара) — должно быть в местных.
-- [es] полка: [local] El Informador — Inician desvíos en carretera a Chapala, a la altura del aeropuerto, por paviment — Событие в Мексике (Халиско) — должно быть в местных.
-- [es] полка: [local] El Informador — Conagua apoya a Tlaquepaque con cinco pipas de agua para reforzar abastecimiento — Событие в Мексике (Тлакепаке) — должно быть в местных.
-- [es] полка: [local] La Jornada — Construcción de trenes y vivienda fortalecen la economía: Presidenta — Событие в Мексике — должно быть в местных.
-- [es] полка: [local] La Jornada — Destinarán $1 billón 25 mil millones a programas sociales el año entrante — Событие в Мексике — должно быть в местных.
-- [es] полка: [local] Expansión MX — Hamilton buscará su tercer triunfo desde la 'pole' en el GP de México: así queda — Событие в Мексике (GP MX) — должно быть в местных.
-- [es] полка: [local] Expansión MX — “No podemos depender de un solo sector”: Puebla acelera su diversificación tras  — Событие в Мексике (Пуэбла) — должно быть в местных.
-- [es] полка: [local] Expansión MX — Renault, Hyundai y Nissan bajan 50,000 pesos los precios de Kwid, Grand i10 y Ma — Событие в Мексике (рынок страны) — должно быть в местных.
-- [es] полка: [local] Expansión MX — SAT hasta en la tumba: qué pasa con las deudas y los saldos a favor cuando algui — Событие в Мексике (налоговая MX) — должно быть в местных.
-- [es] полка: [pool] Infobae — SEP rechaza que las Becas para el Bienestar alejen a estudiantes de las aulas — Событие в Мексике (SEP) — должно быть в местных.
-- [es] полка: [pool] Infobae — Dictan sentencia de 5 años contra "El Pozoles", señalado como uno de los líderes — Событие в Мексике (суд) — должно быть в местных.
-- [es] полка: [pool] El Informador — Estas colonias integran la Zona 6 del nuevo esquema de agua del SIAPA — Событие в Мексике (Гвадалахара) — должно быть в местных.
-- [es] повтор: [pool] eldiario.es — Accidente de tren en Urda, última hora en directo: la jueza exige con urgencia m ≈ «Accidente en Urda: las cinco incógnitas » — Тот же сюжет об аварии в Урде.
-- [es] курьёз: [world] Xataka — Unos investigadores han decidido ponerle patas a un teléfono móvil y el resultad — Робот из телефона — интересное, но не новость.
-- [es] курьёз: [world] Xataka — La Luna tendrá su propio superordenador: procesar datos en la Tierra no es una o — Суперкомпьютер на Луне — интересное, но не новость.
-- [es] курьёз: [world] The Guardian — Michael Carroll aborda los mitos sobre la fertilidad masculina en su nuevo libro — Книга о фертильности — не событие.
-- [es] не_новость: [world] Wired — El director de fotografía Steve Yedlin lanza una aplicación de cámara para iPhon — Запуск приложения для фото — реклама продукта.
-- [es] курьёз: [world] Ars Technica — Las aves marinas que regresan a casa sobre el océano pueden sufrir jet lag — Джетлаг у птиц — научный факт, не новость.
+- [ru] чужое_мелкое: [local] Sputnik KG — "Участников митингов против меня дома отшлепают мамы" — Трамп — Высказывание Трампа — это политическая шутка, не имеющая последствий для читателей в Кыргызстане.
+- [ru] срочность: [local] Вечерний Бишкек — В Бишкеке обсудили пожарную безопасность на строительных объектах — Совещание по безопасности — это плановое мероприятие, не требующее побудки читателя.
+- [ru] не_новость: [pool] Onliner.by — Попытались сдать Belgee в «современный автоломбард» и заодно узнали, как он рабо — Обзор работы ломбарда — это потребительский контент/статья, а не новостное событие.
+- [ru] курьёз: [pool] ngs.ru — Новосибирск — «Никак не давалась кнопка»: аналитик из Новосибирска дебютировал в «Своей игре»  — Участие аналитика в телеигре — это любопытный факт, а не новость общественной значимости.
+- [ru] не_новость: [pool] ngs.ru — Новосибирск — Министр природы Новосибирской области ушел в отставку — причина — Отставка регионального министра в РФ — событие, не имеющее последствий за пределами Новосибирской области.
+- [ru] курьёз: [pool] ngs.ru — Новосибирск — Уговорили отдать: в Новосибирске пристраивают маленькую черепаховую кошку — исто — История пристройства кошки — это частная история, место которой в рубрике «Интересное».
+- [ru] не_новость: [pool] e1.ru — Екатеринбург — ИИ против магии: екатеринбурженка привезла на шоу экстрасенсов свою цифровую коп — Участие блогера в шоу экстрасенсов не является новостным событием.
+- [ru] повтор: [world] The Independent — Частный самолет с девятью людьми на борту разбился во Флориде, превратившись в о ≈ «Деловой самолет из Техаса разбился недал» — Тот же инцидент с авиакрушением во Флориде.
+- [ru] чужое_мелкое: [world] The Independent — Война на Украине: Киев нанес массированный ночной удар беспилотниками по российс — Последствия атаки БПЛА для автозаправок в РФ — внутренняя новость, не уровня мировой повестки.
+- [ru] не_новость: [world] Sputnik KG — Трамп заявил, что станет "мистером Вето" в случае победы демократов на выборах — Обещание Трампа использовать право вето — это политическая риторика, а не свершившееся действие.
+- [ru] чужое_мелкое: [world] Sputnik KG — Разгоревшийся политический кризис в Польше прокомментировали в МИД России — Внутренний конфликт в Польше вокруг Конституционного суда без внешнеполитических последствий.
+- [ru] повтор: [world] Sputnik KG (кыргызча) — Зеленский Эрдогандан Путин менен Түркиядан жолуктурууну өтүндү ≈ «Зеленский заявил, что готов встретиться » — Тот же сюжет о готовности Зеленского встретиться с Путиным в Турции.
+- [ru] повтор: [world] CBS News — Деловой самолет из Техаса разбился недалеко от жилых домов в Палм-Бич, Флорида,  ≈ «Самолет с 9 пассажирами на борту разбилс» — Тот же сюжет об авиакрушении во Флориде.
+- [ru] чужое_мелкое: [world] Guardian Sport — Игроки «Лайонс» потрясены: лайнбекер Джек Кэмпбелл госпитализирован с серьезной  — Травма игрока НФЛ — спортивная новость локального значения, не имеющая мирового масштаба.
+- [ru] не_новость: [world] Guardian Sport — «У нас нерушимая любовь»: как нестандартный тренер Натали Накасе привела «Голден — Победа в ЖНБА — спортивная новость, не являющаяся мировой по масштабу события.
+- [ru] не_новость: [world] RFI — Сиси обещает уйти с поста в 2030 году: реальный поворот для Египта или постановк — Обещание уйти в отставку через 4 года — это политическое заявление о намерениях, а не событие.
+- [ru] чужое_мелкое: [world] Knews.kg — Президент Польши обвинил правительство в «силовом захвате» Конституционного триб — Политический спор в Польше — внутренняя новость без мировых последствий.
