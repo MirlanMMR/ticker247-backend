@@ -1,40 +1,27 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] чужое_мелкое: [local] CNN Brasil — Silvia Braz revive vestido icônico de Gisele Bündchen no Oscar da Moda — Светская хроника о моде в США не является значимой новостью для бразильского читателя.
-- [pt] не_новость: [local] InfoMoney — Smartphones e agito: como a Geração Z está mudando as salas de cinema — Это аналитический обзор о поведении поколения Z, а не событие.
-- [pt] чужое_мелкое: [local] Metrópoles — Advogado Nelson Wilians faz BO por ameaça e tentativa de invasão à sua casa — Бытовые криминальные сводки частных лиц (адвоката) не имеют общественной значимости.
-- [pt] срочность: [local] G1 São Paulo — ‘Foi maldade. Não fiz nada pra ele. Sou analfabeto, mas não sou ignorante’, diz  — Инцидент произошел ранее, это не требует побудки читателя.
-- [pt] не_новость: [local] Estadão — Exoneração de 'servidora PCD' bate na cara do governo de SP — Субъективное мнение и разбор кадрового решения в SP, не является новостным фактом.
-- [pt] курьёз: [local] G1 Rio Grande do Sul — 'Ozemburger' e 'Monjalada': lanchonete de Porto Alegre cria xis menor para usuár — Маркетинговая акция локальной закусочной — это любопытный факт, а не новость.
-- [pt] срочность: [local] G1 São Paulo — Vídeo mostra motorista batendo em idoso com muletas em Osasco; suspeito foi cond — Видео старого инцидента, уже получившего оценку правосудия, не требует срочного уведомления.
-- [pt] не_новость: [local] G1 Rio — 'Live do tráfico': perfis no TikTok promovem organizações criminosas, ostentam j — Описательный материал о деятельности преступников в соцсетях без конкретного нового события.
-- [pt] не_новость: [pool] Superinteressante — Como é mensurado o lucro das séries e dos filmes das empresas de streaming? — Разбор финансовой модели киноиндустрии, а не новостной факт.
-- [pt] не_новость: [pool] ECO — As vantagens fiscais do PPR vão além da dedução à coleta — Советы по финансовому планированию и налоговым льготам.
-- [pt] не_новость: [pool] Observador PT — Escolas proíbem telemóvel até ao secundário: "Habituamo-nos" — Обсуждение дискуссионной темы (телефоны в школах), а не свершившееся решение.
-- [pt] не_новость: [pool] RTP Notícias — "Hora Bolas!". Carlos Manuel abre o coração — Анонс подкаста и интервью, а не событие.
-- [pt] не_новость: [world] Wired — Análise do Apple AirPods 5: melhor que o anterior, mas ainda não é um modelo Pro — Обзор потребительского товара (гаджета), а не событие.
-- [pt] не_новость: [world] Guardian Sport — West Ham recorre a Scott Parker após demitir o técnico Nuno Espírito Santo — Слухи/анонсы о назначении тренера. Событием будет официальное подписание.
-- [pt] курьёз: [world] Superinteressante — Como olhos biônicos estão se tornando realidade — Научно-популярный материал о технологиях без привязки к конкретному открытию.
-- [pt] не_новость: [world] TechCrunch — Recursos de IA do Apple Watch para retroceder e resumir conversas iniciam testes — Техническое описание бета-тестирования функций ПО, а не событие для массового читателя.
-- [pt] курьёз: [world] G1 Ceará — Quem é o brasileiro medalha de ouro na 'copa do mundo' de Física com a 3ª melhor — Личное достижение студента, интересная история, но не общественно значимое событие.
-- [fr] не_новость: [local] La Dépêche — "Il a été désavoué" : alors qu'il administrait sa commune depuis Djibouti, ce ma — внутренний административный спор в коммуне, не является общественно значимым событием
-- [fr] повтор: [local] L'Obs — Ce que l’on sait de la cyberattaque contre des réfrigérateurs dans plusieurs sup ≈ «Une cyberattaque d'ampleur européenne dé» — тот же сюжет о кибератаке на супермаркеты
-- [fr] не_новость: [local] L'Obs — Pétition contre CNews : comment la chaîne de Bolloré a été rattrapée par un clim — петиция не является событием по белому списку
-- [fr] не_новость: [local] L'Obs — L’été 2026 a été le plus chaud jamais mesuré, et pourtant l’Etat retire des post — статья-рассуждение о климате, нет конкретного события
-- [fr] не_новость: [local] L'Obs — « Calomnies racistes », « responsabilité immense »… Passe d’armes entre Mélencho — полемика политиков, нет свершившегося факта (решения/действия)
-- [fr] не_новость: [pool] Radio Okapi — James Swan rencontre Joseph Kabila à Goma dans le cadre des consultations avec l — встреча политиков без озвученных итогов/решений
-- [fr] не_новость: [pool] Le Temps — Les CFF étudient une solution basée sur l’intelligence artificielle pour évaluer — планы и исследования, нет свершившегося факта ввода
-- [fr] не_новость: [pool] Le Temps — La force de notre pays n’a jamais résidé dans la violence de ses contestations — колонка-рассуждение, нет события
-- [fr] не_новость: [pool] Bénin Web TV — UEMOA : la revue des réformes annoncée du 4 au 19 novembre — анонс мероприятия, нет события
-- [fr] не_новость: [world] Jeune Afrique — Raffinerie Dangote : pourquoi les fonds de pension ont misé sur l’entrée en Bour — анализ инвестиционного поведения, а не событие
-- [fr] не_новость: [world] Courrier International — “Je ne vais pas voter” : ces républicains du Michigan qui n’en peuvent plus de T — подборка мнений избирателей, не является новостным событием
-- [fr] повтор: [world] Franceinfo — Jesus de Miguel, joueur du club espagnol de Tenerife, est mort après un choc lor ≈ «Disparition tragique : Jesus de Miguel, » — одно и то же происшествие
-- [fr] чужое_мелкое: [world] Africanews FR — Afrique du Sud : deux personnes condamnées pour le cambriolage de la ferme de Ra — мелкая уголовная хроника из ЮАР, не имеет мирового значения
-- [fr] не_новость: [world] Radio-Canada — Au Yukon, le retour des clans après plus d’un siècle de tutelle fédérale — очерк о культуре, нет события
-- [fr] срочность: [world] RTBF — Disparition tragique : Jesus de Miguel, attaquant de Tenerife, décède après un c — спортивная трагедия не требует плашки 'срочно'
-- [fr] не_новость: [world] Franceinfo — Coiffeur, café, église ou même ISS... Appelés aux urnes pour les élections de mi — обзорная статья о процессе голосования
-- [fr] не_новость: [world] TechCrunch — Les fonctionnalités d'IA de l'Apple Watch pour retranscrire et résumer les conve — тестирование функций ПО — не является значимым событием
-- [fr] повтор: [world] RTBF — Élections de mi-mandat aux États-Unis : Donald Trump à l’aube d’une défaite face ≈ «États-Unis : Donald Trump tente d’arrach» — тот же сюжет о выборах в США
-- [fr] не_новость: [world] Le Devoir — Comment Trump pourrait-il contester les résultats des élections de mi-mandat? — аналитика/спекуляции о возможных действиях
-- [fr] не_новость: [world] Time — « Nous avons tout donné » : Donald Trump livre son dernier appel avant les élect — речь кандидата перед выборами, нет события
-- [fr] не_новость: [world] RFI — Midterms 2026: quels sont les scrutins qui attendent les Américains ce 3 novembr — справочная статья перед выборами
+- [ru] чужое_мелкое: [local] Sputnik KG — Европа оберегает Украину от скандалов, в том числе от истории с пыточной — внутренние скандалы в Украине не являются мировыми новостями, согласно инструкции
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Вернулись в 90-е? История о рязанце, которого пытали раскаленным утюгом ради 81  — криминальная хроника регионального уровня РФ не является мировой новостью для пула ru
+- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — На КАД вновь сузят внутреннее кольцо — плановое сужение полос на КАД — рутина, не событие
+- [ru] чужое_мелкое: [pool] 71.ru — Тула — Генерального директора Тульского патронного завода отправили в СИЗО по делу о мо — арест директора завода в РФ — локальная новость РФ, не мировая
+- [ru] не_новость: [pool] ngs.ru — Новосибирск — Средняя зарплата в Новосибирской области превысила 93 тысячи рублей — в каких сф — публикация статистики зарплат за период не является событием по белому списку
+- [ru] не_новость: [pool] Onliner.by — Стало известно, когда в «Минск-Мире» откроется новый храм — анонс открытия храма без точной даты — это планы, а не событие
+- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — Петербург подал заявки на кредиты на 20 млрд — подача заявки на кредит — это намерение, а не состоявшееся событие
+- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — Независимые АЗС Петербурга теряют прибыль и закрываются — анализ рыночной ситуации и прибыли компаний не является новостью
+- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — В пазухе был гной. Ростовчанке вернули деньги после неудачного лечения у стомато — частный спор клиента с клиникой — не событие для ленты
+- [ru] полка: [pool] sochi1.ru — Сочи — Абхазия прилагает максимальные усилия для защиты КПП «Псоу» от украинских дронов — Абхазия — конфликтная зона, такие новости должны идти в МИРОВЫЕ, а не в региональные РФ
+- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — У соседей на Ямале появилась первая в России официальная структура по вопросам г — создание отдела дизайна в правительстве региона — рутина
+- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — «Помогаю маме, выношу мусор»: участник бойни на ЧТЗ с листочка зачитал свою прос — суд в Челябинске — локальное событие РФ
+- [ru] не_новость: [pool] 74.ru — Челябинск — Аэропорт Челябинска перешел на зимнее расписание — переход аэропорта на расписание — плановая рутина
+- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — «Он меня просто убьёт»: ростовчанка с разбитым лицом рассказала, что бывший муж  — бытовой конфликт в Ростове — не новость для пула
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — «Где Панина, где Папанина?» Новому мэру Ярославля устроили допрос во время выбор — выборы мэра ярославского муниципалитета — локальная новость РФ
+- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — Стало известно, по какой причине силовики прервали вечеринку на Хеллоуин в Нижне — рейд в клубе — локальная новость РФ
+- [ru] чужое_мелкое: [pool] 71.ru — Тула — «Попытка создать новую волну топливного кризиса». Ждать ли дефицита бензина в Ту — аналитическая заметка о возможном дефиците бензина — не событие
+- [ru] не_новость: [pool] 89.ru — Салехард — На Ямале ветеранам СВО с инвалидностью ищут работу — плановая работа кадрового центра — рутина
+- [ru] не_новость: [pool] 86.ru — Ханты-Мансийск — Почти заштукатурили стены: что происходит на стройке Центра боевых искусств в Ни — отчет о проценте готовности стройки — не событие
+- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — «По моей вине». Певица MONA отменила крупный концерт в Москве — отмена концерта певицы в Москве — не мировая новость
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Легкий заработок: сразу четверо жителей Казани задержаны в Оренбуржье по подозре — задержание курьеров мошенников — локальная хроника РФ
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Колония строгого режима за поездку без прав — локальный приговор суда в Псковской области
+- [ru] не_новость: [pool] 60.ru — Псков — Ветерану СВО из Пскова передали лодку для гребли — передача инвентаря спортсмену — рутинная работа ведомства
+- [ru] чужое_мелкое: [world] The Independent — McDonald's проиграла важный суд: судья разрешил продолжить рассмотрение иска о с — корпоративный иск McDonald's — не мировая новость
+- [ru] полка: [world] BBC Русская служба — Протесты под Киевом из-за задержанных мужчин. При чем тут «Азов» и почему вмешал — внутренние протесты в Украине — согласно инструкции, не освещаются как «мировая новость»
