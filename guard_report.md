@@ -1,22 +1,21 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] WTOP — Evertec: Q3 Earnings Snapshot — Квартальные отчеты — рутина бизнеса, если нет аномальных убытков или потрясений.
-- [en] курьёз: [local] NY Post — Warriors’ Draymond Green called out by ex-NBA champion after ejection: ‘He has b — Конфликт игрока и бывшего чемпиона — спортивная перепалка, не влияющая на жизнь читателей.
-- [en] срочность: [local] WCTV — Ballot scanner at Albany polling location functioning again after being down — Техническая неполадка исправлена, событие больше не требует немедленного внимания.
-- [en] чужое_мелкое: [local] KLKN-TVKLKN-TV — Trump releases his Nebraska endorsements, Nebraska Democratic Party says the mom — Политические эндорсы — это внутрипартийная рутина, не имеющая мирового значения.
-- [en] не_новость: [local] Concord Monitor — Principal Anthony Blinn returns to Abbot-Downing after cleared by investigation — Возврат сотрудника после служебной проверки — внутренняя кадровая история.
-- [en] не_новость: [local] WBAY — Brown County executive highlights Crash Responder Safety Week — Прокламация о неделе безопасности — формальное мероприятие, не меняющее статус-кво.
-- [en] не_новость: [local] 1011NOW — Aurich defends defensive play call, Holgorsen notes ‘pressing’ Nebraska football — Обсуждение тактики игры — спортивная аналитика, а не событие.
-- [en] чужое_мелкое: [pool] Daily Maverick — LOCAL ELECTIONS 2026: IEC tightens security — Подготовка избиркома в ЮАР — внутренняя техническая новость другой страны.
-- [en] чужое_мелкое: [pool] Global News CA — Judge orders Bitcoin, laptop be returned to convicted killer William Sandeson — Судебное решение о возврате личного имущества осужденному — частный случай.
-- [en] курьёз: [pool] Variety — ‘Cher Adores Michael Douglas,’ Icon’s Rep Says After Douglas Disses Her Oscar Wi — Реакция представителя артиста на давнее высказывание — светская хроника.
-- [en] чужое_мелкое: [pool] Ars Technica — NYT demands Brave shut down its paywall blocker and end deals with AI firms — Претензия издания к технологической компании — узкий отраслевой спор.
-- [en] не_новость: [pool] The Guardian — Even if US democracy can be salvaged from Trump, Europe is moving on | Rafael Be — Авторская колонка с рассуждениями о геополитике.
-- [en] не_новость: [pool] Time — E-Bike and E-Scooter Accidents Are Skyrocketing Among Children — Обзорная статья об опасности электросамокатов без конкретного происшествия.
-- [en] срочность: [pool] RTÉ Ireland — PSNI arrest man in Carrie Mullane murder investigation — Арест по делу об исчезновении — событие, но не побудка для прерывания дел.
-- [en] курьёз: [world] Engadget — Netflix thinks AI might save you from scrolling aimlessly for something to watch — Гипотеза компании о будущем ИИ-инструменте — анонс фичи, не событие.
-- [en] не_новость: [world] Ars Technica — Google will let schools skip AI tools, but they have to give up search, too — Условия использования сервиса Google школами — рабочая рутина.
-- [en] чужое_мелкое: [world] BBC News — Celebrity loses injunction bid but will stay anonymous pending appeal — Судебный спор знаменитости о сохранении анонимности — частное дело.
-- [en] повтор: [world] Азаттык (кыргызча) — US midterm elections taking place ≈ «Live: Voters weigh fraud, immigration an» — Описание того же события, что и в новости №43.
-- [en] чужое_мелкое: [world] Азаттык — Head of the Mejlis of the Crimean Tatar People criticizes Tokayev's proposal to  — Критика политического предложения — дискуссия, а не решение.
-- [en] не_новость: [world] The Guardian — ‘His voice was too queer – so they silenced him’: how Spain’s national poet Lorc — Культурологический очерк об исторической личности.
+- [es] курьёз: [local] El Universal MX — GTA VI: fecha, horario y lo que debes saber antes del estreno; comunidad alista  — Это анонс видеоигры, а не событие. Место в ленте развлечений, но не новостей.
+- [es] не_новость: [local] El Universal MX — Valentina Alazraki aclara confusión por visita del papa León XIV a México; "No h — Развенчание слухов — не событие.
+- [es] не_новость: [local] El Financiero — Zoé Robledo gana más que Sheinbaum: Así son los salarios de los funcionarios fed — Анализ зарплат — это не событие (не случилось ничего нового).
+- [es] курьёз: [local] El Informador — Jardines del Country, una colonia con amplia historia en Guadalajara — История района — это очерк, не событие.
+- [es] полка: [pool] La Nación CR — PSG juega con un inocente Villarreal y le receta una goleada en la Champions — Событие в Испании/Франции — мировой уровень, не региональный для CR.
+- [es] не_новость: [pool] Infobae — Laura Itzel Castillo defiende su patrimonio de 15.7 millones de pesos tras señal — Защита чиновника от критики — не событие, нет факта изменения положения.
+- [es] не_новость: [pool] El Nacional VE — Clara Vegas Goetz: “Me siento orgullosa de representar a Venezuela en un año tan — Интервью с участницей конкурса — не событие.
+- [es] повтор: [pool] El Financiero — FC Barcelona golea al Aston Villa: Resultados de la Jornada 4 de Champions Leagu ≈ «Champions League: Bayern Munich sorprend» — Тот же сюжет про матч Барселоны, что и в новости 51.
+- [es] курьёз: [pool] El Universo EC — ¿Por qué aparecen piqueros de patas azules en zonas urbanas? — Пояснение о повадках птиц — это факт, а не новостное событие.
+- [es] курьёз: [pool] Smithsonian Magazine — Presentan el esqueleto del Día de Muertos más alto del mundo, hecho de acero, fi — Описание декорации к празднику — это факт, не событие.
+- [es] повтор: [pool] eldiario.es — Puente libera al PSOE de la carga de tenerlo en el Gobierno y en la campaña ≈ «Óscar Puente anuncia su dimisión como mi» — Тот же сюжет об отставке министра, что в 45.
+- [es] повтор: [pool] eldiario.es — El Frente Amplio agradece a Puente su "dignidad" por dimitir y las derechas apun ≈ «Óscar Puente anuncia su dimisión como mi» — Реакция на отставку, сюжет 45.
+- [es] не_новость: [pool] BBC Mundo — Muere Jesús de Miguel, futbolista del Tenerife español, tras un choque en el cam — Смерть футболиста в результате несчастного случая — это трагедия, но не «важная» новость мирового масштаба для пула es.
+- [es] повтор: [world] La Nación AR — A qué hora se conocen los resultados de las elecciones en Estados Unidos hoy ≈ «EE.UU. vota en unas elecciones de medio » — Тот же сюжет о выборах в США.
+- [es] не_новость: [world] Clarín AR — Google bloqueará el acceso a su buscador a estudiantes que desactiven sus herram — Техническое ограничение Google — не событие для массового читателя.
+- [es] не_новость: [world] TechCrunch — Anthropic trabaja en un sistema para verificar la identidad de los modelos de IA — Разработка системы проверки — это процесс, нет свершившегося факта.
+- [es] повтор: [world] Marca — Rodri, duda para el Metropolitano ≈ «FC Barcelona golea al Aston Villa: Resul» — Тот же сюжет про матч Барселоны.
+- [es] не_новость: [world] La Jornada — Agricultura y represas, mayores amenazas a biodiversidad de agua dulce — Научный отчет об угрозах — не событие.
+- [es] повтор: [world] BBC Mundo — Quiénes son las 9 víctimas del fatal accidente del avión privado que se estrelló ≈ «Empresario tecnológico, su esposa, hijos» — Тот же сюжет про авиакатастрофу в США.
