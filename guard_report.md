@@ -1,27 +1,25 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] не_новость: [local] WDBJ7 — Golf tournament set to raise awareness for a rare form of lung cancer — Анонс месяца осведомленности о раке, события нет.
-- [en] не_новость: [local] OPB — There could be a shortage of Northwest hay this winter and next spring — Рассуждение о возможном дефиците, события нет.
-- [en] не_новость: [local] CalMatters — Prop. 43: Should it be harder to raise local taxes for specific services? — Объяснение сути закона (анонс/разбор), а не факт принятия.
-- [en] не_новость: [local] KCRG — Grinnell College Poll shows increased confidence in correct vote counts for midt — Публикация результатов опроса, а не события.
-- [en] не_новость: [local] WABI — Sen. Collins tours Aroostook County in final days on the campaign trail — Описание предвыборного тура (рутина), события нет.
-- [en] не_новость: [local] WBAL — Voter’s Guide | What you need to know for the 2026 General Election — Гайд для избирателей, не событие.
-- [en] не_новость: [local] WSFA — Decision 2026: What Alabama voters need to know — Справочная информация перед выборами, не событие.
-- [en] не_новость: [local] KTVB — Polling location, sample ballot tools of 'Vote Idaho' website not functioning ah — Сайт не работает — это техническая неполадка, а не новостное событие.
-- [en] не_новость: [local] 1011NOW — Cool, windy and rainy Tuesday — Прогноз погоды, не событие.
-- [en] не_новость: [local] MarylandReporter.com — State Roundup: Elections chief says Maryland voting is ‘safe, secure;’ Not every — Сборник заявлений и Q&A, а не событие.
-- [en] не_новость: [local] WLBT — Party chairmen describe final push in Mississippi U.S. Senate race — Описание предвыборной кампании, не событие.
-- [en] не_новость: [local] WWLP — Galvin uncertain about beating voter turnout in 2022, 2018 — Комментарий официального лица об ожиданиях, не событие.
-- [en] не_новость: [local] WCTV — How districts are addressing bus driver shortages — Аналитическая статья о проблеме, события нет.
-- [en] не_новость: [local] WCTV — Louisiana’s coast is disappearing, and nobody can agree on how to stop it — Экологический очерк о проблеме, события нет.
-- [en] не_новость: [local] KWCH — Election Day in Kansas: Voters making voices heard in high-stakes midterm — Общий обзор дня выборов, не конкретное событие.
-- [en] не_новость: [pool] Wired — Roli Has Fallen Apart—and Left Customers Holding the Bag — Слухи об увольнении основателя, не подтвержденный факт.
-- [en] не_новость: [pool] Toronto Star — The Latest: Voters will decide control of Congress in major test of Trump's seco — Общий анонс дня выборов.
-- [en] не_новость: [pool] Global News CA — OSAP pause hits paramedic students bound to work in underserved areas — Статья о проблемах с финансированием программы, события нет.
-- [en] не_новость: [pool] BBC News — Mahmood refuses to put cost on care worker settlement climbdown — Отказ чиновника давать комментарии — не событие.
-- [en] не_новость: [pool] WFPL — A big night for Beshear, Democrats? Here’s what to watch for on election night i — Рассуждение о возможных итогах, а не событие.
-- [en] не_новость: [pool] BBC Sport — Emery looks to show Villa can compete with elite — Интервью с тренером о целях, не событие.
-- [en] не_новость: [pool] BBC Sport — The referee who became a role model after bouncing back from Diaz error — Портретный очерк о судье, не событие.
-- [en] курьёз: [pool] TechCrunch — Google takes Dreambeans to India in bid to bring AI-generated personal stories t — Запуск экспериментального приложения — мелкая бизнес-новость, не мировая.
-- [en] не_новость: [world] Азаттык (кыргызча) — Japarov: I warned Gazprom that I would nationalize it like Kumtor if it fails to — Угроза/предупреждение, а не принятое решение о национализации.
-- [en] не_новость: [world] TechCrunch — Yvonne Bajela is bringing $17M in fresh capital to Europe’s startup scene — Статья о планах венчурного инвестора, не конкретное событие.
+- [es] чужое_мелкое: [local] El Sol de México — Allanan depósito del padre de Meghan Markle en Baja California en investigación  — Криминальная хроника из другой страны, не касающаяся Мексики.
+- [es] курьёз: [pool] El Comercio PE — ¿Qué es la commotio cordis? El extraño episodio cardiaco tras un golpe en el pec — Медицинское объяснение причины смерти, не является событием дня.
+- [es] не_новость: [pool] Clarín AR — Cuándo es la Marcha del Orgullo en Argentina: la historia detrás de la fecha ele — Историческая справка об истории праздника, нет актуального события.
+- [es] срочность: [pool] Clarín AR — Por la llegada del Papa, cierran calles en Buenos Aires desde el miércoles 4 de  — Плановое перекрытие улиц — важная информация, но не срочная (не требует побудки).
+- [es] не_новость: [pool] Marca — Fernando Clavijo, presidente de Canarias: "No puedes ir a jugar un partido y fal — Эмоциональный отклик-этикет без нового факта.
+- [es] не_новость: [pool] El Universo EC — Jugadores del Real Madrid rinden homenaje al fallecido delantero del Tenerife, J — Эмоциональный отклик-этикет без нового факта.
+- [es] не_новость: [pool] Marca — Almeida confirma que se han retirado de Sol 36,2 toneladas de residuos, un 88,2% — Отчёт о работе городских служб по уборке, не событие в рамках повестки.
+- [es] повтор: [pool] Montevideo Portal — Abren investigación por muerte del futbolista Jesús de Miguel: qué pasará con su ≈ «¿Qué es la commotio cordis? El extraño e» — Тот же сюжет о гибели футболиста и расследовании.
+- [es] повтор: [pool] La Vanguardia — Puente anuncia un doble control en las órdenes a los maquinistas cuando caiga el ≈ «Óscar Puente anuncia un plan de refuerzo» — Тот же сюжет о мерах министерства по безопасности поездов.
+- [es] не_новость: [pool] BBC Mundo — La madre en Chile a la que obligaron a esperar que su bebé muriera en su vientre — Статья о давнем случае (вынесенное решение), неактуальный повод.
+- [es] повтор: [pool] eldiario.es — El centro de control "pidió disculpas" al maquinista del Iryo que corrigió la or ≈ «Óscar Puente anuncia un plan de refuerzo» — Тот же сюжет о деталях аварии поездов.
+- [es] повтор: [pool] eldiario.es — Óscar Puente se enfrenta a un Congreso hostil que pide su dimisión y más explica ≈ «El Gobierno descarta dimisiones, anuncia» — Тот же сюжет о выступлении министра в парламенте.
+- [es] не_новость: [world] El Nacional VE — La organización del Giro de Italia revela el recorrido para la edición 2027 — Анонс маршрута велогонки на 2027 год, не событие.
+- [es] не_новость: [world] Semana CO — Denuncias de tres mujeres reviven el escándalo del año en la NFL: los Packers se — Скандал внутри спортивной лиги, не имеющий мирового масштаба.
+- [es] курьёз: [world] Muy Interesante — El inquietante castigo de la antigua Roma: algunos emperadores eran condenados a — Исторический факт об эпохе Рима, не событие.
+- [es] курьёз: [world] Muy Interesante — Este prototipo de 4,7 metros transforma sus instrumentos al cambiar de modo: así — Описание концепт-кара, не является новостным событием.
+- [es] курьёз: [world] Live Science — 'Un espectáculo de luces': un astronauta de la NASA fotografía una bola de fuego — Любопытный факт из космоса, не событие дня.
+- [es] курьёз: [world] Sciences et Avenir — Un ciberataque de escala europea destruye toneladas de alimentos — Технический разбор кибератаки без привязки к конкретному событию сегодня.
+- [es] не_новость: [world] La Jornada — Agricultura y represas, mayores amenazas a biodiversidad de agua dulce — Обзор экологической проблемы без конкретного события (очерк).
+- [es] курьёз: [world] TechCrunch — Comienzan las pruebas beta de las funciones de IA de Apple Watch para rebobinar  — Тестирование функции гаджета — технологическая заметка, не событие.
+- [es] срочность: [world] BBC Mundo — Quiénes son las 9 víctimas del fatal accidente del avión privado que se estrelló — Авиакатастрофа произошла в воскресенье, спустя более суток срочность неуместна.
+- [es] чужое_мелкое: [world] Expansión MX — Trump intenta dejar fuera del conteo 20,000 papeletas en California — Внутренняя предвыборная тяжба в США, не мировая новость.
+- [es] не_новость: [world] El Mundo — El sistema de señalización en el tramo Madrid-Sevilla, explicado en gráficos — Графический разбор системы сигнализации, не событие.
