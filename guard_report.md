@@ -1,20 +1,26 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] не_новость: [local] El Universal MX — Papa León XIV visitará la Basílica de Guadalupe en México; aún se desconoce la f — визит без даты — лишь анонс планов
-- [es] не_новость: [local] El Informador — Jardines del Country, una colonia con amplia historia en Guadalajara — описание истории района не является новостным событием
-- [es] не_новость: [pool] Infobae — El movimiento de Haas que anticipa quién sería el reemplazante de Esteban Ocon p — слухи и домыслы о составе пилотов F1 — не событие
-- [es] полка: [pool] El Universal MX — La española Cristina Fernández Cubas, reconocida con el Premio Cervantes 2026 — мировая новость (премия Сервантеса), а не региональная
-- [es] не_новость: [pool] Marca — Carolina Marín: "Quiero poner todo de mi parte para que el bádminton no se olvid — интервью/очерк о спортсменке, нет события
-- [es] не_новость: [pool] Montevideo Portal — La hermana Matilde, la religiosa detrás del altar que usará el papa León XIV en  — описание биографии/работы человека — не событие
-- [es] не_новость: [pool] La Vanguardia — Puente responde en el Congreso a las preguntas de los partidos sobre la tragedia — пересказ слов политика в парламенте — не событие
-- [es] не_новость: [pool] La Vanguardia — El Govern apoya la continuidad de Puente: “Está haciendo lo que debe hacer un re — мнение о политике — не событие
-- [es] срочность: [pool] BBC Mundo — La madre en Chile a la que obligaron a esperar que su bebé muriera en su vientre — решение суда по делу прошлого — не повод для побудки
-- [es] повтор: [pool] BBC Mundo — Muere Jesús de Miguel, futbolista del Tenerife español, tras un choque en el cam ≈ «Desde Jesús de Miguel hasta Marc-Vivien » — тот же инцидент, что в карточке 55
-- [es] не_новость: [pool] eldiario.es — CCOO y UGT defienden la huelga y preguntan a Feijóo si gobernará con un partido  — политическая риторика и вопросы к оппоненту — не событие
-- [es] курьёз: [world] TechCrunch — El controvertido vehículo eléctrico Luce de Ferrari tiene su producción agotada  — коммерческая информация о продажах авто
-- [es] курьёз: [world] Xataka — José Luis Gómez Pardo, CEO de Nixval: "La factura de agua de nuestro centro de d — цитата о счетах за воду — любопытный факт
-- [es] не_новость: [world] El Financiero — Europa necesita bancos fuertes y mayor inversión para crecer, advierte Ana Botín — общие слова о необходимости инвестиций — не событие
-- [es] курьёз: [world] El Universo EC — Desde Jesús de Miguel hasta Marc-Vivien Foé: estos son los futbolistas que han f — подборка исторических случаев — не свежая новость
-- [es] не_новость: [world] Expansión MX — FMI destaca a Brasil como el país que lo tiene todo para crecer — оценочное суждение МВФ — не событие
-- [es] не_новость: [world] Expansión MX — El Fondo Monetario Internacional está listo para rescatar a una economía avanzad — наличие «мощи» у МВФ — не событие
-- [es] курьёз: [world] Live Science — 'Un espectáculo de luces': un astronauta de la NASA fotografía una bola de fuego — видео старого события (апрель), не новость
+- [pt] не_новость: [local] Poder360 — Em prisão domiciliar, Bolsonaro pede visita de técnicos da Vivo — запрос разрешения на рутинную процедуру, не событие
+- [pt] курьёз: [local] Metrópoles — Brasileira é eleita Designer de Acessórios do Ano pelo CFDA em Nova York — личная премия, нет общественной значимости
+- [pt] курьёз: [local] G1 Globo — Jiboia é resgatada às margens da RJ-106 em Rio das Ostras — обычный случай спасения дикого животного
+- [pt] не_новость: [local] G1 Globo — Prefeitura suspende mais uma 'Direita Livre' em Feira de Santana para montagem d — локальное административное решение без существенных последствий
+- [pt] не_новость: [local] Poder360 — Nikolas apresenta projeto para revogar classificação de desenhos bíblicos — подача законопроекта (слова), а не принятое решение
+- [pt] не_новость: [local] Agência Brasil — Lula vai a São Paulo para fazer exames de rotina nesta terça-feira — плановое медицинское обследование
+- [pt] не_новость: [local] Gazeta do Povo — Carcereiro conta em livro os bastidores dos 580 dias de prisão de Lula em Curiti — описание книги о событиях прошлых лет
+- [pt] не_новость: [local] G1 Rio — Caso Kathlen Romeu: júri popular de PMs acusados de morte é remarcado para dezem — техническое перенесение даты суда
+- [pt] не_новость: [local] G1 Rio — Prefeitura demole ampliação de quiosque e identifica outros ‘puxadinhos’ na Prai — локальное административное действие, рутина
+- [pt] срочность: [local] G1 Rio — Adolescente de 14 anos morre afogado em lago de pedreira em São Gonçalo — несчастный случай, не требующий побудки
+- [pt] не_новость: [local] G1 São Paulo — Obra do túnel entre estações Consolação e Paulista do Metrô atrasa pela 2ª vez e — очередное затягивание сроков строительства
+- [pt] не_новость: [local] G1 Rio — Com temperatura podendo chegar a 34ºC, Rio entra no nível 2 de calor — официальная бюрократическая фиксация температуры
+- [pt] не_новость: [pool] Observador PT — Mude o que mudar, Silas já decidiu que vai ser o farol — спортивная колонка, разбор тренерских планов
+- [pt] полка: [pool] Expresso das Ilhas — Ilha de Santiago volta a ter fornecimento normal de energia eléctrica — местная новость для Кабо-Верде, лежит в «Новостях из…»
+- [pt] курьёз: [pool] Expresso das Ilhas — Ondas de calor noturnas são a maior ameaça à saúde em Cabo Verde - estudo inédit — информация об исследовании, нет события
+- [pt] курьёз: [pool] Expresso das Ilhas — Outubro termina com 2.990 ninhos de tartaruga na Boa Vista — статистика по гнездам черепах, не новость
+- [pt] чужое_мелкое: [world] InfoMoney — Milhares protestam em Praga enquanto emissoras tchecas entram em greve — локальные протесты в Чехии, нет мировых последствий
+- [pt] чужое_мелкое: [world] The Hill — DeSantis: Guerra no Irã é um grande entrave para os Republicanos — мнение политика о внутренней политике США
+- [pt] не_новость: [world] CNN Brasil — Trump comemora “vitória” republicana em Guam, mas omite contexto importante — политическая аналитика/комментарий
+- [pt] курьёз: [world] Wired — Binance diz que hackers usaram truques conhecidos para realizar roubo de US$ 6,3 — отчет о прошлой ошибке, нет события для читателя
+- [pt] повтор: [world] Superinteressante — Após 22 anos de operação, observatório Swift deve se desintegrar na atmosfera ne ≈ «Nave espacial da NASA de 1.450 kg pode c» — тот же инфоповод, что в №72
+- [pt] чужое_мелкое: [world] Азаттык — Chefe do Mejlis do povo tártaro da Crimeia critica proposta de Tokayev de convid — критика в адрес политики Казахстана, не событие
+- [pt] курьёз: [world] Live Science — Astronauta da NASA fotografa bola de fogo atmosférica após explosão de foguete r — красивое наблюдение, нет события
+- [pt] полка: [world] Азаттык — Uzbequistão abre processo criminal após envenenamento de participantes de tornei — региональная новость Центральной Азии в «Мировых»
