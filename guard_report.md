@@ -1,23 +1,20 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [en] курьёз: [local] WCTV — Holiday gift budgets drop 21% as families cut back, report finds — Это прогноз/отчёт, а не событие с конкретным фактом/решением.
-- [en] курьёз: [local] Untitled RSS Feed — "Our Marina Is Gone!" Lake Powell Surges But Drawdowns Continue At Flaming Gorge — Информационный материал о состоянии резервуара, а не новость.
-- [en] чужое_мелкое: [local] CBS News — New Jersey's governor warns ports against accepting Russian diesel — Заявление губернатора штата по локальному вопросу импорта не является мировой новостью.
-- [en] не_новость: [local] New Jersey 101.5 — Beloved Bareburger location in Ridgewood shuts down this week — Закрытие ресторана — локальная бизнес-заметка, не событие для ленты.
-- [en] не_новость: [local] WSAZ — Chick-Fil-A to close popular location — Локальное закрытие точки фастфуда.
-- [en] не_новость: [local] Portland Press Herald — Sister June, 1 of the world’s last 3 Shakers, has died in Maine — Смерть одного из последних представителей секты — биографическая заметка, не событие.
-- [en] не_новость: [local] WLBT — $200K Powerball ticket sold in Gulfport — Выигрыш в лотерею — не новость в рамках наших критериев.
-- [en] не_новость: [local] Deseret News — Trump could put tariffs on wind turbines — Rocky Mountain Power isn’t worried — Рассуждения о возможных будущих тарифах.
-- [en] не_новость: [local] Bangor Daily News — These local elections are being waged along the ‘Two Maines’ dividing line — Анонс страницы выборов, а не событие.
-- [en] курьёз: [pool] NY Post — Dad dies from rare blood cancer after dismissing fatigue as work stress — Личная трагическая история, не имеющая общественной значимости события.
-- [en] не_новость: [pool] CNA — Gravenberch misses Fenerbahce clash but weekend return possible, says Iraola — Спортивная новость о графике тренировок игрока (слухи/прогнозы).
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Legal aid changes 'unfair, illogical', High Court finds — Внутреннее судебное решение Ирландии по локальному праву.
-- [en] не_новость: [pool] RTÉ Ireland — Mourners told Mageean was an 'inspirational human being' — Эмоциональное описание похорон.
-- [en] не_новость: [pool] Sky Sports — Barcola: People are starting to understand me better - but I'm not Mo Salah — Интервью/мнение игрока о себе, а не событие.
-- [en] не_новость: [world] BBC News — King calls slave trade a 'shameful chapter' during Commonwealth address — Риторика и слова короля, не меняющие статус-кво.
-- [en] чужое_мелкое: [world] El Mundo — Puente ignores resignation request from Urda and Adamuz victims, despite having  — Внутриполитическая борьба в Испании.
-- [en] чужое_мелкое: [world] BBC News — Celebrity loses injunction bid but will stay anonymous pending appeal — Локальное судебное разбирательство в Британии о частной жизни.
-- [en] повтор: [world] Honolulu Star-Advertiser — Trump says U.S. will stop $4 billion in annual aid to Israel ≈ «Donald Trump announces the end of $3.8 b» — Одна и та же новость о помощи Израилю.
-- [en] чужое_мелкое: [world] RFI — South Korea: investigation into online leak of President's personal data — Внутренние дела Южной Кореи без международных последствий.
-- [en] не_новость: [world] Азаттык (кыргызча) — US midterm elections taking place — Общий обзор выборов без конкретных результатов/событий.
-- [en] не_новость: [world] Азаттык — Head of the Mejlis of the Crimean Tatar People criticizes Tokayev's proposal to  — Критика и мнение одного политика в адрес другого.
+- [es] не_новость: [local] El Universal MX — Papa León XIV visitará la Basílica de Guadalupe en México; aún se desconoce la f — визит без даты — лишь анонс планов
+- [es] не_новость: [local] El Informador — Jardines del Country, una colonia con amplia historia en Guadalajara — описание истории района не является новостным событием
+- [es] не_новость: [pool] Infobae — El movimiento de Haas que anticipa quién sería el reemplazante de Esteban Ocon p — слухи и домыслы о составе пилотов F1 — не событие
+- [es] полка: [pool] El Universal MX — La española Cristina Fernández Cubas, reconocida con el Premio Cervantes 2026 — мировая новость (премия Сервантеса), а не региональная
+- [es] не_новость: [pool] Marca — Carolina Marín: "Quiero poner todo de mi parte para que el bádminton no se olvid — интервью/очерк о спортсменке, нет события
+- [es] не_новость: [pool] Montevideo Portal — La hermana Matilde, la religiosa detrás del altar que usará el papa León XIV en  — описание биографии/работы человека — не событие
+- [es] не_новость: [pool] La Vanguardia — Puente responde en el Congreso a las preguntas de los partidos sobre la tragedia — пересказ слов политика в парламенте — не событие
+- [es] не_новость: [pool] La Vanguardia — El Govern apoya la continuidad de Puente: “Está haciendo lo que debe hacer un re — мнение о политике — не событие
+- [es] срочность: [pool] BBC Mundo — La madre en Chile a la que obligaron a esperar que su bebé muriera en su vientre — решение суда по делу прошлого — не повод для побудки
+- [es] повтор: [pool] BBC Mundo — Muere Jesús de Miguel, futbolista del Tenerife español, tras un choque en el cam ≈ «Desde Jesús de Miguel hasta Marc-Vivien » — тот же инцидент, что в карточке 55
+- [es] не_новость: [pool] eldiario.es — CCOO y UGT defienden la huelga y preguntan a Feijóo si gobernará con un partido  — политическая риторика и вопросы к оппоненту — не событие
+- [es] курьёз: [world] TechCrunch — El controvertido vehículo eléctrico Luce de Ferrari tiene su producción agotada  — коммерческая информация о продажах авто
+- [es] курьёз: [world] Xataka — José Luis Gómez Pardo, CEO de Nixval: "La factura de agua de nuestro centro de d — цитата о счетах за воду — любопытный факт
+- [es] не_новость: [world] El Financiero — Europa necesita bancos fuertes y mayor inversión para crecer, advierte Ana Botín — общие слова о необходимости инвестиций — не событие
+- [es] курьёз: [world] El Universo EC — Desde Jesús de Miguel hasta Marc-Vivien Foé: estos son los futbolistas que han f — подборка исторических случаев — не свежая новость
+- [es] не_новость: [world] Expansión MX — FMI destaca a Brasil como el país que lo tiene todo para crecer — оценочное суждение МВФ — не событие
+- [es] не_новость: [world] Expansión MX — El Fondo Monetario Internacional está listo para rescatar a una economía avanzad — наличие «мощи» у МВФ — не событие
+- [es] курьёз: [world] Live Science — 'Un espectáculo de luces': un astronauta de la NASA fotografía una bola de fuego — видео старого события (апрель), не новость
