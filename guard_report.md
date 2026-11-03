@@ -1,25 +1,28 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [es] чужое_мелкое: [local] El Sol de México — Allanan depósito del padre de Meghan Markle en Baja California en investigación  — Криминальная хроника из другой страны, не касающаяся Мексики.
-- [es] курьёз: [pool] El Comercio PE — ¿Qué es la commotio cordis? El extraño episodio cardiaco tras un golpe en el pec — Медицинское объяснение причины смерти, не является событием дня.
-- [es] не_новость: [pool] Clarín AR — Cuándo es la Marcha del Orgullo en Argentina: la historia detrás de la fecha ele — Историческая справка об истории праздника, нет актуального события.
-- [es] срочность: [pool] Clarín AR — Por la llegada del Papa, cierran calles en Buenos Aires desde el miércoles 4 de  — Плановое перекрытие улиц — важная информация, но не срочная (не требует побудки).
-- [es] не_новость: [pool] Marca — Fernando Clavijo, presidente de Canarias: "No puedes ir a jugar un partido y fal — Эмоциональный отклик-этикет без нового факта.
-- [es] не_новость: [pool] El Universo EC — Jugadores del Real Madrid rinden homenaje al fallecido delantero del Tenerife, J — Эмоциональный отклик-этикет без нового факта.
-- [es] не_новость: [pool] Marca — Almeida confirma que se han retirado de Sol 36,2 toneladas de residuos, un 88,2% — Отчёт о работе городских служб по уборке, не событие в рамках повестки.
-- [es] повтор: [pool] Montevideo Portal — Abren investigación por muerte del futbolista Jesús de Miguel: qué pasará con su ≈ «¿Qué es la commotio cordis? El extraño e» — Тот же сюжет о гибели футболиста и расследовании.
-- [es] повтор: [pool] La Vanguardia — Puente anuncia un doble control en las órdenes a los maquinistas cuando caiga el ≈ «Óscar Puente anuncia un plan de refuerzo» — Тот же сюжет о мерах министерства по безопасности поездов.
-- [es] не_новость: [pool] BBC Mundo — La madre en Chile a la que obligaron a esperar que su bebé muriera en su vientre — Статья о давнем случае (вынесенное решение), неактуальный повод.
-- [es] повтор: [pool] eldiario.es — El centro de control "pidió disculpas" al maquinista del Iryo que corrigió la or ≈ «Óscar Puente anuncia un plan de refuerzo» — Тот же сюжет о деталях аварии поездов.
-- [es] повтор: [pool] eldiario.es — Óscar Puente se enfrenta a un Congreso hostil que pide su dimisión y más explica ≈ «El Gobierno descarta dimisiones, anuncia» — Тот же сюжет о выступлении министра в парламенте.
-- [es] не_новость: [world] El Nacional VE — La organización del Giro de Italia revela el recorrido para la edición 2027 — Анонс маршрута велогонки на 2027 год, не событие.
-- [es] не_новость: [world] Semana CO — Denuncias de tres mujeres reviven el escándalo del año en la NFL: los Packers se — Скандал внутри спортивной лиги, не имеющий мирового масштаба.
-- [es] курьёз: [world] Muy Interesante — El inquietante castigo de la antigua Roma: algunos emperadores eran condenados a — Исторический факт об эпохе Рима, не событие.
-- [es] курьёз: [world] Muy Interesante — Este prototipo de 4,7 metros transforma sus instrumentos al cambiar de modo: así — Описание концепт-кара, не является новостным событием.
-- [es] курьёз: [world] Live Science — 'Un espectáculo de luces': un astronauta de la NASA fotografía una bola de fuego — Любопытный факт из космоса, не событие дня.
-- [es] курьёз: [world] Sciences et Avenir — Un ciberataque de escala europea destruye toneladas de alimentos — Технический разбор кибератаки без привязки к конкретному событию сегодня.
-- [es] не_новость: [world] La Jornada — Agricultura y represas, mayores amenazas a biodiversidad de agua dulce — Обзор экологической проблемы без конкретного события (очерк).
-- [es] курьёз: [world] TechCrunch — Comienzan las pruebas beta de las funciones de IA de Apple Watch para rebobinar  — Тестирование функции гаджета — технологическая заметка, не событие.
-- [es] срочность: [world] BBC Mundo — Quiénes son las 9 víctimas del fatal accidente del avión privado que se estrelló — Авиакатастрофа произошла в воскресенье, спустя более суток срочность неуместна.
-- [es] чужое_мелкое: [world] Expansión MX — Trump intenta dejar fuera del conteo 20,000 papeletas en California — Внутренняя предвыборная тяжба в США, не мировая новость.
-- [es] не_новость: [world] El Mundo — El sistema de señalización en el tramo Madrid-Sevilla, explicado en gráficos — Графический разбор системы сигнализации, не событие.
+- [pt] чужое_мелкое: [local] Poder360 — Zambelli pede ajuda de R$ 50 para se manter na Itália — личная просьба о деньгах частного лица (депутата) в соцсетях не является новостью
+- [pt] не_новость: [local] Folha de S.Paulo — Com aval de Lula, presidente do PT atua para expulsar grupo apelidado de 'centrã — внутрипартийные конфликты без свершившегося увольнения или раскола — это процесс
+- [pt] не_новость: [local] Folha de S.Paulo — Clubes de futebol reclamam ao STF de perdas milionárias com fim das bets — обращение в суд не является новостью, нужно решение суда
+- [pt] не_новость: [local] Folha de S.Paulo — Após deixar o Madrona, Priscilla Carbone é a nova sócia do Abe Advogados — переход адвоката в другую фирму не является общественно значимым событием
+- [pt] не_новость: [local] Estadão — Viúva de Lito Sousa não fará festas de Natal e do aniversário do filho: ‘Não exi — личное решение вдовы не проводить праздники — это частная жизнь, а не новость
+- [pt] курьёз: [local] G1 Rio Grande do Sul — 'Mais tatuado do Brasil' pede namorada em casamento antes de 2ª sessão de quimio — личная жизнь инфлюенсера не является новостью для общей ленты
+- [pt] не_новость: [local] G1 Rio — Jovem de 23 anos aguarda nova cirurgia no Into após 3 procedimentos sem sucesso — ожидание плановой операции — это частная медицинская ситуация, а не событие
+- [pt] не_новость: [pool] Notícias ao Minuto — Livre vai propor teste da semana de 4 dias na administração pública — предложение обсудить законопроект не является событием
+- [pt] не_новость: [pool] Expresso das Ilhas — Ministro da Educação reafirma necessidade de “mudança de paradigma” no ensino em — мнение министра о необходимости перемен — это слова, а не свершившееся действие
+- [pt] чужое_мелкое: [world] Folha de S.Paulo — Vivienne Jolie retira sobrenome de Brad Pitt após ter o pedido aprovado pela Jus — смена фамилии ребенка знаменитостей не является важной новостью
+- [pt] полка: [world] Азаттык (кыргызча) — Eleições para o Congresso ocorrem nos Estados Unidos — выборы в США — мировое событие, а не региональное для СНГ/Центральной Азии, если новость попала в пул
+- [pt] не_новость: [world] Азаттык — Chefe do Mejlis do povo tártaro da Crimeia critica proposta de Tokayev de convid — критика предложения политиком — это мнение, а не событие
+- [pt] не_новость: [world] Guardian Sport — West Ham recorre a Scott Parker após demitir o técnico Nuno Espírito Santo — планы по найму тренера без свершившегося подписания контракта — это слухи
+- [pt] курьёз: [world] G1 Ceará — Quem é o brasileiro medalha de ouro na 'copa do mundo' de Física com a 3ª melhor — успех студента в олимпиаде — интересный факт, но не событие для широкой аудитории
+- [fr] анонс: [local] BFMTV — La croissance était déjà faible mais ça sera encore pire: le gouverneur de la Ba — Текст представляет собой пересказ прогноза, а не свершившееся событие.
+- [fr] курьёз: [local] L'Obs — Fake news sur Brigitte Macron : revers partiel pour le couple présidentiel face  — Спор о фейковых новостях в соцсетях не является значимым событием для читателя.
+- [fr] не_новость: [pool] RTBF — "Le décès du meilleur papa et mari du monde" : Toni Brogno, ancien Diable et mei — Личное сообщение о смерти частного лица (спортсмена в отставке) не является общественно значимой новостью.
+- [fr] не_новость: [world] BFMTV — "Un chapitre honteux de l'Histoire": Charles III dit son "horreur" face à l'escl — Высказывание монарха о событиях прошлого — этикет, а не событие.
+- [fr] не_новость: [world] France 24 FR — Madagascar : qui sont les lauréats de la bourse Ghislaine Dupont et Claude Verlo — Вручение ежегодной премии — плановое мероприятие, не имеющее последствий.
+- [fr] чужое_мелкое: [world] BBC News — Un conseiller municipal de Reform UK inculpé pour viol et agressions sexuelles — Мелкое уголовное дело местного британского политика не имеет мирового значения.
+- [fr] не_новость: [world] Radio-Canada — Des motos de 56 M$, qui auraient appartenu à Ryan Wedding, aux enchères — Аукцион личных вещей — курьез, не имеющий общественной значимости.
+- [fr] не_новость: [world] Africanews FR — Jeux Olympiques de la Jeunesse : des lutteurs suisses et sénégalais se rencontre — Товарищеская встреча спортсменов — событийная ценность отсутствует.
+- [fr] не_новость: [world] La Dépêche — PORTRAIT. Crash d'un jet privé en Floride : "Je savais qu’un avion allait me l’e — Портрет-воспоминание матери погибшей — не новость по белому списку.
+- [fr] не_новость: [world] Africanews FR — Égypte : le spectacle « Eternal Sun » donne vie aux récits de la civilisation ég — Описание светового шоу — не является событием.
+- [fr] не_новость: [world] Radio-Canada — Au Yukon, le retour des clans après plus d’un siècle de tutelle fédérale — Культурно-этнографический очерк, нет события.
+- [fr] не_новость: [world] Le Devoir — Comment Trump pourrait-il contester les résultats des élections de mi-mandat? — Аналитическая статья-размышление о гипотетических действиях, а не событие.
