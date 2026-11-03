@@ -1,28 +1,23 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] чужое_мелкое: [local] Poder360 — Zambelli pede ajuda de R$ 50 para se manter na Itália — личная просьба о деньгах частного лица (депутата) в соцсетях не является новостью
-- [pt] не_новость: [local] Folha de S.Paulo — Com aval de Lula, presidente do PT atua para expulsar grupo apelidado de 'centrã — внутрипартийные конфликты без свершившегося увольнения или раскола — это процесс
-- [pt] не_новость: [local] Folha de S.Paulo — Clubes de futebol reclamam ao STF de perdas milionárias com fim das bets — обращение в суд не является новостью, нужно решение суда
-- [pt] не_новость: [local] Folha de S.Paulo — Após deixar o Madrona, Priscilla Carbone é a nova sócia do Abe Advogados — переход адвоката в другую фирму не является общественно значимым событием
-- [pt] не_новость: [local] Estadão — Viúva de Lito Sousa não fará festas de Natal e do aniversário do filho: ‘Não exi — личное решение вдовы не проводить праздники — это частная жизнь, а не новость
-- [pt] курьёз: [local] G1 Rio Grande do Sul — 'Mais tatuado do Brasil' pede namorada em casamento antes de 2ª sessão de quimio — личная жизнь инфлюенсера не является новостью для общей ленты
-- [pt] не_новость: [local] G1 Rio — Jovem de 23 anos aguarda nova cirurgia no Into após 3 procedimentos sem sucesso — ожидание плановой операции — это частная медицинская ситуация, а не событие
-- [pt] не_новость: [pool] Notícias ao Minuto — Livre vai propor teste da semana de 4 dias na administração pública — предложение обсудить законопроект не является событием
-- [pt] не_новость: [pool] Expresso das Ilhas — Ministro da Educação reafirma necessidade de “mudança de paradigma” no ensino em — мнение министра о необходимости перемен — это слова, а не свершившееся действие
-- [pt] чужое_мелкое: [world] Folha de S.Paulo — Vivienne Jolie retira sobrenome de Brad Pitt após ter o pedido aprovado pela Jus — смена фамилии ребенка знаменитостей не является важной новостью
-- [pt] полка: [world] Азаттык (кыргызча) — Eleições para o Congresso ocorrem nos Estados Unidos — выборы в США — мировое событие, а не региональное для СНГ/Центральной Азии, если новость попала в пул
-- [pt] не_новость: [world] Азаттык — Chefe do Mejlis do povo tártaro da Crimeia critica proposta de Tokayev de convid — критика предложения политиком — это мнение, а не событие
-- [pt] не_новость: [world] Guardian Sport — West Ham recorre a Scott Parker após demitir o técnico Nuno Espírito Santo — планы по найму тренера без свершившегося подписания контракта — это слухи
-- [pt] курьёз: [world] G1 Ceará — Quem é o brasileiro medalha de ouro na 'copa do mundo' de Física com a 3ª melhor — успех студента в олимпиаде — интересный факт, но не событие для широкой аудитории
-- [fr] анонс: [local] BFMTV — La croissance était déjà faible mais ça sera encore pire: le gouverneur de la Ba — Текст представляет собой пересказ прогноза, а не свершившееся событие.
-- [fr] курьёз: [local] L'Obs — Fake news sur Brigitte Macron : revers partiel pour le couple présidentiel face  — Спор о фейковых новостях в соцсетях не является значимым событием для читателя.
-- [fr] не_новость: [pool] RTBF — "Le décès du meilleur papa et mari du monde" : Toni Brogno, ancien Diable et mei — Личное сообщение о смерти частного лица (спортсмена в отставке) не является общественно значимой новостью.
-- [fr] не_новость: [world] BFMTV — "Un chapitre honteux de l'Histoire": Charles III dit son "horreur" face à l'escl — Высказывание монарха о событиях прошлого — этикет, а не событие.
-- [fr] не_новость: [world] France 24 FR — Madagascar : qui sont les lauréats de la bourse Ghislaine Dupont et Claude Verlo — Вручение ежегодной премии — плановое мероприятие, не имеющее последствий.
-- [fr] чужое_мелкое: [world] BBC News — Un conseiller municipal de Reform UK inculpé pour viol et agressions sexuelles — Мелкое уголовное дело местного британского политика не имеет мирового значения.
-- [fr] не_новость: [world] Radio-Canada — Des motos de 56 M$, qui auraient appartenu à Ryan Wedding, aux enchères — Аукцион личных вещей — курьез, не имеющий общественной значимости.
-- [fr] не_новость: [world] Africanews FR — Jeux Olympiques de la Jeunesse : des lutteurs suisses et sénégalais se rencontre — Товарищеская встреча спортсменов — событийная ценность отсутствует.
-- [fr] не_новость: [world] La Dépêche — PORTRAIT. Crash d'un jet privé en Floride : "Je savais qu’un avion allait me l’e — Портрет-воспоминание матери погибшей — не новость по белому списку.
-- [fr] не_новость: [world] Africanews FR — Égypte : le spectacle « Eternal Sun » donne vie aux récits de la civilisation ég — Описание светового шоу — не является событием.
-- [fr] не_новость: [world] Radio-Canada — Au Yukon, le retour des clans après plus d’un siècle de tutelle fédérale — Культурно-этнографический очерк, нет события.
-- [fr] не_новость: [world] Le Devoir — Comment Trump pourrait-il contester les résultats des élections de mi-mandat? — Аналитическая статья-размышление о гипотетических действиях, а не событие.
+- [en] курьёз: [local] WCTV — Holiday gift budgets drop 21% as families cut back, report finds — Это прогноз/отчёт, а не событие с конкретным фактом/решением.
+- [en] курьёз: [local] Untitled RSS Feed — "Our Marina Is Gone!" Lake Powell Surges But Drawdowns Continue At Flaming Gorge — Информационный материал о состоянии резервуара, а не новость.
+- [en] чужое_мелкое: [local] CBS News — New Jersey's governor warns ports against accepting Russian diesel — Заявление губернатора штата по локальному вопросу импорта не является мировой новостью.
+- [en] не_новость: [local] New Jersey 101.5 — Beloved Bareburger location in Ridgewood shuts down this week — Закрытие ресторана — локальная бизнес-заметка, не событие для ленты.
+- [en] не_новость: [local] WSAZ — Chick-Fil-A to close popular location — Локальное закрытие точки фастфуда.
+- [en] не_новость: [local] Portland Press Herald — Sister June, 1 of the world’s last 3 Shakers, has died in Maine — Смерть одного из последних представителей секты — биографическая заметка, не событие.
+- [en] не_новость: [local] WLBT — $200K Powerball ticket sold in Gulfport — Выигрыш в лотерею — не новость в рамках наших критериев.
+- [en] не_новость: [local] Deseret News — Trump could put tariffs on wind turbines — Rocky Mountain Power isn’t worried — Рассуждения о возможных будущих тарифах.
+- [en] не_новость: [local] Bangor Daily News — These local elections are being waged along the ‘Two Maines’ dividing line — Анонс страницы выборов, а не событие.
+- [en] курьёз: [pool] NY Post — Dad dies from rare blood cancer after dismissing fatigue as work stress — Личная трагическая история, не имеющая общественной значимости события.
+- [en] не_новость: [pool] CNA — Gravenberch misses Fenerbahce clash but weekend return possible, says Iraola — Спортивная новость о графике тренировок игрока (слухи/прогнозы).
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Legal aid changes 'unfair, illogical', High Court finds — Внутреннее судебное решение Ирландии по локальному праву.
+- [en] не_новость: [pool] RTÉ Ireland — Mourners told Mageean was an 'inspirational human being' — Эмоциональное описание похорон.
+- [en] не_новость: [pool] Sky Sports — Barcola: People are starting to understand me better - but I'm not Mo Salah — Интервью/мнение игрока о себе, а не событие.
+- [en] не_новость: [world] BBC News — King calls slave trade a 'shameful chapter' during Commonwealth address — Риторика и слова короля, не меняющие статус-кво.
+- [en] чужое_мелкое: [world] El Mundo — Puente ignores resignation request from Urda and Adamuz victims, despite having  — Внутриполитическая борьба в Испании.
+- [en] чужое_мелкое: [world] BBC News — Celebrity loses injunction bid but will stay anonymous pending appeal — Локальное судебное разбирательство в Британии о частной жизни.
+- [en] повтор: [world] Honolulu Star-Advertiser — Trump says U.S. will stop $4 billion in annual aid to Israel ≈ «Donald Trump announces the end of $3.8 b» — Одна и та же новость о помощи Израилю.
+- [en] чужое_мелкое: [world] RFI — South Korea: investigation into online leak of President's personal data — Внутренние дела Южной Кореи без международных последствий.
+- [en] не_новость: [world] Азаттык (кыргызча) — US midterm elections taking place — Общий обзор выборов без конкретных результатов/событий.
+- [en] не_новость: [world] Азаттык — Head of the Mejlis of the Crimean Tatar People criticizes Tokayev's proposal to  — Критика и мнение одного политика в адрес другого.
