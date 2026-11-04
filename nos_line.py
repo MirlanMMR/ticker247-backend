@@ -18,6 +18,37 @@ import re
 # убирая придаточное, а не обрезая по числу знаков (владелец 04.11)
 LIMIT = 100
 
+
+# ── даты: «5 ноября» → «5.11» (владелец 04.11: «месяцы тоже сократим»). В английском «5.11» читают и как 5 ноября, и как 11 мая,
+# поэтому там цифровая дата не ставится — только «November» → «Nov».
+MONTHS = {
+    "ru": "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(),
+    "es": "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split(),
+    "pt": "janeiro fevereiro março abril maio junho julho agosto setembro outubro novembro dezembro".split(),
+    "fr": "janvier février mars avril mai juin juillet août septembre octobre novembre décembre".split(),
+}
+_DATE = {
+    "ru": r"(\d{1,2})\s+(%s)(?![\w])",
+    "es": r"(\d{1,2})\s+de\s+(%s)(?![\w])",
+    "pt": r"(\d{1,2})\s+de\s+(%s)(?![\w])",
+    "fr": r"(\d{1,2}|1er)\s+(%s)(?![\w])",
+}
+
+
+def _date_sub(lang):
+    names = MONTHS.get(lang)
+    if not names:
+        return None
+    pat = re.compile(_DATE[lang] % "|".join(names), re.I | re.U)
+    idx = {n: i + 1 for i, n in enumerate(names)}
+    return pat, lambda m: f"{m.group(1).replace('er', '')}.{idx[m.group(2).lower()]:02d}"
+
+
+def normalize_dates(text: str, lang: str) -> str:
+    """«5 ноября» → «5.11». Нужна и сжатию, и замку чисел: «5.11» в строке законно, когда в источнике «5 ноября»."""
+    sub = _date_sub(lang)
+    return sub[0].sub(sub[1], text) if sub else text
+
 # ── числа словами → цифры (2…10; «один» не трогаем: «один из», «одним словом»). Окончание «х» — как просит владелец
 NUMERALS = {
     "ru": {"двух": "2х", "трёх": "3х", "трех": "3х", "четырёх": "4х", "четырех": "4х",
@@ -80,6 +111,8 @@ ABBREVIATIONS = {
         (r"Prime\s+Minister", "PM"), (r"(\d)\s+percent", r"\1%"), (r"(\d)\s+million", r"\1M"),
         (r"(\d)\s+billion", r"\1B"), (r"(\d)\s+kilometers?", r"\1 km"),
         (r"\$(\d[\d.,]*)\s*M\b", r"$\1M"),
+        (r"\b(Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]{2,8}\b", r"\1"),
+        (r"\bSept(?:ember)?\b", "Sep"),
     ],
     "es": [
         (r"Estados\s+Unidos", "EE.UU"), (r"Naciones\s+Unidas", "ONU"), (r"Unión\s+Europea", "UE"),
@@ -99,6 +132,8 @@ ABBREVIATIONS = {
 def abbreviate(text: str, lang: str, limit: int = LIMIT) -> str:
     """Общепринятые сокращения по одному, пока длина больше [limit]; хватает места — слова остаются полными."""
     t = text
+    if len(t) > limit:
+        t = normalize_dates(t, lang)                       # «5 ноября» → «5.11»
     for pat, repl in ABBREVIATIONS.get(lang, []):
         if len(t) <= limit:
             break
@@ -194,7 +229,7 @@ def clean(line, title: str, source_text: str, lang: str, limit: int = LIMIT):
         return None
     if len(_TITLE_NEG.findall(t)) != len(_TITLE_NEG.findall(title or "")):
         return None
-    src = numerals_to_digits(f"{title} {source_text or ''}", lang)
+    src = normalize_dates(numerals_to_digits(f"{title} {source_text or ''}", lang), lang)
     nums = {re.sub(r"\D", "", m) for m in _NUM.findall(src)}
     if any(re.sub(r"\D", "", m) not in nums for m in _NUM.findall(t)):
         return None
