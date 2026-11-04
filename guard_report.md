@@ -1,27 +1,24 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] FOX 2 — Family sues after Belleville West student injured in school van crash — Это судебный процесс по прошлому событию, не требует срочного оповещения.
-- [en] срочность: [local] Inquirer.com — Democrat Marie Gluesenkamp Perez wins reelection to U.S. — Итоги выборов — это важная новость, но не повод для побудки (срочно).
-- [en] срочность: [local] WSMV — 🔴 Live Updates: Republicans defend Tennessee governor’s office with razor-thin m — Текстовая трансляция выборов не является поводом для push-уведомления.
-- [en] не_новость: [local] NY Post — Trump cheers himself up after midterm wipeout by touting White House ballroom, h — Насмешки над планами политика не являются событием.
-- [en] не_новость: [local] Connecticut Mirror — Contractor who hired Kosta Diamantis’ daughter gets probation — Приговор за прошлые коррупционные дела не является актуальным событием для ленты.
-- [en] курьёз: [local] NASA — NASA Announces Ka-Band Satellite Relay Awards for Space Communications — Технические контракты NASA — профильная новость, не событие для массового читателя.
-- [en] не_новость: [local] WV MetroNews — CAMC/Vandalia Health honors veterans, holds flag-raising ceremony with Veterans  — Плановая церемония поднятия флага к празднику — рутина.
-- [en] срочность: [local] CBS News — Mississippi Senate race is toss-up, with margin of under 100 votes — Промежуточные результаты подсчета голосов не являются поводом для срочной метки.
-- [en] не_новость: [local] KFVS12 — Marion teacher pleads not guilty to charges; accused of using school account to  — Обычный ход судебного процесса (pleads not guilty) не является событием.
-- [en] не_новость: [local] WDAM — Ex-Jones County deputy clerk sentenced to prison for falsified records — Приговор по делу о хищениях двухлетней давности — отчет о прошлом.
-- [en] курьёз: [local] Latest &amp; Breaking News (fox35orlando) — Deputy wrangles gator, rides in patrol car, the Osceola Sheriff's Office says — Ловля аллигатора — забавная история, а не важная новость.
-- [en] не_новость: [local] Untitled RSS Feed — Prop. 1 Only Survived One County, Lincoln, And Niobrara Rejected It The Hardest — Анализ голосования по штатам после факта выборов — разбор, а не событие.
-- [en] срочность: [local] KFVS12 — Current boil water orders/advisories in the Heartland — Плановое объявление (кипячение воды) не требует срочности, это нормативная работа.
-- [en] не_новость: [local] Latest &amp; Breaking News — Gov. Wes Moore celebrates reelection win, says Maryland 'ready to meet the momen — Празднование победы на пресс-конференции — этикет, не событие.
-- [en] не_новость: [local] Cardinal & Pine — Are NC animal shelters overcrowded? Here are the 2025 euthanasia rates — Статистика за 2025 год — не новость, а справочный материал.
-- [en] срочность: [local] WFSB — Several students detained after altercation at New Haven high school involving B — Драка с пневматикой в школе — происшествие, но не требует срочного уведомления (срочно).
-- [en] не_новость: [local] Cleveland.com — Popular music group cancels concert 30 minutes before showtime — Отмена концерта — мелкая новость, не требует освещения в общественно-политическом агрегаторе.
-- [en] срочность: [local] WFSB — Police arrest suspect in Norwalk stabbing — Криминальная хроника (ножевое ранение) — не повод для срочного уведомления.
-- [en] курьёз: [local] Arkansas Times — Willi Carlisle’s ‘The Universal Bubba’ is Stereogum’s ‘Album of the Week’ — Музыкальный альбом недели — не является общественно значимым событием.
-- [en] не_новость: [local] Axios — Democrats vow Trump investigations, but voters have another priority too — Обещания расследований — политическая риторика, а не событие.
-- [en] срочность: [local] NH Union Leader Latest News — Laconia man charged with assault after viral Election Day video outside poll — Арест после инцидента на выборах — отчет о событии, не требует срочной метки.
-- [en] полка: [pool] Infobae — Optimism in international markets following Trump's defeat: stocks rise and oil  — Внутренняя политика США должна быть в местных новостях, а не в международных.
-- [en] не_новость: [pool] Rolling Stone — How Carlos Santana and Natalia Lafourcade Came Together For ‘Hermano,’ an Ode to — История создания песни — художественный очерк, не новость.
-- [en] не_новость: [pool] The Independent — Hegseth becomes target No. 1 for Trump’s midterm failure as questions swirl on h — Политические спекуляции о будущем чиновника — не событие.
-- [en] не_новость: [pool] Wired — ‘You Don’t Put Your Head in the Sand for 4 Years’: Colossal CEO Ben Lamm on Work — Мнение CEO компании о политике — это интервью, а не новость.
+- [es] анонс: [local] El Universal MX — Urgen diagnóstico y tratamiento integral para el cáncer de mama en México; calcu — Текст обрывается после заголовка и повторения части фразы, нет сути.
+- [es] не_новость: [local] El Financiero — Cielo despejado en Nuevo León: Así estará el clima el jueves 5 de noviembre, con — Прогноз погоды — не новость.
+- [es] курьёз: [local] El Informador — Fiscalía de Jalisco investiga presunto envenenamiento de gatos en el Parque Alca — Инцидент с животными без системных последствий.
+- [es] не_новость: [local] El Informador — Cine al aire libre en Guadalajara: Cartelera gratuita del 4 al 8 de noviembre — Анонс развлекательных мероприятий.
+- [es] не_новость: [local] El Informador — Lista de colonias con cortes de agua hoy miércoles en el AMG por los tandeos — Плановое объявление, не является событием.
+- [es] не_новость: [local] El Informador — Retirarán por un tiempo las esculturas de "La Casa de los Perros" — Плановый ремонт/обслуживание объектов.
+- [es] не_новость: [local] Expansión MX — México se la pone difícil a China; aduanas aumentan vigilancia — Описательное описание намерений, нет свершившегося факта.
+- [es] не_новость: [local] La Jornada — Afloran críticas contra diputados y gobierno en foro sobre muerte digna — Пересказ мнений участников форума, нет принятого решения.
+- [es] не_новость: [pool] El Tiempo CO — El programa 'Mujeres Todoterreno' de Sacyr capacita a comunidades que habitan en — Презентация корпоративной стратегии.
+- [es] курьёз: [pool] Infobae — Felipe Saruma reaccionó al reconocimiento como el segundo mejor creador de conte — Рейтинг популярности блогера.
+- [es] не_новость: [pool] Semana CO — Acoso laboral: encuesta revela por qué los trabajadores colombianos prefieren gu — Публикация результатов опроса о настроениях.
+- [es] не_новость: [pool] RPP PE — Bendicen al papamóvil que trasladará al papa León XIV durante su estadía en Perú — Религиозный обряд (благословение транспорта).
+- [es] не_новость: [pool] Marca — La Real emite un comunicado señalando en especial a la sala VOR y su revisión po — Выражение недовольства судейством — это комментарий, а не событие.
+- [es] не_новость: [pool] Marca — Piqué encabezará la expedición del Andorra en el sepelio de Jesús de Miguel — Анонс похоронной церемонии.
+- [es] не_новость: [pool] Diario Libre DO — Abinader destaca papel Asamblea General ONU Turismo para RD — Дипломатический этикет («выразил признательность»).
+- [es] курьёз: [world] Xataka — Hay físicos empeñados en demostrar que Einstein se equivocó y los neutrinos del  — Научно-популярная дискуссия без события.
+- [es] не_новость: [world] Wired — El abogado que busca responsabilizar a las grandes empresas tecnológicas mediant — Портрет адвоката, не новость.
+- [es] не_новость: [world] TechCrunch — Waymo confirma que finalizará su asociación con Uber en enero de 2028 — Далекий бизнес-план (январь 2028).
+- [es] не_новость: [world] NASA — La NASA anuncia adjudicaciones para la retransmisión por satélite en banda Ka pa — Анонс выбора подрядчиков NASA.
+- [es] не_новость: [world] TechCrunch — Sequoia Capital da marcha atrás y deshace 20 años de expansión — Внутренняя реструктуризация бизнеса.
+- [es] не_новость: [world] La Vanguardia — Satisfacción en la izquierda por la derrota de Trump, Feijóo avisa del “vuelco”  — Подборка мнений испанских политиков о чужих выборах.
+- [es] не_новость: [world] eldiario.es — Trump patalea por la derrota en las midterms y amenaza con vetar las iniciativas — Описательный эмоциональный материал о риторике, а не о событии.
