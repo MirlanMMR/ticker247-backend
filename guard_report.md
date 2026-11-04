@@ -1,18 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] G1 Globo — Confederação do comércio pede mais prazo para implementar a escala 5x2 — Это обсуждение процесса (PEC), а не принятое решение или закон.
-- [pt] не_новость: [local] Metrópoles — Copa SEST SENAT 2026 chega às fases finais com 16 equipes lutando pela taça — Анонс спортивного турнира (фазы финала), а не результат.
-- [pt] не_новость: [local] Gazeta do Povo — Governo Lula impõe sigilo de cinco anos a documentos usados para proibir bets — Информацию о засекречивании документов правительством нельзя считать событием в рамках белого списка.
-- [pt] не_новость: [local] Agência Brasil — Prêmio TV Brasil Petrobras Para Elas: trio disputa Craque da Torcida — Анонс премии, победители которой ещё не объявлены.
-- [pt] полка: [local] Superinteressante — FDA, a “Anvisa” dos EUA, aprova versão genérica do lenacapavir, injeção contra o — Интересное открытие, но в МИРОВЫХ это выглядит как обычная новость.
-- [pt] не_новость: [pool] ECO — Oficial. Paulo Fonseca é o novo treinador do Sporting que paga 5 milhões ao Lyon — Тренерский вопрос в спорте, если не указано, что сделка уже завершена (но здесь заголовок выглядит как свершившийся факт
-- [pt] анонс: [pool] Observador PT — ONG pedem a Portugal plano climático antes da COP31 — Текст состоит из кода разметки рекламы (obs_ads.queue_slot), содержания нет.
-- [pt] анонс: [pool] Observador PT — Freguesias com acesso a crédito para habitação no OE2027 — Текст состоит из кода разметки рекламы, содержания нет.
-- [pt] анонс: [pool] Observador PT — Jovens do Chega suspendem audição da ministra — Текст состоит из кода разметки рекламы, содержания нет.
-- [pt] не_новость: [pool] Jornal de Negócios — Quercus quer IVA reduzido para reparar e reutilizar produtos — Предложение экологической организации (Quercus), а не решение власти.
-- [pt] курьёз: [world] NASA — NASA anuncia contratos para retransmissão de satélites em banda Ka para comunica — Техническое объявление NASA, для читателя не является новостью события.
-- [pt] курьёз: [world] Superinteressante — Fazer xixi sentado ou em pé faz alguma diferença para a saúde? — Научно-популярный факт, не является новостью (событием).
-- [pt] не_новость: [world] BBC Brasil — Análise: 'Onda azul' que expõe perda de força de Trump pode levar a pedido de im — Это «Análise» (разбор/мнение), а не событие.
-- [pt] повтор: [world] RFI — Eleições de meio de mandato de 2026: os marcos históricos que marcaram a votação ≈ «Com "onda azul" nos EUA, democratas vão » — Тот же сюжет про выборы в США.
-- [pt] не_новость: [world] BBC Brasil — Quem é Abdul El-Sayed, primeiro muçulmano eleito senador nos EUA — Биографическая справка о политике, а не событие.
-- [pt] повтор: [world] Азаттык — Democratas vencem eleições para o Congresso dos EUA ≈ «Com "onda azul" nos EUA, democratas vão » — Тот же сюжет про выборы в США.
+- [en] срочность: [local] WPRI — Remains of World War II soldier from New Bedford accounted for — Это историческая находка, а не событие, требующее немедленного внимания.
+- [en] курьёз: [local] CBS News — Huge space telescope plunges back to Earth after 22 years in orbit — Событие 22-летней давности, не имеет актуального значения для читателя.
+- [en] срочность: [local] Gothamist — Bronx man wakes up to a $39K nightmare after online meetup at hotel, NYPD says — Криминальная хроника, не требующая побудки читателя.
+- [en] не_новость: [local] 1011NOW — Lincoln police launch seat belt enforcement project ahead of Thanksgiving — Плановая профилактическая кампания полиции.
+- [en] не_новость: [local] WCTV — Trump appears to take credit for stock market rally day after multiple Democrati — Комментарий политика в соцсетях, а не событие.
+- [en] полка: [local] Axios — LIV Golf collapse imminent — Событие (банкротство LIV Golf) является мировым, а не местным.
+- [en] не_новость: [pool] Variety — Lili Reinhart, Danny Ramirez, Suki Waterhouse, Mark Duplass and Lukas Gage Team  — Анонс начала съемок фильма.
+- [en] курьёз: [pool] TechCrunch — Almost no one uses AI agents to book their Uber, company says — Статистическое наблюдение компании, не является новостным событием.
+- [en] не_новость: [pool] TechCrunch — Snapchat surpasses 30M paid subscribers — Очередной статистический отчет о количестве пользователей (результаты компании).
+- [en] не_новость: [pool] Ars Technica — VMware releases vSphere Express for virtualization on up to 128 cores — Релиз программного продукта (бизнес-рутина).
+- [en] не_новость: [pool] Variety — UFC’s Event Sellout Spree Powers TKO Q3 Earnings — Финансовый отчет компании.
+- [en] не_новость: [pool] Ars Technica — AMD's record quarter: Data center business doubles, while gaming craters — Финансовый отчет компании.
+- [en] не_новость: [pool] TechCrunch — Meta acquires AI coding startup Conductor — Технологическое поглощение (бизнес-рутина).
+- [en] не_новость: [pool] Rolling Stone — As Nicki Minaj Rallied for Trump’s GOP, Her Lawyers Say She Still Owes Them $295 — Судебный спор о долгах (частный вопрос).
+- [en] не_новость: [pool] Wired — The Biggest Pro-AI Super PAC Network Didn’t Really Impact the Midterms — Аналитика эффективности предвыборных расходов.
+- [en] не_новость: [pool] Forbes — CVS Health’s Split Signals A Turning Point For Healthcare Megabrands — Аналитический разбор рыночной ситуации.
+- [en] не_новость: [pool] Engadget — Pangram expands its AI detection tools to video and images — Релиз функции ПО.
+- [en] не_новость: [pool] Engadget — Xbox is testing two new controller options for Cloud Gaming — Тестирование функций в ПО.
+- [en] не_новость: [pool] Engadget — God of War Laufey is delayed until May 20 — Перенос даты выхода видеоигры.
+- [en] не_новость: [world] Ars Technica — Uranium cubes reveal why the German nuclear project failed — Историческое исследование (курьез/научный разбор).
+- [en] курьёз: [world] Xataka — Cyberattacks continue to impact European companies, now hitting French bank Créd — Пометка «интересное» не оправдана, это разбор темы кибербезопасности.
+- [en] не_новость: [world] Forbes — The Anatomy Of Robots — Научно-популярный разбор робототехники.
+- [en] не_новость: [world] Engadget — Nintendo's main Switch cartridge supplier is leaving the ROM business — Информация о стратегии поставщика (не свершившееся событие).
+- [en] курьёз: [world] Superinteressante — FDA approves generic version of lenacapavir, an HIV injection — Регуляторная рутина (одобрение дженерика), место в «интересном»/научном.
+- [en] полка: [world] Guardian Sport — World Series champion Teixeira wins US House seat as former NFL reporter Tafoya’ — Результаты выборов в штатах — местная новость, не мировая.
