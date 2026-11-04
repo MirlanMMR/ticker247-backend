@@ -38,6 +38,10 @@ CANDIDATES = 24                  # сколько берём с лент до о
 FRESH_MS = 48 * 3600 * 1000
 CHUNK = 40
 FAT_HOMES = {"KG", "US", "BR", "MX", "ES", "RU"}   # их полки уже делает основной конвейер
+# ...но только в СВОЁМ пуле. Мексику делает испанский конвейер; для английского пула она сосед
+# американца, и без своей полки в /news/country/en у читателя из США «Новости из…» добирать
+# было не из чего (J66, 04.11.2026)
+FAT_ONLY_IN = {"MX": {"es"}}
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -132,7 +136,8 @@ def targets(pool_countries, feeds, only=None):
     out = []
     for pool, space in pool_countries.items():
         for iso in sorted(space):
-            if iso in feeds and iso not in FAT_HOMES and (not only or iso in only):
+            if iso in feeds and (iso not in FAT_HOMES or (iso in FAT_ONLY_IN and pool not in FAT_ONLY_IN[iso])) \
+                    and (not only or iso in only):
                 out.append((pool, iso))
     return out
 
@@ -389,7 +394,7 @@ COUNTRY_NAMES = {
     "DO": "Доминикана", "DZ": "Алжир", "EC": "Эквадор", "FR": "Франция", "GB": "Великобритания",
     "GE": "Грузия", "GN": "Гвинея", "GT": "Гватемала", "GW": "Гвинея-Бисау", "HN": "Гондурас",
     "HT": "Гаити", "IE": "Ирландия", "IN": "Индия", "JM": "Ямайка", "KZ": "Казахстан",
-    "LU": "Люксембург", "MA": "Марокко", "MC": "Монако", "MD": "Молдова", "MG": "Мадагаскар",
+    "LU": "Люксембург", "MA": "Марокко", "MC": "Монако", "MD": "Молдова", "MG": "Мадагаскар", "MX": "Мексика",
     "ML": "Мали", "MZ": "Мозамбик", "NE": "Нигер", "NG": "Нигерия", "NI": "Никарагуа",
     "NZ": "Новая Зеландия", "PA": "Панама", "PE": "Перу", "PT": "Португалия", "PY": "Парагвай",
     "SG": "Сингапур", "SN": "Сенегал", "ST": "Сан-Томе и Принсипи", "SV": "Сальвадор",

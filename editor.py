@@ -242,12 +242,49 @@ def related_lines(item: dict):
     return out
 
 
+PAGER_LINE_MAX = 70   # одно предложение, влезает в два ряда виджета на всю ширину экрана
+_LINE_TAG = re.compile(r"^\s*(?:срочно|важно|breaking|urgent|urgente|à la une)\s*[!:.\-–—]*\s*", re.I)
+_LINE_NUM = re.compile(r"\d[\d\s.,]*\d|\d")
+
+
+def needs_line(item: dict) -> bool:
+    """Карточка попадёт в режим «Новости одной строкой»: срочная, «срочно только дома» или «важная» (priority ≥ 2).
+    Строка нужна только таким — их единицы в сутки, поэтому расход на ИИ почти нулевой."""
+    return item.get("category") in ("URGENT", "URGENT_LOCAL_ONLY") or (item.get("priority") or 0) >= 2
+
+
+def clean_line(line, item: dict):
+    """Строка пейджера от ИИ → строка или None (тогда приложение покажет обычный заголовок).
+
+    Суть в одной строке не должна врать (CLAUDE.md, правило 4: итог после шага проверяет код, а не тот, кто писал):
+      · не длиннее PAGER_LINE_MAX и не короче 12 знаков; без метки «Срочно:» (метку рисует виджет сам);
+      · отрицание как у заголовка (не потеряно и не добавлено — J6);
+      · каждое число строки есть в заголовке или тексте (ничего не придумано);
+      · не пересказ заголовка слово в слово не требуется, но и пустой «в Кыргызстане» не принимаем.
+    """
+    if not isinstance(line, str):
+        return None
+    t = re.sub(r"\s+", " ", line).strip()
+    t = _LINE_TAG.sub("", t).strip(" \"«»")
+    if not 12 <= len(t) <= PAGER_LINE_MAX:
+        return None
+    title = item.get("title") or ""
+    if len(TC._TITLE_NEG.findall(t)) != len(TC._TITLE_NEG.findall(title)):
+        return None
+    source = f"{title} {item.get('summary') or item.get('_full') or ''}"
+    src_nums = {re.sub(r"\D", "", m) for m in _LINE_NUM.findall(source)}
+    if any(re.sub(r"\D", "", m) not in src_nums for m in _LINE_NUM.findall(t)):
+        return None
+    return t
+
+
 def card_block(n: int, item: dict, paras, photos) -> str:
     shelf = {"local": "местная", "pool": "свой язык (соседи)",
              "world": "мир"}.get(item.get("scope"), item.get("scope") or "?")
     lines = [f"### Карточка {n}",
              f"Издание: {item.get('source', '?')} · полка: {shelf}"
              + (" · помечена срочной" if item.get("category") == "URGENT" else "")
+             + (" · нужна строка для пейджера (line)" if needs_line(item) else "")
              + (" · издатель закрыл статью" if item.get("pageClosed") else ""),
              f"Заголовок: {item.get('title', '')}",
              "Текст:"]
@@ -539,6 +576,14 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
     if fixed:
         notes.append(f"заголовок: «{x.get('title','')}» → «{fixed}»")
         x["title"] = fixed
+    # строка для режима «Новости одной строкой»: только прошедшая замки, иначе приложение берёт заголовок
+    if needs_line(x):
+        ln = clean_line(v.get("line"), x)
+        if ln:
+            x["line"] = ln
+            notes.append("строка для пейджера")
+        else:
+            x.pop("line", None)
     # снимок
     ph = v.get("photo")
     if isinstance(ph, int) and photos:
@@ -671,7 +716,7 @@ def compact(v, paras, photos, now_ms):
     Firebase платный. Из снимков храним только те, что нужны решению."""
     src = v
     v = {}
-    for k in ("reason", "paragraphs", "title", "note", "vital_kind"):
+    for k in ("reason", "paragraphs", "title", "note", "vital_kind", "line"):
         if src.get(k):
             v[k] = src[k]
     for k in ("need_photo", "vital", "_second", "curious"):
@@ -712,6 +757,16 @@ def summarize(results, lang):
             examples.append(f"✗ {r}: [{it.get('source','?')}] {it.get('title','')[:90]}"
                             + (f" — {v.get('note')}" if v.get("note") else ""))
             continue
+        if needs_line(it):
+            # Замер НОС (J70): сколько строк ИИ дал, сколько приняли замки — видно в отчёте прогона
+            if "строка для пейджера" in notes:
+                fixes["строка НОС принята"] += 1
+                examples.append(f"📝 [{it.get('source','?')}] {it.get('title','')[:50]} → {x.get('line')}")
+            elif v.get("line"):
+                fixes["строка НОС отклонена замком"] += 1
+                examples.append(f"⛔ строка НОС отклонена: «{str(v.get('line'))[:80]}» ← {it.get('title','')[:50]}")
+            else:
+                fixes["строка НОС: ИИ не дал"] += 1
         for n in notes:
             if n.startswith("заголовок"):
                 fixes["опечатка в заголовке"] += 1

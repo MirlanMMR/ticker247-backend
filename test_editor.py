@@ -233,3 +233,28 @@ check("шапка потока называет pt", "Поток: pt" in ED.pool
 
 print(f"пройдено {passed}, провалено {failed}")
 sys.exit(1 if failed else 0)
+
+# ─── Строка для режима «Новости одной строкой» (clean_line, needs_line) ───
+it = {"title": "Правительство объявило чрезвычайную ситуацию в трёх районах Иссык-Кульской области из-за схода селей",
+      "summary": "Сошло 12 селей, пострадавших нет.", "category": "URGENT", "priority": 2}
+check("нужна строка срочной и «важной», не обычной",
+      ED.needs_line(it) and ED.needs_line({"category": "NEWS", "priority": 2})
+      and ED.needs_line({"category": "URGENT_LOCAL_ONLY"}) and not ED.needs_line({"category": "NEWS", "priority": 1}))
+check("хорошая строка принята", ED.clean_line("ЧС в трёх районах Иссык-Куля: сошли сели", it) == "ЧС в трёх районах Иссык-Куля: сошли сели")
+check("метка «Срочно:» снимается", ED.clean_line("СРОЧНО! ЧС в трёх районах Иссык-Куля: сошли сели", it).startswith("ЧС"))
+check("длиннее 70 знаков отклонена", ED.clean_line("ЧС в районах Иссык-Куля сошли сели, трасса перекрыта, жителей эвакуируют", it) is None)
+check("слишком короткая отклонена", ED.clean_line("ЧС", it) is None)
+check("выдуманное число отклонено", ED.clean_line("ЧС в 5 районах Иссык-Куля: сошли сели", it) is None)
+check("число из текста принято", ED.clean_line("Сошло 12 селей в Иссык-Кульской области", it) is not None)
+neg = {"title": "Власти так и не нашли пропавших туристов в горах", "summary": "", "category": "URGENT"}
+check("потерянное отрицание отклонено (J6)", ED.clean_line("Власти нашли пропавших туристов в горах", neg) is None)
+check("отрицание сохранено — принято", ED.clean_line("Пропавших туристов в горах так и не нашли", neg) is not None)
+check("не строка — None", ED.clean_line(None, it) is None and ED.clean_line(5, it) is None)
+v = {"line": "ЧС в трёх районах Иссык-Куля: сошли сели"}
+ok_, x, notes = ED.apply_verdict(dict(it), v, [], [])
+check("apply_verdict кладёт line в карточку", x.get("line") == v["line"] and "строка для пейджера" in notes)
+ok_, x, notes = ED.apply_verdict(dict(it), {"line": "ЧС в 5 районах Иссык-Куля: сошли сели"}, [], [])
+check("плохая строка не попадает в карточку", "line" not in x)
+ok_, x, notes = ED.apply_verdict({"title": "Мэрия открыла сквер в центре города", "category": "NEWS"}, dict(v), [], [])
+check("обычной карточке строка не нужна и не ставится", "line" not in x)
+check("память решения хранит line", ED.compact(dict(v, line=v["line"]), [], [], 0)["verdict"].get("line") == v["line"])

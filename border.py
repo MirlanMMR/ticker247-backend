@@ -30,6 +30,15 @@ _CREDIT = re.compile(r"^\s*(автор фото|подпись к фото|image
                      r"фото:|foto:|crédito)", re.I)
 
 
+# Общие картинки сайта вместо фото новости: логотипы, «по умолчанию», универсальные иллюстрации (J68)
+STUB_IMG = re.compile(r"(facebook-default|/default/|placeholder|no-?image|generic-|site-?logo|og-?default|"
+                      r"default-?(share|image|og)|favicon)", re.I)
+
+
+def _stub_photo(x, ctx):
+    return bool(x.get("imageUrl")) and bool(STUB_IMG.search(x["imageUrl"]))
+
+
 def _summary(x):
     return (x.get("summary") or "").rstrip()
 
@@ -122,6 +131,7 @@ REGISTRY = [
     ("J38", "«срочно» вне «Местных» без масштаба (сель с одной жертвой у соседей в шторке)", _foreign_urgent, True),
     ("J39", "рубрика вне списка вёрстки приложения (WAR, SOCIETY, «SPORT/FOOTBALL») — падает в хвост полки", _off_layout_category, True),
     ("J44", "заявление зарубежной технологической компании на «Местных», не в «Интересном»", _foreign_tech_statement, True),
+    ("J68", "заглушка или общая картинка вместо фото", _stub_photo, False),
     ("J11", "ведомственное на «Местных» (>15% полки)", None, False),   # доля, см. control
 ]
 

@@ -14,16 +14,18 @@ TOPICS = {"politics", "society", "economy", "incidents"}
 feeds = cs.load_json("country_feeds.json")
 langs = cs.load_json("country_langs.json")
 
-check("ленты 64 стран перенесены", len(feeds) == 64 and sum(len(v) for v in feeds.values()) == 129)
+check("ленты 65 стран перенесены", len(feeds) == 65 and sum(len(v) for v in feeds.values()) == 133)
 check("у каждой страны с лентами есть языки", all(c in langs for c in feeds))
 check("Молдова: румынский", langs["MD"] == ["ro"])
 check("у стран пулов есть названия", all(c in cs.COUNTRY_NAMES for c in feeds))
 
 # ─── Цели ───
-pc = {"ru": {"KZ", "MD", "KG", "RU", "UA"}, "en": {"CA", "US", "GB"}, "fr": {"CA", "BE", "FR"}}
+pc = {"ru": {"KZ", "MD", "KG", "RU", "UA"}, "en": {"CA", "US", "GB", "MX"}, "es": {"MX", "AR"}, "fr": {"CA", "BE", "FR"}}
 tg = cs.targets(pc, feeds)
 check("жирные дома (KG, US, RU) не берём", not any(i in ("KG", "US", "RU") for _, i in tg))
 check("Канада — в двух пулах, у каждого своя полка", ("en", "CA") in tg and ("fr", "CA") in tg)
+check("Мексика: полка в английском пуле (сосед США), в испанском — нет (J66)", ("en", "MX") in tg and ("es", "MX") not in tg)
+check("у Канады для английского читателя не меньше трёх лент", len(feeds["CA"]) >= 3)
 check("фильтр по странам", cs.targets(pc, feeds, only={"MD"}) == [("ru", "MD")])
 
 # ─── Язык ───

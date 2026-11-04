@@ -140,7 +140,7 @@ RSS_SOURCES = [
     # Соседи США по полке «Новости из…» (HOME_NEIGHBOURS["US"] = CA, MX): у читателя из США там была
     # ОДНА карточка — один канадский источник и ни одного мексиканского (15.10.2026, владелец:
     # «смотрел Америку с Арканзаса, в Новости из одна новость»). Ленты проверены 15.10: отдают ленту
-    {"url": "https://nationalpost.com/feed", "source": "National Post", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
+    {"url": "https://www.theglobeandmail.com/arc/outboundfeeds/rss/category/canada/", "source": "The Globe and Mail", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
     {"url": "https://www.thestar.com/search/?f=rss&t=article&c=news*&l=50&s=start_time&sd=desc", "source": "Toronto Star", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
     {"url": "https://mexiconewsdaily.com/feed/", "source": "Mexico News Daily", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
     {"url": "https://www.abc.net.au/news/feed/51120/rss.xml", "source": "ABC Australia", "category": "NEWS", "priority": 1, "quota": 4, "scope": "pool", "lang": "en"},
@@ -598,7 +598,7 @@ SOURCE_COUNTRY = {
     # Англоязычное пространство
     "Irish Times": "IE", "RTÉ Ireland": "IE", "The Hindu": "IN",
     "Punch Nigeria": "NG", "Jamaica Gleaner": "JM", "ABC Australia": "AU",
-    "Global News CA": "CA", "National Post": "CA", "Toronto Star": "CA", "Mexico News Daily": "MX",
+    "Global News CA": "CA", "The Globe and Mail": "CA", "Toronto Star": "CA", "Mexico News Daily": "MX",
     "Straits Times": "SG", "Sky Sports": "GB",
     "BBC News": "GB", "BBC World": "GB", "BBC Sport": "GB",
     # Франкоязычные
@@ -716,7 +716,7 @@ POOL_DOMAINS = {
     "en": ["thehindu.com", "smh.com.au", "irishtimes.com", "nzherald.co.nz",
            "rte.ie", "globalnews.ca", "abc.net.au", "punchng.com",
            "jamaica-gleaner.com", "straitstimes.com",
-           "nationalpost.com", "thestar.com", "mexiconewsdaily.com"],
+           "theglobeandmail.com", "thestar.com", "mexiconewsdaily.com"],
     "es": ["eldiario.es", "lavanguardia.com", "rtve.es", "elmundo.es",
            "semana.com", "diariolibre.com",
            "elpais.com", "abc.es", "marca.com", "clarin.com", "lanacion.com.ar",
@@ -6890,6 +6890,8 @@ from dull import cap_dull
 from curious import topup_interesting, is_curious_content, is_longread_url
 from topic_country import final_foreign_topic_guard, final_local_foreign_guard, final_foreign_region_guard, final_foreign_tech_guard, final_statement_country_guard, final_own_subject_guard
 import border
+import urgent_log   # журнал срочного: история для замера доверия к метке (04.11.2026)
+import standard_fix   # чинилка красных флагов эталона (docs/STANDARD.md, раздел 10): тень → live
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
 
@@ -9793,7 +9795,12 @@ def main():
                 print(f"  🖼 [{lang}] снято: тот же снимок, что у «{_e.get('title', '')[:50]}», новость не по теме: "
                       f"«{_x.get('title', '')[:50]}» ({_x.get('source')})")
         filtered = reader_guard_step(filtered, lang)   # J63: итог глазами читателя (тень → live)
+        filtered, _ = standard_fix.repair(filtered, lang)   # справочник правок из журнала; STANDARD_FIX=shadow|live|off
         border.control(filtered, lang, report=_BORDER_REPORT)
+        try:
+            print(f"  📒 Журнал срочного [{lang}]: +{urgent_log.record(filtered, lang)}")
+        except Exception as _e:        # журнал не должен ронять прогон
+            print(f"  ⚠️ журнал срочного: {str(_e)[:60]}")
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
         # и базе они не нужны: _full один весит больше всей карточки
