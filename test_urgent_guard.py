@@ -157,8 +157,13 @@ check("страж: землетрясение не тронуто", lst[2]["cate
 
 # ── J71: плановое объявление — не срочное (04.11.2026) ──
 from urgent_guard import planned_announcement, final_planned_guard
-bus = "В Бишкеке с 5 ноября изменятся схемы движения 8 автобусных маршрутов"
-check("плановое: «с 5 ноября изменятся схемы…» не срочное", planned_announcement(card(bus, cat="URGENT")))
+bus = "В Бишкеке с 20 ноября изменятся схемы движения 8 автобусных маршрутов"
+PUB = 1793793600000   # 04.11.2026 12:00 UTC
+check("плановое (через 16 дней): «с 20 ноября изменятся схемы…» не срочное", planned_announcement(card(bus, cat="URGENT", publishedAt=PUB)))
+tomorrow = "В Бишкеке с 5 ноября изменятся схемы движения 8 автобусных маршрутов"
+check("завтра вступает — НЕ плановое, остаётся срочным (владелец 04.11: «как доехать до работы»)", not planned_announcement(card(tomorrow, cat="URGENT", publishedAt=PUB)))
+check("«завтра» словом тоже срочное", not planned_announcement(card("Завтра изменятся схемы движения автобусов в центре", cat="URGENT", publishedAt=PUB)))
+check("days_ahead: 5 ноября при публикации 4 ноября = 1 день, 20 ноября = 16", __import__("urgent_guard").days_ahead(tomorrow, PUB) == 1 and __import__("urgent_guard").days_ahead(bus, PUB) == 16)
 check("плановое: «важное» (priority 2) тоже", planned_announcement(card(bus, cat="NEWS", prio=2)))
 check("плановое: en «will close from Nov 10»", planned_announcement(card("Main bridge will close from Nov 10 for repairs", cat="URGENT")))
 check("плановое: es «a partir del lunes cerrarán»", planned_announcement(card("A partir del 10 de noviembre cerrarán el puente central", cat="URGENT")))
@@ -172,8 +177,8 @@ with contextlib.redirect_stdout(io.StringIO()):
 check("страж: плановое → NEWS, приоритет 1", lst2[0]["category"] == "NEWS" and lst2[0]["priority"] == 1)
 check("страж: землетрясение не тронуто", lst2[1]["category"] == "URGENT" and lst2[1]["priority"] == 2)
 
-vb = card(bus, cat="URGENT", scope="local", vital=True)
-lst3 = [vb, card(bus, cat="URGENT", scope="local")]
+vb = card(bus, cat="URGENT", scope="local", vital=True, publishedAt=PUB)
+lst3 = [vb, card(bus, cat="URGENT", scope="local", publishedAt=PUB)]
 with contextlib.redirect_stdout(io.StringIO()):
     final_planned_guard(lst3, "ru")
 check("жизненно важное плановое: статус сохранён, помечено notice (приложение покажет «ВАЖНО»)", vb.get("notice") is True and vb["category"] == "URGENT" and vb["priority"] == 2)

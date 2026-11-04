@@ -298,10 +298,53 @@ _DISASTER = re.compile(
     r"sismo|terremoto|explos[aã]o|incendio|inc[eê]ndio", re.I)
 
 
+# ── Срок вступления: «завтра», «с 5 ноября» при публикации 4 ноября — это не «плановое», а «срочно» (владелец 04.11: «изменение
+# маршрутов автобусов не бывает плановым: как доехать до работы, если маршрут изменён»). Плановое — когда до даты больше двух дней.
+IMMINENT_DAYS = 2
+_REL_DAYS = [
+    (re.compile(r"\b(?:сегодня|today|hoy|hoje|aujourd.hui)\b", re.I), 0),
+    (re.compile(r"\b(?:завтра|tomorrow|ma[ñn]ana|amanh[ãa]|demain)\b", re.I), 1),
+    (re.compile(r"\b(?:послезавтра|pasado\s+ma[ñn]ana|depois\s+de\s+amanh[ãa]|apr[èe]s-demain)\b", re.I), 2),
+]
+
+
+def days_ahead(title, published_ms):
+    """Сколько дней от публикации до названной в заголовке даты вступления; None — даты нет."""
+    import datetime as _dt
+    t = title or ""
+    for rx, d in _REL_DAYS[::-1]:               # «послезавтра» раньше «завтра» (в нём нет слова «завтра», но порядок надёжнее)
+        if rx.search(t):
+            return d
+    if not published_ms:
+        return None
+    from nos_line import MONTHS
+    pub = _dt.datetime.utcfromtimestamp(published_ms / 1000).date()
+    for names in MONTHS.values():
+        m = re.search(r"(\d{1,2})\s+(?:de\s+)?(" + "|".join(names) + r")\b", t, re.I | re.U)
+        if m:
+            day, mon = int(m.group(1)), [n for n in names].index(m.group(2).lower()) + 1
+            for year in (pub.year, pub.year + 1):
+                try:
+                    d = _dt.date(year, mon, day)
+                except ValueError:
+                    return None
+                if d >= pub:
+                    return (d - pub).days
+    return None
+
+
+def imminent(x):
+    """Вступает сегодня/завтра/послезавтра — событие для читателя, а не плановое объявление."""
+    d = days_ahead(x.get("title"), x.get("publishedAt"))
+    return d is not None and d <= IMMINENT_DAYS
+
+
 def planned_form(x):
     """Форма планового объявления: глагол плана + дата/«завтра», и не беда. Жизненную важность не смотрит."""
     title = (x.get("title") or "").strip()
     if not (_PLAN_VERB.search(title) and _PLAN_WHEN.search(title)):
+        return False
+    if imminent(x):                             # завтра — это уже не «плановое»: как добраться на работу
         return False
     text = f"{title} {(x.get('summary') or '')[:400]}"
     return not (_BIG.search(text) or casualties(text) >= 1 or _DISASTER.search(text))
