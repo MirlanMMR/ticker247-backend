@@ -172,5 +172,13 @@ with contextlib.redirect_stdout(io.StringIO()):
 check("страж: плановое → NEWS, приоритет 1", lst2[0]["category"] == "NEWS" and lst2[0]["priority"] == 1)
 check("страж: землетрясение не тронуто", lst2[1]["category"] == "URGENT" and lst2[1]["priority"] == 2)
 
+vb = card(bus, cat="URGENT", scope="local", vital=True)
+lst3 = [vb, card(bus, cat="URGENT", scope="local")]
+with contextlib.redirect_stdout(io.StringIO()):
+    final_planned_guard(lst3, "ru")
+check("жизненно важное плановое: статус сохранён, помечено notice (приложение покажет «ВАЖНО»)", vb.get("notice") is True and vb["category"] == "URGENT" and vb["priority"] == 2)
+check("нежизненно важное плановое: срочность снята, notice не ставится", lst3[1]["category"] == "NEWS" and "notice" not in lst3[1])
+check("событие без плана — notice не ставится", "notice" not in (lambda c: (final_planned_guard([c], "ru"), c)[1])(card("Землетрясение магнитудой 7 в Оше", vital=True)))
+
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)

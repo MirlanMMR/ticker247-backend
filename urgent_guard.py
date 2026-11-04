@@ -298,12 +298,8 @@ _DISASTER = re.compile(
     r"sismo|terremoto|explos[aã]o|incendio|inc[eê]ndio", re.I)
 
 
-def planned_announcement(x):
-    """Карточка со «срочно» или «важным», но по форме — плановое объявление (глагол плана + дата/«завтра»), а не событие."""
-    if x.get("vital"):
-        return False
-    if x.get("category") not in URGENT_CATS and (x.get("priority") or 0) < 2:
-        return False
+def planned_form(x):
+    """Форма планового объявления: глагол плана + дата/«завтра», и не беда. Жизненную важность не смотрит."""
     title = (x.get("title") or "").strip()
     if not (_PLAN_VERB.search(title) and _PLAN_WHEN.search(title)):
         return False
@@ -311,15 +307,39 @@ def planned_announcement(x):
     return not (_BIG.search(text) or casualties(text) >= 1 or _DISASTER.search(text))
 
 
+def planned_announcement(x):
+    """Карточка со «срочно» или «важным», но по форме — плановое объявление, а не событие (и не жизненно важное)."""
+    if x.get("vital"):
+        return False
+    if x.get("category") not in URGENT_CATS and (x.get("priority") or 0) < 2:
+        return False
+    return planned_form(x)
+
+
 def final_planned_guard(items, lang):
-    """Снимает «срочно» и «важное» с плановых объявлений. Карточку из ленты не убирает."""
-    hit = [x for x in items if planned_announcement(x)]
-    for x in hit:
-        if x.get("category") in URGENT_CATS:
-            x["category"] = "NEWS"
-        x["priority"] = min(int(x.get("priority") or 0), 1)
-    if hit:
-        print(f"  📅 Плановое объявление без «срочно» [{lang}]: снято {len(hit)}")
-        for x in hit[:6]:
+    """Плановое объявление — не «СРОЧНО!» (J71, 04.11.2026).
+      · не жизненно важное: «срочно» и «важное» снимаются, карточка остаётся;
+      · жизненно важное (смена маршрутов, отключение воды с датой): статус сохраняется, но ставится `notice: true` — приложение
+        показывает его как «ВАЖНО» (объявление), а не «СРОЧНО!» (событие): плановое срочным не бывает, EDITORIAL.md."""
+    demoted, notices = [], []
+    for x in items:
+        if not planned_form(x):
+            continue
+        if x.get("vital"):
+            if x.get("category") in URGENT_CATS or (x.get("priority") or 0) >= 2:
+                x["notice"] = True
+                notices.append(x)
+        elif planned_announcement(x):
+            if x.get("category") in URGENT_CATS:
+                x["category"] = "NEWS"
+            x["priority"] = min(int(x.get("priority") or 0), 1)
+            demoted.append(x)
+    if demoted:
+        print(f"  📅 Плановое объявление без «срочно» [{lang}]: снято {len(demoted)}")
+        for x in demoted[:6]:
+            print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:60]}")
+    if notices:
+        print(f"  📋 Плановое жизненно важное — «объявление», не «срочно» [{lang}]: {len(notices)}")
+        for x in notices[:6]:
             print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:60]}")
     return items
