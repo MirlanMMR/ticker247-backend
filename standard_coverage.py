@@ -88,6 +88,7 @@ LOCKS = {
     "J64": ("потолок расхода смотрит на сброшенный счёт", ["save_ai_spend", "test_ai_spend"], "test", "save_ai_spend"),
     "J65": ("срочное чужой страны через полку соседа", ["serverVital", "URGENT_LOCAL_ONLY"], "test", "serverVital"),
     "J66": ("полка соседей США пуста", ["FAT_ONLY_IN"], "check", None),
+    "J69": ("читателю вне пула «Новости из…»", ["LiveMatrixTest", "isNeighbour"], "test", "isNeighbour"),
     "J68": ("заглушка вместо фото", ["_stub_photo", "STUB_IMG"], "border", "_stub_photo_off"),
     "J67": ("«каша» у читателя из России", ["muscovitesLocalNeverHolds"], "test", None),
 }
