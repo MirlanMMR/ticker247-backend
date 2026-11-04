@@ -45,6 +45,8 @@ EXAMPLES = (
     "• «СМИ: девять казахстанцев вывезли из зоны боевых действий» и «Семерых казахстанцев вывезли из зоны боевых "
     "действий» — повтор.\n"
     "• Карточка из двух фраз с «Em atualização» — анонс.\n"
+    "• «В Бишкеке с 5 ноября изменятся схемы движения 8 автобусных маршрутов» (СРОЧНО, МЕСТНЫЕ) — срочность: плановое объявление, "
+    "срочным не бывает (04.11.2026: попало бы в виджет «Новости одной строкой» как «СРОЧНО!»).\n"
     "• «Самосвал задел высоковольтную линию и загорелся — водитель погиб» (Onliner.by, издание: BY, событие: KG, МЕСТНЫЕ/«Новости из…») — "
     "метка_места, country: BY: белорусское издание о белорусской аварии, Кыргызстана в тексте нет (04.11.2026: попала в карусель Бишкека).\n"
 )
@@ -160,6 +162,23 @@ def relabel(shown, findings):
             cs = [c.strip().upper() for c in str(x["event_countries"]).split(",") if c.strip() and c.strip().upper() != old]
             x["event_countries"] = ",".join(cs + [new])
         out.append((x, old, new))
+    return out
+
+
+def demote(shown, findings):
+    """Ложное «срочно» (проблема «срочность»): метка и приоритет снимаются, карточка остаётся (J71, 04.11: плановое объявление
+    висело «СРОЧНО!»). Жизненно важное (vital: свет, вода, ЧС) не понижается. → [(карточка, была категория, был приоритет)]."""
+    out = []
+    for f in findings:
+        if f["problem"] != "срочность":
+            continue
+        x = shown[f["n"] - 1]
+        if x.get("vital") or (x.get("category") not in ("URGENT", "URGENT_LOCAL_ONLY") and (x.get("priority") or 0) < 2):
+            continue
+        out.append((x, x.get("category"), x.get("priority")))
+        if x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY"):
+            x["category"] = "NEWS"
+        x["priority"] = min(x.get("priority") or 0, 1)
     return out
 
 

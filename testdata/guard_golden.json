@@ -302,5 +302,19 @@
    "publishedAt": 1
   },
   "expected": null
+ },
+ {
+  "item": {
+   "scope": "local",
+   "source": "Kaktus.media",
+   "country": "KG",
+   "event_where": "KG",
+   "title": "В Бишкеке с 5 ноября изменятся схемы движения 8 автобусных маршрутов",
+   "summary": "Мэрия Бишкека сообщила, что с 5 ноября изменятся схемы движения восьми автобусных маршрутов.",
+   "category": "URGENT",
+   "priority": 2,
+   "publishedAt": 1
+  },
+  "expected": "срочность"
  }
 ]
