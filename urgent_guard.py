@@ -267,3 +267,59 @@ def final_category_guard(items, lang):
         print(f"  🗂 Рубрики вёрстки и потолок «важного» [{lang}]: рубрик приведено {fixed}, "
               f"приоритет снижен {len(cut)}")
     return items
+
+
+# ── Плановое объявление — не срочное (журнал J71, 04.11.2026) ─────────────────────────────────────────────
+# «В Бишкеке с 5 ноября изменятся схемы движения 8 автобусных маршрутов» висело URGENT: по EDITORIAL.md плановое и будущее
+# («22 августа отключат свет», «на следующей неделе подорожает проезд») срочным не бывает. Сторож-ИИ эту метку не снял (модель
+# карточку не отметила), поэтому здесь механическая страховка: глагол будущего/плана И дата или «завтра/на следующей неделе».
+# Беда (погибшие, землетрясение, взрыв) и жизненно важное правило не отменяет.
+_PLAN_VERB = re.compile(
+    r"\b(?:изменятся|изменят|изменится|введут|вводится|начнутся|начнут|начнётся|пройдут|пройдёт|состоится|откроют|откроется|"
+    r"закроют|закроется|отключат|отключит|будут|будет|появится|появятся|подорожает|подорожают|вступит|вступят|запретят|"
+    r"перенесут|ограничат|"
+    r"will|to\s+(?:change|close|open|start|begin|be\s+held)|set\s+to|"
+    r"cambiar[aá]n?|cerrar[aá]n?|abrir[aá]n?|empezar[aá]n?|comenzar[aá]n?|"
+    r"vai\s+(?:mudar|fechar|abrir|come[cç]ar)|ir[aá]o?\s+(?:mudar|fechar|abrir)|mudar[aã]o|fechar[aã]o|"
+    r"va\s+(?:changer|fermer|ouvrir)|vont|seront|sera|commenceront)\b", re.I)
+_PLAN_WHEN = re.compile(
+    r"\b(?:с|со|до|к|на)\s+\d{1,2}\s+(?:января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)\b|"
+    r"\b(?:завтра|послезавтра|на\s+следующей\s+неделе|со\s+следующего|с\s+понедельника|с\s+1\s+числа)\b|"
+    r"\b(?:from|starting|on|by|until)\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}\b|"
+    r"\b(?:tomorrow|next\s+week|next\s+month)\b|"
+    r"\b(?:a\s+partir\s+del?|desde\s+el|ma[ñn]ana|la\s+pr[oó]xima\s+semana)\b|"
+    r"\b(?:a\s+partir\s+d[eo]|amanh[ãa]|pr[oó]xima\s+semana)\b|"
+    r"\b(?:[àa]\s+partir\s+du|d[eè]s\s+le|demain|la\s+semaine\s+prochaine)\b", re.I)
+
+
+_DISASTER = re.compile(
+    r"гибел|погиб|жертв|пострада|\bЧС\b|чрезвычайн|взрыв|землетряс|обрушен|пожар|теракт|наводнен|сель|эвакуац|"
+    r"killed|dead|died|death|explosion|earthquake|flood|evacuat|muert|falleci|v[ií]ctimas|mortos?|mortes?|morts?|d[eé]c[eè]s|"
+    r"sismo|terremoto|explos[aã]o|incendio|inc[eê]ndio", re.I)
+
+
+def planned_announcement(x):
+    """Карточка со «срочно» или «важным», но по форме — плановое объявление (глагол плана + дата/«завтра»), а не событие."""
+    if x.get("vital"):
+        return False
+    if x.get("category") not in URGENT_CATS and (x.get("priority") or 0) < 2:
+        return False
+    title = (x.get("title") or "").strip()
+    if not (_PLAN_VERB.search(title) and _PLAN_WHEN.search(title)):
+        return False
+    text = f"{title} {(x.get('summary') or '')[:400]}"
+    return not (_BIG.search(text) or casualties(text) >= 1 or _DISASTER.search(text))
+
+
+def final_planned_guard(items, lang):
+    """Снимает «срочно» и «важное» с плановых объявлений. Карточку из ленты не убирает."""
+    hit = [x for x in items if planned_announcement(x)]
+    for x in hit:
+        if x.get("category") in URGENT_CATS:
+            x["category"] = "NEWS"
+        x["priority"] = min(int(x.get("priority") or 0), 1)
+    if hit:
+        print(f"  📅 Плановое объявление без «срочно» [{lang}]: снято {len(hit)}")
+        for x in hit[:6]:
+            print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:60]}")
+    return items

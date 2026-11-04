@@ -225,6 +225,7 @@ def clean(line, title: str, source_text: str, lang: str, limit: int = LIMIT):
     if not isinstance(line, str):
         return None
     t = _TAG.sub("", re.sub(r"\s+", " ", line).strip()).strip(" \"«»")
+    t = normalize_dates(t, lang)                          # «5 ноября» → «05.11»: короче и сверяется с источником по той же форме
     if not 12 <= len(t) <= limit:
         return None
     if len(_TITLE_NEG.findall(t)) != len(_TITLE_NEG.findall(title or "")):
