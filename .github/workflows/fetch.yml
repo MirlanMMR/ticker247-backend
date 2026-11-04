@@ -140,6 +140,10 @@ jobs:
       # Выпускающий редактор (editor.py): shadow — отчёт без правки ленты,
       # live — в эфире, off — выключен. Тень — два-три прогона, не дольше
       EDITOR_MODE: live
+      # Сторож читателя и чинилка эталона — из «тени» в бой (решение владельца 04.11.2026: «включить»). Предохранители: сторож
+      # снимает не больше 25% и не опускает полку ниже 6; срочное и жизненно важное не снимает; метка места исправляется, карточка остаётся
+      READER_GUARD: live
+      STANDARD_FIX: live
       # Запасной поставщик. Ключа пока нет — Alibaba держит новый аккаунт
       # под проверкой службы безопасности (ответ обещают за три дня).
       # Без ключа всё работает как раньше, с ключом — Gemini перестаёт быть
@@ -240,6 +244,7 @@ jobs:
           python test_reenrich.py
           python test_urgent_guard.py
           python test_urgent_log.py
+          python test_nos_line.py
           python test_topic_country.py
           python test_local_foreign_text.py
           python test_foreign_tech.py
