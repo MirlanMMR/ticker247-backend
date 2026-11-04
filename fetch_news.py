@@ -6890,6 +6890,7 @@ from dull import cap_dull
 from curious import topup_interesting, is_curious_content, is_longread_url
 from topic_country import final_foreign_topic_guard, final_local_foreign_guard, final_foreign_region_guard, final_foreign_tech_guard, final_statement_country_guard, final_own_subject_guard
 import border
+import nos_line   # сжатие строки НОС и заголовка карусели (J70, J72)
 import urgent_log   # журнал срочного: история для замера доверия к метке (04.11.2026)
 import standard_fix   # чинилка красных флагов эталона (docs/STANDARD.md, раздел 10): тень → live
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
@@ -9764,6 +9765,7 @@ def main():
         filtered = drop_foreign_script(filtered, lang)
         filtered = final_end_guard(filtered, lang)
         filtered = final_title_guard(filtered, lang)
+        filtered = nos_line.final_title_compress(filtered, lang)   # J72: заголовок карусели — по смыслу, без «…»
         filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},
                                     home=POOL_HOME.get(lang, ""))
         filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})

@@ -244,8 +244,6 @@ def related_lines(item: dict):
 
 
 PAGER_LINE_MAX = NL.LIMIT   # ёмкость экрана виджета (100 знаков): одно законченное предложение целиком
-_LINE_TAG = re.compile(r"^\s*(?:срочно|важно|breaking|urgent|urgente|à la une)\s*[!:.\-–—]*\s*", re.I)
-_LINE_NUM = re.compile(r"\d[\d\s.,]*\d|\d")
 
 
 def needs_line(item: dict) -> bool:
@@ -255,29 +253,11 @@ def needs_line(item: dict) -> bool:
 
 
 def clean_line(line, item: dict):
-    """Строка пейджера от ИИ → строка или None (тогда приложение покажет обычный заголовок).
-
-    Суть в одной строке не должна врать (CLAUDE.md, правило 4: итог после шага проверяет код, а не тот, кто писал):
-      · не длиннее PAGER_LINE_MAX и не короче 12 знаков; без метки «Срочно:» (метку рисует виджет сам);
-      · отрицание как у заголовка (не потеряно и не добавлено — J6);
-      · каждое число строки есть в заголовке или тексте (ничего не придумано);
-      · не пересказ заголовка слово в слово не требуется, но и пустой «в Кыргызстане» не принимаем.
-    """
-    if not isinstance(line, str):
-        return None
-    t = re.sub(r"\s+", " ", line).strip()
-    t = _LINE_TAG.sub("", t).strip(" \"«»")
-    if not 12 <= len(t) <= PAGER_LINE_MAX:
-        return None
-    title = item.get("title") or ""
-    if len(TC._TITLE_NEG.findall(t)) != len(TC._TITLE_NEG.findall(title)):
-        return None
-    lang = item.get("language") or "ru"
-    source = NL.numerals_to_digits(f"{title} {item.get('summary') or item.get('_full') or ''}", lang)
-    src_nums = {re.sub(r"\D", "", m) for m in _LINE_NUM.findall(source)}
-    if any(re.sub(r"\D", "", m) not in src_nums for m in _LINE_NUM.findall(t)):
-        return None
-    return t
+    """Строка пейджера от ИИ → строка или None (тогда приложение покажет обычный заголовок). Замки — общие со сжатием
+    заголовка карусели (`nos_line.clean`, CLAUDE.md, правило 4: итог после шага проверяет код, а не тот, кто писал):
+    длина, без метки «Срочно:», отрицание как у заголовка (J6), числа только из текста."""
+    return NL.clean(line, item.get("title") or "", item.get("summary") or item.get("_full") or "",
+                    item.get("language") or "ru", PAGER_LINE_MAX)
 
 
 def card_block(n: int, item: dict, paras, photos) -> str:

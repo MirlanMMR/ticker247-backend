@@ -133,26 +133,97 @@ def _finish(head: str):
     return head if head[-1] in ".!?" else head + "."
 
 
-def compress(text, lang: str, limit: int = LIMIT):
-    """Сжатое предложение (≤ limit знаков, с точкой в конце) или None, если сжать нечем.
+# Слова, на которых предложение кончаться не может: после них мысль обрывается («…, then», «…в», «…of the»)
+DANGLING = {
+    "ru": "и а но или в на с со к по из от до за для при о об про над под у не ни же бы как что чтобы то это его её их",
+    "en": "and or but the a an of in on at to for with from by as that then than who which is are was were its his her their",
+    "es": "y o pero el la los las un una de en a con por para que su sus como entre sobre del al",
+    "pt": "e ou mas o a os as um uma de em a com por para que seu sua como entre sobre do da no na",
+    "fr": "et ou mais le la les un une de du des en à avec par pour que son sa ses comme entre sur au aux",
+}
+MIN_KEEP = 0.55   # голова должна сохранить не меньше 55% предложения: «Un jeune de 18 ans arrêté.» (из 114 знаков — 26) — это уже не суть
 
-    Порядок: первое предложение → числа цифрами → если влезает, готово; иначе режем на последнем союзе придаточного, при
-    котором голова ещё влезает (больше смысла остаётся), а если союзов нет — на последней запятой («точка вместо запятой»).
-    Голова короче 25 знаков не берётся: «Тегеран заявил.» — не новость."""
+
+def _dangling(head: str, lang: str) -> bool:
+    words = re.findall(r"[^\W\d_]+", head.lower(), re.U)
+    return bool(words) and words[-1] in set(DANGLING.get(lang, "").split())
+
+
+def compress(text, lang: str, limit: int = LIMIT):
+    """Сжатое предложение (≤ limit знаков, с точкой в конце) или None, если сжать нечем БЕЗ ПОТЕРИ СМЫСЛА.
+
+    Порядок: первое предложение → числа цифрами → сокращения слов (смысл целиком) → если всё ещё длинно, режем:
+      1) на союзе придаточного («из-за», «на фоне», «после того как»…) — самая длинная голова, что влезает;
+      2) только если союзов нет — на запятой («точка вместо запятой»).
+    Голова принимается, если: ≥ 25 знаков, сохранила ≥ 55% предложения (MIN_KEEP), не кончается висячим словом («и», «в», «then»).
+    Иначе None: лучше не показывать, чем показать обрывок (владелец 04.11: «никаких сокращений»)."""
     if not isinstance(text, str) or not text.strip():
         return None
     t = numerals_to_digits(first_sentence(text), lang).rstrip(" …")
     t = abbreviate(t, lang, limit - 1)                    # сначала сокращения слов: смысл остаётся целиком
-    if len(_finish(t) or "") and len(t) <= limit - (0 if t[-1:] in ".!?" else 1):
+    if len(t) <= limit - (0 if t[-1:] in ".!?" else 1):
         return _finish(t)
-    room = limit - 1                                   # место под точку
-    heads = []
+    room, need = limit - 1, max(25, int(len(t) * MIN_KEEP))   # место под точку; минимум смысла
+
+    def fit(heads):
+        ok = [h.rstrip(" ,;:—–-") for h in heads]
+        ok = [h for h in ok if need <= len(h) <= room and not _dangling(h, lang)]
+        return max(ok, key=len) if ok else None
+
     marker = CUT_MARKERS.get(lang)
-    if marker:
-        for m in re.finditer(r"[\s,]+(?:%s)(?=[\s,])" % marker, t, re.I | re.U):
-            heads.append(t[:m.start()])
-    heads += [t[:m.start()] for m in re.finditer(r",\s", t)]      # запятая → точка
-    fit = [h.rstrip(" ,;:—–-") for h in heads if 25 <= len(h.rstrip(" ,;:—–-")) <= room]
-    if not fit:
+    heads = [t[:m.start()] for m in re.finditer(r"[\s,]+(?:%s)(?=[\s,])" % marker, t, re.I | re.U)] if marker else []
+    best = fit(heads) or fit([t[:m.start()] for m in re.finditer(r",\s", t)])      # сначала придаточное, потом запятая
+    return _finish(best) if best else None
+
+
+_TAG = re.compile(r"^\s*(?:срочно|важно|breaking|urgent|urgente|à la une)\s*[!:.\-–—]*\s*", re.I)
+_NUM = re.compile(r"\d[\d\s.,]*\d|\d")
+TITLE_CARD = 72   # заголовок в карточке карусели при шрифте не мельче 16sp: 3 строки по ≈ 26 знаков с переносами
+
+
+def clean(line, title: str, source_text: str, lang: str, limit: int = LIMIT):
+    """Строка/заголовок после сжатия → принятый текст или None. Один набор замков на строку НОС и заголовок карусели:
+      · длина 12…limit; без метки «Срочно:» (её рисует виджет);
+      · отрицание как у исходного заголовка (не потеряно и не добавлено — J6);
+      · каждое число есть в заголовке или тексте (с учётом «слов → цифры»): ничего не придумано."""
+    from textcut import _TITLE_NEG
+    if not isinstance(line, str):
         return None
-    return _finish(max(fit, key=len))
+    t = _TAG.sub("", re.sub(r"\s+", " ", line).strip()).strip(" \"«»")
+    if not 12 <= len(t) <= limit:
+        return None
+    if len(_TITLE_NEG.findall(t)) != len(_TITLE_NEG.findall(title or "")):
+        return None
+    src = numerals_to_digits(f"{title} {source_text or ''}", lang)
+    nums = {re.sub(r"\D", "", m) for m in _NUM.findall(src)}
+    if any(re.sub(r"\D", "", m) not in nums for m in _NUM.findall(t)):
+        return None
+    return t
+
+
+def carousel_candidate(item: dict) -> bool:
+    """Карточка, которая может встать в карусель (hero): срочная или «важная» (priority ≥ 2)."""
+    return item.get("category") in ("URGENT", "URGENT_LOCAL_ONLY") or (item.get("priority") or 0) >= 2
+
+
+def final_title_compress(items, lang, limit: int = TITLE_CARD):
+    """J72 (владелец 04.11: «заголовок обрезан на одну букву», «сжать по смыслу на сервере»): заголовок карточки карусели,
+    не помещающийся в карточку целиком, сжимается теми же правилами, что строка НОС — числа цифрами, общепринятые сокращения,
+    придаточное уходит, точка вместо запятой, никаких «…». Остальные карточки не трогаем (60% заголовков длиннее 72 знаков,
+    а заголовок издания не наш: переписывать всё подряд — рисковать смыслом). Не сжалось или замок не пропустил — заголовок
+    как есть. Полный заголовок издания сохраняем в titleOriginal."""
+    n, shown = 0, []
+    for x in items:
+        t = x.get("title") or ""
+        if not carousel_candidate(x) or len(t) <= limit:
+            continue
+        c = clean(compress(t, lang, limit), t, x.get("summary") or x.get("_full") or "", lang, limit)
+        if c and c != t:
+            x.setdefault("titleOriginal", t)
+            x["title"] = c
+            n += 1
+            shown.append(f"       · {t[:70]} → {c}")
+    if n:
+        print(f"  ✂️ Заголовки карусели сжаты по смыслу [{lang}]: {n}")
+        print("\n".join(shown[:5]))
+    return items
