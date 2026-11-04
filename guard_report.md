@@ -1,18 +1,35 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] курьёз: [local] La Jornada — “Por mucho que la IA evolucione, seguirá habiendo cosas que podamos hacer los hu — мнение о технологиях не является новостным событием.
-- [es] курьёз: [local] La Jornada — Hallan glóbulos rojos en huesos de dinosaurios del periodo Cretácico — научная находка без последствий для читателя.
-- [es] не_новость: [pool] El Tiempo CO — La carta del director de la cárcel de Villahermosa de Cali sobre amenazas de mue — угрозы и обмен письмами не являются событием (слова).
-- [es] чужое_мелкое: [pool] Infobae — El Supremo da 15 días a Ábalos, Koldo y Aldama para pagar 600.548 euros entre mu — исполнение судебного решения по местному делу в Испании.
-- [es] курьёз: [pool] Clarín AR — Descubren que existió un raro dinosaurio que comía frutas: “el pollo del infiern — палеонтологическая находка.
-- [es] чужое_мелкое: [pool] Clarín AR — Los hermanos Kovalivker, dueños de la droguería Suizo Argentina, se negaron a de — детали коррупционного дела местного значения.
-- [es] не_новость: [pool] Marca — Eder Sarabia pide perdón al Espanyol en el día de su presentación — извинения на пресс-конференции не являются событием.
-- [es] не_новость: [pool] Marca — La iniciativa de Fran Sol sin conocer a 'Demi': "He creado un crowdfunding para  — частная инициатива по сбору средств.
-- [es] курьёз: [world] Xataka — Apple encuentra en los 2 nm una salida a sus problemas de fabricación — технологический обзор Apple.
-- [es] не_новость: [world] El Economista MX — Frijoles, sabores amargos y comida japonesa: 8 tendencias que cambiarán la forma — рассуждения о трендах еды на 2027 год.
-- [es] не_новость: [world] Variety — La serie de variedades 'Merry Everything', con Jennie Garth, John Legend y Lori  — анонс развлекательной телепрограммы.
-- [es] не_новость: [world] RPP PE — Hoy, Real Madrid vs AEK Atenas EN VIVO: ¿a qué hora juegan y dónde ver el partid — анонс спортивного матча.
-- [es] курьёз: [world] Muy Interesante — El extraordinario sistema de los incas para gobernar un imperio gigantesco: util — историческая справка об инках.
-- [es] не_новость: [world] Wired — Funcionarios del Reino Unido afirmaron que la IA añadiría 400.000 millones de li — разбор ошибок в прогнозах чиновников.
-- [es] курьёз: [world] Muy Interesante — Arqueólogos recorren 1.500 kilómetros de un inmenso desierto y descubren por qué — археологическое исследование.
-- [es] не_новость: [world] El Mundo — El sistema de señalización en el tramo Madrid-Sevilla, explicado en gráficos — графический разбор работы системы.
+- [pt] чужое_мелкое: [local] Poder360 — Empresas de Musk têm queda na Bolsa após vitória democrata — Внутренние рыночные колебания компаний в США не являются мировой новостью.
+- [pt] не_новость: [world] Notícias ao Minuto — Putin destaca importância da unidade nacional como garantia da soberania — Официальная речь президента в праздник — это этикет, а не событие.
+- [pt] не_новость: [world] Variety — Daisy Ridley, Sosie Bacon e Simon Rex estrelarão o filme de terror em road trip  — Анонс начала съемок фильма — это не событие по белому списку.
+- [pt] не_новость: [world] The Independent — País de 630 mil habitantes está a caminho de se tornar o 28º estado-membro da UE — Плановые переговоры и отчеты о процессе вступления в ЕС не являются свершившимся событием.
+- [pt] не_новость: [world] Semafor — Catar busca proteção estratégica para GNL — Стратегические планы компании/страны — это намерение, а не свершившийся факт.
+- [pt] не_новость: [world] Semafor — China intensifica esforços diplomáticos no Golfo — Дипломатические встречи и общие заявления сторон не меняют статус-кво.
+- [pt] не_новость: [world] BBC Brasil — Trump diz que vai reconhecer resultado da eleição, diz que democratas 'fizeram b — Слова политика о признании результатов выборов — это этикет и риторика, а не решение.
+- [pt] курьёз: [world] Público — “O salmão de aquacultura não deve estar nas nossas mesas”, dizem mais de 120 che — Письмо шеф-поваров с призывом — это мнение, а не событие мирового масштаба.
+- [pt] не_новость: [world] Wired — Autoridades do Reino Unido afirmaram que IA adicionaria £ 400 bilhões à economia — Признание министра о неточности экономической оценки — это слова, а не событие.
+- [pt] чужое_мелкое: [world] BBC Brasil — Quem é Gina Hinojosa, democrata de ascendência mexicana que será 1ª latina a gov — Назначение регионального губернатора в США не является мировой новостью.
+- [pt] не_новость: [world] BBC Brasil — Análise: democratas avançam sobre território de Trump com vitórias históricas — Аналитическая статья о результатах выборов — это мнение, а не событие.
+- [pt] чужое_мелкое: [world] BBC Brasil — Quem é Abdul El-Sayed, primeiro muçulmano eleito senador nos EUA — Избрание сенатора штата в США не имеет мирового значения.
+- [pt] не_новость: [world] Ars Technica — Califórnia contesta exigência "absurda" da administração Trump para revogar leis — Юридический спор штата и администрации США — текущий процесс, а не свершившееся решение.
+- [fr] курьёз: [local] Nice-Matin — « On les aura ! », « Démissionner ? Jamais ! », « On lui a trop donné » : des me — Книга с личными сообщениями — это любопытный факт, а не событие.
+- [fr] курьёз: [local] Nice-Matin — Le Renaudot François-Henri Désérable, Nelson Monfort ou la romancière Laurence T — Анонс культурного сезона — не новость по белому списку.
+- [fr] не_новость: [local] France Bleu — Alimentation : 60 Millions de consommateurs veut un affichage obligatoire du deg — Призыв журнала к изменениям — мнение, а не принятое решение.
+- [fr] не_новость: [local] Sud Ouest — Présidentielle 2027 : le cinéma français interpelle les candidats pour faire de  — Обращение к кандидатам — это общественная дискуссия, а не событие.
+- [fr] курьёз: [local] La Dépêche — "J’ai caché une phrase de ChatGPT dans le livre" : le prix Goncourt 2026, Philip — Литературная шутка писателя — повод для колонки, а не новость.
+- [fr] не_новость: [pool] RTBF — L’OMS alerte : un ado sur quatre n'atteint pas 60 minutes d'exercice physique su — Публикация глобального исследования о здоровье — не событие.
+- [fr] курьёз: [pool] Le Devoir — Konstantin Krimmel, superhéros schubertien — Портрет артиста — в «Интересное», здесь лишнее.
+- [fr] чужое_мелкое: [pool] TSA Algérie — Une entreprise contrôlée par les Émirats quitte l’Algérie — Сделка частной компании в Алжире не является мировой новостью.
+- [fr] не_новость: [pool] Radio-Canada — Hors de la Loi sur les Indiens, comment Carcross bâtit son avenir économique — Очерк о том, как община строит экономику — не новость-событие.
+- [fr] курьёз: [world] Jeune Afrique — AFIS 2026 : Mary Vilakazi, du township d’Alexandra au sommet de FirstRand, désig — Премия банкиру — не мировое событие, а отраслевая заметка.
+- [fr] не_новость: [world] Courrier International — Le retour de la Russie dans les compétitions de hockey sur glace jette un froid  — Анализ отношений в спорте — это мнение, а не событие.
+- [fr] срочность: [world] La Dépêche — Russie : un avion de chasse Sukhoi Su-57 totalement détruit après le démarrage d — Техническая потеря самолета (даже военного) спустя время не требует побудки.
+- [fr] не_новость: [world] France 24 FR — Midterms : la Chine disposée "à continuer à travailler avec les États-Unis" — Дежурное дипломатическое заявление Китая — этикет, не событие.
+- [fr] курьёз: [world] BBC World — Zelensky décerne à Melania Trump la plus haute distinction ukrainienne après le  — Вручение награды супруге президента — не имеет значимых последствий.
+- [fr] срочность: [world] UPI — Le ministre espagnol des Transports démissionne. — Отставка министра после катастрофы — важное, но уже свершившееся событие, не требующее «срочно».
+- [fr] не_новость: [world] L'Express — La "taxe Zucman" échoue en Californie, mais la campagne anti-riches a fait des d — Аналитическая колонка о налогах — это мнение эксперта.
+- [fr] не_новость: [world] RFI — La finance pour l’adaptation climatique toujours loin de la réalité des besoins, — Констатация факта отчетом ООН без принятых мер — не событие.
+- [fr] не_новость: [world] RFI — 80 ans de l'Unesco: les guerres détruisent aussi le passé pour effacer le présen — Размышления о роли ЮНЕСКО к юбилею — не новость.
+- [fr] чужое_мелкое: [world] Ars Technica — Les frappes de drones ukrainiens poussent la Russie à planifier en urgence des c — Планы частных компаний по защите данных — не мировая новость.
+- [fr] повтор: [world] 20 Minutes — EN DIRECT Midterms 2026 : Nuit de folie pour les démocrates, soirée cauchemar po ≈ «Raz-de-marée démocrate aux Midterms 2026» — Тот же сюжет о результатах выборов, что и в №64.
