@@ -1,35 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [local] Poder360 — Empresas de Musk têm queda na Bolsa após vitória democrata — Внутренние рыночные колебания компаний в США не являются мировой новостью.
-- [pt] не_новость: [world] Notícias ao Minuto — Putin destaca importância da unidade nacional como garantia da soberania — Официальная речь президента в праздник — это этикет, а не событие.
-- [pt] не_новость: [world] Variety — Daisy Ridley, Sosie Bacon e Simon Rex estrelarão o filme de terror em road trip  — Анонс начала съемок фильма — это не событие по белому списку.
-- [pt] не_новость: [world] The Independent — País de 630 mil habitantes está a caminho de se tornar o 28º estado-membro da UE — Плановые переговоры и отчеты о процессе вступления в ЕС не являются свершившимся событием.
-- [pt] не_новость: [world] Semafor — Catar busca proteção estratégica para GNL — Стратегические планы компании/страны — это намерение, а не свершившийся факт.
-- [pt] не_новость: [world] Semafor — China intensifica esforços diplomáticos no Golfo — Дипломатические встречи и общие заявления сторон не меняют статус-кво.
-- [pt] не_новость: [world] BBC Brasil — Trump diz que vai reconhecer resultado da eleição, diz que democratas 'fizeram b — Слова политика о признании результатов выборов — это этикет и риторика, а не решение.
-- [pt] курьёз: [world] Público — “O salmão de aquacultura não deve estar nas nossas mesas”, dizem mais de 120 che — Письмо шеф-поваров с призывом — это мнение, а не событие мирового масштаба.
-- [pt] не_новость: [world] Wired — Autoridades do Reino Unido afirmaram que IA adicionaria £ 400 bilhões à economia — Признание министра о неточности экономической оценки — это слова, а не событие.
-- [pt] чужое_мелкое: [world] BBC Brasil — Quem é Gina Hinojosa, democrata de ascendência mexicana que será 1ª latina a gov — Назначение регионального губернатора в США не является мировой новостью.
-- [pt] не_новость: [world] BBC Brasil — Análise: democratas avançam sobre território de Trump com vitórias históricas — Аналитическая статья о результатах выборов — это мнение, а не событие.
-- [pt] чужое_мелкое: [world] BBC Brasil — Quem é Abdul El-Sayed, primeiro muçulmano eleito senador nos EUA — Избрание сенатора штата в США не имеет мирового значения.
-- [pt] не_новость: [world] Ars Technica — Califórnia contesta exigência "absurda" da administração Trump para revogar leis — Юридический спор штата и администрации США — текущий процесс, а не свершившееся решение.
-- [fr] курьёз: [local] Nice-Matin — « On les aura ! », « Démissionner ? Jamais ! », « On lui a trop donné » : des me — Книга с личными сообщениями — это любопытный факт, а не событие.
-- [fr] курьёз: [local] Nice-Matin — Le Renaudot François-Henri Désérable, Nelson Monfort ou la romancière Laurence T — Анонс культурного сезона — не новость по белому списку.
-- [fr] не_новость: [local] France Bleu — Alimentation : 60 Millions de consommateurs veut un affichage obligatoire du deg — Призыв журнала к изменениям — мнение, а не принятое решение.
-- [fr] не_новость: [local] Sud Ouest — Présidentielle 2027 : le cinéma français interpelle les candidats pour faire de  — Обращение к кандидатам — это общественная дискуссия, а не событие.
-- [fr] курьёз: [local] La Dépêche — "J’ai caché une phrase de ChatGPT dans le livre" : le prix Goncourt 2026, Philip — Литературная шутка писателя — повод для колонки, а не новость.
-- [fr] не_новость: [pool] RTBF — L’OMS alerte : un ado sur quatre n'atteint pas 60 minutes d'exercice physique su — Публикация глобального исследования о здоровье — не событие.
-- [fr] курьёз: [pool] Le Devoir — Konstantin Krimmel, superhéros schubertien — Портрет артиста — в «Интересное», здесь лишнее.
-- [fr] чужое_мелкое: [pool] TSA Algérie — Une entreprise contrôlée par les Émirats quitte l’Algérie — Сделка частной компании в Алжире не является мировой новостью.
-- [fr] не_новость: [pool] Radio-Canada — Hors de la Loi sur les Indiens, comment Carcross bâtit son avenir économique — Очерк о том, как община строит экономику — не новость-событие.
-- [fr] курьёз: [world] Jeune Afrique — AFIS 2026 : Mary Vilakazi, du township d’Alexandra au sommet de FirstRand, désig — Премия банкиру — не мировое событие, а отраслевая заметка.
-- [fr] не_новость: [world] Courrier International — Le retour de la Russie dans les compétitions de hockey sur glace jette un froid  — Анализ отношений в спорте — это мнение, а не событие.
-- [fr] срочность: [world] La Dépêche — Russie : un avion de chasse Sukhoi Su-57 totalement détruit après le démarrage d — Техническая потеря самолета (даже военного) спустя время не требует побудки.
-- [fr] не_новость: [world] France 24 FR — Midterms : la Chine disposée "à continuer à travailler avec les États-Unis" — Дежурное дипломатическое заявление Китая — этикет, не событие.
-- [fr] курьёз: [world] BBC World — Zelensky décerne à Melania Trump la plus haute distinction ukrainienne après le  — Вручение награды супруге президента — не имеет значимых последствий.
-- [fr] срочность: [world] UPI — Le ministre espagnol des Transports démissionne. — Отставка министра после катастрофы — важное, но уже свершившееся событие, не требующее «срочно».
-- [fr] не_новость: [world] L'Express — La "taxe Zucman" échoue en Californie, mais la campagne anti-riches a fait des d — Аналитическая колонка о налогах — это мнение эксперта.
-- [fr] не_новость: [world] RFI — La finance pour l’adaptation climatique toujours loin de la réalité des besoins, — Констатация факта отчетом ООН без принятых мер — не событие.
-- [fr] не_новость: [world] RFI — 80 ans de l'Unesco: les guerres détruisent aussi le passé pour effacer le présen — Размышления о роли ЮНЕСКО к юбилею — не новость.
-- [fr] чужое_мелкое: [world] Ars Technica — Les frappes de drones ukrainiens poussent la Russie à planifier en urgence des c — Планы частных компаний по защите данных — не мировая новость.
-- [fr] повтор: [world] 20 Minutes — EN DIRECT Midterms 2026 : Nuit de folie pour les démocrates, soirée cauchemar po ≈ «Raz-de-marée démocrate aux Midterms 2026» — Тот же сюжет о результатах выборов, что и в №64.
+- [en] срочность: [local] FOX 2 — Family sues after Belleville West student injured in school van crash — Это судебный процесс по прошлому событию, не требует срочного оповещения.
+- [en] срочность: [local] Inquirer.com — Democrat Marie Gluesenkamp Perez wins reelection to U.S. — Итоги выборов — это важная новость, но не повод для побудки (срочно).
+- [en] срочность: [local] WSMV — 🔴 Live Updates: Republicans defend Tennessee governor’s office with razor-thin m — Текстовая трансляция выборов не является поводом для push-уведомления.
+- [en] не_новость: [local] NY Post — Trump cheers himself up after midterm wipeout by touting White House ballroom, h — Насмешки над планами политика не являются событием.
+- [en] не_новость: [local] Connecticut Mirror — Contractor who hired Kosta Diamantis’ daughter gets probation — Приговор за прошлые коррупционные дела не является актуальным событием для ленты.
+- [en] курьёз: [local] NASA — NASA Announces Ka-Band Satellite Relay Awards for Space Communications — Технические контракты NASA — профильная новость, не событие для массового читателя.
+- [en] не_новость: [local] WV MetroNews — CAMC/Vandalia Health honors veterans, holds flag-raising ceremony with Veterans  — Плановая церемония поднятия флага к празднику — рутина.
+- [en] срочность: [local] CBS News — Mississippi Senate race is toss-up, with margin of under 100 votes — Промежуточные результаты подсчета голосов не являются поводом для срочной метки.
+- [en] не_новость: [local] KFVS12 — Marion teacher pleads not guilty to charges; accused of using school account to  — Обычный ход судебного процесса (pleads not guilty) не является событием.
+- [en] не_новость: [local] WDAM — Ex-Jones County deputy clerk sentenced to prison for falsified records — Приговор по делу о хищениях двухлетней давности — отчет о прошлом.
+- [en] курьёз: [local] Latest &amp; Breaking News (fox35orlando) — Deputy wrangles gator, rides in patrol car, the Osceola Sheriff's Office says — Ловля аллигатора — забавная история, а не важная новость.
+- [en] не_новость: [local] Untitled RSS Feed — Prop. 1 Only Survived One County, Lincoln, And Niobrara Rejected It The Hardest — Анализ голосования по штатам после факта выборов — разбор, а не событие.
+- [en] срочность: [local] KFVS12 — Current boil water orders/advisories in the Heartland — Плановое объявление (кипячение воды) не требует срочности, это нормативная работа.
+- [en] не_новость: [local] Latest &amp; Breaking News — Gov. Wes Moore celebrates reelection win, says Maryland 'ready to meet the momen — Празднование победы на пресс-конференции — этикет, не событие.
+- [en] не_новость: [local] Cardinal & Pine — Are NC animal shelters overcrowded? Here are the 2025 euthanasia rates — Статистика за 2025 год — не новость, а справочный материал.
+- [en] срочность: [local] WFSB — Several students detained after altercation at New Haven high school involving B — Драка с пневматикой в школе — происшествие, но не требует срочного уведомления (срочно).
+- [en] не_новость: [local] Cleveland.com — Popular music group cancels concert 30 minutes before showtime — Отмена концерта — мелкая новость, не требует освещения в общественно-политическом агрегаторе.
+- [en] срочность: [local] WFSB — Police arrest suspect in Norwalk stabbing — Криминальная хроника (ножевое ранение) — не повод для срочного уведомления.
+- [en] курьёз: [local] Arkansas Times — Willi Carlisle’s ‘The Universal Bubba’ is Stereogum’s ‘Album of the Week’ — Музыкальный альбом недели — не является общественно значимым событием.
+- [en] не_новость: [local] Axios — Democrats vow Trump investigations, but voters have another priority too — Обещания расследований — политическая риторика, а не событие.
+- [en] срочность: [local] NH Union Leader Latest News — Laconia man charged with assault after viral Election Day video outside poll — Арест после инцидента на выборах — отчет о событии, не требует срочной метки.
+- [en] полка: [pool] Infobae — Optimism in international markets following Trump's defeat: stocks rise and oil  — Внутренняя политика США должна быть в местных новостях, а не в международных.
+- [en] не_новость: [pool] Rolling Stone — How Carlos Santana and Natalia Lafourcade Came Together For ‘Hermano,’ an Ode to — История создания песни — художественный очерк, не новость.
+- [en] не_новость: [pool] The Independent — Hegseth becomes target No. 1 for Trump’s midterm failure as questions swirl on h — Политические спекуляции о будущем чиновника — не событие.
+- [en] не_новость: [pool] Wired — ‘You Don’t Put Your Head in the Sand for 4 Years’: Colossal CEO Ben Lamm on Work — Мнение CEO компании о политике — это интервью, а не новость.
