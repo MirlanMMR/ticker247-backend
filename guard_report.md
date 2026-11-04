@@ -1,35 +1,23 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [pt] чужое_мелкое: [local] Exame — Gerdau para de produzir aço em Divinópolis e cidade teme perder até 15% do ICMS — fechamento de uma fábrica local é assunto interno, não exige atenção mundial
-- [pt] курьёз: [local] G1 Globo — Homem invade casa de idosos em Cabo Frio e leva toda a comida do freezer — crime doméstico menor sem relevância para o público amplo
-- [pt] не_новость: [local] CNN Brasil — Baptista confia em permanência do Internacional na Série A e manda recado — opinião e expectativas de treinador não são evento
-- [pt] не_новость: [local] Folha de S.Paulo — Mangueira e convidados celebram heranças negras no Sesc 24 de Maio — evento cultural programado, sem impacto social relevante
-- [pt] курьёз: [local] G1 Bahia — Modelos de lanchas como as de Simone, Bell, Safadão e Diogo Nogueira podem ser v — exposição de lanchas é entretenimento, não notícia
-- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Moedas suspende reunião após discussão sobre custo da limpeza do Rossio — discussão administrativa em Lisboa não é relevante para o Brasil
-- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Suspeitos de corrupção na Câmara do Porto ficam em silêncio em tribunal — audiência judicial local em Portugal
-- [pt] чужое_мелкое: [pool] ECO — Edge42 quer investir 30 milhões em startups de marketing digital e comércio digi — investimento de empresa privada portuguesa
-- [pt] чужое_мелкое: [pool] Expresso das Ilhas — José Maria Neves não vai participar no segundo debate presidencial devido a decl — política interna de Cabo Verde
-- [pt] чужое_мелкое: [pool] Observador PT — Oncologia. Deputados moçambicanos doam dia de salário — iniciativa interna de deputados de Moçambique
-- [pt] чужое_мелкое: [pool] ECO — Javier Flecha vai substituir Luis Anula como CEO da Mapfre Portugal — troca de CEO em empresa portuguesa
-- [pt] чужое_мелкое: [pool] Observador PT — Douro cria academia internacional para formação em vinhos — criação de academia local em Portugal
-- [pt] чужое_мелкое: [pool] Expresso das Ilhas — CNE prorroga até 10 de Novembro inscrições no Programa Voto Acessível — prazo de eleição local em Cabo Verde
-- [pt] чужое_мелкое: [pool] Téla Nón — Médica vence concurso “Empreende mais 2026” com projecto de diagnóstico cardíaco — prêmio local em São Tomé e Príncipe
-- [pt] чужое_мелкое: [world] BBC Brasil — Quem é Gina Hinojosa, democrata de ascendência mexicana que será 1ª latina a gov — carreira política regional nos EUA, não é evento de escala mundial
-- [pt] курьёз: [world] Superinteressante — “The Legend of Zelda: Ocarina of Time” resgata um dos melhores jogos de todos os — análise de jogo antigo não é evento
-- [pt] чужое_мелкое: [world] BBC Brasil — Quem é Abdul El-Sayed, primeiro muçulmano eleito senador nos EUA — eleição de senador estadual não é evento de importância global
-- [pt] чужое_мелкое: [world] Variety — ‘Sister Brother Manhole Cover’, de Milcho Manchevski, ganha prêmio principal no  — prêmio em festival de cinema local
-- [pt] курьёз: [world] The Guardian — Compra de casa em risco devido ao bloqueio de conta no Revolut — problema de conta bancária de um cliente individual
-- [pt] курьёз: [world] The Guardian — A imagem do céu noturno que é tão incrível que o autor neozelandês foi acusado d — história sobre fotografia de céu
-- [fr] чужое_мелкое: [world] La Tribune — La Californie rejette la taxe de 5 % sur ses 250 milliardaires au terme d'un vot — Внутренний процесс голосования в Калифорнии не является мировой новостью.
-- [fr] чужое_мелкое: [world] La Tribune — Midterms : les armes juridiques du Congrès et de la Maison-Blanche pour le contr — Технические юридические инструменты контроля экономики США — не мировое событие.
-- [fr] повтор: [world] Courrier International — “Le désaveu est immense pour Trump” : l’éditorial du “New York Times” après les  ≈ «“Débâcle” aux midterms : pour la presse » — Оценки итогов выборов в США через заголовки прессы.
-- [fr] чужое_мелкое: [world] Courrier International — Les élections de mi-mandat vues d’Europe : “Trump restera Trump, peut-être même  — Общие рассуждения о восприятии Трампа в Европе не имеют события.
-- [fr] повтор: [world] Le Figaro — Midterms 2026 : «JD, habibi…», le nouveau sénateur du Michigan raille JD Vance e ≈ «“Tu peux tout simplement m’appeler ‘séna» — Победа нового сенатора в Мичигане.
-- [fr] чужое_мелкое: [world] Le Figaro — Midterms 2026 : au cœur de l’Amérique conservatrice, le pasteur démocrate Adam H — Портрет локального политика (пастора) в штате Канзас.
-- [fr] чужое_мелкое: [world] Franceinfo — James Talarico au Texas, Abdul el-Sayed au Michigan, Jon Ossoff en Géorgie… Ces  — Обзор местных политических фигур в штатах — не мировой масштаб.
-- [fr] чужое_мелкое: [world] Le Devoir — La sociale-démocrate Janeese Lewis George élue mairesse de Washington — Локальные выборы мэра Вашингтона.
-- [fr] чужое_мелкое: [world] La Dépêche — Donald Trump : "Je n’ai pas à me sentir coupable", le président américain a une  — Реакция Трампа на поражение — это внутренняя американская политика.
-- [fr] чужое_мелкое: [world] Courrier International — “Débâcle” aux midterms : pour la presse conservatrice, c’est bien fait pour Trum — Обзор заголовков консервативной прессы США — это не мировое событие.
-- [fr] чужое_мелкое: [world] Courrier International — “Tu peux tout simplement m’appeler ‘sénateur’” : élu dans le Michigan, Abdul El- — Локальное событие: победа кандидата в штате Мичиган.
-- [fr] повтор: [world] Le Devoir — Au Michigan, Abdul El-Sayed devient le premier sénateur musulman des États-Unis ≈ «“Tu peux tout simplement m’appeler ‘séna» — Победа Abdul El-Sayed в Мичигане.
-- [fr] не_новость: [world] L'Obs — Qui est James Talarico, l’espoir démocrate au Texas qui pourrait faire basculer  — Портрет-досье (кто такой Джеймс Таларико) — это не событие.
+- [ru] полка: [local] Kabar.kg — Кыберкылмыштар: ИИМ башчысы кызматташтыкты күчөтүүнү сунуштады — Событие в Казахстане (конференция) для киргизстанского читателя — международная новость, не местная.
+- [ru] чужое_мелкое: [pool] Азатутюн — Арестован еще один лидер армянской оппозиции — Аресты внутриполитической оппозиции в Армении не имеют последствий за пределами страны.
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — В Ферапонтово открыли памятник иконописцу Дионисию — Открытие памятника в Вологде — локальное событие РФ, не имеющее значения для других стран.
+- [ru] не_новость: [pool] 72.ru — Тюмень — В Тюмени сорвался концерт известного рэпера — Срыв концерта без объяснения причин — не событие, а частная неудача организаторов.
+- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — «Приоритет — сохранение жизни»: как работают автобусы во время угрозы БПЛА в Арх — Работа автобусов в регионе РФ — сугубо внутренняя информация РФ.
+- [ru] не_новость: [pool] 56.ru — Оренбург — Никаких «дудок»: в Оренбуржье хотят запретить продажу электронных сигарет сразу  — Анонс законодательной инициативы (планируют запретить) — это обсуждение, а не принятое решение.
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — «Ты не понял, деньги давай!» В Самарской области мигранта-рецидивиста сослали в  — Внутренняя судебная хроника РФ не имеет отношения к нашему читателю.
+- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — Ребенок пострадал в аварии: УАЗ вылетел на встречку в Архангельске — Обычное ДТП в Архангельске (РФ) без участия граждан KG — не мировая новость.
+- [ru] не_новость: [pool] 72.ru — Тюмень — Стали ли в Тюменской области «экономить» на лечении рака? — Анализ статистики и страхи жителей — это не событие с фактами, а рассуждение.
+- [ru] курьёз: [pool] 56.ru — Оренбург — Стало известно место, где в Оренбурге появится юбилейный 15-й бронзовый байбак — Установка декоративной статуи в РФ — чисто развлекательный факт.
+- [ru] не_новость: [pool] 59.ru — Пермь — «Самое главное — не оставить белого пятна»: в Прикамье улучшат слышимость сирен — Планы чиновников улучшить систему — это намерения, а не свершившийся факт.
+- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Тульской области дали срок проверяющему дымоходы после гибели беременной женщи — Приговор по делу в РФ — местная новость РФ.
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — Власти Самарской области заморозили выплаты Фонду развития промышленности — Бюджетные правки регионального уровня в РФ.
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Оренбургские чиновники получили право самостоятельно ловить бродячих собак — Внутреннее решение властей региона РФ о полномочиях по отлову собак.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Суд Пскова обратил в доход государства гидроцикл экс-чиновника — Конфискация имущества у экс-чиновника в РФ.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Сборная Псковской области взяла 9 медалей на ЧР по стрельбе — Спортивные результаты сборной региона РФ — не мировая новость.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — В Псковской области мошенники похитили более 311 млн рублей — Криминальная статистика одного региона РФ.
+- [ru] курьёз: [pool] NewsGeorgia — Автопарк Грузии перевалил за 2 миллиона, почти 85% машин — старше 10 лет — Статистика автопарка Грузии — познавательный факт, но не новость.
+- [ru] не_новость: [world] РБК — Умер итальянский режиссер Тинто Брасс — Смерть режиссера в 93 года — плановый уход по возрасту, без скандалов и последствий.
+- [ru] чужое_мелкое: [world] 60.ru — Псков — Дочь Брэда Питта сменила фамилию на Джоли — Смена фамилии дочерью Питта — светская хроника, не имеющая мировой значимости.
+- [ru] чужое_мелкое: [world] 60.ru — Псков — Джон Клиз высмеял жалобу на его посты об исламе — Реакция британского комика на жалобы в соцсетях — не событие.
