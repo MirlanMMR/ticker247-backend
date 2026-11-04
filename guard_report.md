@@ -1,27 +1,9 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] WPRI — Remains of World War II soldier from New Bedford accounted for — Это историческая находка, а не событие, требующее немедленного внимания.
-- [en] курьёз: [local] CBS News — Huge space telescope plunges back to Earth after 22 years in orbit — Событие 22-летней давности, не имеет актуального значения для читателя.
-- [en] срочность: [local] Gothamist — Bronx man wakes up to a $39K nightmare after online meetup at hotel, NYPD says — Криминальная хроника, не требующая побудки читателя.
-- [en] не_новость: [local] 1011NOW — Lincoln police launch seat belt enforcement project ahead of Thanksgiving — Плановая профилактическая кампания полиции.
-- [en] не_новость: [local] WCTV — Trump appears to take credit for stock market rally day after multiple Democrati — Комментарий политика в соцсетях, а не событие.
-- [en] полка: [local] Axios — LIV Golf collapse imminent — Событие (банкротство LIV Golf) является мировым, а не местным.
-- [en] не_новость: [pool] Variety — Lili Reinhart, Danny Ramirez, Suki Waterhouse, Mark Duplass and Lukas Gage Team  — Анонс начала съемок фильма.
-- [en] курьёз: [pool] TechCrunch — Almost no one uses AI agents to book their Uber, company says — Статистическое наблюдение компании, не является новостным событием.
-- [en] не_новость: [pool] TechCrunch — Snapchat surpasses 30M paid subscribers — Очередной статистический отчет о количестве пользователей (результаты компании).
-- [en] не_новость: [pool] Ars Technica — VMware releases vSphere Express for virtualization on up to 128 cores — Релиз программного продукта (бизнес-рутина).
-- [en] не_новость: [pool] Variety — UFC’s Event Sellout Spree Powers TKO Q3 Earnings — Финансовый отчет компании.
-- [en] не_новость: [pool] Ars Technica — AMD's record quarter: Data center business doubles, while gaming craters — Финансовый отчет компании.
-- [en] не_новость: [pool] TechCrunch — Meta acquires AI coding startup Conductor — Технологическое поглощение (бизнес-рутина).
-- [en] не_новость: [pool] Rolling Stone — As Nicki Minaj Rallied for Trump’s GOP, Her Lawyers Say She Still Owes Them $295 — Судебный спор о долгах (частный вопрос).
-- [en] не_новость: [pool] Wired — The Biggest Pro-AI Super PAC Network Didn’t Really Impact the Midterms — Аналитика эффективности предвыборных расходов.
-- [en] не_новость: [pool] Forbes — CVS Health’s Split Signals A Turning Point For Healthcare Megabrands — Аналитический разбор рыночной ситуации.
-- [en] не_новость: [pool] Engadget — Pangram expands its AI detection tools to video and images — Релиз функции ПО.
-- [en] не_новость: [pool] Engadget — Xbox is testing two new controller options for Cloud Gaming — Тестирование функций в ПО.
-- [en] не_новость: [pool] Engadget — God of War Laufey is delayed until May 20 — Перенос даты выхода видеоигры.
-- [en] не_новость: [world] Ars Technica — Uranium cubes reveal why the German nuclear project failed — Историческое исследование (курьез/научный разбор).
-- [en] курьёз: [world] Xataka — Cyberattacks continue to impact European companies, now hitting French bank Créd — Пометка «интересное» не оправдана, это разбор темы кибербезопасности.
-- [en] не_новость: [world] Forbes — The Anatomy Of Robots — Научно-популярный разбор робототехники.
-- [en] не_новость: [world] Engadget — Nintendo's main Switch cartridge supplier is leaving the ROM business — Информация о стратегии поставщика (не свершившееся событие).
-- [en] курьёз: [world] Superinteressante — FDA approves generic version of lenacapavir, an HIV injection — Регуляторная рутина (одобрение дженерика), место в «интересном»/научном.
-- [en] полка: [world] Guardian Sport — World Series champion Teixeira wins US House seat as former NFL reporter Tafoya’ — Результаты выборов в штатах — местная новость, не мировая.
+- [es] курьёз: [local] La Jornada — Hallan glóbulos rojos en huesos de dinosaurios del periodo Cretácico — Научная находка без последствий для читателя; место в «Интересном», но не как новость дня.
+- [es] не_новость: [pool] Infobae — León XIV en Córdoba: el intendente detalló cómo será la misa multitudinaria y el — Анонс предстоящего визита и плановых мер безопасности, а не свершившееся событие.
+- [es] не_новость: [pool] Clarín AR — River, con sorpresas después de la derrota en el Superclásico: la lista de Ponzi — Спортивная аналитика и планы тренера, а не отчет о матче.
+- [es] не_новость: [pool] El País — España pide ayuda a Bruselas para llevar a cabo la investigación del accidente d — Запрос помощи в расследовании — это рабочий процесс, а не завершенное событие.
+- [es] не_новость: [pool] eldiario.es — Óscar Puente: "No podía seguir, ni el país ni yo podemos soportar 100 muertos en — Личное решение политика уйти в отставку («по собственному желанию») без указания скандала или вынуждающих причин — плано
+- [es] срочность: [world] Semana CO — Este es el panorama en el aeropuerto El Dorado, tras la falla en los radares. — Технический сбой в аэропорту, который уже является текущей ситуацией, а не событием, требующим побудки.
+- [es] срочность: [world] UPI — La crisis bancaria en Paraguay provoca una petición de destitución y agitación e — Срочная метка излишня для политического процесса (подача петиции), который является частью рутины затяжного кризиса.
