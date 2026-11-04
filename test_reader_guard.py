@@ -103,7 +103,7 @@ check("отчёт guard_report.md пишется и коммитится", "guar
 # ── эталонный набор и проверка ──
 gold = json.load(open("testdata/guard_golden.json", encoding="utf-8"))
 exp = [g["expected"] for g in gold]
-check("эталон: подложенных ошибок 8, нормальных 15, все коды известны", sum(1 for x in exp if x) == 8 and all((x is None) or x in RG.PROBLEMS for x in exp))
+check("эталон: подложенных ошибок 9, нормальных 15, все коды известны", sum(1 for x in exp if x) == 9 and all((x is None) or x in RG.PROBLEMS for x in exp))
 check("эталон: есть случаи владельца (Секретная служба, кортизол, кабели, пенсионер, повтор, анонс)",
       {x for x in exp if x} >= {"чужое_мелкое", "курьёз", "срочность", "не_новость", "повтор", "анонс"})
 check("проверка сторожа подключена к Actions", "python eval_guard.py" in open(".github/workflows/eval_event.yml", encoding="utf-8").read())
@@ -134,6 +134,17 @@ kept, dropped = RG.apply(few, few, [{"n": i + 1, "problem": "чужое_мелк
 check("предохранитель: полка не опускается ниже пола 6", len(kept) >= 6)
 wf = open(".github/workflows/fetch.yml", encoding="utf-8").read()
 check("боевые режимы включены в fetch.yml (решение владельца 04.11)", "READER_GUARD: live" in wf and "STANDARD_FIX: live" in wf)
+
+# ── J71: ложное «срочно» понижается, карточка остаётся ──
+bus = card("В Бишкеке с 5 ноября изменятся схемы движения автобусных маршрутов", "local", 60, category="URGENT", priority=2, event_where="KG")
+d = RG.demote([bus], [{"n": 1, "problem": "срочность", "note": "плановое объявление", "dup": None, "country": None}])
+check("demote: URGENT → NEWS, приоритет ≤ 1, карточка остаётся", bus["category"] == "NEWS" and bus["priority"] == 1 and len(d) == 1)
+vit = card("Отключение воды в Оше", "local", 61, category="URGENT", priority=3, vital=True)
+RG.demote([vit], [{"n": 1, "problem": "срочность", "note": "", "dup": None, "country": None}])
+check("demote: жизненно важное (vital) не понижается", vit["category"] == "URGENT" and vit["priority"] == 3)
+plain = card("Обычная новость", "local", 62)
+check("demote: обычную карточку не трогает", RG.demote([plain], [{"n": 1, "problem": "срочность", "note": "", "dup": None, "country": None}]) == [] and plain["priority"] == 0)
+check("в подсказке сторожа пример планового «срочно»", "плановое объявление" in RG.build_prompt([bus], "ru", "KG"))
 
 print(f"пройдено {ok}, провалено {fail}")
 raise SystemExit(1 if fail else 0)

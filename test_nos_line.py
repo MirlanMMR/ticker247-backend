@@ -87,4 +87,15 @@ r = N.final_title_compress([dict(lost_neg[0])], "ru")[0]["title"]
 check("отрицание в отсечённой части — заголовок не сжимается (смысл важнее длины)", r == lost_neg[0]["title"])
 check("замок общий: клин НОС и заголовок используют nos_line.clean", N.clean("Сель сошёл в Оше и перекрыл трассу.", "Сель сошёл в Оше и перекрыл трассу", "", "ru") is not None)
 
+# ─── даты: «5 ноября» → «05.11» (владелец 04.11) ───
+check("ru: «5 ноября» → «05.11»", N.normalize_dates("с 5 ноября и 12 декабря", "ru") == "с 05.11 и 12.12")
+check("es/pt/fr: «5 de noviembre», «5 de novembro», «1er novembre»",
+      N.normalize_dates("el 5 de noviembre", "es") == "el 05.11" and N.normalize_dates("em 5 de novembro", "pt") == "em 05.11"
+      and N.normalize_dates("le 1er novembre", "fr") == "le 01.11")
+check("en: цифровой даты нет (5.11 двусмысленно), месяц до трёх букв",
+      N.normalize_dates("on November 5", "en") == "on November 5" and "Nov 5" in N.abbreviate("The vote on November 5 was held", "en", 10))
+dt = {"title": "Власти Бишкека объявили, что с 5 ноября изменятся схемы движения автобусных маршрутов в центре города и на юге", "language": "ru"}
+check("замок чисел принимает «05.11», если в источнике «5 ноября»", N.clean("С 05.11 в Бишкеке изменятся схемы движения автобусов.", dt["title"], "", "ru") is not None)
+check("замок отклоняет выдуманную дату (06.11 при «5 ноября»)", N.clean("С 06.11 в Бишкеке изменятся схемы движения автобусов.", dt["title"], "", "ru") is None)
+
 print(f"\nпройдено {ok}, провалено {fail}"); sys.exit(1 if fail else 0)
