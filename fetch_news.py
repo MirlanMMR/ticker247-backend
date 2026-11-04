@@ -6890,6 +6890,7 @@ from dull import cap_dull
 from curious import topup_interesting, is_curious_content, is_longread_url
 from topic_country import final_foreign_topic_guard, final_local_foreign_guard, final_foreign_region_guard, final_foreign_tech_guard, final_statement_country_guard, final_own_subject_guard
 import border
+import urgent_log   # журнал срочного: история для замера доверия к метке (04.11.2026)
 import standard_fix   # чинилка красных флагов эталона (docs/STANDARD.md, раздел 10): тень → live
 from editions import edition_belongs_in_pool as _edition_belongs_in_pool
 
@@ -9796,6 +9797,10 @@ def main():
         filtered = reader_guard_step(filtered, lang)   # J63: итог глазами читателя (тень → live)
         filtered, _ = standard_fix.repair(filtered, lang)   # справочник правок из журнала; STANDARD_FIX=shadow|live|off
         border.control(filtered, lang, report=_BORDER_REPORT)
+        try:
+            print(f"  📒 Журнал срочного [{lang}]: +{urgent_log.record(filtered, lang)}")
+        except Exception as _e:        # журнал не должен ронять прогон
+            print(f"  ⚠️ журнал срочного: {str(_e)[:60]}")
         _trace(lang, "после редактора (в эфир)", filtered)
         # Служебные поля (с подчёркивания) — внутренности конвейера, читателю
         # и базе они не нужны: _full один весит больше всей карточки
