@@ -16,6 +16,7 @@ Actions по расписанию (см. .github/workflows/check_sources.yml).
 ключи, блокировка раннера) — нет. Отчёт по единичным сбоям всё равно
 печатается каждый раз, просто без exit 1.
 """
+import re
 import sys
 import requests
 
@@ -33,6 +34,10 @@ def collect_rss_urls():
 def check_url(name, url):
     try:
         r = requests.get(url, timeout=10, headers=BROWSER_HEADERS)
+        # 200 — не доказательство: National Post отвечал 200 и отдавал HTML главной вместо ленты
+        # (J66, 04.11.2026). Лента живая, только если в ней есть записи
+        if r.status_code == 200 and not re.search(r"<(?:item|entry)[\s>]", r.text):
+            return "200 без записей"
         return r.status_code
     except Exception as e:
         return f"ERROR: {e}"

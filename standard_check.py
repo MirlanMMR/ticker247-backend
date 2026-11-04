@@ -156,11 +156,37 @@ def dead_sources():
     return [r for r in res if r[3] == 0], len(urls)
 
 
+# Сколько красных флагов считать обычным делом (замер 04.11.2026: 19 + источники). Порог, а не ноль: часть
+# флагов неустранима нами сразу (фото низкого качества у издания). Шум каждый час перестают читать
+ALERT_ABOVE = 25
+
+
+def notify(total, per_pool):
+    """В личный чат владельца (TELEGRAM_ADMIN_CHAT), только когда флагов заметно больше обычного.
+    Нет секрета — молчим: оповещение не должно ронять прогон."""
+    import os
+    import urllib.parse
+    token, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_ADMIN_CHAT")
+    if not token or not chat or total <= ALERT_ABOVE:
+        return
+    lines = [f"⚠️ Лента не соответствует эталону: флагов {total} (обычно до {ALERT_ABOVE})", ""]
+    lines += [f"  {p}: {n}" for p, n in sorted(per_pool.items(), key=lambda x: -x[1]) if n]
+    lines += ["", "Подробности — в журнале прогона Actions (шаг «Эталон»)."]
+    try:
+        urllib.request.urlopen(f"https://api.telegram.org/bot{token}/sendMessage",
+                               data=urllib.parse.urlencode({"chat_id": chat, "text": "\n".join(lines)}).encode(),
+                               timeout=20)
+    except Exception as e:
+        print(f"  · Оповещение не ушло: {str(e)[:60]}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pool")
     ap.add_argument("--sources", action="store_true")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--ci", action="store_true",
+                    help="в прогоне Actions: красные флаги — ::warning::, в Telegram при скачке, выход всегда 0")
     a = ap.parse_args()
     now_ms = time.time() * 1000
     out = [check_pool(p, now_ms) for p in ([a.pool] if a.pool else POOLS)]
@@ -184,6 +210,12 @@ def main():
             for name, url, st, n in dead:
                 print(f"   🔴 S-S1 {name} [{st}] {url}")
         print(f"\nИтого красных флагов: {red}")
+    if a.ci:
+        for r in out:
+            for code, text, det in r["flags"]:
+                print(f"::warning title=Эталон [{r['pool']}] {code}::{text}")
+        notify(red, {r["pool"]: len(r["flags"]) for r in out})
+        sys.exit(0)
     sys.exit(1 if red else 0)
 
 

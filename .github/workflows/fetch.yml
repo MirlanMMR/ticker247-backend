@@ -292,6 +292,14 @@ jobs:
           TELEGRAM_ADMIN_CHAT: ${{ secrets.TELEGRAM_ADMIN_CHAT }}
         run: python feed_audit.py
 
+      - name: Эталон — соответствие ленты (docs/STANDARD.md)
+        if: always()
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ADMIN_CHAT: ${{ secrets.TELEGRAM_ADMIN_CHAT }}
+        run: python standard_check.py --ci
+
       - name: Сохранить отчёты
         if: always()
         continue-on-error: true
