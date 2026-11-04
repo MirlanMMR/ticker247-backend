@@ -1,24 +1,18 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] анонс: [local] El Universal MX — Urgen diagnóstico y tratamiento integral para el cáncer de mama en México; calcu — Текст обрывается после заголовка и повторения части фразы, нет сути.
-- [es] не_новость: [local] El Financiero — Cielo despejado en Nuevo León: Así estará el clima el jueves 5 de noviembre, con — Прогноз погоды — не новость.
-- [es] курьёз: [local] El Informador — Fiscalía de Jalisco investiga presunto envenenamiento de gatos en el Parque Alca — Инцидент с животными без системных последствий.
-- [es] не_новость: [local] El Informador — Cine al aire libre en Guadalajara: Cartelera gratuita del 4 al 8 de noviembre — Анонс развлекательных мероприятий.
-- [es] не_новость: [local] El Informador — Lista de colonias con cortes de agua hoy miércoles en el AMG por los tandeos — Плановое объявление, не является событием.
-- [es] не_новость: [local] El Informador — Retirarán por un tiempo las esculturas de "La Casa de los Perros" — Плановый ремонт/обслуживание объектов.
-- [es] не_новость: [local] Expansión MX — México se la pone difícil a China; aduanas aumentan vigilancia — Описательное описание намерений, нет свершившегося факта.
-- [es] не_новость: [local] La Jornada — Afloran críticas contra diputados y gobierno en foro sobre muerte digna — Пересказ мнений участников форума, нет принятого решения.
-- [es] не_новость: [pool] El Tiempo CO — El programa 'Mujeres Todoterreno' de Sacyr capacita a comunidades que habitan en — Презентация корпоративной стратегии.
-- [es] курьёз: [pool] Infobae — Felipe Saruma reaccionó al reconocimiento como el segundo mejor creador de conte — Рейтинг популярности блогера.
-- [es] не_новость: [pool] Semana CO — Acoso laboral: encuesta revela por qué los trabajadores colombianos prefieren gu — Публикация результатов опроса о настроениях.
-- [es] не_новость: [pool] RPP PE — Bendicen al papamóvil que trasladará al papa León XIV durante su estadía en Perú — Религиозный обряд (благословение транспорта).
-- [es] не_новость: [pool] Marca — La Real emite un comunicado señalando en especial a la sala VOR y su revisión po — Выражение недовольства судейством — это комментарий, а не событие.
-- [es] не_новость: [pool] Marca — Piqué encabezará la expedición del Andorra en el sepelio de Jesús de Miguel — Анонс похоронной церемонии.
-- [es] не_новость: [pool] Diario Libre DO — Abinader destaca papel Asamblea General ONU Turismo para RD — Дипломатический этикет («выразил признательность»).
-- [es] курьёз: [world] Xataka — Hay físicos empeñados en demostrar que Einstein se equivocó y los neutrinos del  — Научно-популярная дискуссия без события.
-- [es] не_новость: [world] Wired — El abogado que busca responsabilizar a las grandes empresas tecnológicas mediant — Портрет адвоката, не новость.
-- [es] не_новость: [world] TechCrunch — Waymo confirma que finalizará su asociación con Uber en enero de 2028 — Далекий бизнес-план (январь 2028).
-- [es] не_новость: [world] NASA — La NASA anuncia adjudicaciones para la retransmisión por satélite en banda Ka pa — Анонс выбора подрядчиков NASA.
-- [es] не_новость: [world] TechCrunch — Sequoia Capital da marcha atrás y deshace 20 años de expansión — Внутренняя реструктуризация бизнеса.
-- [es] не_новость: [world] La Vanguardia — Satisfacción en la izquierda por la derrota de Trump, Feijóo avisa del “vuelco”  — Подборка мнений испанских политиков о чужих выборах.
-- [es] не_новость: [world] eldiario.es — Trump patalea por la derrota en las midterms y amenaza con vetar las iniciativas — Описательный эмоциональный материал о риторике, а не о событии.
+- [pt] не_новость: [local] G1 Globo — Confederação do comércio pede mais prazo para implementar a escala 5x2 — Это обсуждение процесса (PEC), а не принятое решение или закон.
+- [pt] не_новость: [local] Metrópoles — Copa SEST SENAT 2026 chega às fases finais com 16 equipes lutando pela taça — Анонс спортивного турнира (фазы финала), а не результат.
+- [pt] не_новость: [local] Gazeta do Povo — Governo Lula impõe sigilo de cinco anos a documentos usados para proibir bets — Информацию о засекречивании документов правительством нельзя считать событием в рамках белого списка.
+- [pt] не_новость: [local] Agência Brasil — Prêmio TV Brasil Petrobras Para Elas: trio disputa Craque da Torcida — Анонс премии, победители которой ещё не объявлены.
+- [pt] полка: [local] Superinteressante — FDA, a “Anvisa” dos EUA, aprova versão genérica do lenacapavir, injeção contra o — Интересное открытие, но в МИРОВЫХ это выглядит как обычная новость.
+- [pt] не_новость: [pool] ECO — Oficial. Paulo Fonseca é o novo treinador do Sporting que paga 5 milhões ao Lyon — Тренерский вопрос в спорте, если не указано, что сделка уже завершена (но здесь заголовок выглядит как свершившийся факт
+- [pt] анонс: [pool] Observador PT — ONG pedem a Portugal plano climático antes da COP31 — Текст состоит из кода разметки рекламы (obs_ads.queue_slot), содержания нет.
+- [pt] анонс: [pool] Observador PT — Freguesias com acesso a crédito para habitação no OE2027 — Текст состоит из кода разметки рекламы, содержания нет.
+- [pt] анонс: [pool] Observador PT — Jovens do Chega suspendem audição da ministra — Текст состоит из кода разметки рекламы, содержания нет.
+- [pt] не_новость: [pool] Jornal de Negócios — Quercus quer IVA reduzido para reparar e reutilizar produtos — Предложение экологической организации (Quercus), а не решение власти.
+- [pt] курьёз: [world] NASA — NASA anuncia contratos para retransmissão de satélites em banda Ka para comunica — Техническое объявление NASA, для читателя не является новостью события.
+- [pt] курьёз: [world] Superinteressante — Fazer xixi sentado ou em pé faz alguma diferença para a saúde? — Научно-популярный факт, не является новостью (событием).
+- [pt] не_новость: [world] BBC Brasil — Análise: 'Onda azul' que expõe perda de força de Trump pode levar a pedido de im — Это «Análise» (разбор/мнение), а не событие.
+- [pt] повтор: [world] RFI — Eleições de meio de mandato de 2026: os marcos históricos que marcaram a votação ≈ «Com "onda azul" nos EUA, democratas vão » — Тот же сюжет про выборы в США.
+- [pt] не_новость: [world] BBC Brasil — Quem é Abdul El-Sayed, primeiro muçulmano eleito senador nos EUA — Биографическая справка о политике, а не событие.
+- [pt] повтор: [world] Азаттык — Democratas vencem eleições para o Congresso dos EUA ≈ «Com "onda azul" nos EUA, democratas vão » — Тот же сюжет про выборы в США.
