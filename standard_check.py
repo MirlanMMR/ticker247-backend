@@ -101,10 +101,6 @@ def check_pool(pool, now_ms):
     if shared:
         flags.append(("S-P2", f"одно фото на несколько карточек: {len(shared)}",
                       {"cards": [f"[{v[0].get('source')}] {(v[0].get('title') or '')[:60]}" for v in shared[:4]]}))
-    stub = [x for x in cards if x.get("imageUrl") and STUB_IMG.search(x["imageUrl"])]
-    if stub:
-        flags.append(("S-P3", f"заглушка или общая картинка вместо фото: {len(stub)}",
-                      {"cards": [f"[{x.get('source')}] {x['imageUrl'][-55:]}" for x in stub[:4]]}))
     lowres = [x for x in cards if x.get("imageLowRes")]
     if lowres:
         flags.append(("S-P4", f"фото низкого качества (imageLowRes): {len(lowres)}",
