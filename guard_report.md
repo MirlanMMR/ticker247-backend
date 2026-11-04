@@ -1,27 +1,35 @@
 # Сторож — находки последнего запуска (режим shadow)
 
-- [ru] полка: [local] Kaktus.media — Женщина заявила, что кыргызстанец помогает задерживать своих сограждан в России — Событие в РФ, для жителя Кыргызстана это мировая или региональная новость, но не местная.
-- [ru] полка: [local] Kabar.kg — Казакстанда экинчи атомдук электр станциясын куруу талкууланууда — Новость из Казахстана, должна быть на полке «Новости из…», а не в местных.
-- [ru] полка: [local] Kabar.kg — Швеция өкмөтү ChatGPT жана Claude платформаларына тыюу салууда — Событие в Швеции, не является местным для Кыргызстана.
-- [ru] полка: [local] Sputnik KG — ЕАЭС и Пакистан могут заключить соглашение о свободной торговле — Международная новость ЕАЭС/Пакистан не является «местной» новостью Кыргызстана, несмотря на участие чиновника.
-- [ru] чужое_мелкое: [pool] РИА Новости — В Совбезе Белоруссии заявили о сложной обстановке по периметру ОДКБ — Внутренняя аналитика безопасности в ОДКБ — не значимое событие для ленты.
-- [ru] не_новость: [pool] ufa1.ru — Уфа — Сегодняшний матч ХК «Салават Юлаев» под вопросом. Противник не может добраться д — Спортивная новость о переносе матча не является значимым событием.
-- [ru] срочность: [pool] ngs24.ru — Красноярск — Энергетики назвали причину, по которой жители сел на юге Красноярского края четв — Режим ЧС и отсутствие света — важная информация, но не требует статуса «срочно» (затяжное событие).
-- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — Накипело? Почему чиновник предложил недовольной жительнице Архангельской области — Конфликт регионального чиновника с жительницей не является мировой или важной региональной новостью.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Тульской области дали срок проверяющему дымоходы после гибели беременной женщи — Суд в Тульской области — типичная региональная криминальная хроника РФ, не нужная в пуле RU (KG).
-- [ru] не_новость: [pool] Sports.ru — Очарование фигурного Гран-при – Лидия Плескачева: напоминает Лью, Трусову и Кост — Обзор фигурного катания — аналитика, а не событие.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Власти Самарской области заморозили выплаты Фонду развития промышленности — Региональные бюджетные процессы РФ не имеют значения для читателя в KG.
-- [ru] не_новость: [pool] 62.ru — Рязань — Двух пешеходов сбили в Дядьково: водитель скрылся — ДТП с неизвестным водителем — рутина, не имеющая последствий.
-- [ru] срочность: [pool] e1.ru — Екатеринбург — Аэропорт Екатеринбурга временно прекратил работу — Аэропорт закрыт временно — это важная новость, но в ленте не должна быть помечена как «срочно».
-- [ru] не_новость: [pool] 59.ru — Пермь — Прах пермского ведущего Николая Малкова развеют над Камским морем. — Частная история о прахе ведущего — не событие.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Сектант запрещенных «Свидетелей Иеговы»* из Тольятти обжаловал приговор — Судебная хроника РФ по делу секты не актуальна для аудитории в Кыргызстане.
-- [ru] курьёз: [pool] e1.ru — Екатеринбург — В Екатеринбурге возле школы нашли труп мужчины: фото — Криминальная бытовая хроника РФ.
-- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — Победа, которую ждали годами: уничтоженную рощу на Зеленой в Ростове вернули гос — Решение по роще в Ростове — локальное событие РФ.
-- [ru] не_новость: [pool] 71.ru — Тула — В Тульской области ищут опасный спред «Крестьянское Чудо» — Предупреждение о товаре — это потребительская заметка, а не событие с последствиями.
-- [ru] не_новость: [pool] 62.ru — Рязань — Сотрудник рязанского супермаркета «повысил себе зарплату» выручкой из подсобки — Кража в супермаркете — мелкий криминал.
-- [ru] не_новость: [pool] ngs55.ru — Омск — Перед жестоким избиением девочки в омском лицее провели родительское собрание — Родительское собрание в лицее — бытовая рутина.
-- [ru] не_новость: [pool] 56.ru — Оренбург — Ильдар Ахметзянов и Хорди Томпсон претендуют на звание лучших в РПЛ по итогам ок — Претенденты на звание — субъективная оценка/анонс.
-- [ru] не_новость: [pool] 63.ru — Самара — В центре Самары детский сад остался без отопления — Проблемы с отоплением в детском саду — локальная ЖКХ-рутина РФ.
-- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Суд по делу о доведении Веры до самоубийства: Василевский вину не признал — Суд в Петербурге — частное уголовное дело.
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Дочь Брэда Питта сменила фамилию на Джоли — Смена фамилии дочери Брэда Питта — светская хроника, не имеющая значения для приложения.
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Полицию Великобритании проверят из-за «замалчивания» Меган Маркл — Британская полицейская проверка по Меган Маркл — таблоидная новость.
+- [pt] чужое_мелкое: [local] Exame — Gerdau para de produzir aço em Divinópolis e cidade teme perder até 15% do ICMS — fechamento de uma fábrica local é assunto interno, não exige atenção mundial
+- [pt] курьёз: [local] G1 Globo — Homem invade casa de idosos em Cabo Frio e leva toda a comida do freezer — crime doméstico menor sem relevância para o público amplo
+- [pt] не_новость: [local] CNN Brasil — Baptista confia em permanência do Internacional na Série A e manda recado — opinião e expectativas de treinador não são evento
+- [pt] не_новость: [local] Folha de S.Paulo — Mangueira e convidados celebram heranças negras no Sesc 24 de Maio — evento cultural programado, sem impacto social relevante
+- [pt] курьёз: [local] G1 Bahia — Modelos de lanchas como as de Simone, Bell, Safadão e Diogo Nogueira podem ser v — exposição de lanchas é entretenimento, não notícia
+- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Moedas suspende reunião após discussão sobre custo da limpeza do Rossio — discussão administrativa em Lisboa não é relevante para o Brasil
+- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Suspeitos de corrupção na Câmara do Porto ficam em silêncio em tribunal — audiência judicial local em Portugal
+- [pt] чужое_мелкое: [pool] ECO — Edge42 quer investir 30 milhões em startups de marketing digital e comércio digi — investimento de empresa privada portuguesa
+- [pt] чужое_мелкое: [pool] Expresso das Ilhas — José Maria Neves não vai participar no segundo debate presidencial devido a decl — política interna de Cabo Verde
+- [pt] чужое_мелкое: [pool] Observador PT — Oncologia. Deputados moçambicanos doam dia de salário — iniciativa interna de deputados de Moçambique
+- [pt] чужое_мелкое: [pool] ECO — Javier Flecha vai substituir Luis Anula como CEO da Mapfre Portugal — troca de CEO em empresa portuguesa
+- [pt] чужое_мелкое: [pool] Observador PT — Douro cria academia internacional para formação em vinhos — criação de academia local em Portugal
+- [pt] чужое_мелкое: [pool] Expresso das Ilhas — CNE prorroga até 10 de Novembro inscrições no Programa Voto Acessível — prazo de eleição local em Cabo Verde
+- [pt] чужое_мелкое: [pool] Téla Nón — Médica vence concurso “Empreende mais 2026” com projecto de diagnóstico cardíaco — prêmio local em São Tomé e Príncipe
+- [pt] чужое_мелкое: [world] BBC Brasil — Quem é Gina Hinojosa, democrata de ascendência mexicana que será 1ª latina a gov — carreira política regional nos EUA, não é evento de escala mundial
+- [pt] курьёз: [world] Superinteressante — “The Legend of Zelda: Ocarina of Time” resgata um dos melhores jogos de todos os — análise de jogo antigo não é evento
+- [pt] чужое_мелкое: [world] BBC Brasil — Quem é Abdul El-Sayed, primeiro muçulmano eleito senador nos EUA — eleição de senador estadual não é evento de importância global
+- [pt] чужое_мелкое: [world] Variety — ‘Sister Brother Manhole Cover’, de Milcho Manchevski, ganha prêmio principal no  — prêmio em festival de cinema local
+- [pt] курьёз: [world] The Guardian — Compra de casa em risco devido ao bloqueio de conta no Revolut — problema de conta bancária de um cliente individual
+- [pt] курьёз: [world] The Guardian — A imagem do céu noturno que é tão incrível que o autor neozelandês foi acusado d — história sobre fotografia de céu
+- [fr] чужое_мелкое: [world] La Tribune — La Californie rejette la taxe de 5 % sur ses 250 milliardaires au terme d'un vot — Внутренний процесс голосования в Калифорнии не является мировой новостью.
+- [fr] чужое_мелкое: [world] La Tribune — Midterms : les armes juridiques du Congrès et de la Maison-Blanche pour le contr — Технические юридические инструменты контроля экономики США — не мировое событие.
+- [fr] повтор: [world] Courrier International — “Le désaveu est immense pour Trump” : l’éditorial du “New York Times” après les  ≈ «“Débâcle” aux midterms : pour la presse » — Оценки итогов выборов в США через заголовки прессы.
+- [fr] чужое_мелкое: [world] Courrier International — Les élections de mi-mandat vues d’Europe : “Trump restera Trump, peut-être même  — Общие рассуждения о восприятии Трампа в Европе не имеют события.
+- [fr] повтор: [world] Le Figaro — Midterms 2026 : «JD, habibi…», le nouveau sénateur du Michigan raille JD Vance e ≈ «“Tu peux tout simplement m’appeler ‘séna» — Победа нового сенатора в Мичигане.
+- [fr] чужое_мелкое: [world] Le Figaro — Midterms 2026 : au cœur de l’Amérique conservatrice, le pasteur démocrate Adam H — Портрет локального политика (пастора) в штате Канзас.
+- [fr] чужое_мелкое: [world] Franceinfo — James Talarico au Texas, Abdul el-Sayed au Michigan, Jon Ossoff en Géorgie… Ces  — Обзор местных политических фигур в штатах — не мировой масштаб.
+- [fr] чужое_мелкое: [world] Le Devoir — La sociale-démocrate Janeese Lewis George élue mairesse de Washington — Локальные выборы мэра Вашингтона.
+- [fr] чужое_мелкое: [world] La Dépêche — Donald Trump : "Je n’ai pas à me sentir coupable", le président américain a une  — Реакция Трампа на поражение — это внутренняя американская политика.
+- [fr] чужое_мелкое: [world] Courrier International — “Débâcle” aux midterms : pour la presse conservatrice, c’est bien fait pour Trum — Обзор заголовков консервативной прессы США — это не мировое событие.
+- [fr] чужое_мелкое: [world] Courrier International — “Tu peux tout simplement m’appeler ‘sénateur’” : élu dans le Michigan, Abdul El- — Локальное событие: победа кандидата в штате Мичиган.
+- [fr] повтор: [world] Le Devoir — Au Michigan, Abdul El-Sayed devient le premier sénateur musulman des États-Unis ≈ «“Tu peux tout simplement m’appeler ‘séna» — Победа Abdul El-Sayed в Мичигане.
+- [fr] не_новость: [world] L'Obs — Qui est James Talarico, l’espoir démocrate au Texas qui pourrait faire basculer  — Портрет-досье (кто такой Джеймс Таларико) — это не событие.
