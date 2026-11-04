@@ -23,6 +23,7 @@ import json
 import re
 
 import textcut as TC
+import nos_line as NL   # сжатие строки НОС: числа цифрами, придаточное уходит, точка (правила владельца 04.11)
 from twins import norm_image, cover_conflict, related_cover_conflict
 from urllib.parse import urljoin, urlsplit
 
@@ -271,7 +272,8 @@ def clean_line(line, item: dict):
     title = item.get("title") or ""
     if len(TC._TITLE_NEG.findall(t)) != len(TC._TITLE_NEG.findall(title)):
         return None
-    source = f"{title} {item.get('summary') or item.get('_full') or ''}"
+    lang = item.get("language") or "ru"
+    source = NL.numerals_to_digits(f"{title} {item.get('summary') or item.get('_full') or ''}", lang)
     src_nums = {re.sub(r"\D", "", m) for m in _LINE_NUM.findall(source)}
     if any(re.sub(r"\D", "", m) not in src_nums for m in _LINE_NUM.findall(t)):
         return None
@@ -578,10 +580,16 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
         x["title"] = fixed
     # строка для режима «Новости одной строкой»: только прошедшая замки, иначе приложение берёт заголовок
     if needs_line(x):
-        ln = clean_line(v.get("line"), x)
+        lang = x.get("language") or "ru"
+        ai = v.get("line") if isinstance(v.get("line"), str) else None
+        ln, how = clean_line(ai, x), "строка для пейджера"
+        if not ln and ai:                                   # строка ИИ чуть длиннее лимита — сжимаем по правилам владельца
+            ln, how = clean_line(NL.compress(ai, lang, PAGER_LINE_MAX), x), "строка НОС: сжата кодом"
+        if not ln:                                          # ИИ строки не дал — сжимаем заголовок издания
+            ln, how = clean_line(NL.compress(x.get("title"), lang, PAGER_LINE_MAX), x), "строка НОС: из заголовка"
         if ln:
             x["line"] = ln
-            notes.append("строка для пейджера")
+            notes.append(how)
         else:
             x.pop("line", None)
     # снимок
@@ -762,6 +770,10 @@ def summarize(results, lang):
             if "строка для пейджера" in notes:
                 fixes["строка НОС принята"] += 1
                 examples.append(f"📝 [{it.get('source','?')}] {it.get('title','')[:50]} → {x.get('line')}")
+            elif "строка НОС: сжата кодом" in notes or "строка НОС: из заголовка" in notes:
+                key = "строка НОС: сжата кодом" if "строка НОС: сжата кодом" in notes else "строка НОС: из заголовка"
+                fixes[key] += 1
+                examples.append(f"✂️ НОС [{it.get('source','?')}] {it.get('title','')[:60]} → {x.get('line')}")
             elif v.get("line"):
                 fixes["строка НОС отклонена замком"] += 1
                 examples.append(f"⛔ строка НОС отклонена: «{str(v.get('line'))[:80]}» ← {it.get('title','')[:50]}")

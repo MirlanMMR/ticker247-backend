@@ -1,0 +1,57 @@
+"""НОС: сжатие длинного предложения (nos_line.py) и приём строки (editor.clean_line) — правила владельца 04.11.2026."""
+import sys
+import editor as ED
+import nos_line as N
+
+ok = fail = 0
+def check(name, cond):
+    global ok, fail
+    if cond: ok += 1; print(f"  ✓ {name}")
+    else: fail += 1; print(f"  ✗ {name}")
+
+# ── пример владельца: числа цифрами, придаточное уходит, точка ──
+t = "Тегеран заявил об уничтожении четырёх танкеров в Ормузском проливе из-за ответных санкций"
+check("пример владельца: «4х танкеров», на «из-за» точка",
+      N.compress(t, "ru") == "Тегеран заявил об уничтожении 4х танкеров в Ормузском проливе.")
+check("числа: двух → 2х, трёх → 3х, пять → 5", N.numerals_to_digits("двух, трёх и пять", "ru") == "2х, 3х и 5")
+check("«один» не трогаем", N.numerals_to_digits("один из двух", "ru") == "один из 2х")
+check("слово внутри другого не заменяется (пятиэтажка)", N.numerals_to_digits("пятиэтажка", "ru") == "пятиэтажка")
+check("не режем, если влезает: полные слова остаются",
+      N.compress("Власти объявили чрезвычайную ситуацию в Оше", "ru") == "Власти объявили чрезвычайную ситуацию в Оше.")
+check("точка вместо запятой, когда союза нет",
+      N.compress("Сель сошёл в Оше и перекрыл трассу на юг страны, власти эвакуируют жителей соседних сёл", "ru")
+      == "Сель сошёл в Оше и перекрыл трассу на юг страны.")
+check("сначала сокращения слов, смысл целиком",
+      "США" in N.compress("Соединённые Штаты Америки объявили чрезвычайную ситуацию из-за ураганов на побережье", "ru"))
+check("сокращения только когда нужно (влезает — слова полные)",
+      N.abbreviate("Соединённые Штаты ввели пошлины", "ru", 70) == "Соединённые Штаты ввели пошлины")
+check("млн и доллары: «12 миллионов долларов» → «$12 млн»", "$12 млн" in N.abbreviate("выделит 12 миллионов долларов на дороги в трёх районах области страны", "ru", 40))
+check("нечем сжать — None (в виджет не идёт), а не обрезок",
+      N.compress("Правительство выделит двенадцать миллионов на восстановление дорог в районах области страны", "ru") is None)
+for lang, text in [("en", "Prime Minister said two million people lost power after the storm hit the east coast"),
+                   ("es", "El presidente dijo que tres millones de personas perdieron la luz tras la tormenta en la costa"),
+                   ("pt", "O presidente disse que quatro milhões de pessoas ficaram sem luz após a tempestade na costa leste"),
+                   ("fr", "Le président a dit que trois millions de personnes ont perdu le courant après la tempête sur la côte")]:
+    r = N.compress(text, lang)
+    check(f"[{lang}] результат ≤ 70, с точкой, без «…»", r is not None and len(r) <= 70 and r.endswith(".") and "…" not in r)
+check("результат никогда не заканчивается запятой или «…»",
+      all(not (N.compress(x, "ru") or ".").rstrip().endswith((",", "…", ":")) for x in [t, "Раз, два, три четыре пять шесть семь восемь девять десять одиннадцать двенадцать тринадцать"]))
+
+# ── замки приёмки: сжатие, потерявшее смысл, не принимается (clean_line) ──
+neg = {"title": "Власти так и не нашли пропавших туристов в горах из-за сильного снегопада в районе", "language": "ru", "category": "URGENT"}
+head = N.compress(neg["title"], "ru")
+check("отрицание в голове сохранено — принято", head is not None and ED.clean_line(head, neg) is not None)
+neg2 = {"title": "Из-за сильного снегопада власти не нашли пропавших туристов в горах района до сих пор", "language": "ru", "category": "URGENT"}
+check("число из слов принимается замком (4х ← «четырёх»)", ED.clean_line("Тегеран заявил об уничтожении 4х танкеров.", {"title": t, "language": "ru"}) is not None)
+check("придуманное число отклоняется", ED.clean_line("Тегеран заявил об уничтожении 5х танкеров.", {"title": t, "language": "ru"}) is None)
+
+# ── сквозной путь: ИИ строки не дал — сжатие из заголовка; строка ИИ длиннее лимита — сжимается кодом ──
+item = {"title": t, "language": "ru", "category": "URGENT", "priority": 2, "summary": ""}
+ok_, x, notes = ED.apply_verdict(dict(item), {}, [], [])
+check("ИИ строки не дал — строка из заголовка по правилам владельца",
+      x.get("line") == "Тегеран заявил об уничтожении 4х танкеров в Ормузском проливе." and "строка НОС: из заголовка" in notes)
+long_ai = "Тегеран заявил об уничтожении четырёх танкеров в Ормузском проливе из-за санкций США."
+ok_, x, notes = ED.apply_verdict(dict(item), {"line": long_ai}, [], [])
+check("строка ИИ длиннее лимита сжата кодом", x.get("line") == "Тегеран заявил об уничтожении 4х танкеров в Ормузском проливе." and "строка НОС: сжата кодом" in notes)
+
+print(f"\nпройдено {ok}, провалено {fail}"); sys.exit(1 if fail else 0)
