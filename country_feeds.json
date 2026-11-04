@@ -103,6 +103,18 @@
   {
    "source": "Global News",
    "url": "https://globalnews.ca/feed/"
+  },
+  {
+   "source": "Toronto Star",
+   "url": "https://www.thestar.com/search/?f=rss&t=article&c=news*&l=50&s=start_time&sd=desc"
+  },
+  {
+   "source": "The Globe and Mail",
+   "url": "https://www.theglobeandmail.com/arc/outboundfeeds/rss/category/canada/"
+  },
+  {
+   "source": "Ottawa Citizen",
+   "url": "https://ottawacitizen.com/feed"
   }
  ],
  "CD": [
@@ -415,6 +427,12 @@
   {
    "source": "Malijet",
    "url": "https://malijet.com/rss.xml"
+  }
+ ],
+ "MX": [
+  {
+   "source": "Mexico News Daily",
+   "url": "https://mexiconewsdaily.com/feed/"
   }
  ],
  "MZ": [

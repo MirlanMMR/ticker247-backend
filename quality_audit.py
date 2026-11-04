@@ -227,7 +227,8 @@ def main():
     horizon = _t.time() * 1000 - 36 * 3600 * 1000
     shelf_cards = [x for x in items if x.get("scope") != "world" and (x.get("country") or "").upper() in nb
                    and (x.get("publishedAt") or 0) >= horizon]
-    shelf_floor = {"neighbours": sorted(nb), "cards_36h": len(shelf_cards), "floor": 6}
+    shelf_floor = {"neighbours": sorted(nb), "cards_36h": len(shelf_cards), "floor": 6,
+                   "by_country": {c: sum(1 for x in shelf_cards if (x.get("country") or "").upper() == c) for c in sorted(nb)}}
     if a.json:
         print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad), "shelf_floor": shelf_floor,
                           "percent": round(pct, 1), "kinds": kinds, "shelf": {"known": shelf_known, "wrong": shelf_wrong, "total": len(vs), "where_scale": new_fields}, "rows": bad},
@@ -243,7 +244,8 @@ def main():
               f"поля where+scale у {new_fields} из {len(vs)} ({100.0 * new_fields / max(1, len(vs)):.0f}%)")
         mark = "✅" if shelf_floor["cards_36h"] >= shelf_floor["floor"] else "⚠️ ниже пола"
         print(f"    «Новости из…» дома {hm}: {shelf_floor['cards_36h']} карточек за 36 ч от соседей "
-              f"{','.join(shelf_floor['neighbours'])} (пол {shelf_floor['floor']}) {mark}")
+              f"{','.join(shelf_floor['neighbours'])} (пол {shelf_floor['floor']}) {mark}; "
+              f"по странам {shelf_floor['by_country']}")
         print(f"    родной язык на «Местных»: {len(nat)} из {len(loc)} ({share:.0f}%, потолок 50%)")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
