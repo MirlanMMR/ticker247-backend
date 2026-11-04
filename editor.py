@@ -242,7 +242,7 @@ def related_lines(item: dict):
     return out
 
 
-PAGER_LINE_MAX = 80
+PAGER_LINE_MAX = 70   # одно предложение, влезает в два ряда виджета на всю ширину экрана
 _LINE_TAG = re.compile(r"^\s*(?:срочно|важно|breaking|urgent|urgente|à la une)\s*[!:.\-–—]*\s*", re.I)
 _LINE_NUM = re.compile(r"\d[\d\s.,]*\d|\d")
 
@@ -757,6 +757,16 @@ def summarize(results, lang):
             examples.append(f"✗ {r}: [{it.get('source','?')}] {it.get('title','')[:90]}"
                             + (f" — {v.get('note')}" if v.get("note") else ""))
             continue
+        if needs_line(it):
+            # Замер НОС (J70): сколько строк ИИ дал, сколько приняли замки — видно в отчёте прогона
+            if "строка для пейджера" in notes:
+                fixes["строка НОС принята"] += 1
+                examples.append(f"📝 [{it.get('source','?')}] {it.get('title','')[:50]} → {x.get('line')}")
+            elif v.get("line"):
+                fixes["строка НОС отклонена замком"] += 1
+                examples.append(f"⛔ строка НОС отклонена: «{str(v.get('line'))[:80]}» ← {it.get('title','')[:50]}")
+            else:
+                fixes["строка НОС: ИИ не дал"] += 1
         for n in notes:
             if n.startswith("заголовок"):
                 fixes["опечатка в заголовке"] += 1
