@@ -155,5 +155,22 @@ check("страж: замминистра в NEWS, приоритет 1", lst[0]
 check("страж: президент не тронут", lst[1]["category"] == "URGENT" and lst[1]["priority"] == 2)
 check("страж: землетрясение не тронуто", lst[2]["category"] == "URGENT" and lst[2]["priority"] == 2)
 
+# ── J71: плановое объявление — не срочное (04.11.2026) ──
+from urgent_guard import planned_announcement, final_planned_guard
+bus = "В Бишкеке с 5 ноября изменятся схемы движения 8 автобусных маршрутов"
+check("плановое: «с 5 ноября изменятся схемы…» не срочное", planned_announcement(card(bus, cat="URGENT")))
+check("плановое: «важное» (priority 2) тоже", planned_announcement(card(bus, cat="NEWS", prio=2)))
+check("плановое: en «will close from Nov 10»", planned_announcement(card("Main bridge will close from Nov 10 for repairs", cat="URGENT")))
+check("плановое: es «a partir del lunes cerrarán»", planned_announcement(card("A partir del 10 de noviembre cerrarán el puente central", cat="URGENT")))
+check("с бедой не плановое (погибшие)", not planned_announcement(card("С 5 ноября введут режим ЧС после гибели 12 человек", cat="URGENT")))
+check("жизненно важное не снимаем", not planned_announcement(card(bus, cat="URGENT", vital=True)))
+check("без даты и без «завтра» — не плановое (событие)", not planned_announcement(card("Власти изменят схемы движения после аварии", cat="URGENT")))
+check("обычная карточка без срочности не трогается", not planned_announcement(card(bus, cat="NEWS", prio=1)))
+lst2 = [card(bus, cat="URGENT", scope="local"), card("Землетрясение магнитудой 7 в Оше", cat="URGENT", scope="local")]
+with contextlib.redirect_stdout(io.StringIO()):
+    final_planned_guard(lst2, "ru")
+check("страж: плановое → NEWS, приоритет 1", lst2[0]["category"] == "NEWS" and lst2[0]["priority"] == 1)
+check("страж: землетрясение не тронуто", lst2[1]["category"] == "URGENT" and lst2[1]["priority"] == 2)
+
 print(f"{ok} ok, {fail} fail")
 sys.exit(1 if fail else 0)
