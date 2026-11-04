@@ -33,7 +33,7 @@ for lang, text in [("en", "Prime Minister said two million people lost power aft
                    ("pt", "O presidente disse que quatro milhões de pessoas ficaram sem luz após a tempestade na costa leste"),
                    ("fr", "Le président a dit que trois millions de personnes ont perdu le courant après la tempête sur la côte")]:
     r = N.compress(text, lang)
-    check(f"[{lang}] результат ≤ 70, с точкой, без «…»", r is not None and len(r) <= 70 and r.endswith(".") and "…" not in r)
+    check(f"[{lang}] результат ≤ 78, с точкой, без «…»", r is not None and len(r) <= 78 and r.endswith(".") and "…" not in r)
 check("результат никогда не заканчивается запятой или «…»",
       all(not (N.compress(x, "ru") or ".").rstrip().endswith((",", "…", ":")) for x in [t, "Раз, два, три четыре пять шесть семь восемь девять десять одиннадцать двенадцать тринадцать"]))
 

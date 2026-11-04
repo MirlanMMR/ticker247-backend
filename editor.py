@@ -243,7 +243,7 @@ def related_lines(item: dict):
     return out
 
 
-PAGER_LINE_MAX = 70   # одно предложение, влезает в два ряда виджета на всю ширину экрана
+PAGER_LINE_MAX = NL.LIMIT   # ёмкость экрана виджета с меткой (78 знаков): одно законченное предложение целиком
 _LINE_TAG = re.compile(r"^\s*(?:срочно|важно|breaking|urgent|urgente|à la une)\s*[!:.\-–—]*\s*", re.I)
 _LINE_NUM = re.compile(r"\d[\d\s.,]*\d|\d")
 
