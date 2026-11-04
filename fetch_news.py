@@ -7449,6 +7449,8 @@ def reader_guard_step(items, lang):
         print(f"       · {line}")
         _GUARD_REPORT.append(f"[{lang}] {line}")
     if READER_GUARD_MODE == "live":
+        for x, was, now_ in RG.relabel(shown, findings):                 # J73: метка места исправлена, карточка остаётся
+            print(f"  🧭 Сторож [{lang}] исправил метку места {was or '—'} → {now_}: «{str(x.get('title', ''))[:60]}»")
         kept, dropped = RG.apply(items, shown, findings)
         for x, fd in dropped:
             print(f"  🚫 Сторож [{lang}] снял: «{str(x.get('title', ''))[:60]}» ({fd['problem']})")

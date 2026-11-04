@@ -28,6 +28,9 @@ PROBLEMS = {
     "срочность": "помечена срочной или важной, а будить человека не за что (прошедшее происшествие, кража, мелкая беда)",
     "повтор": "тот же сюжет, что у другой карточки этой ленты (укажи её номер в поле dup)",
     "полка": "не та полка: местное лежит на «Новости из…», мировое на «Местных», событие дома у соседей",
+    "метка_места": "страна события в скобках указана НЕВЕРНО: издание и текст говорят о другой стране (белорусское издание о "
+                   "белорусской аварии, а событие: KG). Верни в поле country двухбуквенный код страны, где событие произошло на "
+                   "самом деле. Не включай, если событие и правда в названной стране (иностранное издание пишет о нашем)",
     "анонс": "вместо статьи анонс: две фразы, «обновляется», «подробности позже»",
 }
 MAX_FINDINGS = 25
@@ -42,6 +45,8 @@ EXAMPLES = (
     "• «СМИ: девять казахстанцев вывезли из зоны боевых действий» и «Семерых казахстанцев вывезли из зоны боевых "
     "действий» — повтор.\n"
     "• Карточка из двух фраз с «Em atualização» — анонс.\n"
+    "• «Самосвал задел высоковольтную линию и загорелся — водитель погиб» (Onliner.by, издание: BY, событие: KG, МЕСТНЫЕ/«Новости из…») — "
+    "метка_места, country: BY: белорусское издание о белорусской аварии, Кыргызстана в тексте нет (04.11.2026: попала в карусель Бишкека).\n"
 )
 
 
@@ -79,7 +84,8 @@ def build_prompt(shown, pool, home):
             lines.append(f"\n=== {SHELF_NAME.get(last, last)} ===")
         flags = ("[" + ", ".join(flags_of(x)) + "] ") if flags_of(x) else ""
         where = x.get("event_where") or x.get("country") or "?"
-        lines.append(f"{n}. {flags}{x.get('source', '?')} (событие: {where}) — {_clip(x.get('title'), 140)} — "
+        pub = f"издание: {x.get('country')}, " if x.get("country") else ""
+        lines.append(f"{n}. {flags}{x.get('source', '?')} ({pub}событие: {where}) — {_clip(x.get('title'), 140)} — "
                      f"{_clip(x.get('summary'), 150)}")
     legend = "\n".join(f"- {code}: {text}" for code, text in PROBLEMS.items())
     return (
@@ -109,7 +115,9 @@ def parse(raw, total):
             continue
         seen.add(n)
         dup = f.get("dup") if isinstance(f.get("dup"), int) and 1 <= f.get("dup") <= total else None
-        out.append({"n": n, "problem": code, "note": str(f.get("note") or "")[:120], "dup": dup})
+        country = str(f.get("country") or "").strip().upper()
+        out.append({"n": n, "problem": code, "note": str(f.get("note") or "")[:120], "dup": dup,
+                    "country": country if re.fullmatch(r"[A-Z]{2}", country) else None})
     return out[:MAX_FINDINGS]
 
 
@@ -129,6 +137,32 @@ def review(items, pool, home, ask):
 LIVE_DROPS = {"чужое_мелкое", "не_новость", "повтор"}
 
 
+MAX_DROP_SHARE = 0.25   # сторож не снимает больше четверти показанного: ошибка модели не должна опустошить ленту
+SHELF_FLOOR = 6         # и не опускает полку ниже пола (CLAUDE.md, «Свежесть ленты»: 6 карточек за 36 ч)
+
+
+def relabel(shown, findings):
+    """J73: метка места события, которой не подтверждают издание и текст, заменяется страной, названной сторожем
+    (иначе — страной издания). Карточку не снимает: меняется только метка, и приложение считает полку заново.
+    → [(карточка, было, стало)]."""
+    out = []
+    for f in findings:
+        if f["problem"] != "метка_места":
+            continue
+        x = shown[f["n"] - 1]
+        new = (f.get("country") or x.get("country") or "").strip().upper()
+        old = (x.get("event_where") or "").strip().upper()
+        if not re.fullmatch(r"[A-Z]{2}", new) or new == old:
+            continue
+        x["_event_where_ai"] = old
+        x["event_where"] = new
+        if x.get("event_countries"):
+            cs = [c.strip().upper() for c in str(x["event_countries"]).split(",") if c.strip() and c.strip().upper() != old]
+            x["event_countries"] = ",".join(cs + [new])
+        out.append((x, old, new))
+    return out
+
+
 def apply(items, shown, findings):
     """Боевой режим. → (карточки без снятых, снятые [(карточка, находка)]). Повтор снимается только с указанным
     двойником (dup): снимаем отмеченную карточку, двойник остаётся."""
@@ -142,5 +176,15 @@ def apply(items, shown, findings):
         if x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY") or x.get("vital"):
             continue                          # срочное и жизненно важное сторож не снимает
         drop[id(x)] = (x, f)
-    kept = [x for x in items if id(x) not in drop]
-    return kept, list(drop.values())
+    # Предохранители: не больше MAX_DROP_SHARE показанного и ни одна полка не уходит ниже SHELF_FLOOR
+    budget = max(1, int(len(shown) * MAX_DROP_SHARE))
+    left = {sh: sum(1 for x in items if x.get("scope") == sh) for sh in ("local", "pool", "world")}
+    safe = {}
+    for key, (x, f) in drop.items():
+        sh = x.get("scope")
+        if len(safe) >= budget or left.get(sh, 0) - 1 < SHELF_FLOOR:
+            continue
+        left[sh] = left.get(sh, 0) - 1
+        safe[key] = (x, f)
+    kept = [x for x in items if id(x) not in safe]
+    return kept, list(safe.values())

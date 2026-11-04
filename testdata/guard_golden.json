@@ -274,5 +274,33 @@
    "interesting": true
   },
   "expected": null
+ },
+ {
+  "item": {
+   "scope": "pool",
+   "source": "Onliner.by",
+   "country": "BY",
+   "event_where": "KG",
+   "title": "Самосвал задел высоковольтную линию и загорелся — водитель погиб",
+   "summary": "В Минской области самосвал задел провода ЛЭП на трассе; водитель погиб на месте, спасатели МЧС Беларуси потушили машину.",
+   "category": "NEWS",
+   "priority": 1,
+   "publishedAt": 1
+  },
+  "expected": "метка_места"
+ },
+ {
+  "item": {
+   "scope": "pool",
+   "source": "Infobae",
+   "country": "AR",
+   "event_where": "MX",
+   "title": "Сенатор Мексики отчиталась о доходах и защитила своё имущество",
+   "summary": "Сенатор Мексики Лаура Итцель Кастильо рассказала о своих доходах в мексиканском Сенате.",
+   "category": "NEWS",
+   "priority": 0,
+   "publishedAt": 1
+  },
+  "expected": null
  }
 ]

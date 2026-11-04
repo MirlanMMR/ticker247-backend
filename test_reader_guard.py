@@ -61,7 +61,7 @@ check("находки разобраны", [(f["n"], f["problem"]) for f in fs] 
 check("ответ в ```json``` и с пояснением разобран", len(RG.parse('Вот:\n```json\n' + good + '\n```', 5)) == 2)
 check("неизвестный код, номер вне экрана и дубль номера отброшены",
       RG.parse('[{"n": 9, "problem": "курьёз"}, {"n": 1, "problem": "чушь"}, {"n": 2, "problem": "курьёз"}, {"n": 2, "problem": "повтор", "dup": 1}]', 5) == [
-          {"n": 2, "problem": "курьёз", "note": "", "dup": None}])
+          {"n": 2, "problem": "курьёз", "note": "", "dup": None, "country": None}])
 check("пустой массив — нет находок", RG.parse("[]", 5) == [])
 check("двойник вне экрана игнорируется", RG.parse('[{"n": 2, "problem": "повтор", "dup": 99}]', 5)[0]["dup"] is None)
 check("потолок находок", len(RG.parse(json.dumps([{"n": i, "problem": "курьёз"} for i in range(1, 60)]), 60)) == RG.MAX_FINDINGS)
@@ -79,6 +79,8 @@ finds = [{"n": 5, "problem": "чужое_мелкое", "note": "", "dup": None}
          {"n": 4, "problem": "курьёз", "note": "", "dup": None},             # e — только отчёт
          {"n": 2, "problem": "не_новость", "note": "", "dup": None},         # d срочное — не снимается
          {"n": 3, "problem": "повтор", "note": "", "dup": None}]             # c без двойника — не снимается
+_floor = RG.SHELF_FLOOR
+RG.SHELF_FLOOR = 0        # эти проверки — про классы проблем, а не про пол полки (он проверяется ниже)
 kept, dropped = RG.apply(items, shown2, finds)
 check("снимает чужое мелкое", a not in kept and len(dropped) == 1 and dropped[0][1]["problem"] == "чужое_мелкое")
 check("курьёз, срочность, полку сторож только сообщает", e in kept)
@@ -86,6 +88,7 @@ check("срочное и жизненно важное не снимает", d i
 check("повтор без указанного двойника не снимает", c in kept)
 check("повтор с двойником снимает отмеченную, двойник остаётся",
       RG.apply(items, shown2, [{"n": 3, "problem": "повтор", "note": "", "dup": 1}])[0].count(b) == 1 and c not in RG.apply(items, shown2, [{"n": 3, "problem": "повтор", "note": "", "dup": 1}])[0])
+RG.SHELF_FLOOR = _floor
 vc = card("Жизненно важное", "local", vital=True)
 check("vital не снимается", RG.apply([vc], [vc], [{"n": 1, "problem": "не_новость", "note": "", "dup": None}])[0] == [vc])
 
@@ -100,10 +103,37 @@ check("отчёт guard_report.md пишется и коммитится", "guar
 # ── эталонный набор и проверка ──
 gold = json.load(open("testdata/guard_golden.json", encoding="utf-8"))
 exp = [g["expected"] for g in gold]
-check("эталон: подложенных ошибок 7, нормальных 14, все коды известны", sum(1 for x in exp if x) == 7 and all((x is None) or x in RG.PROBLEMS for x in exp))
+check("эталон: подложенных ошибок 8, нормальных 15, все коды известны", sum(1 for x in exp if x) == 8 and all((x is None) or x in RG.PROBLEMS for x in exp))
 check("эталон: есть случаи владельца (Секретная служба, кортизол, кабели, пенсионер, повтор, анонс)",
       {x for x in exp if x} >= {"чужое_мелкое", "курьёз", "срочность", "не_новость", "повтор", "анонс"})
 check("проверка сторожа подключена к Actions", "python eval_guard.py" in open(".github/workflows/eval_event.yml", encoding="utf-8").read())
+
+# ── J73 (04.11): метка места исправляется, карточка остаётся; предохранители боевого режима ──
+onl = card("Самосвал задел высоковольтную линию и загорелся — водитель погиб", "pool", 50, event_where="KG", country="BY",
+           event_countries="KG")
+raw = '[{"n": 1, "problem": "метка_места", "country": "by", "note": "белорусское издание о Беларуси"}]'
+fs = RG.parse(raw, 1)
+check("parse: код страны из ответа сторожа, в верхнем регистре", fs and fs[0]["country"] == "BY")
+check("parse: плохой код страны отбрасывается", RG.parse('[{"n": 1, "problem": "метка_места", "country": "Беларусь"}]', 1)[0]["country"] is None)
+done = RG.relabel([onl], fs)
+check("relabel: метка места KG → BY, старая запомнена", onl["event_where"] == "BY" and onl["_event_where_ai"] == "KG" and len(done) == 1)
+check("relabel: список стран события тоже исправлен", onl["event_countries"] == "BY")
+card2 = card("Карточка без страны издания", "pool", 40, event_where="KG", country="")
+RG.relabel([card2], [{"n": 1, "problem": "метка_места", "country": None, "note": ""}])
+check("relabel: без кода и без страны издания метку не трогаем", card2["event_where"] == "KG")
+kept, dropped = RG.apply([onl], [onl], fs)
+check("метка_места карточку не снимает", kept == [onl] and not dropped)
+check("в подсказке сторожа видно и издание, и событие", "издание: BY" in RG.build_prompt([onl], "ru", "KG") and "метка_места" in RG.build_prompt([onl], "ru", "KG"))
+
+many = [card(f"Мелкая чужая {i}", "pool", i) for i in range(40)]
+finds = [{"n": i + 1, "problem": "чужое_мелкое", "note": "", "dup": None, "country": None} for i in range(40)]
+kept, dropped = RG.apply(many, many, finds)
+check("предохранитель: снимается не больше четверти показанного", len(dropped) <= 10 and len(kept) >= 30)
+few = [card(f"Полка {i}", "pool", i) for i in range(7)]
+kept, dropped = RG.apply(few, few, [{"n": i + 1, "problem": "чужое_мелкое", "note": "", "dup": None, "country": None} for i in range(7)])
+check("предохранитель: полка не опускается ниже пола 6", len(kept) >= 6)
+wf = open(".github/workflows/fetch.yml", encoding="utf-8").read()
+check("боевые режимы включены в fetch.yml (решение владельца 04.11)", "READER_GUARD: live" in wf and "STANDARD_FIX: live" in wf)
 
 print(f"пройдено {ok}, провалено {fail}")
 raise SystemExit(1 if fail else 0)
