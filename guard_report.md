@@ -1,17 +1,47 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [pool] Semana CO — Esto dijeron María Corina Machado y Edmundo González sobre ruta electoral para V — Внутренняя декларация оппозиции Венеции не является мировым событием.
-- [es] чужое_мелкое: [pool] eldiario.es — Koldo García desde prisión insiste en que el PP le ofreció dinero: "Yo daré el r — Заявление обвиняемого из тюрьмы — внутренняя судебная хроника Испании.
-- [es] чужое_мелкое: [pool] El Mundo — Cristian Corvillo, la caída del conductor de Sánchez en su gira de reconquista d — Карьера местного политического деятеля — сугубо внутренняя новость Испании.
-- [es] чужое_мелкое: [pool] El Mundo — Cuerpo cita esta tarde a los maquinistas tras descabezar Adif para que desactive — Внутренний трудовой конфликт в транспортной компании Испании.
-- [es] чужое_мелкое: [pool] eldiario.es — Ábalos pide amparo al Constitucional para anular una sentencia que se apoya en A — Процессуальное действие (ресурс де ампаро) по делу Абалоса — рутина.
-- [es] чужое_мелкое: [pool] La Vanguardia — La UCO registra la casa de Ábalos en una operación por blanqueo del caso Koldo c — Очередной эпизод расследования дела «Кольдо» (Испания).
-- [es] повтор: [pool] eldiario.es — La UCO detiene a seis personas en una investigación por amaño de contratos y bla ≈ «La UCO registra la casa de Ábalos en una» — Описаны те же задержания в рамках того же дела.
-- [es] курьёз: [world] Infobae — El hermano de Meghan Markle, en el punto de mira tras denunciar a su padre por p — Семейный скандал Меган Маркл не является значимой мировой новостью.
-- [es] курьёз: [world] TechCrunch — Instagram lleva Edits a escritorio para competir con CapCut — Обновление ПО Instagram — не мировое событие.
-- [es] курьёз: [world] TechCrunch — ElevenLabs permite a los usuarios publicar música generada por IA directamente e — Техническая интеграция ElevenLabs и SoundCloud.
-- [es] курьёз: [world] El Universo EC — Como “un sacrilegio culinario imperdonable”: el escandaloso despido de un chef i — Увольнение шефа из-за пиццы — классический кликбейт-курьёз.
-- [es] чужое_мелкое: [world] BBC Mundo — 4 datos que muestran el peso del voto latino en la "ola azul" que llevó a los de — Анализ прошлых выборов в США — это не актуальное событие.
-- [es] чужое_мелкое: [world] BBC Mundo — El vicepresidente JD Vance, en la cuerda floja con Trump tras su feroz crítica p — Внутриполитические трения между Трампом и Вэнсом.
-- [es] чужое_мелкое: [world] 14ymedio — Sherritt despide a casi la mitad de sus trabajadores en Canadá — Локальное сокращение штата канадской компании.
-- [es] не_новость: [world] BBC Mundo — "La derrota de Trump limita su poder interno, pero no necesariamente su influenc — Аналитическая статья-рассуждение, а не событие.
+- [pt] не_новость: [local] Folha de S.Paulo — Lula levou de 40 dias a mais de 4 meses para definir os primeiros ministros nos  — Плановое описание процесса формирования кабинета, нет свершившегося факта назначения.
+- [pt] курьёз: [local] Folha de S.Paulo — Caminhar reduz fadiga em pessoas com câncer colorretal, indica estudo — Научный факт/совет, нет привязки к событию или важности.
+- [pt] срочность: [local] G1 Globo — Raio atinge tanque de usina em Ourinhos e provoca princípio de incêndio — Рядовое происшествие (удар молнии), не требует побудки.
+- [pt] срочность: [local] G1 Rio — VÍDEO: homem é preso após quebrar vidro da recepção do Souza Aguiar — Хулиганство, не требует немедленного уведомления читателя.
+- [pt] не_новость: [local] Poder360 — Governo zera imposto sobre minerais para 2027 — Плановая мера на 2027 год, не меняет положение сегодня.
+- [pt] курьёз: [local] G1 Rio — VÍDEO: arraia ‘corta onda’ de surfista no Recreio — Развлекательный видеофакт, не является новостью.
+- [pt] не_новость: [local] G1 Minas — Prazo para participar da Semana Nacional da Conciliação termina nesta sexta em M — Напоминание о сроке завершения мероприятия.
+- [pt] не_новость: [local] G1 Rio — Universidade Social Portela será lançada neste sábado com feijoada e Velha Guard — Анонс развлекательного мероприятия (фестиваль/еда).
+- [pt] курьёз: [pool] Terra BR — Um medicamento comum para anemia demonstra potencial inesperado no tratamento do — Общее научное сообщение, нет конкретного события.
+- [pt] курьёз: [pool] Terra BR — Dermatite atópica impacta nas escolhas educacionais e de carreira — Результат исследования без конкретного новостного повода.
+- [pt] не_новость: [pool] Jornal de Negócios — Pestana põe metas ambientais a mexer no custo da dívida — Рассуждения о стратегии компании, нет свершившейся сделки или отчета.
+- [pt] не_новость: [world] Rolling Stone — Sobrevivência torna-se ainda mais crítica no trailer da 4ª temporada de 'Yellowj — Выход трейлера сериала — это анонс, а не событие.
+- [pt] не_новость: [world] Variety — Nate Bargatze retorna à Netflix com novo especial 'Good for Nathan' — Анонс выхода шоу в будущем.
+- [pt] курьёз: [world] TechCrunch — Bluesky atinge pico de uso do ano na noite da eleição — Статистика посещаемости соцсети, нет события.
+- [pt] не_новость: [world] Forbes — Da estratégia ao chão de fábrica: um roteiro prático para IA na manufatura — Экспертный совет/руководство, нет новостного повода.
+- [pt] не_новость: [world] Forbes — Fim da linha para o Meta Quest 2 — Анонс прекращения поддержки в будущем (2027 год).
+- [pt] не_новость: [world] Engadget — WhatsApp compete com Partiful ao expandir recurso de eventos — Анонс функционала приложения (обновление ПО).
+- [pt] не_новость: [world] Poder360 — Flávio discursará em evento conservador com ator de “Dark Horse” — Анонс выступления политика на конференции.
+- [pt] не_новость: [world] Fortune — Enquanto grandes empresas de tecnologia apostam em energia nuclear, startup Uran — Статья об индустрии, а не о свершившейся сделке или событии.
+- [pt] курьёз: [world] Wired — Exclusivo: Anel inteligente da Aina quer ser um controle remoto para seu agente  — Описание гаджета (анонс/презентация продукта), не является важным мировым событием.
+- [fr] курьёз: [local] La Dépêche — Huit ans après la mort de son père, il n'a toujours pas pu toucher son héritage  — Частный бытовой конфликт об наследстве не является новостью для общественности.
+- [fr] не_новость: [local] L'Express — Classements de Leiden et de Shanghai : où se situe votre université ? — Ежегодный обзор рейтингов университетов — это справочная информация, а не событие.
+- [fr] не_новость: [local] Nice-Matin — « On ne s’y attendait pas » : à La Crau les habitants surpris par le départ de l — Плановая смена мэра или выборы его преемника — рядовое событие, не требующее внимания.
+- [fr] не_новость: [local] Franceinfo — "Quelle fin de règne interminable" : pourquoi aucun député, même parmi les macro — Аналитика и политические комментарии без совершившегося юридического факта.
+- [fr] не_новость: [local] Nice-Matin — 27 ans derrière les barreaux et 5 tentatives d’évasion : l’histoire de Michel Va — Анонс театральной постановки о жизни преступника.
+- [fr] не_новость: [local] La Dépêche — Présidentielle 2027 : comment Gabriel Attal a réussi à piéger Édouard Philippe a — Политические рассуждения о стратегии партий, нет свершившегося действия.
+- [fr] курьёз: [local] Franceinfo — "Je m'en contrefous" : Raphaël Glucksmann répond aux militants hostiles à sa pré — Перепалка политика с активистами на митинге — событие низкого порядка.
+- [fr] не_новость: [local] 20 Minutes — Manifestation du 5 novembre : A Créteil, berceau du mouvement lycéen, des ados f — Репортаж-описание настроений на митинге без конкретных результатов.
+- [fr] не_новость: [local] La Dépêche — REPORTAGE. Petite inconnue de l'A10 : "Vous n'êtes pas obligée de regarder" Aprè — Репортаж с зала суда, описывающий эмоции, а не само решение.
+- [fr] курьёз: [local] France Bleu — "Des vies rétrécies" : une personne sur deux dit avoir du mal à vivre dignement, — Результаты социологического опроса о «трудности жизни» без конкретных мер.
+- [fr] не_новость: [local] Franceinfo — "On dénonce ces outils de lutte contre le terrorisme" : pourquoi les assignation — Мнения юристов о законности действий властей — это комментарии, а не событие.
+- [fr] не_новость: [pool] RTBF — "Nous devrons, pour la deuxième année, passer à des douzièmes provisoires", anno — Заявление премьера о планах на бюджет не является свершившимся фактом.
+- [fr] не_новость: [pool] RTBF — Prix des carburants: chassé-croisé entre Belges et Français pour faire le plein  — Рассуждение о ценах на бензин без изменения тарифа или решения.
+- [fr] курьёз: [pool] Africanews FR — Maroc : à Rabat, un festival promeut la présence féminine dans le théâtre — Фестиваль театра — это мероприятие, не новость для широкого круга.
+- [fr] не_новость: [pool] RTBF — Crise politique : De Wever face aux présidents de partis, "trois jeunes coqs qui — Политические сплетни о «трех молодых петухах».
+- [fr] не_новость: [pool] RTBF — Bart De Wever de retour chez le Roi ce vendredi : quels sont les scénarios, du p — Обсуждение политических сценариев и вероятностей.
+- [fr] не_новость: [world] BFMTV — "Empêcher le retour au pouvoir de Netanyahu": le centriste Gadi Eisenkot bien pl — Политический прогноз: кто может сформировать правительство.
+- [fr] не_новость: [world] BFMTV — Le premier est attendu à New York dans deux jours: Moscou dément tout changement — Опровержение слухов Москвой не является событием.
+- [fr] не_новость: [world] Sciences et Avenir — Élections aux États-Unis : qu’est-ce que ça change pour la santé ? — Рассуждение о том, что изменится после выборов — аналитика.
+- [fr] не_новость: [world] Courrier International — Au Liberia, bientôt une loi pour limiter la durée des fiançailles ? — Законопроект о сроке помолвки — обсуждение инициативы, а не принятый закон.
+- [fr] курьёз: [world] Franceinfo — Amnésique, sans aucun papier sur lui, un jeune homme de 25 ans enfin identifié a — История об амнезии не является важной новостью.
+- [fr] не_новость: [world] Courrier International — Le média norvégien “The Barents Observer” dans le viseur de la Russie — Давление на СМИ — это процесс, нет конкретного события.
+- [fr] не_новость: [world] Courrier International — Lancement de la chaîne La Séptima en Espagne : un “anti-Fox News” — Анонс запуска телеканала.
+- [fr] не_новость: [world] Courrier International — Midterms aux États-Unis : “Même les démocrates ne sont pas nos amis” — Политологическая колонка о настроениях общества.
+- [fr] не_новость: [world] RFI — Les Palestiniens d'Israël, près de huit décennies de discriminations — Историко-политический очерк о дискриминации, нет актуального события.
