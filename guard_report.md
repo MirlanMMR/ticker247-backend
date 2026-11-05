@@ -1,21 +1,17 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] полка: [local] El Financiero — Amenazas de bomba paralizan vuelos en Europa: Aviones reciben escoltas. — Событие в Европе (Франция), для Мексики это мировая новость, не местная.
-- [es] срочность: [local] El Financiero — Tiroteo en las oficinas de Citigroup deja 2 muertos: Fallecen víctima y agresor  — Криминальная хроника в США не требует побудки мексиканского читателя.
-- [es] не_новость: [local] El Sol de México — Aplazan inspección en el Refugio Franciscano que no se notificó en tiempo y form — Плановое перенесение даты инспекции не является событием.
-- [es] полка: [local] La Jornada — Desarrollan collares GPS que animales terrestres se autocolocan en libertad — Технологическая заметка о GPS-ошейниках для животных — не «интересное» для местных событий, а общая наука.
-- [es] не_новость: [pool] Infobae — “Pity” Álvarez dio positivo por cocaína tras declarar en el juicio por homicidio — Результат медицинского теста частного лица в ходе судебного процесса — не новость.
-- [es] не_новость: [pool] La Nación AR — Qué se sabe de la visita del papa León XIV a la Argentina: la agenda completa, l — Анонс предстоящего визита без конкретики и фактов (подготовка estola).
-- [es] чужое_мелкое: [pool] El Comercio PE — Ueno Bank: Moody’s advierte sobre el impacto de la crisis del banco en el sistem — Отчет рейтингового агентства о частном банке Парагвая не является важным для регионального читателя.
-- [es] не_новость: [pool] La Nación AR — La caída de Santiago Peña, otro golpe para Trump en América Latina tras la derro — Аналитическая колонка о политической судьбе президента Парагвая, написанная в стиле «что-то где-то случилось».
-- [es] не_новость: [pool] El Comercio PE — Misa del papa León XIV en Las Palmas registra alta demanda: varios bloques ya ag — Информация о спросе на билеты на массовое мероприятие — не событие.
-- [es] чужое_мелкое: [pool] Marca — Tres partidos de sanción a Corpas por la patada a Quadri — Внутренняя дисциплинарная санкция игрока в испанской лиге не является значимой новостью.
-- [es] повтор: [pool] NPR News — El presidente de Paraguay es sometido a un juicio político minutos. ≈ «Renuncia de Santiago Peña EN VIVO: Diput» — Тот же сюжет, что и в №33 (импичмент президента Парагвая).
-- [es] не_новость: [pool] Marca — EA Sports retira a Jesús de Miguel de los sobres de Ultimate Team — Решение об удалении виртуальной карты игрока в видеоигре не является новостью.
-- [es] курьёз: [pool] El Informador — Cocodrilo ataca a hombre que lo molestó en río de Vallarta (VIDEO) — Видео с нападением крокодила — типичный курьёз, а не новость.
-- [es] чужое_мелкое: [pool] El Mundo — Cristian Corvillo, la caída del conductor de Sánchez en su gira de reconquista d — История о водителе испанского политика — частная биография, не новость.
-- [es] не_новость: [world] TechCrunch — El gobierno de EE. UU. advierte sobre una «ciberamenaza constante» ante hackeos  — Размытое предупреждение без конкретики («хакеры атакуют холодильники») — типичный шум.
-- [es] не_новость: [world] TechCrunch — El ex agente del Servicio Secreto que reclutó a un hacker recauda un segundo fon — Сбор средств частным фондом — не новость, а бизнес-инфо.
-- [es] не_новость: [world] Wired — Exclusiva: El anillo inteligente de Aina busca ser un control remoto para su age — Анонс устройства (кольцо), которое «ищет способ быть пультом» — не событие.
-- [es] чужое_мелкое: [world] BBC Mundo — El vicepresidente JD Vance, en la cuerda floja con Trump tras su feroz crítica p — Внутрипартийные трения политиков США не требуют внимания мировой аудитории.
-- [es] чужое_мелкое: [world] 14ymedio — Sherritt despide a casi la mitad de sus trabajadores en Canadá — Обычные сокращения персонала в одной из компаний — не новость.
+- [pt] не_новость: [local] Poder360 — Sem provas, Flávio volta a alegar fraude nas eleições — мнение сенатора без фактов и доказательств
+- [pt] не_новость: [local] Poder360 — Flávio diz que levará para o túmulo segredo sobre fuga do Brasil — голословное заявление сенатора, нет события
+- [pt] не_новость: [local] Gazeta do Povo — Polícia Federal investiga se agentes estrangeiros ajudaram Flávio Bolsonaro — политическая спекуляция, расследование не подтверждает факта
+- [pt] не_новость: [pool] Notícias ao Minuto — "Conteúdos falsos, que utilizam indevidamente a identidade do artista" — реакция на спам-сообщения, нет события
+- [pt] не_новость: [world] Notícias ao Minuto — Yashar! recusa partilhar poder com Netanyahu e propõe novo Governo — политическое предложение, не приведшее к смене власти
+- [pt] курьёз: [world] CBS News — Preços do petróleo caem, mesmo com o Irã relatando novos ataques a navios no Gol — обзор рынка акций и цен на нефть не является мировым событием
+- [pt] курьёз: [world] Engadget — O aplicativo Xbox para PC terá um aumento de velocidade — обновление приложения — техническая информация
+- [pt] курьёз: [world] Engadget — Warby Parker parece ter revelado a data de lançamento dos óculos inteligentes XR — слухи о дате выпуска потребительского гаджета
+- [pt] не_новость: [world] Guardian Sport — DP World Tour está pronto para oferecer trégua a rebeldes, incluindo Bryson DeCh — ожидания спортивной организации, событие не свершилось
+- [pt] не_новость: [world] Variety — ‘Hyena’, thriller com produção executiva de David Lynch, terá no elenco Kiernan  — анонс презентации фильма на рынке контента
+- [pt] не_новость: [world] TechCrunch — Governo dos EUA alerta para 'ameaça cibernética contínua' após ataques em massa  — предупреждение без конкретного факта атаки
+- [pt] не_новость: [world] Fortune — Apple e Home Depot juntam-se à lista de empresas que se opõem ao plano de ações  — выражение оппозиции плану, который еще не принят
+- [pt] не_новость: [world] The Guardian — O Reino Unido pagará finalmente reparações pela escravidão? – As últimas notícia — дискуссия об обсуждении, нет решения
+- [pt] курьёз: [world] Ars Technica — Jogadores adotam métodos inusitados para "melhorar" GTA VI com a tecnologia DLSS — модификации игры фанатами
+- [pt] курьёз: [world] Fortune — Os Dots da OpenAI enfrentam o preço da privacidade e da capacidade computacional — обзор продукта компании
