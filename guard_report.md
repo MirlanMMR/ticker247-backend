@@ -1,39 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [local] Exame — Restaurante brasileiro Tuju entra no top 20 dos melhores do mundo; veja ranking — Новость из Испании об испанском ресторане не является мировой для бразильского читателя.
-- [pt] не_новость: [pool] Guardian Sport — Cristiano Ronaldo encerra carreira na seleção de Portugal após 234 jogos e 146 g — Это выдуманное событие (CR7 всё еще играет) или не соответствующее реальности для текущего момента.
-- [pt] чужое_мелкое: [world] Folha de S.Paulo — Preferimos plantação de milho a um data center, diz moradora de cidade que ameaç — Локальный спор жителей города в США о дата-центре не имеет мирового масштаба.
-- [pt] чужое_мелкое: [world] Semafor — França se prepara para greve geral nacional — Местная французская протестная повестка без международного влияния.
-- [pt] чужое_мелкое: [world] Jornal de Negócios — Greenvolt já tem em operação os primeiros projetos de baterias no Japão — Корпоративная новость о проектах португальской компании в Японии.
-- [pt] чужое_мелкое: [world] The Hill — Disputa acirrada para o Senado no Mississippi não possui procedimento de reconta — Локальный процесс подсчета голосов в штате Миссисипи.
-- [pt] чужое_мелкое: [world] El Nacional VE — Bloqueios estudantis iniciam dia de greve e protestos em massa na França — Локальные студенческие протесты во Франции.
-- [pt] чужое_мелкое: [world] Expresso das Ilhas — Canadá mantém estratégia de negociação com Trump após vitória democrata — Обычная дипломатическая риторика Канады.
-- [pt] полка: [world] AKIpress Эко — Em Tokmok, cinco motoristas foram multados em 53 mil soms por exceder os limites — Новость из Кыргызстана (KG) попала в пул португальского языка.
-- [pt] полка: [world] AKIpress Эко — No distrito de Panfilov, funcionários do Ministério do Meio Ambiente detiveram c — Новость из Кыргызстана (KG) попала в пул португальского языка.
-- [pt] не_новость: [world] Engadget — Snap tem mais de 30 milhões de assinantes pagos no Snapchat+ e outros planos — Статистика пользователей сервиса — это бизнес-отчет, а не событие.
-- [pt] не_новость: [world] Ars Technica — O maior fornecedor de chips ROM da Nintendo está saindo do negócio — Аналитика рынка компонентов, нет конкретного события-сделки.
-- [pt] чужое_мелкое: [world] Guardian Sport — Campeão da World Series, Mark Teixeira conquista assento na Câmara dos EUA; cand — Результаты выборов в Конгресс США местного уровня не являются мировой новостью.
-- [pt] полка: [world] El Mundo — Despedida de Marie, Daniela, Carlos, Yassine, Fernando e Marta, recém-identifica — Новость из Испании (ES) в пуле португальского языка, нет региональной близости.
-- [pt] полка: [world] El Mundo — O Ministério dos Transportes certificou, 21 dias antes da tragédia de Urda, que  — Новость из Испании (ES) в пуле португальского языка.
-- [pt] полка: [world] El Mundo — Como os familiares podem se informar? — Новость из Испании (ES) в пуле португальского языка.
-- [fr] полка: [local] Nice-Matin — « Nous estimons que ces menaces sont peu crédibles » : 12 vols visés par de nouv — Это мировая новость (авиасообщение в Европе), а не местная (Франция).
-- [fr] курьёз: [local] Sciences et Avenir — "Paludisme d'aéroport" mortel à Francfort : des parasites importés par des moust — Научный факт о болезни в Германии, не имеет последствий для читателя во Франции.
-- [fr] чужое_мелкое: [pool] Jeune Afrique — RDC : Shabani répond à Katumbi et menace la C64 de poursuites si elle rencontre  — Внутренняя политика ДРК, не имеет мирового значения.
-- [fr] чужое_мелкое: [pool] Bénin Web TV — Côte d’Ivoire : un mois de prison ferme pour Fousseni Konaté après ses critiques — Внутренняя политика Кот-д'Ивуара, частный случай.
-- [fr] чужое_мелкое: [pool] Radio Okapi — Illicocash Ligue 1 : Céleste FC domine Novakin, l’AS Malole tenue en échec par T — Локальные спортивные результаты в ДРК.
-- [fr] чужое_мелкое: [pool] Radio Okapi — Les agents de santé grévistes acceptent de participer à la campagne de vaccinati — Локальное событие в ДРК (забастовка местных агентов).
-- [fr] курьёз: [pool] Radio-Canada — Un mystérieux baril militaire retrouvé sur une île du Saint-Laurent — Историческая находка, не является актуальной новостью.
-- [fr] курьёз: [pool] Radio-Canada — Peptides injectables : sait-on vraiment ce qu’il y a dans la fiole? — Познавательный материал о вреде добавок, не является событием.
-- [fr] курьёз: [pool] Le Devoir — Les jeux de hasard perdent en popularité, mais le jeu en ligne progresse — Статистика о привычках потребления, не является событием.
-- [fr] не_новость: [pool] Le Devoir — Le prix Pascal, un premier prix de littérature par IA — Анонс конкурса, а не свершившееся событие.
-- [fr] чужое_мелкое: [world] Africanews FR — États-Unis : JD Vance prend ses distances avec Trump après le vote de mi-mandat — Внутренняя партийная ситуация в США после выборов.
-- [fr] чужое_мелкое: [world] L'Express — Etats-Unis : après les midterms, le sort des data centers incertain — Отраслевой анализ последствий выборов в США.
-- [fr] курьёз: [world] Africanews FR — Iran : une bannière géante de Trump et Netanyahu brûle à Téhéran — Акции протеста в Иране, не имеющие международных последствий.
-- [fr] чужое_мелкое: [world] Africanews FR — Né de parents égyptiens, Abdul al-Sayed fait la fierté des Arabo-Américains — Локальный успех кандидата на выборах в штате США.
-- [fr] не_новость: [world] BBC News — Vers des amendes immédiates pour les utilisateurs de vélos électriques en état d — Планы властей на будущее, а не принятое решение.
-- [fr] не_новость: [world] BBC Sport — Décès de l'ancien champion de Formule 1 Alan Jones à l'âge de 80 ans — Ошибка: Alan Jones жив, это дезинформация/фейк.
-- [fr] курьёз: [world] Sciences et Avenir — Les Américains ne veulent plus de data centers près de chez eux — Общий очерк о протестах против дата-центров, не является событием.
-- [fr] курьёз: [world] Sciences et Avenir — Cyberattaque: pourquoi les réfrigérateurs européens sont des cibles faciles — Аналитическая статья о киберуязвимости, а не конкретное событие.
-- [fr] не_новость: [world] RFI — Les Palestiniens d'Israël, près de huit décennies de discriminations — Очерк о дискриминации, не привязан к конкретному событию.
-- [fr] чужое_мелкое: [world] Radio-Canada — Au lendemain d’un revers républicain cinglant, Trump reste sourd au message des  — Личные действия политика без глобальных последствий.
-- [fr] чужое_мелкое: [world] Radio-Canada — La défaite républicaine au Congrès pourrait-elle annoncer la fin de la guerre en — Мнение о влиянии выборов на внешнюю политику.
+- [ru] полка: [local] Knews.kg — МИД Кыргызстана направил России ноту из-за кыргызстанца, который находится в вои — Это МЕСТНАЯ новость: вопрос отношений КР и РФ в части защиты прав граждан КР — это внутренняя повестка КР.
+- [ru] метка_места: [pool] Onliner.by — В Гродненском районе задержали работника. Его подозревают во взятках на 45 тысяч — Издание из Беларуси пишет о своей стране, к Кыргызстану отношения не имеет.
+- [ru] чужое_мелкое: [pool] Gazeta.uz — Юных футболистов из Казахстана выписали из больницы в Ташкенте — Внутренняя новость Узбекистана, не имеет значимости для читателя в КР.
+- [ru] чужое_мелкое: [pool] Kun.uz — В Самарканде из-за киберпреступлений люди понесли ущерб почти на 50 миллиардов с — Криминальная статистика региона Узбекистана, не имеет значимости за пределами страны.
+- [ru] чужое_мелкое: [pool] 93.ru — Краснодар — В Новороссийске снова отменили фестиваль «Хамса» — Местная культурная новость РФ (отмена фестиваля в Новороссийске).
+- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Активы JTI в Петербурге и Ленобласти переданы во временное управление — Внутренний бизнес-процесс в РФ, нет последствий для мира или КР.
+- [ru] чужое_мелкое: [pool] Onliner.by — Байкеры нарушили ПДД и стали пешеходами. Нарушения попали на видео (видео) — Локальное происшествие в Беларуси, не новость для международного пула.
+- [ru] не_новость: [pool] Gazeta.uz — «Супермахалли» как «суперблоки», невысокая плотность и приоритет ОТ. По каким пр — Градостроительная концепция/архитектурный план, не является свершившимся событием.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — «Наша гордость»: рязанским паралимпийцам окажут дополнительную поддержку — Локальная новость Рязани, не имеет мировой значимости.
+- [ru] не_новость: [pool] Kun.uz — В хокимияте Ташкента сообщили о встрече с делегацией McKinsey & Company — Рабочая встреча с консультантами — рутина, нет конкретного результата/решения.
+- [ru] курьёз: [pool] Kun.uz — Малина и электричество с одной земли: как в Узбекистане тестирует агровольтаику — Технологический эксперимент в Узбекистане, не имеет общемирового значения.
+- [ru] не_новость: [pool] 93.ru — Краснодар — «Самое время переобуться». Первый снег выпал в горах Адыгеи и Сочи — видео — Природное явление (снег), не является событием по белому списку.
+- [ru] чужое_мелкое: [pool] 48.ru — Липецк — Улица Балмочных: ограничение движения 6–7 ноября — Локальное перекрытие улицы в Липецке.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Рязань получит 30 миллионов рублей за победу во всероссийском конкурсе — Местная новость Рязани, не имеет значимости вне региона.
+- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Привязали и оставили одного: сотрудникам интерната в Челябинской области ужесточ — Локальный судебный процесс в РФ.
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самаре открыли мост для выезда на трассу М-5 «Урал» — Ремонт регионального моста в Самарской области.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — На бывшего вице-мэра Екатеринбурга возбудили уголовное дело после того, как в ег — Локальное уголовное дело в Екатеринбурге.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Касимовском округе квартиру затопило из-за затянувшегося ремонта крыши — Локальная коммунальная проблема в Рязани.
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Не потушили соперника: «Оренбуржье» проиграло гостевой матч Суперлиги «Факел-Яма — Результат матча российского регионального клуба по волейболу.
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Суд в Москве вынес приговор дочери Бориса Немцова — Суд над частным лицом, не имеющий значения вне пределов РФ.
+- [ru] не_новость: [pool] 72.ru — Тюмень — «Расслабляться еще нельзя». Ждать ли возвращения дефицита бензина в Тюменской об — Аналитическая статья (вопрос-ответ), не является событием.
+- [ru] не_новость: [pool] 51.ru — Мурманск — В «Мурманскводоканале» сменился руководитель: кто занял должность — Плановое кадровое назначение (ВРИО) в региональном водоканале.
+- [ru] чужое_мелкое: [pool] 71.ru — Тула — Ноябрьские отключения газа в Туле: дни и адреса — Локальное плановое обслуживание газа в Туле.
+- [ru] не_новость: [pool] 63.ru — Самара — Бабье лето — всё: Самару заливает дождь со снегом — Прогноз погоды/описание сезона, не является событием.
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — «Это угроза»: ярославцы возмутились, что в здании женской консультации принимают — Локальное возмущение жителей в Ярославле.
