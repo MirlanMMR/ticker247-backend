@@ -1,17 +1,23 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] Poder360 — Sem provas, Flávio volta a alegar fraude nas eleições — мнение сенатора без фактов и доказательств
-- [pt] не_новость: [local] Poder360 — Flávio diz que levará para o túmulo segredo sobre fuga do Brasil — голословное заявление сенатора, нет события
-- [pt] не_новость: [local] Gazeta do Povo — Polícia Federal investiga se agentes estrangeiros ajudaram Flávio Bolsonaro — политическая спекуляция, расследование не подтверждает факта
-- [pt] не_новость: [pool] Notícias ao Minuto — "Conteúdos falsos, que utilizam indevidamente a identidade do artista" — реакция на спам-сообщения, нет события
-- [pt] не_новость: [world] Notícias ao Minuto — Yashar! recusa partilhar poder com Netanyahu e propõe novo Governo — политическое предложение, не приведшее к смене власти
-- [pt] курьёз: [world] CBS News — Preços do petróleo caem, mesmo com o Irã relatando novos ataques a navios no Gol — обзор рынка акций и цен на нефть не является мировым событием
-- [pt] курьёз: [world] Engadget — O aplicativo Xbox para PC terá um aumento de velocidade — обновление приложения — техническая информация
-- [pt] курьёз: [world] Engadget — Warby Parker parece ter revelado a data de lançamento dos óculos inteligentes XR — слухи о дате выпуска потребительского гаджета
-- [pt] не_новость: [world] Guardian Sport — DP World Tour está pronto para oferecer trégua a rebeldes, incluindo Bryson DeCh — ожидания спортивной организации, событие не свершилось
-- [pt] не_новость: [world] Variety — ‘Hyena’, thriller com produção executiva de David Lynch, terá no elenco Kiernan  — анонс презентации фильма на рынке контента
-- [pt] не_новость: [world] TechCrunch — Governo dos EUA alerta para 'ameaça cibernética contínua' após ataques em massa  — предупреждение без конкретного факта атаки
-- [pt] не_новость: [world] Fortune — Apple e Home Depot juntam-se à lista de empresas que se opõem ao plano de ações  — выражение оппозиции плану, который еще не принят
-- [pt] не_новость: [world] The Guardian — O Reino Unido pagará finalmente reparações pela escravidão? – As últimas notícia — дискуссия об обсуждении, нет решения
-- [pt] курьёз: [world] Ars Technica — Jogadores adotam métodos inusitados para "melhorar" GTA VI com a tecnologia DLSS — модификации игры фанатами
-- [pt] курьёз: [world] Fortune — Os Dots da OpenAI enfrentam o preço da privacidade e da capacidade computacional — обзор продукта компании
+- [en] не_новость: [local] Deseret News — Justice Samuel Alito says he won’t retire from the Supreme Court despite midterm — Плановое заявление о нежелании уходить в отставку — не событие.
+- [en] чужое_мелкое: [local] WBAL — Trump administration sues Penn State over in-state tuition for students in the U — Иск против университета — местный юридический спор, не имеет мирового значения.
+- [en] не_новость: [pool] The Independent — Hegseth promises ‘not to back down’ in pushing out Trump’s agenda as his seat ge — Политические рассуждения и прогнозы («seat gets warmer»); факта отставки или увольнения нет.
+- [en] чужое_мелкое: [pool] Straits Times — Trump says he met Putin envoy Dmitriev — Встреча с посланником — часть рутины дипмиссии, не является значимым мировым событием.
+- [en] не_новость: [pool] NH Union Leader Latest News — ICE arrests Mexican media personality known for proposing to Tom Brady in weddin — Арест медиаперсоны из-за давнего светского инцидента — не новость для US.
+- [en] чужое_мелкое: [pool] Guardian Sport — Lewis Hamilton refuses to back down over criticism of teammate Leclerc — Спор двух пилотов F1 — узкоспортивное событие, не мировой масштаб.
+- [en] чужое_мелкое: [pool] Sky Sports — Russell questions frequency of 'atrocious luck' during 2026 F1 season — Жалоба пилота F1 на невезение — не событие, а личное мнение.
+- [en] не_новость: [pool] Time — MAHA Supporters Say Trump’s Broken Promises Helped Democrats Win — Аналитика/мнение сторонников политики («supporters say»); факта нет.
+- [en] чужое_мелкое: [pool] Sky Sports — Van Barneveld secures World Championship spot as Evans forced to qualify — Локальные квалификации в дартс — не мировое событие.
+- [en] не_новость: [pool] WFPL — These maps show how Kentucky Democrats flipped a deep red congressional district — Аналитическая статья с разбором карт; факта нет.
+- [en] чужое_мелкое: [pool] BBC Sport — Everton's Grealish unavailable again after 'breach of discipline' — Внутренняя дисциплинарная мера в британском футбольном клубе.
+- [en] курьёз: [world] Ars Technica — Sony adds USB-C to its 70s-era MDR-3 Walkman headphones — Перевыпуск старых наушников — любопытный факт, место в «Интересном».
+- [en] не_новость: [world] BBC Sport — Antonelli says 2027 preparation starts now — Планы спортсмена на следующий сезон — не событие.
+- [en] не_новость: [world] Latest &amp; Breaking News — DOJ launches criminal probe into Supreme Court leak that exposed ruling overturn — Рутинное сообщение о начале следствия спустя годы — событие произошло давно.
+- [en] курьёз: [world] Engadget — TikTok just released a standalone Shop app, but it's not in America just yet — Запуск приложения — не событие, пока не имеет последствий.
+- [en] не_новость: [world] Wired — The Blue Tsunami Swept Doctors and Scientists Into Office — Аналитический обзор успеха кандидатов; факта нет.
+- [en] не_новость: [world] Guardian Sport — DP World Tour ready to extend olive branch to rebels including DeChambeau after  — Слухи об «оливковой ветви» в спорте — не факт.
+- [en] не_новость: [world] TechCrunch — Meta warns that election backlash against data centers could make AI expansion h — Предупреждения и прогнозы бизнеса («make it harder») — не событие.
+- [en] курьёз: [world] Guardian Sport — WTA apologizes after hot mic captures Pegula’s ‘diva’ remarks about Andreeva — Извинения за инцидент с микрофоном — не мировое событие.
+- [en] не_новость: [world] Fortune — OpenAI’s Dots are coming up against the price of privacy, and the price of compu — Аналитика стоимости вычислений и обзор презентации OpenAI; факта нет.
+- [en] не_новость: [world] RFI — Football: Portuguese superstar Cristiano Ronaldo announces international retirem — Завершение международной карьеры ветерана спорта — плановый уход по возрасту.
