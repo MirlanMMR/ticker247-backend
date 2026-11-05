@@ -1,47 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] Folha de S.Paulo — Lula levou de 40 dias a mais de 4 meses para definir os primeiros ministros nos  — Плановое описание процесса формирования кабинета, нет свершившегося факта назначения.
-- [pt] курьёз: [local] Folha de S.Paulo — Caminhar reduz fadiga em pessoas com câncer colorretal, indica estudo — Научный факт/совет, нет привязки к событию или важности.
-- [pt] срочность: [local] G1 Globo — Raio atinge tanque de usina em Ourinhos e provoca princípio de incêndio — Рядовое происшествие (удар молнии), не требует побудки.
-- [pt] срочность: [local] G1 Rio — VÍDEO: homem é preso após quebrar vidro da recepção do Souza Aguiar — Хулиганство, не требует немедленного уведомления читателя.
-- [pt] не_новость: [local] Poder360 — Governo zera imposto sobre minerais para 2027 — Плановая мера на 2027 год, не меняет положение сегодня.
-- [pt] курьёз: [local] G1 Rio — VÍDEO: arraia ‘corta onda’ de surfista no Recreio — Развлекательный видеофакт, не является новостью.
-- [pt] не_новость: [local] G1 Minas — Prazo para participar da Semana Nacional da Conciliação termina nesta sexta em M — Напоминание о сроке завершения мероприятия.
-- [pt] не_новость: [local] G1 Rio — Universidade Social Portela será lançada neste sábado com feijoada e Velha Guard — Анонс развлекательного мероприятия (фестиваль/еда).
-- [pt] курьёз: [pool] Terra BR — Um medicamento comum para anemia demonstra potencial inesperado no tratamento do — Общее научное сообщение, нет конкретного события.
-- [pt] курьёз: [pool] Terra BR — Dermatite atópica impacta nas escolhas educacionais e de carreira — Результат исследования без конкретного новостного повода.
-- [pt] не_новость: [pool] Jornal de Negócios — Pestana põe metas ambientais a mexer no custo da dívida — Рассуждения о стратегии компании, нет свершившейся сделки или отчета.
-- [pt] не_новость: [world] Rolling Stone — Sobrevivência torna-se ainda mais crítica no trailer da 4ª temporada de 'Yellowj — Выход трейлера сериала — это анонс, а не событие.
-- [pt] не_новость: [world] Variety — Nate Bargatze retorna à Netflix com novo especial 'Good for Nathan' — Анонс выхода шоу в будущем.
-- [pt] курьёз: [world] TechCrunch — Bluesky atinge pico de uso do ano na noite da eleição — Статистика посещаемости соцсети, нет события.
-- [pt] не_новость: [world] Forbes — Da estratégia ao chão de fábrica: um roteiro prático para IA na manufatura — Экспертный совет/руководство, нет новостного повода.
-- [pt] не_новость: [world] Forbes — Fim da linha para o Meta Quest 2 — Анонс прекращения поддержки в будущем (2027 год).
-- [pt] не_новость: [world] Engadget — WhatsApp compete com Partiful ao expandir recurso de eventos — Анонс функционала приложения (обновление ПО).
-- [pt] не_новость: [world] Poder360 — Flávio discursará em evento conservador com ator de “Dark Horse” — Анонс выступления политика на конференции.
-- [pt] не_новость: [world] Fortune — Enquanto grandes empresas de tecnologia apostam em energia nuclear, startup Uran — Статья об индустрии, а не о свершившейся сделке или событии.
-- [pt] курьёз: [world] Wired — Exclusivo: Anel inteligente da Aina quer ser um controle remoto para seu agente  — Описание гаджета (анонс/презентация продукта), не является важным мировым событием.
-- [fr] курьёз: [local] La Dépêche — Huit ans après la mort de son père, il n'a toujours pas pu toucher son héritage  — Частный бытовой конфликт об наследстве не является новостью для общественности.
-- [fr] не_новость: [local] L'Express — Classements de Leiden et de Shanghai : où se situe votre université ? — Ежегодный обзор рейтингов университетов — это справочная информация, а не событие.
-- [fr] не_новость: [local] Nice-Matin — « On ne s’y attendait pas » : à La Crau les habitants surpris par le départ de l — Плановая смена мэра или выборы его преемника — рядовое событие, не требующее внимания.
-- [fr] не_новость: [local] Franceinfo — "Quelle fin de règne interminable" : pourquoi aucun député, même parmi les macro — Аналитика и политические комментарии без совершившегося юридического факта.
-- [fr] не_новость: [local] Nice-Matin — 27 ans derrière les barreaux et 5 tentatives d’évasion : l’histoire de Michel Va — Анонс театральной постановки о жизни преступника.
-- [fr] не_новость: [local] La Dépêche — Présidentielle 2027 : comment Gabriel Attal a réussi à piéger Édouard Philippe a — Политические рассуждения о стратегии партий, нет свершившегося действия.
-- [fr] курьёз: [local] Franceinfo — "Je m'en contrefous" : Raphaël Glucksmann répond aux militants hostiles à sa pré — Перепалка политика с активистами на митинге — событие низкого порядка.
-- [fr] не_новость: [local] 20 Minutes — Manifestation du 5 novembre : A Créteil, berceau du mouvement lycéen, des ados f — Репортаж-описание настроений на митинге без конкретных результатов.
-- [fr] не_новость: [local] La Dépêche — REPORTAGE. Petite inconnue de l'A10 : "Vous n'êtes pas obligée de regarder" Aprè — Репортаж с зала суда, описывающий эмоции, а не само решение.
-- [fr] курьёз: [local] France Bleu — "Des vies rétrécies" : une personne sur deux dit avoir du mal à vivre dignement, — Результаты социологического опроса о «трудности жизни» без конкретных мер.
-- [fr] не_новость: [local] Franceinfo — "On dénonce ces outils de lutte contre le terrorisme" : pourquoi les assignation — Мнения юристов о законности действий властей — это комментарии, а не событие.
-- [fr] не_новость: [pool] RTBF — "Nous devrons, pour la deuxième année, passer à des douzièmes provisoires", anno — Заявление премьера о планах на бюджет не является свершившимся фактом.
-- [fr] не_новость: [pool] RTBF — Prix des carburants: chassé-croisé entre Belges et Français pour faire le plein  — Рассуждение о ценах на бензин без изменения тарифа или решения.
-- [fr] курьёз: [pool] Africanews FR — Maroc : à Rabat, un festival promeut la présence féminine dans le théâtre — Фестиваль театра — это мероприятие, не новость для широкого круга.
-- [fr] не_новость: [pool] RTBF — Crise politique : De Wever face aux présidents de partis, "trois jeunes coqs qui — Политические сплетни о «трех молодых петухах».
-- [fr] не_новость: [pool] RTBF — Bart De Wever de retour chez le Roi ce vendredi : quels sont les scénarios, du p — Обсуждение политических сценариев и вероятностей.
-- [fr] не_новость: [world] BFMTV — "Empêcher le retour au pouvoir de Netanyahu": le centriste Gadi Eisenkot bien pl — Политический прогноз: кто может сформировать правительство.
-- [fr] не_новость: [world] BFMTV — Le premier est attendu à New York dans deux jours: Moscou dément tout changement — Опровержение слухов Москвой не является событием.
-- [fr] не_новость: [world] Sciences et Avenir — Élections aux États-Unis : qu’est-ce que ça change pour la santé ? — Рассуждение о том, что изменится после выборов — аналитика.
-- [fr] не_новость: [world] Courrier International — Au Liberia, bientôt une loi pour limiter la durée des fiançailles ? — Законопроект о сроке помолвки — обсуждение инициативы, а не принятый закон.
-- [fr] курьёз: [world] Franceinfo — Amnésique, sans aucun papier sur lui, un jeune homme de 25 ans enfin identifié a — История об амнезии не является важной новостью.
-- [fr] не_новость: [world] Courrier International — Le média norvégien “The Barents Observer” dans le viseur de la Russie — Давление на СМИ — это процесс, нет конкретного события.
-- [fr] не_новость: [world] Courrier International — Lancement de la chaîne La Séptima en Espagne : un “anti-Fox News” — Анонс запуска телеканала.
-- [fr] не_новость: [world] Courrier International — Midterms aux États-Unis : “Même les démocrates ne sont pas nos amis” — Политологическая колонка о настроениях общества.
-- [fr] не_новость: [world] RFI — Les Palestiniens d'Israël, près de huit décennies de discriminations — Историко-политический очерк о дискриминации, нет актуального события.
+- [en] не_новость: [local] Untitled RSS Feed — Rock Springs Housing Authority Closes Waiting Lists With Hundreds Still Needing  — Плановое решение об изменении бизнес-процессов организации, нет события.
+- [en] не_новость: [local] CBS News — Stocks crater as investors recoil from tech companies — Аналитика/мнение о причинах падения рынка, а не факт события.
+- [en] не_новость: [local] Axios — DOJ's Harmeet Dhillon resigns — Плановая отставка чиновника, нет указания на скандал или неожиданный уход.
+- [en] не_новость: [local] CBS News — McDonald's plans to cook up new affordable menu bundles — Анонс планов компании по тестированию меню, нет факта запуска или изменений.
+- [en] не_новость: [local] Axios — Magic in Mississippi: Democrat locked in Deep South Senate stunner — Аналитический обзор предвыборной гонки, нет завершенного события.
+- [en] не_новость: [local] WKYT — Kentucky Kingdom unveiling world’s largest indoor wooden coaster as part of $50M — Анонс открытия аттракциона в будущем (весна 2027), нет события.
+- [en] не_новость: [local] WTOP — Trump’s lawyers appear before appeals court as he fights hush money conviction — Рутинный процесс подачи апелляции, решение еще не принято.
+- [en] не_новость: [local] New Jersey 101.5 — NJ REAL ID appointments now available with just 3-day wait — Изменение статистики ожидания услуги, не является событием по белому списку.
+- [en] не_новость: [local] WABI — New Presque Isle Hannaford set to open next week — Анонс планового открытия магазина через неделю.
+- [en] не_новость: [local] New Jersey 101.5 — Family plans largest search yet for missing Jackson man — Планирование поисковой операции, нет факта события.
+- [en] не_новость: [local] WJXT News4JAX — Jacksonville seeks proposals to redevelop historic Snyder Memorial church — Запрос предложений (тендер), не является событием до выбора подрядчика.
+- [en] не_новость: [local] KOB — Medicaid meetings begin to prepare for new rules — Анонс собраний перед внедрением правил, нет свершившегося факта.
+- [en] не_новость: [pool] TechCrunch — OpenAI president Greg Brockman says company could be IPO ready in 2027 — Прогноз компании о готовности к IPO в 2027 году, не является фактом.
+- [en] не_новость: [pool] Variety — Oobah Butler Sets HBO Series ‘Scams for a Better Tomorrow’; Professional Hoax Ar — Анонс нового телесериала.
+- [en] не_новость: [pool] Variety — ‘Rockford Files’ Reboot Sets NBC Release Date, Launches Jim Rockford Hotline — Анонс даты выхода телешоу.
+- [en] не_новость: [pool] KSFY — South Dakota DOT races winter weather to wrap up major highway projects — Обычный ход дорожных работ, нет события.
+- [en] не_новость: [pool] Global News CA — Toronto and Vancouver saw first rent increase in nearly 3 years, report says — Публикация отчета о рынке аренды, нет факта события.
+- [en] не_новость: [pool] WFPL — These maps show how Kentucky Democrats flipped a deep red congressional district — Разбор (аналитика) прошлых выборов.
+- [en] не_новость: [pool] Engadget — Lyft's new subscription bundles in DoorDash's DashPass for $10 per month — Анонс изменения условий подписки, нет даты начала или свершившегося факта.
+- [en] не_новость: [pool] Wired — Reddit Founder Says Building Social Media Apps Is ‘Not Cool Anymore’ — Мнение основателя Reddit, не является событием.
+- [en] не_новость: [world] Guardian Sport — Crystal Palace v Hoffenheim, Sparta Prague v Bournemouth: Europa League – live — Анонс/инструкция к просмотру матчей, нет события.
+- [en] не_новость: [world] CNA — US FAA says it will phase out floppy disks from air traffic control by 2028 — Планы ведомства на 2028 год, нет события.
+- [en] не_новость: [world] Santa Fe New Mexican — Big companies are starting to mention smarter-than-human AI in their filings. — Общий тренд в отчетности компаний, нет конкретного события.
+- [en] не_новость: [world] Time — Scientists Have Found a New Way to Control AI's Behavior — Общее описание научных изысканий, нет факта публикации исследования или открытия.
+- [en] не_новость: [world] Engadget — WhatsApp is taking on Partiful with expanded Events feature — Анонс функции приложения.
