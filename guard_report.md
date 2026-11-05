@@ -1,18 +1,17 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] WTOP — Ivanhoe Electric: Q3 Earnings Snapshot — Квартальный финансовый отчет — обычная корпоративная отчетность, не новость.
-- [en] не_новость: [local] WDAM — Colom leads Senate race against Hyde-Smith on day 3 of ballot counting — Текущий подсчет голосов в рамках избирательного процесса не является событием.
-- [en] не_новость: [local] WJXT News4JAX — Unemployment claims drop to 189,000, the fewest since mid-July — Еженедельные данные по безработице — рутинная статистика, не новость.
-- [en] срочность: [local] WVEC RSS Feed: news — Indian River Middle School closed Thursday due to power outage — Отключение света в школе — важное объявление, но не повод для срочной побудки.
-- [en] не_новость: [pool] The Independent — Marco Rubio ‘on resignation watch’ from Trump administration after midterms disa — Спекуляции о возможной отставке без конкретного события (официального заявления).
-- [en] не_новость: [pool] The Independent — Trump lashed out at Stephen Miller for going ‘too far’ with deportations after M — Пересказ слухов о «вспыльчивости» президента не является событием.
-- [en] не_новость: [pool] The Independent — Trump complains it’s ‘so dark outside’ early and begs Congress to end clock swit — Жалоба на погоду — это мнение, а не принятое политическое решение.
-- [en] не_новость: [pool] WFPL — 'An open wound': Louisville mourns UPS plane crash a year later — Ретроспективная заметка о годовщине трагедии, нет нового события.
-- [en] не_новость: [world] Straits Times — Italy's Meloni warns Europe risks irrelevance in Ukraine peace talks — Предупреждение о рисках — это мнение политика, а не событие.
-- [en] не_новость: [world] Semafor — Walmsley takes HP’s top job as the CEO revolving door turns — Очередная перестановка в корпоративном секторе (назначение CEO).
-- [en] не_новость: [world] Semafor — CVS joins the M&A unwind club — Корпоративная аналитика, нет завершенного события.
-- [en] не_новость: [world] Ars Technica — Agility Robotics' Nasdaq debut invites scrutiny of humanoid robot market — Аналитика рынка, нет события.
-- [en] не_новость: [world] Engadget — Switch 2 sales fell by almost 40 percent after Nintendo increased prices — Отчетность о продажах компании.
-- [en] не_новость: [world] RFI — Football: Portuguese superstar Cristiano Ronaldo announces international retirem — Плановый уход спортсмена (пенсия).
-- [en] не_новость: [world] Guardian Sport — Fifa wants to restrict women’s Olympic football to under-23s in controversial mo — Предложение/планы ФИФА, событие не состоялось.
-- [en] не_новость: [world] BBC Sport — Kane signs new Bayern contract — Подписание контракта — обычная спортивная рутина.
+- [es] чужое_мелкое: [pool] Semana CO — Esto dijeron María Corina Machado y Edmundo González sobre ruta electoral para V — Внутренняя декларация оппозиции Венеции не является мировым событием.
+- [es] чужое_мелкое: [pool] eldiario.es — Koldo García desde prisión insiste en que el PP le ofreció dinero: "Yo daré el r — Заявление обвиняемого из тюрьмы — внутренняя судебная хроника Испании.
+- [es] чужое_мелкое: [pool] El Mundo — Cristian Corvillo, la caída del conductor de Sánchez en su gira de reconquista d — Карьера местного политического деятеля — сугубо внутренняя новость Испании.
+- [es] чужое_мелкое: [pool] El Mundo — Cuerpo cita esta tarde a los maquinistas tras descabezar Adif para que desactive — Внутренний трудовой конфликт в транспортной компании Испании.
+- [es] чужое_мелкое: [pool] eldiario.es — Ábalos pide amparo al Constitucional para anular una sentencia que se apoya en A — Процессуальное действие (ресурс де ампаро) по делу Абалоса — рутина.
+- [es] чужое_мелкое: [pool] La Vanguardia — La UCO registra la casa de Ábalos en una operación por blanqueo del caso Koldo c — Очередной эпизод расследования дела «Кольдо» (Испания).
+- [es] повтор: [pool] eldiario.es — La UCO detiene a seis personas en una investigación por amaño de contratos y bla ≈ «La UCO registra la casa de Ábalos en una» — Описаны те же задержания в рамках того же дела.
+- [es] курьёз: [world] Infobae — El hermano de Meghan Markle, en el punto de mira tras denunciar a su padre por p — Семейный скандал Меган Маркл не является значимой мировой новостью.
+- [es] курьёз: [world] TechCrunch — Instagram lleva Edits a escritorio para competir con CapCut — Обновление ПО Instagram — не мировое событие.
+- [es] курьёз: [world] TechCrunch — ElevenLabs permite a los usuarios publicar música generada por IA directamente e — Техническая интеграция ElevenLabs и SoundCloud.
+- [es] курьёз: [world] El Universo EC — Como “un sacrilegio culinario imperdonable”: el escandaloso despido de un chef i — Увольнение шефа из-за пиццы — классический кликбейт-курьёз.
+- [es] чужое_мелкое: [world] BBC Mundo — 4 datos que muestran el peso del voto latino en la "ola azul" que llevó a los de — Анализ прошлых выборов в США — это не актуальное событие.
+- [es] чужое_мелкое: [world] BBC Mundo — El vicepresidente JD Vance, en la cuerda floja con Trump tras su feroz crítica p — Внутриполитические трения между Трампом и Вэнсом.
+- [es] чужое_мелкое: [world] 14ymedio — Sherritt despide a casi la mitad de sus trabajadores en Canadá — Локальное сокращение штата канадской компании.
+- [es] не_новость: [world] BBC Mundo — "La derrota de Trump limita su poder interno, pero no necesariamente su influenc — Аналитическая статья-рассуждение, а не событие.
