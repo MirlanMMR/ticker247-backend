@@ -1,23 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] Deseret News — Justice Samuel Alito says he won’t retire from the Supreme Court despite midterm — Плановое заявление о нежелании уходить в отставку — не событие.
-- [en] чужое_мелкое: [local] WBAL — Trump administration sues Penn State over in-state tuition for students in the U — Иск против университета — местный юридический спор, не имеет мирового значения.
-- [en] не_новость: [pool] The Independent — Hegseth promises ‘not to back down’ in pushing out Trump’s agenda as his seat ge — Политические рассуждения и прогнозы («seat gets warmer»); факта отставки или увольнения нет.
-- [en] чужое_мелкое: [pool] Straits Times — Trump says he met Putin envoy Dmitriev — Встреча с посланником — часть рутины дипмиссии, не является значимым мировым событием.
-- [en] не_новость: [pool] NH Union Leader Latest News — ICE arrests Mexican media personality known for proposing to Tom Brady in weddin — Арест медиаперсоны из-за давнего светского инцидента — не новость для US.
-- [en] чужое_мелкое: [pool] Guardian Sport — Lewis Hamilton refuses to back down over criticism of teammate Leclerc — Спор двух пилотов F1 — узкоспортивное событие, не мировой масштаб.
-- [en] чужое_мелкое: [pool] Sky Sports — Russell questions frequency of 'atrocious luck' during 2026 F1 season — Жалоба пилота F1 на невезение — не событие, а личное мнение.
-- [en] не_новость: [pool] Time — MAHA Supporters Say Trump’s Broken Promises Helped Democrats Win — Аналитика/мнение сторонников политики («supporters say»); факта нет.
-- [en] чужое_мелкое: [pool] Sky Sports — Van Barneveld secures World Championship spot as Evans forced to qualify — Локальные квалификации в дартс — не мировое событие.
-- [en] не_новость: [pool] WFPL — These maps show how Kentucky Democrats flipped a deep red congressional district — Аналитическая статья с разбором карт; факта нет.
-- [en] чужое_мелкое: [pool] BBC Sport — Everton's Grealish unavailable again after 'breach of discipline' — Внутренняя дисциплинарная мера в британском футбольном клубе.
-- [en] курьёз: [world] Ars Technica — Sony adds USB-C to its 70s-era MDR-3 Walkman headphones — Перевыпуск старых наушников — любопытный факт, место в «Интересном».
-- [en] не_новость: [world] BBC Sport — Antonelli says 2027 preparation starts now — Планы спортсмена на следующий сезон — не событие.
-- [en] не_новость: [world] Latest &amp; Breaking News — DOJ launches criminal probe into Supreme Court leak that exposed ruling overturn — Рутинное сообщение о начале следствия спустя годы — событие произошло давно.
-- [en] курьёз: [world] Engadget — TikTok just released a standalone Shop app, but it's not in America just yet — Запуск приложения — не событие, пока не имеет последствий.
-- [en] не_новость: [world] Wired — The Blue Tsunami Swept Doctors and Scientists Into Office — Аналитический обзор успеха кандидатов; факта нет.
-- [en] не_новость: [world] Guardian Sport — DP World Tour ready to extend olive branch to rebels including DeChambeau after  — Слухи об «оливковой ветви» в спорте — не факт.
-- [en] не_новость: [world] TechCrunch — Meta warns that election backlash against data centers could make AI expansion h — Предупреждения и прогнозы бизнеса («make it harder») — не событие.
-- [en] курьёз: [world] Guardian Sport — WTA apologizes after hot mic captures Pegula’s ‘diva’ remarks about Andreeva — Извинения за инцидент с микрофоном — не мировое событие.
-- [en] не_новость: [world] Fortune — OpenAI’s Dots are coming up against the price of privacy, and the price of compu — Аналитика стоимости вычислений и обзор презентации OpenAI; факта нет.
-- [en] не_новость: [world] RFI — Football: Portuguese superstar Cristiano Ronaldo announces international retirem — Завершение международной карьеры ветерана спорта — плановый уход по возрасту.
+- [es] чужое_мелкое: [local] El Economista MX — Cobertura de vacunación contra el sarampión sigue por debajo de niveles recomend — Это международная статистика OPS, не является новостью для читателя в MX.
+- [es] не_новость: [local] El Universal MX — John McEnroe desea que Carlos Alcaraz, Jannik Sinner y Ben Shelton sean el nuevo — Это мнение теннисиста, а не событие.
+- [es] курьёз: [local] El Financiero — ‘Checo’ da su postura sobre rumores de venta de Cadillac: ‘Sé quién está detrás  — Мнение спортсмена о слухах, события нет.
+- [es] курьёз: [local] La Jornada — Desarrollan collares GPS que animales terrestres se autocolocan en libertad — Научная заметка об экспериментах в Норвегии.
+- [es] не_новость: [local] La Jornada — “Relación con EU no impide intercambio comercial con China” — Очевидное заявление без нового факта.
+- [es] курьёз: [pool] El Tiempo CO — Video | Conozca a Samai, el perro de Medellín capaz de desenterrar los secretos  — Рассказ о собаке-ищейке, не событие.
+- [es] чужое_мелкое: [pool] Infobae — Se complica la situación de Horacio Melgarejo: Liga 1 le abrió expediente discip — Локальное дисциплинарное дело футбольного тренера в Перу.
+- [es] не_новость: [pool] La Nación AR — La AFA presentó la copa para el campeón de la tabla anual y Tapia defendió el tí — Мнение/критика о событиях 2025 года.
+- [es] не_новость: [pool] La Nación AR — Larreta sugirió que Milei trae mala suerte y compartió una foto junto a Jorge Ma — Шутка политика, не событие.
+- [es] не_новость: [pool] La Nación AR — La chicana de Claudio “Chiqui” Tapia, el trofeo de más de 11 kilos, la sonrisa d — Обзор атмосферы перед матчем, без ключевого факта.
+- [es] не_новость: [pool] La Nación AR — Las empresas estadounidenses alertaron que la derrota de Trump puede condicionar — Мнение бизнес-ассоциации AmCham, не событие.
+- [es] не_новость: [pool] La Nación CR — Empresario que se presenta como asesor de EBI, compañía que pretende construir e — Журналистское расследование, события нет.
+- [es] курьёз: [pool] RPP PE — Paola Dalay confirma que está saliendo con el futbolista César Romo tras separar — Светская хроника, не событие.
+- [es] анонс: [pool] Marca — ¡Fichaje inminente! — Заголовок обещает трансфер, текста нет.
+- [es] чужое_мелкое: [pool] RPP PE — Tras anotarle a Universitario: Christian Cueva reveló si se queda o no para el c — Локальное спортивное интервью в Перу.
+- [es] курьёз: [pool] El Informador — Cocodrilo ataca a hombre que lo molestó en río de Vallarta (VIDEO) — Инцидент с крокодилом — не новость.
+- [es] не_новость: [pool] El Informador — Inicia el Festival del Caballo y Tequila en Zapopan; conoce los detalles — Анонс фестиваля.
+- [es] не_новость: [pool] El Mundo — Cristian Corvillo, la caída del conductor de Sánchez en su gira de reconquista d — Биография сотрудника, события нет.
+- [es] не_новость: [world] Xataka — La Junta Electoral autoriza el uso de MiDNI para identificarse al votar en las e — Техническое разъяснение правил для граждан Испании.
+- [es] не_новость: [world] Variety — Los ingresos trimestrales de Lionsgate aumentan un 41% gracias a 'Michael' y a l — Финансовый отчет компании, не событие мирового масштаба.
+- [es] не_новость: [world] Wired — La publicidad llega a los chatbots: qué funciona y qué no — Аналитическая статья о рекламе в чат-ботах.
+- [es] курьёз: [world] Xataka — Sony revive los auriculares del Walkman de 1979 con los nuevos MDR-3R y se suma  — Технологический ретро-факт.
+- [es] не_новость: [world] TechCrunch — Meta anuncia que los usuarios en EE. UU. ya pueden realizar videollamadas con su — Релиз функции продукта, обычный бизнес-процесс.
+- [es] не_новость: [world] BBC Mundo — El vicepresidente JD Vance, en la cuerda floja con Trump tras su feroz crítica p — Политическая перепалка, события нет.
+- [es] не_новость: [world] RFI — Fútbol: la superestrella portuguesa Cristiano Ronaldo anuncia su retiro internac — Завершение карьеры (пенсия), не событие.
