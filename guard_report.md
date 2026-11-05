@@ -1,27 +1,21 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] Untitled RSS Feed — Rock Springs Housing Authority Closes Waiting Lists With Hundreds Still Needing  — Плановое решение об изменении бизнес-процессов организации, нет события.
-- [en] не_новость: [local] CBS News — Stocks crater as investors recoil from tech companies — Аналитика/мнение о причинах падения рынка, а не факт события.
-- [en] не_новость: [local] Axios — DOJ's Harmeet Dhillon resigns — Плановая отставка чиновника, нет указания на скандал или неожиданный уход.
-- [en] не_новость: [local] CBS News — McDonald's plans to cook up new affordable menu bundles — Анонс планов компании по тестированию меню, нет факта запуска или изменений.
-- [en] не_новость: [local] Axios — Magic in Mississippi: Democrat locked in Deep South Senate stunner — Аналитический обзор предвыборной гонки, нет завершенного события.
-- [en] не_новость: [local] WKYT — Kentucky Kingdom unveiling world’s largest indoor wooden coaster as part of $50M — Анонс открытия аттракциона в будущем (весна 2027), нет события.
-- [en] не_новость: [local] WTOP — Trump’s lawyers appear before appeals court as he fights hush money conviction — Рутинный процесс подачи апелляции, решение еще не принято.
-- [en] не_новость: [local] New Jersey 101.5 — NJ REAL ID appointments now available with just 3-day wait — Изменение статистики ожидания услуги, не является событием по белому списку.
-- [en] не_новость: [local] WABI — New Presque Isle Hannaford set to open next week — Анонс планового открытия магазина через неделю.
-- [en] не_новость: [local] New Jersey 101.5 — Family plans largest search yet for missing Jackson man — Планирование поисковой операции, нет факта события.
-- [en] не_новость: [local] WJXT News4JAX — Jacksonville seeks proposals to redevelop historic Snyder Memorial church — Запрос предложений (тендер), не является событием до выбора подрядчика.
-- [en] не_новость: [local] KOB — Medicaid meetings begin to prepare for new rules — Анонс собраний перед внедрением правил, нет свершившегося факта.
-- [en] не_новость: [pool] TechCrunch — OpenAI president Greg Brockman says company could be IPO ready in 2027 — Прогноз компании о готовности к IPO в 2027 году, не является фактом.
-- [en] не_новость: [pool] Variety — Oobah Butler Sets HBO Series ‘Scams for a Better Tomorrow’; Professional Hoax Ar — Анонс нового телесериала.
-- [en] не_новость: [pool] Variety — ‘Rockford Files’ Reboot Sets NBC Release Date, Launches Jim Rockford Hotline — Анонс даты выхода телешоу.
-- [en] не_новость: [pool] KSFY — South Dakota DOT races winter weather to wrap up major highway projects — Обычный ход дорожных работ, нет события.
-- [en] не_новость: [pool] Global News CA — Toronto and Vancouver saw first rent increase in nearly 3 years, report says — Публикация отчета о рынке аренды, нет факта события.
-- [en] не_новость: [pool] WFPL — These maps show how Kentucky Democrats flipped a deep red congressional district — Разбор (аналитика) прошлых выборов.
-- [en] не_новость: [pool] Engadget — Lyft's new subscription bundles in DoorDash's DashPass for $10 per month — Анонс изменения условий подписки, нет даты начала или свершившегося факта.
-- [en] не_новость: [pool] Wired — Reddit Founder Says Building Social Media Apps Is ‘Not Cool Anymore’ — Мнение основателя Reddit, не является событием.
-- [en] не_новость: [world] Guardian Sport — Crystal Palace v Hoffenheim, Sparta Prague v Bournemouth: Europa League – live — Анонс/инструкция к просмотру матчей, нет события.
-- [en] не_новость: [world] CNA — US FAA says it will phase out floppy disks from air traffic control by 2028 — Планы ведомства на 2028 год, нет события.
-- [en] не_новость: [world] Santa Fe New Mexican — Big companies are starting to mention smarter-than-human AI in their filings. — Общий тренд в отчетности компаний, нет конкретного события.
-- [en] не_новость: [world] Time — Scientists Have Found a New Way to Control AI's Behavior — Общее описание научных изысканий, нет факта публикации исследования или открытия.
-- [en] не_новость: [world] Engadget — WhatsApp is taking on Partiful with expanded Events feature — Анонс функции приложения.
+- [es] полка: [local] El Financiero — Amenazas de bomba paralizan vuelos en Europa: Aviones reciben escoltas. — Событие в Европе (Франция), для Мексики это мировая новость, не местная.
+- [es] срочность: [local] El Financiero — Tiroteo en las oficinas de Citigroup deja 2 muertos: Fallecen víctima y agresor  — Криминальная хроника в США не требует побудки мексиканского читателя.
+- [es] не_новость: [local] El Sol de México — Aplazan inspección en el Refugio Franciscano que no se notificó en tiempo y form — Плановое перенесение даты инспекции не является событием.
+- [es] полка: [local] La Jornada — Desarrollan collares GPS que animales terrestres se autocolocan en libertad — Технологическая заметка о GPS-ошейниках для животных — не «интересное» для местных событий, а общая наука.
+- [es] не_новость: [pool] Infobae — “Pity” Álvarez dio positivo por cocaína tras declarar en el juicio por homicidio — Результат медицинского теста частного лица в ходе судебного процесса — не новость.
+- [es] не_новость: [pool] La Nación AR — Qué se sabe de la visita del papa León XIV a la Argentina: la agenda completa, l — Анонс предстоящего визита без конкретики и фактов (подготовка estola).
+- [es] чужое_мелкое: [pool] El Comercio PE — Ueno Bank: Moody’s advierte sobre el impacto de la crisis del banco en el sistem — Отчет рейтингового агентства о частном банке Парагвая не является важным для регионального читателя.
+- [es] не_новость: [pool] La Nación AR — La caída de Santiago Peña, otro golpe para Trump en América Latina tras la derro — Аналитическая колонка о политической судьбе президента Парагвая, написанная в стиле «что-то где-то случилось».
+- [es] не_новость: [pool] El Comercio PE — Misa del papa León XIV en Las Palmas registra alta demanda: varios bloques ya ag — Информация о спросе на билеты на массовое мероприятие — не событие.
+- [es] чужое_мелкое: [pool] Marca — Tres partidos de sanción a Corpas por la patada a Quadri — Внутренняя дисциплинарная санкция игрока в испанской лиге не является значимой новостью.
+- [es] повтор: [pool] NPR News — El presidente de Paraguay es sometido a un juicio político minutos. ≈ «Renuncia de Santiago Peña EN VIVO: Diput» — Тот же сюжет, что и в №33 (импичмент президента Парагвая).
+- [es] не_новость: [pool] Marca — EA Sports retira a Jesús de Miguel de los sobres de Ultimate Team — Решение об удалении виртуальной карты игрока в видеоигре не является новостью.
+- [es] курьёз: [pool] El Informador — Cocodrilo ataca a hombre que lo molestó en río de Vallarta (VIDEO) — Видео с нападением крокодила — типичный курьёз, а не новость.
+- [es] чужое_мелкое: [pool] El Mundo — Cristian Corvillo, la caída del conductor de Sánchez en su gira de reconquista d — История о водителе испанского политика — частная биография, не новость.
+- [es] не_новость: [world] TechCrunch — El gobierno de EE. UU. advierte sobre una «ciberamenaza constante» ante hackeos  — Размытое предупреждение без конкретики («хакеры атакуют холодильники») — типичный шум.
+- [es] не_новость: [world] TechCrunch — El ex agente del Servicio Secreto que reclutó a un hacker recauda un segundo fon — Сбор средств частным фондом — не новость, а бизнес-инфо.
+- [es] не_новость: [world] Wired — Exclusiva: El anillo inteligente de Aina busca ser un control remoto para su age — Анонс устройства (кольцо), которое «ищет способ быть пультом» — не событие.
+- [es] чужое_мелкое: [world] BBC Mundo — El vicepresidente JD Vance, en la cuerda floja con Trump tras su feroz crítica p — Внутрипартийные трения политиков США не требуют внимания мировой аудитории.
+- [es] чужое_мелкое: [world] 14ymedio — Sherritt despide a casi la mitad de sus trabajadores en Canadá — Обычные сокращения персонала в одной из компаний — не новость.
