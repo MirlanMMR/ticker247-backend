@@ -1,27 +1,39 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] полка: [local] Knews.kg — Российские таможенники пресекли отправку в Кыргызстан наркотиков в конфетах и ба — Событие в РФ, для ленты KG это мировая новость, а не местная.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Экстренное предупреждение объявлено в Рязанской области — Локальное погодное предупреждение в Рязани не имеет значения для читателя из Кыргызстана.
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Омским ученым разрешили запускать беспилотники — Локальный указ губернатора Омской области не является новостью для других стран.
-- [ru] чужое_мелкое: [pool] Onliner.by — В витебском вузе абитуриентов «зачисляли» на бюджет даже без прихода в приемную  — Внутренняя коррупция в витебском вузе — мелкая новость для жителей другой страны.
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — В Челябинске задержали сотрудника полиции, легализовавшего пребывание в России 5 — Задержание рядового сотрудника полиции в Челябинске — внутренняя хроника РФ.
-- [ru] не_новость: [pool] iXBT — В России создают комплекс для новых спутников «Экспресс» — Разработка комплекса — это процесс, нет факта завершения или ввода в строй.
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — В Казани подросток выстрелил из пневматики и попал себе в глаз: пуля отрикошетил — Бытовое происшествие с подростком в Казани не имеет мирового масштаба.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В деревне под Новомосковском после атаки БПЛА восстановят окна и крыши — Ремонт крыш после атаки БПЛА — рутина восстановительных работ в РФ.
-- [ru] не_новость: [pool] v1.ru — Волгоград — «Здесь точно кто-нибудь ноги поломает»: горожане требуют зарыть гигантскую транш — Жалоба горожан на траншею не является событием по белому списку.
-- [ru] не_новость: [pool] ufa1.ru — Уфа — «Пожалуйста, услышьте»: жители деревни под Уфой против трассы для фур в 20 метра — Обращение жителей против строительства — это намерение, не событие.
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — Молодой водитель из Волгограда заживо сгорел после страшной аварии на подъезде к — ДТП с одним погибшим в РФ не имеет последствий за пределами страны.
-- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — «Женщина задыхалась, пока пылала зарядка»: зарядка для телефона спалила квартиру — Бытовой пожар в квартире в Чишмах — внутренняя сводка происшествий.
-- [ru] не_новость: [pool] v1.ru — Волгоград — «Это нам подарок после праздника?»: в Волгограде снова повысилась стоимость бенз — Очередное изменение цен на АЗС без указания масштаба (решение властей или глобальный тренд) — рыночная рутина.
-- [ru] не_новость: [pool] ngs.ru — Новосибирск — Чем будут посыпать дороги и тротуары в Новосибирске зимой — список от мэрии — Планы мэрии по заготовке песка — рабочая рутина, а не событие.
-- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Поезд высадил пассажиров на «Просвещения» из-за сбоя — Технический сбой в метро Санкт-Петербурга — мелкая внутренняя новость.
-- [ru] не_новость: [pool] ngs55.ru — Омск — В центре Омска перекроют дорогу на две недели: показываем участок на карте — Плановое перекрытие улицы на две недели не является срочной новостью.
-- [ru] не_новость: [pool] 59.ru — Пермь — Зал аплодировал: в кинотеатрах Перми начали показывать фильм со странным названи — Рецензия на фильм не является событием.
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Подросток в Красноярске отдал ключи от квартиры с сейфом, чтобы его «просветили  — Мошенничество в Красноярске — криминальная хроника РФ.
-- [ru] не_новость: [pool] 76.ru — Ярославль — Цена упала в 14 раз. В Ярославской области спустя два года продали бывшее здание — Аукцион по продаже здания не является важным событием для читателя вне РФ.
-- [ru] не_новость: [pool] 59.ru — Пермь — Театральный дом на Попова, где жил Марк Захаров, расселят до конца следующего го — Планы по расселению жильцов до конца 2027 года — это отдаленное будущее.
-- [ru] чужое_мелкое: [world] Азаттык — «Ни один врач не вышел». В России сокращают расходы на здравоохранение — Сокращение расходов в одной поликлинике РФ не является мировой новостью.
-- [ru] не_новость: [world] 60.ru — Псков — Карл III перестал бояться задевать политиков — Мнение британского монарха о политике — это слова, а не действие.
-- [ru] не_новость: [world] TechCrunch — Генеральный директор Nothing заявил, что загадочное ИИ-устройство компании выйде — Анонс продукта «на следующий месяц» — это слова о будущем.
-- [ru] не_новость: [world] Engadget — Pangram расширяет инструменты обнаружения ИИ на видео и изображения — Расширение функций сервиса — это развитие продукта, не событие для массового читателя.
-- [ru] срочность: [world] El Mundo — Как получить информацию родственникам: телефоны помощи пострадавшим при крушении — Крупная авария — событие, но для читателя в другой стране не требует плашки «срочно» (побудки).
+- [pt] чужое_мелкое: [local] Exame — Restaurante brasileiro Tuju entra no top 20 dos melhores do mundo; veja ranking — Новость из Испании об испанском ресторане не является мировой для бразильского читателя.
+- [pt] не_новость: [pool] Guardian Sport — Cristiano Ronaldo encerra carreira na seleção de Portugal após 234 jogos e 146 g — Это выдуманное событие (CR7 всё еще играет) или не соответствующее реальности для текущего момента.
+- [pt] чужое_мелкое: [world] Folha de S.Paulo — Preferimos plantação de milho a um data center, diz moradora de cidade que ameaç — Локальный спор жителей города в США о дата-центре не имеет мирового масштаба.
+- [pt] чужое_мелкое: [world] Semafor — França se prepara para greve geral nacional — Местная французская протестная повестка без международного влияния.
+- [pt] чужое_мелкое: [world] Jornal de Negócios — Greenvolt já tem em operação os primeiros projetos de baterias no Japão — Корпоративная новость о проектах португальской компании в Японии.
+- [pt] чужое_мелкое: [world] The Hill — Disputa acirrada para o Senado no Mississippi não possui procedimento de reconta — Локальный процесс подсчета голосов в штате Миссисипи.
+- [pt] чужое_мелкое: [world] El Nacional VE — Bloqueios estudantis iniciam dia de greve e protestos em massa na França — Локальные студенческие протесты во Франции.
+- [pt] чужое_мелкое: [world] Expresso das Ilhas — Canadá mantém estratégia de negociação com Trump após vitória democrata — Обычная дипломатическая риторика Канады.
+- [pt] полка: [world] AKIpress Эко — Em Tokmok, cinco motoristas foram multados em 53 mil soms por exceder os limites — Новость из Кыргызстана (KG) попала в пул португальского языка.
+- [pt] полка: [world] AKIpress Эко — No distrito de Panfilov, funcionários do Ministério do Meio Ambiente detiveram c — Новость из Кыргызстана (KG) попала в пул португальского языка.
+- [pt] не_новость: [world] Engadget — Snap tem mais de 30 milhões de assinantes pagos no Snapchat+ e outros planos — Статистика пользователей сервиса — это бизнес-отчет, а не событие.
+- [pt] не_новость: [world] Ars Technica — O maior fornecedor de chips ROM da Nintendo está saindo do negócio — Аналитика рынка компонентов, нет конкретного события-сделки.
+- [pt] чужое_мелкое: [world] Guardian Sport — Campeão da World Series, Mark Teixeira conquista assento na Câmara dos EUA; cand — Результаты выборов в Конгресс США местного уровня не являются мировой новостью.
+- [pt] полка: [world] El Mundo — Despedida de Marie, Daniela, Carlos, Yassine, Fernando e Marta, recém-identifica — Новость из Испании (ES) в пуле португальского языка, нет региональной близости.
+- [pt] полка: [world] El Mundo — O Ministério dos Transportes certificou, 21 dias antes da tragédia de Urda, que  — Новость из Испании (ES) в пуле португальского языка.
+- [pt] полка: [world] El Mundo — Como os familiares podem se informar? — Новость из Испании (ES) в пуле португальского языка.
+- [fr] полка: [local] Nice-Matin — « Nous estimons que ces menaces sont peu crédibles » : 12 vols visés par de nouv — Это мировая новость (авиасообщение в Европе), а не местная (Франция).
+- [fr] курьёз: [local] Sciences et Avenir — "Paludisme d'aéroport" mortel à Francfort : des parasites importés par des moust — Научный факт о болезни в Германии, не имеет последствий для читателя во Франции.
+- [fr] чужое_мелкое: [pool] Jeune Afrique — RDC : Shabani répond à Katumbi et menace la C64 de poursuites si elle rencontre  — Внутренняя политика ДРК, не имеет мирового значения.
+- [fr] чужое_мелкое: [pool] Bénin Web TV — Côte d’Ivoire : un mois de prison ferme pour Fousseni Konaté après ses critiques — Внутренняя политика Кот-д'Ивуара, частный случай.
+- [fr] чужое_мелкое: [pool] Radio Okapi — Illicocash Ligue 1 : Céleste FC domine Novakin, l’AS Malole tenue en échec par T — Локальные спортивные результаты в ДРК.
+- [fr] чужое_мелкое: [pool] Radio Okapi — Les agents de santé grévistes acceptent de participer à la campagne de vaccinati — Локальное событие в ДРК (забастовка местных агентов).
+- [fr] курьёз: [pool] Radio-Canada — Un mystérieux baril militaire retrouvé sur une île du Saint-Laurent — Историческая находка, не является актуальной новостью.
+- [fr] курьёз: [pool] Radio-Canada — Peptides injectables : sait-on vraiment ce qu’il y a dans la fiole? — Познавательный материал о вреде добавок, не является событием.
+- [fr] курьёз: [pool] Le Devoir — Les jeux de hasard perdent en popularité, mais le jeu en ligne progresse — Статистика о привычках потребления, не является событием.
+- [fr] не_новость: [pool] Le Devoir — Le prix Pascal, un premier prix de littérature par IA — Анонс конкурса, а не свершившееся событие.
+- [fr] чужое_мелкое: [world] Africanews FR — États-Unis : JD Vance prend ses distances avec Trump après le vote de mi-mandat — Внутренняя партийная ситуация в США после выборов.
+- [fr] чужое_мелкое: [world] L'Express — Etats-Unis : après les midterms, le sort des data centers incertain — Отраслевой анализ последствий выборов в США.
+- [fr] курьёз: [world] Africanews FR — Iran : une bannière géante de Trump et Netanyahu brûle à Téhéran — Акции протеста в Иране, не имеющие международных последствий.
+- [fr] чужое_мелкое: [world] Africanews FR — Né de parents égyptiens, Abdul al-Sayed fait la fierté des Arabo-Américains — Локальный успех кандидата на выборах в штате США.
+- [fr] не_новость: [world] BBC News — Vers des amendes immédiates pour les utilisateurs de vélos électriques en état d — Планы властей на будущее, а не принятое решение.
+- [fr] не_новость: [world] BBC Sport — Décès de l'ancien champion de Formule 1 Alan Jones à l'âge de 80 ans — Ошибка: Alan Jones жив, это дезинформация/фейк.
+- [fr] курьёз: [world] Sciences et Avenir — Les Américains ne veulent plus de data centers près de chez eux — Общий очерк о протестах против дата-центров, не является событием.
+- [fr] курьёз: [world] Sciences et Avenir — Cyberattaque: pourquoi les réfrigérateurs européens sont des cibles faciles — Аналитическая статья о киберуязвимости, а не конкретное событие.
+- [fr] не_новость: [world] RFI — Les Palestiniens d'Israël, près de huit décennies de discriminations — Очерк о дискриминации, не привязан к конкретному событию.
+- [fr] чужое_мелкое: [world] Radio-Canada — Au lendemain d’un revers républicain cinglant, Trump reste sourd au message des  — Личные действия политика без глобальных последствий.
+- [fr] чужое_мелкое: [world] Radio-Canada — La défaite républicaine au Congrès pourrait-elle annoncer la fin de la guerre en — Мнение о влиянии выборов на внешнюю политику.
