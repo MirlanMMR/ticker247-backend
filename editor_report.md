@@ -1,81 +1,131 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-11-06 19:17 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-11-06 20:20 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [es]: помечено 76 из 339 за 3 запросов
-  🧭 [es] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 24 в 13 регионах
-  🧭 [es] после чистки текста: всего 70 — местных 28, соседей 14, мира 28; областных 24 в 13 регионах
-  🧭 [es] после обзоров прессы: всего 63 — местных 26, соседей 16, мира 21; областных 8 в 3 регионах
-  🧭 [es] после склейки пересказов: всего 57 — местных 26, соседей 13, мира 18; областных 8 в 3 регионах
-  🧭 [es] после рубежа: всего 48 — местных 18, соседей 13, мира 17; областных 8 в 3 регионах
+  🧪 Этап 1 (боевой) [pt]: помечено 83 из 384 за 4 запросов
+  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 71 в 21 регионах
+  🧭 [pt] после чистки текста: всего 69 — местных 27, соседей 14, мира 28; областных 71 в 21 регионах
+  🧭 [pt] после обзоров прессы: всего 59 — местных 22, соседей 14, мира 23; областных 51 в 12 регионах
+  🧭 [pt] после склейки пересказов: всего 50 — местных 18, соседей 11, мира 21; областных 44 в 12 регионах
+  🧭 [pt] после рубежа: всего 46 — местных 16, соседей 10, мира 20; областных 44 в 12 регионах
 
-  🗞 Редактор [es] (В ЭФИРЕ): карточек 56, спрошено 42, вторым 0
-     память не сработала: новая 40, текст вырос 1, текст стал короче 1
-     снято: нет события 7, повтор 3, не для читателя 1
-     починено: текст сокращён до сути 31, строка НОС принята 3, фото заменено 2, нужно другое фото 1
-     🎲 Любопытное [es] (в полосу «Интересное»): 1
-       🎲 снято · [Time] Godzilla Minus One es un entretenimiento magnífico con un corazón melancólico · https://time.com/article/2026/11/06/godzilla-minus-zero-review/ — кинорецензия
-       📝 [El Financiero] Incendio en ductos de Pemex en Jalisco deja un mue → Incendio en instalaciones de Pemex en Tototlán, Jalisco, deja un muerto y tres heridos.
-       ✂️ [El Financiero] Incendio en ductos de Pemex en Jalisco deja un muerto y tres — абзацы 6/12
-       ✂️ [Expansión MX] En 2027, México enfrentará un doble riesgo para la inversión — абзацы 3/7
-       ✂️ [Expansión MX] Peso se deprecia por sorpresa de Banxico y analistas prevén  — абзацы 3/4
-       ✂️ [El Universal MX] Trabajadores del Poder Judicial realizan bloqueos, marchas y — абзацы 4/5
-       ✂️ [El Universal MX] México conquista el bronce en Dakar 2026; Daniel Saborío se  — абзацы 5/13
-       ✂️ [El Universal MX] Elementos federales repelen agresión y abaten a tres delincu — абзацы 3/18; не брать последний абзац, рекламу
-       ✂️ [El Universal MX] Embajador Johnson celebra detención de "El Chino", ligado a  — абзацы 3/8; выбраны абзацы с фактами
-       ✂️ [El Universal MX] IMSS-Bienestar anuncia programa de laboratorios con internet — абзацы 5/7; выбраны суть проекта и сроки
-       ✗ повтор: [La Jornada] SCJN tira reforma electoral de Puebla
-       ✂️ [La Jornada] Bajar precio del frijol sería una “bofetada para los agricul — абзацы 5/7; снято повторное фото, выбраны факты
-       ✂️ [El Economista MX] México y la nueva oportunidad para captar inversiones en Amé — абзацы 3/5; убраны рассуждения в 4-м абзаце
-       ✂️ [El Economista MX] Líder demócrata en Cámara de Representantes se compromete a  — абзацы 3/4
-       ✂️ [Expansión MX] Elon Musk frenará la producción de Cybertruck tras su fracas — абзацы 3/7; взят подходящий снимок
-       🖼 [Expansión MX] Elon Musk frenará la producción de Cybertruck tras — фото: №2 вместо №1
-       ✂️ [Expansión MX] La millonaria multa que tendrías que pagar si usas el logo d — абзацы 4/10; выбраны факты о штрафах и рисках использования логотипа
-       ✂️ [Expansión MX] De cada 100 pesos del gasto público en 2027, 14 provendrán d — абзацы 3/8
-       ✂️ [Expansión MX] El fundador de Pan Gabriel convierte fallos operativos en le — абзацы 4/18
-       ✂️ [El Nacional VE] Más de 80 venezolanos vinculados a delitos esperan en la fro — абзацы 5/7; убраны лишние цитаты и предыстория, оставлена суть
-       ✂️ [Montevideo Portal] Con banderas y rosarios, cientos de personas esperan al papa — абзацы 5/9; убраны повторы и лишние детали, оставлена суть визита
-       ✗ нет события: [El País] Un grupo de parapentistas fuerza en los tribunales la demolición de un chalé con 11 dormit — история о конфликте вокруг дома, повода нет
-       ✗ нет события: [El País] El Gran Wyoming comunica su jubilación en ‘El intermedio’: “No vaya a ser que lleguen los  — новость о личном решении телеведущего
-       ✂️ [La Nación AR] Los cultivos transgénicos generaron en el país beneficios br — абзацы 3/8; убраны общие рассуждения в конце
-       ✂️ [La Nación AR] Se aproxima un frente frío que provocará un derrumbe térmico — абзацы 4/6
-       ✂️ [La Nación AR] La Cámara Federal dejó al borde del cierre otra causa que in — абзацы 4/5
-       ✂️ [El Tiempo CO] A la cárcel miembros del 'clan del Golfo' que habrían embosc — абзацы 3/6
-       ✂️ [El Tiempo CO] Lo que debe saber del nuevo POT: 5 cambios clave en las norm — абзацы 4/24
-       ✂️ [El Tiempo CO] Alcaldía de Cali incauta 22 máquinas tragamonedas ocultas en — абзацы 3/7
-       ✂️ [El Tiempo CO] De servicio: abren convocatoria para misión médica que cambi — абзацы 3/4
-       📝 [France 24] Europa: lo que se sabe sobre las amenazas de bomba → Decenas de vuelos europeos han sufrido interrupciones esta semana tras recibir amenazas de bomba.
-       ✂️ [BBC Mundo] "Perdí los ahorros de toda mi vida. Todos deben ir presos":  — абзацы 3/12
-       ✂️ [BBC Mundo] "El envío de tropas a Haití es una apuesta política de Bukel — абзацы 7/122
-       🖼 [BBC Mundo] "El envío de tropas a Haití es una apuesta polític — фото: №2 вместо №1
-       ✂️ [BBC Mundo] El reto que supone para el papa León XIV visitar Uruguay, el — абзацы 3/14
-       ✗ повтор: [G1 Globo] Trump anuncia que Stephen Miller será su nuevo jefe de gabinete — новость уже была в ленте
-       ✂️ [Infobae] Volodimir Zelensky volvió a cuestionar al alcalde Vitali Kli — абзацы 3/7
-       ✗ нет события: [RFI] Mali: un mes después de la toma de Kidal, por qué el ejército no ha avanzado en la región — аналитический вопрос без события
-       ✗ повтор: [Азаттык] La esposa del opositor tayiko Asadullo Boboev informa que podría ser deportada de Europa a — та же история, нет новых фактов
-       ✗ нет события: [Time] Godzilla Minus One es un entretenimiento magnífico con un corazón melancólico — кинорецензия
-       ✗ нет события: [Variety] Ben Leonberg, director de 'Good Boy', dirigirá la adaptación cinematográfica de la novela  — анонс о планах на съемки фильма
-       📝 [60.ru] Asesinada la doctora de la reina Camila; su marido → El marido de la doctora de la reina Camila ha sido imputado por su asesinato.
-       ✂️ [El Informador] Gobierno de Jalisco invierte más de 20 mil MDP en servicios  — абзацы 3/5; суть инвестиций в медицину
-       ✗ нет события: [chita.ru] El Teatro de Canción y Danza «Zabaikalie» actuó junto a Pelageya en Moscú — отчет о прошедшем культурном мероприятии
-       ✗ не для читателя: [60.ru] Vance discrepa con Trump sobre la guerra con Irán — внутренняя политика США
-       ✂️ [El Informador] Tras persecución, policías de Tlaquepaque recuperan camión d — абзацы 3/4
-       ✗ нет события: [El Informador] Entregan Segundo Informe de Gobierno de Pablo Lemus — техническая передача отчета, содержание не раскрыто
-       ✂️ [El Informador] Guadalajara anuncia inversión de casi 200 MDP en Comunidad C — абзацы 3/4
-     лента: было 56, снято 10, добрано до полной 23, стало 69; фото: взято у соседа 0, убрано чужих 1
-     💰 редактор: $0.0192
-  🧭 [es] после редактора (в эфир): всего 42 — местных 21, соседей 9, мира 12; областных 4 в 1 регионах
+  🗞 Редактор [pt] (В ЭФИРЕ): карточек 90, спрошено 64, вторым 0
+     память не сработала: новая 60, текст стал короче 3, текст вырос 1
+     снято: нет события 7, повтор 3, не для читателя 1, реклама 1
+     починено: текст сокращён до сути 57, фото заменено 23, строка НОС принята 5
+     🎲 Любопытное [pt] (в полосу «Интересное»): 1
+       🎲 в эфире · [G1 São Paulo] Moradora de SP prepara café da manhã para passarinhos todos os dias antes de fazer o próprio: 'São um presente · https://g1.globo.com/sp/sao-paulo/noticia/2026/11/06/moradora-de-sp-prepara-cafe-da-manha-para-passarinhos-todos-os-dias-antes-de-fazer-o-proprio-sao-um-presente-na-minha-vida.ghtml — интересная история о животных
+       📝 [Estadão] Duas mortes, três tornados e mais de 70 mil afetad → Temporais no Rio Grande do Sul deixam 2 mortos e mais de 70 mil pessoas afetadas.
+       ✂️ [Estadão] Duas mortes, três tornados e mais de 70 mil afetados: tempor — абзацы 3/5
+       ✂️ [Agência Brasil] Lula quer levar Brasil à condição de país desenvolvido em qu — абзацы 4/7
+       ✂️ [Metrópoles] "OAB da medicina": Lula sanciona exame obrigatório para novo — абзацы 5/7
+       ✂️ [InfoMoney] Lula reitera compromisso com responsabilidade fiscal e minim — абзацы 5/13
+       ✂️ [G1 Globo] Após carro invadir loja durante live, proprietária recebe al — абзацы 5/14
+       ✂️ [G1 Globo] Polícia prende namorado da mãe do bebê de 1 ano que morreu n — абзацы 5/12
+       🖼 [G1 Globo] Polícia prende namorado da mãe do bebê de 1 ano qu — фото: №2 вместо №1
+       ✂️ [G1 Globo] Enem 2026: Transporte intermunicipal será gratuito nos dias  — абзацы 2/18
+       ✂️ [CNN Brasil] Campeã e alvo de polêmica na Olimpíada, boxeadora argelina v — абзацы 8/12
+       ✂️ [CNN Brasil] Tifanny sofre 3ª derrota na Justiça e segue impedida de joga — абзацы 3/18
+       ✂️ [Agência Brasil] São Paulo confirma 67 casos de mpox em um mês — абзацы 5/11
+       ✂️ [Agência Brasil] CNPE cria grupo para elaborar estratégia nacional de eletrom — абзацы 3/4
+       ✂️ [Estadão] Mulher é presa suspeita de matar os filhos de 1 e 5 anos no  — абзацы 3/5
+       ✂️ [Poder360] Lula criticou falta de uso do Zap pelo PT após derrota em 20 — абзацы 6/16
+       ✂️ [Poder360] Exportações aos EUA sobem 87%, mas comércio recua no ano — абзацы 7/8
+       ✂️ [Observador PT] Brasil aprova plano energético antes da COP31 — абзацы 3/9
+       ✂️ [ECO] Uber avança com despedimento coletivo em Portugal — абзацы 3/11
+       ✂️ [BBC Brasil] 'Não falei com Lula nem tenho nada marcado. Isso foi plantad — абзацы 8/56
+       ✂️ [Terra BR] Cruzeiro: STJD divulga resultado do julgamento de Kaio Jorge — абзацы 3/5; выбраны факты о решении суда и наказании
+       ✂️ [Terra BR] Destaque na base, Erick Belé renova com o Palmeiras: "Segund — абзацы 3/4; суть контракта и карьера игрока
+       ✂️ [Terra BR] É oficial! Corinthians emite comunicado e confirma renovação — абзацы 4/6; суть продления спонсорства
+       ✂️ [Terra BR] Neymar Pai é anunciado em novo cargo no Santos — абзацы 7/10; подробности новой должности
+       ✂️ [Observador PT] Dirigentes e técnicos da UMinho condenados por falsificação — абзацы 3/5; выбраны факты приговора, фото UMinho
+       ✂️ [Notícias ao Minuto] FIFA conclui visita aos estádios portugueses que acolhem o M — абзацы 7/13; итоги визита FIFA
+       📝 [France 24] Europa: O que se sabe sobre as ameaças de bomba fa → Dezenas de voos na Europa foram interrompidos esta semana devido a ameaças de bomba.
+       📝 [Metrópoles] Trump nomeia Stephen Miller, aliado linha-dura, co → Trump nomeia Stephen Miller como novo chefe de gabinete da Casa Branca.
+       ✂️ [Metrópoles] Trump nomeia Stephen Miller, aliado linha-dura, como chefe d — абзацы 3/6
+       ✗ нет события: [El Universal MX] Papa Leão XIV chega ao Uruguai, primeira parada de sua viagem pela América do Sul; declara — вымышленная новость (папа Леон XIV)
+       ✗ не для читателя: [Fortune] Canal no WhatsApp chamado 'Exército de Lula' cresceu de 50 mil para mais de 10 milhões de  — внутренняя политика Бразилии
+       ✗ нет события: [France 24] O que a derrota de Trump nas eleições de meio de mandato pode significar para o apoio dos  — аналитика о последствиях выборов
+       ✗ нет события: [Folha de S.Paulo] 1926: Chagas se torna doutor honoris causa pela Universidade de Paris — история 100-летней давности без инфоповода
+       📝 [G1 Rio Grande do Sul] VÍDEO: Perseguição termina com tiroteio e feridos  → Perseguição e tiroteio na região central de Porto Alegre deixam feridos e resultam em prisões.
+       ✂️ [G1 Rio Grande do Sul] VÍDEO: Perseguição termina com tiroteio e feridos na região  — абзацы 3/5
+       🖼 [G1 Rio Grande do Sul] VÍDEO: Perseguição termina com tiroteio e feridos  — фото: №2 вместо №1
+       📝 [60.ru] Médica da rainha Camilla é morta e marido é acusad → Médica da rainha Camilla é encontrada morta; marido é acusado.
+       ✂️ [G1 São Paulo] Empresa contratada sem licitação pela Prefeitura de SP super — абзацы 4/18
+       🖼 [G1 São Paulo] Empresa contratada sem licitação pela Prefeitura d — фото: №2 вместо №1
+       ✂️ [G1 Pernambuco] Operação da PF bloqueia mais de R$ 1 milhão de quadrilha sus — абзацы 3/8
+       🖼 [G1 Pernambuco] Operação da PF bloqueia mais de R$ 1 milhão de qua — фото: №3 вместо №1
+       ✂️ [G1 Bahia] Mulher grávida morre e outra fica ferida após serem baleadas — абзацы 5/6; убран 1-й абзац (подпись к фото)
+       ✂️ [G1 Ceará] Grupo suspeito de facilitar a entrada de celulares e canetas — абзацы 5/9
+       🖼 [G1 Ceará] Grupo suspeito de facilitar a entrada de celulares — фото: №2 вместо №1
+       ✂️ [G1 Minas] Rubão e Reinaldinho tomam posse como vereadores de BH — абзацы 7/13; убрана «шапка» и хвост
+       ✗ нет события: [chita.ru] Teatro de música e dança Zabaikalsky apresenta-se com Pelageya em Moscou — культурное событие, нет новостного повода
+       🖼 [60.ru] Vance entra em conflito com Trump sobre a guerra c — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Caso Porsche: MP manda polícia investigar namorada de Fernan — абзацы 4/25; взят актуальный снимок
+       🖼 [G1 São Paulo] Caso Porsche: MP manda polícia investigar namorada — фото: №2 вместо №1
+       ✂️ [G1 Paraná] Homem é denunciado por estupro de vulnerável por abordar cri — абзацы 2/5; убраны абзацы-советы (LEIA TAMBÉM)
+       🖼 [G1 Paraná] Homem é denunciado por estupro de vulnerável por a — фото: №2 вместо №1
+       ✂️ [G1 Bahia] Operação contra CV prende seis pessoas em quatro cidades da  — абзацы 4/23
+       🖼 [G1 Bahia] Operação contra CV prende seis pessoas em quatro c — фото: №2 вместо №1
+       ✂️ [G1 Ceará] Brasileira recupera dinheiro bloqueado por crise em banco di — абзацы 4/6
+       🖼 [G1 Ceará] Brasileira recupera dinheiro bloqueado por crise e — фото: №2 вместо №1
+       ✗ повтор: [G1 Minas] Polícia apura morte de motociclista após contato com cabo de alta tensão em temporal; famí — фото из материала уже было, тема повторяется
+       ✂️ [G1 Rio] Justiça mantém presa ex-mulher de leiloeiro investigada por  — абзацы 6/23
+       🖼 [G1 Rio] Justiça mantém presa ex-mulher de leiloeiro invest — фото: №2 вместо №1
+       ✗ нет события: [74.ru] Da pequena aldeia ao palco mundial: a trajetória da acrobata Bayarma Zodboeva no Cirque du — интервью-очерк о жизни артистки
+       ✂️ [G1 Santa Catarina] PF apreende mídias com milhares de cenas de abuso sexual inf — абзацы 4/5
+       🖼 [G1 Santa Catarina] PF apreende mídias com milhares de cenas de abuso  — фото: №3 вместо №1
+       ✗ нет события: [G1 Rio Grande do Sul] Eduardo Leite e ex-marido Thalis Bolzan devem compartilhar cuidados dos quatro cães após f — личная жизнь, не влияет на публичную сферу
+       ✂️ [G1 São Paulo] Idoso condenado por estelionato ao se passar por falso padre — абзацы 3/4
+       ✂️ [Gazeta do Povo] Vorcaro trocou 316 mensagens com Moraes antes de ser preso,  — абзацы 4/9
+       ✂️ [G1 Minas] Álvaro Damião sanciona lei que autoriza empréstimo de até R$ — абзацы 4/6
+       ✂️ [G1 Rio] 'Justiça foi feita, mas a dor permanece', diz amiga de Brent — абзацы 3/20
+       🖼 [G1 Rio] 'Justiça foi feita, mas a dor permanece', diz amig — фото: №2 вместо №1
+       ✂️ [G1 Santa Catarina] Morre homem baleado em SC enquanto celebrava vitória de Lula — абзацы 3/4
+       ✂️ [G1 Rio Grande do Sul] Padrasto de criança abandonada com ferimentos em área de mat — абзацы 3/10
+       🖼 [G1 Rio Grande do Sul] Padrasto de criança abandonada com ferimentos em á — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Jovens furtam lojas de roupas de shopping de SP e transmitem — абзацы 7/14
+       ✗ нет события: [Gazeta do Povo] Duda Salabert propõe inclusão do horário de almoço na jornada de trabalho — законопроект, не закон
+       ✂️ [G1 Minas] Nevoeiro cancela 8 voos e provoca 11 desvios no Aeroporto In — абзацы 3/5
+       🖼 [G1 Minas] Nevoeiro cancela 8 voos e provoca 11 desvios no Ae — фото: №2 вместо №1
+       ✂️ [G1 Rio] Três policiais civis são alvos de operação por suspeita de c — абзацы 6/19
+       🖼 [G1 Rio] Três policiais civis são alvos de operação por sus — фото: №2 вместо №1
+       ✂️ [G1 Santa Catarina] Prefeitura de São José (SC) é alvo de operação da Polícia Ci — абзацы 2/6; выбран снимок из статьи
+       🖼 [G1 Santa Catarina] Prefeitura de São José (SC) é alvo de operação da  — фото: №2 вместо №1
+       ✂️ [G1 Rio Grande do Sul] Filhote de elefante-marinho que nasceu no RS se prepara para — абзацы 6/14
+       🖼 [G1 Rio Grande do Sul] Filhote de elefante-marinho que nasceu no RS se pr — фото: №2 вместо №1
+       ✗ реклама: [60.ru] Jennifer Lawrence com refrigerante em Nova York e Dylan Efron em nova campanha publicitári — подборка рекламных событий и кампаний
+       ✂️ [G1 São Paulo] Moradora de SP prepara café da manhã para passarinhos todos  — абзацы 6/28; интересная история о животных
+       ✗ повтор: [G1 Minas] Após temporal, Defesa Civil de BH é acionada para 14 ocorrências e emite alerta de risco g — новость уже была
+       ✂️ [G1 Rio Grande do Sul] Homem de 71 anos morre afogado após carro ser arrastado por  — абзацы 5/7
+       🖼 [G1 Rio Grande do Sul] Homem de 71 anos morre afogado após carro ser arra — фото: №2 вместо №1
+       ✗ повтор: [G1 São Paulo] Gêmeas serial killers: Justiça de SP manda a júri irmãs e amiga por envenenar e matar 4 pe — та же обложка у материала по той же теме
+       ✂️ [G1 Rio] Homem é preso por ameaçar menina de 14 anos para obter image — абзацы 3/11
+       ✂️ [G1 Rio] Douglas Ruas diz que governo do RJ manterá repasses para esc — абзацы 7/8
+       ✂️ [G1 Rio] VÍDEO: homens ‘brincam’ com jacaré no Recreio; em Santa Cruz — абзацы 3/20
+       🖼 [G1 Rio] VÍDEO: homens ‘brincam’ com jacaré no Recreio; em  — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] 'Só percebi quando vi que estava ensanguentada', diz mulher  — абзацы 5/33
+       🖼 [G1 São Paulo] 'Só percebi quando vi que estava ensanguentada', d — фото: №2 вместо №1
+       ✂️ [G1 Rio] Major do Exército baleado após entrar por engano em rua da V — абзацы 4/7
+       🖼 [G1 Rio] Major do Exército baleado após entrar por engano e — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Festival gratuito no Pacaembu, IRA!, Zé Ramalho, Daniel e in — абзацы 3/34; выбраны анонсы событий: ёлка и концерт IRA!
+       ✂️ [G1 Rio] Operação contra esquema de anúncios nas redes sociais de car — абзацы 5/23
+       ✂️ [G1 São Paulo] Pai de santo é preso em SP acusado de assédio contra homens  — абзацы 8/33
+       🖼 [G1 São Paulo] Pai de santo é preso em SP acusado de assédio cont — фото: №2 вместо №1
+     лента: было 90, снято 12, добрано до полной 23, стало 101; фото: взято у соседа 0, убрано чужих 0
+     💰 редактор: $0.0257
+  🧭 [pt] после редактора (в эфир): всего 61 — местных 16, соседей 18, мира 27; областных 32 в 9 регионах
 
-💰 Расход по этапам: всего $0.0747
-     спасение текста: $0.0283 (38%), запросов 15
-     редактор: $0.0164 (22%), запросов 11
-     отбор (этап 2): $0.0110 (15%), запросов 4
-     перевод: $0.0051 (7%), запросов 4
-     отсев (этап 1): $0.0042 (6%), запросов 3
-     прочее: $0.0027 (4%), запросов 1
-     мировые сюжеты: $0.0027 (4%), запросов 1
-     склейка пересказов: $0.0020 (3%), запросов 1
-     обзоры прессы: $0.0018 (2%), запросов 1
-     снимки происшествий: $0.0006 (1%), запросов 2
+💰 Расход по этапам: всего $0.0893
+     спасение текста: $0.0268 (30%), запросов 14
+     редактор: $0.0233 (26%), запросов 16
+     отбор (этап 2): $0.0103 (12%), запросов 4
+     перевод: $0.0099 (11%), запросов 7
+     отсев (этап 1): $0.0049 (5%), запросов 4
+     прочее: $0.0036 (4%), запросов 1
+     склейка пересказов: $0.0032 (4%), запросов 1
+     мировые сюжеты: $0.0027 (3%), запросов 1
+     снимки происшествий: $0.0023 (3%), запросов 8
+     обзоры прессы: $0.0023 (3%), запросов 1
 ```
