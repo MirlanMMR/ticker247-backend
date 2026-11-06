@@ -1,35 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] полка: [local] CNN Brasil — Bolsas da Europa operam em queda após liquidação de tech e antes de payroll — Новость о падении европейских бирж — мировая, а не местная.
-- [pt] курьёз: [pool] G1 Rio Grande do Sul — Irmã de Cristiano Ronaldo que mora no RS viaja a Portugal para visitá-lo após ap — Событие вокруг частной жизни сестры Криштиану Роналду не является новостью для читателя.
-- [pt] не_новость: [world] Variety — Bear Grylls comenta veredito de Russell Brand após tê-lo batizado: ‘A justiça fo — Мнение знаменитости (Bear Grylls) о вердикте суда — это комментарий, а не событие.
-- [pt] анонс: [world] Observador PT — Mais dois navios em chamas no Estreito de Ormuz — Текст содержит только технический код рекламного слота, полезной информации нет.
-- [pt] курьёз: [world] Engadget — ‘Teammates’ da Perplexity são agentes de IA da empresa para tarefas diárias de t — Запуск новой функции ИИ-агентов у сервиса — технологическая новинка, а не событие.
-- [pt] не_новость: [world] Engadget — The New York Times Company estaria tentando comprar o Letterboxd por US$ 330 mil — Слухи о возможной покупке компании не являются свершившимся событием.
-- [pt] не_новость: [world] Rolling Stone — Jennie celebra a irmandade no single pop ‘Someone to Hold’ — Релиз сингла — плановое культурное событие, не является новостью в ленте.
-- [pt] не_новость: [world] Engadget — Airbnb ameaça lançar um agente de viagens com IA no próximo ano — Разработка функции, которая выйдет в следующем году — это анонс планов, а не событие.
-- [pt] не_новость: [world] Rolling Stone — Slayyyter busca o amor no videoclipe de ‘Hey Boyyy’ — Релиз музыкального клипа — культурное событие без общественной значимости.
-- [pt] не_новость: [world] TechCrunch — Palo Alto Networks negocia a compra da startup de segurança de agentes de IA Clu — Переговоры о покупке — это процесс, а не завершенная сделка.
-- [pt] не_новость: [world] The Guardian — Experiência: Eu ajudei a prender o professor que abusou de mim — Личная история (очерк/интервью) — не является новостью по белому списку.
-- [pt] не_новость: [world] Ars Technica — Blue Origin afirma estar construindo um motor de foguete de alto desempenho com  — Заявление компании о планах по снижению стоимости производства — не событие.
-- [pt] курьёз: [world] Ars Technica — NASA revela a misteriosa aeronave experimental X-70 usando imagem gerada por IA — Представление концепта или экспериментальной модели — технологическая заметка.
-- [fr] чужое_мелкое: [local] BFMTV — "Ne jamais compromettre mes valeurs pour ma carrière": la sortie très forte de G — Внутренняя политическая ситуация в США (Gabby Williams), нет мирового масштаба.
-- [fr] курьёз: [local] France Bleu — Santé : un Français sur deux utilise l’IA, 38 % des soignants ont déjà vu leur d — Статистический опрос об использовании ИИ, нет события.
-- [fr] не_новость: [local] France Bleu — Vesoul : les boulangers préparent les traditionnels petits cochons en pain d'épi — Традиционное ежегодное изготовление пряников — это не новость.
-- [fr] курьёз: [local] Sud Ouest — Climat : l’année 2026 en passe de devenir la deuxième la plus chaude jamais enre — Ежегодный отчет о климате, нет конкретного события.
-- [fr] не_новость: [local] Le Figaro — À partir du 1er janvier 2027, sortir d’une indivision bloquée sera facilité — Информация об изменении законодательства с 2027 года, не является текущим событием.
-- [fr] не_новость: [local] L'Obs — Mélenchon veut faciliter le changement de genre à l’état civil : que changerait  — Обсуждение предвыборной программы кандидата, а не принятое решение.
-- [fr] не_новость: [local] L'Express — "Des attaques réussies contre des installations énergétiques sont très probables — Мнение специалиста по безопасности («очень вероятно»), нет события.
-- [fr] не_новость: [pool] Courrier International — France : un président ne devrait pas textoter ça — Обзор-аналитика поведения президента, нет события.
-- [fr] курьёз: [pool] Le Temps — La forêt est déboussolée: les cycles biologiques des arbres ont été bouleversés  — Биологические изменения в лесах из-за погоды, нет конкретного события.
-- [fr] не_новость: [pool] Courrier International — David Lisnard : “Javier Milei français” ou “bulle des réseaux sociaux” ? — Аналитическая статья о восприятии политика в СМИ, нет события.
-- [fr] не_новость: [pool] Radio-Canada — Un peu plus d’humain derrière les colonnes de chiffres — Аналитическая статья, нет события.
-- [fr] не_новость: [pool] Radio-Canada — Budget 2026 : le milieu culturel entre « incertitude totale » et « bouffée d’air — Анализ бюджета, нет события.
-- [fr] полка: [world] Courrier International — Léon XIV en Argentine, un moment “historique” et “gênant” pour le gouvernement M — Визит Папы Римского в Уругвай и Аргентину не является мировой новостью такого масштаба, чтобы быть в «Мировых» для Франц
-- [fr] полка: [world] Semafor — Une série de cyberattaques ébranle la France — Французское событие (кража в банке) лежит в «Мировых», должно быть в «Местных».
-- [fr] не_новость: [world] Franceinfo — "Pour moi, c'est le jeu de la décennie" : après treize ans d'attente, le phénomè — Анонс выхода игры, не является событием по белому списку.
-- [fr] чужое_мелкое: [world] Bénin Web TV — Malaisie : le procureur général demande de suspendre l’assignation à résidence d — Внутренняя юридическая процедура в Малайзии, не имеет мирового значения.
-- [fr] курьёз: [world] Courrier International — La Thaïlande espère sauver les dugongs, les “vaches marines”, en prélevant leurs — Исследование ученых, нет события.
-- [fr] не_новость: [world] Courrier International — Les adieux doux-amers du Portugal à Cristiano Ronaldo : “Le mythe tire sa révére — Завершение карьеры игрока (Cristiano Ronaldo) — событие, но подано как очерк-прощание, нет конкретного факта.
-- [fr] метка_места: [world] Futura-Sciences — Les scientifiques n'en avaient jamais vu ici : neuf grands requins blancs repéré — Текст говорит о съемках между Сицилией и Тунисом, заголовок ошибочно указывает Мексику.
-- [fr] курьёз: [world] Le Devoir — D’Hécube à la Femme Courage — Рассказ о театральной премьере, нет новостного события.
+- [ru] курьёз: [local] Knews.kg — Большое тихоокеанское мусорное пятно, возможно, меняет цвет океана — научная заметка без последствий для читателя, место в «Интересном»
+- [ru] чужое_мелкое: [local] Sputnik KG (кыргызча) — Маск: Украинага миңдеген Starlink терминалдарынын бекер берилиши ката болгон — мнение Илона Маска о Starlink в Украине не является событием для KG
+- [ru] чужое_мелкое: [local] Вечерний Бишкек — Кубок Азии-2027 перенесли почти на год — изменение дат спортивного турнира в Саудовской Аравии не новость для KG
+- [ru] курьёз: [local] Вечерний Бишкек — Ученые РАН нашли на Марсе признаки вулканизма — научная заметка о Марсе, не новость
+- [ru] чужое_мелкое: [pool] Kun.uz — Президент принял участие во встрече лидеров Центральной Азии в рамках Акабского  — рутинная встреча лидеров ЦА без конкретных итогов для читателя
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — На «бавлинском треугольнике» Башкирии, Татарстана и Оренбурга грузовик разлил ци — локальное ДТП в Татарстане
+- [ru] чужое_мелкое: [pool] Gazeta.uz — ГУВД Ташобласти задержало жителя Алмалыка по подозрению в крупном мошенничестве — задержание мошенника в Ташкентской области
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — С виновника ДТП взыскали более 215 тысяч рублей — мелкое судебное взыскание в РФ
+- [ru] чужое_мелкое: [pool] 116.ru — Казань — В Татарстане в страшной аварии с фурой насмерть разбились водитель легковушки, д — локальное ДТП в Татарстане
+- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — Один человек погиб, четверо в больнице: автобус сбил людей на трассе под Мурманс — локальное ДТП в Мурманске
+- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Тульской области будут судить слесаршу после отравления матери и ребенка угарн — местный суд в Тульской области
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — В Ярославле завершили строительство поликлиники на Гоголя — завершение строительства поликлиники в Ярославле
+- [ru] чужое_мелкое: [pool] Kun.uz — Здание МИПТ в Ташкенте продали на аукционе за 287 млрд сумов — аукцион по зданию в Ташкенте
+- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Омск получил титул «Новогодняя столица России» — внутренняя новость РФ: титул Омска
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — «Корона» устранила нарушения по выбросам после иска прокуратуры — местная проверка прокуратуры в Новгороде
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Рязани задержали женщину, расплатившуюся чужой банковской картой — задержание вора в Рязани
+- [ru] чужое_мелкое: [pool] 43.ru — Киров — Следователи добились погашения долга по зарплате в Опаринском округе — погашение долга в Кирове
+- [ru] чужое_мелкое: [pool] 43.ru — Киров — В Унинском районе осудили нарушителя за пьяную езду — приговор за пьяную езду в Кирове
+- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — Первая модельная библиотека открылась в Ржаксинском округе — открытие библиотеки в Тамбовской области
+- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Ozon Банк сообщил о восстановлении работы сервисов — технический сбой банка в РФ
+- [ru] не_новость: [pool] 62.ru — Рязань — «Спасибо за неравнодушие»: пациентка рязанского кардиодиспансера поблагодарила м — благодарность врачам — этикет
+- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — У жителя Кирсановского округа изъяли более 1,2 кг марихуаны — изъятие наркотиков в Тамбовской области
+- [ru] не_новость: [pool] 62.ru — Рязань — За неделю детский травмпункт Рязани принял 325 пациентов — статистика обращений в травмпункт — не событие
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — «Перекрыл дыхательные пути»: в Оренбурге задержан мужчина, подозреваемый в убийс — уголовное дело в Оренбурге
+- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — В Нижневартовске задержан главный врач ОКБ и бывший председатель гордумы Алексей — задержание главврача в Нижневартовске
