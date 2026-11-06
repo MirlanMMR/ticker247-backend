@@ -1,15 +1,35 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] La Jornada — Plataformas demandan para impedir ley sobre redes sociales para menores — Внутренняя судебная тяжба технологических гигантов в Калифорнии не является новостью для читателя из Мексики.
-- [es] чужое_мелкое: [pool] Infobae — DE-CIX Madrid triplica su ecosistema de redes en diez años hasta superar las 220 — Технические показатели узла обмена трафиком в Мадриде — узкоспециализированная новость, не имеющая последствий для читат
-- [es] чужое_мелкое: [pool] Infobae — Baskonia busca coger aire ante un Lleida en horas bajas — Рядовой матч чемпионата Испании — региональная новость для Испании, в мексиканской ленте избыточна.
-- [es] курьёз: [pool] Clarín AR — El polo inmobiliario de Zona Norte que se transforma: los edificios ganan terren — Описание процесса застройки в пригороде Аргентины не является новостью для мексиканского читателя.
-- [es] не_новость: [pool] Marca — Emilio García Silvero deja la FIFA — Уход директора юридического отдела организации — кадровое событие без значимых последствий для аудитории.
-- [es] чужое_мелкое: [pool] El País — Un grupo de parapentistas fuerza en los tribunales la demolición de un chalé con — Судебный спор из-за дачи в испанском городе не является мировой новостью.
-- [es] курьёз: [world] Xataka — Claude ya puede decirte en qué se te va el dinero del banco. Lo que no puede es  — Обзор возможностей нейросети — познавательный контент, не событие.
-- [es] курьёз: [world] Xataka — Los consejeros delegados de las farmacéuticas no se creen que la IA vaya a curar — Мнение CEO фармацевтических компаний о будущем ИИ — дискуссия, а не новостное событие.
-- [es] не_новость: [world] TechCrunch — Tras bloquear a Muse, Amazon permite ahora a los usuarios enviar mensajes de tex — Минорное обновление функции потребительского устройства — маркетинговый инфоповод, а не новость.
-- [es] курьёз: [world] TechCrunch — Underdog presenta un modelo de voz de 32 MB en una nueva demostración — Технологическая демо-версия модели голоса — это интересная новость для профильных изданий, но не для общей ленты.
-- [es] не_новость: [world] TechCrunch — Physicl recauda 10 millones de dólares para hacer el mundo digital suficientemen — Очередной раунд инвестиций в стартап — рутина бизнес-новостей без влияния на обычного человека.
-- [es] не_новость: [world] TechCrunch — Tesla dejará de fabricar el Cybertruck en 2027 — Планы компании по прекращению производства модели через год — это не свершившееся событие, а объявление о будущем.
-- [es] не_новость: [world] Sciences et Avenir — Tras las elecciones de mitad de mandato, ¿están los «tech bros» listos para camb — Аналитическая статья-рассуждение о политических предпочтениях бизнесменов — это мнение, а не новость.
+- [pt] курьёз: [local] Metrópoles — Ator de A Viagem é desligado de grupo de teatro após ser denunciado pela ex — личный скандал актера, не имеет широкого общественного значения.
+- [pt] не_новость: [local] Metrópoles — Executiva do PDT aprova federação com Solidariedade, PRD e Avante — внутренняя процедура партийного объединения, рутина политики.
+- [pt] не_новость: [local] Gazeta do Povo — Justiça rejeita ação contra Bolsonaro e Wal do Açaí por falta de provas — отказ суда рассматривать дело из-за нехватки доказательств не является событием для читателя.
+- [pt] чужое_мелкое: [local] G1 Ceará — Brasileira recupera dinheiro bloqueado por crise em banco digital no Paraguai — частная проблема гражданки с банком в Парагвае, нет последствий для общества.
+- [pt] чужое_мелкое: [world] Exame — Pai de Meghan Markle é preso nos EUA sob suspeita de crime sexual infantil — арест частного лица (отца знаменитости) в США не является мировой новостью.
+- [pt] чужое_мелкое: [world] Notícias ao Minuto — Rússia classifica dois partidos da oposição como "agentes estrangeiros" — внутренняя политика РФ (списки оппозиции) не влияет на мир и Бразилию.
+- [pt] курьёз: [world] Metrópoles — Artes rupestres de 26 mil anos são achadas em caverna turística na Espanha — находка археологов в пещере Испании, классический «интересный» факт.
+- [pt] курьёз: [world] Metrópoles — Polvo foge de aquário na Nova Zelândia e chega ao mar por tubulação de 50 m — забавный случай с побегом осьминога из аквариума.
+- [pt] чужое_мелкое: [world] RFI — Estados Unidos: Nithya Raman, a nova prefeita de Los Angeles vinda da ala esquer — выборы мэра Лос-Анджелеса — локальное событие США.
+- [pt] чужое_мелкое: [world] RFI — Mali: um mês após a retomada de Kidal, por que o exército não avançou mais na re — затянувшийся военный анализ ситуации в Мали, локальный конфликт.
+- [pt] чужое_мелкое: [world] Азаттык — Esposa de opositor tajique Asadullo Boboev relata risco de deportação da Europa  — частная история депортации оппозиционера, не имеет мирового масштаба.
+- [pt] чужое_мелкое: [world] Азаттык — O número de migrantes expulsos da Rússia aumentou uma vez e meia — статистика депортаций мигрантов в РФ не является событием для Бразилии.
+- [fr] курьёз: [local] La Dépêche — Il cherche pendant un mois son téléphone disparu chez Chronopost, puis le retrou — Это бытовая история о пропавшем телефоне, а не новостное событие.
+- [fr] не_новость: [local] BFMTV — "Je sais ce que c'est de prendre une tôle en Ligue des champions": le message de — Слова поддержки тренера не являются событием.
+- [fr] курьёз: [local] Nice-Matin — « Il faut vraiment avoir envie de le faire, pas simplement se présenter pour le  — Рассказ ребенка о желании участвовать в выборах — личная история, не новость.
+- [fr] не_новость: [local] L'Obs — Mélenchon veut faciliter le changement de genre à l’état civil : que changerait  — Обсуждение предвыборной программы кандидата на 2027 год — это не свершившееся событие.
+- [fr] повтор: [pool] RTBF — France : une enfant de 7 ans et un jeune de 18 ans décédés, et de nombreux bless ≈ «France : une enfant de 7 ans et un jeune» — Карточка помечена важной, но содержит информацию об инциденте, который уже является новостью.
+- [fr] чужое_мелкое: [pool] Nice-Matin — Une lourde amende envisagée : l’Union européenne somme TikTok de modifier ses fl — Регуляторные требования ЕС к TikTok — мировая новость, не «Новости из…».
+- [fr] курьёз: [pool] Nice-Matin — À Monaco, le petit-fils d’Armand Lunel fait revivre le roman qui avait remporté  — Юбилей литературной премии 100-летней давности — это интересная справка, а не новость.
+- [fr] не_новость: [pool] Radio-Canada — La formation en éthique est optionnelle pour les nouveaux députés québécois — Информация о том, что обучение этике опционально — это не событие с датой или последствиями.
+- [fr] не_новость: [pool] Radio-Canada — La pinte de lait, le nouveau défi de la consigne au Québec — Описание процесса переработки тары без свершившегося события.
+- [fr] не_новость: [pool] RTBF — Crise budgétaire : pour Ludivine Dedonder (PS), Bart De Wever "va pleurnicher ch — Обмен политическими колкостями («пойдет плакать к королю») не является новостным событием.
+- [fr] не_новость: [world] Fortune — «Un modèle exemplaire de gestion des licenciements» : Canva restructure 22 % de  — Реструктуризация — бизнес-событие, но восхваление этого в LinkedIn не является новостью.
+- [fr] курьёз: [world] Futura-Sciences — Du cannabis retrouvé dans une tombe vieille de 2 800 ans : les chercheurs découv — Археологическая находка 2800-летней давности — это «Интересное», здесь нет влияния на сегодняшний день.
+- [fr] курьёз: [world] Bénin Web TV — Danemark : la reine Mary rouvre la chambre de Christian IV et ses 95 tableaux — Открытие музейного зала — культурный факт, место в «Интересном».
+- [fr] не_новость: [world] Courrier International — Melania Trump reçoit les émissaires russes et ukrainiens : “mascarade” à la Mais — Дипломатическая вежливость первой леди — этикет, который не меняет политическую ситуацию.
+- [fr] курьёз: [world] France 24 FR — Un Indien sauve, seul, son île de l'érosion en plantant une forêt à main nues — История об индийском фермере — классическое «Интересное».
+- [fr] не_новость: [world] Africanews FR — USA : deux jours après la déroute, Trump dénonce des "élections truqués" — Дежурные заявления Трампа о выборах — это слова, не меняющие статус-кво.
+- [fr] повтор: [world] Africanews FR — Affaire Shakahola : 200 ans de prison pour le faux pasteur Paul Mackenzie ≈ «Massacre de Shakahola au Kenya: le gouro» — Один и тот же приговор по делу секты.
+- [fr] не_новость: [world] L'Express — Après leur victoire aux midterms, les démocrates face au dilemme de la destituti — Аналитический обзор ситуации («демократы перед дилеммой») — это рассуждения, а не событие.
+- [fr] не_новость: [world] L'Express — En Italie, l'ultranationaliste Roberto Vannacci montre des signes d'essoufflemen — Субъективное наблюдение автора о том, что политик «показывает признаки усталости».
+- [fr] не_новость: [world] Sciences et Avenir — Après les midterms, les "tech bros" prêts à retourner leur veste ? — Размышления о настроениях «tech bros» после выборов.
+- [fr] не_новость: [world] RFI — Israël: Gadi Eisenkot fait état de «progrès importants» dans les tractations pou — «Прогресс в переговорах» — это слова о процессе, а не принятое решение.
