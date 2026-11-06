@@ -1,27 +1,15 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] mlive.com — Lightning strikes triggered these big Michigan wildfires in October — why they’r — Лесные пожары уже под контролем, событие не требует немедленного уведомления.
-- [en] не_новость: [local] reviewjournal — Hope for Prisoners suspends most programming at Nevada prisons — Приостановка программы — это управленческое решение, а не чрезвычайное событие.
-- [en] курьёз: [local] El Universo EC — Heartland actor Ross Lynch reveals he is secretly married — Слухи или факты о личной жизни актеров — это развлекательный контент.
-- [en] не_новость: [local] CBS News — Trump touts imminent decision on potential new attack on Iran — Слова Трампа о возможном решении не являются фактом свершившегося действия.
-- [en] срочность: [local] 1011NOW — P Street closure in downtown Lincoln rescheduled for Monday, Nov. 9 — Плановое перекрытие дороги на будущую дату не является срочной новостью.
-- [en] не_новость: [local] CBS News — Musk says Tesla will end Cybertruck production next year — Tesla сворачивает производство Cybertruck — это плановое решение бизнеса.
-- [en] срочность: [local] KCRG — Iowa police warn drivers after deer crash reports spike — Предупреждение о росте ДТП с оленями — это не экстренное событие.
-- [en] курьёз: [local] WECT — 7-foot alligator safely relocated after blocking coastal roadway — Перемещение аллигатора — локальный курьез, не требующий внимания всей страны.
-- [en] не_новость: [local] KFYR-TV — Night Ranger, Sam Hunt join 2027 North Dakota State Fair lineup — Анонс артистов на фестиваль 2027 года — это не новость.
-- [en] не_новость: [pool] The Independent — LAPD chopper and Navy helicopter nearly collide: ‘You guys gotta pay attention’ — Сообщение об инциденте, который 'почти' случился — это не свершившееся событие.
-- [en] не_новость: [pool] UPI — Britain's Andy Burnham tells employers they must include pay in job ads — Призыв премьера к работодателям — это слова, а не закон или факт изменения правил.
-- [en] не_новость: [pool] Engadget — Google's Find Hub can finally notify you if you've left a tracker behind — Функция в приложении — это обновление продукта, а не новостное событие.
-- [en] не_новость: [pool] BBC Sport — Palmer misses too many chances to impress - Tuchel — Мнение тренера о игроке — это субъективная оценка.
-- [en] не_новость: [pool] BBC World — Trump signs order to preserve Oval Office as national monument — Придание статуса памятника офису президента — формальность.
-- [en] курьёз: [world] ScienceAlert — Drug Restores Liver Function in Aging Rats And Halves Levels of an Alzheimer's-L — Научное исследование на крысах — это интересная наука, а не мировая новость.
-- [en] не_новость: [world] Ars Technica — Rocket Report: Artemis II literally tore through the atmosphere; New Glenn delay — Дайджест новостей о ракетах — это обзор, а не событие.
-- [en] не_новость: [world] WBAL — Portugal coach says he had not anticipated Cristiano Ronaldo’s retirement despit — Мнение тренера о том, что он 'не ожидал' ухода игрока — не новость.
-- [en] повтор: [world] BBC News — Firms should publish salaries in job adverts ahead of new law, says PM ≈ «Britain's Andy Burnham tells employers t» — Тот же сюжет, что в карточке 51.
-- [en] курьёз: [world] TechCrunch — Underdog shows off a 32MB speech model in new demo — Демонстрация нейросети — это техно-обзор, а не новость.
-- [en] не_новость: [world] TechCrunch — Physicl raises $10M to make the digital world real enough for robots — Привлечение инвестиций стартапом — это бизнес-сообщение.
-- [en] повтор: [world] Engadget — Tesla is 'winding down' Cybertruck production at its Texas Gigafactory ≈ «Musk says Tesla will end Cybertruck prod» — Тот же сюжет, что в карточке 28.
-- [en] не_новость: [world] Rolling Stone — Jennie Celebrates Sisterhood on Anthemic Pop Single ‘Someone to Hold’ — Выход музыкального сингла — не является новостью по белому списку.
-- [en] не_новость: [world] TechCrunch — At least 10 local governments have moved to drop Flock’s surveillance cameras si — Отказ властей от использования камер — это процесс, нет конкретного события.
-- [en] не_новость: [world] BBC News — 'Misleading' student loans information left out examples of higher-salary repaym — Выводы комитета о прошлых ошибках — это обсуждение и разбор.
-- [en] не_новость: [world] BBC World — White House denies Hegseth and Rubio to leave jobs after Republican election los — Опровержение слухов не является событием.
+- [es] чужое_мелкое: [local] La Jornada — Plataformas demandan para impedir ley sobre redes sociales para menores — Внутренняя судебная тяжба технологических гигантов в Калифорнии не является новостью для читателя из Мексики.
+- [es] чужое_мелкое: [pool] Infobae — DE-CIX Madrid triplica su ecosistema de redes en diez años hasta superar las 220 — Технические показатели узла обмена трафиком в Мадриде — узкоспециализированная новость, не имеющая последствий для читат
+- [es] чужое_мелкое: [pool] Infobae — Baskonia busca coger aire ante un Lleida en horas bajas — Рядовой матч чемпионата Испании — региональная новость для Испании, в мексиканской ленте избыточна.
+- [es] курьёз: [pool] Clarín AR — El polo inmobiliario de Zona Norte que se transforma: los edificios ganan terren — Описание процесса застройки в пригороде Аргентины не является новостью для мексиканского читателя.
+- [es] не_новость: [pool] Marca — Emilio García Silvero deja la FIFA — Уход директора юридического отдела организации — кадровое событие без значимых последствий для аудитории.
+- [es] чужое_мелкое: [pool] El País — Un grupo de parapentistas fuerza en los tribunales la demolición de un chalé con — Судебный спор из-за дачи в испанском городе не является мировой новостью.
+- [es] курьёз: [world] Xataka — Claude ya puede decirte en qué se te va el dinero del banco. Lo que no puede es  — Обзор возможностей нейросети — познавательный контент, не событие.
+- [es] курьёз: [world] Xataka — Los consejeros delegados de las farmacéuticas no se creen que la IA vaya a curar — Мнение CEO фармацевтических компаний о будущем ИИ — дискуссия, а не новостное событие.
+- [es] не_новость: [world] TechCrunch — Tras bloquear a Muse, Amazon permite ahora a los usuarios enviar mensajes de tex — Минорное обновление функции потребительского устройства — маркетинговый инфоповод, а не новость.
+- [es] курьёз: [world] TechCrunch — Underdog presenta un modelo de voz de 32 MB en una nueva demostración — Технологическая демо-версия модели голоса — это интересная новость для профильных изданий, но не для общей ленты.
+- [es] не_новость: [world] TechCrunch — Physicl recauda 10 millones de dólares para hacer el mundo digital suficientemen — Очередной раунд инвестиций в стартап — рутина бизнес-новостей без влияния на обычного человека.
+- [es] не_новость: [world] TechCrunch — Tesla dejará de fabricar el Cybertruck en 2027 — Планы компании по прекращению производства модели через год — это не свершившееся событие, а объявление о будущем.
+- [es] не_новость: [world] Sciences et Avenir — Tras las elecciones de mitad de mandato, ¿están los «tech bros» listos para camb — Аналитическая статья-рассуждение о политических предпочтениях бизнесменов — это мнение, а не новость.
