@@ -1,18 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] La Jornada — Plataformas demandan para impedir ley sobre redes sociales para menores — Внутренняя правовая тяжба в США, не является событием мирового масштаба.
-- [es] чужое_мелкое: [pool] BBC Mundo — Crisis en Paraguay: preparan los alegatos finales del juicio político al preside — Детали процедур импичмента в Парагвае для Мексики — чужое мелкое.
-- [es] чужое_мелкое: [pool] La Nación AR — La Cámara Federal dejó al borde del cierre otra causa que investigaba al Gobiern — Внутренние юридические споры политиков Аргентины.
-- [es] чужое_мелкое: [pool] El Nacional VE — Más de 80 venezolanos vinculados a delitos esperan en la frontera su expulsión d — Операция по депортации мигрантов — рутина пограничной службы, нет мировых последствий.
-- [es] чужое_мелкое: [pool] El Mundo — El juez Calama rechaza imputar a Zapatero por malversación porque la ley que obl — Внутренняя испанская политика, решение суда по локальному делу.
-- [es] не_новость: [pool] El Mundo — Arcadi España insinúa una posible subida de impuestos para financiar el transpor — Мнение/инсинуация министра о возможных налогах без принятого решения.
-- [es] не_новость: [pool] BBC Mundo — Quién es Santiago Peña, el economista a quien el poderoso Horacio Cartes encumbr — Портрет/аналитическая статья о политике, а не событие.
-- [es] не_новость: [world] Variety — Common se une como productor ejecutivo al cortometraje documental 'The Second Li — Назначение продюсера в документальный фильм — не новость для широкого круга.
-- [es] чужое_мелкое: [world] Marca — Ferrari explica el resultado de la cumbre Hamilton-Leclerc: "En México fracasamo — Внутренние разборки пилотов Ferrari — спортивная рутина.
-- [es] курьёз: [world] TechCrunch — Cientos de herramientas de hackeo con IA Artex expuestas públicamente en la web — Описание находки исследователей безопасности, не является событием для читателя.
-- [es] курьёз: [world] Wired — Los modelos de IA chinos gratuitos son alarmantemente eficaces para hackear — Общий обзор возможностей ИИ, нет конкретного события.
-- [es] чужое_мелкое: [world] TechCrunch — El Pentágono ofrece un préstamo de 250 millones de dólares a la startup de bater — Локальная сделка стартапа в США с Пентагоном.
-- [es] чужое_мелкое: [world] RFI — Bélgica: el rey Felipe rechaza la dimisión del primer ministro Bart De Wever — Внутренняя процедура в Бельгии, не влияет на мир.
-- [es] не_новость: [world] El Universal MX — Arrestan al padre de Meghan Markle en Florida; es señalado por presunta posesión — Арест частного лица, не является мировой новостью.
-- [es] чужое_мелкое: [world] RFI — Estados Unidos: Nithya Raman, la nueva alcaldesa de Los Ángeles proveniente del  — Выборы мэра города США — это местная новость для этого города.
-- [es] чужое_мелкое: [world] Азаттык — La cantidad de migrantes expulsados de Rusia aumentó en un 50% — Статистика депортаций в РФ без влияния на международную повестку.
+- [en] чужое_мелкое: [local] NY Post — How long Thomas Markle Sr. could serve in prison revealed after child pornograph — личный юридический вопрос частного лица, не является общественно значимой новостью
+- [en] не_новость: [local] NY Post — Anthropic president Daniela Amodei told wedding guests to fantasize about ‘roman — личная история с корпоративной свадьбы 2017 года
+- [en] не_новость: [local] WIS-TV — Carolina-Clemson Blood Drive battle prepares its 42nd year — ежегодное плановое мероприятие, не событие
+- [en] не_новость: [local] WSAZ — First Alert Weather | Spotty Shower, Colder Into The Weekend — прогноз погоды не является новостным событием
+- [en] не_новость: [local] WSMV — Maury County to test tornado sirens this weekend — плановое техническое тестирование систем оповещения
+- [en] срочность: [local] WCTV — More arrests made in deadly Vienna mass shooting investigation; 2 on the run — событие уже в процессе расследования, нет повода для побудки
+- [en] не_новость: [local] KFVS12 — 13th annual U.S. Grant Symposium was held Nov. 6 in Cape Girardeau — отчет о прошедшем симпозиуме историков
+- [en] не_новость: [local] KFVS12 — Cape Con 2026 set for November 6-8 — анонс конвента
+- [en] не_новость: [local] Cardinal News — Ziggy Marley, Marcus King and Jesse Wells atop the FloydFest bill in opening lin — анонс состава участников фестиваля на 2027 год
+- [en] не_новость: [local] 1011NOW — Saddle up: Live bulls and country music are coming to Pinnacle Bank Arena — анонс развлекательного мероприятия
+- [en] не_новость: [local] OPB — Clark County Council elections appear to affirm status quo — аналитический разбор итогов выборов, а не факт события
+- [en] не_новость: [local] reviewjournal — As Golden Knights search for offense, goalies have stepped up — спортивная аналитика, обзор формы вратарей
+- [en] чужое_мелкое: [pool] Punch Nigeria — Rapper Odumodublvck alleges fake hospital report in assault case — внутренний конфликт артиста в Нигерии
+- [en] не_новость: [pool] Punch Nigeria — I’ll resign if Nigeria doesn’t improve under Atiku — Amaechi — политическое обещание/угроза отставки в будущем
+- [en] не_новость: [pool] WFPL — Comer re-elected to Congress this week. Will he spend the next year running for  — спекуляции и вопросы о будущих выборах
+- [en] не_новость: [pool] Punch Nigeria — NDC candidate promises bill stopping NYSC postings to insecure areas — предвыборное обещание кандидата
+- [en] чужое_мелкое: [pool] Toronto Star — Wyoming to investigate claims Rocky Mountain Power dodges industry requests for  — анонс расследования претензий к энергетической компании
+- [en] повтор: [pool] The Independent — Trump axes chief of staff Susie Wiles as Republicans point fingers at him over m ≈ «Trump replacing Wiles with Stephen Mille» — тот же сюжет об отставке Сьюзи Уайлс
+- [en] не_новость: [pool] Sky Sports — Khawaja: Entire Australia team knew about ball-tampering scandal — комментарий о событии 2018 года
+- [en] не_новость: [pool] Time — All at Once, Ted Cruz Is the Last Statewide Republican Lawmaker Standing in Texa — политическая аналитика состава парламента
+- [en] курьёз: [pool] Ars Technica — Earth's churning mantle may have created the Great Unconformity — научно-популярная заметка, не событие
+- [en] не_новость: [pool] Fortune — Gen Z voters broke for Democrats 66% to 31% in the midterms — and the Iran war c — статистический разбор поведения избирателей
+- [en] не_новость: [pool] BBC News — Harry and five others seek to challenge Mail publisher privacy ruling — процессуальное действие в рамках старого дела
+- [en] не_новость: [pool] Ars Technica — Developer ends lucrative screensaver deal with Roku because Fox bought it — корпоративное решение об удалении заставки
+- [en] не_новость: [world] Semafor — There's a silver lining for data center builders amid the 'blue wave' — аналитический разбор рынка без конкретного события
