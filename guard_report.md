@@ -1,27 +1,26 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] чужое_мелкое: [local] NY Post — How long Thomas Markle Sr. could serve in prison revealed after child pornograph — личный юридический вопрос частного лица, не является общественно значимой новостью
-- [en] не_новость: [local] NY Post — Anthropic president Daniela Amodei told wedding guests to fantasize about ‘roman — личная история с корпоративной свадьбы 2017 года
-- [en] не_новость: [local] WIS-TV — Carolina-Clemson Blood Drive battle prepares its 42nd year — ежегодное плановое мероприятие, не событие
-- [en] не_новость: [local] WSAZ — First Alert Weather | Spotty Shower, Colder Into The Weekend — прогноз погоды не является новостным событием
-- [en] не_новость: [local] WSMV — Maury County to test tornado sirens this weekend — плановое техническое тестирование систем оповещения
-- [en] срочность: [local] WCTV — More arrests made in deadly Vienna mass shooting investigation; 2 on the run — событие уже в процессе расследования, нет повода для побудки
-- [en] не_новость: [local] KFVS12 — 13th annual U.S. Grant Symposium was held Nov. 6 in Cape Girardeau — отчет о прошедшем симпозиуме историков
-- [en] не_новость: [local] KFVS12 — Cape Con 2026 set for November 6-8 — анонс конвента
-- [en] не_новость: [local] Cardinal News — Ziggy Marley, Marcus King and Jesse Wells atop the FloydFest bill in opening lin — анонс состава участников фестиваля на 2027 год
-- [en] не_новость: [local] 1011NOW — Saddle up: Live bulls and country music are coming to Pinnacle Bank Arena — анонс развлекательного мероприятия
-- [en] не_новость: [local] OPB — Clark County Council elections appear to affirm status quo — аналитический разбор итогов выборов, а не факт события
-- [en] не_новость: [local] reviewjournal — As Golden Knights search for offense, goalies have stepped up — спортивная аналитика, обзор формы вратарей
-- [en] чужое_мелкое: [pool] Punch Nigeria — Rapper Odumodublvck alleges fake hospital report in assault case — внутренний конфликт артиста в Нигерии
-- [en] не_новость: [pool] Punch Nigeria — I’ll resign if Nigeria doesn’t improve under Atiku — Amaechi — политическое обещание/угроза отставки в будущем
-- [en] не_новость: [pool] WFPL — Comer re-elected to Congress this week. Will he spend the next year running for  — спекуляции и вопросы о будущих выборах
-- [en] не_новость: [pool] Punch Nigeria — NDC candidate promises bill stopping NYSC postings to insecure areas — предвыборное обещание кандидата
-- [en] чужое_мелкое: [pool] Toronto Star — Wyoming to investigate claims Rocky Mountain Power dodges industry requests for  — анонс расследования претензий к энергетической компании
-- [en] повтор: [pool] The Independent — Trump axes chief of staff Susie Wiles as Republicans point fingers at him over m ≈ «Trump replacing Wiles with Stephen Mille» — тот же сюжет об отставке Сьюзи Уайлс
-- [en] не_новость: [pool] Sky Sports — Khawaja: Entire Australia team knew about ball-tampering scandal — комментарий о событии 2018 года
-- [en] не_новость: [pool] Time — All at Once, Ted Cruz Is the Last Statewide Republican Lawmaker Standing in Texa — политическая аналитика состава парламента
-- [en] курьёз: [pool] Ars Technica — Earth's churning mantle may have created the Great Unconformity — научно-популярная заметка, не событие
-- [en] не_новость: [pool] Fortune — Gen Z voters broke for Democrats 66% to 31% in the midterms — and the Iran war c — статистический разбор поведения избирателей
-- [en] не_новость: [pool] BBC News — Harry and five others seek to challenge Mail publisher privacy ruling — процессуальное действие в рамках старого дела
-- [en] не_новость: [pool] Ars Technica — Developer ends lucrative screensaver deal with Roku because Fox bought it — корпоративное решение об удалении заставки
-- [en] не_новость: [world] Semafor — There's a silver lining for data center builders amid the 'blue wave' — аналитический разбор рынка без конкретного события
+- [es] чужое_мелкое: [local] El Universal MX — Tribunal de Disciplina investiga a juez que liberó a colaborador de Ryan Wedding — Внутренняя дисциплинарная проверка судьи в MX — это местная новость, а не мировая.
+- [es] курьёз: [pool] Infobae — Independiente vence a Riestra y avanza a los octavos del Torneo Clausura — Спортивный результат матча в рамках локального турнира — не мировая новость.
+- [es] полка: [pool] Infobae — Japón dona 2 millones de dólares para apoyar a los afectados por el terremoto en — Новость о помощи Японии Колумбии — мировая новость (международные отношения), а не региональная/местная PE/AR.
+- [es] не_новость: [pool] Semana CO — “Un milagro”: Johanna Fadul mostró el procedimiento médico con el que busca volv — Личная жизнь актрисы и её медицинские процедуры не являются общественно значимым событием.
+- [es] не_новость: [pool] Semana CO — El fútbol como identidad regional: la apuesta de Carlos ‘La Roca’ Sánchez con su — Аналитическая заметка/мнение о футболе как идентичности — не новость.
+- [es] чужое_мелкое: [pool] El Financiero — ¿Qué hizo Santiago Peña, expresidente de Paraguay, para quedar involucrado en el — Местный финансовый скандал в Парагвае не является значимым для читателя в MX.
+- [es] не_новость: [pool] El Nacional VE — Venezuela y el Banco Mundial evalúan mecanismos de financiamiento para proyectos — Обычная оценка механизмов финансирования министерствами без конкретного результата — рабочий процесс.
+- [es] чужое_мелкое: [pool] 14ymedio — La Seguridad del Estado impide a periodistas y activistas asistir a una velada d — Локальные репрессии в Кубе для мексиканского читателя — чужое мелкое.
+- [es] не_новость: [pool] El País — Pedro Sánchez llama a la movilización en su retorno a la precampaña: “Si se pudo — Риторика политика в рамках предвыборной кампании не является новостью-событием.
+- [es] не_новость: [pool] eldiario.es — Sánchez: "La ejemplaridad que ha ejercido Óscar Puente jamás la practican PP y V — Перепалка политиков — не новость.
+- [es] не_новость: [pool] La Vanguardia — Los maquinistas consideran que han avanzado más con Cuerpo en 24 horas que con P — Ход переговоров (встретились/оценили) — это процесс, а не событие.
+- [es] чужое_мелкое: [pool] 14ymedio — "Me van a deportar": las voces de los cubanos detenidos por estar en La Habana — Личные истории задержанных в Кубе — локальное происшествие.
+- [es] не_новость: [pool] eldiario.es — Okdiario amenaza con demandar a elDiario.es por la información sobre sus pagos a — Угроза подачи иска — это не событие (еще нет ни суда, ни дела).
+- [es] чужое_мелкое: [pool] Expansión MX — ¿Qué está pasando en Paraguay? La crisis por la renuncia del presidente que dejó — Повтор темы из карточки 30, не является мировой новостью.
+- [es] чужое_мелкое: [pool] eldiario.es — Alberto Pugilato, uno de los 14 detenidos en la operación contra Núcleo Nacional — Детали операции правоохранительных органов в Испании — локальная новость.
+- [es] не_новость: [pool] El Mundo — El juez Calama rechaza imputar a Zapatero por malversación porque la ley que obl — Отказ судьи в иске по политическим мотивам — это юридический процесс.
+- [es] не_новость: [pool] El Mundo — Arcadi España insinúa una posible subida de impuestos para financiar el transpor — Инсинуации политика о возможном росте налогов — не решение, а мнение.
+- [es] чужое_мелкое: [pool] eldiario.es — La Policía detiene a 14 miembros de Núcleo Nacional por asociación ilícita, tene — Подробности полицейской операции в Испании — локальная новость.
+- [es] чужое_мелкое: [pool] El País — La Fiscalía Europea investiga un presunto fraude en las obras de la alta velocid — Расследование прокуратуры по конкретному кейсу в Испании — локальная новость.
+- [es] чужое_мелкое: [pool] El País — Un grupo de parapentistas fuerza en los tribunales la demolición de un chalé con — Гражданский спор о сносе частного дома — локальная новость.
+- [es] чужое_мелкое: [world] The Independent — El profesorado de la Universidad de Cornell declara una moción de censura contra — Внутренняя административная процедура университета в США — не мировая новость.
+- [es] чужое_мелкое: [world] Fortune — Los demócratas ganan el control del regulador de Georgia Power por primera vez e — Местные выборы в регулятор штата Джорджия — локальная политика США.
+- [es] курьёз: [world] 14ymedio — Expulsado por EE UU, el cubano Richard Tur consigue un puesto en la ONU — Назначение конкретного человека на должность — локальная новость для Кубы, а не мировая.
+- [es] чужое_мелкое: [world] Азаттык — La cantidad de migrantes expulsados de Rusia aumentó en un 50% — Статистика депортаций в РФ — локальная новость.
