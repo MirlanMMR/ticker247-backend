@@ -1,35 +1,21 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [local] Metrópoles — Ator de A Viagem é desligado de grupo de teatro após ser denunciado pela ex — личный скандал актера, не имеет широкого общественного значения.
-- [pt] не_новость: [local] Metrópoles — Executiva do PDT aprova federação com Solidariedade, PRD e Avante — внутренняя процедура партийного объединения, рутина политики.
-- [pt] не_новость: [local] Gazeta do Povo — Justiça rejeita ação contra Bolsonaro e Wal do Açaí por falta de provas — отказ суда рассматривать дело из-за нехватки доказательств не является событием для читателя.
-- [pt] чужое_мелкое: [local] G1 Ceará — Brasileira recupera dinheiro bloqueado por crise em banco digital no Paraguai — частная проблема гражданки с банком в Парагвае, нет последствий для общества.
-- [pt] чужое_мелкое: [world] Exame — Pai de Meghan Markle é preso nos EUA sob suspeita de crime sexual infantil — арест частного лица (отца знаменитости) в США не является мировой новостью.
-- [pt] чужое_мелкое: [world] Notícias ao Minuto — Rússia classifica dois partidos da oposição como "agentes estrangeiros" — внутренняя политика РФ (списки оппозиции) не влияет на мир и Бразилию.
-- [pt] курьёз: [world] Metrópoles — Artes rupestres de 26 mil anos são achadas em caverna turística na Espanha — находка археологов в пещере Испании, классический «интересный» факт.
-- [pt] курьёз: [world] Metrópoles — Polvo foge de aquário na Nova Zelândia e chega ao mar por tubulação de 50 m — забавный случай с побегом осьминога из аквариума.
-- [pt] чужое_мелкое: [world] RFI — Estados Unidos: Nithya Raman, a nova prefeita de Los Angeles vinda da ala esquer — выборы мэра Лос-Анджелеса — локальное событие США.
-- [pt] чужое_мелкое: [world] RFI — Mali: um mês após a retomada de Kidal, por que o exército não avançou mais na re — затянувшийся военный анализ ситуации в Мали, локальный конфликт.
-- [pt] чужое_мелкое: [world] Азаттык — Esposa de opositor tajique Asadullo Boboev relata risco de deportação da Europa  — частная история депортации оппозиционера, не имеет мирового масштаба.
-- [pt] чужое_мелкое: [world] Азаттык — O número de migrantes expulsos da Rússia aumentou uma vez e meia — статистика депортаций мигрантов в РФ не является событием для Бразилии.
-- [fr] курьёз: [local] La Dépêche — Il cherche pendant un mois son téléphone disparu chez Chronopost, puis le retrou — Это бытовая история о пропавшем телефоне, а не новостное событие.
-- [fr] не_новость: [local] BFMTV — "Je sais ce que c'est de prendre une tôle en Ligue des champions": le message de — Слова поддержки тренера не являются событием.
-- [fr] курьёз: [local] Nice-Matin — « Il faut vraiment avoir envie de le faire, pas simplement se présenter pour le  — Рассказ ребенка о желании участвовать в выборах — личная история, не новость.
-- [fr] не_новость: [local] L'Obs — Mélenchon veut faciliter le changement de genre à l’état civil : que changerait  — Обсуждение предвыборной программы кандидата на 2027 год — это не свершившееся событие.
-- [fr] повтор: [pool] RTBF — France : une enfant de 7 ans et un jeune de 18 ans décédés, et de nombreux bless ≈ «France : une enfant de 7 ans et un jeune» — Карточка помечена важной, но содержит информацию об инциденте, который уже является новостью.
-- [fr] чужое_мелкое: [pool] Nice-Matin — Une lourde amende envisagée : l’Union européenne somme TikTok de modifier ses fl — Регуляторные требования ЕС к TikTok — мировая новость, не «Новости из…».
-- [fr] курьёз: [pool] Nice-Matin — À Monaco, le petit-fils d’Armand Lunel fait revivre le roman qui avait remporté  — Юбилей литературной премии 100-летней давности — это интересная справка, а не новость.
-- [fr] не_новость: [pool] Radio-Canada — La formation en éthique est optionnelle pour les nouveaux députés québécois — Информация о том, что обучение этике опционально — это не событие с датой или последствиями.
-- [fr] не_новость: [pool] Radio-Canada — La pinte de lait, le nouveau défi de la consigne au Québec — Описание процесса переработки тары без свершившегося события.
-- [fr] не_новость: [pool] RTBF — Crise budgétaire : pour Ludivine Dedonder (PS), Bart De Wever "va pleurnicher ch — Обмен политическими колкостями («пойдет плакать к королю») не является новостным событием.
-- [fr] не_новость: [world] Fortune — «Un modèle exemplaire de gestion des licenciements» : Canva restructure 22 % de  — Реструктуризация — бизнес-событие, но восхваление этого в LinkedIn не является новостью.
-- [fr] курьёз: [world] Futura-Sciences — Du cannabis retrouvé dans une tombe vieille de 2 800 ans : les chercheurs découv — Археологическая находка 2800-летней давности — это «Интересное», здесь нет влияния на сегодняшний день.
-- [fr] курьёз: [world] Bénin Web TV — Danemark : la reine Mary rouvre la chambre de Christian IV et ses 95 tableaux — Открытие музейного зала — культурный факт, место в «Интересном».
-- [fr] не_новость: [world] Courrier International — Melania Trump reçoit les émissaires russes et ukrainiens : “mascarade” à la Mais — Дипломатическая вежливость первой леди — этикет, который не меняет политическую ситуацию.
-- [fr] курьёз: [world] France 24 FR — Un Indien sauve, seul, son île de l'érosion en plantant une forêt à main nues — История об индийском фермере — классическое «Интересное».
-- [fr] не_новость: [world] Africanews FR — USA : deux jours après la déroute, Trump dénonce des "élections truqués" — Дежурные заявления Трампа о выборах — это слова, не меняющие статус-кво.
-- [fr] повтор: [world] Africanews FR — Affaire Shakahola : 200 ans de prison pour le faux pasteur Paul Mackenzie ≈ «Massacre de Shakahola au Kenya: le gouro» — Один и тот же приговор по делу секты.
-- [fr] не_новость: [world] L'Express — Après leur victoire aux midterms, les démocrates face au dilemme de la destituti — Аналитический обзор ситуации («демократы перед дилеммой») — это рассуждения, а не событие.
-- [fr] не_новость: [world] L'Express — En Italie, l'ultranationaliste Roberto Vannacci montre des signes d'essoufflemen — Субъективное наблюдение автора о том, что политик «показывает признаки усталости».
-- [fr] не_новость: [world] Sciences et Avenir — Après les midterms, les "tech bros" prêts à retourner leur veste ? — Размышления о настроениях «tech bros» после выборов.
-- [fr] не_новость: [world] RFI — Israël: Gadi Eisenkot fait état de «progrès importants» dans les tractations pou — «Прогресс в переговорах» — это слова о процессе, а не принятое решение.
+- [en] не_новость: [local] WBAY — Green Bay police seek to identify adult after ice cream delivery taken from porc — мелкая бытовая кража, не имеющая общественной значимости
+- [en] полка: [local] WCAX — GOP’s Constantino wins election to Congress in New York’s 21st District — выборы в Конгресс США — событие национального масштаба, должно быть в 'Мировых' или 'Новости из...'
+- [en] не_новость: [local] KCRG — Former Younkers space at Lindale Mall sold, council member says — продажа коммерческой недвижимости — обычная бизнес-сделка без последствий для жителей
+- [en] не_новость: [local] Deseret News — A new live-action ‘Stranger Things’ prequel is in the works at Netflix — анонс разработки фильма — не является событием по белому списку
+- [en] не_новость: [pool] KSFY — Brookings police host annual Veterans Thanksgiving Meal — плановое ежегодное мероприятие (благотворительный обед)
+- [en] не_новость: [pool] Engadget — You'll soon be able to text Alexa to shop on Amazon — анонс функции сервиса
+- [en] не_новость: [pool] TechCrunch — Fox completes its $22B acquisition of Roku — корпоративная сделка, анонсированная как свершившийся факт, но по сути — бизнес-рутина
+- [en] не_новость: [pool] Sky Sports — Carrick: 'Not impossible' Man Utd can achieve Ferguson success again — мнение тренера, не является событием
+- [en] курьёз: [pool] WFPL — Southern Indiana is ‘So IN To Shakespeare’ this November — театральная заметка об интересе к Шекспиру, не событие
+- [en] чужое_мелкое: [pool] WFPL — Floyd County candidate ‘exploring legal options’ after incomplete ballot issue — локальный избирательный спор в округе штата
+- [en] не_новость: [pool] WFPL — These maps show how Kentucky Democrats flipped a deep red congressional district — аналитический разбор прошедших выборов
+- [en] не_новость: [world] Fortune — OpenAI wants to win over data-center opponents by calling them ‘compute campuses — ребрендинг названий зданий — пиар-ход компании, а не событие
+- [en] не_новость: [world] Engadget — The EU accuses TikTok's 'rabbit hole' algorithm of breaching its content rules — обвинения регулятора без принятого решения о санкциях
+- [en] курьёз: [world] Fortune — Nearly two-thirds of 2021’s top 100 altcoins have lost more than 90%, CoinMarket — статистический обзор рынка криптовалют
+- [en] не_новость: [world] Engadget — DOJ just launched something called the Super Intelligence Task Force — создание рабочей группы (канцелярия)
+- [en] не_новость: [world] Fortune — Prediction markets had a great election night: Now bettors are turning to which  — прогнозы букмекеров
+- [en] не_новость: [world] Wired — AI Companies Really, Really Want to Buy Your Work Files and Emails — рассуждения о рыночных тенденциях и почтовых рассылках
+- [en] не_новость: [world] TechCrunch — Ramp data shows AI spending stalling just as Anthropic nears its IPO — отчет об изменении расходов на ИИ
+- [en] курьёз: [world] BBC Sport — Two-year ban for 'Clicky Ponting' cricketer — скандал в любительском спорте — не мировая новость
