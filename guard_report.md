@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] курьёз: [local] Knews.kg — Большое тихоокеанское мусорное пятно, возможно, меняет цвет океана — научная заметка без последствий для читателя, место в «Интересном»
-- [ru] чужое_мелкое: [local] Sputnik KG (кыргызча) — Маск: Украинага миңдеген Starlink терминалдарынын бекер берилиши ката болгон — мнение Илона Маска о Starlink в Украине не является событием для KG
-- [ru] чужое_мелкое: [local] Вечерний Бишкек — Кубок Азии-2027 перенесли почти на год — изменение дат спортивного турнира в Саудовской Аравии не новость для KG
-- [ru] курьёз: [local] Вечерний Бишкек — Ученые РАН нашли на Марсе признаки вулканизма — научная заметка о Марсе, не новость
-- [ru] чужое_мелкое: [pool] Kun.uz — Президент принял участие во встрече лидеров Центральной Азии в рамках Акабского  — рутинная встреча лидеров ЦА без конкретных итогов для читателя
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — На «бавлинском треугольнике» Башкирии, Татарстана и Оренбурга грузовик разлил ци — локальное ДТП в Татарстане
-- [ru] чужое_мелкое: [pool] Gazeta.uz — ГУВД Ташобласти задержало жителя Алмалыка по подозрению в крупном мошенничестве — задержание мошенника в Ташкентской области
-- [ru] чужое_мелкое: [pool] 35.ru — Вологда — С виновника ДТП взыскали более 215 тысяч рублей — мелкое судебное взыскание в РФ
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — В Татарстане в страшной аварии с фурой насмерть разбились водитель легковушки, д — локальное ДТП в Татарстане
-- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — Один человек погиб, четверо в больнице: автобус сбил людей на трассе под Мурманс — локальное ДТП в Мурманске
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Тульской области будут судить слесаршу после отравления матери и ребенка угарн — местный суд в Тульской области
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — В Ярославле завершили строительство поликлиники на Гоголя — завершение строительства поликлиники в Ярославле
-- [ru] чужое_мелкое: [pool] Kun.uz — Здание МИПТ в Ташкенте продали на аукционе за 287 млрд сумов — аукцион по зданию в Ташкенте
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Омск получил титул «Новогодняя столица России» — внутренняя новость РФ: титул Омска
-- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — «Корона» устранила нарушения по выбросам после иска прокуратуры — местная проверка прокуратуры в Новгороде
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Рязани задержали женщину, расплатившуюся чужой банковской картой — задержание вора в Рязани
-- [ru] чужое_мелкое: [pool] 43.ru — Киров — Следователи добились погашения долга по зарплате в Опаринском округе — погашение долга в Кирове
-- [ru] чужое_мелкое: [pool] 43.ru — Киров — В Унинском районе осудили нарушителя за пьяную езду — приговор за пьяную езду в Кирове
-- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — Первая модельная библиотека открылась в Ржаксинском округе — открытие библиотеки в Тамбовской области
-- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Ozon Банк сообщил о восстановлении работы сервисов — технический сбой банка в РФ
-- [ru] не_новость: [pool] 62.ru — Рязань — «Спасибо за неравнодушие»: пациентка рязанского кардиодиспансера поблагодарила м — благодарность врачам — этикет
-- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — У жителя Кирсановского округа изъяли более 1,2 кг марихуаны — изъятие наркотиков в Тамбовской области
-- [ru] не_новость: [pool] 62.ru — Рязань — За неделю детский травмпункт Рязани принял 325 пациентов — статистика обращений в травмпункт — не событие
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — «Перекрыл дыхательные пути»: в Оренбурге задержан мужчина, подозреваемый в убийс — уголовное дело в Оренбурге
-- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — В Нижневартовске задержан главный врач ОКБ и бывший председатель гордумы Алексей — задержание главврача в Нижневартовске
+- [en] срочность: [local] mlive.com — Lightning strikes triggered these big Michigan wildfires in October — why they’r — Лесные пожары уже под контролем, событие не требует немедленного уведомления.
+- [en] не_новость: [local] reviewjournal — Hope for Prisoners suspends most programming at Nevada prisons — Приостановка программы — это управленческое решение, а не чрезвычайное событие.
+- [en] курьёз: [local] El Universo EC — Heartland actor Ross Lynch reveals he is secretly married — Слухи или факты о личной жизни актеров — это развлекательный контент.
+- [en] не_новость: [local] CBS News — Trump touts imminent decision on potential new attack on Iran — Слова Трампа о возможном решении не являются фактом свершившегося действия.
+- [en] срочность: [local] 1011NOW — P Street closure in downtown Lincoln rescheduled for Monday, Nov. 9 — Плановое перекрытие дороги на будущую дату не является срочной новостью.
+- [en] не_новость: [local] CBS News — Musk says Tesla will end Cybertruck production next year — Tesla сворачивает производство Cybertruck — это плановое решение бизнеса.
+- [en] срочность: [local] KCRG — Iowa police warn drivers after deer crash reports spike — Предупреждение о росте ДТП с оленями — это не экстренное событие.
+- [en] курьёз: [local] WECT — 7-foot alligator safely relocated after blocking coastal roadway — Перемещение аллигатора — локальный курьез, не требующий внимания всей страны.
+- [en] не_новость: [local] KFYR-TV — Night Ranger, Sam Hunt join 2027 North Dakota State Fair lineup — Анонс артистов на фестиваль 2027 года — это не новость.
+- [en] не_новость: [pool] The Independent — LAPD chopper and Navy helicopter nearly collide: ‘You guys gotta pay attention’ — Сообщение об инциденте, который 'почти' случился — это не свершившееся событие.
+- [en] не_новость: [pool] UPI — Britain's Andy Burnham tells employers they must include pay in job ads — Призыв премьера к работодателям — это слова, а не закон или факт изменения правил.
+- [en] не_новость: [pool] Engadget — Google's Find Hub can finally notify you if you've left a tracker behind — Функция в приложении — это обновление продукта, а не новостное событие.
+- [en] не_новость: [pool] BBC Sport — Palmer misses too many chances to impress - Tuchel — Мнение тренера о игроке — это субъективная оценка.
+- [en] не_новость: [pool] BBC World — Trump signs order to preserve Oval Office as national monument — Придание статуса памятника офису президента — формальность.
+- [en] курьёз: [world] ScienceAlert — Drug Restores Liver Function in Aging Rats And Halves Levels of an Alzheimer's-L — Научное исследование на крысах — это интересная наука, а не мировая новость.
+- [en] не_новость: [world] Ars Technica — Rocket Report: Artemis II literally tore through the atmosphere; New Glenn delay — Дайджест новостей о ракетах — это обзор, а не событие.
+- [en] не_новость: [world] WBAL — Portugal coach says he had not anticipated Cristiano Ronaldo’s retirement despit — Мнение тренера о том, что он 'не ожидал' ухода игрока — не новость.
+- [en] повтор: [world] BBC News — Firms should publish salaries in job adverts ahead of new law, says PM ≈ «Britain's Andy Burnham tells employers t» — Тот же сюжет, что в карточке 51.
+- [en] курьёз: [world] TechCrunch — Underdog shows off a 32MB speech model in new demo — Демонстрация нейросети — это техно-обзор, а не новость.
+- [en] не_новость: [world] TechCrunch — Physicl raises $10M to make the digital world real enough for robots — Привлечение инвестиций стартапом — это бизнес-сообщение.
+- [en] повтор: [world] Engadget — Tesla is 'winding down' Cybertruck production at its Texas Gigafactory ≈ «Musk says Tesla will end Cybertruck prod» — Тот же сюжет, что в карточке 28.
+- [en] не_новость: [world] Rolling Stone — Jennie Celebrates Sisterhood on Anthemic Pop Single ‘Someone to Hold’ — Выход музыкального сингла — не является новостью по белому списку.
+- [en] не_новость: [world] TechCrunch — At least 10 local governments have moved to drop Flock’s surveillance cameras si — Отказ властей от использования камер — это процесс, нет конкретного события.
+- [en] не_новость: [world] BBC News — 'Misleading' student loans information left out examples of higher-salary repaym — Выводы комитета о прошлых ошибках — это обсуждение и разбор.
+- [en] не_новость: [world] BBC World — White House denies Hegseth and Rubio to leave jobs after Republican election los — Опровержение слухов не является событием.
