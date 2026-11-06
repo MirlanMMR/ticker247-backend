@@ -1,27 +1,35 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] полка: [local] Вечерний Бишкек — Кубок Азии-2027 перенесли почти на год — Событие мирового уровня (Кубок Азии), не должно быть в местных.
-- [ru] курьёз: [local] Вечерний Бишкек — Ученые РАН нашли на Марсе признаки вулканизма — Научная заметка о Марсе не является новостью для КР, это интересное.
-- [ru] чужое_мелкое: [pool] Sports.ru — «Локо» в Первой лиге: вратарю порвали горло шипами, новичка из США лечили водкой — Спортивная ретроспектива российского издания о таджикском клубе не имеет ценности.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Захаровском округе вернули деньги пенсионерке, обманутой телефонными мошенника — Локальная криминальная сводка из РФ (Рязань).
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — В Татарстане грузовик с мазутом слетел в кювет: на землю вылилось 3 тонны нефтеп — Локальное ДТП в Татарстане.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — Курьер забрал сбережения: туляк поверил в необходимость задекларировать деньги и — Локальный случай мошенничества в Туле.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Жителей Рязани и Рязанского округа предупредили о возможных громких звуках — Локальное предупреждение жителей Рязани.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Что натворил снегопад в Самаре: информация от мэрии — Последствия снегопада в Самаре.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Огонь покалечил женщину и убил мужчину: подробности смертельного пожара в Самарс — Локальный пожар в Самарской области.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — На автобусные перевозки в Тульской области потратят больше 500 миллионов рублей — Локальная закупка автобусных перевозок в Туле.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — 6 ноября в Самаре отключат холодную воду — список домов — Локальное отключение воды в Самаре.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — «Перекрыл дыхательные пути»: в Оренбурге задержан мужчина, подозреваемый в убийс — Локальное убийство в Оренбурге.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Ухоловском округе осудили мужчину за ножевое ранение знакомого — Локальный суд в Рязанской области.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Касимовском округе столкнулись две легковушки — пострадали два человека — Локальное ДТП в Рязанской области.
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Девочка-подросток пострадала в ДТП на проспекте в Ярославле — Локальное ДТП в Ярославле.
-- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — В Мурманской области пропал пенсионер: он ушел гулять и не вернулся — Локальная пропажа человека в Мурманске.
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — В Тюменской области неработающим пенсионерам доплачивают. Почему и сколько? — Разъяснение пенсионных выплат для жителей Тюменской области.
-- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — В Нижневартовске задержан главный врач ОКБ и бывший председатель гордумы Алексей — Задержание чиновника в Нижневартовске.
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Поселки и сады в пригороде Челябинска остались без электричества из-за непогоды — Локальное отключение электричества в Челябинской области.
-- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — Учеба на глубине 60 метров: в Заполярье открыли необычный полигон для студентов — Открытие полигона в Заполярье (локальное событие).
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Супруги погибли в пожаре в девятиэтажке в Ярославской области — Локальный пожар в Ярославской области.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Рязанские полицейские задержали 20-летнего курьера мошенников из Иванова — Задержание курьера мошенников в Рязани.
-- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — В Мурманске 6 ноября отключат воду, газ и отопление — проверьте свой адрес — Локальные отключения в Мурманске.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Рязанской области загорелся жилой дом — Локальные пожары в Рязанской области.
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — В Челябинске шквалистым ветром сорвало навес на стройке метротрама — разбит прое — Локальный инцидент на стройке в Челябинске.
+- [pt] полка: [local] CNN Brasil — Bolsas da Europa operam em queda após liquidação de tech e antes de payroll — Новость о падении европейских бирж — мировая, а не местная.
+- [pt] курьёз: [pool] G1 Rio Grande do Sul — Irmã de Cristiano Ronaldo que mora no RS viaja a Portugal para visitá-lo após ap — Событие вокруг частной жизни сестры Криштиану Роналду не является новостью для читателя.
+- [pt] не_новость: [world] Variety — Bear Grylls comenta veredito de Russell Brand após tê-lo batizado: ‘A justiça fo — Мнение знаменитости (Bear Grylls) о вердикте суда — это комментарий, а не событие.
+- [pt] анонс: [world] Observador PT — Mais dois navios em chamas no Estreito de Ormuz — Текст содержит только технический код рекламного слота, полезной информации нет.
+- [pt] курьёз: [world] Engadget — ‘Teammates’ da Perplexity são agentes de IA da empresa para tarefas diárias de t — Запуск новой функции ИИ-агентов у сервиса — технологическая новинка, а не событие.
+- [pt] не_новость: [world] Engadget — The New York Times Company estaria tentando comprar o Letterboxd por US$ 330 mil — Слухи о возможной покупке компании не являются свершившимся событием.
+- [pt] не_новость: [world] Rolling Stone — Jennie celebra a irmandade no single pop ‘Someone to Hold’ — Релиз сингла — плановое культурное событие, не является новостью в ленте.
+- [pt] не_новость: [world] Engadget — Airbnb ameaça lançar um agente de viagens com IA no próximo ano — Разработка функции, которая выйдет в следующем году — это анонс планов, а не событие.
+- [pt] не_новость: [world] Rolling Stone — Slayyyter busca o amor no videoclipe de ‘Hey Boyyy’ — Релиз музыкального клипа — культурное событие без общественной значимости.
+- [pt] не_новость: [world] TechCrunch — Palo Alto Networks negocia a compra da startup de segurança de agentes de IA Clu — Переговоры о покупке — это процесс, а не завершенная сделка.
+- [pt] не_новость: [world] The Guardian — Experiência: Eu ajudei a prender o professor que abusou de mim — Личная история (очерк/интервью) — не является новостью по белому списку.
+- [pt] не_новость: [world] Ars Technica — Blue Origin afirma estar construindo um motor de foguete de alto desempenho com  — Заявление компании о планах по снижению стоимости производства — не событие.
+- [pt] курьёз: [world] Ars Technica — NASA revela a misteriosa aeronave experimental X-70 usando imagem gerada por IA — Представление концепта или экспериментальной модели — технологическая заметка.
+- [fr] чужое_мелкое: [local] BFMTV — "Ne jamais compromettre mes valeurs pour ma carrière": la sortie très forte de G — Внутренняя политическая ситуация в США (Gabby Williams), нет мирового масштаба.
+- [fr] курьёз: [local] France Bleu — Santé : un Français sur deux utilise l’IA, 38 % des soignants ont déjà vu leur d — Статистический опрос об использовании ИИ, нет события.
+- [fr] не_новость: [local] France Bleu — Vesoul : les boulangers préparent les traditionnels petits cochons en pain d'épi — Традиционное ежегодное изготовление пряников — это не новость.
+- [fr] курьёз: [local] Sud Ouest — Climat : l’année 2026 en passe de devenir la deuxième la plus chaude jamais enre — Ежегодный отчет о климате, нет конкретного события.
+- [fr] не_новость: [local] Le Figaro — À partir du 1er janvier 2027, sortir d’une indivision bloquée sera facilité — Информация об изменении законодательства с 2027 года, не является текущим событием.
+- [fr] не_новость: [local] L'Obs — Mélenchon veut faciliter le changement de genre à l’état civil : que changerait  — Обсуждение предвыборной программы кандидата, а не принятое решение.
+- [fr] не_новость: [local] L'Express — "Des attaques réussies contre des installations énergétiques sont très probables — Мнение специалиста по безопасности («очень вероятно»), нет события.
+- [fr] не_новость: [pool] Courrier International — France : un président ne devrait pas textoter ça — Обзор-аналитика поведения президента, нет события.
+- [fr] курьёз: [pool] Le Temps — La forêt est déboussolée: les cycles biologiques des arbres ont été bouleversés  — Биологические изменения в лесах из-за погоды, нет конкретного события.
+- [fr] не_новость: [pool] Courrier International — David Lisnard : “Javier Milei français” ou “bulle des réseaux sociaux” ? — Аналитическая статья о восприятии политика в СМИ, нет события.
+- [fr] не_новость: [pool] Radio-Canada — Un peu plus d’humain derrière les colonnes de chiffres — Аналитическая статья, нет события.
+- [fr] не_новость: [pool] Radio-Canada — Budget 2026 : le milieu culturel entre « incertitude totale » et « bouffée d’air — Анализ бюджета, нет события.
+- [fr] полка: [world] Courrier International — Léon XIV en Argentine, un moment “historique” et “gênant” pour le gouvernement M — Визит Папы Римского в Уругвай и Аргентину не является мировой новостью такого масштаба, чтобы быть в «Мировых» для Франц
+- [fr] полка: [world] Semafor — Une série de cyberattaques ébranle la France — Французское событие (кража в банке) лежит в «Мировых», должно быть в «Местных».
+- [fr] не_новость: [world] Franceinfo — "Pour moi, c'est le jeu de la décennie" : après treize ans d'attente, le phénomè — Анонс выхода игры, не является событием по белому списку.
+- [fr] чужое_мелкое: [world] Bénin Web TV — Malaisie : le procureur général demande de suspendre l’assignation à résidence d — Внутренняя юридическая процедура в Малайзии, не имеет мирового значения.
+- [fr] курьёз: [world] Courrier International — La Thaïlande espère sauver les dugongs, les “vaches marines”, en prélevant leurs — Исследование ученых, нет события.
+- [fr] не_новость: [world] Courrier International — Les adieux doux-amers du Portugal à Cristiano Ronaldo : “Le mythe tire sa révére — Завершение карьеры игрока (Cristiano Ronaldo) — событие, но подано как очерк-прощание, нет конкретного факта.
+- [fr] метка_места: [world] Futura-Sciences — Les scientifiques n'en avaient jamais vu ici : neuf grands requins blancs repéré — Текст говорит о съемках между Сицилией и Тунисом, заголовок ошибочно указывает Мексику.
+- [fr] курьёз: [world] Le Devoir — D’Hécube à la Femme Courage — Рассказ о театральной премьере, нет новостного события.
