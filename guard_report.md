@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Economista MX — Cobertura de vacunación contra el sarampión sigue por debajo de niveles recomend — Это международная статистика OPS, не является новостью для читателя в MX.
-- [es] не_новость: [local] El Universal MX — John McEnroe desea que Carlos Alcaraz, Jannik Sinner y Ben Shelton sean el nuevo — Это мнение теннисиста, а не событие.
-- [es] курьёз: [local] El Financiero — ‘Checo’ da su postura sobre rumores de venta de Cadillac: ‘Sé quién está detrás  — Мнение спортсмена о слухах, события нет.
-- [es] курьёз: [local] La Jornada — Desarrollan collares GPS que animales terrestres se autocolocan en libertad — Научная заметка об экспериментах в Норвегии.
-- [es] не_новость: [local] La Jornada — “Relación con EU no impide intercambio comercial con China” — Очевидное заявление без нового факта.
-- [es] курьёз: [pool] El Tiempo CO — Video | Conozca a Samai, el perro de Medellín capaz de desenterrar los secretos  — Рассказ о собаке-ищейке, не событие.
-- [es] чужое_мелкое: [pool] Infobae — Se complica la situación de Horacio Melgarejo: Liga 1 le abrió expediente discip — Локальное дисциплинарное дело футбольного тренера в Перу.
-- [es] не_новость: [pool] La Nación AR — La AFA presentó la copa para el campeón de la tabla anual y Tapia defendió el tí — Мнение/критика о событиях 2025 года.
-- [es] не_новость: [pool] La Nación AR — Larreta sugirió que Milei trae mala suerte y compartió una foto junto a Jorge Ma — Шутка политика, не событие.
-- [es] не_новость: [pool] La Nación AR — La chicana de Claudio “Chiqui” Tapia, el trofeo de más de 11 kilos, la sonrisa d — Обзор атмосферы перед матчем, без ключевого факта.
-- [es] не_новость: [pool] La Nación AR — Las empresas estadounidenses alertaron que la derrota de Trump puede condicionar — Мнение бизнес-ассоциации AmCham, не событие.
-- [es] не_новость: [pool] La Nación CR — Empresario que se presenta como asesor de EBI, compañía que pretende construir e — Журналистское расследование, события нет.
-- [es] курьёз: [pool] RPP PE — Paola Dalay confirma que está saliendo con el futbolista César Romo tras separar — Светская хроника, не событие.
-- [es] анонс: [pool] Marca — ¡Fichaje inminente! — Заголовок обещает трансфер, текста нет.
-- [es] чужое_мелкое: [pool] RPP PE — Tras anotarle a Universitario: Christian Cueva reveló si se queda o no para el c — Локальное спортивное интервью в Перу.
-- [es] курьёз: [pool] El Informador — Cocodrilo ataca a hombre que lo molestó en río de Vallarta (VIDEO) — Инцидент с крокодилом — не новость.
-- [es] не_новость: [pool] El Informador — Inicia el Festival del Caballo y Tequila en Zapopan; conoce los detalles — Анонс фестиваля.
-- [es] не_новость: [pool] El Mundo — Cristian Corvillo, la caída del conductor de Sánchez en su gira de reconquista d — Биография сотрудника, события нет.
-- [es] не_новость: [world] Xataka — La Junta Electoral autoriza el uso de MiDNI para identificarse al votar en las e — Техническое разъяснение правил для граждан Испании.
-- [es] не_новость: [world] Variety — Los ingresos trimestrales de Lionsgate aumentan un 41% gracias a 'Michael' y a l — Финансовый отчет компании, не событие мирового масштаба.
-- [es] не_новость: [world] Wired — La publicidad llega a los chatbots: qué funciona y qué no — Аналитическая статья о рекламе в чат-ботах.
-- [es] курьёз: [world] Xataka — Sony revive los auriculares del Walkman de 1979 con los nuevos MDR-3R y se suma  — Технологический ретро-факт.
-- [es] не_новость: [world] TechCrunch — Meta anuncia que los usuarios en EE. UU. ya pueden realizar videollamadas con su — Релиз функции продукта, обычный бизнес-процесс.
-- [es] не_новость: [world] BBC Mundo — El vicepresidente JD Vance, en la cuerda floja con Trump tras su feroz crítica p — Политическая перепалка, события нет.
-- [es] не_новость: [world] RFI — Fútbol: la superestrella portuguesa Cristiano Ronaldo anuncia su retiro internac — Завершение карьеры (пенсия), не событие.
+- [ru] повтор: [local] 24.kg — Энергетики запретят продавать детям. За нарушение грозит штраф до 55 тысяч сомов ≈ «Кыргызстанда 18 жашка чыга электерге эне» — Один и тот же сюжет про запрет энергетиков.
+- [ru] полка: [local] Вечерний Бишкек — Владимир Путин наградил кыргызстанку Зухру Шидакову орденом Дружбы — Событие происходит в РФ, для KG это мировая новость, не местная.
+- [ru] чужое_мелкое: [pool] chita.ru — Чита — Лихач без прав устроил гонки в центре Читы, погоня за ним попала на видео — Локальная криминальная сводка из РФ без влияния на читателя.
+- [ru] чужое_мелкое: [pool] Азаттык — Бишкек направил ноту Москве в попытке вернуть кыргызстанца из российской воинско — Внутренняя ситуация РФ, не требующая пуша в мировые.
+- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — «Сделали пересадку кожи»: родные рассказали о состоянии выжившего тюменца в пожа — Локальная новость региона РФ (Тюмень).
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Важная клиника в Екатеринбурге оказалась на грани закрытия из-за долгов по аренд — Локальная проблема одной клиники в Екатеринбурге.
+- [ru] чужое_мелкое: [pool] Вечерний Бишкек — Петербург продлит запрет на работу мигрантов с патентами в ряде отраслей — Локальное решение властей Санкт-Петербурга.
+- [ru] чужое_мелкое: [pool] chita.ru — Чита — Заведующая — в колонию, главврач — на СВО. — Приговор местному чиновнику в Чите.
+- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Бизнес, элитная недвижка и машины. Как главному по капремонтам в Челябинской обл — Судебный процесс в Челябинске.
+- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — Директора филиала Всероссийского НИИ защиты животных задержали в Новосибирске — Задержание чиновника в Новосибирске.
+- [ru] чужое_мелкое: [pool] chita.ru — Чита — Компания одного из богатейших забайкальцев попала в черный список из-за срыва ре — Реестр недобросовестных поставщиков в Чите.
+- [ru] срочность: [pool] ufa1.ru — Уфа — «Перетащил тело — надел кофту обратно»: отец погибшего под Уфой 13-летнего мальч — Происшествие двухнедельной давности, плашка «важное» необоснованна.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Почему вдруг? Воспитанник опекунши-убийцы Наумовой покинет колонию общего режима — Локальное судебное дело в Верхотурье.
+- [ru] курьёз: [pool] Gazeta.uz — Роботы могут начать доставлять заказы из Yandex Lavka в Ташкенте до конца года — Планируемые тесты доставки роботами в Ташкенте — не новость.
+- [ru] не_новость: [pool] Gazeta.uz — МЧС, Минцифры и Центральный банк предлагают включить в число органов профилактик — Предложения по изменению законодательства, а не свершившийся факт.
+- [ru] чужое_мелкое: [pool] Kun.uz — В Самарканде из-за киберпреступлений люди понесли ущерб почти на 50 миллиардов с — Статистика преступлений в Самаркандской области.
+- [ru] не_новость: [pool] Avesta.tj — Рустами Эмомали посетил мавзолей Исмаила Самани в Бухаре — Дипломатический визит без значимых итогов.
+- [ru] повтор: [world] Sputnik KG (кыргызча) — Францияда көчөгө 600 миң адам чыгып, Макрондун рейтинги антирекордду жаңылады ≈ «Во Франции 600 тыс человек вышли на мити» — Дубликат сюжета о Франции на двух языках.
+- [ru] чужое_мелкое: [world] Sputnik KG — Новый состав конгресса США станет самым гейским* в истории — Внутриполитическая статистика США.
+- [ru] повтор: [world] Sputnik KG — Трамп заявил о подготовке масштабной сделки по Украине, которая "затронет всю Ев ≈ «Трамп Украина боюнча ири келишим даярдал» — Дубликат сюжета о Трампе на двух языках.
+- [ru] чужое_мелкое: [world] Engadget — Bose отзывает аккумуляторные блоки для колонок S1 Pro из-за риска возгорания и п — Отзыв товаров в США, не имеющий глобальных последствий.
+- [ru] чужое_мелкое: [world] Engadget — Google в скором времени закроет Firebase Studio, предлагая использовать новые ин — Решение Google закрыть внутренний инструмент разработки.
+- [ru] не_новость: [world] Guardian Sport — DP World Tour готов принять «мятежников», включая Дешамбо, после краха LIV Golf — Слухи/ожидания вокруг LIV Golf, нет свершившегося факта.
+- [ru] срочность: [world] Futura-Sciences — Binance: подробности кражи 6,3 млрд долларов напоминают сценарий шпионского филь — История о краже, произошедшей ранее, плашка «срочно» лишняя.
+- [ru] чужое_мелкое: [world] BBC Русская служба — Новое расследование НАБУ о колл-центрах, наркотиках и фальшивых евро: задержан г — Внутреннее расследование в Украине.
