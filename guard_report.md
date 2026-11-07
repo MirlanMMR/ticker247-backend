@@ -1,18 +1,14 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Financiero — ¿Está en riesgo la banca mexicana tras el colapso de Ueno Bank? — Кризис банка в Парагвае для мексиканского читателя — региональная новость, а не местная.
-- [es] не_новость: [local] El Informador — Bajan los jóvenes construyendo el futuro — Констатация факта снижения статистики без конкретного события или решения.
-- [es] не_новость: [local] Expansión MX — El negocio de vender autos deja solo 38 centavos — Аналитическая статья о маржинальности бизнеса, а не событие.
-- [es] полка: [pool] La Nación CR — En México revelan el tratamiento al que se someterá Keylor Navas y por el que no — Событие в Мексике должно быть в полке 'Местные', а не в соседском пуле.
-- [es] чужое_мелкое: [pool] Infobae — Víctimas de abusos piden medidas a León XIV en su visita a Suramérica — Акция протеста в Уругвае — не мировое событие для мексиканского читателя.
-- [es] чужое_мелкое: [pool] Semana CO — Así fue el funeral de Jesús de Miguel: capitán del CD Tenerife habló y rompió en — Похороны футболиста в Испании — региональная новость для Испании, не мировая.
-- [es] не_новость: [pool] La Nación AR — Tras la revisión, la editorial mexicana, la fundación española y el jurado de es — Разбор ситуации с писателем и его книгой, нет события.
-- [es] чужое_мелкое: [pool] Clarín AR — Colombia defiende que votó contra el fin del embargo de EEUU a Cuba por "coheren — Голосование Колумбии в ООН по частному вопросу — не мировая новость.
-- [es] не_новость: [pool] Marca — Dardo de Casadó: "Los rivales saben quién viene de lesión y dónde la tiene” — Интервью с игроком, цитата и разбор его формы.
-- [es] не_новость: [pool] Semana CO — Este es el árbitro que “habría sido retirado” de la Liga BetPlay: no volvería a  — Слухи/предположения о решении арбитра, нет свершившегося факта.
-- [es] не_новость: [pool] eldiario.es — A Koldo le ofrecieron un Aldama — Обзор телевизионного интервью, медиа-сплетни.
-- [es] курьёз: [world] Xataka — Hace 600 años, unos conquistadores europeos llegaron a Lanzarote y levantaron un — Исторический факт 600-летней давности не является новостью.
-- [es] курьёз: [world] Futura-Sciences — Para proteger la Tierra, la sonda Hera ha llegado a un asteroide impactado por l — Научно-популярный отчет о положении зонда без 'события'.
-- [es] чужое_мелкое: [world] Guardian Sport — Dončić deslumbra con 53 puntos en la victoria ante los Lakers — Результат игры в баскетбол в США не является мировой новостью.
-- [es] не_новость: [world] La Vanguardia — La OTAN crea un catálogo online de sistemas antidrones para neutralizar los ataq — Создание каталога — плановая бюрократическая деятельность.
-- [es] не_новость: [world] Ars Technica — Barcos merodean cerca de cables submarinos en medio de las advertencias de Irán  — Наблюдения за кораблями без инцидента или нарушения.
+- [pt] срочность: [local] Poder360 — Helicóptero cai em zona rural de MG e deixa 5 feridos — Крушение частного вертолета — трагическое происшествие, но не требует побудки всей страны.
+- [pt] не_новость: [local] G1 São Paulo — Entre 76 países, apenas 8 têm maioridade penal abaixo de 18 anos de idade — Аналитическая справка о мировой статистике, нет события.
+- [pt] не_новость: [pool] Terra BR — Atlético-MG prepara festa com luzes e mais de 500 bandeiras — Анонс спортивного мероприятия (подготовка болельщиков).
+- [pt] не_новость: [pool] Observador PT — Sporting-Moreirense. Paulo Fonseca não faz revolução — Предматчевый обзор (превью), события нет.
+- [pt] повтор: [world] Notícias ao Minuto — Manchester City sofre terceira derrota seguida e vê Arsenal mais longe ≈ «Gols de Delap pelo Nottingham Forest imp» — Тот же матч, что и в 64.
+- [pt] курьёз: [world] Fortune — Ações da Berkshire Hathaway voltam a ser um porto seguro — Биржевая аналитика, нет события для широкого читателя.
+- [pt] курьёз: [world] Fortune — Casas de entrada custam 1 milhão de dólares em um recorde de 242 cidades dos EUA — Статистический отчет о ценах на жилье в США, не является мировой новостью.
+- [pt] курьёз: [world] Superinteressante — Pessoas que falam mais palavrões tendem a ser mais honestas — Научно-популярная статья о психологии, место в «Интересном».
+- [pt] полка: [world] Guardian Sport — Dončić brilha com 53 pontos na vitória dos Lakers — Мировое событие (баскетбол), лежит в «Мировых», но содержит фактическую ошибку: Лука Дончич не играет за «Лейкерс».
+- [pt] полка: [world] AKIpress Эко — Alerta meteorológica: risco de avalanches no passo de Chon-Ashuu — Местная новость Кыргызстана в ленте пула Бразилии.
+- [pt] не_новость: [world] Semafor — Nvidia enfrenta uma Washington mais hostil — Аналитическая статья об отношениях компании и политиков, события нет.
+- [pt] чужое_мелкое: [world] Time — De repente, Ted Cruz é o último legislador republicano estadual no Texas — Внутренняя политика штата Техас, не является мировой новостью.
