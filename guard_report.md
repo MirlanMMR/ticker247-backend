@@ -1,26 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Universal MX — Tribunal de Disciplina investiga a juez que liberó a colaborador de Ryan Wedding — Внутренняя дисциплинарная проверка судьи в MX — это местная новость, а не мировая.
-- [es] курьёз: [pool] Infobae — Independiente vence a Riestra y avanza a los octavos del Torneo Clausura — Спортивный результат матча в рамках локального турнира — не мировая новость.
-- [es] полка: [pool] Infobae — Japón dona 2 millones de dólares para apoyar a los afectados por el terremoto en — Новость о помощи Японии Колумбии — мировая новость (международные отношения), а не региональная/местная PE/AR.
-- [es] не_новость: [pool] Semana CO — “Un milagro”: Johanna Fadul mostró el procedimiento médico con el que busca volv — Личная жизнь актрисы и её медицинские процедуры не являются общественно значимым событием.
-- [es] не_новость: [pool] Semana CO — El fútbol como identidad regional: la apuesta de Carlos ‘La Roca’ Sánchez con su — Аналитическая заметка/мнение о футболе как идентичности — не новость.
-- [es] чужое_мелкое: [pool] El Financiero — ¿Qué hizo Santiago Peña, expresidente de Paraguay, para quedar involucrado en el — Местный финансовый скандал в Парагвае не является значимым для читателя в MX.
-- [es] не_новость: [pool] El Nacional VE — Venezuela y el Banco Mundial evalúan mecanismos de financiamiento para proyectos — Обычная оценка механизмов финансирования министерствами без конкретного результата — рабочий процесс.
-- [es] чужое_мелкое: [pool] 14ymedio — La Seguridad del Estado impide a periodistas y activistas asistir a una velada d — Локальные репрессии в Кубе для мексиканского читателя — чужое мелкое.
-- [es] не_новость: [pool] El País — Pedro Sánchez llama a la movilización en su retorno a la precampaña: “Si se pudo — Риторика политика в рамках предвыборной кампании не является новостью-событием.
-- [es] не_новость: [pool] eldiario.es — Sánchez: "La ejemplaridad que ha ejercido Óscar Puente jamás la practican PP y V — Перепалка политиков — не новость.
-- [es] не_новость: [pool] La Vanguardia — Los maquinistas consideran que han avanzado más con Cuerpo en 24 horas que con P — Ход переговоров (встретились/оценили) — это процесс, а не событие.
-- [es] чужое_мелкое: [pool] 14ymedio — "Me van a deportar": las voces de los cubanos detenidos por estar en La Habana — Личные истории задержанных в Кубе — локальное происшествие.
-- [es] не_новость: [pool] eldiario.es — Okdiario amenaza con demandar a elDiario.es por la información sobre sus pagos a — Угроза подачи иска — это не событие (еще нет ни суда, ни дела).
-- [es] чужое_мелкое: [pool] Expansión MX — ¿Qué está pasando en Paraguay? La crisis por la renuncia del presidente que dejó — Повтор темы из карточки 30, не является мировой новостью.
-- [es] чужое_мелкое: [pool] eldiario.es — Alberto Pugilato, uno de los 14 detenidos en la operación contra Núcleo Nacional — Детали операции правоохранительных органов в Испании — локальная новость.
-- [es] не_новость: [pool] El Mundo — El juez Calama rechaza imputar a Zapatero por malversación porque la ley que obl — Отказ судьи в иске по политическим мотивам — это юридический процесс.
-- [es] не_новость: [pool] El Mundo — Arcadi España insinúa una posible subida de impuestos para financiar el transpor — Инсинуации политика о возможном росте налогов — не решение, а мнение.
-- [es] чужое_мелкое: [pool] eldiario.es — La Policía detiene a 14 miembros de Núcleo Nacional por asociación ilícita, tene — Подробности полицейской операции в Испании — локальная новость.
-- [es] чужое_мелкое: [pool] El País — La Fiscalía Europea investiga un presunto fraude en las obras de la alta velocid — Расследование прокуратуры по конкретному кейсу в Испании — локальная новость.
-- [es] чужое_мелкое: [pool] El País — Un grupo de parapentistas fuerza en los tribunales la demolición de un chalé con — Гражданский спор о сносе частного дома — локальная новость.
-- [es] чужое_мелкое: [world] The Independent — El profesorado de la Universidad de Cornell declara una moción de censura contra — Внутренняя административная процедура университета в США — не мировая новость.
-- [es] чужое_мелкое: [world] Fortune — Los demócratas ganan el control del regulador de Georgia Power por primera vez e — Местные выборы в регулятор штата Джорджия — локальная политика США.
-- [es] курьёз: [world] 14ymedio — Expulsado por EE UU, el cubano Richard Tur consigue un puesto en la ONU — Назначение конкретного человека на должность — локальная новость для Кубы, а не мировая.
-- [es] чужое_мелкое: [world] Азаттык — La cantidad de migrantes expulsados de Rusia aumentó en un 50% — Статистика депортаций в РФ — локальная новость.
+- [ru] не_новость: [local] 24.kg — Кадровые изменения в Кыргызстане: увольнения в НЭСК и новый мэр Кара-Балты — увольнение директора — обычный кадровый процесс, без скандала или последствий.
+- [ru] не_новость: [local] Sputnik KG (кыргызча) — Мамлекет оңой түптөлгөн жок. Мамкатчы Тарых, аталарды эскерүү күнү менен куттукт — этикет: поздравление с праздником, нет события.
+- [ru] не_новость: [local] Sputnik KG — Госсекретарь: мирный и свободный Кыргызстан — воплощенная мечта предков — этикет: пересказ праздничной речи, нет события.
+- [ru] не_новость: [local] 24.kg — Температурные рекорды: в каком году Бишкек пережил самое холодное 7 ноября — архивная справка, не событие.
+- [ru] полка: [local] Kaktus.media — Кыргызстанка заняла третье место на международном K-POP фестивале в Южной Корее  — событие в Южной Корее (KR), это не местная новость.
+- [ru] курьёз: [local] Knews.kg — Большое тихоокеанское мусорное пятно, возможно, меняет цвет океана — научно-популярный факт, не новость.
+- [ru] курьёз: [pool] v1.ru — Волгоград — От пуль до крайне опасных магнитов: знаменитый профессор показал, что достают хи — медицинский совет/очерк, не новость.
+- [ru] чужое_мелкое: [pool] Kun.uz — Правоохранители проверяют видео с пропагандой незаконных действий — локальное дознание в Узбекистане.
+- [ru] курьёз: [pool] Onliner.by — Пополнение в конюшне. Белорусский Borant показал новый гравел на будущий сезон — — анонс велосипеда, не событие.
+- [ru] не_новость: [pool] РИА Новости — Запад испугался "Красной машины" — снова — мнение/аналитика, нет события.
+- [ru] курьёз: [pool] 74.ru — Челябинск — «Он — клевый чел!»: 15-летний парень из Магнитогорска снимается в фильме с Безру — личная история, не событие.
+- [ru] чужое_мелкое: [pool] iXBT — Сбой, не позволяющий оплачивать покупки и входить в приложение, устранён. — технический сбой в РФ, нет последствий для KG.
+- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — 78-летний омич отдал мошенникам больше шести миллионов — как его обманули — криминал в РФ (мошенничество), нет связи с KG.
+- [ru] курьёз: [pool] e1.ru — Екатеринбург — На денежном месте в центре Екатеринбурга открылся новый бар с кальянами — открытие бара, не новость.
+- [ru] чужое_мелкое: [pool] Азаттык — Озодлик: в Военном суде Узбекистана проходит процесс по делу ряда высокопоставле — внутренний суд Узбекистана.
+- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Экс-кандидата в мэры Омска признали иноагентом — что он сделал — статус иноагента в РФ, не событие для нас.
+- [ru] курьёз: [pool] ngs.ru — Новосибирск — Сибирячка стала финалисткой шоу «Поле чудес» — она позвала Якубовича на рыбалку — участие в телешоу, не новость.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — В екатеринбурженку воткнули шприц, когда она выходила из троллейбуса. — криминал в Екатеринбурге, нет связи с KG.
+- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — «Салават» выиграл два подряд матча впервые с сентября: обзор победы над «Авто» — результат матча КХЛ в РФ.
+- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Бензин снова подешевел. Цены на пяти популярных АЗС Красноярска — динамика цен на бензин в Красноярске.
+- [ru] курьёз: [pool] ngs.ru — Новосибирск — «Думала уже уезжать отсюда». В отдаленный микрорайон запустили троллейбус-«гармо — обзор транспорта, не событие.
+- [ru] не_новость: [pool] ngs55.ru — Омск — «Оборотень в погонах» из «Невского»: как актер Омского драмтеатра покорил Санкт- — творческий очерк об актере.
+- [ru] курьёз: [pool] 178.ru — Санкт-Петербург — Хаарчаана из Ленинградского зоопарка получила четыре игрушки — животные в зоопарке, не новость.
+- [ru] чужое_мелкое: [world] Guardian Sport — Центровой «Голден Стэйт Уорриорз» Кристапс Порзиньгис приостанавливает карьеру и — спортсмен из США, рядовая новость.
+- [ru] не_новость: [world] Ars Technica — Игры серий Wing Commander и Ultima переизданы в Steam и GOG — анонс выхода старых игр.
