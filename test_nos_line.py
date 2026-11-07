@@ -120,4 +120,27 @@ check("строка на русском у английской карточки
 check("английская строка у английской карточки принимается",
       N.clean("Pedestrian killed after being struck by a vehicle in Brown Deer.", "Report: Pedestrian killed after being struck by vehicle in Brown Deer", "", "en") is not None)
 
+# ── J74: исполнитель действия обязан остаться в строке (владелец 07.11, Йемен) ──
+TY = "Саудовские бомбардировки в Йемене привели к гибели не менее 22 человек"
+item = {"title": TY, "language": "ru"}
+check("J74: пример владельца — строка без «кто бомбил» отклонена", ED.clean_line("Не менее 22 человек погибли при бомбардировках в Йемене.", item) is None)
+check("J74: версия владельца принята", ED.clean_line("Не менее 22 человек погибли в Йемене от бомбардировок Саудовской Аравии.", item) is not None)
+check("J74: «Саудовские бомбардировки …» (исполнитель на месте) принята", ED.clean_line("Саудовские бомбардировки в Йемене убили не менее 22 человек.", item) is not None)
+check("J74: исполнитель найден", N.actors_of(TY, "ru") == ["Саудовские"])
+check("J74: «по Украине», «в Йемене» — не исполнитель", N.actors_of("Удары по Украине и бомбардировки в Йемене продолжаются", "ru") == [])
+check("J74: «удар России» — исполнитель после действия", N.actors_of("Удар России по Харькову: 5 погибших", "ru") == ["России"])
+check("J74: «американские» = «США» (сокращение — законная замена)",
+      N.keeps_actor("США нанесли удары по хуситам: 8 погибших.", "Американские удары по хуситам привели к гибели 8 человек", "ru"))
+check("J74: заголовок без исполнителя — проверять нечего", N.keeps_actor("Погибли 8 человек.", "Удары по хуситам привели к гибели 8 человек", "ru"))
+for lang, title, bad, good in [
+    ("en", "Saudi airstrikes in Yemen kill at least 22 people", "At least 22 people died in airstrikes in Yemen.", "Saudi airstrikes in Yemen killed at least 22 people."),
+    ("en", "Strike by US kills five in Iran, officials say", "Five killed in a strike in Iran.", "Five killed in US strike in Iran."),
+    ("es", "Ataque de Israel en Gaza deja cinco muertos", "Cinco muertos en un ataque en Gaza.", "Cinco muertos en Gaza por un ataque de Israel."),
+    ("es", "Bombardeos saudíes en Yemen dejan 22 muertos", "22 muertos en bombardeos en Yemen.", "22 muertos en bombardeos saudíes en Yemen."),
+    ("pt", "Bombardeio de Israel em Gaza deixa cinco mortos", "Cinco mortos em bombardeio em Gaza.", "Cinco mortos em Gaza por bombardeio de Israel."),
+    ("fr", "Frappes d'Israël sur Gaza: cinq morts", "Cinq morts dans des frappes sur Gaza.", "Cinq morts à Gaza dans des frappes d'Israël."),
+]:
+    check(f"J74 [{lang}]: без исполнителя — отклонена", not N.keeps_actor(bad, title, lang))
+    check(f"J74 [{lang}]: с исполнителем — принята", N.keeps_actor(good, title, lang))
+
 print(f"\nпройдено {ok}, провалено {fail}"); sys.exit(1 if fail else 0)

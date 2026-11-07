@@ -241,6 +241,103 @@ def keeps_title_essence(line: str, title: str) -> bool:
     return len(t & _stems(line)) / len(t) >= MIN_COVER
 
 
+# ── действующее лицо (J74, владелец 07.11: «Саудовские бомбардировки в Йемене привели к гибели не менее 22 человек» → строка
+# «Не менее 22 человек погибли при бомбардировках в Йемене.» — на вопрос «кто бомбил» ответа нет). Замок «≥ 40% ключевых слов»
+# такое пропускает: слов осталось много, а то, что делает новость новостью, — нет. Исполнитель силового действия обязан остаться.
+# Исполнитель = слово ПРЯМО перед существительным действия, если это народ/страна/организация («саудовские бомбардировки»),
+# или слово с заглавной ПРЯМО после него без предлога («бомбардировки Саудовской Аравией», «удар России», «атака ВСУ»).
+# «по Украине», «в Йемене» — не исполнитель (перед ним предлог).
+FORCE = {
+    "ru": r"бомбардировк\w*|бомбежк\w*|бомбёжк\w*|удар(?:ы|ов|ам|ами|ах)?|ударн\w*|атак\w*|обстрел\w*|налёт\w*|налет\w*|"
+          r"вторжени\w*|блокад\w*|санкци\w*|арест\w*|нападени\w*|вмешательств\w*",
+    "en": r"airstrikes?|strikes?|bombings?|bombardments?|attacks?|shelling|raids?|invasions?|blockades?|"
+          r"sanctions?|arrests?|offensives?|assaults?",
+    "es": r"bombardeos?|ataques?|ofensivas?|invasi[oó]n(?:es)?|sanciones|bloqueos?|redadas?|arrestos?|detenciones",
+    "pt": r"bombardeios?|ataques?|ofensivas?|invas[aã]o|invas[oõ]es|san[cç][oõ]es|bloqueios?|pris[aã]o|pris[oõ]es",
+    "fr": r"bombardements?|frappes?|attaques?|offensives?|invasions?|sanctions|blocus|arrestations?|raids?",
+}
+# народы, страны и организации — основы: слово перед существительным действия, совпавшее с основой, считается исполнителем
+ACTOR_ADJ = {
+    "ru": "сауд росси украин израил иран америк китай турец сирий афган пакист индий северокоре южнокоре британ француз немец "
+          "польск ливан йемен хуси ирак катар египет эфиоп судан нато европ палестин хамас хезбол талиб".split(),
+    "en": "saudi russian ukrainian israeli iranian american chinese turkish syrian afghan pakistani indian british "
+          "french german polish lebanese yemeni iraqi qatari egyptian ethiopian sudanese nato european palestinian houthi us".split(),
+    "es": "saudí saudita ruso rusa ucraniano ucraniana israelí iraní estadounidense chino china turco turca sirio "
+          "siria afgano pakistaní indio india británico francés alemán polaco libanés yemení iraquí".split(),
+    "pt": "saudita russo russa ucraniano ucraniana israelense iraniano iraniana americano americana chinês chinesa turco turca "
+          "sírio síria afegão paquistanês indiano indiana britânico francês alemão polonês libanês iemenita iraquiano".split(),
+    "fr": "saoudien saoudienne russe ukrainien ukrainienne israélien israélienne iranien iranienne américain américaine chinois "
+          "chinoise turc turque syrien syrienne afghan pakistanais indien britannique français allemand polonais libanais yéménite".split(),
+}
+# форма названия или аббревиатура, которой строка вправе заменить слово: «американские» = «США», «саудовские» = «Саудовской Аравии»
+ACTOR_ALIAS = {
+    "ru": {"америк": {"сша", "америк", "американ"}, "росси": {"рф", "росси", "российс"},
+           "европ": {"ес", "европ", "евросоюз"}, "сауд": {"сауд", "аравии", "аравия", "аравией", "аравию"}},
+    "en": {"american": {"us", "u.s.", "america", "american"}, "russian": {"russia", "russian"},
+           "saudi": {"saudi", "arabia"}, "european": {"eu", "european", "europe"}, "us": {"us", "u.s.", "america", "american"}},
+}
+
+
+# предлог между действием и исполнителем: «ataque DE Israel», «strike BY US» (по-русски исполнитель идёт без предлога)
+BY_PREP = {"en": ("by",), "es": ("de", "del"), "pt": ("de", "do", "da", "dos", "das"), "fr": ("de", "du", "des", "d")}
+
+
+def _tok(w: str) -> str:
+    return re.sub(r"[^\w.\-]", "", w.lower().replace("ё", "е"), flags=re.U).strip(".-")
+
+
+def _actor_forms(word: str, lang: str) -> set:
+    """Допустимые «следы» исполнителя в строке: основа слова (4–5 букв) плюс псевдонимы страны/организации."""
+    w = _tok(word)
+    forms = {w[:5], w[:4]} if len(w) >= 4 else {w}
+    for k, v in ACTOR_ALIAS.get(lang, {}).items():
+        if w.startswith(k):
+            forms |= v
+    return forms
+
+
+def actors_of(title: str, lang: str) -> list:
+    """Исполнители силового действия в заголовке: список слов (в исходной форме)."""
+    force = FORCE.get(lang)
+    if not force or not title:
+        return []
+    words = re.findall(r"\S+", title)
+    out = []
+    for i, raw in enumerate(words):
+        if not re.fullmatch(r"(?:%s)" % force, _tok(raw), re.I | re.U):
+            continue
+        if i > 0:                                          # слово перед действием: «саудовские бомбардировки»
+            prev = words[i - 1]
+            pt = _tok(prev)
+            if any(pt == a or (len(a) >= 4 and pt.startswith(a)) for a in ACTOR_ADJ.get(lang, [])):
+                out.append(prev.strip(",.;:«»\"'"))
+        if i + 1 < len(words):                             # слово после действия: «удар России», «атака ВСУ», «ataque de Israel», «strike by US»
+            j = i + 1
+            if _tok(words[j]) in BY_PREP.get(lang, ()) and j + 1 < len(words):
+                j += 1
+            nxt = re.sub(r"^[dDlL][’']", "", words[j]).strip(",.;:«»\"'")      # fr: «d'Israël»
+            nt = _tok(nxt)
+            if (nxt[:1].isupper() and len(nt) >= 2) or (
+                    lang in ("es", "pt", "fr") and any(nt == a or (len(a) >= 5 and nt.startswith(a[:5])) for a in ACTOR_ADJ[lang])):
+                out.append(nxt)                            # и «bombardeos saudíes»: в es/pt/fr прилагательное стоит после
+    seen, uniq = set(), []
+    for a in out:
+        if _tok(a) not in seen:
+            seen.add(_tok(a)); uniq.append(a)
+    return uniq
+
+
+def keeps_actor(line: str, title: str, lang: str) -> bool:
+    """Исполнитель, названный в заголовке, остаётся в строке — в любой форме слова или как принятое сокращение.
+    Нет исполнителя в заголовке — проверять нечего (строка не вправе его придумать, это держит замок сути)."""
+    need = actors_of(title, lang)
+    if not need:
+        return True
+    have = {_tok(w) for w in re.findall(r"[^\s'’]+", line or "")}      # «d'Israël» → «israël»
+    haves = have | {h[:5] for h in have} | {h[:4] for h in have}
+    return all(_actor_forms(a, lang) & haves for a in need)
+
+
 def clean(line, title: str, source_text: str, lang: str, limit: int = LIMIT):
     """Строка/заголовок после сжатия → принятый текст или None. Один набор замков на строку НОС и заголовок карусели:
       · длина 12…limit; без метки «Срочно:» (её рисует виджет);
@@ -256,6 +353,8 @@ def clean(line, title: str, source_text: str, lang: str, limit: int = LIMIT):
     if len(_TITLE_NEG.findall(t)) != len(_TITLE_NEG.findall(title or "")):
         return None
     if not keeps_title_essence(t, title):
+        return None
+    if not keeps_actor(t, title, lang):                   # J74: «кто бомбил» не выбрасываем
         return None
     if _script(t) != _script(title):                     # строка на другом алфавите, чем заголовок (русская у английской карточки)
         return None
