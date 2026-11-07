@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] не_новость: [local] 24.kg — Кадровые изменения в Кыргызстане: увольнения в НЭСК и новый мэр Кара-Балты — увольнение директора — обычный кадровый процесс, без скандала или последствий.
-- [ru] не_новость: [local] Sputnik KG (кыргызча) — Мамлекет оңой түптөлгөн жок. Мамкатчы Тарых, аталарды эскерүү күнү менен куттукт — этикет: поздравление с праздником, нет события.
-- [ru] не_новость: [local] Sputnik KG — Госсекретарь: мирный и свободный Кыргызстан — воплощенная мечта предков — этикет: пересказ праздничной речи, нет события.
-- [ru] не_новость: [local] 24.kg — Температурные рекорды: в каком году Бишкек пережил самое холодное 7 ноября — архивная справка, не событие.
-- [ru] полка: [local] Kaktus.media — Кыргызстанка заняла третье место на международном K-POP фестивале в Южной Корее  — событие в Южной Корее (KR), это не местная новость.
-- [ru] курьёз: [local] Knews.kg — Большое тихоокеанское мусорное пятно, возможно, меняет цвет океана — научно-популярный факт, не новость.
-- [ru] курьёз: [pool] v1.ru — Волгоград — От пуль до крайне опасных магнитов: знаменитый профессор показал, что достают хи — медицинский совет/очерк, не новость.
-- [ru] чужое_мелкое: [pool] Kun.uz — Правоохранители проверяют видео с пропагандой незаконных действий — локальное дознание в Узбекистане.
-- [ru] курьёз: [pool] Onliner.by — Пополнение в конюшне. Белорусский Borant показал новый гравел на будущий сезон — — анонс велосипеда, не событие.
-- [ru] не_новость: [pool] РИА Новости — Запад испугался "Красной машины" — снова — мнение/аналитика, нет события.
-- [ru] курьёз: [pool] 74.ru — Челябинск — «Он — клевый чел!»: 15-летний парень из Магнитогорска снимается в фильме с Безру — личная история, не событие.
-- [ru] чужое_мелкое: [pool] iXBT — Сбой, не позволяющий оплачивать покупки и входить в приложение, устранён. — технический сбой в РФ, нет последствий для KG.
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — 78-летний омич отдал мошенникам больше шести миллионов — как его обманули — криминал в РФ (мошенничество), нет связи с KG.
-- [ru] курьёз: [pool] e1.ru — Екатеринбург — На денежном месте в центре Екатеринбурга открылся новый бар с кальянами — открытие бара, не новость.
-- [ru] чужое_мелкое: [pool] Азаттык — Озодлик: в Военном суде Узбекистана проходит процесс по делу ряда высокопоставле — внутренний суд Узбекистана.
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Экс-кандидата в мэры Омска признали иноагентом — что он сделал — статус иноагента в РФ, не событие для нас.
-- [ru] курьёз: [pool] ngs.ru — Новосибирск — Сибирячка стала финалисткой шоу «Поле чудес» — она позвала Якубовича на рыбалку — участие в телешоу, не новость.
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — В екатеринбурженку воткнули шприц, когда она выходила из троллейбуса. — криминал в Екатеринбурге, нет связи с KG.
-- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — «Салават» выиграл два подряд матча впервые с сентября: обзор победы над «Авто» — результат матча КХЛ в РФ.
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Бензин снова подешевел. Цены на пяти популярных АЗС Красноярска — динамика цен на бензин в Красноярске.
-- [ru] курьёз: [pool] ngs.ru — Новосибирск — «Думала уже уезжать отсюда». В отдаленный микрорайон запустили троллейбус-«гармо — обзор транспорта, не событие.
-- [ru] не_новость: [pool] ngs55.ru — Омск — «Оборотень в погонах» из «Невского»: как актер Омского драмтеатра покорил Санкт- — творческий очерк об актере.
-- [ru] курьёз: [pool] 178.ru — Санкт-Петербург — Хаарчаана из Ленинградского зоопарка получила четыре игрушки — животные в зоопарке, не новость.
-- [ru] чужое_мелкое: [world] Guardian Sport — Центровой «Голден Стэйт Уорриорз» Кристапс Порзиньгис приостанавливает карьеру и — спортсмен из США, рядовая новость.
-- [ru] не_новость: [world] Ars Technica — Игры серий Wing Commander и Ultima переизданы в Steam и GOG — анонс выхода старых игр.
+- [fr] срочность: [local] 20 Minutes — Martyre de l'A10 : « Mordre, je m’en rappelle pas »… La mémoire à géométrie vari — судебный процесс над прошлым событием, не требует побудки
+- [fr] срочность: [local] Le Figaro — «Les flammes montaient jusqu’au 1er étage» : à Lyon, la porte du lycée Édouard-H — последствие инцидента, не требует прерывания дел читателя
+- [fr] срочность: [local] Franceinfo — Deux morts de 7 et 18 ans, le chauffeur placé en garde à vue… Ce que l'on sait d — происшествие случилось утром, новость уже не экстренная для побудки
+- [fr] не_новость: [local] Le Figaro — «La bourgeoisie médiatique»: Jean-Luc Mélenchon cible LCI et repart à l’assaut d — критика СМИ — это мнение/конфликт, а не событие
+- [fr] чужое_мелкое: [pool] Radio-Canada — Carney salue « toute initiative » pour un accord de libre-échange avec les États — дипломатическая риторика вокруг торговли, не имеет прямого влияния на читателя
+- [fr] чужое_мелкое: [pool] Radio-Canada — Achat de Stelco : Cleveland-Cliffs aurait voulu nuire au marché canadien, dit Jo — хозяйственный спор в Канаде, не является мировой новостью
+- [fr] курьёз: [world] Bénin Web TV — Tennis : la WTA s’excuse auprès de Pegula après la diffusion d’une conversation  — спортивная административная рутина, не мировая значимость
+- [fr] срочность: [world] Bénin Web TV — Microsoft : jusqu’à 200 interpellations à Amsterdam, la fronde contre les data c — протест и задержания, не требуют прерывания дел читателя во Франции
+- [fr] не_новость: [world] Bénin Web TV — Balenciaga : Martine Rose, première femme à diriger la création en 109 ans — назначение в модной индустрии — корпоративная заметка, а не событие
+- [fr] курьёз: [world] BBC Sport — James Trafford qualifie son absence de temps de jeu à Manchester City d'« horrib — отзыв игрока о прошлом сезоне, не новость
+- [fr] не_новость: [world] BBC Sport — Altrincham, club légendaire des petites divisions, vise une nouvelle performance — анонс спортивного ожидания, не событие
+- [fr] не_новость: [world] RFI — Iran: après les «midterms», Téhéran joue la diplomatie et veut réduire l'influen — аналитика/рассуждения о дипломатии, а не событие
+- [fr] не_новость: [world] Courrier International — Après sa débâcle électorale, Trump durcit encore sa garde rapprochée — кадровые перестановки в команде Трампа, это рутинная политика
+- [fr] не_новость: [world] TechCrunch — La fin du programme de « scouts » chez Sequoia marque un tournant dans le capita — внутренняя реструктуризация фонда, не имеет широкого значения
+- [fr] срочность: [world] Азаттык — La fille de l'activiste arrêté Marat Tourymbetov a publié un message vidéo alert — дело активиста в Казахстане — не требует экстренной побудки во Франции
+- [fr] не_новость: [world] BBC Sport — La déception de ne pas être appelé en équipe d'Angleterre motive la performance  — спортивная заметка о мотивации, не событие
+- [fr] повтор: [world] BBC Mundo — Qui est Pedro Alliana, le nouveau président du Paraguay qui cherche à reconstrui ≈ «La faillite d'une banque conduit à la de» — тот же сюжет про смену власти в Парагвае
+- [fr] курьёз: [world] Ars Technica — Des médecins extraient un couteau de l'œil d'un homme qui a traversé son cerveau — медицинский случай, не мировая новость
+- [fr] не_новость: [world] TechCrunch — OpenAI aurait levé 11 milliards de dollars supplémentaires pour une valorisation — слухи о сборе средств (OpenAI), событие отсутствует
+- [fr] курьёз: [world] Ars Technica — Des navires stationnent près de câbles sous-marins sur fond de menaces de l'Iran — подозрения о нахождении судов, нет факта события
+- [fr] не_новость: [world] Ars Technica — Les rééditions des jeux Wing Commander et Ultima sont disponibles sur Steam et G — релиз старых игр, это коммерческая информация
+- [fr] не_новость: [world] BBC World — Les actions liées à l'IA remontent après une perte de valeur boursière colossale — биржевая динамика — это шум, а не событие
+- [fr] срочность: [world] Ars Technica — Chainalysis confirme le vol des identifiants et jetons de l'ensemble de ses clie — утечка данных не является событием для экстренной побудки
+- [fr] не_новость: [world] Engadget — Il sera bientôt possible d'envoyer des messages à Alexa pour faire des achats su — анонс функции приложения
+- [fr] не_новость: [world] BBC Mundo — « J'ai perdu les économies de toute ma vie » : détresse de milliers d'épargnants — описание эмоций пострадавших, сюжет о банке уже подан в №45
