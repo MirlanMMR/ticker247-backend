@@ -1,49 +1,20 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] срочность: [local] Poder360 — Ação da PF mira extração ilegal de madeira em terra indígena — операция полиции — не срочная побудка, обычная криминальная хроника
-- [pt] не_новость: [local] Poder360 — Fachin homologa delação de ex-dono da Reag no caso Master — процессуальное решение (гомологация дела), не событие для массового читателя
-- [pt] не_новость: [local] Gazeta do Povo — Gonet defende que primo de Vorcaro siga preso após Fachin pedir reavaliação — процессуальное действие прокурора в ходе затянувшегося дела
-- [pt] не_новость: [local] Gazeta do Povo — Gonet pede que STF suspenda ações sobre bets em todo o país — запрос прокурора в суд — это не решение, а мнение
-- [pt] не_новость: [local] Gazeta do Povo — Moraes barra visitas de Gayer, Van Hattem e Jordy a Filipe Martins — техническое решение судьи по визитам
-- [pt] срочность: [local] Agência Brasil — Rio: Receita apreende entorpecentes em galpão de transportadora — обычная рутинная работа таможни, не требует прерывать дела читателя
-- [pt] не_новость: [local] G1 Rio — Baleado ao tentar roubar relógio de Júnior Bauru, foragido da Gangue do Rolex te — описание криминальной биографии преступника, задержанного ранее
-- [pt] не_новость: [local] G1 Rio — Carros de luxo por preço de bicicleta: veículos clonados são vendidos nas redes  — общий обзор проблемы мошенничества, нет свежего события
-- [pt] не_новость: [local] G1 Rio — Uso de anabolizantes, anotação criminal e posts sobre treinos de artes marciais: — подробности биографии задержанного, не событие
-- [pt] курьёз: [local] G1 São Paulo — Entre 76 países, apenas 8 têm maioridade penal abaixo de 18 anos de idade — статистическая справка без инфоповода
-- [pt] не_новость: [pool] Notícias ao Minuto — MECI convoca Fenprof para reunião após aprovação de diploma — просто созыв на встречу, нет подписанного решения
-- [pt] не_новость: [pool] Notícias ao Minuto — Treinador de hóquei do Sporting 'explode': "Não sei para que serve o VAR" — цитата тренера, эмоциональное высказывание, а не событие
-- [pt] не_новость: [pool] Observador PT — IL/Açores admite votar contra Orçamento de 2027 — политическое допущение (admitir votar contra), а не решение
-- [pt] не_новость: [pool] RTP Notícias — "Sporting de Braga é favorito porque é melhor do que o Rio Ave" — мнение тренера перед матчем
-- [pt] не_новость: [pool] Observador PT — Cidadãos pedem à autarquia para não retirar tendas no Rossio — просьба граждан (апелляция), власти ещё ничего не решили
-- [pt] чужое_мелкое: [world] Notícias ao Minuto — Itália pede ao G7 que aborde "guerra híbrida". — призыв дипломата к обсуждению — рутина, не мировая новость
-- [pt] курьёз: [world] The Independent — Bombeira mais baixa do mundo transforma sua estatura em vantagem em trabalho exi — лайфстайл-история, место в рубрике «интересное»
-- [pt] чужое_мелкое: [world] The Hill — Miller chama promoção a chefe de gabinete de 'honra da minha vida' em evento em  — комментарии в частном порядке на вечеринке, не официальное назначение
-- [pt] не_новость: [world] Fortune — Casas de entrada custam 1 milhão de dólares em um recorde de 242 cidades dos EUA — аналитический отчёт по рынку недвижимости, не событие
-- [pt] не_новость: [world] ECO — Sem Buffett na presidência, Berkshire diminui lucro e acelera recompra de ações — разбор финансовых результатов, не событие
-- [pt] не_новость: [world] The Guardian — ‘Um alienígena do futebol’: Mamadou Sangaré alcança o nível da Premier League — очерк об игроке, а не спортивный факт
-- [pt] чужое_мелкое: [world] Ars Technica — Soldado britânico desobedeceu ordem para remover cartão SIM e foi chantageado — локальное происшествие с одним военным, нет глобальных последствий
-- [pt] не_новость: [world] Variety — Diretor de 'O Problema dos 3 Corpos', Derek Tsang, assume série de crime real 'G — анонс назначения режиссёра на сериал
-- [pt] не_новость: [world] TechCrunch — OpenAI levanta US$ 11 bilhões adicionais com avaliação de US$ 1,25 trilhão, segu — слухи о сборе средств, сделка не завершена
-- [pt] не_новость: [world] Semafor — Nvidia enfrenta uma Washington mais hostil — аналитика отношений бизнеса и политики, нет нового факта
-- [fr] чужое_мелкое: [local] BFMTV — Des actions à travers l'Europe contre les centres de données — Протесты против дата-центров в Европе — это локальные акции в разных странах, не имеющие мирового масштаба.
-- [fr] не_новость: [local] Nice-Matin — Un nouveau cabinet médical ouvrira en février 2027 à Roquebrune-Cap-Martin : tro — Плановое открытие кабинета в будущем — это не событие, а объявление о планах.
-- [fr] не_новость: [local] Nice-Matin — « Meilleur flux de clients », « manque de parking », « une belle place »… Avant  — Рынок адаптировался перед открытием магазина — это описание процесса, а не событие.
-- [fr] не_новость: [local] L'Express — Réforme des retraites suspendue : les nouvelles règles à connaître — Разбор о реформе пенсий и мнении экономиста не является новостью-событием.
-- [fr] чужое_мелкое: [pool] Radio-Canada — Consternation face au budget fédéral qui ne fait aucune mention d’aide internati — Бюджет Канады не является мировой новостью для французского читателя.
-- [fr] чужое_мелкое: [pool] RTBF — Budget fédéral : les Belges vont-ils payer le prix du blocage politique ? — Внутренний бюджет Бельгии — локальная новость, не влияющая на Францию.
-- [fr] курьёз: [pool] Radio-Canada — Un premier cas de rage du raton confirmé chez une vache à Coaticook — Случай бешенства у коровы в Канаде — не мировая новость.
-- [fr] чужое_мелкое: [pool] RTBF — Une détenue de la prison de Haren victime d'un viol — Криминальная хроника из бельгийской тюрьмы — внутренняя новость Бельгии.
-- [fr] полка: [pool] La Dépêche — Guerre en Ukraine : accusé d'avoir transmis des secrets militaires à l'armée ukr — Новость о суде над канадцем в Канаде должна быть в «Новости из...», а не в местных (ошибочно помечена как Франция в текс
-- [fr] не_новость: [pool] Radio-Canada — Le lanceur d’alerte congédié par la CAQ veut devenir journaliste — Бывший чиновник стал студентом — это частная жизнь, не событие.
-- [fr] не_новость: [pool] Le Devoir — Une vision à trop court terme pour la culture dans le budget fédéral — Мнение ассоциаций о бюджете культуры — это экспертная оценка, а не событие.
-- [fr] не_новость: [world] La Tribune — Commerce international : responsables américains et chinois expriment leurs « pr — Дипломатические «выражения обеспокоенности» без конкретного результата — это этикет и слова.
-- [fr] не_новость: [world] La Dépêche — Vladimir Poutine : pourquoi le président russe est-il d'ores et déjà exclu du so — Анализ того, почему кого-то не пригласят на саммит через два года — спекуляция.
-- [fr] чужое_мелкое: [world] Sud Ouest — Nouvelle-Zélande : malgré des scores très serrés, le Premier ministre conservate — Ход подсчета голосов на выборах в Новой Зеландии не является событием мирового масштаба.
-- [fr] повтор: [world] Bénin Web TV — Nouvelle-Zélande : un scrutin serré laisse la coalition sortante dans l’incertit ≈ «Nouvelle-Zélande : malgré des scores trè» — Тот же сюжет о выборах в Новой Зеландии.
-- [fr] чужое_мелкое: [world] Africanews FR — Afrique du Sud : l’African National Congress s’apprête à perdre un soutien élect — Внутренняя политика партии ANC в ЮАР не является мировой новостью.
-- [fr] полка: [world] Africanews FR — Paraguay : l'ancien vice-président Pedro Alliana prête serment en tant que prési — Событие в Парагвае должно быть в «Мировых», а не в «Новости из...» (не франкоязычная страна).
-- [fr] не_новость: [world] Variety — Davika Hoorne sera de retour dans la suite du film « Inherit », confirme le réal — Анонс съемок продолжения фильма — не новость-событие.
-- [fr] не_новость: [world] RFI — Iran: après les midterms, Téhéran joue la diplomatie et veut réduire l'influence — Анализ дипломатических намерений Тегерана — это рассуждение эксперта.
-- [fr] не_новость: [world] RFI — De l'occupation russe à Kiev, le long périple des animaux d'Olechky — История о переезде животных — это очерк, не событие.
-- [fr] полка: [world] BBC Mundo — Le scandale de la banque Ueno au Paraguay entraîne l'arrestation de Santiago Peñ — Событие в Парагвае должно быть в «Мировых».
-- [fr] не_новость: [world] Sciences et Avenir — Voici les dangers du futur, selon le Lancet — Разбор прогнозов Lancet на столетие вперед — это научный обзор, а не новость.
+- [en] чужое_мелкое: [local] CBS News — Duchess Meghan's estranged father charged with possessing child sex abuse materi — личная юридическая проблема родственника публичной фигуры, не является новостью для US
+- [en] полка: [local] UPI — Trump: U.S. hit anti-aircraft system on Qeshm Island in Iran — событие с участием США в Иране — мировая новость, не местная
+- [en] полка: [local] UPI — CENTCOM creates task force to disrupt Iran's weapons ground routes — деятельность CENTCOM — мировая новость
+- [en] не_новость: [pool] WFPL — The incoming class of U.S. senators is full of historic firsts — обзор будущего состава сената, нет свершившегося факта
+- [en] не_новость: [pool] WFPL — Comer re-elected to Congress this week. Will he spend the next year running for  — рассуждения о политических планах конгрессмена
+- [en] не_новость: [pool] Time — All at Once, Ted Cruz Is the Last Statewide Republican Lawmaker Standing in Texa — аналитическая статья об итогах выборов
+- [en] курьёз: [pool] The Independent — Cracks emerge in Trump’s Reflecting Pool - hours after he stood in front and tol — описание трещин в бассейне — это не важная мировая новость
+- [en] курьёз: [world] The Independent — Mom whose newborn was abducted from her home 48 years ago still has hope of find — человеческая история 48-летней давности, нет события
+- [en] не_новость: [world] TechCrunch — Amazon’s new basic Kindle proves you don’t need all the bells and whistles — обзор продукта, выпущенного в октябре
+- [en] не_новость: [world] Fortune — Berkshire Hathaway stock is a haven again as investors flee AI bloodbath — финансовый анализ/мнение экспертов, нет события
+- [en] не_новость: [world] WFPL — A new cold war: hackers target fridges across the globe — предупреждение эксперта о киберугрозе, не событие
+- [en] не_новость: [world] Variety — Laika’s ‘Wildwood’ Sets Limited-Edition 4K SteelBook Release — релиз коллекционного издания, реклама товара
+- [en] не_новость: [world] Wired — The Fridge-Hacking Spree Is an Internet-of-Things Wake-Up Call — аналитический разбор кибератак, а не новость о событии
+- [en] курьёз: [world] ScienceAlert — Belief in Magic Is Not Disappearing in The Modern World, Study Shows — пересказ результатов исследования о вере в магию
+- [en] не_новость: [world] TechCrunch — Sequoia shutting down its Scouts program marks the end of an era — изменение в стратегии компании (закрытие программы) — бизнес-процесс, не событие
+- [en] не_новость: [world] Time — How Europe's Far-Right Leaders Are Backing Away From Trump After Midterm Losses — политический анализ/мнение, нет события
+- [en] не_новость: [world] Arkansas Times — Gavin Newsom’s death penalty clemency echoes mass commutations of Arkansas’ Win  — историческая параллель, очерк
+- [en] не_новость: [world] Semafor — There's a silver lining for data center builders amid the 'blue wave' — финансовое мнение/разбор рынка
