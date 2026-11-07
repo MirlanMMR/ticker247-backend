@@ -216,6 +216,31 @@ _NUM = re.compile(r"\d[\d\s.,]*\d|\d")
 TITLE_CARD = 72   # заголовок в карточке карусели при шрифте не мельче 16sp: 3 строки по ≈ 26 знаков с переносами
 
 
+MIN_COVER = 0.4    # строка обязана сохранить не меньше 40% ключевых слов заголовка (банки крови: 30% → отклонена; пример владельца: 67%)
+_STOPSTEMS = set()
+
+
+def _stems(text: str) -> set:
+    """Основы ключевых слов: первые 5 букв слов от 5 букв (грубо, но одинаково для всех языков)."""
+    return {w[:5] for w in re.findall(r"[^\W\d_]{5,}", (text or "").lower(), re.U)}
+
+
+def _script(text: str) -> str:
+    cyr = len(re.findall(r"[а-яёіїєөүң]", (text or "").lower()))
+    lat = len(re.findall(r"[a-zà-ÿ]", (text or "").lower()))
+    return "cyr" if cyr > lat else "lat"
+
+
+def keeps_title_essence(line: str, title: str) -> bool:
+    """Строка — сжатие ЗАГОЛОВКА, а не новый пересказ из текста (владелец 04.11: «Кибератака на французские банки крови: системы
+    холодильников затронуты» вместо «Банки крови пострадали от кибератаки на следующий день после ложных сообщений о минировании»
+    потеряла связь событий). Меряем долю ключевых слов заголовка, оставшихся в строке (≥ 40%); у коротких заголовков (< 5 основ) не проверяем."""
+    t = _stems(title)
+    if len(t) < 5:
+        return True
+    return len(t & _stems(line)) / len(t) >= MIN_COVER
+
+
 def clean(line, title: str, source_text: str, lang: str, limit: int = LIMIT):
     """Строка/заголовок после сжатия → принятый текст или None. Один набор замков на строку НОС и заголовок карусели:
       · длина 12…limit; без метки «Срочно:» (её рисует виджет);
@@ -229,6 +254,10 @@ def clean(line, title: str, source_text: str, lang: str, limit: int = LIMIT):
     if not 12 <= len(t) <= limit:
         return None
     if len(_TITLE_NEG.findall(t)) != len(_TITLE_NEG.findall(title or "")):
+        return None
+    if not keeps_title_essence(t, title):
+        return None
+    if _script(t) != _script(title):                     # строка на другом алфавите, чем заголовок (русская у английской карточки)
         return None
     src = normalize_dates(numerals_to_digits(f"{title} {source_text or ''}", lang), lang)
     nums = {re.sub(r"\D", "", m) for m in _NUM.findall(src)}

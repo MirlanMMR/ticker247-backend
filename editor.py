@@ -266,7 +266,8 @@ def card_block(n: int, item: dict, paras, photos) -> str:
     lines = [f"### Карточка {n}",
              f"Издание: {item.get('source', '?')} · полка: {shelf}"
              + (" · помечена срочной" if item.get("category") == "URGENT" else "")
-             + (" · нужна строка для пейджера (line)" if needs_line(item) else "")
+             + (f" · нужна строка для пейджера (line), пиши её на языке ЗАГОЛОВКА карточки: {item.get('language') or 'ru'}"
+                if needs_line(item) else "")
              + (" · издатель закрыл статью" if item.get("pageClosed") else ""),
              f"Заголовок: {item.get('title', '')}",
              "Текст:"]

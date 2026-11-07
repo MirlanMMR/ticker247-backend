@@ -298,28 +298,91 @@ _DISASTER = re.compile(
     r"sismo|terremoto|explos[aã]o|incendio|inc[eê]ndio", re.I)
 
 
-def planned_announcement(x):
-    """Карточка со «срочно» или «важным», но по форме — плановое объявление (глагол плана + дата/«завтра»), а не событие."""
-    if x.get("vital"):
-        return False
-    if x.get("category") not in URGENT_CATS and (x.get("priority") or 0) < 2:
-        return False
+# ── Срок вступления: «завтра», «с 5 ноября» при публикации 4 ноября — это не «плановое», а «срочно» (владелец 04.11: «изменение
+# маршрутов автобусов не бывает плановым: как доехать до работы, если маршрут изменён»). Плановое — когда до даты больше двух дней.
+IMMINENT_DAYS = 2
+_REL_DAYS = [
+    (re.compile(r"\b(?:сегодня|today|hoy|hoje|aujourd.hui)\b", re.I), 0),
+    (re.compile(r"\b(?:завтра|tomorrow|ma[ñn]ana|amanh[ãa]|demain)\b", re.I), 1),
+    (re.compile(r"\b(?:послезавтра|pasado\s+ma[ñn]ana|depois\s+de\s+amanh[ãa]|apr[èe]s-demain)\b", re.I), 2),
+]
+
+
+def days_ahead(title, published_ms):
+    """Сколько дней от публикации до названной в заголовке даты вступления; None — даты нет."""
+    import datetime as _dt
+    t = title or ""
+    for rx, d in _REL_DAYS[::-1]:               # «послезавтра» раньше «завтра» (в нём нет слова «завтра», но порядок надёжнее)
+        if rx.search(t):
+            return d
+    if not published_ms:
+        return None
+    from nos_line import MONTHS
+    pub = _dt.datetime.utcfromtimestamp(published_ms / 1000).date()
+    for names in MONTHS.values():
+        m = re.search(r"(\d{1,2})\s+(?:de\s+)?(" + "|".join(names) + r")\b", t, re.I | re.U)
+        if m:
+            day, mon = int(m.group(1)), [n for n in names].index(m.group(2).lower()) + 1
+            for year in (pub.year, pub.year + 1):
+                try:
+                    d = _dt.date(year, mon, day)
+                except ValueError:
+                    return None
+                if d >= pub:
+                    return (d - pub).days
+    return None
+
+
+def imminent(x):
+    """Вступает сегодня/завтра/послезавтра — событие для читателя, а не плановое объявление."""
+    d = days_ahead(x.get("title"), x.get("publishedAt"))
+    return d is not None and d <= IMMINENT_DAYS
+
+
+def planned_form(x):
+    """Форма планового объявления: глагол плана + дата/«завтра», и не беда. Жизненную важность не смотрит."""
     title = (x.get("title") or "").strip()
     if not (_PLAN_VERB.search(title) and _PLAN_WHEN.search(title)):
+        return False
+    if imminent(x):                             # завтра — это уже не «плановое»: как добраться на работу
         return False
     text = f"{title} {(x.get('summary') or '')[:400]}"
     return not (_BIG.search(text) or casualties(text) >= 1 or _DISASTER.search(text))
 
 
+def planned_announcement(x):
+    """Карточка со «срочно» или «важным», но по форме — плановое объявление, а не событие (и не жизненно важное)."""
+    if x.get("vital"):
+        return False
+    if x.get("category") not in URGENT_CATS and (x.get("priority") or 0) < 2:
+        return False
+    return planned_form(x)
+
+
 def final_planned_guard(items, lang):
-    """Снимает «срочно» и «важное» с плановых объявлений. Карточку из ленты не убирает."""
-    hit = [x for x in items if planned_announcement(x)]
-    for x in hit:
-        if x.get("category") in URGENT_CATS:
-            x["category"] = "NEWS"
-        x["priority"] = min(int(x.get("priority") or 0), 1)
-    if hit:
-        print(f"  📅 Плановое объявление без «срочно» [{lang}]: снято {len(hit)}")
-        for x in hit[:6]:
+    """Плановое объявление — не «СРОЧНО!» (J71, 04.11.2026).
+      · не жизненно важное: «срочно» и «важное» снимаются, карточка остаётся;
+      · жизненно важное (смена маршрутов, отключение воды с датой): статус сохраняется, но ставится `notice: true` — приложение
+        показывает его как «ВАЖНО» (объявление), а не «СРОЧНО!» (событие): плановое срочным не бывает, EDITORIAL.md."""
+    demoted, notices = [], []
+    for x in items:
+        if not planned_form(x):
+            continue
+        if x.get("vital"):
+            if x.get("category") in URGENT_CATS or (x.get("priority") or 0) >= 2:
+                x["notice"] = True
+                notices.append(x)
+        elif planned_announcement(x):
+            if x.get("category") in URGENT_CATS:
+                x["category"] = "NEWS"
+            x["priority"] = min(int(x.get("priority") or 0), 1)
+            demoted.append(x)
+    if demoted:
+        print(f"  📅 Плановое объявление без «срочно» [{lang}]: снято {len(demoted)}")
+        for x in demoted[:6]:
+            print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:60]}")
+    if notices:
+        print(f"  📋 Плановое жизненно важное — «объявление», не «срочно» [{lang}]: {len(notices)}")
+        for x in notices[:6]:
             print(f"       · {x.get('source','?')}: {(x.get('title') or '')[:60]}")
     return items
