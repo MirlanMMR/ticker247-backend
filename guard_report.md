@@ -1,25 +1,26 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] чужое_мелкое: [local] Metrópoles — US offers $15 million reward for Venezuelan faction leader — Внутренняя новость Венесуэлы; для США это не значимое событие мирового масштаба.
-- [en] курьёз: [local] Good News Network — Mayor Uses AirTag to Catch Capstone Thief who was Stealing 18th-Century Stones A — История про кражу камней — развлекательный факт, место в «Интересном».
-- [en] курьёз: [local] WTOP — Chimp sanctuary delivers an ape’s food by drone amid Florida floods — Необычный способ доставки еды в зоопарк — это любопытная история, а не важное событие.
-- [en] срочность: [local] KING5 — Plane crashes in Pierce County, second aircraft in 3 hours — Происшествие без жертв не требует пометки срочности и побудки читателя.
-- [en] не_новость: [local] Honolulu Star-Advertiser — Dizzying week for investors as politics, AI and the economy collide — Аналитический обзор рыночных колебаний недели, а не конкретное событие.
-- [en] чужое_мелкое: [pool] BBC News — UK cannot 'cherry pick' EU single market deal, Barnier tells BBC — Внутренние переговоры ЕС и Британии по торговым сделкам — не мировая повестка.
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Call for clarity on existence of Ireland-UK airspace deal — Внутренний политический спор Ирландии об обороне своего воздушного пространства.
-- [en] чужое_мелкое: [pool] RTÉ Ireland — FG pledges 'penalties' for avoiding back-to-work services — Внутренняя социальная политика правительства Ирландии.
-- [en] курьёз: [world] ABC Australia — Moesha Johnson's Open Water World Cup winning streak continues — Спортивный результат (плавание) — частная новость, не мировая.
-- [en] курьёз: [world] Xataka — US funded a network of sensors in the Pacific; China has used the data to discov — Устаревшее исследование о сенсорах — это научная заметка, не новость.
-- [en] чужое_мелкое: [world] Guardian Sport — Delap’s Nottingham Forest stunners hand Manchester City third league defeat in a — Результат футбольного матча британской лиги — это региональная новость Британии, а не мировая.
-- [en] курьёз: [world] Live Science — The Maya used so much red paint that they poisoned their water with mercury, mud — Научное исследование о майя — классический пример «интересного» без события.
-- [en] курьёз: [world] Futura-Sciences — To protect Earth, the Hera probe has reached an asteroid struck by NASA — Научная хроника миссии Hera — «интересное».
-- [en] не_новость: [world] TechCrunch — Amazon’s new basic Kindle proves you don’t need all the bells and whistles — Обзор потребительской электроники (Kindle), а не новость о событии.
-- [en] курьёз: [world] Live Science — Tectonic forces near Japan helped fuel the formation of the Grand Canyon — Геологическая теория — это «интересное», а не событие.
-- [en] курьёз: [world] Good News Network — Baby Saved After Racing Heartbeat Detected by Family Doberman — История про собаку — это «интересное».
-- [en] чужое_мелкое: [world] Ars Technica — British soldier ignored order to pull his SIM card, then got blackmailed — Частный инцидент с эстонской газетой и британским солдатом.
-- [en] курьёз: [world] Ars Technica — Doctors pull knife from man's eye that went through his brain—and he's fine now — Медицинский казус — это «интересное», а не мировая новость.
-- [en] не_новость: [world] Time — How Europe's Far-Right Leaders Are Backing Away From Trump After Midterm Losses — Рассуждение экспертов о том, как политики «отдаляются» от Трампа.
-- [en] курьёз: [world] Smithsonian Magazine — Where Did Stonehenge's Mysterious, Six-Ton Altar Stone Really Come From? — История происхождения камней Стоунхенджа — это «интересное».
-- [en] курьёз: [world] Atlas Obscura — Fuente de los Niños Miones in Guadalajara, Mexico — Описание достопримечательности — «интересное».
-- [en] курьёз: [world] Atlas Obscura — Tarrafal Concentration Camp in Chão Bom, Cabo Verde — Историческая справка о музее — «интересное».
-- [en] не_новость: [world] Semafor — There's a silver lining for data center builders amid the 'blue wave' — Рыночное рассуждение о «серебряной подкладке» в отчётах, а не новость.
+- [es] чужое_мелкое: [local] El Financiero — ¿Está en riesgo la banca mexicana tras el colapso de Ueno Bank? — Кризис и банковская надзорная система Парагвая — внутренняя новость, не имеющая глобальных последствий для мексиканца.
+- [es] не_новость: [local] El Financiero — INE denuncia ante la FGR presuntas irregularidades en contrataciones durante ges — Скандал и отставка уже произошли, текст — пересказ старого инфоповода.
+- [es] курьёз: [local] El Sol de México — Tony Iommi presenta “From The Dark”, su primer disco solista en 21 años — Новый альбом музыканта — не новость для широкого читателя.
+- [es] чужое_мелкое: [pool] El Comercio PE — Rafael López Aliaga: ¿Quién es Jeanette Alonzo, la número 2 en la lista de Lima  — Внутренняя политика Перу, не имеющая мирового веса.
+- [es] повтор: [pool] El Universo EC — Enner Valencia rompe una sequía de 32 años y se convierte en el segundo ecuatori ≈ «Boca campeón de la tabla anual de la Lig» — Один и тот же сюжет: победа Боки и чемпионат аргентинской лиги.
+- [es] чужое_мелкое: [pool] La Nación CR — Carolina Venegas superó los 200 goles con la camisa del Saprissa en goleada de e — Местный матч женского чемпионата Коста-Рики.
+- [es] чужое_мелкое: [pool] Clarín AR — Arruabarrena, el técnico que regresó y acomodó a Boca para cortar la sequía y vo — Внутренний спортивный сюжет Аргентины.
+- [es] чужое_мелкое: [pool] RPP PE — FC Cajamarca se aferra a Primera: derrotó 2-0 a Alianza Atlético por el Torneo C — Рядовой матч перуанской лиги.
+- [es] чужое_мелкое: [pool] Semana CO — Real Madrid mete presión al Barcelona antes del partido contra el Atlético: Tabl — Местный спортивный расклад Ла Лиги без мирового значения.
+- [es] чужое_мелкое: [pool] Prensa Libre GT — Real Madrid golea 0-3 al Valencia en Mestalla y presiona por el liderato — Результат матча чемпионата Испании, не является мировой новостью.
+- [es] чужое_мелкое: [pool] Prensa Libre GT — Fallece un aficionado de Suchitepéquez tras un incidente en las gradas del estad — Местное происшествие в Гватемале.
+- [es] чужое_мелкое: [pool] Prensa Libre GT — Asesinato de diputado y tres policías vuelve a poner en evidencia la violencia q — Криминальная хроника регионального уровня Гватемалы.
+- [es] чужое_мелкое: [pool] El Financiero — Larissa Riquelme, la ‘Novia del Mundial’, es víctima de crisis bancaria en Parag — Частная история модели, пострадавшей от банковского кризиса в Парагвае.
+- [es] чужое_мелкое: [pool] 14ymedio — El Gobierno pide vigilar a los vecinos que instalan amplificadores de señal tele — Локальное административное решение на Кубе.
+- [es] чужое_мелкое: [pool] 14ymedio — Ola de deportaciones de "ilegales" desde La Habana hacia las provincias — Местная полицейская операция на Кубе.
+- [es] не_новость: [pool] Montevideo Portal — “Es el mejor homenaje al padre Cacho”: Pacha Sánchez junto al papa en Casavalle — Мнения и цитаты политиков о визите Папы, а не сам факт.
+- [es] не_новость: [pool] Montevideo Portal — “No podemos ignorar que en nuestro entorno hay gente que sufre”: León XIV en Cas — Текстовая выжимка из проповеди.
+- [es] чужое_мелкое: [pool] Diario Libre DO — Accidente mecánico en La Vega causa muerte de Albert González — Местный несчастный случай в Доминикане.
+- [es] не_новость: [pool] BBC Mundo — Cómo es Casavalle, la barriada humilde de Montevideo estremecida por la violenci — Путевой очерк о районе города.
+- [es] чужое_мелкое: [pool] Expansión MX — Crisis en Paraguay podría afectar confianza de inversionistas en el corto plazo, — Аналитика рейтинга S&P по Парагваю — частный финансовый кейс.
+- [es] чужое_мелкое: [pool] El Mundo — Adif blindó el bonus a su cúpula horas antes de dimitir su presidente — Внутренняя административная коррупция в Испании.
+- [es] курьёз: [world] Good News Network — Un alcalde utiliza un AirTag para atrapar a un ladrón de piedras históricas en e — История про кражу камней — развлекательный факт.
+- [es] курьёз: [world] Xataka — EEUU financió una red de sensores en el Pacífico. — Научно-популярный факт из прошлого без актуального события.
+- [es] курьёз: [world] The Guardian — «Un alienígena del fútbol»: Mamadou Sangaré alcanza la cima en la Premier League — Портрет футболиста — не новость.
