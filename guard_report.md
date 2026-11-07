@@ -1,17 +1,49 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [pool] Infobae — Corte Suprema cerró la puerta a solicitud de Santiago Uribe Vélez, hermano del e — Внутренняя судебная процедура Колумбии, не имеющая мирового веса.
-- [es] полка: [pool] El Universo EC — Ecuador consiguió dos medallas de oro, tres de plata y dos de bronce en el Sudam — Спортивная новость регионального значения, ошибочно в «Новостях из…».
-- [es] не_новость: [pool] Marca — El Burgos remonta y acabará el sábado en 3ª posición — Обычный спортивный обзор тура, не является событием по списку.
-- [es] не_новость: [pool] Semana CO — Abelardo De La Espriella expresa su respaldo al director del Dapre: “Ningún miem — Политическое высказывание-этикет, не является событием.
-- [es] не_новость: [pool] Clarín AR — León XIV: qué libros se consiguen en la Argentina sobre el nuevo Papa — Анонс книг перед визитом, нет свершившегося факта.
-- [es] не_новость: [pool] El Universo EC — Más gasto en datos móviles cuando el internet de casa falla durante los aguacero — Жалоба жителя на плохой интернет — не событие.
-- [es] не_новость: [pool] Prensa Libre GT — Cultura adjudica más de Q714 mil en atención y transporte para muestra teatral e — Техническая закупка/администрирование, не является событием для читателя.
-- [es] не_новость: [pool] eldiario.es — Rufián y Montero llaman a secundar la huelga "para paralizar el país" y defiende — Политический призыв к будущей забастовке.
-- [es] не_новость: [pool] eldiario.es — A Koldo le ofrecieron un Aldama — Обзор или пересказ интервью, нет события.
-- [es] не_новость: [pool] eldiario.es — Sánchez reinicia la campaña con la "ejemplaridad" de Puente como antítesis de la — Политическая аналитика и описание настроений кампании.
-- [es] не_новость: [world] Variety — El director de '3 Body Problem', Derek Tsang, se une a la serie policial 'Group  — Кадровые перестановки в производстве сериалов не являются значимым событием.
-- [es] не_новость: [world] Variety — Davika Hoorne regresará para la secuela de 'Inherit', confirma el director Banjo — Анонс сиквела фильма, нет события.
-- [es] полка: [world] Guardian Sport — Dončić deslumbra con 53 puntos en la victoria ante los Lakers — Результат матча NBA — мировая новость, лежит в «Мировых», но содержит только спортивный факт без мирового влияния.
-- [es] полка: [world] AKIpress Эко — Alerta meteorológica: se esperan avalanchas en el paso de Chon-Ashuu — Местная новость (Кыргызстан) в испанском пуле.
-- [es] чужое_мелкое: [world] La Vanguardia — La Casa Blanca cierra filas con Hegseth y Rubio y descarta su salida tras el des — Внутриполитическая полемика США о судьбе чиновников.
+- [pt] срочность: [local] Poder360 — Ação da PF mira extração ilegal de madeira em terra indígena — операция полиции — не срочная побудка, обычная криминальная хроника
+- [pt] не_новость: [local] Poder360 — Fachin homologa delação de ex-dono da Reag no caso Master — процессуальное решение (гомологация дела), не событие для массового читателя
+- [pt] не_новость: [local] Gazeta do Povo — Gonet defende que primo de Vorcaro siga preso após Fachin pedir reavaliação — процессуальное действие прокурора в ходе затянувшегося дела
+- [pt] не_новость: [local] Gazeta do Povo — Gonet pede que STF suspenda ações sobre bets em todo o país — запрос прокурора в суд — это не решение, а мнение
+- [pt] не_новость: [local] Gazeta do Povo — Moraes barra visitas de Gayer, Van Hattem e Jordy a Filipe Martins — техническое решение судьи по визитам
+- [pt] срочность: [local] Agência Brasil — Rio: Receita apreende entorpecentes em galpão de transportadora — обычная рутинная работа таможни, не требует прерывать дела читателя
+- [pt] не_новость: [local] G1 Rio — Baleado ao tentar roubar relógio de Júnior Bauru, foragido da Gangue do Rolex te — описание криминальной биографии преступника, задержанного ранее
+- [pt] не_новость: [local] G1 Rio — Carros de luxo por preço de bicicleta: veículos clonados são vendidos nas redes  — общий обзор проблемы мошенничества, нет свежего события
+- [pt] не_новость: [local] G1 Rio — Uso de anabolizantes, anotação criminal e posts sobre treinos de artes marciais: — подробности биографии задержанного, не событие
+- [pt] курьёз: [local] G1 São Paulo — Entre 76 países, apenas 8 têm maioridade penal abaixo de 18 anos de idade — статистическая справка без инфоповода
+- [pt] не_новость: [pool] Notícias ao Minuto — MECI convoca Fenprof para reunião após aprovação de diploma — просто созыв на встречу, нет подписанного решения
+- [pt] не_новость: [pool] Notícias ao Minuto — Treinador de hóquei do Sporting 'explode': "Não sei para que serve o VAR" — цитата тренера, эмоциональное высказывание, а не событие
+- [pt] не_новость: [pool] Observador PT — IL/Açores admite votar contra Orçamento de 2027 — политическое допущение (admitir votar contra), а не решение
+- [pt] не_новость: [pool] RTP Notícias — "Sporting de Braga é favorito porque é melhor do que o Rio Ave" — мнение тренера перед матчем
+- [pt] не_новость: [pool] Observador PT — Cidadãos pedem à autarquia para não retirar tendas no Rossio — просьба граждан (апелляция), власти ещё ничего не решили
+- [pt] чужое_мелкое: [world] Notícias ao Minuto — Itália pede ao G7 que aborde "guerra híbrida". — призыв дипломата к обсуждению — рутина, не мировая новость
+- [pt] курьёз: [world] The Independent — Bombeira mais baixa do mundo transforma sua estatura em vantagem em trabalho exi — лайфстайл-история, место в рубрике «интересное»
+- [pt] чужое_мелкое: [world] The Hill — Miller chama promoção a chefe de gabinete de 'honra da minha vida' em evento em  — комментарии в частном порядке на вечеринке, не официальное назначение
+- [pt] не_новость: [world] Fortune — Casas de entrada custam 1 milhão de dólares em um recorde de 242 cidades dos EUA — аналитический отчёт по рынку недвижимости, не событие
+- [pt] не_новость: [world] ECO — Sem Buffett na presidência, Berkshire diminui lucro e acelera recompra de ações — разбор финансовых результатов, не событие
+- [pt] не_новость: [world] The Guardian — ‘Um alienígena do futebol’: Mamadou Sangaré alcança o nível da Premier League — очерк об игроке, а не спортивный факт
+- [pt] чужое_мелкое: [world] Ars Technica — Soldado britânico desobedeceu ordem para remover cartão SIM e foi chantageado — локальное происшествие с одним военным, нет глобальных последствий
+- [pt] не_новость: [world] Variety — Diretor de 'O Problema dos 3 Corpos', Derek Tsang, assume série de crime real 'G — анонс назначения режиссёра на сериал
+- [pt] не_новость: [world] TechCrunch — OpenAI levanta US$ 11 bilhões adicionais com avaliação de US$ 1,25 trilhão, segu — слухи о сборе средств, сделка не завершена
+- [pt] не_новость: [world] Semafor — Nvidia enfrenta uma Washington mais hostil — аналитика отношений бизнеса и политики, нет нового факта
+- [fr] чужое_мелкое: [local] BFMTV — Des actions à travers l'Europe contre les centres de données — Протесты против дата-центров в Европе — это локальные акции в разных странах, не имеющие мирового масштаба.
+- [fr] не_новость: [local] Nice-Matin — Un nouveau cabinet médical ouvrira en février 2027 à Roquebrune-Cap-Martin : tro — Плановое открытие кабинета в будущем — это не событие, а объявление о планах.
+- [fr] не_новость: [local] Nice-Matin — « Meilleur flux de clients », « manque de parking », « une belle place »… Avant  — Рынок адаптировался перед открытием магазина — это описание процесса, а не событие.
+- [fr] не_новость: [local] L'Express — Réforme des retraites suspendue : les nouvelles règles à connaître — Разбор о реформе пенсий и мнении экономиста не является новостью-событием.
+- [fr] чужое_мелкое: [pool] Radio-Canada — Consternation face au budget fédéral qui ne fait aucune mention d’aide internati — Бюджет Канады не является мировой новостью для французского читателя.
+- [fr] чужое_мелкое: [pool] RTBF — Budget fédéral : les Belges vont-ils payer le prix du blocage politique ? — Внутренний бюджет Бельгии — локальная новость, не влияющая на Францию.
+- [fr] курьёз: [pool] Radio-Canada — Un premier cas de rage du raton confirmé chez une vache à Coaticook — Случай бешенства у коровы в Канаде — не мировая новость.
+- [fr] чужое_мелкое: [pool] RTBF — Une détenue de la prison de Haren victime d'un viol — Криминальная хроника из бельгийской тюрьмы — внутренняя новость Бельгии.
+- [fr] полка: [pool] La Dépêche — Guerre en Ukraine : accusé d'avoir transmis des secrets militaires à l'armée ukr — Новость о суде над канадцем в Канаде должна быть в «Новости из...», а не в местных (ошибочно помечена как Франция в текс
+- [fr] не_новость: [pool] Radio-Canada — Le lanceur d’alerte congédié par la CAQ veut devenir journaliste — Бывший чиновник стал студентом — это частная жизнь, не событие.
+- [fr] не_новость: [pool] Le Devoir — Une vision à trop court terme pour la culture dans le budget fédéral — Мнение ассоциаций о бюджете культуры — это экспертная оценка, а не событие.
+- [fr] не_новость: [world] La Tribune — Commerce international : responsables américains et chinois expriment leurs « pr — Дипломатические «выражения обеспокоенности» без конкретного результата — это этикет и слова.
+- [fr] не_новость: [world] La Dépêche — Vladimir Poutine : pourquoi le président russe est-il d'ores et déjà exclu du so — Анализ того, почему кого-то не пригласят на саммит через два года — спекуляция.
+- [fr] чужое_мелкое: [world] Sud Ouest — Nouvelle-Zélande : malgré des scores très serrés, le Premier ministre conservate — Ход подсчета голосов на выборах в Новой Зеландии не является событием мирового масштаба.
+- [fr] повтор: [world] Bénin Web TV — Nouvelle-Zélande : un scrutin serré laisse la coalition sortante dans l’incertit ≈ «Nouvelle-Zélande : malgré des scores trè» — Тот же сюжет о выборах в Новой Зеландии.
+- [fr] чужое_мелкое: [world] Africanews FR — Afrique du Sud : l’African National Congress s’apprête à perdre un soutien élect — Внутренняя политика партии ANC в ЮАР не является мировой новостью.
+- [fr] полка: [world] Africanews FR — Paraguay : l'ancien vice-président Pedro Alliana prête serment en tant que prési — Событие в Парагвае должно быть в «Мировых», а не в «Новости из...» (не франкоязычная страна).
+- [fr] не_новость: [world] Variety — Davika Hoorne sera de retour dans la suite du film « Inherit », confirme le réal — Анонс съемок продолжения фильма — не новость-событие.
+- [fr] не_новость: [world] RFI — Iran: après les midterms, Téhéran joue la diplomatie et veut réduire l'influence — Анализ дипломатических намерений Тегерана — это рассуждение эксперта.
+- [fr] не_новость: [world] RFI — De l'occupation russe à Kiev, le long périple des animaux d'Olechky — История о переезде животных — это очерк, не событие.
+- [fr] полка: [world] BBC Mundo — Le scandale de la banque Ueno au Paraguay entraîne l'arrestation de Santiago Peñ — Событие в Парагвае должно быть в «Мировых».
+- [fr] не_новость: [world] Sciences et Avenir — Voici les dangers du futur, selon le Lancet — Разбор прогнозов Lancet на столетие вперед — это научный обзор, а не новость.
