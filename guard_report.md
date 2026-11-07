@@ -1,14 +1,25 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] срочность: [local] Poder360 — Helicóptero cai em zona rural de MG e deixa 5 feridos — Крушение частного вертолета — трагическое происшествие, но не требует побудки всей страны.
-- [pt] не_новость: [local] G1 São Paulo — Entre 76 países, apenas 8 têm maioridade penal abaixo de 18 anos de idade — Аналитическая справка о мировой статистике, нет события.
-- [pt] не_новость: [pool] Terra BR — Atlético-MG prepara festa com luzes e mais de 500 bandeiras — Анонс спортивного мероприятия (подготовка болельщиков).
-- [pt] не_новость: [pool] Observador PT — Sporting-Moreirense. Paulo Fonseca não faz revolução — Предматчевый обзор (превью), события нет.
-- [pt] повтор: [world] Notícias ao Minuto — Manchester City sofre terceira derrota seguida e vê Arsenal mais longe ≈ «Gols de Delap pelo Nottingham Forest imp» — Тот же матч, что и в 64.
-- [pt] курьёз: [world] Fortune — Ações da Berkshire Hathaway voltam a ser um porto seguro — Биржевая аналитика, нет события для широкого читателя.
-- [pt] курьёз: [world] Fortune — Casas de entrada custam 1 milhão de dólares em um recorde de 242 cidades dos EUA — Статистический отчет о ценах на жилье в США, не является мировой новостью.
-- [pt] курьёз: [world] Superinteressante — Pessoas que falam mais palavrões tendem a ser mais honestas — Научно-популярная статья о психологии, место в «Интересном».
-- [pt] полка: [world] Guardian Sport — Dončić brilha com 53 pontos na vitória dos Lakers — Мировое событие (баскетбол), лежит в «Мировых», но содержит фактическую ошибку: Лука Дончич не играет за «Лейкерс».
-- [pt] полка: [world] AKIpress Эко — Alerta meteorológica: risco de avalanches no passo de Chon-Ashuu — Местная новость Кыргызстана в ленте пула Бразилии.
-- [pt] не_новость: [world] Semafor — Nvidia enfrenta uma Washington mais hostil — Аналитическая статья об отношениях компании и политиков, события нет.
-- [pt] чужое_мелкое: [world] Time — De repente, Ted Cruz é o último legislador republicano estadual no Texas — Внутренняя политика штата Техас, не является мировой новостью.
+- [en] чужое_мелкое: [local] Metrópoles — US offers $15 million reward for Venezuelan faction leader — Внутренняя новость Венесуэлы; для США это не значимое событие мирового масштаба.
+- [en] курьёз: [local] Good News Network — Mayor Uses AirTag to Catch Capstone Thief who was Stealing 18th-Century Stones A — История про кражу камней — развлекательный факт, место в «Интересном».
+- [en] курьёз: [local] WTOP — Chimp sanctuary delivers an ape’s food by drone amid Florida floods — Необычный способ доставки еды в зоопарк — это любопытная история, а не важное событие.
+- [en] срочность: [local] KING5 — Plane crashes in Pierce County, second aircraft in 3 hours — Происшествие без жертв не требует пометки срочности и побудки читателя.
+- [en] не_новость: [local] Honolulu Star-Advertiser — Dizzying week for investors as politics, AI and the economy collide — Аналитический обзор рыночных колебаний недели, а не конкретное событие.
+- [en] чужое_мелкое: [pool] BBC News — UK cannot 'cherry pick' EU single market deal, Barnier tells BBC — Внутренние переговоры ЕС и Британии по торговым сделкам — не мировая повестка.
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Call for clarity on existence of Ireland-UK airspace deal — Внутренний политический спор Ирландии об обороне своего воздушного пространства.
+- [en] чужое_мелкое: [pool] RTÉ Ireland — FG pledges 'penalties' for avoiding back-to-work services — Внутренняя социальная политика правительства Ирландии.
+- [en] курьёз: [world] ABC Australia — Moesha Johnson's Open Water World Cup winning streak continues — Спортивный результат (плавание) — частная новость, не мировая.
+- [en] курьёз: [world] Xataka — US funded a network of sensors in the Pacific; China has used the data to discov — Устаревшее исследование о сенсорах — это научная заметка, не новость.
+- [en] чужое_мелкое: [world] Guardian Sport — Delap’s Nottingham Forest stunners hand Manchester City third league defeat in a — Результат футбольного матча британской лиги — это региональная новость Британии, а не мировая.
+- [en] курьёз: [world] Live Science — The Maya used so much red paint that they poisoned their water with mercury, mud — Научное исследование о майя — классический пример «интересного» без события.
+- [en] курьёз: [world] Futura-Sciences — To protect Earth, the Hera probe has reached an asteroid struck by NASA — Научная хроника миссии Hera — «интересное».
+- [en] не_новость: [world] TechCrunch — Amazon’s new basic Kindle proves you don’t need all the bells and whistles — Обзор потребительской электроники (Kindle), а не новость о событии.
+- [en] курьёз: [world] Live Science — Tectonic forces near Japan helped fuel the formation of the Grand Canyon — Геологическая теория — это «интересное», а не событие.
+- [en] курьёз: [world] Good News Network — Baby Saved After Racing Heartbeat Detected by Family Doberman — История про собаку — это «интересное».
+- [en] чужое_мелкое: [world] Ars Technica — British soldier ignored order to pull his SIM card, then got blackmailed — Частный инцидент с эстонской газетой и британским солдатом.
+- [en] курьёз: [world] Ars Technica — Doctors pull knife from man's eye that went through his brain—and he's fine now — Медицинский казус — это «интересное», а не мировая новость.
+- [en] не_новость: [world] Time — How Europe's Far-Right Leaders Are Backing Away From Trump After Midterm Losses — Рассуждение экспертов о том, как политики «отдаляются» от Трампа.
+- [en] курьёз: [world] Smithsonian Magazine — Where Did Stonehenge's Mysterious, Six-Ton Altar Stone Really Come From? — История происхождения камней Стоунхенджа — это «интересное».
+- [en] курьёз: [world] Atlas Obscura — Fuente de los Niños Miones in Guadalajara, Mexico — Описание достопримечательности — «интересное».
+- [en] курьёз: [world] Atlas Obscura — Tarrafal Concentration Camp in Chão Bom, Cabo Verde — Историческая справка о музее — «интересное».
+- [en] не_новость: [world] Semafor — There's a silver lining for data center builders amid the 'blue wave' — Рыночное рассуждение о «серебряной подкладке» в отчётах, а не новость.
