@@ -1,22 +1,17 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] KENS5 — San Antonio man accused of shooting 2 people at Halloween party — Криминальная хроника, нет мирового масштаба или угрозы обществу.
-- [en] срочность: [local] masslive.com — Flooding shuts roads across Massachusetts amid heavy rain — Плановое объявление об осадках и затоплениях не требует побудки.
-- [en] срочность: [local] WFSB — Crash involving utility pole closes road in Manchester, repairs expected to take — ДТП с перекрытием дороги — рутина, не требует побудки.
-- [en] срочность: [local] WRDW — Fears of 90-day blackout fuel gun sales in South Carolina — Слухи и страхи людей не являются событием для срочной метки.
-- [en] срочность: [local] WFSB — Crash shuts down lane on Route 8 north in Waterbury, causing delays — Обычное ДТП с пробками не требует побудки.
-- [en] срочность: [local] WCAX — Dartmouth arena evacuated after report of electrical fire during ice hockey game — Эвакуация из-за сработавшей пожарной сигнализации без масштабного ущерба.
-- [en] срочность: [local] New Jersey 101.5 — Gloucester Township CVS robbery ends in police shooting — Криминальная хроника, не требует побудки.
-- [en] срочность: [local] WTHR — IMPD: Person dead after stabbing on Indianapolis' south side — Криминальная хроника, не требует побудки.
-- [en] повтор: [pool] Toronto Star — From high-flying AI stocks to tariff-hit alcohol companies, the midterms shook u ≈ «Wall Street banks brace for ‘political t» — Тот же сюжет про реакцию Уолл-стрит на итоги выборов.
-- [en] повтор: [pool] Toronto Star — House Democrats will start their majority focused on boosting healthcare and end ≈ «Wall Street banks brace for ‘political t» — Обсуждение приоритетов демократов в Конгрессе.
-- [en] полка: [pool] Portland Press Herald — Scientists discovered an unknown baby right whale off Canada. — Событие в Канаде (CA), лежит в «Новости из...», но издание US, а не из Канады.
-- [en] не_новость: [world] Engadget — Why PlayStation can't hold a candle to Xbox's backward compatibility — Мнение/сравнение консолей без события.
-- [en] не_новость: [world] Toronto Star — Melania Trump and LSU are set to announce a scholarship program for students who — Анонс визита/программы, нет свершившегося факта запуска.
-- [en] не_новость: [world] Fortune — Wall Street banks brace for ‘political theater’ as Democrats return to power—but — Аналитика/рассуждения о настроениях на рынке, нет события.
-- [en] полка: [world] Guardian Sport — Dončić dazzles with 53 in Lakers’ win as LeBron held to eight in Cleveland retur — Спорт, не является «Мировой новостью», это внутренняя лига US.
-- [en] метка_места: [world] Knews.kg — Paraguayan President Santiago Peña impeached and arrested — Издание Knews (KG) пишет о событиях в Парагвае, помечено как мировая, но в контексте пула US — это мировая новость.
-- [en] не_новость: [world] TechCrunch — From the front row to the hot seat — what the midterms mean for Big Tech — Аналитика/рассуждения о влиянии выборов на сектор, нет события.
-- [en] курьёз: [world] Guardian Sport — Bad blood? Knicks defend Taylor Swift after players accuse her of being ‘fake fa — Сплетни/шоу-бизнес, не новость.
-- [en] не_новость: [world] Arkansas Times — Gavin Newsom’s death penalty clemency echoes mass commutations of Arkansas’ Win  — Исторический очерк/сравнение, не событие.
-- [en] не_новость: [world] Semafor — There's a silver lining for data center builders amid the 'blue wave' — Мнение аналитиков, нет события.
+- [es] чужое_мелкое: [pool] Infobae — Corte Suprema cerró la puerta a solicitud de Santiago Uribe Vélez, hermano del e — Внутренняя судебная процедура Колумбии, не имеющая мирового веса.
+- [es] полка: [pool] El Universo EC — Ecuador consiguió dos medallas de oro, tres de plata y dos de bronce en el Sudam — Спортивная новость регионального значения, ошибочно в «Новостях из…».
+- [es] не_новость: [pool] Marca — El Burgos remonta y acabará el sábado en 3ª posición — Обычный спортивный обзор тура, не является событием по списку.
+- [es] не_новость: [pool] Semana CO — Abelardo De La Espriella expresa su respaldo al director del Dapre: “Ningún miem — Политическое высказывание-этикет, не является событием.
+- [es] не_новость: [pool] Clarín AR — León XIV: qué libros se consiguen en la Argentina sobre el nuevo Papa — Анонс книг перед визитом, нет свершившегося факта.
+- [es] не_новость: [pool] El Universo EC — Más gasto en datos móviles cuando el internet de casa falla durante los aguacero — Жалоба жителя на плохой интернет — не событие.
+- [es] не_новость: [pool] Prensa Libre GT — Cultura adjudica más de Q714 mil en atención y transporte para muestra teatral e — Техническая закупка/администрирование, не является событием для читателя.
+- [es] не_новость: [pool] eldiario.es — Rufián y Montero llaman a secundar la huelga "para paralizar el país" y defiende — Политический призыв к будущей забастовке.
+- [es] не_новость: [pool] eldiario.es — A Koldo le ofrecieron un Aldama — Обзор или пересказ интервью, нет события.
+- [es] не_новость: [pool] eldiario.es — Sánchez reinicia la campaña con la "ejemplaridad" de Puente como antítesis de la — Политическая аналитика и описание настроений кампании.
+- [es] не_новость: [world] Variety — El director de '3 Body Problem', Derek Tsang, se une a la serie policial 'Group  — Кадровые перестановки в производстве сериалов не являются значимым событием.
+- [es] не_новость: [world] Variety — Davika Hoorne regresará para la secuela de 'Inherit', confirma el director Banjo — Анонс сиквела фильма, нет события.
+- [es] полка: [world] Guardian Sport — Dončić deslumbra con 53 puntos en la victoria ante los Lakers — Результат матча NBA — мировая новость, лежит в «Мировых», но содержит только спортивный факт без мирового влияния.
+- [es] полка: [world] AKIpress Эко — Alerta meteorológica: se esperan avalanchas en el paso de Chon-Ashuu — Местная новость (Кыргызстан) в испанском пуле.
+- [es] чужое_мелкое: [world] La Vanguardia — La Casa Blanca cierra filas con Hegseth y Rubio y descarta su salida tras el des — Внутриполитическая полемика США о судьбе чиновников.
