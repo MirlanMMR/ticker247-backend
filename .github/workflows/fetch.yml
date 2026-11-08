@@ -37,10 +37,20 @@ on:
     # ровно в :00 GitHub задерживает сильнее всего.
     #
     # Дозор срочного вынесен в patrol.yml и идёт КРУГЛОСУТОЧНО, независимо от разбора.
-    # 08.11.2026: на паузе все пулы, кроме ru (schedule_pools.PAUSED_POOLS), и запасной запуск один (:07).
+    # 08.11.2026: запасной запуск один (:07). Пулы на паузе — schedule_pools.PAUSED_POOLS (сейчас пусто).
     - cron: '7 5 * * *'   # ru
+    - cron: '7 8 * * *'   # fr
     - cron: '7 9 * * *'   # ru
+    - cron: '7 12 * * *'   # fr, pt
     - cron: '7 13 * * *'   # ru
+    - cron: '7 14 * * *'   # en
+    - cron: '7 15 * * *'   # es
+    - cron: '7 16 * * *'   # fr, pt
+    - cron: '7 18 * * *'   # en
+    - cron: '7 19 * * *'   # es
+    - cron: '7 20 * * *'   # pt
+    - cron: '7 22 * * *'   # en
+    - cron: '7 23 * * *'   # es
 
 # Право на запись нужно одному шагу — тому, что складывает замеры вещания в
 # live_probe.csv. Лента живёт в Firebase и репозитория не касается
@@ -68,7 +78,7 @@ jobs:
     # пропущенное задание Actions не тратит минут. Так экономия не зависит от того, развёрнут ли заново воркер
     # Cloudflare (старый воркер ещё шлёт слоты en/es/pt/fr). Живые пулы перечислены здесь же;
     # test_schedule.py сверяет список с таблицей. Ручной запуск (не from_scheduler) и расписание GitHub идут как раньше.
-    if: ${{ github.event_name != 'workflow_dispatch' || !inputs.from_scheduler || contains(inputs.pools, 'ru') }}
+    if: ${{ github.event_name != 'workflow_dispatch' || !inputs.from_scheduler || contains(inputs.pools, 'ru') || contains(inputs.pools, 'en') || contains(inputs.pools, 'es') || contains(inputs.pools, 'pt') || contains(inputs.pools, 'fr') }}
     runs-on: ubuntu-latest
     # Разбор одного-двух пулов занимает ~25 минут; час — предел, чтобы очередь не копилась
     timeout-minutes: 60

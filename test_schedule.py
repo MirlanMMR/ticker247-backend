@@ -81,7 +81,7 @@ check("секрет токена не лежит в репозитории", "gh
 
 # ── разбор строки cron ──
 check("cron слота 9 UTC → ru", S.pools_for_cron("7 9 * * *") == ("ru",))
-check("cron слота паузного пула (fr, pt в 12 UTC) → неизвестная строка", S.pools_for_cron("7 12 * * *") == ())
+check("cron слота fr+pt → fr, pt", S.pools_for_cron("7 12 * * *") == ("fr", "pt"))
 check("«полки стран» — один раз в сутки (первый слот)", [h for h in S.SLOTS_UTC if S.wants_country_shelves(f"7 {h} * * *")] == [S.COUNTRY_SHELVES_HOUR])
 
 # ── режим POOLS ──
