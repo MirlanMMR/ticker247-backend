@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] Poder360 — Tarcísio, Nunes, Hugo Motta e Renan Santos vão à F1 em SP — визит политиков на мероприятие — обычная протокольная рутина без события.
-- [pt] не_новость: [local] Folha de S.Paulo — PSOL avalia lançar Erika Hilton à Prefeitura de SP para mantê-la no partido e co — партийные оценки и планы на 2028 год — это не свершившееся событие.
-- [pt] не_новость: [local] G1 Globo — 'Não é meu foco': estudante de 17 anos deixa Enem entre os primeiros e revela so — личное мнение студента о карьере не является новостью.
-- [pt] не_новость: [local] G1 Globo — 'Ser um espelho': mulher indígena faz Enem aos 34 anos para inspirar os filhos e — участие в экзамене как вдохновляющий пример — очерк, а не событие.
-- [pt] срочность: [local] G1 Globo — Candidata do Enem passa mal em sala sem ventilação e é orientada a pedir reaplic — частная жалоба на организацию экзамена не является срочной.
-- [pt] не_новость: [local] Poder360 — Lula fará pronunciamento à nação neste domingo — анонс выступления президента — это заявление о намерении, а не свершившийся факт.
-- [pt] не_новость: [local] Agência Brasil — Seleção masculina inicia apresentação para últimos amistosos do ano — прибытие сборной на сборы — это рутина, а не новость.
-- [pt] не_новость: [local] CNN Brasil — Selic: Eleição estressou a curva de juros, diz economista do Daycoval — мнение экономиста о причинах колебания курса не является событием.
-- [pt] не_новость: [local] Gazeta do Povo — Presidente do PT propõe voto em lista partidária com cotas para candidatos LGBT — предложение по изменению системы выборов — это мнение политика, а не решение.
-- [pt] срочность: [local] Estadão — ‘Ele estava possesso, podia ter me matado’, diz à TV idosa de 81 anos espancada  — событие (инцидент) произошло в прошлом, нет повода для побудки.
-- [pt] не_новость: [local] Agência Brasil — Aplicação do Enem é operação de guerra contra o retrocesso, diz Lula — риторика президента («война против регресса») не является фактом.
-- [pt] срочность: [local] G1 São Paulo — PM cancela show de Natanzinho Lima em Paraisópolis por falta de alvará; comunida — отмена концерта из-за документов — не повод для побудки.
-- [pt] не_новость: [local] Estadão — Com vazio político, Brasil tem condições de liderar movimento global pelo clima, — мнение о внешнеполитическом потенциале страны — это аналитика.
-- [pt] не_новость: [local] G1 Rio — Pesquisador revela detalhes de fiscalizações de saúde em navios negreiros no Rio — историческое исследование о временах рабства — это очерк.
-- [pt] срочность: [local] G1 São Paulo — Justiça condena golpista do Tinder a seis anos de prisão, após prejuízo de R$ 1, — приговор суда по делу, которое шло месяцами, — не срочно.
-- [pt] не_новость: [local] G1 São Paulo — Condomínio quis expulsar suspeito de matar advogada e enteado por ameaçar morado — история о конфликте в кондоминиуме — частный случай.
-- [pt] не_новость: [local] Estadão — Cinco Estados brasileiros registram alta de casos de covid-19, diz relatório da  — статистическая тенденция (рост случаев) без конкретных мер или сроков.
-- [pt] полка: [pool] Público — Mulheres são 45% da missão do Brasil no Web Summit, segundo maior índice da hist — новость о Бразилии лежит в «Новости из...», хотя издание португальское.
-- [pt] не_новость: [world] Notícias ao Minuto — Trump considera "muito improvável" recomeço da guerra com o Irão — мнение президента о «невероятности» войны — это политическая риторика.
-- [pt] срочность: [world] The Hill — Usina nuclear ucraniana muda para geradores após perder a última linha de energi — рутина затяжного конфликта, событие не является экстренным событием для читателя в BR.
-- [pt] не_новость: [world] The Independent — Stephen Miller e o Departamento de Justiça planejam prender jornalistas devido a — отчет о планах/слухах, а не свершившийся факт.
-- [pt] не_новость: [world] The Independent — Trump encerra a ajuda militar a Israel – qual será o impacto? — этот текст противоречит другим новостям, выглядит как интерпретация, а не официальный указ.
-- [pt] не_новость: [world] Fortune — Ações devem cair ainda mais com a desaceleração do investimento em IA, prevê eco — прогноз экономиста о будущем акций — это аналитика.
-- [pt] срочность: [world] El Mundo — A caixa-preta do Iryo revela que a maquinista tentou "reportar a Atocha 3 ou 4 v — расследование причин старой аварии — не срочно.
-- [pt] не_новость: [world] Semafor — Nvidia enfrenta uma Washington mais hostil — аналитика о регуляторной среде, а не событие.
+- [en] срочность: [local] WSAZ — Semi-trailer crash blocks westbound lanes of I-64 — ДТП с перекрытием полос — рядовое событие, не требует побудки.
+- [en] чужое_мелкое: [local] UPI — Trump says attacks on Iran 'highly unlikely' if talks show progress — Слова президента США об Иране не являются событием (не_новость).
+- [en] не_новость: [local] Axios — Blanche dismisses Means allegations as GOP's MAHA feud deepens — Внутренняя политическая перепалка, нет события.
+- [en] не_новость: [local] NH Union Leader Latest News — Merrimack tables kratom ban after firm threatens lawsuit — «Мерримак отложил запрет» — это не принятое решение, а лишь обсуждение.
+- [en] не_новость: [local] UPI — Wisconsin state trooper released after ICE arrest — Отсутствие фактов о деле, статус солдата неясен.
+- [en] не_новость: [local] CBS News — Transcript: Calley Means on "Face the Nation with Margaret Brennan," Nov. 8, 202 — Транскрипт интервью — это не новостное событие.
+- [en] не_новость: [pool] Guardian Sport — ‘I expect to move forward’: Carrick denies risk of Manchester United sack — Заявления тренера о том, что он «ожидает остаться» — слова, а не событие.
+- [en] не_новость: [pool] BBC News — Maya Jama steps down as host of reality TV show Love Island — Уход ведущей ТВ-шоу — не событие общественного масштаба.
+- [en] чужое_мелкое: [pool] The Independent — Popular progressive podcast sees sponsors flee after ‘insensitive’ Charlie Kirk  — Скандал вокруг подкаста не является важным событием для аудитории US.
+- [en] не_новость: [pool] The Independent — Sotomayor says SCOTUS has done ‘crazy things’ and she hopes some rulings will be — Мнение судьи о решениях суда — это слова, а не событие.
+- [en] не_новость: [pool] BBC News — Top House Democrat 'a hard yes' on impeaching Hegseth — Обещание политика проголосовать за импичмент в будущем — не событие.
+- [en] повтор: [pool] Sky Sports — Man Utd in relegation zone but boss Carrick 'expects' to stay on ≈ «‘I expect to move forward’: Carrick deni» — Тот же сюжет про Манчестер Юнайтед.
+- [en] не_новость: [pool] RTÉ Ireland — Fine Gael 'punching down' with unemployment pledge - SF — Политическая критика оппозиции — не событие.
+- [en] не_новость: [pool] RTÉ Ireland — 'Substantially improved' public pay offer, says Taoiseach — Слова о наличии «базы для соглашения» — это намерение, а не факт.
+- [en] курьёз: [world] Engadget — A sample of over 5,000 drives reveals one problem with new HDDs — Техническое исследование без последствий для читателя.
+- [en] не_новость: [world] RFI — United States: Donald Trump wants Dana White, the 'fierce' boss of the UFC, as W — Предложение позиции (еще не принятое) — не событие.
+- [en] курьёз: [world] Engadget — Samsung One UI removed the all apps button, but you can easily get it back — Совет по настройке интерфейса смартфона.
+- [en] не_новость: [world] CBS News — Iran downplays new U.S. task force aimed at disrupting land routes — Реакция Ирана на создание рабочей группы — слова, не событие.
+- [en] чужое_мелкое: [world] WBAL — Norway says it has been bumped by the IIHF to allow Russia to compete at world j — Внутренний спор хоккейных ассоциаций.
+- [en] курьёз: [world] KOB — ‘Godzilla Minus Zero’ stomps to a record-setting $31.6 debut, clobbering ‘The Ca — Кинокассовые сборы — это не новость, а обзор рынка.
+- [en] не_новость: [world] Guardian Sport — Carlos Alcaraz beats error-prone Ben Shelton to win Paris Masters — Спортивный результат (турнир окончен, последствия для читателя отсутствуют).
+- [en] курьёз: [world] Ars Technica — Physicists listened to electrical noise to crack a superconductor mystery — Научный факт/исследование без последствий.
+- [en] не_новость: [world] The Guardian — Hot fridges, a fake nuclear alert and a $6bn heist: are we in the foothills of a — Обзорный материал с вопросом в заголовке.
+- [en] чужое_мелкое: [world] Ars Technica — British soldier ignored order to pull his SIM card, then got blackmailed — Инцидент с солдатом в Эстонии — не мировой масштаб.
+- [en] курьёз: [world] Ars Technica — Doctors pull knife from man's eye that went through his brain—and he's fine now — Медицинский случай без общемировых последствий.
