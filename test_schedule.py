@@ -35,14 +35,14 @@ check("строки cron в fetch.yml совпадают с таблицей с�
 check("нет дублей строк cron", len(set(crons)) == len(crons))
 check("каждая строка cron известна таблице", all(S.pools_for_cron(c) for c in crons))
 check("незнакомая строка cron → пусто (workflow упадёт, а не запустит все пулы)", S.pools_for_cron("0 */2 * * *") == ())
-check("каждый слот стоит дважды (запасной запуск)", all(crons.count(f"{m} {h} * * *") == 1 for h in S.SLOTS_UTC for m in S.CRON_MINUTES) and len(crons) == 2 * len(S.SLOTS_UTC))
+check("каждый слот стоит по числу минут запасного запуска", all(crons.count(f"{m} {h} * * *") == 1 for h in S.SLOTS_UTC for m in S.CRON_MINUTES) and len(crons) == len(S.CRON_MINUTES) * len(S.SLOTS_UTC))
 check("минуты запуска не :00 (GitHub задерживает их сильнее всего)", all(int(c.split()[0]) != 0 for c in crons))
 check("минуты — те, что в таблице", {int(c.split()[0]) for c in crons} == set(S.CRON_MINUTES))
 
 # ── у каждого пула три слота — в дневных часах ОБОИХ главных поясов (8 поясов по три часа) ──
 check("восемь поясов по три часа, центры через три часа", S.BANDS == (-9, -6, -3, 0, 3, 6, 9, 12))
 for pool in S.ACTIVE_POOLS:
-    hours = sorted(h for h, ps in S.SLOTS_UTC.items() if pool in ps)
+    hours = sorted(h for h, ps in S.SLOTS_ALL.items() if pool in ps)   # полная таблица: пул можно вернуть с паузы
     mains = S.POOL_MAIN_BANDS[pool]
     check(f"{pool}: ровно три слота в сутки", len(hours) == 3)
     check(f"{pool}: два главных пояса, оба из восьми", len(mains) == 2 and all(b in S.BANDS for b in mains))
@@ -54,7 +54,14 @@ for pool in S.ACTIVE_POOLS:
     # слоты по кругу суток не чаще чем раз в два часа и не реже чем раз в шесть (по UTC от слота к слоту)
     gaps = [(hours[(i + 1) % 3] - hours[i]) % 24 for i in range(3)]
     check(f"{pool}: промежутки между слотами {gaps} (не меньше 2 ч); ночной провал один", min(gaps) >= 2 and sum(gaps) == 24)
-check("всего 15 пул-прогонов в сутки (3 × 5), как с 9 октября", sum(len(ps) for ps in S.SLOTS_UTC.values()) == 15)
+check("полная таблица: 15 пул-прогонов в сутки (3 × 5), как с 9 октября", sum(len(ps) for ps in S.SLOTS_ALL.values()) == 15)
+live = tuple(p for p in S.ACTIVE_POOLS if p not in S.PAUSED_POOLS)
+check("на паузе только то, что названо; работает хотя бы один пул", set(S.PAUSED_POOLS) <= set(S.ACTIVE_POOLS) and len(live) >= 1)
+check("пулы на паузе не стоят в расписании, живые — по три слота", all(p not in ps for ps in S.SLOTS_UTC.values() for p in S.PAUSED_POOLS) and all(sum(p in ps for ps in S.SLOTS_UTC.values()) == 3 for p in live))
+_gate = " || ".join(f"contains(inputs.pools, '{p}')" for p in live)
+check("fetch.yml: слот планировщика без живых пулов пропускается заданием целиком (живые: " + ",".join(live) + ")",
+      f"if: ${{{{ github.event_name != 'workflow_dispatch' || !inputs.from_scheduler || {_gate} }}}}" in wf)
+check("расписание: пул-прогонов в сутки = 3 × число живых пулов", sum(len(ps) for ps in S.SLOTS_UTC.values()) == 3 * len(live))
 check("в одном запуске не больше двух пулов", all(len(ps) <= 2 for ps in S.SLOTS_UTC.values()))
 check("«полки стран» — в часе, где есть слот", S.COUNTRY_SHELVES_HOUR in S.SLOTS_UTC)
 
@@ -73,8 +80,8 @@ check("fetch.yml: вход from_scheduler не обходит шлюз свеж�
 check("секрет токена не лежит в репозитории", "ghp_" not in wj and "github_pat_" not in wj and "github_pat_" not in wt)
 
 # ── разбор строки cron ──
-check("cron слота fr+pt → fr, pt", S.pools_for_cron("7 12 * * *") == ("fr", "pt"))
-check("запасной запуск того же слота — те же пулы", S.pools_for_cron("37 12 * * *") == S.pools_for_cron("7 12 * * *"))
+check("cron слота 9 UTC → ru", S.pools_for_cron("7 9 * * *") == ("ru",))
+check("cron слота паузного пула (fr, pt в 12 UTC) → неизвестная строка", S.pools_for_cron("7 12 * * *") == ())
 check("«полки стран» — один раз в сутки (первый слот)", [h for h in S.SLOTS_UTC if S.wants_country_shelves(f"7 {h} * * *")] == [S.COUNTRY_SHELVES_HOUR])
 
 # ── режим POOLS ──
