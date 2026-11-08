@@ -1,71 +1,114 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-11-08 19:16 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-11-08 20:17 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [es]: помечено 100 из 342 за 3 запросов
-  🧭 [es] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 33 в 16 регионах
-  🧭 [es] после чистки текста: всего 67 — местных 26, соседей 14, мира 27; областных 33 в 16 регионах
-  🧭 [es] после обзоров прессы: всего 47 — местных 22, соседей 12, мира 13; областных 8 в 2 регионах
-  🧭 [es] после склейки пересказов: всего 41 — местных 21, соседей 10, мира 10; областных 6 в 2 регионах
-  🧭 [es] после рубежа: всего 36 — местных 18, соседей 10, мира 8; областных 6 в 2 регионах
+  🧪 Этап 1 (боевой) [pt]: помечено 119 из 398 за 4 запросов
+  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 55 в 22 регионах
+  🧭 [pt] после чистки текста: всего 69 — местных 28, соседей 14, мира 27; областных 55 в 22 регионах
+  🧭 [pt] после обзоров прессы: всего 56 — местных 27, соседей 12, мира 17; областных 36 в 9 регионах
+  🧭 [pt] после склейки пересказов: всего 53 — местных 24, соседей 12, мира 17; областных 28 в 9 регионах
+  🧭 [pt] после рубежа: всего 49 — местных 24, соседей 11, мира 14; областных 28 в 9 регионах
 
-  🗞 Редактор [es] (В ЭФИРЕ): карточек 42, спрошено 29, вторым 0
-     память не сработала: новая 28, текст стал короче 1
-     снято: нет события 10, не для читателя 1, реклама 1, анонс без сути 1
-     починено: текст сокращён до сути 22, строка НОС принята 2, нужно другое фото 1, фото заменено 1
-     🎲 Любопытное [es] (в полосу «Интересное»): 0
-       📝 [El Universal MX] Colombia reforzará seguridad a medios; medida se d → El gobierno de Colombia reforzará la seguridad de medios tras amenazas de atentado del ELN.
-       ✂️ [El Universal MX] Colombia reforzará seguridad a medios; medida se da tras ame — абзацы 4/11
-       ✗ нет события: [La Jornada] Tras elecciones en EU, irán perdiendo fuelle las agresiones a Cuba — политический анализ/колонка
-       ✂️ [El Financiero] Localizan a alcalde de Río Bravo; Harfuch informa que Miguel — абзацы 3/7
-       ✂️ [El Universal MX] Hallan sin vida a joven de 23 años en Xalapa; detienen a su  — абзацы 3/4
-       ✂️ [El Universal MX] Desfile de modas en la Catedral de Puebla desata polémica; c — абзацы 3/20
-       ✂️ [El Universal MX] Caen “La Pocha” y su hijo “El Nazi” en Tamaulipas, del Cárte — абзацы 4/6
-       ✂️ [El Universal MX] Desmantelan laboratorio clandestino de drogas sintéticas en  — абзацы 3/14
-       ✂️ [El Financiero] ¡Se le escapó la cima! América empata con Pumas y Cruz Azul  — абзацы 2/32; выпуск спортивного итога матча
-       ✂️ [La Jornada] Localizan muerto al docente de la BUAP y de Antropología — абзацы 3/4; №1 — обложка с заголовком
-       ✗ нет события: [El Economista MX] Inspirado por Stallone, Anthony Ippolito se forjó su protagónico en "Yo Soy Rocky" — интервью актера, повода нет
-       ✂️ [El Economista MX] Inicia la negociación por el salario mínimo: IP busca tope d — абзацы 3/7; начало переговоров по МРОТ
-       ✂️ [El Economista MX] El MIR llega a su límite, STPS y Banxico alertan agotamiento — абзацы 3/6; отчет о пределе MIR
-       ✂️ [Expansión MX] Honda ensamblará en Jalisco motos que traía de China; el aju — абзацы 5/10
-       ✗ нет события: [Reforma] Cierra Del Toro temporada con triunfo — устаревшая информация, нет годного фото
-       ✂️ [El Financiero] Luis Carlos Ugalde responde a acusaciones de fraude electora — абзацы 3/15; ответ Угальде на обвинения
-       ✂️ [El Financiero] Cantaste en los conciertos de La Mayiza: ¿Qué shows organizó — абзацы 6/56; суть связи компании с картелем и контекст
-       ✂️ [El Financiero] SCJN y sindicatos acuerdan modificar evaluación del Poder Ju — абзацы 4/16; развитие сюжета: достигнутое соглашение
-       ✗ не для читателя: [El País] Alberto Núñez Feijóo: “Hacer una coalición de Gobierno con Vox no depende de mí” — внутренняя политика Испании
-       ✂️ [El País] Sánchez reenfoca la campaña del PSOE en la gestión y asegura — абзацы 4/19; выбраны факты о кампании и обещаниях
-       ✗ нет события: [Clarín AR] Detienen en México a presunto integrante del Cartel del Noreste requerido por EE.UU. — фото из другой карточки, других нет
-       ✂️ [Marca] Norris arrasa, Mercedes reina y Alonso no tiene premio en un — абзацы 3/8; описание гонки, без последнего абзаца
-       🖼 [Азаттык (кыргызча)] Ucrania: más de 600.000 personas quedaron sin elec — фото №1 — обложка соцсетей; выбран снимок из статьи
-       ✂️ [La Nación AR] Los regalos que Milei preparó para darle al papa León XIV cu — абзацы 3/4; только подарки, последний абзац исключен
-       ✂️ [El Tiempo CO] Salwa Maloof y Andrea Valdiri se unen para darle una nueva o — абзацы 4/5
-       ✂️ [El Tiempo CO] Hospital Departamental de San Andrés lanza SOS por falta de  — абзацы 3/4
-       📝 [Time] Las amenazas de bomba en Europa aumentan el temor  → Oleada de amenazas de bomba en Europa moviliza a las autoridades tras inspecciones en vuelos.
-       ✗ нет события: [TechCrunch] Arrestó a un hacker y pasó 18 meses limpiando su nombre. Ahora es capitalista de riesgo en — портрет/история героя
-       ✗ нет события: [TechCrunch] TechCrunch Mobility: El experimento del Cybertruck ha terminado — аналитика/ретроспектива
-       ✗ реклама: [Wired] Las correas magnéticas para cámaras de Wandrd son mi nuevo accesorio favorito — обзор товара/аксессуара
-       ✗ нет события: [Variety] Premios Sanfic: 'Monguen' y 'Narciso' ganan en una ceremonia reducida por el repentino fal — корпоративный праздник/церемония
-       ✗ анонс без сути: [The Guardian] Refrigeradores calientes, una alerta nuclear falsa y un robo de 6000 millones de dólares:  — Это вводная часть к подборке ссылок
-       ✗ нет события: [93.ru] La crisis mundial de combustible llega a la aviación: qué sucederá con los vuelos y los pr — общий разбор ситуации без конкретных решений
-       ✗ нет события: [El Informador] Premian a los proyectos más innovadores de tecnología con el Tech Agave Awards 2026 — корпоративное мероприятие/награждение
-       ✂️ [El Informador] Vía RecreActiva Nocturna de Guadalajara celebra su primer an — абзацы 4/6; отчет о массовом городском событии
-       ✗ нет события: [El Informador] Fuera de la tribu obtiene premio en los Reed Latino Awards — профессиональная премия в узкой сфере
-       ✂️ [El Informador] Lista de colonias con cortes de agua este sábado 7 y domingo — абзацы 4/5
-       ✂️ [El Informador] Roban 21 vehículos al día en la Zona Metropolitana de Guadal — абзацы 4/13
-     лента: было 42, снято 13, добрано до полной 44, стало 73; фото: взято у соседа 0, убрано чужих 1
-     💰 редактор: $0.0234
-  🧭 [es] после редактора (в эфир): всего 47 — местных 13, соседей 11, мира 23; областных 3 в 1 регионах
+  🗞 Редактор [pt] (В ЭФИРЕ): карточек 77, спрошено 53, вторым 0
+     память не сработала: новая 53
+     снято: нет события 4, повтор 3
+     починено: текст сокращён до сути 50, фото заменено 13, строка НОС принята 7, нужно другое фото 2, ложное «срочно» снято 1, строка НОС: из заголовка 1, строка НОС отклонена замком 1
+     🎲 Любопытное [pt] (в полосу «Интересное»): 1
+       🎲 в эфире · [Ars Technica] Físicos utilizaram ruído elétrico para desvendar mistério sobre supercondutores · https://arstechnica.com/science/2026/11/physicists-listened-to-electrical-noise-to-crack-a-superconductor-mystery/
+       ✂️ [Agência Brasil] Aplicação do Enem é operação de guerra contra o retrocesso,  — абзацы 3/6
+       ✂️ [Estadão] Com vazio político, Brasil tem condições de liderar moviment — абзацы 4/21; выбраны абзацы с сутью
+       ✂️ [Estadão] Fiscais são alvos de tiros durante operação da PF, do Ibama  — абзацы 1/8; короткая новость
+       ✂️ [Poder360] Lula fará pronunciamento à nação neste domingo — абзацы 3/5
+       ✂️ [G1 São Paulo] Investigado por lavar dinheiro do Comando Vermelho, ‘Rei da  — абзацы 3/7; взят подходящий снимок из статьи
+       🖼 [G1 São Paulo] Investigado por lavar dinheiro do Comando Vermelho — фото: №2 вместо №1
+       ✂️ [G1 Globo] 'Não é meu foco': estudante de 17 anos deixa Enem entre os p — абзацы 4/11
+       🖼 [G1 Globo] 'Não é meu foco': estudante de 17 anos deixa Enem  — фото: №2 вместо №1
+       ✂️ [G1 Globo] 'Ser um espelho': mulher indígena faz Enem aos 34 anos para  — абзацы 3/16
+       🖼 [G1 Globo] 'Ser um espelho': mulher indígena faz Enem aos 34  — фото: №2 вместо №1
+       📝 [G1 Globo] Corpo é encontrado em rio durante buscas por menin → Bombeiros encontram corpo em rio durante buscas por menino de 12 anos em Unaí.
+       🔕 [G1 Globo] Corpo é encontrado em rio durante buscas por menino de 12 anos desapar
+       ✂️ [G1 Globo] Candidata do Enem passa mal em sala sem ventilação e é orien — абзацы 4/12
+       🖼 [G1 Globo] Candidata do Enem passa mal em sala sem ventilação — фото: №2 вместо №1
+       📝 [Estadão] Acidente de carro deixa 10 pessoas mortas em Barra → Acidente de carro em Barra Mansa deixa 10 mortos após veículo cair em lago.
+       ✂️ [Estadão] Acidente de carro deixa 10 pessoas mortas em Barra Mansa (RJ — абзацы 3/6
+       ✂️ [G1 Globo] Homem relata susto após quase ser atingido por raio no TO: ' — абзацы 3/8
+       ✂️ [Folha de S.Paulo] PSOL avalia lançar Erika Hilton à Prefeitura de SP para mant — абзацы 5/21; имена и партии не менял
+       ✂️ [CNN Brasil] Homem é encontrado morto em carro submerso em canal no centr — абзацы 3/4; №1 — не относится к событию
+       ✗ нет события: [CNN Brasil] Bortoleto e Câmara sofrem com chuva e ficam no fim do pelotão em São Paulo — уже стоял снимок, другого нет
+       ✂️ [CNN Brasil] Selic: Eleição estressou a curva de juros, diz economista do — абзацы 3/5
+       ✂️ [CNN Brasil] Vasco x Palmeiras: escalações e onde assistir à semifinal da — абзацы 2/14
+       ✂️ [Agência Brasil] Tema da redação do Enem é “Valorização do SUS como direito u — абзацы 5/34
+       ✂️ [Estadão] ‘Ele estava possesso, podia ter me matado’, diz à TV idosa d — абзацы 3/4
+       ✂️ [Estadão] Cinco Estados brasileiros registram alta de casos de covid-1 — абзацы 4/6; убран общий вывод, взяты факты
+       ✂️ [Expresso das Ilhas] COP30 apresenta plano para angariar 1,17 biliões de euros po — абзацы 3/5
+       ✂️ [Terra BR] Rafael Câmara reconhece dificuldades em Interlagos e destaca — абзацы 3/9; имена фотографов/ссылки на другое фото
+       ✂️ [Observador PT] Estrela da Amadora-Benfica. Marco mantém Echeverri — абзацы 4/11; выбраны суть и составы команд
+       ✂️ [Observador PT] Nadador-salvador desaparecido, arrastado pelo mar no Funchal — абзацы 3/4; снимок №5 про оползень, не про пловца
+       ✗ повтор: [Observador PT] 21h. Depressão Bruna coloca distritos sob aviso amarelo — уже есть аналогичная новость про шторм Bruna
+       ✂️ [Notícias ao Minuto] FC Porto 'treme que nem varas verdes' para vencer com sufoco — абзацы 3/15; выбран снимок из статьи
+       ✂️ [RTP Notícias] Desmobilização da Acampada de Lisboa no Rossio é cenário em  — абзацы 8/28; убран последний абзац и рекламные ссылки
+       ✂️ [RTP Notícias] Rio Ave - Sporting de Braga — абзацы 1/3; нет годного снимка
+       ✂️ [ECO] Todos os distritos do continente sob aviso amarelo devido a  — абзацы 8/16; выбран подходящий снимок, убран рекламный абзац
+       ✂️ [Expresso das Ilhas] Mindelact recebeu 3.500 espectadores, 100 artistas e 32 espe — абзацы 4/5; убран последний абзац, очищено от тегов p
+       📝 [Time] Ameaças de bomba na Europa geram receios de guerra → Onda de ameaças de bomba em voos na Europa foram identificadas como trotes.
+       📝 [UPI] Nove mortos após atirador abrir fogo na praça do m → 9 pessoas morreram após atirador abrir fogo em praça de Cracóvia.
+       ✂️ НОС [Straits Times] Registros hackeados mostram 400.000 russos mortos na guerra  → Registros hackeados mostram 400.000 russos mortos na guerra na Ucrânia.
+       ✂️ [Notícias ao Minuto] Trump considera "muito improvável" recomeço da guerra com o  — абзацы 6/8
+       ✗ нет события: [TechCrunch] SNL tem uma nova imitação de Elon Musk, 'a pior coisa que a África do Sul já fez' — сатира, нет события
+       ✗ нет события: [TechCrunch] Ele prendeu um hacker e passou 18 meses provando sua inocência. Agora, ele é um investidor — история персонажа, нет события
+       ✗ нет события: [TechCrunch] TechCrunch Mobility: O experimento da Cybertruck acabou — авторская колонка
+       📝 [G1 Distrito Federal] PM é preso após atirar contra grupo em posto na As → PM é preso após matar uma mulher e deixar 4 pessoas feridas em posto de combustíveis em Brasília.
+       ✂️ [G1 Distrito Federal] PM é preso após atirar contra grupo em posto na Asa Sul, em  — абзацы 3/5
+       📝 [G1 Santa Catarina] Aeroporto de Chapecó reabre após tornado arrancar  → Aeroporto de Chapecó reabre após estragos por tornado.
+       ✂️ [G1 Santa Catarina] Aeroporto de Chapecó reabre após tornado arrancar vidraças e — абзацы 5/14
+       🖼 [G1 Santa Catarina] Aeroporto de Chapecó reabre após tornado arrancar  — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Buscas por vítimas continuam nos escombros de prédio no Brás — абзацы 7/21; убраны абзацы с повторами и подписи к фото
+       ✂️ [G1 Pernambuco] Homem invade subestação e deixa mais de 43 mil moradores sem — абзацы 4/7; убрал описание видео, оставил суть происшествия
+       ✂️ [G1 Rio] Rio tem rajadas de quase 60 km/h e chuva fraca em vários bai — абзацы 3/18; выбраны абзацы с фактами о погоде, убраны описательные элементы
+       ⛔ строка НОС отклонена: «El Niño histórico causa mortes e estragos em série no Rio Grande do Sul.» ← Tornados, temporais em sequência e enchentes: como
+       ✂️ [G1 Rio Grande do Sul] Tornados, temporais em sequência e enchentes: como o RS vive — абзацы 5/21
+       🖼 [G1 Rio Grande do Sul] Tornados, temporais em sequência e enchentes: como — фото: №2 вместо №1
+       📝 [G1 Santa Catarina] SC registra enxurradas e deslizamentos após tornad → Tempestades causam enxurradas e deslizamentos em SC; muro desaba sobre veículos.
+       ✂️ [G1 Santa Catarina] SC registra enxurradas e deslizamentos após tornados; muro d — абзацы 3/20
+       🖼 [G1 Ceará] Ex-policial militar é morto a tiros dentro de imóv — фото: №3 вместо №1
+       ✂️ [Gazeta do Povo] Presidente do PT propõe voto em lista partidária com cotas p — абзацы 6/12; убраны рассуждения о списках и отсылки к прошлому
+       ✗ повтор: [G1 São Paulo] Temporais provocam destelhamentos e falta de energia no estado de SP; cidade do interior t — связанный материал уже был
+       ✂️ [G1 Minas] Ministério dos Direitos Humanos defende investigação de amea — абзацы 3/6
+       🖼 [G1 Minas] Ministério dos Direitos Humanos defende investigaç — фото: №2 вместо №1
+       ✂️ [G1 Rio] Empresário que sobreviveu a ataque há 2 meses é morto a tiro — абзацы 3/4; выбраны факты о нападении, убрана реклама приложения
+       ✂️ [G1 Santa Catarina] Pai norte-americano é preso em pousada de Florianópolis susp — абзацы 3/7; выбраны ключевые факты о задержании, без подписи к фото
+       ✂️ [G1 Paraná] Menina de 12 anos morre após ser arrastada por correnteza de — абзацы 4/7; выбраны факты события; удалена вода
+       ✂️ [G1 São Paulo] VÍDEO: Homem arrasta namorada pelos cabelos em bar e é imobi — абзацы 6/8; удалена подпись к фото и последний абзац
+       🖼 [G1 Minas] Cegonheira e caminhão pegam fogo após acidente na  — фото: №2 вместо №1
+       ✗ повтор: [G1 Rio] Mãe de Oruam deixa presídio e passa para prisão domiciliar por decisão do STF — использован снимок из предыдущей новости
+       ✂️ [Gazeta do Povo] Gastos eleitorais com Meta batem recorde em segunda eleição  — абзацы 4/9; удален последний абзац; выбраны основные факты
+       ✂️ [G1 São Paulo] PM cancela show de Natanzinho Lima em Paraisópolis por falta — абзацы 7/27
+       🖼 [G1 São Paulo] PM cancela show de Natanzinho Lima em Paraisópolis — фото: №2 вместо №1
+       ✂️ [G1 Rio] Menina de 3 anos morre após ser baleada pela irmã de 5 em Gu — абзацы 6/9; удален первый абзац (подпись к фото) и рекламный хвост
+       ✂️ [G1 São Paulo] Motorista é preso após atropelar e matar idosa de 76 anos qu — абзацы 4/8
+       🖼 [G1 São Paulo] Motorista é preso após atropelar e matar idosa de  — фото: №2 вместо №1
+       ✂️ [G1 Rio] Pesquisador revela detalhes de fiscalizações de saúde em nav — абзацы 3/33
+       🖼 [G1 Rio] Pesquisador revela detalhes de fiscalizações de sa — фото: №2 вместо №1
+       ✂️ [G1 Minas] Helicóptero que caiu em Passos saiu do Aeroporto da Pampulha — абзацы 5/14
+       🖼 [G1 Minas] Helicóptero que caiu em Passos saiu do Aeroporto d — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Justiça condena golpista do Tinder a seis anos de prisão, ap — абзацы 3/16
+       ✂️ [G1 Rio] Pai lamenta morte de adolescente de 15 anos baleado durante  — абзацы 7/15
+       ✂️ [G1 São Paulo] Condomínio quis expulsar suspeito de matar advogada e entead — абзацы 6/34
+       ✂️ [G1 São Paulo] Vídeos mostram PMs atirando 10 vezes contra homem durante ab — абзацы 6/18
+     лента: было 77, снято 7, добрано до полной 26, стало 96; фото: взято у соседа 0, убрано чужих 2
+     💰 редактор: $0.0213
+  🧭 [pt] после редактора (в эфир): всего 54 — местных 14, соседей 13, мира 27; областных 22 в 9 регионах
 
-💰 Расход по этапам: всего $0.0711
-     спасение текста: $0.0197 (28%), запросов 13
-     редактор: $0.0179 (25%), запросов 13
-     перевод: $0.0112 (16%), запросов 9
-     отбор (этап 2): $0.0078 (11%), запросов 3
-     отсев (этап 1): $0.0046 (6%), запросов 3
-     прочее: $0.0033 (5%), запросов 1
+💰 Расход по этапам: всего $0.0680
+     редактор: $0.0185 (27%), запросов 13
+     спасение текста: $0.0145 (21%), запросов 10
+     перевод: $0.0084 (12%), запросов 6
+     отбор (этап 2): $0.0075 (11%), запросов 4
+     отсев (этап 1): $0.0055 (8%), запросов 4
+     прочее: $0.0038 (6%), запросов 1
+     склейка пересказов: $0.0027 (4%), запросов 1
      мировые сюжеты: $0.0027 (4%), запросов 1
-     обзоры прессы: $0.0017 (2%), запросов 1
-     склейка пересказов: $0.0017 (2%), запросов 1
-     снимки происшествий: $0.0006 (1%), запросов 2
+     снимки происшествий: $0.0023 (3%), запросов 8
+     обзоры прессы: $0.0020 (3%), запросов 1
 ```

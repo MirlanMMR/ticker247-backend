@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] полка: [local] El Universal MX — Colombia reforzará seguridad a medios; medida se da. — Событие в Колумбии — это не местная новость для MX. Должно быть в «Новости из...».
-- [es] не_новость: [local] El Financiero — Localizan a alcalde de Río Bravo; Harfuch informa que Miguel Ángel Almaraz fue e — Нашли человека, всё в порядке — обычная работа полиции, не событие.
-- [es] не_новость: [local] El Financiero — Cantaste en los conciertos de La Mayiza: ¿Qué shows organizó una empresa ligada  — Это разбор/аналитика последствий санкций, а не событие.
-- [es] полка: [local] El Sol de México — Tras derrota electoral, Trump refuerza campaña para advertir que la frontera sig — Событие US, важная мировая повестка, лежит в местных.
-- [es] не_новость: [local] La Jornada — INE busca evitar paro en módulos — «Ищет способы избежать» — намерение, а не состоявшееся событие.
-- [es] не_новость: [local] La Jornada — Familias de migrantes desaparecidos padecen trabas de estadía en el país — Описание затяжной административной проблемы, события нет.
-- [es] не_новость: [local] Expansión MX — Petrobras analiza áreas petroleras en México para detectar oportunidades de desa — Подписание меморандума о намерениях («анализирует возможности») — не событие.
-- [es] чужое_мелкое: [pool] Infobae — Julián Alvarez y Koke, titulares en el Atleti; Fariñas y Bernal, en el once del  — Спортивный состав команды — внутренняя информация для фанатов футбола, не мировая новость.
-- [es] не_новость: [pool] El Mundo — Feijóo promete reforzar la lucha contra el crimen organizado y recuperar el OCON — Предвыборные обещания — слова о будущем.
-- [es] не_новость: [pool] El País — Sánchez reenfoca la campaña del PSOE en la gestión y asegura que blindará las pe — Предвыборная кампания — слова и планы, а не событие.
-- [es] курьёз: [pool] La Jornada — Delcy Rodríguez reinaugura la plaza Washington en Caracas — Локальное событие (открытие площади) в другой стране, не имеет мирового значения.
-- [es] не_новость: [pool] eldiario.es — A Koldo le ofrecieron un Aldama — Обсуждение интервью, а не событие.
-- [es] не_новость: [pool] eldiario.es — Okdiario amenaza con demandar a elDiario.es por la información sobre sus pagos a — Угроза судом — не событие.
-- [es] чужое_мелкое: [world] Semana CO — Estados Unidos emitió alerta por ciberataques activos contra sistemas de refrige — Предупреждение о кибератаках без конкретного факта случившегося инцидента.
-- [es] не_новость: [world] The Independent — Trump pone fin a la ayuda militar a Israel: ¿qué impacto tendrá? — Важное решение, но подано через вопрос «какой эффект», что является аналитикой.
-- [es] не_новость: [world] Fortune — «A la par de lo que el Departamento de Defensa buscaba durante la Guerra Fría»:  — Планы, которые «сталкиваются с трудностями» — аналитика, не событие.
-- [es] не_новость: [world] RFI — ¿Quiénes son los candidatos para suceder a Christine Lagarde al frente del BCE? — Обсуждение кандидатур на пост — это слова.
-- [es] курьёз: [world] Ars Technica — Un grupo de físicos descifra el misterio de los superconductores analizando el r — Научная работа (теоретическое исследование), не событие.
-- [es] полка: [world] El Sol de México — Herzog encarga a Eisenkot la formación del próximo Gobierno de Israel — Формирование правительства Израиля — мировая новость, лежит в местных.
-- [es] не_новость: [world] BBC Mundo — La arriesgada misión para extraer de Polonia el cohete v2, el "arma milagrosa" d — Исторический очерк о раскопках, не событие.
-- [es] полка: [world] AKIpress Эко — El presidente planea trasladar los residuos de Tokmok a Biskek para su reciclaje — Региональная новость KG (для нас — мировая), лежит в нерелевантном издании.
-- [es] полка: [world] Азаттык (кыргызча) — Ucrania: más de 600.000 personas quedaron sin electricidad en la región de Dnipr — Война в Украине — мировая новость, лежит в местных.
-- [es] чужое_мелкое: [world] Ars Technica — Un soldado británico ignoró la orden de retirar su tarjeta SIM y fue víctima de  — Инцидент с одним солдатом не имеет мирового масштаба.
-- [es] не_новость: [world] Semafor — Nvidia enfrenta un entorno más hostil en Washington — Аналитика отношений компании и власти, не событие.
-- [es] не_новость: [world] Semafor — Nueva York supera a San Francisco en el crecimiento de empleos tecnológicos, seg — Статистика роста рабочих мест — не событие по белому списку.
+- [pt] не_новость: [local] Poder360 — Tarcísio, Nunes, Hugo Motta e Renan Santos vão à F1 em SP — визит политиков на мероприятие — обычная протокольная рутина без события.
+- [pt] не_новость: [local] Folha de S.Paulo — PSOL avalia lançar Erika Hilton à Prefeitura de SP para mantê-la no partido e co — партийные оценки и планы на 2028 год — это не свершившееся событие.
+- [pt] не_новость: [local] G1 Globo — 'Não é meu foco': estudante de 17 anos deixa Enem entre os primeiros e revela so — личное мнение студента о карьере не является новостью.
+- [pt] не_новость: [local] G1 Globo — 'Ser um espelho': mulher indígena faz Enem aos 34 anos para inspirar os filhos e — участие в экзамене как вдохновляющий пример — очерк, а не событие.
+- [pt] срочность: [local] G1 Globo — Candidata do Enem passa mal em sala sem ventilação e é orientada a pedir reaplic — частная жалоба на организацию экзамена не является срочной.
+- [pt] не_новость: [local] Poder360 — Lula fará pronunciamento à nação neste domingo — анонс выступления президента — это заявление о намерении, а не свершившийся факт.
+- [pt] не_новость: [local] Agência Brasil — Seleção masculina inicia apresentação para últimos amistosos do ano — прибытие сборной на сборы — это рутина, а не новость.
+- [pt] не_новость: [local] CNN Brasil — Selic: Eleição estressou a curva de juros, diz economista do Daycoval — мнение экономиста о причинах колебания курса не является событием.
+- [pt] не_новость: [local] Gazeta do Povo — Presidente do PT propõe voto em lista partidária com cotas para candidatos LGBT — предложение по изменению системы выборов — это мнение политика, а не решение.
+- [pt] срочность: [local] Estadão — ‘Ele estava possesso, podia ter me matado’, diz à TV idosa de 81 anos espancada  — событие (инцидент) произошло в прошлом, нет повода для побудки.
+- [pt] не_новость: [local] Agência Brasil — Aplicação do Enem é operação de guerra contra o retrocesso, diz Lula — риторика президента («война против регресса») не является фактом.
+- [pt] срочность: [local] G1 São Paulo — PM cancela show de Natanzinho Lima em Paraisópolis por falta de alvará; comunida — отмена концерта из-за документов — не повод для побудки.
+- [pt] не_новость: [local] Estadão — Com vazio político, Brasil tem condições de liderar movimento global pelo clima, — мнение о внешнеполитическом потенциале страны — это аналитика.
+- [pt] не_новость: [local] G1 Rio — Pesquisador revela detalhes de fiscalizações de saúde em navios negreiros no Rio — историческое исследование о временах рабства — это очерк.
+- [pt] срочность: [local] G1 São Paulo — Justiça condena golpista do Tinder a seis anos de prisão, após prejuízo de R$ 1, — приговор суда по делу, которое шло месяцами, — не срочно.
+- [pt] не_новость: [local] G1 São Paulo — Condomínio quis expulsar suspeito de matar advogada e enteado por ameaçar morado — история о конфликте в кондоминиуме — частный случай.
+- [pt] не_новость: [local] Estadão — Cinco Estados brasileiros registram alta de casos de covid-19, diz relatório da  — статистическая тенденция (рост случаев) без конкретных мер или сроков.
+- [pt] полка: [pool] Público — Mulheres são 45% da missão do Brasil no Web Summit, segundo maior índice da hist — новость о Бразилии лежит в «Новости из...», хотя издание португальское.
+- [pt] не_новость: [world] Notícias ao Minuto — Trump considera "muito improvável" recomeço da guerra com o Irão — мнение президента о «невероятности» войны — это политическая риторика.
+- [pt] срочность: [world] The Hill — Usina nuclear ucraniana muda para geradores após perder a última linha de energi — рутина затяжного конфликта, событие не является экстренным событием для читателя в BR.
+- [pt] не_новость: [world] The Independent — Stephen Miller e o Departamento de Justiça planejam prender jornalistas devido a — отчет о планах/слухах, а не свершившийся факт.
+- [pt] не_новость: [world] The Independent — Trump encerra a ajuda militar a Israel – qual será o impacto? — этот текст противоречит другим новостям, выглядит как интерпретация, а не официальный указ.
+- [pt] не_новость: [world] Fortune — Ações devem cair ainda mais com a desaceleração do investimento em IA, prevê eco — прогноз экономиста о будущем акций — это аналитика.
+- [pt] срочность: [world] El Mundo — A caixa-preta do Iryo revela que a maquinista tentou "reportar a Atocha 3 ou 4 v — расследование причин старой аварии — не срочно.
+- [pt] не_новость: [world] Semafor — Nvidia enfrenta uma Washington mais hostil — аналитика о регуляторной среде, а не событие.
