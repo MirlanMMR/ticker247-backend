@@ -1,27 +1,36 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] срочность: [local] El Universal MX — Jornada violenta en Culiacán deja seis hombres asesinados y dos heridos; reporta — Это текущая криминальная сводка, массовая, но не требующая побудки (ежедневная рутина для региона).
-- [es] срочность: [local] El Informador — Roban 21 vehículos al día en la Zona Metropolitana de Guadalajara — Статистика краж — это не повод для срочного уведомления.
-- [es] не_новость: [local] El Financiero — SCJN y sindicatos acuerdan modificar evaluación del Poder Judicial; no habrá san — Договоренность о внутренних процедурах оценки без последствий для граждан.
-- [es] не_новость: [local] El Financiero — Verificación vehicular en CDMX: Proponen cambios a los hologramas Cero, Doble Ce — Предложение по изменению правил на 2027 год — это обсуждение планов, а не событие.
-- [es] срочность: [local] El Financiero — Balean restaurante del periodista Ignacio Santiago en Juchitán, Oaxaca: ‘Me pedí — Криминальный инцидент произошел, но не требует прерывания дел читателя.
-- [es] курьёз: [pool] El Tiempo CO — Mutilaron estatua de Diomedes Díaz en Valledupar: creencia de mujeres lo dejó si — Вандализм из-за суеверий — это странный факт, а не новость.
-- [es] чужое_мелкое: [pool] Infobae — Ángel Víctor Torres espera acordar con la Xunta el traspaso de la AP-9 "mientras — Внутренняя политика Испании (трансфер дороги) для читателей в Латинской Америке.
-- [es] не_новость: [pool] Infobae — Federico Coria, íntimo: su última ilusión en el tenis, por qué le ganó “la guerr — Портрет спортсмена, интервью, личные мысли.
-- [es] чужое_мелкое: [pool] RPP PE — LaLiga EA Sports: Elche sucumbe ante Betis y pierde por 2 a 0 — Результат матча чемпионата Испании для мексиканского/латиноамериканского читателя не является мировой новостью.
-- [es] не_новость: [pool] Semana CO — De La Espriella anuncia ofensiva con drones contra grupos armados y arremete con — Политическая перепалка и критика, нет свершившегося действия.
-- [es] не_новость: [pool] Semana CO — Médico de Kbeto Zuleta reveló lo primero que quiso saber al despertar tras el ac — Интервью с подробностями о состоянии человека после происшествия — личные эмоции.
-- [es] не_новость: [pool] El Universal MX — Papa León XIV pide respeto hacia las esposas; la mayoría de las muertes violenta — Религиозная проповедь/высказывание о морали.
-- [es] не_новость: [pool] Marca — Ale Galán confirma su compañero para 2027 y se pone un reto: "Quiero ser número  — Спортсмен объявляет планы на следующий год.
-- [es] срочность: [pool] 14ymedio — Robos y desvíos de harina obligan a una panadería privada a suspender la producc — Местная экономическая проблема, не требует побудки.
-- [es] не_новость: [pool] La Jornada — Delcy Rodríguez reinaugura la plaza Washington en Caracas — Ритуальное перерезание ленточки на площади — протокольное мероприятие.
-- [es] не_новость: [pool] eldiario.es — A Koldo le ofrecieron un Aldama — Медийный скандал вокруг интервью — не новость, а светская хроника.
-- [es] не_новость: [pool] eldiario.es — Okdiario amenaza con demandar a elDiario.es por la información sobre sus pagos a — Угрозы судебными исками между медиа.
-- [es] курьёз: [world] Xataka — Nano está reducido, pero no recortado: Xbox apuesta por un mando apto para manos — Геймерский девайс — это тема для статьи, а не новостное событие.
-- [es] курьёз: [world] La Nación AR — Construyen la represa más grande del mundo con 27 espejos para combatir el frío  — Технический факт о строительстве, не имеющий прямого влияния на читателя.
-- [es] не_новость: [world] Engadget — La comunidad de ingeniería inversa de videojuegos es la última víctima de la IA — Закрытие нишевого сайта — это не событие мирового масштаба.
-- [es] курьёз: [world] Ars Technica — Un grupo de físicos descifra el misterio de los superconductores analizando el r — Научный факт/открытие — место в «Интересном».
-- [es] курьёз: [world] BBC Mundo — Las águilas gigantes que cazaban niños y moldearon la evolución humana — Историко-антропологическое исследование.
-- [es] не_новость: [world] El Financiero — La primera derrota electoral de la inteligencia artificial — Аналитическая колонка о настроениях на фондовом рынке.
-- [es] не_новость: [world] TechCrunch — Un ejecutivo de Megaspeed fue reclutado para espiar al director ejecutivo de Nvi — Информация из меморандума о «шпионаже» без подтвержденных последствий или действий.
-- [es] курьёз: [world] Ars Technica — Médicos extraen un cuchillo que atravesó el cerebro de un hombre tras entrar por — Медицинский случай (казуистика) — не является новостью для общества.
+- [pt] чужое_мелкое: [local] InfoMoney — Combustíveis poderiam custar o dobro sem ação do governo, avalia parte do setor — Аналитика по ценам на топливо в Бразилии из-за войны в Иране — это обзор и мнение, а не событие.
+- [pt] курьёз: [local] Metrópoles — Tratar a apneia do sono pode melhorar a qualidade do esperma, sugere estudo — Научное предположение о связи апноэ и качества спермы — это любопытный факт для «Интересного».
+- [pt] не_новость: [local] Poder360 — Defesa Civil diz que kits de emergência não indicam risco: “calma” — Разъяснение о постах в соцсетях не является новостным событием.
+- [pt] не_новость: [local] Agência Brasil — Eliana Alves Cruz questiona ausência de autoras negras no Jabuti — Мнение писательницы о премии — это личное высказывание, не событие.
+- [pt] не_новость: [local] Gazeta do Povo — PT pede R$ 7 milhões em vaquinha para quitar dívidas da campanha de Lula — Сбор средств (вакинья) — это процесс, а не завершенное событие.
+- [pt] не_новость: [local] G1 São Paulo — Condomínio quis expulsar suspeito de matar advogada e enteado por ameaçar morado — Описание поведения подозреваемого в прошлом — это исторический контекст, а не новость.
+- [pt] срочность: [local] G1 Bahia — Operação Faroeste: STJ determina inclusão de desembargadora condenada na lista d — Процессуальное решение суда по делу, тянущемуся годами, не требует побудки.
+- [pt] не_новость: [pool] BBC Brasil — Por que mulheres podem estar por trás da vitória de Lula nas eleições — Анализ итогов выборов, которые прошли ранее — это запоздалая аналитика.
+- [pt] курьёз: [pool] Téla Nón — CHINA moderniza os serviços das Alfândegas com tecnologia de ponta para garantir — Техническое оснащение таможни — рутинная работа ведомства, не событие.
+- [pt] не_новость: [pool] Téla Nón — TRAFIGURA : Governo justifica adjudicação directa e fala em redução de custos — Оправдание правительства по поводу закупок — это PR-ответ, а не новостной факт.
+- [pt] срочность: [world] CNN Brasil — Acidente de trem no Egito deixa 4 mortos e 88 feridos, diz ministério. — Катастрофы в других странах без пострадавших бразильцев — новости для ленты, но не для срочного уведомления.
+- [pt] курьёз: [world] Engadget — Estas baterias experimentais de veículos elétricos podem ser ejetadas durante um — Описание прототипа технологии — это технологический обзор, а не событие.
+- [pt] чужое_мелкое: [world] The Independent — Homem processa OpenAI alegando que chatbot conspirou com sua esposa para assassi — Частный иск против OpenAI не является мировой новостью, требующей внимания в BR-ленте.
+- [pt] не_новость: [world] Jornal de Negócios — Democratas assumem oposição aos centros de dados e "cortam as pernas" ao crescim — Политическая оценка будущего сектора — это аналитика, а не свершившийся факт.
+- [pt] чужое_мелкое: [world] The Independent — Stephen Miller e o Departamento de Justiça planejam prender jornalistas devido a — Инсайды и оценки намерений политиков США — это внутренняя повестка другой страны.
+- [pt] не_новость: [world] The Guardian — Geladeiras quentes, um alerta nuclear falso e um roubo de US$ 6 bilhões: estamos — Общий обзор хакерских атак — это разбор темы, а не конкретный факт события.
+- [pt] не_новость: [world] Semafor — Nvidia enfrenta uma Washington mais hostil — Анализ отношений компании с Вашингтоном — это бизнес-аналитика, а не событие.
+- [fr] чужое_мелкое: [local] Le Figaro — Guerre en Ukraine : «Jean-Luc Mélenchon s'est fait porte-parole du Kremlin» sur  — Внутренняя политическая полемика Франции, не является событием мирового масштаба.
+- [fr] курьёз: [local] La Dépêche — TÉMOIGNAGE. Atteinte d'une maladie rare, le syndrome d'Ehlers-Danlos, elle doit  — Личная история, не является новостным событием.
+- [fr] не_новость: [local] 20 Minutes — « Il n’y a pas mieux aujourd’hui »… Le « France Libre » aura bien des catapultes — Обсуждение планов и «сохранение курса», нет свершившегося факта.
+- [fr] не_новость: [local] 20 Minutes — « Les contours de la France sont assez évidents »… Gaëlle Sutton cartographie le — Художественное картографирование — это очерк, а не событие.
+- [fr] курьёз: [pool] RTBF — À 8 ans, Marcel insulte Macron et la police en direct... et la séquence crée la  — Поведение ребёнка на митинге — шум, а не значимая новость.
+- [fr] не_новость: [pool] Radio-Canada — La voix québécoise de Jack Kerouac restituée — Культурологический разбор, нет новостного события.
+- [fr] не_новость: [pool] Le Devoir — Les lauréats des prix Judith-Jasmin sont dévoilés — Оглашение лауреатов премии — плановое событие культуры, не является срочным или значимым для широкого круга.
+- [fr] курьёз: [world] L'Express — Sabrina Pasterski, célèbre physicienne américaine : "L'IA ne doit pas être un or — Интервью с физиком — познавательный материал, не новость.
+- [fr] чужое_мелкое: [world] RTBF — Selon Trump la victoire des démocrates est un "gigantesque pas en arrière dans l — Внутриполитическая риторика Трампа — это слова, не имеющие мировых последствий.
+- [fr] не_новость: [world] RTBF — Russes, Ukrainiens et Américains à Abou Dhabi : l'Europe peine à parler d'une se — Рассуждения о том, «кто поедет на переговоры», — это обсуждение, а не событие.
+- [fr] повтор: [world] RFI — Guerre en Ukraine: les Européens, dont la France seront «représentés» lors des n ≈ «Russes, Ukrainiens et Américains à Abou » — Тот же сюжет о представительстве на переговорах в Абу-Даби.
+- [fr] не_новость: [world] L'Express — Israël : le casse-tête de Gadi Eisenkot pour conquérir le pouvoir — «Кассе-тête» (головоломка) — политический анализ ситуации, а не свершившийся факт.
+- [fr] повтор: [world] RFI — Israël: «Il est prématuré de dire que l'ère Netanyahu est terminée» ≈ «Israël : le casse-tête de Gadi Eisenkot » — Тот же сюжет о формировании правительства в Израиле.
+- [fr] полка: [world] Азаттык (кыргызча) — Ukraine : plus de 600 000 personnes privées d'électricité dans la région de Dnip — Внешнее издание на кыргызском языке в французском потоке.
+- [fr] не_новость: [world] RFI — Russie: avec la menace de drones ukrainiens sur l'espace aérien, les voyageurs d — Анализ угроз и адаптации, нет конкретного события.
+- [fr] курьёз: [world] Radio-Canada — Voici le visage du Dénisovien, cousin de Sapiens et de Néandertal — Научно-популярный факт о предках человека.
+- [fr] полка: [world] Knews.kg — Le président du Paraguay Santiago Peña destitué et arrêté — Издание из Кыргызстана в международном потоке французского пула — нарушение логики отбора.
