@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] Georgia Public Broadcasting — A promising new medicine against heart disease fails unexpectedly — исследование, которое провалилось, не является новостью для широкого круга читателей.
-- [en] не_новость: [local] CBS News — ICE unlikely to scale back crackdown, sources say, citing Stephen Miller — рассуждения о политике, а не свершившееся событие.
-- [en] курьёз: [local] Cleveland.com — SC dad left sleeping daughter, 6, outside store to hold spot in line for Pokemon — частный случай поведения, не имеет общественно значимых последствий.
-- [en] чужое_мелкое: [local] CBS News — Iran downplays new U.S. task force aimed at disrupting land routes — мелкая внешнеполитическая реакция, не является мировой новостью.
-- [en] не_новость: [local] Mississippi Today — DeSoto County, a Republican stronghold, key to Scott Colom’s midterm election pe — аналитический материал, а не событие.
-- [en] не_новость: [local] Wisconsin Watch — A new morning: The Yang family keeps tradition alive after dad’s deportation — очерк о семье, нет события.
-- [en] не_новость: [local] Deseret News — A new poll shows Utah mirrors the nation on attitudes toward deportation — обсуждение результатов опроса, а не действие.
-- [en] не_новость: [local] Deseret News — When it mattered most, Utah rose and BYU crumbled — описание игры, не является значимым событием.
-- [en] не_новость: [local] LA Times — Inside Nithya Raman's improbable campaign for L.A. mayor — портрет кандидата и описание его кампании, не событие.
-- [en] не_новость: [local] Honolulu Star-Advertiser — Kapolei grounds, pounds Mililani to capture OIA crown — результаты местного спортивного турнира, не мировой масштаб.
-- [en] не_новость: [local] Honolulu Star-Advertiser — Hawaii improves to 21-4 with a dominant win over Nevada — результаты матча, не мировой масштаб.
-- [en] не_новость: [local] Charleston Gazette-Mail — WVU men's soccer: Mountaineers open SBC tournament play as No. 1-seed — анонс спортивного турнира.
-- [en] не_новость: [local] Connecticut Mirror — Data shows little change in CT housing voucher segregation — статистический отчет, не событие.
-- [en] не_новость: [local] reviewjournal — UNLV’s QB situation comes into question after rally falls short against Wyoming — описание игры, не событие.
-- [en] не_новость: [local] WV MetroNews — One that got away: Outscored by a dozen points in fourth quarter, WVU comes up s — результаты спортивной игры.
-- [en] не_новость: [local] Santa Fe New Mexican — The Roundhouse Report: GOP spent $13 million in failed bid to oust Vasquez — финансовый отчет о прошедшей кампании, не событие.
-- [en] не_новость: [local] Arizona's Family — ASU defense, Fette’s historic feat power Sun Devils over Colorado 20-10 — результаты спортивной игры.
-- [en] не_новость: [pool] Observador PT — Messi retains MLS top scorer title for the second time — статистика спортивных достижений, не событие.
-- [en] не_новость: [pool] Fortune — D.C. is a New York town: The president, next speaker and Senate majority leader  — политическая аналитика, нет события.
-- [en] не_новость: [pool] Toronto Star — Voters demanded economic relief. Trump and Democrats face tough choices on how t — политическая аналитика.
-- [en] срочность: [pool] RTÉ Ireland — Arrests, man hospitalised after influencer boxing event — мелкое происшествие, не требует немедленного уведомления.
-- [en] не_новость: [pool] Fortune — Republicans saw Indian Americans as ‘natural conservative voters.’ But Trump’s s — аналитический разбор итогов выборов.
-- [en] не_новость: [pool] Sky Sports — Australia reach World Cup final as Samoa fume at decisions — результаты спортивного матча.
-- [en] не_новость: [pool] BBC Sport — I haven't thrown anyone under the bus - Khawaja — комментарии игрока, не событие.
-- [en] курьёз: [pool] BBC Sport — The oldest club in London making FA Cup history — историческая справка о клубе, не событие.
+- [es] срочность: [local] El Universal MX — Jornada violenta en Culiacán deja seis hombres asesinados y dos heridos; reporta — Это текущая криминальная сводка, массовая, но не требующая побудки (ежедневная рутина для региона).
+- [es] срочность: [local] El Informador — Roban 21 vehículos al día en la Zona Metropolitana de Guadalajara — Статистика краж — это не повод для срочного уведомления.
+- [es] не_новость: [local] El Financiero — SCJN y sindicatos acuerdan modificar evaluación del Poder Judicial; no habrá san — Договоренность о внутренних процедурах оценки без последствий для граждан.
+- [es] не_новость: [local] El Financiero — Verificación vehicular en CDMX: Proponen cambios a los hologramas Cero, Doble Ce — Предложение по изменению правил на 2027 год — это обсуждение планов, а не событие.
+- [es] срочность: [local] El Financiero — Balean restaurante del periodista Ignacio Santiago en Juchitán, Oaxaca: ‘Me pedí — Криминальный инцидент произошел, но не требует прерывания дел читателя.
+- [es] курьёз: [pool] El Tiempo CO — Mutilaron estatua de Diomedes Díaz en Valledupar: creencia de mujeres lo dejó si — Вандализм из-за суеверий — это странный факт, а не новость.
+- [es] чужое_мелкое: [pool] Infobae — Ángel Víctor Torres espera acordar con la Xunta el traspaso de la AP-9 "mientras — Внутренняя политика Испании (трансфер дороги) для читателей в Латинской Америке.
+- [es] не_новость: [pool] Infobae — Federico Coria, íntimo: su última ilusión en el tenis, por qué le ganó “la guerr — Портрет спортсмена, интервью, личные мысли.
+- [es] чужое_мелкое: [pool] RPP PE — LaLiga EA Sports: Elche sucumbe ante Betis y pierde por 2 a 0 — Результат матча чемпионата Испании для мексиканского/латиноамериканского читателя не является мировой новостью.
+- [es] не_новость: [pool] Semana CO — De La Espriella anuncia ofensiva con drones contra grupos armados y arremete con — Политическая перепалка и критика, нет свершившегося действия.
+- [es] не_новость: [pool] Semana CO — Médico de Kbeto Zuleta reveló lo primero que quiso saber al despertar tras el ac — Интервью с подробностями о состоянии человека после происшествия — личные эмоции.
+- [es] не_новость: [pool] El Universal MX — Papa León XIV pide respeto hacia las esposas; la mayoría de las muertes violenta — Религиозная проповедь/высказывание о морали.
+- [es] не_новость: [pool] Marca — Ale Galán confirma su compañero para 2027 y se pone un reto: "Quiero ser número  — Спортсмен объявляет планы на следующий год.
+- [es] срочность: [pool] 14ymedio — Robos y desvíos de harina obligan a una panadería privada a suspender la producc — Местная экономическая проблема, не требует побудки.
+- [es] не_новость: [pool] La Jornada — Delcy Rodríguez reinaugura la plaza Washington en Caracas — Ритуальное перерезание ленточки на площади — протокольное мероприятие.
+- [es] не_новость: [pool] eldiario.es — A Koldo le ofrecieron un Aldama — Медийный скандал вокруг интервью — не новость, а светская хроника.
+- [es] не_новость: [pool] eldiario.es — Okdiario amenaza con demandar a elDiario.es por la información sobre sus pagos a — Угрозы судебными исками между медиа.
+- [es] курьёз: [world] Xataka — Nano está reducido, pero no recortado: Xbox apuesta por un mando apto para manos — Геймерский девайс — это тема для статьи, а не новостное событие.
+- [es] курьёз: [world] La Nación AR — Construyen la represa más grande del mundo con 27 espejos para combatir el frío  — Технический факт о строительстве, не имеющий прямого влияния на читателя.
+- [es] не_новость: [world] Engadget — La comunidad de ingeniería inversa de videojuegos es la última víctima de la IA — Закрытие нишевого сайта — это не событие мирового масштаба.
+- [es] курьёз: [world] Ars Technica — Un grupo de físicos descifra el misterio de los superconductores analizando el r — Научный факт/открытие — место в «Интересном».
+- [es] курьёз: [world] BBC Mundo — Las águilas gigantes que cazaban niños y moldearon la evolución humana — Историко-антропологическое исследование.
+- [es] не_новость: [world] El Financiero — La primera derrota electoral de la inteligencia artificial — Аналитическая колонка о настроениях на фондовом рынке.
+- [es] не_новость: [world] TechCrunch — Un ejecutivo de Megaspeed fue reclutado para espiar al director ejecutivo de Nvi — Информация из меморандума о «шпионаже» без подтвержденных последствий или действий.
+- [es] курьёз: [world] Ars Technica — Médicos extraen un cuchillo que atravesó el cerebro de un hombre tras entrar por — Медицинский случай (казуистика) — не является новостью для общества.
