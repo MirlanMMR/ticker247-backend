@@ -58,6 +58,9 @@ check("полная таблица: 15 пул-прогонов в сутки (3 
 live = tuple(p for p in S.ACTIVE_POOLS if p not in S.PAUSED_POOLS)
 check("на паузе только то, что названо; работает хотя бы один пул", set(S.PAUSED_POOLS) <= set(S.ACTIVE_POOLS) and len(live) >= 1)
 check("пулы на паузе не стоят в расписании, живые — по три слота", all(p not in ps for ps in S.SLOTS_UTC.values() for p in S.PAUSED_POOLS) and all(sum(p in ps for ps in S.SLOTS_UTC.values()) == 3 for p in live))
+_gate = " || ".join(f"contains(inputs.pools, '{p}')" for p in live)
+check("fetch.yml: слот планировщика без живых пулов пропускается заданием целиком (живые: " + ",".join(live) + ")",
+      f"if: ${{{{ github.event_name != 'workflow_dispatch' || !inputs.from_scheduler || {_gate} }}}}" in wf)
 check("расписание: пул-прогонов в сутки = 3 × число живых пулов", sum(len(ps) for ps in S.SLOTS_UTC.values()) == 3 * len(live))
 check("в одном запуске не больше двух пулов", all(len(ps) <= 2 for ps in S.SLOTS_UTC.values()))
 check("«полки стран» — в часе, где есть слот", S.COUNTRY_SHELVES_HOUR in S.SLOTS_UTC)

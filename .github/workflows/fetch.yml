@@ -64,6 +64,11 @@ concurrency:
 
 jobs:
   fetch:
+    # 08.11.2026: слот планировщика с пулами на паузе (schedule_pools.PAUSED_POOLS) пропускается целиком —
+    # пропущенное задание Actions не тратит минут. Так экономия не зависит от того, развёрнут ли заново воркер
+    # Cloudflare (старый воркер ещё шлёт слоты en/es/pt/fr). Живые пулы перечислены здесь же;
+    # test_schedule.py сверяет список с таблицей. Ручной запуск (не from_scheduler) и расписание GitHub идут как раньше.
+    if: ${{ github.event_name != 'workflow_dispatch' || !inputs.from_scheduler || contains(inputs.pools, 'ru') }}
     runs-on: ubuntu-latest
     # Разбор одного-двух пулов занимает ~25 минут; час — предел, чтобы очередь не копилась
     timeout-minutes: 60
