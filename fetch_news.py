@@ -20,7 +20,8 @@ from textcut import (display_source, lead, trim_to_boundary, wants_page_body,
                      card_text, cap_article, full_text_of,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
                      final_start_guard, final_end_guard, final_title_guard, strip_known_stubs,
-                     drop_stub_summaries, drop_foreign_script, has_foreign_script, is_stub_summary)
+                     drop_stub_summaries, drop_foreign_script, has_foreign_script, is_stub_summary,
+                     is_foreign_script_text, drop_foreign_script_stories)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -6341,6 +6342,11 @@ def _still_foreign(text: str, target: str) -> bool:
     Узбекская кириллица отличается от русской буквами ў, қ, ғ, ҳ; кыргызская —
     ө, ү, ң. Ни одной из них в русском нет.
     """
+    # Армянский, грузинский, арабский и прочие алфавиты, которых не читает ни один пул, — чужой текст
+    # при любой длине (08.11.2026: армянский обзор в русской ленте). Раньше проверка знала только
+    # кириллицу и латиницу и такой текст пропускала как «переведённый»
+    if is_foreign_script_text(text):
+        return True
     t = (text or "").lower()
     if len(t) < 40:
         return False
@@ -7449,7 +7455,7 @@ def reader_guard_step(items, lang):
         print(f"       · {line}")
         _GUARD_REPORT.append(f"[{lang}] {line}")
     if READER_GUARD_MODE == "live":
-        for x, was, now_ in RG.relabel(shown, findings):                 # J73: метка места исправлена, карточка остаётся
+        for x, was, now_ in RG.relabel(shown, findings):                 # J75: метка места исправлена, карточка остаётся
             print(f"  🧭 Сторож [{lang}] исправил метку места {was or '—'} → {now_}: «{str(x.get('title', ''))[:60]}»")
         for x, was_cat, was_pr in RG.demote(shown, findings):            # J71: ложное «срочно» снято, карточка остаётся
             print(f"  🔕 Сторож [{lang}] снял ложное «срочно» ({was_cat}, приоритет {was_pr}): «{str(x.get('title', ''))[:60]}»")
@@ -9819,6 +9825,8 @@ def main():
             "updatedAt": ts,
             "count": len(filtered),
         }
+        # J75: обзор прессы с непереведённым чужим алфавитом в эфир не уходит — последний шаг
+        stories = drop_foreign_script_stories(stories, lang, STORY_MIN_BIG)
         if stories:
             payload["stories"] = stories
         db.reference(f"/news/{lang}").set(payload)

@@ -947,9 +947,17 @@ def drop_stub_summaries(items, lang):
 # грузинским, армянским, арабским, ивритом, индийскими письменностями, тайским
 # или иероглифами читателю не нужен — ни как заголовок, ни как «родной язык»
 # (родные языки пулов — ky, kk, uz, tg — пишутся кириллицей или латиницей).
+#
+# 08.11.2026, владелец: в обзоре прессы русской ленты — армянский текст (Азатутюн). Тот же класс, что
+# J18, но в другом месте: проверку «остался на чужом языке» перед обзором (`_still_foreign`) учили только
+# кириллице и латинице, поэтому армянский, грузинский, арабский не считались чужими и не переводились.
+# Перечень алфавитов теперь один на всех (`is_foreign_script_text`): греческий, эфиопский, тибетский,
+# монгольский, кхмерский, сирийский, тана и формы представления арабского/иврита добавлены к прежним.
 _FOREIGN_SCRIPT = re.compile(
-    r"[\u10A0-\u10FF\u0530-\u058F\u0590-\u05FF\u0600-\u06FF\u0900-\u0DFF"
-    r"\u0E00-\u0E7F\u1000-\u109F\u1100-\u11FF\u3040-\u30FF\u3400-\u9FFF\uAC00-\uD7AF]")
+    r"[\u10A0-\u10FF\u1C90-\u1CBF\u0530-\u058F\u0590-\u05FF\u0600-\u06FF\u0700-\u07FF"
+    r"\u0900-\u0DFF\u0E00-\u0E7F\u0F00-\u0FFF\u1000-\u109F\u1100-\u11FF\u1200-\u137F"
+    r"\u1780-\u17FF\u1800-\u18AF\u0370-\u03FF\u3040-\u30FF\u3400-\u9FFF\uAC00-\uD7AF"
+    r"\uFB1D-\uFB4F\uFB50-\uFDFF\uFE70-\uFEFF]")
 _OWN_LETTER = re.compile(r"[A-Za-zÀ-ÿА-Яа-яЁёӨөҮүҢң]")
 
 
@@ -961,6 +969,35 @@ def has_foreign_script(item) -> bool:
         if foreign >= 3 and foreign > len(_OWN_LETTER.findall(t)):
             return True
     return False
+
+
+def is_foreign_script_text(text, take=300) -> bool:
+    """True: в тексте (первые `take` знаков) чужого алфавита ≥ 3 букв и больше, чем своих.
+    Один детектор на заголовок, выжимку, абзацы обзора и проверку перевода."""
+    t = str(text or "")[:take]
+    foreign = len(_FOREIGN_SCRIPT.findall(t))
+    return foreign >= 3 and foreign > len(_OWN_LETTER.findall(t))
+
+
+def drop_foreign_script_stories(stories, lang, min_sources=2):
+    """Последний шаг перед записью обзоров прессы: блок с непереведённым чужим алфавитом снимаем,
+    обзор с таким заголовком или с числом изданий меньше `min_sources` — тоже. Не зависит от того,
+    каким путём текст попал в обзор (новая сборка, старый блок из базы, неудачный перевод)."""
+    out = []
+    for st in stories or []:
+        if not isinstance(st, dict):
+            continue
+        blocks = [b for b in st.get("blocks", []) if isinstance(b, dict)
+                  and not is_foreign_script_text(b.get("title"))
+                  and not is_foreign_script_text(b.get("summary"))]
+        dropped = len(st.get("blocks", [])) - len(blocks)
+        if is_foreign_script_text(st.get("title")) or len({b.get("source") for b in blocks}) < min_sources:
+            print(f"  🔤 Обзор прессы снят из-за чужого алфавита [{lang}]: «{str(st.get('title', ''))[:40]}»")
+            continue
+        if dropped:
+            print(f"  🔤 Блоков обзора с чужим алфавитом снято [{lang}]: {dropped}")
+        out.append({**st, "blocks": blocks})
+    return out
 
 
 def drop_foreign_script(items, lang):
