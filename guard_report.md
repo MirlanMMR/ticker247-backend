@@ -1,26 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Financiero — ¿Está en riesgo la banca mexicana tras el colapso de Ueno Bank? — Кризис и банковская надзорная система Парагвая — внутренняя новость, не имеющая глобальных последствий для мексиканца.
-- [es] не_новость: [local] El Financiero — INE denuncia ante la FGR presuntas irregularidades en contrataciones durante ges — Скандал и отставка уже произошли, текст — пересказ старого инфоповода.
-- [es] курьёз: [local] El Sol de México — Tony Iommi presenta “From The Dark”, su primer disco solista en 21 años — Новый альбом музыканта — не новость для широкого читателя.
-- [es] чужое_мелкое: [pool] El Comercio PE — Rafael López Aliaga: ¿Quién es Jeanette Alonzo, la número 2 en la lista de Lima  — Внутренняя политика Перу, не имеющая мирового веса.
-- [es] повтор: [pool] El Universo EC — Enner Valencia rompe una sequía de 32 años y se convierte en el segundo ecuatori ≈ «Boca campeón de la tabla anual de la Lig» — Один и тот же сюжет: победа Боки и чемпионат аргентинской лиги.
-- [es] чужое_мелкое: [pool] La Nación CR — Carolina Venegas superó los 200 goles con la camisa del Saprissa en goleada de e — Местный матч женского чемпионата Коста-Рики.
-- [es] чужое_мелкое: [pool] Clarín AR — Arruabarrena, el técnico que regresó y acomodó a Boca para cortar la sequía y vo — Внутренний спортивный сюжет Аргентины.
-- [es] чужое_мелкое: [pool] RPP PE — FC Cajamarca se aferra a Primera: derrotó 2-0 a Alianza Atlético por el Torneo C — Рядовой матч перуанской лиги.
-- [es] чужое_мелкое: [pool] Semana CO — Real Madrid mete presión al Barcelona antes del partido contra el Atlético: Tabl — Местный спортивный расклад Ла Лиги без мирового значения.
-- [es] чужое_мелкое: [pool] Prensa Libre GT — Real Madrid golea 0-3 al Valencia en Mestalla y presiona por el liderato — Результат матча чемпионата Испании, не является мировой новостью.
-- [es] чужое_мелкое: [pool] Prensa Libre GT — Fallece un aficionado de Suchitepéquez tras un incidente en las gradas del estad — Местное происшествие в Гватемале.
-- [es] чужое_мелкое: [pool] Prensa Libre GT — Asesinato de diputado y tres policías vuelve a poner en evidencia la violencia q — Криминальная хроника регионального уровня Гватемалы.
-- [es] чужое_мелкое: [pool] El Financiero — Larissa Riquelme, la ‘Novia del Mundial’, es víctima de crisis bancaria en Parag — Частная история модели, пострадавшей от банковского кризиса в Парагвае.
-- [es] чужое_мелкое: [pool] 14ymedio — El Gobierno pide vigilar a los vecinos que instalan amplificadores de señal tele — Локальное административное решение на Кубе.
-- [es] чужое_мелкое: [pool] 14ymedio — Ola de deportaciones de "ilegales" desde La Habana hacia las provincias — Местная полицейская операция на Кубе.
-- [es] не_новость: [pool] Montevideo Portal — “Es el mejor homenaje al padre Cacho”: Pacha Sánchez junto al papa en Casavalle — Мнения и цитаты политиков о визите Папы, а не сам факт.
-- [es] не_новость: [pool] Montevideo Portal — “No podemos ignorar que en nuestro entorno hay gente que sufre”: León XIV en Cas — Текстовая выжимка из проповеди.
-- [es] чужое_мелкое: [pool] Diario Libre DO — Accidente mecánico en La Vega causa muerte de Albert González — Местный несчастный случай в Доминикане.
-- [es] не_новость: [pool] BBC Mundo — Cómo es Casavalle, la barriada humilde de Montevideo estremecida por la violenci — Путевой очерк о районе города.
-- [es] чужое_мелкое: [pool] Expansión MX — Crisis en Paraguay podría afectar confianza de inversionistas en el corto plazo, — Аналитика рейтинга S&P по Парагваю — частный финансовый кейс.
-- [es] чужое_мелкое: [pool] El Mundo — Adif blindó el bonus a su cúpula horas antes de dimitir su presidente — Внутренняя административная коррупция в Испании.
-- [es] курьёз: [world] Good News Network — Un alcalde utiliza un AirTag para atrapar a un ladrón de piedras históricas en e — История про кражу камней — развлекательный факт.
-- [es] курьёз: [world] Xataka — EEUU financió una red de sensores en el Pacífico. — Научно-популярный факт из прошлого без актуального события.
-- [es] курьёз: [world] The Guardian — «Un alienígena del fútbol»: Mamadou Sangaré alcanza la cima en la Premier League — Портрет футболиста — не новость.
+- [ru] чужое_мелкое: [local] Sputnik KG — США попросили Китай помочь урегулировать конфликт с Ираном — WP — Внутренняя политика США и их отношения с Китаем не являются мировой новостью для KG.
+- [ru] полка: [local] Kaktus.media — В Ташкенте пьяный пассажир устроил дебош в самолете (видео) — Событие в Узбекистане должно быть в «Новости из...», а не в «Местных».
+- [ru] курьёз: [pool] 14.ru — Якутск — «Адекватная, ласковая и контактная». Овчарка-детектив 10 лет разыскивала пропавш — История о собаке-пенсионере — это интересное, а не новость.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — «Мое тело трясло, я всё время плакала». Уралочка обвинила пожилого педагога в се — Криминальная хроника региона РФ не является новостью для читателя из Кыргызстана.
+- [ru] не_новость: [pool] 56.ru — Оренбург — Состояние на домашних тапочках. Как в СССР работал подпольный обувной бизнес — Исторический очерк об обувном бизнесе в СССР.
+- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — «Обманом уговорил написать на него доверенность». Челябинский бизнесмен пошел по — Локальное уголовное дело в РФ.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — В Екатеринбурге фитнес-клуб распродал абонементы в недостроенном ТЦ «Золотой». Т — Потребительский конфликт в Екатеринбурге.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — В Екатеринбурге школьник-беспредельщик залил мужчину перцовкой и остался на своб — Локальное происшествие в РФ.
+- [ru] не_новость: [pool] 74.ru — Челябинск — Цена взяла разгон. Lada Vesta подорожала из-за новых опций и двигателя — Автомобильная новость об изменении комплектации модели Lada.
+- [ru] чужое_мелкое: [pool] Kaktus.media — Умерла советская и российская актриса Лидия Федосеева-Шукшина — Смерть актрисы в РФ — событие культурной жизни, не имеющее прямого влияния на Кыргызстан.
+- [ru] чужое_мелкое: [pool] Knews.kg — В военном суде Узбекистана проходит процесс по делу ряда высокопоставленных сотр — Внутренние кадровые дела узбекских спецслужб.
+- [ru] чужое_мелкое: [world] RFI — Более 5000 случаев кори зарегистрировано в США в 2026 году, что является рекордо — Статистика кори в США не является мировой новостью.
+- [ru] не_новость: [world] Guardian Sport — Лионель Месси второй раз подряд получил «Золотую бутсу» МЛС, а «Нэшвилл» установ — Спортивная статистика МЛС.
+- [ru] не_новость: [world] BBC Русская служба — «Дана, пожалуйста, возьмись за эту работу!» Трамп предложил пост пресс-секретаря — Обсуждение кадрового назначения в США (слухи/предложения).
+- [ru] чужое_мелкое: [world] TechCrunch — Согласно служебной записке разведки США, руководитель Megaspeed была завербована — Спецслужбистские разборки КНР и США.
+- [ru] чужое_мелкое: [world] Guardian Sport — Плей-офф NWSL: гол Мишель Купер в дополнительное время вывел «Канзас-Сити» в пол — Результат матча женской футбольной лиги США.
+- [ru] чужое_мелкое: [world] Fortune — Новые налоговые льготы во Флориде могут привести к дефициту бюджета экстренных с — Налоговые поправки штата Флорида.
+- [ru] курьёз: [world] Futura-Sciences — Медицинский курьез: врачи извлекли живого 60-сантиметрового угря из кишечника па — Медицинский случай (не новость с последствиями).
+- [ru] курьёз: [world] Live Science — Тектонические силы вблизи Японии способствовали формированию Гранд-Каньона — Научная гипотеза о каньонах (не новость).
+- [ru] курьёз: [world] Good News Network — Ребенок спасен после того, как семейный доберман обнаружил у него учащенное серд — Частный случай со спасенным ребенком.
+- [ru] не_новость: [world] BBC Русская служба — Подготовка к политической битве с Конгрессом? — Аналитическая статья-вопрос о политике.
+- [ru] курьёз: [world] Knews.kg — В Австралии итальянского шеф-повара уволили за отказ добавлять ананасы в пиццу — Частный трудовой спор в Австралии.
+- [ru] чужое_мелкое: [world] 60.ru — Псков — Бланшу запретили давать показания, но разрешили ответить на вопросы — Судебные процессы в США по делу Эпштейна.
+- [ru] чужое_мелкое: [world] 60.ru — Псков — Отцу Меган Маркл грозит до 20 лет тюрьмы — Арест частного лица в США.
+- [ru] не_новость: [world] Semafor — Nvidia сталкивается с более враждебным Вашингтоном — Аналитика отношений корпорации и правительства.
