@@ -1,36 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [local] InfoMoney — Combustíveis poderiam custar o dobro sem ação do governo, avalia parte do setor — Аналитика по ценам на топливо в Бразилии из-за войны в Иране — это обзор и мнение, а не событие.
-- [pt] курьёз: [local] Metrópoles — Tratar a apneia do sono pode melhorar a qualidade do esperma, sugere estudo — Научное предположение о связи апноэ и качества спермы — это любопытный факт для «Интересного».
-- [pt] не_новость: [local] Poder360 — Defesa Civil diz que kits de emergência não indicam risco: “calma” — Разъяснение о постах в соцсетях не является новостным событием.
-- [pt] не_новость: [local] Agência Brasil — Eliana Alves Cruz questiona ausência de autoras negras no Jabuti — Мнение писательницы о премии — это личное высказывание, не событие.
-- [pt] не_новость: [local] Gazeta do Povo — PT pede R$ 7 milhões em vaquinha para quitar dívidas da campanha de Lula — Сбор средств (вакинья) — это процесс, а не завершенное событие.
-- [pt] не_новость: [local] G1 São Paulo — Condomínio quis expulsar suspeito de matar advogada e enteado por ameaçar morado — Описание поведения подозреваемого в прошлом — это исторический контекст, а не новость.
-- [pt] срочность: [local] G1 Bahia — Operação Faroeste: STJ determina inclusão de desembargadora condenada na lista d — Процессуальное решение суда по делу, тянущемуся годами, не требует побудки.
-- [pt] не_новость: [pool] BBC Brasil — Por que mulheres podem estar por trás da vitória de Lula nas eleições — Анализ итогов выборов, которые прошли ранее — это запоздалая аналитика.
-- [pt] курьёз: [pool] Téla Nón — CHINA moderniza os serviços das Alfândegas com tecnologia de ponta para garantir — Техническое оснащение таможни — рутинная работа ведомства, не событие.
-- [pt] не_новость: [pool] Téla Nón — TRAFIGURA : Governo justifica adjudicação directa e fala em redução de custos — Оправдание правительства по поводу закупок — это PR-ответ, а не новостной факт.
-- [pt] срочность: [world] CNN Brasil — Acidente de trem no Egito deixa 4 mortos e 88 feridos, diz ministério. — Катастрофы в других странах без пострадавших бразильцев — новости для ленты, но не для срочного уведомления.
-- [pt] курьёз: [world] Engadget — Estas baterias experimentais de veículos elétricos podem ser ejetadas durante um — Описание прототипа технологии — это технологический обзор, а не событие.
-- [pt] чужое_мелкое: [world] The Independent — Homem processa OpenAI alegando que chatbot conspirou com sua esposa para assassi — Частный иск против OpenAI не является мировой новостью, требующей внимания в BR-ленте.
-- [pt] не_новость: [world] Jornal de Negócios — Democratas assumem oposição aos centros de dados e "cortam as pernas" ao crescim — Политическая оценка будущего сектора — это аналитика, а не свершившийся факт.
-- [pt] чужое_мелкое: [world] The Independent — Stephen Miller e o Departamento de Justiça planejam prender jornalistas devido a — Инсайды и оценки намерений политиков США — это внутренняя повестка другой страны.
-- [pt] не_новость: [world] The Guardian — Geladeiras quentes, um alerta nuclear falso e um roubo de US$ 6 bilhões: estamos — Общий обзор хакерских атак — это разбор темы, а не конкретный факт события.
-- [pt] не_новость: [world] Semafor — Nvidia enfrenta uma Washington mais hostil — Анализ отношений компании с Вашингтоном — это бизнес-аналитика, а не событие.
-- [fr] чужое_мелкое: [local] Le Figaro — Guerre en Ukraine : «Jean-Luc Mélenchon s'est fait porte-parole du Kremlin» sur  — Внутренняя политическая полемика Франции, не является событием мирового масштаба.
-- [fr] курьёз: [local] La Dépêche — TÉMOIGNAGE. Atteinte d'une maladie rare, le syndrome d'Ehlers-Danlos, elle doit  — Личная история, не является новостным событием.
-- [fr] не_новость: [local] 20 Minutes — « Il n’y a pas mieux aujourd’hui »… Le « France Libre » aura bien des catapultes — Обсуждение планов и «сохранение курса», нет свершившегося факта.
-- [fr] не_новость: [local] 20 Minutes — « Les contours de la France sont assez évidents »… Gaëlle Sutton cartographie le — Художественное картографирование — это очерк, а не событие.
-- [fr] курьёз: [pool] RTBF — À 8 ans, Marcel insulte Macron et la police en direct... et la séquence crée la  — Поведение ребёнка на митинге — шум, а не значимая новость.
-- [fr] не_новость: [pool] Radio-Canada — La voix québécoise de Jack Kerouac restituée — Культурологический разбор, нет новостного события.
-- [fr] не_новость: [pool] Le Devoir — Les lauréats des prix Judith-Jasmin sont dévoilés — Оглашение лауреатов премии — плановое событие культуры, не является срочным или значимым для широкого круга.
-- [fr] курьёз: [world] L'Express — Sabrina Pasterski, célèbre physicienne américaine : "L'IA ne doit pas être un or — Интервью с физиком — познавательный материал, не новость.
-- [fr] чужое_мелкое: [world] RTBF — Selon Trump la victoire des démocrates est un "gigantesque pas en arrière dans l — Внутриполитическая риторика Трампа — это слова, не имеющие мировых последствий.
-- [fr] не_новость: [world] RTBF — Russes, Ukrainiens et Américains à Abou Dhabi : l'Europe peine à parler d'une se — Рассуждения о том, «кто поедет на переговоры», — это обсуждение, а не событие.
-- [fr] повтор: [world] RFI — Guerre en Ukraine: les Européens, dont la France seront «représentés» lors des n ≈ «Russes, Ukrainiens et Américains à Abou » — Тот же сюжет о представительстве на переговорах в Абу-Даби.
-- [fr] не_новость: [world] L'Express — Israël : le casse-tête de Gadi Eisenkot pour conquérir le pouvoir — «Кассе-тête» (головоломка) — политический анализ ситуации, а не свершившийся факт.
-- [fr] повтор: [world] RFI — Israël: «Il est prématuré de dire que l'ère Netanyahu est terminée» ≈ «Israël : le casse-tête de Gadi Eisenkot » — Тот же сюжет о формировании правительства в Израиле.
-- [fr] полка: [world] Азаттык (кыргызча) — Ukraine : plus de 600 000 personnes privées d'électricité dans la région de Dnip — Внешнее издание на кыргызском языке в французском потоке.
-- [fr] не_новость: [world] RFI — Russie: avec la menace de drones ukrainiens sur l'espace aérien, les voyageurs d — Анализ угроз и адаптации, нет конкретного события.
-- [fr] курьёз: [world] Radio-Canada — Voici le visage du Dénisovien, cousin de Sapiens et de Néandertal — Научно-популярный факт о предках человека.
-- [fr] полка: [world] Knews.kg — Le président du Paraguay Santiago Peña destitué et arrêté — Издание из Кыргызстана в международном потоке французского пула — нарушение логики отбора.
+- [en] чужое_мелкое: [local] WIBW — Luigi Mangione’s cousin wins election in Baltimore — Выборы в местный совет округа — локальное событие для США, не мировая новость.
+- [en] не_новость: [local] KFVS12 — Woman sentenced to probation after firing a handgun around kids — Приговор за бытовое преступление, не имеющее общественного резонанса.
+- [en] не_новость: [local] Gothamist — Jazz Age fashions return to Governor’s Island for the Lawn Party's fall edition — Описание городского фестиваля/праздника, не является общественно значимым событием.
+- [en] курьёз: [local] Cleveland.com — Former LSU star ‘just got burned to a crisp,’ Finebaum says — Спортивный комментарий/мнение, не является событием.
+- [en] не_новость: [local] KPLC — SWLA Arrest Report - Nov. 7, 2026 — Рутинная сводка задержаний за сутки.
+- [en] не_новость: [local] PennLive — Central Pa. restaurant will be closing soon: ‘Please stop down to see us before  — Обычное закрытие локального ресторана.
+- [en] не_новость: [local] Missoula Current — Griz roll Portland State as Gillman makes Big Sky history — Обычный отчет о матче студенческой лиги.
+- [en] не_новость: [local] WABI — PVSC hosts annual used gear “Ski Sale” at Hermon Mountain — Анонс локальной распродажи снаряжения.
+- [en] не_новость: [local] KFVS12 — Man accused of dumping Amazon packages at Heartland cemetery; deputies deliver r — Бытовое преступление (мусор), не является важной новостью.
+- [en] не_новость: [local] Hawaii News Now — YWCA Oahu’s Fernhurst program helps women find housing, rebuild their lives — Описание работы социальной программы (очерк).
+- [en] не_новость: [local] Bangor Daily News — Fowler scores early to lead UMaine hockey to win over UMass — Обычный отчет о спортивном матче.
+- [en] не_новость: [local] WAFF — Inside HPD: Department looks to fill officer vacancies — Описание кадровой политики полиции (процесс, а не событие).
+- [en] срочность: [local] KING5 — Crews work to repair power outages affecting thousands. — Плановое сообщение об отключении электричества не требует пометки «СРОЧНО».
+- [en] не_новость: [local] Cronkite News — ASU football showcases dominant defensive performance in win against Colorado — Обычный отчет о матче.
+- [en] не_новость: [local] OPB — University of Oregon graduate employees declare intent to strike — Заявление о намерении бастовать в будущем — не событие.
+- [en] не_новость: [local] Untitled RSS Feed — ‘He Matters’: Wyoming Family Not Giving Up On Finding Man Missing 27 Years — Очерк о старом нераскрытом деле (не свежее событие).
+- [en] не_новость: [local] WECT — Vandalism blamed for CO2 leak in downtown Wilmington — Бытовой инцидент с вандализмом.
+- [en] чужое_мелкое: [local] San Antonio Report — Dorazio is the lone GOP survivor in San Antonio’s Texas House delegation — Локальная политическая аналитика штата Техас.
+- [en] не_новость: [local] WCTV — Week Ahead in Washington: Nov. 8 — Анонс событий будущей недели (не является событием).
+- [en] курьёз: [pool] Rolling Stone — Andy Richter Claims U2’s the Edge Wrote an ‘Elf’ Sequel Screenplay — Слухи о сценарии фильма 20-летней давности.
+- [en] курьёз: [world] Engadget — The reason why some USB ports are teal — Интересный факт о технике.
+- [en] курьёз: [world] Ars Technica — Physicists listened to electrical noise to crack a superconductor mystery — Научно-популярный факт, не является событием.
+- [en] не_новость: [world] Fortune — Coffee giant Dutch Bros made all of its executives, including the CEO, do a two- — Корпоративный очерк о тимбилдинге.
+- [en] не_новость: [world] The Colorado Sun — “When They Find Me”: Hunters and hunted collide in a high-country blizzard — Художественный рассказ (не новостное событие).
+- [en] не_новость: [world] Semafor — There's a silver lining for data center builders amid the 'blue wave' — Аналитическая статья о рынке, а не новостное событие.
