@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] чужое_мелкое: [local] WIBW — Luigi Mangione’s cousin wins election in Baltimore — Выборы в местный совет округа — локальное событие для США, не мировая новость.
-- [en] не_новость: [local] KFVS12 — Woman sentenced to probation after firing a handgun around kids — Приговор за бытовое преступление, не имеющее общественного резонанса.
-- [en] не_новость: [local] Gothamist — Jazz Age fashions return to Governor’s Island for the Lawn Party's fall edition — Описание городского фестиваля/праздника, не является общественно значимым событием.
-- [en] курьёз: [local] Cleveland.com — Former LSU star ‘just got burned to a crisp,’ Finebaum says — Спортивный комментарий/мнение, не является событием.
-- [en] не_новость: [local] KPLC — SWLA Arrest Report - Nov. 7, 2026 — Рутинная сводка задержаний за сутки.
-- [en] не_новость: [local] PennLive — Central Pa. restaurant will be closing soon: ‘Please stop down to see us before  — Обычное закрытие локального ресторана.
-- [en] не_новость: [local] Missoula Current — Griz roll Portland State as Gillman makes Big Sky history — Обычный отчет о матче студенческой лиги.
-- [en] не_новость: [local] WABI — PVSC hosts annual used gear “Ski Sale” at Hermon Mountain — Анонс локальной распродажи снаряжения.
-- [en] не_новость: [local] KFVS12 — Man accused of dumping Amazon packages at Heartland cemetery; deputies deliver r — Бытовое преступление (мусор), не является важной новостью.
-- [en] не_новость: [local] Hawaii News Now — YWCA Oahu’s Fernhurst program helps women find housing, rebuild their lives — Описание работы социальной программы (очерк).
-- [en] не_новость: [local] Bangor Daily News — Fowler scores early to lead UMaine hockey to win over UMass — Обычный отчет о спортивном матче.
-- [en] не_новость: [local] WAFF — Inside HPD: Department looks to fill officer vacancies — Описание кадровой политики полиции (процесс, а не событие).
-- [en] срочность: [local] KING5 — Crews work to repair power outages affecting thousands. — Плановое сообщение об отключении электричества не требует пометки «СРОЧНО».
-- [en] не_новость: [local] Cronkite News — ASU football showcases dominant defensive performance in win against Colorado — Обычный отчет о матче.
-- [en] не_новость: [local] OPB — University of Oregon graduate employees declare intent to strike — Заявление о намерении бастовать в будущем — не событие.
-- [en] не_новость: [local] Untitled RSS Feed — ‘He Matters’: Wyoming Family Not Giving Up On Finding Man Missing 27 Years — Очерк о старом нераскрытом деле (не свежее событие).
-- [en] не_новость: [local] WECT — Vandalism blamed for CO2 leak in downtown Wilmington — Бытовой инцидент с вандализмом.
-- [en] чужое_мелкое: [local] San Antonio Report — Dorazio is the lone GOP survivor in San Antonio’s Texas House delegation — Локальная политическая аналитика штата Техас.
-- [en] не_новость: [local] WCTV — Week Ahead in Washington: Nov. 8 — Анонс событий будущей недели (не является событием).
-- [en] курьёз: [pool] Rolling Stone — Andy Richter Claims U2’s the Edge Wrote an ‘Elf’ Sequel Screenplay — Слухи о сценарии фильма 20-летней давности.
-- [en] курьёз: [world] Engadget — The reason why some USB ports are teal — Интересный факт о технике.
-- [en] курьёз: [world] Ars Technica — Physicists listened to electrical noise to crack a superconductor mystery — Научно-популярный факт, не является событием.
-- [en] не_новость: [world] Fortune — Coffee giant Dutch Bros made all of its executives, including the CEO, do a two- — Корпоративный очерк о тимбилдинге.
-- [en] не_новость: [world] The Colorado Sun — “When They Find Me”: Hunters and hunted collide in a high-country blizzard — Художественный рассказ (не новостное событие).
-- [en] не_новость: [world] Semafor — There's a silver lining for data center builders amid the 'blue wave' — Аналитическая статья о рынке, а не новостное событие.
+- [es] полка: [local] El Universal MX — Colombia reforzará seguridad a medios; medida se da. — Событие в Колумбии — это не местная новость для MX. Должно быть в «Новости из...».
+- [es] не_новость: [local] El Financiero — Localizan a alcalde de Río Bravo; Harfuch informa que Miguel Ángel Almaraz fue e — Нашли человека, всё в порядке — обычная работа полиции, не событие.
+- [es] не_новость: [local] El Financiero — Cantaste en los conciertos de La Mayiza: ¿Qué shows organizó una empresa ligada  — Это разбор/аналитика последствий санкций, а не событие.
+- [es] полка: [local] El Sol de México — Tras derrota electoral, Trump refuerza campaña para advertir que la frontera sig — Событие US, важная мировая повестка, лежит в местных.
+- [es] не_новость: [local] La Jornada — INE busca evitar paro en módulos — «Ищет способы избежать» — намерение, а не состоявшееся событие.
+- [es] не_новость: [local] La Jornada — Familias de migrantes desaparecidos padecen trabas de estadía en el país — Описание затяжной административной проблемы, события нет.
+- [es] не_новость: [local] Expansión MX — Petrobras analiza áreas petroleras en México para detectar oportunidades de desa — Подписание меморандума о намерениях («анализирует возможности») — не событие.
+- [es] чужое_мелкое: [pool] Infobae — Julián Alvarez y Koke, titulares en el Atleti; Fariñas y Bernal, en el once del  — Спортивный состав команды — внутренняя информация для фанатов футбола, не мировая новость.
+- [es] не_новость: [pool] El Mundo — Feijóo promete reforzar la lucha contra el crimen organizado y recuperar el OCON — Предвыборные обещания — слова о будущем.
+- [es] не_новость: [pool] El País — Sánchez reenfoca la campaña del PSOE en la gestión y asegura que blindará las pe — Предвыборная кампания — слова и планы, а не событие.
+- [es] курьёз: [pool] La Jornada — Delcy Rodríguez reinaugura la plaza Washington en Caracas — Локальное событие (открытие площади) в другой стране, не имеет мирового значения.
+- [es] не_новость: [pool] eldiario.es — A Koldo le ofrecieron un Aldama — Обсуждение интервью, а не событие.
+- [es] не_новость: [pool] eldiario.es — Okdiario amenaza con demandar a elDiario.es por la información sobre sus pagos a — Угроза судом — не событие.
+- [es] чужое_мелкое: [world] Semana CO — Estados Unidos emitió alerta por ciberataques activos contra sistemas de refrige — Предупреждение о кибератаках без конкретного факта случившегося инцидента.
+- [es] не_новость: [world] The Independent — Trump pone fin a la ayuda militar a Israel: ¿qué impacto tendrá? — Важное решение, но подано через вопрос «какой эффект», что является аналитикой.
+- [es] не_новость: [world] Fortune — «A la par de lo que el Departamento de Defensa buscaba durante la Guerra Fría»:  — Планы, которые «сталкиваются с трудностями» — аналитика, не событие.
+- [es] не_новость: [world] RFI — ¿Quiénes son los candidatos para suceder a Christine Lagarde al frente del BCE? — Обсуждение кандидатур на пост — это слова.
+- [es] курьёз: [world] Ars Technica — Un grupo de físicos descifra el misterio de los superconductores analizando el r — Научная работа (теоретическое исследование), не событие.
+- [es] полка: [world] El Sol de México — Herzog encarga a Eisenkot la formación del próximo Gobierno de Israel — Формирование правительства Израиля — мировая новость, лежит в местных.
+- [es] не_новость: [world] BBC Mundo — La arriesgada misión para extraer de Polonia el cohete v2, el "arma milagrosa" d — Исторический очерк о раскопках, не событие.
+- [es] полка: [world] AKIpress Эко — El presidente planea trasladar los residuos de Tokmok a Biskek para su reciclaje — Региональная новость KG (для нас — мировая), лежит в нерелевантном издании.
+- [es] полка: [world] Азаттык (кыргызча) — Ucrania: más de 600.000 personas quedaron sin electricidad en la región de Dnipr — Война в Украине — мировая новость, лежит в местных.
+- [es] чужое_мелкое: [world] Ars Technica — Un soldado británico ignoró la orden de retirar su tarjeta SIM y fue víctima de  — Инцидент с одним солдатом не имеет мирового масштаба.
+- [es] не_новость: [world] Semafor — Nvidia enfrenta un entorno más hostil en Washington — Аналитика отношений компании и власти, не событие.
+- [es] не_новость: [world] Semafor — Nueva York supera a San Francisco en el crecimiento de empleos tecnológicos, seg — Статистика роста рабочих мест — не событие по белому списку.
