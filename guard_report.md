@@ -1,9 +1,21 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] полка: [pool] Prensa Libre GT — Inflación baja a 4.38% en octubre: gas propano y alimentos presionaron los preci — Издание из Гватемалы пишет о новостях в Гватемале, полка «Новости из...» не должна содержать события домашней страны изд
-- [es] полка: [pool] Infobae — Decomisan más de 100 mototaxis en Honduras por sospechas de vínculos con activid — Событие в Гондурасе (HN) в ленте «Новости из...» у аргентинского издания; для читателя в Мексике это мировая новость, та
-- [es] полка: [pool] El Nacional VE — Feligreses venezolanos asistieron a la misa del papa León XIV en Buenos Aires — Это событие (визит Папы в Аргентину) мирового значения, так как событие освещается в контексте мирового лидера и мигрант
-- [es] полка: [pool] Prensa Libre GT — Caso Huité sale de Zacapa y pasa a un juzgado de Mayor Riesgo en Guatemala — Это местная новость Гватемалы (GT), не должна находиться в разделе «Новости из...» для стороннего читателя, если это не 
-- [es] полка: [world] Азаттык (кыргызча) — Al menos siete muertos en un accidente ferroviario en Egipto — Авария в Египте (EG) — типичная мировая новость из-за масштаба жертв, не имеет отношения к региональному пространству Ме
-- [es] полка: [world] Азаттык — Otro ciudadano de Tayikistán que firmó un contrato con el Ministerio de Defensa  — Гибель наемника в зоне конфликта — международная новость, не является региональной для читателя в Мексике.
-- [es] полка: [world] AKIpress — Alerta meteorológica: se espera un descenso brusco de la temperatura en Kirguist — Погодная сводка в Кыргызстане (KG) не является мировой новостью для пула «es» (Мексика).
+- [pt] не_новость: [local] Metrópoles — Em meio à aproximação, Cleitinho pretende ir à posse de Lula — Это политические планы и намерение посетить мероприятие, а не свершившееся событие.
+- [pt] не_новость: [local] Poder360 — Banco do Brasil indenizará concursado demitido após ação judicial — Это рутинное судебное решение по трудовому спору, не имеющее широкого общественного значения.
+- [pt] курьёз: [local] InfoMoney — Mulher de FHC registra B.O. após homem publicar vídeo em apartamento do ex-presi — Частный инцидент, не имеющий общественной значимости. Место в колонке происшествий или светской хронике.
+- [pt] не_новость: [local] Gazeta do Povo — Decreto sobre fim da escala 6×1 fica para depois de viagem de Lula — Ожидание действия («должно быть после поездки») — это не свершившееся событие.
+- [pt] чужое_мелкое: [pool] Observador PT — Greve em Évora contra empresa de limpeza de centros de saúde — Локальная забастовка персонала одной клиники — частный случай для страны, не мировая новость.
+- [pt] повтор: [pool] Terra BR — Saiba quem é Patrícia Kundrát, responsável por denunciar homem que filmou aparta ≈ «Mulher de FHC registra B.O. após homem p» — Тот же сюжет, что и в карточке 17.
+- [pt] не_новость: [world] Folha de S.Paulo — 1926: Fascistas destituem em massa deputados da oposição na Itália — Событие 1926 года — историческая справка, а не новость для агрегатора.
+- [pt] чужое_мелкое: [world] Variety — Disney nomeia Adobe como 'Parceira Oficial de Inovação em IA' em acordo plurianu — Корпоративное партнерство без глобальных последствий для потребителей.
+- [pt] не_новость: [world] Engadget — Windows 11 finalmente adiciona uma forma mais fácil de desativar o pop-up das Te — Техническое обновление интерфейса ОС — мелкая деталь, не является новостью.
+- [pt] курьёз: [world] Rolling Stone — Caitlin Clark escreveu um livro rimado com uma mensagem positiva para crianças s — Выход детской книги — событие культурной жизни, не является новостью в ленте.
+- [pt] курьёз: [world] Rolling Stone — Bob Dylan toca 'Sugar Baby', clássico do álbum 'Love and Theft', pela primeira v — Исполнение песни на концерте — не новость, а любопытный факт для фанатов.
+- [pt] не_новость: [world] TechCrunch — Anthropic lança novos modelos Mythos e Fable em meio a preocupações com o RSI — Очередной релиз модели ИИ — рутина индустрии, если нет прорыва или катастрофы.
+- [pt] не_новость: [world] Futura-Sciences — «Nunca vimos nada assim»: climatologista alerta sobre o que está por vir em 2027 — Прогноз климатолога о будущем, а не свершившееся событие.
+- [pt] срочность: [world] Ars Technica — Claude Code está expondo segredos acidentalmente em todo o GitHub — Утечка данных — серьезно, но «Claude Code» не требует побудки пользователя в потоке.
+- [pt] курьёз: [world] Superinteressante — Nem todos antialérgicos são iguais, e alguns podem afetar seu cérebro mais do qu — Научно-популярный совет, а не событие. Место — «Интересное».
+- [pt] не_новость: [world] Guardian Sport — Manchester United avalia demissão de Michael Carrick sob liderança de Jason Wilc — «Оценивает возможность» — обсуждение планов, а не свершившаяся отставка или увольнение.
+- [pt] полка: [world] Азаттык (кыргызча) — Pelo menos sete mortos em acidente ferroviário no Egito — Издание на кыргызском, новость об Египте. Это мировая новость, не местная (для потока pt).
+- [pt] курьёз: [world] Guardian Sport — Joe Burrow revitaliza os Bengals e dispara na corrida pelo MVP — Спортивная аналитика и гонка за MVP — не событие-новость, а мнение и обзор текущего сезона.
+- [pt] курьёз: [world] The Guardian — ‘É uma sensação de ser prejudicado’: vilarejo antes tranquilo desespera-se com a — Жалобы жителей на склад — бытовой конфликт, не является мировой новостью.
