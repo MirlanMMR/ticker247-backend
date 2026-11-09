@@ -1,27 +1,35 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] полка: [local] Вечерний Бишкек — Ражабали Шайдуллаев защитит титул RIZIN в бою против Киомы Акимото — Событие происходит в Японии (спорт), не является мировым, должно быть в ленте «Новости из…» или удалено.
-- [ru] полка: [local] Kabar.kg — Россияда баңгизат менен соттолуп келген келинге ырайым берилиши мүмкүн — Событие происходит в России, нет существенных последствий для Кыргызстана, должно быть в ленте «Новости из…».
-- [ru] не_новость: [local] Knews.kg — Масштабное исследование с использованием сканирования мозга опровергло популярну — Это пересказ научно-популярной статьи, не является событием.
-- [ru] срочность: [local] 24.kg — В двух микрорайонах Бишкека временно отключат воду — Плановое объявление об отключении воды не требует метки «СРОЧНО».
-- [ru] чужое_мелкое: [pool] Onliner.by — Осталась неделя, чтобы заплатить налоги за квартиру, землю и машину — Налоговый срок в Беларуси не новость для читателя в Кыргызстане.
-- [ru] не_новость: [pool] ngs55.ru — Омск — Покидает Омск? Застройщик прокомментировал слухи об уходе со строительства ЖК «З — Опровержение слухов не является событием.
-- [ru] чужое_мелкое: [pool] iXBT — Зарядка в полтора раза быстрее: «Бери заряд» Яндекса представил аккумуляторы соб — Новинка в московском сервисе аренды зарядок не является новостью для Бишкека.
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — В Казани роботы-уборщики заменят около 300 дворников — Планы по замене дворников роботами в Казани — локальная новость РФ.
-- [ru] не_новость: [pool] ngs55.ru — Омск — Для обслуживания подсветки метромоста ищут подрядчика: чем ему еще предстоит зан — Поиск подрядчика на обслуживание — рутина, а не событие.
-- [ru] чужое_мелкое: [pool] Asia-Plus — Порог доминирования компании на рынке повышен до 40%. Как новый закон о конкурен — Изменения в законодательстве Таджикистана о конкуренции не являются мировой новостью.
-- [ru] курьёз: [pool] Naked Science — «Чужой» среди муравьев: ученые ЮФУ описали новый род грибов-паразитов — Научпоп про муравьев — только для полки «Интересное».
-- [ru] не_новость: [pool] Kun.uz — Ректоров вузов проверят на соответствие занимаемым должностям — Проверка ректоров — ведомственная рутина.
-- [ru] не_новость: [pool] ngs.ru — Новосибирск — На Ипподромской досрочно завершат ремонт подпорной стены — фото с места — Завершение ремонта стены — текущая работа.
-- [ru] чужое_мелкое: [pool] Asia-Plus — Штраф около 7 тысяч сомони. Введено наказание за передачу банковских карт и элек — Местные штрафы в Таджикистане не являются мировой новостью.
-- [ru] не_новость: [pool] ngs.ru — Новосибирск — «Думала уже уезжать отсюда». В отдаленный микрорайон запустили троллейбус-«гармо — Обзор троллейбуса не является событием.
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — В Омске уничтожили 36 тонн спелых томатов — причина — Уничтожение томатов в Омске — локальная новость РФ.
-- [ru] не_новость: [pool] ngs55.ru — Омск — В центре Омска появится новый микрорайон с амфитеатром — эскизы — Планы по строительству микрорайона — это не событие.
-- [ru] не_новость: [pool] ngs.ru — Новосибирск — «Просьба не расслабляться»: Андрей Травников поручил проверить новые парки и скв — Поручение губернатора — это слова, а не свершившееся действие.
-- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — Некрасова пережила проверки и закрытия баров — Аналитическая заметка о судьбе баров.
-- [ru] не_новость: [pool] e1.ru — Екатеринбург — «Подорожала в два раза»: екатеринбуржцы отказываются от красной икры из-за скачк — Жалобы на цены — это не событие с конкретным фактом/решением.
-- [ru] не_новость: [pool] ngs55.ru — Омск — Новые автобусы доставили в Омск: по каким маршрутам они поедут — Закупка автобусов — рутина.
-- [ru] чужое_мелкое: [pool] NewsGeorgia — Грузия закупила 28 новых машин для экзамена по вождению — МВД обещает сократить  — Закупка машин для экзаменов в Грузии — внутренняя новость.
-- [ru] курьёз: [world] Naked Science — Плоская стопа могла быть эволюционным преимуществом неандертальцев — Научная гипотеза о неандертальцах — только для полки «Интересное».
-- [ru] не_новость: [world] BBC Русская служба — Глава Nvidia Дженсен Хуанг признался, что изменял жене. — Слухи/признания личного характера не являются значимой мировой новостью.
-- [ru] курьёз: [world] Ars Technica — Врачи извлекли нож из головы пациента, прошедший через мозг — пострадавший в пор — Медицинский случай в Великобритании — только для полки «Интересное».
+- [pt] не_новость: [local] InfoMoney — Cotado para Fazenda de Lula, Rafael Fonteles sinaliza permanência no Piauí — политический слух/сигнал, а не свершившееся событие.
+- [pt] курьёз: [local] CNN Brasil — Quadro de artista famosa avaliado em US$ 3 milhões é descoberto no armário de um — находка картины — событие для раздела «интересное», не новостная повестка.
+- [pt] не_новость: [local] Estadão — Big techs procuram nas religiões respostas para a inteligência artificial — обзор темы «big techs и религия», нет конкретного события.
+- [pt] курьёз: [local] Superinteressante — SUS e Einstein desenvolvem IA para identificar doenças de pele — исследование/разработка ИИ без даты внедрения или результата.
+- [pt] не_новость: [world] Variety — Nicholas Denton, Hugh Bonneville e Tim Downie estrelam o filme de terror folclór — анонс фильма, новостью не является.
+- [pt] чужое_мелкое: [world] Rolling Stone — Joe Biden limitará a promoção de seu livro de memórias devido à batalha contra o — реклама/продвижение книги, для Бразилии событие не имеет значения.
+- [pt] не_новость: [world] TechCrunch — O cargo de Jensen Huang está em risco? — спекуляция о рисках для должности, нет свершившегося факта (увольнения).
+- [pt] курьёз: [world] Ars Technica — Físicos utilizaram ruído elétrico para desvendar mistério sobre supercondutores — научный факт без прикладного события или даты публикации.
+- [fr] не_новость: [local] La Tribune — « Choc fiscal » : les impôts qui ont le plus augmenté depuis 2017, et ceux qui o — Аналитика/статья о налоговой статистике с 2017 года, нет события.
+- [fr] не_новость: [local] BFMTV — La situation des nappes phréatiques en France toujours "très préoccupante" — Обзор состояния водоносных горизонтов, нет конкретного события.
+- [fr] не_новость: [local] BFMTV — Prime de partage de la valeur: “On va l’ouvrir aux entreprises au-dessus de 50 s — Цитата из интервью/мнения, а не свершившийся факт.
+- [fr] не_новость: [local] BFMTV — Crise sociale: “L’État a pris ses responsabilités”, dit Jean-Pierre Farandou, mi — Цитата политика о «новой неделе», нет события.
+- [fr] не_новость: [local] BFMTV — "Une contrainte supplémentaire pour les entreprises": le patron des petites entr — Реакция/мнение эксперта на новость, а не само событие.
+- [fr] не_новость: [local] Sud Ouest — Entré par effraction dans une villa, un jeune homme de 18 ans meurt étranglé par — Событие произошло в «вилле», участник — украинец, при этом заголовок про «юного украинца» выглядит как криминальная хрон
+- [fr] не_новость: [local] France Bleu — Affaire Kevin Escoffier : "Tu vas faire les sandwichs", le sexisme perdure sur l — Сбор мнений о сексизме, а не новое событие.
+- [fr] не_новость: [local] Sud Ouest — Teddy Riner et ses voitures de luxe : Ferrari, Rolls Royce… Le judoka visé par u — Давние претензии (2025 год), не является новостью сегодня.
+- [fr] не_новость: [local] Nice-Matin — « S’il passe, je ne me tirerai pas mais je le combattrai » : depuis le Var, Mich — Мнение знаменитости о политике, не является новостью.
+- [fr] не_новость: [pool] Jeune Afrique — Au Sénégal, le retour en grâce de Souleymane Kandé, le nouveau patron du renseig — Анализ биографии чиновника, не является текущим событием.
+- [fr] курьёз: [pool] Nice-Matin — Voici pourquoi « Le Pacha » de Fragonard pourrait dynamiter les enchères à l’Hôt — Анонс аукциона, предмет «интересного».
+- [fr] не_новость: [pool] RTBF — Partenariat Renault-Cockerill : quand crise de l’automobile et boom de la défens — Аналитическая статья о бизнес-партнерстве.
+- [fr] не_новость: [pool] Radio-Canada — Des élèves du primaire s’échangent des images pornos sur Snapchat — Общая проблема/социальный комментарий, нет факта события.
+- [fr] не_новость: [pool] RTBF — Budget fédéral : après la crise, c’est encore la crise — Описание политической ситуации без конкретного завершенного факта.
+- [fr] не_новость: [pool] RTBF — Mariah Carey donnera un concert exclusif aux Francofolies de Spa en 2027 — Анонс концерта на 2027 год.
+- [fr] не_новость: [pool] La Libre — ”Les artistes qui prennent le train reçoivent une enveloppe. — Цитата и рассуждения о моде.
+- [fr] курьёз: [world] La Tribune — L'IA chargée de créer d'autres IA : la course folle qui fait frémir la Silicon V — Технологический тренд, нет конкретного события.
+- [fr] не_новость: [world] Jeune Afrique — Niger-Tchad : entre Abdourahamane Tiani et Mahamat Idriss Déby Itno, la paix des — Анализ дипломатических отношений, нет события.
+- [fr] курьёз: [world] La Dépêche — En arrêt maladie, il soulève 80 kg à la salle de sport — Частный случай нарушения больничного, не является мировой новостью.
+- [fr] не_новость: [world] Courrier International — En Afrique du Sud, un ANC en déclin lancé dans une course aux coalitions — Аналитическая статья о внутриполитической ситуации.
+- [fr] курьёз: [world] La Presse TN — Italie : Une héritière cède son palais du XVIIe siècle au profit des Médecins Sa — Частный благотворительный жест частного лица.
+- [fr] не_новость: [world] La Dépêche — En Russie, le VIH atteint un stade épidémique généralisé dans 27 régions, le vir — Обзор эпидемиологической статистики, а не новое событие.
+- [fr] повтор: [world] Sud Ouest — Chine : ce que l’on sait d’Alice Huang, soupçonnée d’avoir espionné Jensen Huang ≈ «Nvidia: ouverture d'une enquête interne » — Один и тот же сюжет об Nvidia.
+- [fr] не_новость: [world] Radio-Canada — Alimentation Couche-Tard veut vendre des sachets de nicotine — Начало слушаний/лоббирование, нет решения.
+- [fr] не_новость: [world] Courrier International — Les médicaments analogues du GLP-1 : un succès à la loupe — Обзор научной статьи (досье), нет события.
