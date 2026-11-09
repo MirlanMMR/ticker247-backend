@@ -1,35 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] InfoMoney — Cotado para Fazenda de Lula, Rafael Fonteles sinaliza permanência no Piauí — политический слух/сигнал, а не свершившееся событие.
-- [pt] курьёз: [local] CNN Brasil — Quadro de artista famosa avaliado em US$ 3 milhões é descoberto no armário de um — находка картины — событие для раздела «интересное», не новостная повестка.
-- [pt] не_новость: [local] Estadão — Big techs procuram nas religiões respostas para a inteligência artificial — обзор темы «big techs и религия», нет конкретного события.
-- [pt] курьёз: [local] Superinteressante — SUS e Einstein desenvolvem IA para identificar doenças de pele — исследование/разработка ИИ без даты внедрения или результата.
-- [pt] не_новость: [world] Variety — Nicholas Denton, Hugh Bonneville e Tim Downie estrelam o filme de terror folclór — анонс фильма, новостью не является.
-- [pt] чужое_мелкое: [world] Rolling Stone — Joe Biden limitará a promoção de seu livro de memórias devido à batalha contra o — реклама/продвижение книги, для Бразилии событие не имеет значения.
-- [pt] не_новость: [world] TechCrunch — O cargo de Jensen Huang está em risco? — спекуляция о рисках для должности, нет свершившегося факта (увольнения).
-- [pt] курьёз: [world] Ars Technica — Físicos utilizaram ruído elétrico para desvendar mistério sobre supercondutores — научный факт без прикладного события или даты публикации.
-- [fr] не_новость: [local] La Tribune — « Choc fiscal » : les impôts qui ont le plus augmenté depuis 2017, et ceux qui o — Аналитика/статья о налоговой статистике с 2017 года, нет события.
-- [fr] не_новость: [local] BFMTV — La situation des nappes phréatiques en France toujours "très préoccupante" — Обзор состояния водоносных горизонтов, нет конкретного события.
-- [fr] не_новость: [local] BFMTV — Prime de partage de la valeur: “On va l’ouvrir aux entreprises au-dessus de 50 s — Цитата из интервью/мнения, а не свершившийся факт.
-- [fr] не_новость: [local] BFMTV — Crise sociale: “L’État a pris ses responsabilités”, dit Jean-Pierre Farandou, mi — Цитата политика о «новой неделе», нет события.
-- [fr] не_новость: [local] BFMTV — "Une contrainte supplémentaire pour les entreprises": le patron des petites entr — Реакция/мнение эксперта на новость, а не само событие.
-- [fr] не_новость: [local] Sud Ouest — Entré par effraction dans une villa, un jeune homme de 18 ans meurt étranglé par — Событие произошло в «вилле», участник — украинец, при этом заголовок про «юного украинца» выглядит как криминальная хрон
-- [fr] не_новость: [local] France Bleu — Affaire Kevin Escoffier : "Tu vas faire les sandwichs", le sexisme perdure sur l — Сбор мнений о сексизме, а не новое событие.
-- [fr] не_новость: [local] Sud Ouest — Teddy Riner et ses voitures de luxe : Ferrari, Rolls Royce… Le judoka visé par u — Давние претензии (2025 год), не является новостью сегодня.
-- [fr] не_новость: [local] Nice-Matin — « S’il passe, je ne me tirerai pas mais je le combattrai » : depuis le Var, Mich — Мнение знаменитости о политике, не является новостью.
-- [fr] не_новость: [pool] Jeune Afrique — Au Sénégal, le retour en grâce de Souleymane Kandé, le nouveau patron du renseig — Анализ биографии чиновника, не является текущим событием.
-- [fr] курьёз: [pool] Nice-Matin — Voici pourquoi « Le Pacha » de Fragonard pourrait dynamiter les enchères à l’Hôt — Анонс аукциона, предмет «интересного».
-- [fr] не_новость: [pool] RTBF — Partenariat Renault-Cockerill : quand crise de l’automobile et boom de la défens — Аналитическая статья о бизнес-партнерстве.
-- [fr] не_новость: [pool] Radio-Canada — Des élèves du primaire s’échangent des images pornos sur Snapchat — Общая проблема/социальный комментарий, нет факта события.
-- [fr] не_новость: [pool] RTBF — Budget fédéral : après la crise, c’est encore la crise — Описание политической ситуации без конкретного завершенного факта.
-- [fr] не_новость: [pool] RTBF — Mariah Carey donnera un concert exclusif aux Francofolies de Spa en 2027 — Анонс концерта на 2027 год.
-- [fr] не_новость: [pool] La Libre — ”Les artistes qui prennent le train reçoivent une enveloppe. — Цитата и рассуждения о моде.
-- [fr] курьёз: [world] La Tribune — L'IA chargée de créer d'autres IA : la course folle qui fait frémir la Silicon V — Технологический тренд, нет конкретного события.
-- [fr] не_новость: [world] Jeune Afrique — Niger-Tchad : entre Abdourahamane Tiani et Mahamat Idriss Déby Itno, la paix des — Анализ дипломатических отношений, нет события.
-- [fr] курьёз: [world] La Dépêche — En arrêt maladie, il soulève 80 kg à la salle de sport — Частный случай нарушения больничного, не является мировой новостью.
-- [fr] не_новость: [world] Courrier International — En Afrique du Sud, un ANC en déclin lancé dans une course aux coalitions — Аналитическая статья о внутриполитической ситуации.
-- [fr] курьёз: [world] La Presse TN — Italie : Une héritière cède son palais du XVIIe siècle au profit des Médecins Sa — Частный благотворительный жест частного лица.
-- [fr] не_новость: [world] La Dépêche — En Russie, le VIH atteint un stade épidémique généralisé dans 27 régions, le vir — Обзор эпидемиологической статистики, а не новое событие.
-- [fr] повтор: [world] Sud Ouest — Chine : ce que l’on sait d’Alice Huang, soupçonnée d’avoir espionné Jensen Huang ≈ «Nvidia: ouverture d'une enquête interne » — Один и тот же сюжет об Nvidia.
-- [fr] не_новость: [world] Radio-Canada — Alimentation Couche-Tard veut vendre des sachets de nicotine — Начало слушаний/лоббирование, нет решения.
-- [fr] не_новость: [world] Courrier International — Les médicaments analogues du GLP-1 : un succès à la loupe — Обзор научной статьи (досье), нет события.
+- [ru] курьёз: [local] Knews.kg — Муравьи способны распознавать инфицированные раны и вырабатывать антибиотики для — научный факт о муравьях, не событие для ленты новостей
+- [ru] курьёз: [local] Knews.kg — В Узбекистане сняли необычный обряд: Вокруг жениха и невесты водили козла — курьезный случай на свадьбе в Узбекистане, не новость
+- [ru] полка: [local] Вечерний Бишкек — Ражабали Шайдуллаев защитит титул RIZIN в бою против Киомы Акимото — событие мирового спорта (RIZIN), не местная новость для KG
+- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — За гибель йорка Фроши взыскали 65 тысяч рублей — локальное судебное дело РФ, не имеет последствий для KG
+- [ru] чужое_мелкое: [pool] 45.ru — Курган — Олимпийский чемпион из Кургана выиграл 300 тысяч в шоу на ТНТ — частная победа в телешоу РФ, не событие
+- [ru] курьёз: [pool] 59.ru — Пермь — «Столото» ищет счастливчика из Прикамья — житель края купил лотерейный билет за  — выигрыш в лотерею — частная история, не новость
+- [ru] не_новость: [pool] 53.ru — Великий Новгород — После вмешательства прокуратуры отремонтировали кровлю ДК — рутинный хозяйственный ремонт по предписанию прокуратуры
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — В Холме с хозяина собаки взыскали компенсацию за укус — локальный гражданский спор о собаке в РФ
+- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — Полиция Кирсанова раскрыла мошенничество на 700 тысяч рублей — типичное мошенничество в РФ
+- [ru] не_новость: [pool] 68.ru — Тамбов — Три ДТП за выходные в Тамбовской области — статистическая сводка ДТП без подробностей, не событие
+- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — В Тамбове задержаны подозреваемые в краже ноутбука и денег — мелкая кража ноутбука в РФ
+- [ru] чужое_мелкое: [pool] NewsGeorgia — Житель Батуми напал на соседа с обрезом после бытовой ссоры — бытовой конфликт в Грузии
+- [ru] курьёз: [world] 161.ru — Ростов-на-Дону — «Мало». Дочь Канье Уэста записала видео под трек ростовской певицы — видео дочери Канье Уэста, не событие
+- [ru] не_новость: [world] Smithsonian Magazine — Африканская пророчица Кимпа Вита, сожженная на костре 320 лет назад, почитается  — историческая заметка о событии 320-летней давности
+- [ru] курьёз: [world] Naked Science — Геологи опровергли гипотезу о шотландском происхождении алтарного камня Стоунхен — геологическое исследование камня Стоунхенджа
+- [ru] чужое_мелкое: [world] The Independent — Трехкратный олимпийский чемпион по дзюдо объявил об участии в выборах президента — выдвижение кандидата в президенты Франции (политическое намерение)
+- [ru] курьёз: [world] Naked Science — Зарождение жизни благодаря кометам оказалось вероятнее на Марсе, чем на Земле — научная гипотеза о кометах
+- [ru] не_новость: [world] France 24 — Сложный день для премьер-министра Франции — описание процесса переговоров, нет результата
+- [ru] не_новость: [world] Fortune — Новый финансовый директор Binance сталкивается с испытанием, выходящим за рамки  — назначение финансового директора, это бизнес-рутина
+- [ru] не_новость: [world] TechCrunch — Tesla расширяет сервис роботакси на Сан-Антонио — планы компании по расширению сервиса
+- [ru] не_новость: [world] Futura-Sciences — В 1905 году из-за ирригационных работ река Колорадо затопила пустынную долину, с — историческая справка об ирригации 1905 года
+- [ru] не_новость: [world] 178.ru — Санкт-Петербург — Золото в будке и сердце под стеклом: неизвестный Белов — биографическая справка к годовщине
+- [ru] курьёз: [world] Time — Нарушенное обещание дома в Испании — частная история о выселении, нет события
+- [ru] курьёз: [world] Futura-Sciences — Подъем на пять этажей в день снижает риск сердечно-сосудистых заболеваний на 20% — медицинский совет/исследование
+- [ru] курьёз: [world] Muy Interesante — Неожиданная историческая находка в Италии: при укреплении древних гробниц обнару — археологическая находка без последствий
