@@ -1,25 +1,24 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] срочность: [local] G1 Paraná — Sem energia e água há 5 dias, família perde 60 kg de carne estocada e mais de 3  — Это тяжелое личное горе и местная трагедия, но не событие, требующее побудки (наводнения, теракта или массовой гибели).
-- [pt] не_новость: [local] Gazeta do Povo — PF deve afastar delegados do caso Master que coordenavam relatórios sobre minist — «Должны отстранить» — это обсуждение и предположение, а не свершившийся факт.
-- [pt] не_новость: [local] Agência Brasil — Mercado eleva projeção da Selic para 13,75% em 2026 — Изменение прогноза аналитиков — это не решение ЦБ, а мнение рынка.
-- [pt] срочность: [local] G1 Rio — Temporal deixa 36 locais de prova do Enem sem luz no RJ — Сбой в местах сдачи экзамена — проблема, но не масштабная катастрофа для всей страны.
-- [pt] не_новость: [pool] Notícias ao Minuto — Fadista Carminho atua com orquestra na MEO Arena em dezembro de 2027 — Анонс концерта на декабрь следующего года не является новостью для текущей ленты.
-- [pt] курьёз: [world] Muy Interesante — E se as cinco grandes extinções não foram tão repentinas quanto pensávamos? — Научно-популярная гипотеза о динозаврах/окаменелостях — это «интересное», а не мировая новость.
-- [pt] повтор: [world] France 24 — 'Uma história extraordinária': O que se sabe até agora sobre as alegações de esp ≈ «Ações da Nvidia caem após investigação d» — Тот же сюжет про расследование в отношении CEO Nvidia.
-- [pt] чужое_мелкое: [world] France 24 — Rede russa usou redes sociais para culpar a imigração pelos distúrbios na França — Отчет ЕС о российских сетях во Франции — это внутренние дела ЕС/Франции, масштаб невелик для мирового читателя.
-- [pt] курьёз: [world] Smithsonian Magazine — Substituir laticínios por alternativas vegetais pode causar deficiências nutrici — Исследование о диетах и laticínios — классическое «интересное», без последствий для читателя.
-- [pt] курьёз: [world] Engadget — Protótipo de câmera combate a fotografia gerada por IA — Описание прототипа камеры против дипфейков — технологическая заметка, не событие.
-- [pt] курьёз: [world] Engadget — Radar militar pode forçar roteador a trocar canais de Wi-Fi; entenda o motivo — Техническая заметка о работе Wi-Fi и радаров.
-- [pt] курьёз: [world] TechCrunch — Conheça o Drops, o novo aplicativo de música que resgata a diversão de compartil — Запуск приложения для музыки — это не новость, а реклама сервиса.
-- [pt] не_новость: [world] TechCrunch — Automattic lança plataforma para implementar aplicativos de 'vibe coding' em um  — Запуск платформы для разработки — типичный анонс продукта, не событие.
-- [pt] курьёз: [world] Naked Science — Geólogos refutam hipótese de que a Pedra do Altar de Stonehenge seja de origem e — Геологический спор об истории камней в Стоунхендже — «интересное».
-- [pt] не_новость: [world] Guardian Sport — Joe Burrow revitaliza os Bengals e dispara na corrida pelo MVP — Аналитика спортивной формы игрока («MVP race») — это мнение, а не результат матча.
-- [pt] не_новость: [world] Guardian Sport — Ramla Ali conquista primeiros títulos mundiais aos 36 anos com decisão dividida  — Спортивная аналитика и описание карьеры боксерши.
-- [fr] курьёз: [local] Nice-Matin — « Il est difficile de comprendre ce qui s’est passé » : ce que l’on sait après l — Смерть молодого человека в частной квартире — криминальная хроника, не новость для широкого круга.
-- [fr] полка: [pool] RTBF — "Je ne me reconnais plus dans ses valeurs, ni ses méthodes" : Amélie Nothomb qui — Французская новость (Амели Нотомб и издательства) в полке «Новости из…» (Бельгия).
-- [fr] полка: [pool] RTBF — France : "Je refuse de rester spectateur", le champion olympique de judo Teddy R — Французская новость (Тедди Ринер) в полке «Новости из…» (Бельгия).
-- [fr] курьёз: [world] La Dépêche — Elle n'en pouvait plus d'attendre pour aller aux toilettes : après une heure et  — Бытовой инцидент с сотрудницей офиса в Бразилии — не имеет мирового значения.
-- [fr] чужое_мелкое: [world] France 24 FR — Guinée : les déchets envahissent les rues de Conakry — Местная проблема мусора в столице Гвинеи не является мировой новостью.
-- [fr] не_новость: [world] Sciences et Avenir — Jensen Huang, le patron de Nvidia, au cœur de soupçons d'espionnage chinois — Статья об «интересном» (биография/слухи), не событие по списку.
-- [fr] чужое_мелкое: [world] BBC Mundo — Nvidia ouvre une enquête sur la relation entre son PDG et une espionne présumée  — Корпоративное расследование Nvidia без глобальных последствий для рынка или общества.
+- [en] не_новость: [local] Bangor Daily News — Developer revives data center plan for old Maine paper mill — Это анонс планов девелопера подать заявку, а не свершившееся событие.
+- [en] не_новость: [local] Texas Standard — Trump admin’s tariff-free beef imports haven’t lowered prices much — Аналитика/мнение о том, что цены не упали, а не новость о событии.
+- [en] чужое_мелкое: [local] WCTV — Luigi Mangione’s cousin trails in Baltimore County Council race as results chang — Результаты местных выборов в округе не являются новостью для читателя в США.
+- [en] не_новость: [local] County 17 — CCSD1 board to discuss high school construction, turf replacement — Анонс предстоящего заседания школьного совета.
+- [en] не_новость: [local] Texas Standard — Fact-check: Why a viral Texas voter registration claim doesn’t prove fraud in th — Факт-чек давнего заявления — это не новость, а разбор.
+- [en] не_новость: [local] Concord Monitor — After landslide victory, Democrats discuss party’s future — Аналитика и рассуждения о будущем партии после выборов.
+- [en] не_новость: [local] Santa Fe New Mexican — How data center demand is reshaping electricity costs across the US — Обзор ситуации с ценами на электричество, а не новость о событии.
+- [en] не_новость: [local] Santa Fe New Mexican — Survey: 37% of homeowners say mortgage rates are keeping them from moving — Данные социологического опроса без события.
+- [en] не_новость: [local] Portland Press Herald — Windham quilt shop to close after more than 4 decades — Плановое закрытие бизнеса через несколько недель.
+- [en] не_новость: [pool] Variety — James Gunn Speaks Out After Stepping Down at DC, Says It Had ‘Highest of Highs’  — Цитаты и мысли режиссера после кадровых перестановок.
+- [en] чужое_мелкое: [pool] The Independent — Meghan pulls out of child safety speech with Harry after father’s arrest — Личные обстоятельства британской знаменитости не являются мировой новостью.
+- [en] повтор: [pool] BBC World — Trump questions midterm elections integrity after previously accepting results ≈ «Trump admin’s tariff-free beef imports h» — Тот же сюжет о выборах и Трампе.
+- [en] повтор: [pool] Toronto Star — Democrats flip Georgia state House, giving them new control of at least 12 legis ≈ «Trump admin’s tariff-free beef imports h» — Тот же сюжет о выборах.
+- [en] не_новость: [pool] Rolling Stone — Oasis Won’t Be Attending Rock and Roll of Fame Induction Ceremony — Информация о неучастии группы в церемонии — «не-событие».
+- [en] повтор: [pool] Guardian Sport — Manchester United weighing up Michael Carrick sacking as Wilcox leads review ≈ «Man Utd will not rush decision on Carric» — Тот же сюжет об увольнении Каррика.
+- [en] курьёз: [pool] Ars Technica — Nvidia CEO's affair becomes a national security problem — Личные скандалы вокруг бизнес-фигур требуют пометки «интересное».
+- [en] не_новость: [pool] BBC Sport — Incident-by-incident: Was it a bad weekend for VAR? — Авторская колонка/анализ работы VAR.
+- [en] не_новость: [pool] WFPL — New Louisville museum aims to exemplify inclusivity — Описание концепции нового музея.
+- [en] курьёз: [pool] The Guardian — ‘It’s a feeling of being screwed over’: once-quiet village despairs over ‘monste — Очерк о жизни деревни, нет события.
+- [en] не_новость: [pool] RTÉ Ireland — Govt public pay deal offer expected to cost close to €5bn — Предложение правительства, которое еще не принято.
+- [en] не_новость: [world] BBC Sport — Kane and Bellingham air strong views in England World Cup review — Обсуждение итогов матча игроками — это не событие.
+- [en] не_новость: [world] The Guardian — ‘I didn’t dance until I was 45’: how Jorge Drexler went from repressed doctor to — Портретный очерк о певце.
