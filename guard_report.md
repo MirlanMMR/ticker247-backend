@@ -1,24 +1,25 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Financiero — ¿Colapso de Ueno Bank podría suceder en México? — Событие в Парагвае не имеет прямого влияния на Мексику.
-- [es] чужое_мелкое: [pool] El Universo EC — Pedro Alliana habla con Marco Rubio y dice que van a “seguir trabajando juntos” — Телефонный разговор парагвайского президента — внутренняя новость другой страны.
-- [es] не_новость: [pool] La Nación AR — Quién es el sospechoso detenido que se quiso infiltrar cerca del escenario del P — Событие было год назад, не имеет новостной актуальности.
-- [es] чужое_мелкое: [pool] La Nación AR — Investigadores de Paraguay intentan abrir la bóveda oculta en la mansión de Sant — Внутреннее расследование в Парагвае, не актуально для Мексики.
-- [es] не_новость: [pool] RPP PE — Chiclayo se prepara para recibir a León XIV: ¿cuántas camas quedan disponibles p — Плановая подготовка города к визиту, нет факта события.
-- [es] курьёз: [pool] El Universo EC — El beso de Belinda y Danna en un concierto que desató gritos del público y se vo — Вирусное видео с поцелуем знаменитостей — развлекательный контент.
-- [es] не_новость: [pool] Marca — Juan Carlos Ferrero: "Fue extraño después de ocho años pensar en contrarrestar e — Мнения и мысли тренера не являются новостным событием.
-- [es] чужое_мелкое: [pool] Clarín AR — Kiki Ramos, la promesa de Vélez que había elegido a Argentina y ahora jugará el  — Смена спортивного гражданства игрока в Аргентине/Гаити.
-- [es] чужое_мелкое: [pool] Montevideo Portal — Ripoll recibió llamada de Orsi; exige que INAU traslade hogar ya que “se pasó to — Внутриполитическая перепалка в Уругвае.
-- [es] чужое_мелкое: [pool] eldiario.es — El Supremo rechaza la petición de Vox de impedir votar el 29N también a los hijo — Юридические споры внутри Испании, не имеют последствий для Мексики.
-- [es] чужое_мелкое: [pool] eldiario.es — Gamarra reconoce la reunión del abogado del PP con Koldo García pero dice que es — Внутренняя политическая дискуссия в Испании.
-- [es] не_новость: [pool] El Informador — Eligen a José Luis Leal Campos para encabezar a los notarios del país — Проведение профессионального конгресса без значимых решений.
-- [es] не_новость: [pool] El Informador — Clima en Guadalajara hoy: el pronóstico para el lunes 9 de noviembre de 2026 — Ежедневный прогноз погоды — не новость.
-- [es] не_новость: [pool] El País — El bloque de la derecha mantiene su ventaja pero el PSOE se acerca al PP — Анализ предвыборных опросов, а не событие.
-- [es] не_новость: [pool] El País — La huelga divide a los españoles y más de la mitad rechaza las acampadas — Обсуждение общественных настроений перед забастовкой.
-- [es] не_новость: [pool] El País — El PP ampliará hasta los 50 años de edad el aval público para pagar la entrada d — Политическое предложение (анонс планов), а не принятое решение.
-- [es] не_новость: [world] Straits Times — Kallas, de la UE, afirma que no ve señales de buena voluntad de Rusia para negoc — Заявление о нежелании вести переговоры — слова, не меняющие ситуацию.
-- [es] не_новость: [world] TechCrunch — Musk afirma que Tesla reembolsará algunos depósitos del Cybertruck y defiende la — Оправдания гендиректора по поводу закрытия проекта.
-- [es] чужое_мелкое: [world] Азаттык — Otro ciudadano de Tayikistán que firmó un contrato con el Ministerio de Defensa  — Гибель гражданина Таджикистана — это не мировая новость.
-- [es] не_новость: [world] RFI — Israel: Gadi Eisenkot «tendrá que romper una promesa» — Ожидание формирования правительства — это процесс, а не событие.
-- [es] не_новость: [world] BBC Mundo — Cómo el extraordinario crecimiento de la "escandalosamente barata" energía solar — Аналитическая статья о трендах энергетики, не событие.
-- [es] полка: [world] AKIpress — Alerta meteorológica: se espera un descenso brusco de la temperatura en Kirguist — Новость о погоде в Кыргызстане не должна быть в мировых для пула MX.
+- [pt] срочность: [local] G1 Paraná — Sem energia e água há 5 dias, família perde 60 kg de carne estocada e mais de 3  — Это тяжелое личное горе и местная трагедия, но не событие, требующее побудки (наводнения, теракта или массовой гибели).
+- [pt] не_новость: [local] Gazeta do Povo — PF deve afastar delegados do caso Master que coordenavam relatórios sobre minist — «Должны отстранить» — это обсуждение и предположение, а не свершившийся факт.
+- [pt] не_новость: [local] Agência Brasil — Mercado eleva projeção da Selic para 13,75% em 2026 — Изменение прогноза аналитиков — это не решение ЦБ, а мнение рынка.
+- [pt] срочность: [local] G1 Rio — Temporal deixa 36 locais de prova do Enem sem luz no RJ — Сбой в местах сдачи экзамена — проблема, но не масштабная катастрофа для всей страны.
+- [pt] не_новость: [pool] Notícias ao Minuto — Fadista Carminho atua com orquestra na MEO Arena em dezembro de 2027 — Анонс концерта на декабрь следующего года не является новостью для текущей ленты.
+- [pt] курьёз: [world] Muy Interesante — E se as cinco grandes extinções não foram tão repentinas quanto pensávamos? — Научно-популярная гипотеза о динозаврах/окаменелостях — это «интересное», а не мировая новость.
+- [pt] повтор: [world] France 24 — 'Uma história extraordinária': O que se sabe até agora sobre as alegações de esp ≈ «Ações da Nvidia caem após investigação d» — Тот же сюжет про расследование в отношении CEO Nvidia.
+- [pt] чужое_мелкое: [world] France 24 — Rede russa usou redes sociais para culpar a imigração pelos distúrbios na França — Отчет ЕС о российских сетях во Франции — это внутренние дела ЕС/Франции, масштаб невелик для мирового читателя.
+- [pt] курьёз: [world] Smithsonian Magazine — Substituir laticínios por alternativas vegetais pode causar deficiências nutrici — Исследование о диетах и laticínios — классическое «интересное», без последствий для читателя.
+- [pt] курьёз: [world] Engadget — Protótipo de câmera combate a fotografia gerada por IA — Описание прототипа камеры против дипфейков — технологическая заметка, не событие.
+- [pt] курьёз: [world] Engadget — Radar militar pode forçar roteador a trocar canais de Wi-Fi; entenda o motivo — Техническая заметка о работе Wi-Fi и радаров.
+- [pt] курьёз: [world] TechCrunch — Conheça o Drops, o novo aplicativo de música que resgata a diversão de compartil — Запуск приложения для музыки — это не новость, а реклама сервиса.
+- [pt] не_новость: [world] TechCrunch — Automattic lança plataforma para implementar aplicativos de 'vibe coding' em um  — Запуск платформы для разработки — типичный анонс продукта, не событие.
+- [pt] курьёз: [world] Naked Science — Geólogos refutam hipótese de que a Pedra do Altar de Stonehenge seja de origem e — Геологический спор об истории камней в Стоунхендже — «интересное».
+- [pt] не_новость: [world] Guardian Sport — Joe Burrow revitaliza os Bengals e dispara na corrida pelo MVP — Аналитика спортивной формы игрока («MVP race») — это мнение, а не результат матча.
+- [pt] не_новость: [world] Guardian Sport — Ramla Ali conquista primeiros títulos mundiais aos 36 anos com decisão dividida  — Спортивная аналитика и описание карьеры боксерши.
+- [fr] курьёз: [local] Nice-Matin — « Il est difficile de comprendre ce qui s’est passé » : ce que l’on sait après l — Смерть молодого человека в частной квартире — криминальная хроника, не новость для широкого круга.
+- [fr] полка: [pool] RTBF — "Je ne me reconnais plus dans ses valeurs, ni ses méthodes" : Amélie Nothomb qui — Французская новость (Амели Нотомб и издательства) в полке «Новости из…» (Бельгия).
+- [fr] полка: [pool] RTBF — France : "Je refuse de rester spectateur", le champion olympique de judo Teddy R — Французская новость (Тедди Ринер) в полке «Новости из…» (Бельгия).
+- [fr] курьёз: [world] La Dépêche — Elle n'en pouvait plus d'attendre pour aller aux toilettes : après une heure et  — Бытовой инцидент с сотрудницей офиса в Бразилии — не имеет мирового значения.
+- [fr] чужое_мелкое: [world] France 24 FR — Guinée : les déchets envahissent les rues de Conakry — Местная проблема мусора в столице Гвинеи не является мировой новостью.
+- [fr] не_новость: [world] Sciences et Avenir — Jensen Huang, le patron de Nvidia, au cœur de soupçons d'espionnage chinois — Статья об «интересном» (биография/слухи), не событие по списку.
+- [fr] чужое_мелкое: [world] BBC Mundo — Nvidia ouvre une enquête sur la relation entre son PDG et une espionne présumée  — Корпоративное расследование Nvidia без глобальных последствий для рынка или общества.
