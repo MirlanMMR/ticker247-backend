@@ -1,24 +1,9 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] Bangor Daily News — Developer revives data center plan for old Maine paper mill — Это анонс планов девелопера подать заявку, а не свершившееся событие.
-- [en] не_новость: [local] Texas Standard — Trump admin’s tariff-free beef imports haven’t lowered prices much — Аналитика/мнение о том, что цены не упали, а не новость о событии.
-- [en] чужое_мелкое: [local] WCTV — Luigi Mangione’s cousin trails in Baltimore County Council race as results chang — Результаты местных выборов в округе не являются новостью для читателя в США.
-- [en] не_новость: [local] County 17 — CCSD1 board to discuss high school construction, turf replacement — Анонс предстоящего заседания школьного совета.
-- [en] не_новость: [local] Texas Standard — Fact-check: Why a viral Texas voter registration claim doesn’t prove fraud in th — Факт-чек давнего заявления — это не новость, а разбор.
-- [en] не_новость: [local] Concord Monitor — After landslide victory, Democrats discuss party’s future — Аналитика и рассуждения о будущем партии после выборов.
-- [en] не_новость: [local] Santa Fe New Mexican — How data center demand is reshaping electricity costs across the US — Обзор ситуации с ценами на электричество, а не новость о событии.
-- [en] не_новость: [local] Santa Fe New Mexican — Survey: 37% of homeowners say mortgage rates are keeping them from moving — Данные социологического опроса без события.
-- [en] не_новость: [local] Portland Press Herald — Windham quilt shop to close after more than 4 decades — Плановое закрытие бизнеса через несколько недель.
-- [en] не_новость: [pool] Variety — James Gunn Speaks Out After Stepping Down at DC, Says It Had ‘Highest of Highs’  — Цитаты и мысли режиссера после кадровых перестановок.
-- [en] чужое_мелкое: [pool] The Independent — Meghan pulls out of child safety speech with Harry after father’s arrest — Личные обстоятельства британской знаменитости не являются мировой новостью.
-- [en] повтор: [pool] BBC World — Trump questions midterm elections integrity after previously accepting results ≈ «Trump admin’s tariff-free beef imports h» — Тот же сюжет о выборах и Трампе.
-- [en] повтор: [pool] Toronto Star — Democrats flip Georgia state House, giving them new control of at least 12 legis ≈ «Trump admin’s tariff-free beef imports h» — Тот же сюжет о выборах.
-- [en] не_новость: [pool] Rolling Stone — Oasis Won’t Be Attending Rock and Roll of Fame Induction Ceremony — Информация о неучастии группы в церемонии — «не-событие».
-- [en] повтор: [pool] Guardian Sport — Manchester United weighing up Michael Carrick sacking as Wilcox leads review ≈ «Man Utd will not rush decision on Carric» — Тот же сюжет об увольнении Каррика.
-- [en] курьёз: [pool] Ars Technica — Nvidia CEO's affair becomes a national security problem — Личные скандалы вокруг бизнес-фигур требуют пометки «интересное».
-- [en] не_новость: [pool] BBC Sport — Incident-by-incident: Was it a bad weekend for VAR? — Авторская колонка/анализ работы VAR.
-- [en] не_новость: [pool] WFPL — New Louisville museum aims to exemplify inclusivity — Описание концепции нового музея.
-- [en] курьёз: [pool] The Guardian — ‘It’s a feeling of being screwed over’: once-quiet village despairs over ‘monste — Очерк о жизни деревни, нет события.
-- [en] не_новость: [pool] RTÉ Ireland — Govt public pay deal offer expected to cost close to €5bn — Предложение правительства, которое еще не принято.
-- [en] не_новость: [world] BBC Sport — Kane and Bellingham air strong views in England World Cup review — Обсуждение итогов матча игроками — это не событие.
-- [en] не_новость: [world] The Guardian — ‘I didn’t dance until I was 45’: how Jorge Drexler went from repressed doctor to — Портретный очерк о певце.
+- [es] полка: [pool] Prensa Libre GT — Inflación baja a 4.38% en octubre: gas propano y alimentos presionaron los preci — Издание из Гватемалы пишет о новостях в Гватемале, полка «Новости из...» не должна содержать события домашней страны изд
+- [es] полка: [pool] Infobae — Decomisan más de 100 mototaxis en Honduras por sospechas de vínculos con activid — Событие в Гондурасе (HN) в ленте «Новости из...» у аргентинского издания; для читателя в Мексике это мировая новость, та
+- [es] полка: [pool] El Nacional VE — Feligreses venezolanos asistieron a la misa del papa León XIV en Buenos Aires — Это событие (визит Папы в Аргентину) мирового значения, так как событие освещается в контексте мирового лидера и мигрант
+- [es] полка: [pool] Prensa Libre GT — Caso Huité sale de Zacapa y pasa a un juzgado de Mayor Riesgo en Guatemala — Это местная новость Гватемалы (GT), не должна находиться в разделе «Новости из...» для стороннего читателя, если это не 
+- [es] полка: [world] Азаттык (кыргызча) — Al menos siete muertos en un accidente ferroviario en Egipto — Авария в Египте (EG) — типичная мировая новость из-за масштаба жертв, не имеет отношения к региональному пространству Ме
+- [es] полка: [world] Азаттык — Otro ciudadano de Tayikistán que firmó un contrato con el Ministerio de Defensa  — Гибель наемника в зоне конфликта — международная новость, не является региональной для читателя в Мексике.
+- [es] полка: [world] AKIpress — Alerta meteorológica: se espera un descenso brusco de la temperatura en Kirguist — Погодная сводка в Кыргызстане (KG) не является мировой новостью для пула «es» (Мексика).
