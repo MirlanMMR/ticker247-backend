@@ -1,21 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] Metrópoles — Em meio à aproximação, Cleitinho pretende ir à posse de Lula — Это политические планы и намерение посетить мероприятие, а не свершившееся событие.
-- [pt] не_новость: [local] Poder360 — Banco do Brasil indenizará concursado demitido após ação judicial — Это рутинное судебное решение по трудовому спору, не имеющее широкого общественного значения.
-- [pt] курьёз: [local] InfoMoney — Mulher de FHC registra B.O. após homem publicar vídeo em apartamento do ex-presi — Частный инцидент, не имеющий общественной значимости. Место в колонке происшествий или светской хронике.
-- [pt] не_новость: [local] Gazeta do Povo — Decreto sobre fim da escala 6×1 fica para depois de viagem de Lula — Ожидание действия («должно быть после поездки») — это не свершившееся событие.
-- [pt] чужое_мелкое: [pool] Observador PT — Greve em Évora contra empresa de limpeza de centros de saúde — Локальная забастовка персонала одной клиники — частный случай для страны, не мировая новость.
-- [pt] повтор: [pool] Terra BR — Saiba quem é Patrícia Kundrát, responsável por denunciar homem que filmou aparta ≈ «Mulher de FHC registra B.O. após homem p» — Тот же сюжет, что и в карточке 17.
-- [pt] не_новость: [world] Folha de S.Paulo — 1926: Fascistas destituem em massa deputados da oposição na Itália — Событие 1926 года — историческая справка, а не новость для агрегатора.
-- [pt] чужое_мелкое: [world] Variety — Disney nomeia Adobe como 'Parceira Oficial de Inovação em IA' em acordo plurianu — Корпоративное партнерство без глобальных последствий для потребителей.
-- [pt] не_новость: [world] Engadget — Windows 11 finalmente adiciona uma forma mais fácil de desativar o pop-up das Te — Техническое обновление интерфейса ОС — мелкая деталь, не является новостью.
-- [pt] курьёз: [world] Rolling Stone — Caitlin Clark escreveu um livro rimado com uma mensagem positiva para crianças s — Выход детской книги — событие культурной жизни, не является новостью в ленте.
-- [pt] курьёз: [world] Rolling Stone — Bob Dylan toca 'Sugar Baby', clássico do álbum 'Love and Theft', pela primeira v — Исполнение песни на концерте — не новость, а любопытный факт для фанатов.
-- [pt] не_новость: [world] TechCrunch — Anthropic lança novos modelos Mythos e Fable em meio a preocupações com o RSI — Очередной релиз модели ИИ — рутина индустрии, если нет прорыва или катастрофы.
-- [pt] не_новость: [world] Futura-Sciences — «Nunca vimos nada assim»: climatologista alerta sobre o que está por vir em 2027 — Прогноз климатолога о будущем, а не свершившееся событие.
-- [pt] срочность: [world] Ars Technica — Claude Code está expondo segredos acidentalmente em todo o GitHub — Утечка данных — серьезно, но «Claude Code» не требует побудки пользователя в потоке.
-- [pt] курьёз: [world] Superinteressante — Nem todos antialérgicos são iguais, e alguns podem afetar seu cérebro mais do qu — Научно-популярный совет, а не событие. Место — «Интересное».
-- [pt] не_новость: [world] Guardian Sport — Manchester United avalia demissão de Michael Carrick sob liderança de Jason Wilc — «Оценивает возможность» — обсуждение планов, а не свершившаяся отставка или увольнение.
-- [pt] полка: [world] Азаттык (кыргызча) — Pelo menos sete mortos em acidente ferroviário no Egito — Издание на кыргызском, новость об Египте. Это мировая новость, не местная (для потока pt).
-- [pt] курьёз: [world] Guardian Sport — Joe Burrow revitaliza os Bengals e dispara na corrida pelo MVP — Спортивная аналитика и гонка за MVP — не событие-новость, а мнение и обзор текущего сезона.
-- [pt] курьёз: [world] The Guardian — ‘É uma sensação de ser prejudicado’: vilarejo antes tranquilo desespera-se com a — Жалобы жителей на склад — бытовой конфликт, не является мировой новостью.
+- [en] срочность: [local] KARE11 — Apartment fire causes roof collapse, forces multiple evacuations in St. — рядовое происшествие, нет угрозы широким массам.
+- [en] не_новость: [local] WTOP — Amplify Energy: Q3 Earnings Snapshot — финансовый отчет компании — это рутина, а не новость для широкого читателя.
+- [en] курьёз: [local] NY Post — Blake Lively swipes Ryan Reynolds’ $990 shirt: ‘Find a husband who you can share — светская хроника о переодевании звезд — место в «Интересном».
+- [en] не_новость: [local] SaportaReport — The Conservation Fund buys President Jimmy Carter’s family farm for $8.5 million — покупка фермы не является событием общественной значимости.
+- [en] не_новость: [local] Axios — Trump: New Iran attacks "quite unlikely" — слова президента о том, что война «маловероятна» — это мнение, а не свершившееся событие.
+- [en] не_новость: [local] KOLO — RTC offering free rides for Veterans Day — плановая акция (бесплатный проезд на праздник) — не событие.
+- [en] курьёз: [local] Untitled RSS Feed — Utah Bulls Shot In The Testicles, Authorities Baffled At Cruel Crime — криминальный курьез, не имеющий системного значения.
+- [en] не_новость: [local] NY Post — Voters without a party now outnumber Republicans on Blakeman’s home turf — статистическая заметка о партийных предпочтениях без события.
+- [en] срочность: [local] KOTA — Lithium-ion battery sparks garage fire in Custer — бытовой пожар, не требует немедленного оповещения.
+- [en] не_новость: [local] WV MetroNews — Lawmakers get a first look at school funding proposal: potential $410 million co — планы и предложения не являются свершившимся фактом.
+- [en] не_новость: [local] Cronkite News — Sun Devil Magic: From last to first — спортивная аналитика и обзор сезона — не новость.
+- [en] не_новость: [local] Bridge Michigan — Michigan can reap billions by expanding trails and greenways, study finds — исследование о пользе парков — не событие.
+- [en] не_новость: [local] KFVS12 — SEC commissioner defends officials, criticizes announcers after controversial Mi — спортивная полемика вокруг судейства — не событие.
+- [en] не_новость: [local] WCAX — Vermont hospitals embrace AI as questions about oversight remain — общий обзор внедрения ИИ в больницах без конкретного факта запуска/изменения.
+- [en] не_новость: [local] Bangor Daily News — Old Town economic development director quits after less than a year — плановая отставка чиновника — не событие.
+- [en] не_новость: [local] Gothamist — NY students will still have to take Regents exams, even as graduation rules chan — обсуждение школьной программы — не событие.
+- [en] не_новость: [local] WFSB — Tens of thousands of tickets sent out to offenders in Groton after speed camera  — штатная работа камер фиксации нарушений.
+- [en] не_новость: [local] WOWT — Jeff Goldblum’s jazz band to highlight 2027 Omaha Symphony Gala — анонс выступления музыканта на гала-концерте.
+- [en] не_новость: [local] WSAZ — WSAZ and WQCW antenna issue resolved — техполомка антенны, не требующая экстренного внимания.
+- [en] не_новость: [pool] Fortune — Nvidia CEO Jensen Huang is likely to hold on to his job, say prediction markets — рыночные спекуляции и ставки — не факт.
+- [en] не_новость: [pool] Engadget — Windows 11 is finally adding an easier way to disable the Sticky Keys pop-up — косметическое обновление интерфейса Windows.
+- [en] не_новость: [world] Deseret News — There are now more than twice as many condo sellers as buyers in the U.S. — аналитическая заметка о рынке недвижимости.
+- [en] чужое_мелкое: [world] The Independent — Supreme Court won't intervene in license plate dispute in Puerto Rico — местный спор о номерных знаках в Пуэрто-Рико не имеет мирового значения.
+- [en] не_новость: [world] Time — Weight-Loss Drugs May Help Sleep Apnea and Arthritis — обзор медицинских исследований без факта внедрения или регистрации.
+- [en] курьёз: [world] Semafor — The cheap plastic drape saving mothers' lives in Nigeria — описание бытового предмета — это интересное, а не новость.
