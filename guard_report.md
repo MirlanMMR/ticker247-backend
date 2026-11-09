@@ -1,18 +1,24 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] чужое_мелкое: [local] CBS News — Jury deliberations resume in Sandra Birchmore trial — внутренний судебный процесс, не имеющий мирового значения.
-- [en] не_новость: [local] Missoula Current — GOP Congress faces funding deadline, farm bill by years end — плановая календарная работа Конгресса, не является событием.
-- [en] повтор: [local] CBS News — Congress returns for lame-duck sprint after GOP midterm losses ≈ «GOP Congress faces funding deadline, far» — тот же сюжет о возвращении Конгресса к работе.
-- [en] чужое_мелкое: [local] Cleveland.com — Vanity plate leads to over $100,000 in parking tickets for 70-year-old woman in  — локальная проблема с парковкой в Нью-Йорке, не имеет общемирового масштаба.
-- [en] не_новость: [local] WABI — Paul LePage heads to DC for new member orientation — плановое обучение для новых членов Конгресса, не является событием.
-- [en] курьёз: [local] CalMatters — L.A. had its worst mosquito year this decade. El Niño could make it even worse — прогноз экспертов, не является свершившимся событием.
-- [en] чужое_мелкое: [local] CalMatters — CalMatters sues Shasta County over its refusal to disclose federal subpoena rela — локальный судебный иск округа в Калифорнии.
-- [en] чужое_мелкое: [local] PennLive — NYC principal, a rapper, runs school that doesn’t exist — городская история из Нью-Йорка, не имеет национального или мирового масштаба.
-- [en] чужое_мелкое: [pool] The Independent — Mass brawl erupts at influencer boxing event attended by Tommy Robinson — местная британская криминальная хроника.
-- [en] повтор: [pool] BBC Sport — Burn replaces injured Guehi in England squad ≈ «Fleming turns to uncapped spinner for fi» — события в спортивных сборных одной тематики.
-- [en] чужое_мелкое: [world] Азаттык — Another Tajik citizen who signed a contract with the Russian Ministry of Defense — локальный случай гибели одного человека, не является мировой новостью.
-- [en] чужое_мелкое: [world] RFI — Israel: Gadi Eisenkot 'will have to break a promise' — внутренняя процедура формирования коалиции в Израиле.
-- [en] не_новость: [world] RFI — France: Olympic judo champion Teddy Riner announces presidential bid — заявление о намерении участвовать в выборах в 2027 году.
-- [en] полка: [world] AKIpress — Storm warning: sharp temperature drop expected in Kyrgyzstan from November 10-13 — новость из Кыргызстана в пуле США на мировой полке; не имеет мирового масштаба.
-- [en] не_новость: [world] BBC News — Inside the French drug gangs recruiting children to kill — очерк о ситуации с наркопреступностью, не привязан к конкретному событию.
-- [en] чужое_мелкое: [world] Ars Technica — British soldier ignored order to pull his SIM card, then got blackmailed — частный инцидент с военнослужащим, не является мировой новостью.
+- [es] чужое_мелкое: [local] El Financiero — ¿Colapso de Ueno Bank podría suceder en México? — Событие в Парагвае не имеет прямого влияния на Мексику.
+- [es] чужое_мелкое: [pool] El Universo EC — Pedro Alliana habla con Marco Rubio y dice que van a “seguir trabajando juntos” — Телефонный разговор парагвайского президента — внутренняя новость другой страны.
+- [es] не_новость: [pool] La Nación AR — Quién es el sospechoso detenido que se quiso infiltrar cerca del escenario del P — Событие было год назад, не имеет новостной актуальности.
+- [es] чужое_мелкое: [pool] La Nación AR — Investigadores de Paraguay intentan abrir la bóveda oculta en la mansión de Sant — Внутреннее расследование в Парагвае, не актуально для Мексики.
+- [es] не_новость: [pool] RPP PE — Chiclayo se prepara para recibir a León XIV: ¿cuántas camas quedan disponibles p — Плановая подготовка города к визиту, нет факта события.
+- [es] курьёз: [pool] El Universo EC — El beso de Belinda y Danna en un concierto que desató gritos del público y se vo — Вирусное видео с поцелуем знаменитостей — развлекательный контент.
+- [es] не_новость: [pool] Marca — Juan Carlos Ferrero: "Fue extraño después de ocho años pensar en contrarrestar e — Мнения и мысли тренера не являются новостным событием.
+- [es] чужое_мелкое: [pool] Clarín AR — Kiki Ramos, la promesa de Vélez que había elegido a Argentina y ahora jugará el  — Смена спортивного гражданства игрока в Аргентине/Гаити.
+- [es] чужое_мелкое: [pool] Montevideo Portal — Ripoll recibió llamada de Orsi; exige que INAU traslade hogar ya que “se pasó to — Внутриполитическая перепалка в Уругвае.
+- [es] чужое_мелкое: [pool] eldiario.es — El Supremo rechaza la petición de Vox de impedir votar el 29N también a los hijo — Юридические споры внутри Испании, не имеют последствий для Мексики.
+- [es] чужое_мелкое: [pool] eldiario.es — Gamarra reconoce la reunión del abogado del PP con Koldo García pero dice que es — Внутренняя политическая дискуссия в Испании.
+- [es] не_новость: [pool] El Informador — Eligen a José Luis Leal Campos para encabezar a los notarios del país — Проведение профессионального конгресса без значимых решений.
+- [es] не_новость: [pool] El Informador — Clima en Guadalajara hoy: el pronóstico para el lunes 9 de noviembre de 2026 — Ежедневный прогноз погоды — не новость.
+- [es] не_новость: [pool] El País — El bloque de la derecha mantiene su ventaja pero el PSOE se acerca al PP — Анализ предвыборных опросов, а не событие.
+- [es] не_новость: [pool] El País — La huelga divide a los españoles y más de la mitad rechaza las acampadas — Обсуждение общественных настроений перед забастовкой.
+- [es] не_новость: [pool] El País — El PP ampliará hasta los 50 años de edad el aval público para pagar la entrada d — Политическое предложение (анонс планов), а не принятое решение.
+- [es] не_новость: [world] Straits Times — Kallas, de la UE, afirma que no ve señales de buena voluntad de Rusia para negoc — Заявление о нежелании вести переговоры — слова, не меняющие ситуацию.
+- [es] не_новость: [world] TechCrunch — Musk afirma que Tesla reembolsará algunos depósitos del Cybertruck y defiende la — Оправдания гендиректора по поводу закрытия проекта.
+- [es] чужое_мелкое: [world] Азаттык — Otro ciudadano de Tayikistán que firmó un contrato con el Ministerio de Defensa  — Гибель гражданина Таджикистана — это не мировая новость.
+- [es] не_новость: [world] RFI — Israel: Gadi Eisenkot «tendrá que romper una promesa» — Ожидание формирования правительства — это процесс, а не событие.
+- [es] не_новость: [world] BBC Mundo — Cómo el extraordinario crecimiento de la "escandalosamente barata" energía solar — Аналитическая статья о трендах энергетики, не событие.
+- [es] полка: [world] AKIpress — Alerta meteorológica: se espera un descenso brusco de la temperatura en Kirguist — Новость о погоде в Кыргызстане не должна быть в мировых для пула MX.
