@@ -1,27 +1,23 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] KARE11 — Apartment fire causes roof collapse, forces multiple evacuations in St. — рядовое происшествие, нет угрозы широким массам.
-- [en] не_новость: [local] WTOP — Amplify Energy: Q3 Earnings Snapshot — финансовый отчет компании — это рутина, а не новость для широкого читателя.
-- [en] курьёз: [local] NY Post — Blake Lively swipes Ryan Reynolds’ $990 shirt: ‘Find a husband who you can share — светская хроника о переодевании звезд — место в «Интересном».
-- [en] не_новость: [local] SaportaReport — The Conservation Fund buys President Jimmy Carter’s family farm for $8.5 million — покупка фермы не является событием общественной значимости.
-- [en] не_новость: [local] Axios — Trump: New Iran attacks "quite unlikely" — слова президента о том, что война «маловероятна» — это мнение, а не свершившееся событие.
-- [en] не_новость: [local] KOLO — RTC offering free rides for Veterans Day — плановая акция (бесплатный проезд на праздник) — не событие.
-- [en] курьёз: [local] Untitled RSS Feed — Utah Bulls Shot In The Testicles, Authorities Baffled At Cruel Crime — криминальный курьез, не имеющий системного значения.
-- [en] не_новость: [local] NY Post — Voters without a party now outnumber Republicans on Blakeman’s home turf — статистическая заметка о партийных предпочтениях без события.
-- [en] срочность: [local] KOTA — Lithium-ion battery sparks garage fire in Custer — бытовой пожар, не требует немедленного оповещения.
-- [en] не_новость: [local] WV MetroNews — Lawmakers get a first look at school funding proposal: potential $410 million co — планы и предложения не являются свершившимся фактом.
-- [en] не_новость: [local] Cronkite News — Sun Devil Magic: From last to first — спортивная аналитика и обзор сезона — не новость.
-- [en] не_новость: [local] Bridge Michigan — Michigan can reap billions by expanding trails and greenways, study finds — исследование о пользе парков — не событие.
-- [en] не_новость: [local] KFVS12 — SEC commissioner defends officials, criticizes announcers after controversial Mi — спортивная полемика вокруг судейства — не событие.
-- [en] не_новость: [local] WCAX — Vermont hospitals embrace AI as questions about oversight remain — общий обзор внедрения ИИ в больницах без конкретного факта запуска/изменения.
-- [en] не_новость: [local] Bangor Daily News — Old Town economic development director quits after less than a year — плановая отставка чиновника — не событие.
-- [en] не_новость: [local] Gothamist — NY students will still have to take Regents exams, even as graduation rules chan — обсуждение школьной программы — не событие.
-- [en] не_новость: [local] WFSB — Tens of thousands of tickets sent out to offenders in Groton after speed camera  — штатная работа камер фиксации нарушений.
-- [en] не_новость: [local] WOWT — Jeff Goldblum’s jazz band to highlight 2027 Omaha Symphony Gala — анонс выступления музыканта на гала-концерте.
-- [en] не_новость: [local] WSAZ — WSAZ and WQCW antenna issue resolved — техполомка антенны, не требующая экстренного внимания.
-- [en] не_новость: [pool] Fortune — Nvidia CEO Jensen Huang is likely to hold on to his job, say prediction markets — рыночные спекуляции и ставки — не факт.
-- [en] не_новость: [pool] Engadget — Windows 11 is finally adding an easier way to disable the Sticky Keys pop-up — косметическое обновление интерфейса Windows.
-- [en] не_новость: [world] Deseret News — There are now more than twice as many condo sellers as buyers in the U.S. — аналитическая заметка о рынке недвижимости.
-- [en] чужое_мелкое: [world] The Independent — Supreme Court won't intervene in license plate dispute in Puerto Rico — местный спор о номерных знаках в Пуэрто-Рико не имеет мирового значения.
-- [en] не_новость: [world] Time — Weight-Loss Drugs May Help Sleep Apnea and Arthritis — обзор медицинских исследований без факта внедрения или регистрации.
-- [en] курьёз: [world] Semafor — The cheap plastic drape saving mothers' lives in Nigeria — описание бытового предмета — это интересное, а не новость.
+- [es] чужое_мелкое: [local] El Economista MX — Corte Suprema de EU permite reanudar el muro fronterizo con México en un parque  — Спорное решение суда США по вопросу границы не является мировой новостью для Мексики.
+- [es] не_новость: [local] El Universal MX — Football Manager 27 llega para cumplir tu sueño de ser técnico; hasta técnicos r — Выход компьютерной игры — это анонс продукта, а не новость.
+- [es] не_новость: [local] El Financiero — Lenia Batres protagoniza nuevo altercado en la Corte: ‘Si quiere darme la palabr — Рабочая перепалка в суде — не событие, а рутинный рабочий момент.
+- [es] не_новость: [local] Expansión MX — ¿Quién es dueño de Flying Tiger México? — Анализ владельцев бизнеса — это обзор или очерк.
+- [es] не_новость: [pool] El Tiempo CO — Video | ‘No te detengas a mitad del camino’: la conmovedora canción con la que H — Частный пост в соцсетях о личной поддержке брата не является событием.
+- [es] полка: [pool] El Universo EC — Más de 2,5 millones de fieles asisten a una misa multitudinaria de León XIV en B — Новость из Аргентины не должна быть в разделе «Новости из CO».
+- [es] курьёз: [pool] La Nación AR — La vestimenta del papa León XIV: cuál es el atuendo elegido para la misa en el M — Описание одежды Папы Римского — чисто любопытный факт.
+- [es] полка: [pool] Infobae — EN VIVO | manifestaciones y bloqueos hoy 9 de noviembre: Avanza Megamarcha del I — Новость из Мексики не должна быть в разделе «Новости из AR».
+- [es] полка: [pool] Infobae — Revés judicial para Angie Rodríguez: deberá retractarse de sus acusaciones contr — Новость из Колумбии (CO) не должна быть в разделе «Новости из AR».
+- [es] полка: [pool] Infobae — Nuevo video de Gustavo Petro con Deicy Jiménez comprobaría que el expresidente s — Новость из Колумбии (CO) не должна быть в разделе «Новости из AR».
+- [es] полка: [pool] Infobae — Keiko Fujimori moviliza buque y más de 230 marinos a Piura por El Niño: “Lo vamo — Новость из Перу (PE) не должна быть в разделе «Новости из AR».
+- [es] полка: [pool] Infobae — Capturan al asesino de Zaira Marbeli, estudiante universitaria de Oaxaca: era su — Новость из Мексики не должна быть в разделе «Новости из AR».
+- [es] не_новость: [pool] Marca — Broncano y sus dudas por el público elegido por Vox para la entrevista a Abascal — Мнение о телеинтервью — это разбор и дискуссия, а не событие.
+- [es] полка: [pool] RPP PE — León XIV pide proteger la familia en su multitudinaria misa en Argentina: "Repre — Событие происходит в Аргентине, а не в Перу.
+- [es] не_новость: [world] El Universal MX — James Gunn habla de su renuncia como directivo de DC Studios: "estoy increíbleme — Уход голливудского продюсера — не общественно значимое событие (чужое_мелкое).
+- [es] не_новость: [world] Clarín AR — Harry Kane es el primer ganador del Balón de Oro en quedar afuera del FIFPro Wor — Обсуждение спортивных рейтингов — это экспертное мнение.
+- [es] полка: [world] Clarín AR — Congresistas demócratas envían carta a Rubio para suspender asistencia militar a — Событие касается США и Эквадора, не должно быть в «Мировых» без контекста для региона.
+- [es] не_новость: [world] El Financiero — ¿Jensen Huang puede perder su trabajo como jefe de Nvidia? Las dudas tras su inf — Слухи об интрижке гендиректора Nvidia — желтая пресса, не является новостью.
+- [es] не_новость: [world] BBC Mundo — Mis padres decidieron morir juntos y yo tuve que afrontar su pérdida solo — Личная история об эвтаназии родителей — это очерк, а не новость.
+- [es] полка: [world] Азаттык (кыргызча) — Al menos siete muertos en un accidente ferroviario en Egipto — Новость из Египта ошибочно вложена в пул, где издание пишет на кыргызском.
+- [es] полка: [world] AKIpress — Alerta meteorológica: se espera un descenso brusco de la temperatura en Kirguist — Новость про погоду в Киргизии (KG) попала в пул «es».
