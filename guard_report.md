@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] WCAX — Police identify two killed in fiery Quechee crash — Происшествие случилось на прошлой неделе, уже не требует побудки.
-- [en] не_новость: [local] WTOP — Firefly Aerospace: Q3 Earnings Snapshot — Обычный финансовый отчет компании, а не общественно значимое событие.
-- [en] не_новость: [local] Untitled RSS Feed — Nine Bats Across Wyoming Test Positive For Rabies, Four In Sheridan County — Статистический отчет о заболеваниях за год, а не разовое событие.
-- [en] не_новость: [local] KFVS12 — Convicted felon admits to having a gun during high-speed chase in 2025 — Признание вины в суде — рутинный процесс, нет события-новостной вехи.
-- [en] не_новость: [local] New Jersey 101.5 — Cellmate found with no pulse and a pencil in his brain, FBI says — Инцидент произошел 8 месяцев назад (март 2025), это не свежая новость.
-- [en] не_новость: [local] KSTP — Don Lemon among 39 seeking dismissal in St. Paul church case — Процессуальное действие (попытка отвода дела) не является новостным событием.
-- [en] не_новость: [local] WBRC — Alabama survey: Parents, teachers support screens in class, with limits — Результаты опроса общественного мнения — это не событие.
-- [en] не_новость: [local] WBAL — UMD student held with her mom after Baltimore immigration check-in — Задержание происходит регулярно, нет нового факта или последствия.
-- [en] не_новость: [local] Cleveland.com — GOP 'learned nothing' after electing 'feckless' House minority leader: Critics — Мнения критиков о выборах лидера фракции не являются новостью.
-- [en] не_новость: [local] Inquirer.com — What we learned about the Eagles at the 2026 NFL trade deadline — Аналитический обзор итогов трансферного окна после его закрытия.
-- [en] не_новость: [local] Georgia Public Broadcasting — The average cost for a new vehicle in the U.S. hits a record high: over $51,000 — Общая экономическая статистика (отчет Kelley Blue Book), а не разовое событие.
-- [en] не_новость: [local] WGRZ — 113 years after the White Hurricane, Buffalo remembers fallen US Lightship crew — Памятная церемония спустя 113 лет — плановое мероприятие, не новость.
-- [en] не_новость: [local] WIS-TV — Devine Night Out prepares holiday fun before December — Анонс ежегодного праздничного мероприятия.
-- [en] не_новость: [local] Gothamist — NYC bars and restaurants say they're struggling and may raise prices — Рассуждения о возможном повышении цен, а не свершившийся факт.
-- [en] чужое_мелкое: [pool] NH Union Leader Latest News — Londonderry billed $125,000 for Mulholland investigation — Местные бюджетные разборки в Британии не значимы для США.
-- [en] не_новость: [pool] Ars Technica — Grok Build coding agent leaks oodles of confidential info, some belonging to Spa — Техническая утечка данных, обычная для IT-отрасли.
-- [en] не_новость: [pool] Rolling Stone — Conor Oberst Will Play a Cave and a Haunted Hotel on His First Solo Tour Since 2 — Анонс гастрольного тура на 2027 год.
-- [en] чужое_мелкое: [pool] Irish Times — Traveller rights groups condemn ‘distressing’ removal of 4.5m-high grave memoria — Локальный конфликт вокруг памятника в Ирландии.
-- [en] не_новость: [pool] BBC News — Train attack driver's '10 seconds' to change line — Разбор действий машиниста в прошлом, а не новое событие.
-- [en] не_новость: [pool] RTÉ Ireland — Legal aid dispute between solicitors, minister resolved — Затяжной трудовой спор, нет нового факта.
-- [en] не_новость: [pool] The Guardian — Historians uncover more questions for insurers over their role in the slave trad — Исторические дискуссии об ответственности за работорговлю.
-- [en] не_новость: [pool] RTÉ Ireland — Public sector unions consider revised pay deal offer — Обсуждение условий сделки, а не принятое решение.
-- [en] курьёз: [world] Engadget — The Disney+ app on Meta Quest now includes 3D movies — Обновление функции в приложении — это не новость.
-- [en] не_новость: [world] TechCrunch — Proximal Ventures raises debut fund to back startups bringing AI to drug develop — Отчет об инвестиционном фонде для стартапов.
-- [en] не_новость: [world] BBC Sport — McTominay reveals heart treatment at World Cup — Воспоминания спортсмена о лечении в июне.
+- [es] чужое_мелкое: [local] El Universal MX — Senadora del PAN critica a compañera migrante de Morena por quedarse en EU; "dej — Внутренняя политическая полемика в Сенате США не является событием для мексиканского читателя.
+- [es] не_новость: [local] El Financiero — No todos se van: ¿Qué sabemos del redoblaje de ‘Wildwood: El bosque salvaje’? — Это обзор/статья об озвучке фильма, а не событие.
+- [es] не_новость: [local] El Sol de México — La vida de Cantinflas llega al streaming con una nueva bioserie de ViX — Анонс запуска сериала на платформе, не является новостью.
+- [es] не_новость: [local] La Jornada — Somos interpondrá queja por intromisión contra la Presidenta — Планы партии подать жалобу — это намерения, а не свершившееся событие.
+- [es] полка: [local] La Jornada — Hallan fósil de anfibio de 66 millones de años; antes de la extinción de dinosau — Находка окаменелости в Испании — это курьёз/наука, не МЕСТНЫЕ.
+- [es] не_новость: [pool] El Tiempo CO — ‘Servir es hacer que las cosas pasen’: la reflexión que reunió en Barranquilla a — Описание отраслевого мероприятия, нет события.
+- [es] курьёз: [pool] Clarín AR — Quiénes son los cuatro jóvenes que van a dialogar con el papa León XIV en la vig — Религиозное событие/встреча, не имеет глобальных последствий, место в интересном.
+- [es] чужое_мелкое: [pool] Clarín AR — Tras la derrota electoral de los republicanos, el vicepresidente de Trump suspen — Отмена поездки вице-президента США — мелкое политическое событие, не требующее внимания.
+- [es] повтор: [pool] El País — Los sindicatos llaman a España a una huelga general por primera vez en 14 años ≈ «El Gobierno y sus socios relacionan la h» — Тот же сюжет о забастовке в Испании.
+- [es] не_новость: [pool] Marca — Pogacar desvelará su futuro en España — Анонс будущей пресс-конференции, нет события.
+- [es] не_новость: [pool] Marca — El Valencia saborea la Copa — Спортивная заметка о матче, нет важного результата или изменения в таблице.
+- [es] не_новость: [pool] El Informador — Feria de turismo ITB Américas es inaugurada en Expo Guadalajara — Открытие выставки — плановое мероприятие, не новость.
+- [es] не_новость: [pool] El Informador — Pablo Lemus promete disminuir poco a poco los tandeos de agua — Обещание политика — это слова, а не свершившееся событие.
+- [es] не_новость: [pool] BBC Mundo — Mi hermano murió tras rechazar una transfusión por sus creencias; semanas despué — Личная история, а не актуальное событие.
+- [es] не_новость: [world] Ars Technica — El ejército de EE. UU. muestra preocupación por la escasez de suministros de lan — Выражение озабоченности ведомством — не новость.
+- [es] не_новость: [world] Engadget — Estos teléfonos Xiaomi dejarán de recibir soporte con la última actualización Hy — Техническая информация об обновлении ПО.
+- [es] чужое_мелкое: [world] Clarín AR — Quién es la mujer en el centro del escándalo de espionaje de Nvidia — Скандал Nvidia — частный случай, не требующий освещения в мировой ленте.
+- [es] чужое_мелкое: [world] Clarín AR — Donald Trump se endurece: amenaza hasta con la cárcel a los demócratas que acorr — Внутренняя риторика Трампа — это слова, а не решение.
+- [es] повтор: [world] El Universal MX — Nvidia contrata a exfiscal para investigar a Jensen Huang; escala caso de presun ≈ «Quién es la mujer en el centro del escán» — Тот же сюжет о скандале в Nvidia.
+- [es] не_новость: [world] Engadget — La aplicación de Disney+ en Meta Quest ahora incluye películas en 3D — Обновление приложения, не событие.
+- [es] не_новость: [world] TechCrunch — Proximal Ventures recauda fondos iniciales para apoyar startups de IA en el desa — Инвестиции в стартап — обычный процесс.
+- [es] курьёз: [world] Muy Interesante — Xiaomi refuerza su apuesta por la gama media con una rebaja en el smartphone Red — Скидка на смартфон — обычное бизнес-событие/реклама.
+- [es] не_новость: [world] Xataka — Madrid se está convirtiendo en el nuevo Los Ángeles y por el camino se ha quedad — Мнение о пробках в Мадриде, не событие.
+- [es] полка: [world] Азаттык — Sadyr Japarov presentó su candidatura para las elecciones presidenciales en Kirg — Выборы в Кыргызстане — событие не для мексиканского пула.
+- [es] повтор: [world] BBC Mundo — Por qué la infidelidad del jefe de Nvidia con una supesta espía china tendrá rep ≈ «Quién es la mujer en el centro del escán» — Разбор ситуации с Nvidia.
