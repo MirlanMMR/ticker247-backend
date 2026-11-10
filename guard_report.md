@@ -1,27 +1,18 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] курьёз: [local] El Financiero — ¿Qué fue de ‘Alfalfa’, de los ‘Pequeños traviesos’? Pidió 2 mil dólares a sus fa — История об экс-актере не является новостью, место в «Интересном».
-- [es] курьёз: [local] La Jornada — Hallan fósil de anfibio de 66 millones de años; antes de la extinción de dinosau — Научная находка без последствий для читателя, место в «Интересном».
-- [es] чужое_мелкое: [pool] La Nación AR — La entrevista del líder de Vox en el programa más visto de la TV española desata — Внутренняя политика Испании, событие не имеет международных последствий.
-- [es] чужое_мелкое: [pool] La Nación AR — El vecino de Pilar detenido por amenazar al Papa negó haber hecho la llamada y c — Локальное происшествие в Аргентине, не имеет значения за пределами страны.
-- [es] чужое_мелкое: [pool] La Nación CR — PPSO asesta recorte de ¢8.048 millones al financiamiento de las universidades pú — Внутреннее бюджетное решение Коста-Рики, не является мировой новостью.
-- [es] чужое_мелкое: [pool] El Nacional VE — Familiares del médico César Omaña denuncian traslado a la cárcel La Planta ante  — Внутренняя новость Венесуэлы, не имеет международного масштаба.
-- [es] чужое_мелкое: [pool] El Mundo — La abogada Leticia de la Hoz, imputada en el 'Caso cloacas' del PSOE, renuncia a — Внутренняя юридическая новость Испании (процесс PSOE).
-- [es] чужое_мелкое: [pool] BBC Mundo — "Estoy muy preocupado porque no tengo noticias de mi dinero": los millones de pa — Внутренний банковский кризис в Парагвае, нет международного резонанса.
-- [es] чужое_мелкое: [pool] El Mundo — "Amenazar sonriendo no es hacer humor": el paso de Abascal por 'La Revuelta' abr — Внутренняя политическая полемика в Испании.
-- [es] чужое_мелкое: [pool] El Mundo — Sira Rego pide a TikTok que pare su actividad en España y, si no lo hace, insta  — Регулирование TikTok в Испании — мелкий внутренний вопрос.
-- [es] чужое_мелкое: [pool] El Mundo — Feijóo promete sustituir el ingreso mínimo vital por una "renta de activación" q — Предвыборные обещания оппозиции в Испании.
-- [es] чужое_мелкое: [pool] La Vanguardia — Huelga de Renfe, Rodalies y trenes en Barcelona hoy, en directo: última hora, se — Локальная забастовка в Барселоне, не является мировой новостью.
-- [es] чужое_мелкое: [pool] 14ymedio — El régimen cubano prohíbe el uso de Starlink a las embajadas extranjeras — Внутреннее административное решение Кубы.
-- [es] курьёз: [world] TechCrunch — PSI intenta hacer negocio con el descubrimiento científico impulsado por IA — Научно-популярный факт, место в «Интересном».
-- [es] не_новость: [world] Engadget — La impresionante tecnología de dictado Rambler de Google ya está disponible tamb — Технологический обзор функции устройства.
-- [es] чужое_мелкое: [world] Variety — Garth Brooks adquiere una frecuencia de radio en Nashville para crear una nueva  — Местная коммерческая сделка радиостанции в США.
-- [es] не_новость: [world] TechCrunch — OpenAI lanza nuevos perfiles de empresa, haciendo que ChatGPT sea un poco más pa — Обзор обновлений интерфейса ChatGPT.
-- [es] чужое_мелкое: [world] El Nacional VE — NYT: Informe revela que EE UU gestionó $12 mil millones en ingresos petroleros v — Старая история о доходах, не событие сегодняшнего дня.
-- [es] чужое_мелкое: [world] The Independent — Toyota lanzará minicamiones en EE. UU. tras la petición de Trump — Планы компании по выходу на рынок США, не является событием мирового масштаба.
-- [es] не_новость: [world] TechCrunch — Anthropic lanza Claude Meetings para convertir las discusiones laborales en plan — Анонс функций программного обеспечения.
-- [es] курьёз: [world] Muy Interesante — Encuentran en Turquía una huella de perro de hace 4.000 años que permanecía ocul — Археологический факт, место в «Интересном».
-- [es] курьёз: [world] BBC Mundo — Las personas que solo necesitan dormir 4 horas y cómo lo explica la genética — Научно-популярная статья о генетике, не новость.
-- [es] чужое_мелкое: [world] Азаттык — Sadyr Japarov presentó su candidatura para las elecciones presidenciales en Kirg — Местное событие в Кыргызстане, неуместно в пуле ES.
-- [es] не_новость: [world] BBC Mundo — "Epstein me violó más de 200 veces": los nuevos testimonios de mujeres que fuero — Пересказ старых показаний, не является новым событием.
-- [es] чужое_мелкое: [world] BBC Mundo — Por qué la infidelidad del jefe de Nvidia con una supesta espía china tendrá rep — Слухи вокруг частной жизни директора компании, не является мировой новостью.
+- [pt] курьёз: [local] Folha de S.Paulo — 1926: Grupo estreia em SP com peça de teatro de revista de Lamartine — Историческая заметка о театре 1926 года — это не событие в новостном смысле.
+- [pt] курьёз: [local] Poder360 — Pesquisa diz que 61% dos chineses têm boa impressão do Brasil — Опрос о том, что думают китайцы о Бразилии — это любопытный факт, а не новость.
+- [pt] не_новость: [local] Gazeta do Povo — Senado vai gastar R$ 6 milhões com 95 iPhones e outros celulares para parlamenta — Плановая закупка телефонов на 4 года — это рутинный бюджетный процесс, а не событие.
+- [pt] чужое_мелкое: [local] Agência Brasil — Lula está na Turquia e se prepara para discurso na COP 31 — Участие президента в климатическом саммите в Турции — это внешнеполитическая рутина, не имеющая последствий для Бразилии
+- [pt] не_новость: [pool] Observador PT — Em Sagres, está "tudo precavido" para a chegada de Charles — Транскрипция ИИ о том, что «всё подготовлено» — это не событие, а констатация готовности.
+- [pt] не_новость: [pool] Observador PT — Autarca. "Sines prepara-se para o pior, mas espera o melhor" — Интервью мэра «готовимся к худшему» — это слова, а не свершившееся событие.
+- [pt] не_новость: [pool] Observador PT — 19h. Mau Tempo. Ventura: "É tempo de cumprir recomendações" — Пересказ радиоэфира («время исполнять рекомендации») — это слова политика, а не новость.
+- [pt] курьёз: [pool] BBC Brasil — Ele gastou R$ 275 mil em Labubus e fez até dentes inspirados nos bonecos, mas e  — История про игрушки-лабубу — развлекательный контент.
+- [pt] не_новость: [pool] BBC Brasil — Brasil não deveria aumentar o salário mínimo, mas se livrar dele, diz o economis — Мнение экономиста — это не новость, а экспертное рассуждение.
+- [pt] курьёз: [pool] BBC Brasil — Quem é o autor brasileiro que foi parar na lista de livros imperdíveis do New Yo — Факт попадания в список NYT — это культурная заметка, а не событие.
+- [pt] курьёз: [world] Variety — Shaq estrelará série de competição de esconde-esconde na ABC — Анонс развлекательного шоу с Шакилом О'Нилом — это шоу-бизнес, а не мировая новость.
+- [pt] курьёз: [world] Engadget — O console de videogame mais vendido de todos os tempos tem mais de 25 anos — Историческая справка о PlayStation 2 — не новость.
+- [pt] курьёз: [world] TechCrunch — PSI busca transformar descobertas científicas impulsionadas por IA em um negócio — Попытка превратить научные открытия в бизнес — это не новость.
+- [pt] курьёз: [world] Superinteressante — Lipoaspiração pode compor tratamento contra o lipedema, mostra pesquisa — Результаты медицинского исследования — это познавательный материал, место в «Интересном».
+- [pt] не_новость: [world] The Guardian — Historiadores levantam novas questões sobre o papel das seguradoras no tráfico d — Историки «поднимают вопросы» — это обсуждение прошлого, а не событие.
+- [pt] полка: [world] Азаттык — Sadyr Japarov apresenta candidatura para as eleições presidenciais no Quirguistã — Выборы в Кыргызстане для бразильского потока — это Мировая новость, а не местная или региональная.
