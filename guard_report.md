@@ -1,29 +1,24 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] Exame — 'Não vejo expectativa de recessão', rebate economista-chefe da Lifetime — мнение эксперта о будущем без совершившегося события.
-- [pt] срочность: [local] CNN Brasil — Quem é o servidor do STJ suspeito de vazar dados para amigo de Flavio — арест в рамках текущего расследования не повод для побудки.
-- [pt] не_новость: [local] Poder360 — PT quer aprovar Ministério da Segurança em 2026, mas prazo aperta — обсуждение планов и сроков, самого события нет.
-- [pt] не_новость: [local] Agência Brasil — Defesa de Vorcaro reforça pedido de soltura no STF — процессуальный статус адвоката (запрос), ничего не изменилось.
-- [pt] не_новость: [local] Agência Brasil — Governo prorroga até 9 de dezembro desoneração da gasolina e do etanol — плановое продление действия указа, рутина.
-- [pt] анонс: [pool] RTP Notícias — Escolas e serviços não essenciais fecham. — заголовок не соответствует тексту, описание поиска человека, а не новость.
-- [pt] курьёз: [pool] Metrópoles — Otávio, ex-Flamengo, tem carro roubado em Portugal: "Se pegar é baile" — кража частного лица, не является общественно значимым событием.
-- [pt] не_новость: [pool] Terra BR — Gabigol define prioridade e pode deixar o Santos — планирование состава команды, слухи о трансфере.
-- [pt] не_новость: [pool] BBC Brasil — Raphael Montes: 'É perigoso dizer que dá para ganhar dinheiro com livro no Brasi — интервью/очерк, нет события.
-- [pt] курьёз: [world] Engadget — O Gemini 4 Carbon do Google agora está amplamente disponível em todo o mundo — обычный релиз продукта, не мировое событие.
-- [pt] чужое_мелкое: [world] TechCrunch — N-able suspende serviço de acesso remoto após pesquisador publicar dezenas de fa — технический инцидент в частной компании, нет мировых последствий.
-- [pt] курьёз: [world] TechCrunch — Agente de IA Muse, da Meta, chega ao Apple Watch e ao Wear OS do Android — обновление функций приложения, не мировое событие.
-- [pt] курьёз: [world] Ars Technica — Polestar apresenta novo visual com o conceito Formula 2030 — презентация концепт-кара, не новость.
-- [pt] чужое_мелкое: [world] Азаттык — Cazaquistão adia estreia de filme sobre Aitmatov em meio a relatos de censura na — местный спор о фильме, не имеет значения за пределами KZ.
-- [pt] курьёз: [world] The Guardian — Ameaça alienígena ou vítima de xenofobia? A batalha sobre os periquitos da Grã-B — история о птицах, не является новостью.
-- [pt] полка: [world] Guardian Sport — Buffalo Bills superam a defesa do Minnesota Vikings e chegam a 7-1 na temporada — спортивный результат матча в США — это не мировая новость для потока pt.
-- [fr] не_новость: [local] France 24 FR — Pétition pour "supprimer CNews de l'audiovisuel français" : les députés ne donne — Парламент не стал рассматривать петицию; это отказ от действий, а не событие.
-- [fr] полка: [pool] Jeune Afrique — Banque, BTP, télécoms : comment le Maroc a fait d’Abidjan sa tête de pont en Afr — Событие в Кот-д’Ивуаре, для франкоязычного потока это региональная (Африка), не «Новости из…».
-- [fr] не_новость: [pool] Le Temps — Après leur relation transgressive, deux juges fédéraux sur un siège éjectable — Угроза потери должности — это обсуждение и предположения, а не свершившийся факт.
-- [fr] не_новость: [pool] Le Temps — Les montres Code41 se rapprochent d’un double accord avec leurs créanciers et de — «Готовят поднятие средств» — намерение, а не свершившаяся сделка.
-- [fr] не_новость: [pool] Radio-Canada — La famille Saputo enclenche le processus de vente du CF Montréal — «Запускают процесс» — начало бюрократической процедуры, а не продажа клуба.
-- [fr] чужое_мелкое: [world] BFMTV — Le secrétaire d'État américain Marco Rubio affirme qu'il n'y a "pas besoin" d'op — Внутренняя внешнеполитическая риторика США без конкретных принятых решений.
-- [fr] чужое_мелкое: [world] Courrier International — La taxation des milliardaires subit un coup d’arrêt en Californie — Внутренняя политика штата Калифорния, не имеет мирового значения.
-- [fr] чужое_мелкое: [world] Courrier International — En Colombie, un projet de réforme fiscale très décrié : “L’État va se serrer la  — Обсуждение внутреннего проекта налоговой реформы Колумбии.
-- [fr] не_новость: [world] France 24 FR — Israël en direct : le parti d'Eisenkot dépose un projet de loi pour créer une co — Предложение законопроекта — обсуждение, не решение.
-- [fr] не_новость: [world] France 24 FR — Ce que l’on sait sur les exercices de l’armée chinoise autour de Taïwan — Аналитическая статья «что мы знаем» вместо факта события.
-- [fr] не_новость: [world] Sciences et Avenir — COP31 : le défi de l’overshoot — Аналитический разбор темы климата, а не новостное событие.
+- [en] курьёз: [local] Inquirer.com — Tormund, the viral South Philly orange cat best known for standing, has died — Смерть известного в соцсетях кота — не новость.
+- [en] не_новость: [local] WJXT News4JAX — Byron Donalds names business, political and policy leaders to transition team — Формирование команды для перехода власти — рутинный рабочий процесс.
+- [en] курьёз: [local] NH Union Leader Latest News — Ruger profits nearly quadruple as gun sales surge in third quarter — Отчет о росте прибыли компании — бизнес-статистика, не новость.
+- [en] курьёз: [local] Cleveland.com — Ole Miss co-ed releases statement after video of alleged racism — Извинения студентки из-за видео в соцсетях — частный случай.
+- [en] не_новость: [local] PennLive — Eagles-Bengals trade for Penn State star collapses over a draft-pick twist — Сделка, которая не состоялась — не событие.
+- [en] не_новость: [local] KFVS12 — Carbondale’s 3rd annual Helping Hands for the Holidays winter resource fair set  — Анонс благотворительной ярмарки.
+- [en] не_новость: [local] Cleveland.com — TLC star arrested on domestic violence charge — Арест звезды реалити-шоу в прошлом месяце — не актуально.
+- [en] не_новость: [pool] Engadget — Polestar is banned in the US, but we still want its latest concept car — Обзор концепт-кара (не серийная модель).
+- [en] не_новость: [pool] KSFY — ‘A Taste of Tradition’ celebrating food and traditions in Bryant Nov. 14 — Анонс фестиваля еды.
+- [en] не_новость: [pool] Rolling Stone — Russell Brand’s Ex-Girlfriend Jemima Goldsmith Accuses Him of ‘Violence, Coerciv — Описание обвинений годичной давности, а не само событие.
+- [en] не_новость: [pool] OKC News — College Football Playoff expansion brings end to Big 12 championship game — Изменение регламента спортивного турнира на 2026 год.
+- [en] не_новость: [world] Variety — Skydance’s Casey Bloys to Be Honored at Producers Guild Awards — Анонс награждения на будущей премии.
+- [en] не_новость: [world] Variety — ‘PAW Patrol’ Spinoff Series ‘Skye’s Pup Squad’ Set for 2027 Release — Анонс сериала на 2027 год.
+- [en] не_новость: [world] Rolling Stone — Dua Lipa Settles ‘Levitating’ Lawsuit With Talk Box Musician — Урегулирование судебного иска — это технический процесс.
+- [en] не_новость: [world] Engadget — Google turns Gemini towards medical paperwork — Анонс запуска предварительной версии продукта.
+- [en] не_новость: [world] Time — Trump and Venezuela’s Elusive Elections — Аналитическая статья («Когда будут выборы?»), нет события.
+- [en] не_новость: [world] TechCrunch — Anthropic launches Claude Meetings to turn workplace discussions into plans and  — Запуск новой функции в ПО (продукт).
+- [en] курьёз: [world] Rolling Stone — See Bruce Springsteen Finally Play ‘Western Stars’ Songs in Public — Музыкант впервые исполнил старые песни на концерте.
+- [en] курьёз: [world] reviewjournal — ‘El Niño saved the day’ for cruise ship pianist who spent 9 hours in Pacific Oce — История о спасении в океане, личный опыт без последствий.
+- [en] не_новость: [world] BBC News — Sales of tinned food and bottled water jump after 'Be Ready' campaign launch — Рост продаж товаров после кампании — рыночный тренд.
+- [en] не_новость: [world] NPR News — Seven days of chaos in the ER: How this country's healthcare system is unravelin — Статья-описание ситуации в больницах, нет события.
+- [en] полка: [world] Азаттык — Sadyr Japarov submits application to participate in Kyrgyzstan's presidential el — Новость о выборах в Кыргызстане не должна быть в мировых для США, если нет глобальных последствий.
