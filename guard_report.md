@@ -1,19 +1,29 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] курьёз: [local] El Universal MX — My Melody y Kuromi llegan a Converse; así son los tenis de la colaboración — Это маркетинговое объявление о коллаборации бренда одежды, а не новость.
-- [es] полка: [local] La Jornada — Hallan fósil de anfibio de 66 millones de años; antes de la extinción de dinosau — Новость о палеонтологической находке в Испании (ES) не является местной для мексиканского потока.
-- [es] не_новость: [pool] Infobae — El Festival de Cine de Huelva abrirá su 52 edición este viernes con Toñi Moreno, — Анонс начала кинофестиваля — это плановое мероприятие, не имеющее значимых последствий.
-- [es] не_новость: [pool] Marca — Raúl enseña su hoja de ruta en Oviedo — Описание «дорожной карты» тренера — это внутренние планы клуба, а не свершившееся событие.
-- [es] не_новость: [pool] Marca — Mister Catering Lamine — Мнение о качестве игры футболиста — это субъективная колонка, а не новость.
-- [es] не_новость: [pool] El Mundo — Feijóo promete sustituir el ingreso mínimo vital por una "renta de activación" q — Предвыборные обещания политика не являются свершившимся фактом или решением.
-- [es] курьёз: [pool] 14ymedio — Habrá "elecciones justas y blindadas", dice la jefa de la oposición venezolana e — Слова оппозиции о будущих выборах не являются свершившимся событием.
-- [es] не_новость: [world] Xataka — La Séptima necesitaba un 1,5% para ser rentable: ayer con Pedro Sánchez consigui — Анализ прибыльности телеканала — это бизнес-обзор, не являющийся новостью.
-- [es] чужое_мелкое: [world] Semana CO — Marco Rubio califica de “muy productivas” las conversaciones entre Rusia y Ucran — Оценка «продуктивности» переговоров дипломатом — это дипломатический этикет, а не событие.
-- [es] курьёз: [world] Clarín AR — Venden un enorme castillo con foso incluido por 1 euro — Продажа замка за 1 евро — это курьезная история, не имеющая мирового значения.
-- [es] курьёз: [world] Xataka — Pulsar “Sí, y no vuelvas a preguntar” en Claude Code parecía inofensivo. — Обсуждение поведения интерфейса нейросети — это технический курьез.
-- [es] не_новость: [world] Ars Technica — Polestar presenta un nuevo diseño con su concepto Formula 2030 — Презентация концепт-кара 2030 года — это маркетинговый анонс будущего.
-- [es] курьёз: [world] Muy Interesante — La cara más desconocida del antiguo Egipto: millones de gatos, ibis y cocodrilos — Историческая справка о мумиях не является новостью.
-- [es] курьёз: [world] Muy Interesante — ¿Hay animales que hacen la fotosíntesis? — Научно-популярный факт о морском слизне — это «интересное», а не новость.
-- [es] не_новость: [world] 14ymedio — El embajador chino receta apertura económica a Cuba mientras Bruno Rodríguez vis — Поездка министра — это плановый визит, в заметке нет конкретных решений.
-- [es] полка: [world] Азаттык — Sadyr Japarov presentó su candidatura para las elecciones presidenciales en Kirg — Выборы в Кыргызстане для мексиканского читателя — это мировая новость, а не «Новости из…».
-- [es] не_новость: [world] Sciences et Avenir — COP31: el desafío del rebasamiento — Рассуждения о климатическом пороге — это аналитическая статья, а не событие.
+- [pt] не_новость: [local] Exame — 'Não vejo expectativa de recessão', rebate economista-chefe da Lifetime — мнение эксперта о будущем без совершившегося события.
+- [pt] срочность: [local] CNN Brasil — Quem é o servidor do STJ suspeito de vazar dados para amigo de Flavio — арест в рамках текущего расследования не повод для побудки.
+- [pt] не_новость: [local] Poder360 — PT quer aprovar Ministério da Segurança em 2026, mas prazo aperta — обсуждение планов и сроков, самого события нет.
+- [pt] не_новость: [local] Agência Brasil — Defesa de Vorcaro reforça pedido de soltura no STF — процессуальный статус адвоката (запрос), ничего не изменилось.
+- [pt] не_новость: [local] Agência Brasil — Governo prorroga até 9 de dezembro desoneração da gasolina e do etanol — плановое продление действия указа, рутина.
+- [pt] анонс: [pool] RTP Notícias — Escolas e serviços não essenciais fecham. — заголовок не соответствует тексту, описание поиска человека, а не новость.
+- [pt] курьёз: [pool] Metrópoles — Otávio, ex-Flamengo, tem carro roubado em Portugal: "Se pegar é baile" — кража частного лица, не является общественно значимым событием.
+- [pt] не_новость: [pool] Terra BR — Gabigol define prioridade e pode deixar o Santos — планирование состава команды, слухи о трансфере.
+- [pt] не_новость: [pool] BBC Brasil — Raphael Montes: 'É perigoso dizer que dá para ganhar dinheiro com livro no Brasi — интервью/очерк, нет события.
+- [pt] курьёз: [world] Engadget — O Gemini 4 Carbon do Google agora está amplamente disponível em todo o mundo — обычный релиз продукта, не мировое событие.
+- [pt] чужое_мелкое: [world] TechCrunch — N-able suspende serviço de acesso remoto após pesquisador publicar dezenas de fa — технический инцидент в частной компании, нет мировых последствий.
+- [pt] курьёз: [world] TechCrunch — Agente de IA Muse, da Meta, chega ao Apple Watch e ao Wear OS do Android — обновление функций приложения, не мировое событие.
+- [pt] курьёз: [world] Ars Technica — Polestar apresenta novo visual com o conceito Formula 2030 — презентация концепт-кара, не новость.
+- [pt] чужое_мелкое: [world] Азаттык — Cazaquistão adia estreia de filme sobre Aitmatov em meio a relatos de censura na — местный спор о фильме, не имеет значения за пределами KZ.
+- [pt] курьёз: [world] The Guardian — Ameaça alienígena ou vítima de xenofobia? A batalha sobre os periquitos da Grã-B — история о птицах, не является новостью.
+- [pt] полка: [world] Guardian Sport — Buffalo Bills superam a defesa do Minnesota Vikings e chegam a 7-1 na temporada — спортивный результат матча в США — это не мировая новость для потока pt.
+- [fr] не_новость: [local] France 24 FR — Pétition pour "supprimer CNews de l'audiovisuel français" : les députés ne donne — Парламент не стал рассматривать петицию; это отказ от действий, а не событие.
+- [fr] полка: [pool] Jeune Afrique — Banque, BTP, télécoms : comment le Maroc a fait d’Abidjan sa tête de pont en Afr — Событие в Кот-д’Ивуаре, для франкоязычного потока это региональная (Африка), не «Новости из…».
+- [fr] не_новость: [pool] Le Temps — Après leur relation transgressive, deux juges fédéraux sur un siège éjectable — Угроза потери должности — это обсуждение и предположения, а не свершившийся факт.
+- [fr] не_новость: [pool] Le Temps — Les montres Code41 se rapprochent d’un double accord avec leurs créanciers et de — «Готовят поднятие средств» — намерение, а не свершившаяся сделка.
+- [fr] не_новость: [pool] Radio-Canada — La famille Saputo enclenche le processus de vente du CF Montréal — «Запускают процесс» — начало бюрократической процедуры, а не продажа клуба.
+- [fr] чужое_мелкое: [world] BFMTV — Le secrétaire d'État américain Marco Rubio affirme qu'il n'y a "pas besoin" d'op — Внутренняя внешнеполитическая риторика США без конкретных принятых решений.
+- [fr] чужое_мелкое: [world] Courrier International — La taxation des milliardaires subit un coup d’arrêt en Californie — Внутренняя политика штата Калифорния, не имеет мирового значения.
+- [fr] чужое_мелкое: [world] Courrier International — En Colombie, un projet de réforme fiscale très décrié : “L’État va se serrer la  — Обсуждение внутреннего проекта налоговой реформы Колумбии.
+- [fr] не_новость: [world] France 24 FR — Israël en direct : le parti d'Eisenkot dépose un projet de loi pour créer une co — Предложение законопроекта — обсуждение, не решение.
+- [fr] не_новость: [world] France 24 FR — Ce que l’on sait sur les exercices de l’armée chinoise autour de Taïwan — Аналитическая статья «что мы знаем» вместо факта события.
+- [fr] не_новость: [world] Sciences et Avenir — COP31 : le défi de l’overshoot — Аналитический разбор темы климата, а не новостное событие.
