@@ -1,18 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [local] Folha de S.Paulo — 1926: Grupo estreia em SP com peça de teatro de revista de Lamartine — Историческая заметка о театре 1926 года — это не событие в новостном смысле.
-- [pt] курьёз: [local] Poder360 — Pesquisa diz que 61% dos chineses têm boa impressão do Brasil — Опрос о том, что думают китайцы о Бразилии — это любопытный факт, а не новость.
-- [pt] не_новость: [local] Gazeta do Povo — Senado vai gastar R$ 6 milhões com 95 iPhones e outros celulares para parlamenta — Плановая закупка телефонов на 4 года — это рутинный бюджетный процесс, а не событие.
-- [pt] чужое_мелкое: [local] Agência Brasil — Lula está na Turquia e se prepara para discurso na COP 31 — Участие президента в климатическом саммите в Турции — это внешнеполитическая рутина, не имеющая последствий для Бразилии
-- [pt] не_новость: [pool] Observador PT — Em Sagres, está "tudo precavido" para a chegada de Charles — Транскрипция ИИ о том, что «всё подготовлено» — это не событие, а констатация готовности.
-- [pt] не_новость: [pool] Observador PT — Autarca. "Sines prepara-se para o pior, mas espera o melhor" — Интервью мэра «готовимся к худшему» — это слова, а не свершившееся событие.
-- [pt] не_новость: [pool] Observador PT — 19h. Mau Tempo. Ventura: "É tempo de cumprir recomendações" — Пересказ радиоэфира («время исполнять рекомендации») — это слова политика, а не новость.
-- [pt] курьёз: [pool] BBC Brasil — Ele gastou R$ 275 mil em Labubus e fez até dentes inspirados nos bonecos, mas e  — История про игрушки-лабубу — развлекательный контент.
-- [pt] не_новость: [pool] BBC Brasil — Brasil não deveria aumentar o salário mínimo, mas se livrar dele, diz o economis — Мнение экономиста — это не новость, а экспертное рассуждение.
-- [pt] курьёз: [pool] BBC Brasil — Quem é o autor brasileiro que foi parar na lista de livros imperdíveis do New Yo — Факт попадания в список NYT — это культурная заметка, а не событие.
-- [pt] курьёз: [world] Variety — Shaq estrelará série de competição de esconde-esconde na ABC — Анонс развлекательного шоу с Шакилом О'Нилом — это шоу-бизнес, а не мировая новость.
-- [pt] курьёз: [world] Engadget — O console de videogame mais vendido de todos os tempos tem mais de 25 anos — Историческая справка о PlayStation 2 — не новость.
-- [pt] курьёз: [world] TechCrunch — PSI busca transformar descobertas científicas impulsionadas por IA em um negócio — Попытка превратить научные открытия в бизнес — это не новость.
-- [pt] курьёз: [world] Superinteressante — Lipoaspiração pode compor tratamento contra o lipedema, mostra pesquisa — Результаты медицинского исследования — это познавательный материал, место в «Интересном».
-- [pt] не_новость: [world] The Guardian — Historiadores levantam novas questões sobre o papel das seguradoras no tráfico d — Историки «поднимают вопросы» — это обсуждение прошлого, а не событие.
-- [pt] полка: [world] Азаттык — Sadyr Japarov apresenta candidatura para as eleições presidenciais no Quirguistã — Выборы в Кыргызстане для бразильского потока — это Мировая новость, а не местная или региональная.
+- [en] срочность: [local] WCAX — Police identify two killed in fiery Quechee crash — Происшествие случилось на прошлой неделе, уже не требует побудки.
+- [en] не_новость: [local] WTOP — Firefly Aerospace: Q3 Earnings Snapshot — Обычный финансовый отчет компании, а не общественно значимое событие.
+- [en] не_новость: [local] Untitled RSS Feed — Nine Bats Across Wyoming Test Positive For Rabies, Four In Sheridan County — Статистический отчет о заболеваниях за год, а не разовое событие.
+- [en] не_новость: [local] KFVS12 — Convicted felon admits to having a gun during high-speed chase in 2025 — Признание вины в суде — рутинный процесс, нет события-новостной вехи.
+- [en] не_новость: [local] New Jersey 101.5 — Cellmate found with no pulse and a pencil in his brain, FBI says — Инцидент произошел 8 месяцев назад (март 2025), это не свежая новость.
+- [en] не_новость: [local] KSTP — Don Lemon among 39 seeking dismissal in St. Paul church case — Процессуальное действие (попытка отвода дела) не является новостным событием.
+- [en] не_новость: [local] WBRC — Alabama survey: Parents, teachers support screens in class, with limits — Результаты опроса общественного мнения — это не событие.
+- [en] не_новость: [local] WBAL — UMD student held with her mom after Baltimore immigration check-in — Задержание происходит регулярно, нет нового факта или последствия.
+- [en] не_новость: [local] Cleveland.com — GOP 'learned nothing' after electing 'feckless' House minority leader: Critics — Мнения критиков о выборах лидера фракции не являются новостью.
+- [en] не_новость: [local] Inquirer.com — What we learned about the Eagles at the 2026 NFL trade deadline — Аналитический обзор итогов трансферного окна после его закрытия.
+- [en] не_новость: [local] Georgia Public Broadcasting — The average cost for a new vehicle in the U.S. hits a record high: over $51,000 — Общая экономическая статистика (отчет Kelley Blue Book), а не разовое событие.
+- [en] не_новость: [local] WGRZ — 113 years after the White Hurricane, Buffalo remembers fallen US Lightship crew — Памятная церемония спустя 113 лет — плановое мероприятие, не новость.
+- [en] не_новость: [local] WIS-TV — Devine Night Out prepares holiday fun before December — Анонс ежегодного праздничного мероприятия.
+- [en] не_новость: [local] Gothamist — NYC bars and restaurants say they're struggling and may raise prices — Рассуждения о возможном повышении цен, а не свершившийся факт.
+- [en] чужое_мелкое: [pool] NH Union Leader Latest News — Londonderry billed $125,000 for Mulholland investigation — Местные бюджетные разборки в Британии не значимы для США.
+- [en] не_новость: [pool] Ars Technica — Grok Build coding agent leaks oodles of confidential info, some belonging to Spa — Техническая утечка данных, обычная для IT-отрасли.
+- [en] не_новость: [pool] Rolling Stone — Conor Oberst Will Play a Cave and a Haunted Hotel on His First Solo Tour Since 2 — Анонс гастрольного тура на 2027 год.
+- [en] чужое_мелкое: [pool] Irish Times — Traveller rights groups condemn ‘distressing’ removal of 4.5m-high grave memoria — Локальный конфликт вокруг памятника в Ирландии.
+- [en] не_новость: [pool] BBC News — Train attack driver's '10 seconds' to change line — Разбор действий машиниста в прошлом, а не новое событие.
+- [en] не_новость: [pool] RTÉ Ireland — Legal aid dispute between solicitors, minister resolved — Затяжной трудовой спор, нет нового факта.
+- [en] не_новость: [pool] The Guardian — Historians uncover more questions for insurers over their role in the slave trad — Исторические дискуссии об ответственности за работорговлю.
+- [en] не_новость: [pool] RTÉ Ireland — Public sector unions consider revised pay deal offer — Обсуждение условий сделки, а не принятое решение.
+- [en] курьёз: [world] Engadget — The Disney+ app on Meta Quest now includes 3D movies — Обновление функции в приложении — это не новость.
+- [en] не_новость: [world] TechCrunch — Proximal Ventures raises debut fund to back startups bringing AI to drug develop — Отчет об инвестиционном фонде для стартапов.
+- [en] не_новость: [world] BBC Sport — McTominay reveals heart treatment at World Cup — Воспоминания спортсмена о лечении в июне.
