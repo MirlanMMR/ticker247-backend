@@ -1,24 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] курьёз: [local] Inquirer.com — Tormund, the viral South Philly orange cat best known for standing, has died — Смерть известного в соцсетях кота — не новость.
-- [en] не_новость: [local] WJXT News4JAX — Byron Donalds names business, political and policy leaders to transition team — Формирование команды для перехода власти — рутинный рабочий процесс.
-- [en] курьёз: [local] NH Union Leader Latest News — Ruger profits nearly quadruple as gun sales surge in third quarter — Отчет о росте прибыли компании — бизнес-статистика, не новость.
-- [en] курьёз: [local] Cleveland.com — Ole Miss co-ed releases statement after video of alleged racism — Извинения студентки из-за видео в соцсетях — частный случай.
-- [en] не_новость: [local] PennLive — Eagles-Bengals trade for Penn State star collapses over a draft-pick twist — Сделка, которая не состоялась — не событие.
-- [en] не_новость: [local] KFVS12 — Carbondale’s 3rd annual Helping Hands for the Holidays winter resource fair set  — Анонс благотворительной ярмарки.
-- [en] не_новость: [local] Cleveland.com — TLC star arrested on domestic violence charge — Арест звезды реалити-шоу в прошлом месяце — не актуально.
-- [en] не_новость: [pool] Engadget — Polestar is banned in the US, but we still want its latest concept car — Обзор концепт-кара (не серийная модель).
-- [en] не_новость: [pool] KSFY — ‘A Taste of Tradition’ celebrating food and traditions in Bryant Nov. 14 — Анонс фестиваля еды.
-- [en] не_новость: [pool] Rolling Stone — Russell Brand’s Ex-Girlfriend Jemima Goldsmith Accuses Him of ‘Violence, Coerciv — Описание обвинений годичной давности, а не само событие.
-- [en] не_новость: [pool] OKC News — College Football Playoff expansion brings end to Big 12 championship game — Изменение регламента спортивного турнира на 2026 год.
-- [en] не_новость: [world] Variety — Skydance’s Casey Bloys to Be Honored at Producers Guild Awards — Анонс награждения на будущей премии.
-- [en] не_новость: [world] Variety — ‘PAW Patrol’ Spinoff Series ‘Skye’s Pup Squad’ Set for 2027 Release — Анонс сериала на 2027 год.
-- [en] не_новость: [world] Rolling Stone — Dua Lipa Settles ‘Levitating’ Lawsuit With Talk Box Musician — Урегулирование судебного иска — это технический процесс.
-- [en] не_новость: [world] Engadget — Google turns Gemini towards medical paperwork — Анонс запуска предварительной версии продукта.
-- [en] не_новость: [world] Time — Trump and Venezuela’s Elusive Elections — Аналитическая статья («Когда будут выборы?»), нет события.
-- [en] не_новость: [world] TechCrunch — Anthropic launches Claude Meetings to turn workplace discussions into plans and  — Запуск новой функции в ПО (продукт).
-- [en] курьёз: [world] Rolling Stone — See Bruce Springsteen Finally Play ‘Western Stars’ Songs in Public — Музыкант впервые исполнил старые песни на концерте.
-- [en] курьёз: [world] reviewjournal — ‘El Niño saved the day’ for cruise ship pianist who spent 9 hours in Pacific Oce — История о спасении в океане, личный опыт без последствий.
-- [en] не_новость: [world] BBC News — Sales of tinned food and bottled water jump after 'Be Ready' campaign launch — Рост продаж товаров после кампании — рыночный тренд.
-- [en] не_новость: [world] NPR News — Seven days of chaos in the ER: How this country's healthcare system is unravelin — Статья-описание ситуации в больницах, нет события.
-- [en] полка: [world] Азаттык — Sadyr Japarov submits application to participate in Kyrgyzstan's presidential el — Новость о выборах в Кыргызстане не должна быть в мировых для США, если нет глобальных последствий.
+- [es] курьёз: [local] El Financiero — ¿Qué fue de ‘Alfalfa’, de los ‘Pequeños traviesos’? Pidió 2 mil dólares a sus fa — История об экс-актере не является новостью, место в «Интересном».
+- [es] курьёз: [local] La Jornada — Hallan fósil de anfibio de 66 millones de años; antes de la extinción de dinosau — Научная находка без последствий для читателя, место в «Интересном».
+- [es] чужое_мелкое: [pool] La Nación AR — La entrevista del líder de Vox en el programa más visto de la TV española desata — Внутренняя политика Испании, событие не имеет международных последствий.
+- [es] чужое_мелкое: [pool] La Nación AR — El vecino de Pilar detenido por amenazar al Papa negó haber hecho la llamada y c — Локальное происшествие в Аргентине, не имеет значения за пределами страны.
+- [es] чужое_мелкое: [pool] La Nación CR — PPSO asesta recorte de ¢8.048 millones al financiamiento de las universidades pú — Внутреннее бюджетное решение Коста-Рики, не является мировой новостью.
+- [es] чужое_мелкое: [pool] El Nacional VE — Familiares del médico César Omaña denuncian traslado a la cárcel La Planta ante  — Внутренняя новость Венесуэлы, не имеет международного масштаба.
+- [es] чужое_мелкое: [pool] El Mundo — La abogada Leticia de la Hoz, imputada en el 'Caso cloacas' del PSOE, renuncia a — Внутренняя юридическая новость Испании (процесс PSOE).
+- [es] чужое_мелкое: [pool] BBC Mundo — "Estoy muy preocupado porque no tengo noticias de mi dinero": los millones de pa — Внутренний банковский кризис в Парагвае, нет международного резонанса.
+- [es] чужое_мелкое: [pool] El Mundo — "Amenazar sonriendo no es hacer humor": el paso de Abascal por 'La Revuelta' abr — Внутренняя политическая полемика в Испании.
+- [es] чужое_мелкое: [pool] El Mundo — Sira Rego pide a TikTok que pare su actividad en España y, si no lo hace, insta  — Регулирование TikTok в Испании — мелкий внутренний вопрос.
+- [es] чужое_мелкое: [pool] El Mundo — Feijóo promete sustituir el ingreso mínimo vital por una "renta de activación" q — Предвыборные обещания оппозиции в Испании.
+- [es] чужое_мелкое: [pool] La Vanguardia — Huelga de Renfe, Rodalies y trenes en Barcelona hoy, en directo: última hora, se — Локальная забастовка в Барселоне, не является мировой новостью.
+- [es] чужое_мелкое: [pool] 14ymedio — El régimen cubano prohíbe el uso de Starlink a las embajadas extranjeras — Внутреннее административное решение Кубы.
+- [es] курьёз: [world] TechCrunch — PSI intenta hacer negocio con el descubrimiento científico impulsado por IA — Научно-популярный факт, место в «Интересном».
+- [es] не_новость: [world] Engadget — La impresionante tecnología de dictado Rambler de Google ya está disponible tamb — Технологический обзор функции устройства.
+- [es] чужое_мелкое: [world] Variety — Garth Brooks adquiere una frecuencia de radio en Nashville para crear una nueva  — Местная коммерческая сделка радиостанции в США.
+- [es] не_новость: [world] TechCrunch — OpenAI lanza nuevos perfiles de empresa, haciendo que ChatGPT sea un poco más pa — Обзор обновлений интерфейса ChatGPT.
+- [es] чужое_мелкое: [world] El Nacional VE — NYT: Informe revela que EE UU gestionó $12 mil millones en ingresos petroleros v — Старая история о доходах, не событие сегодняшнего дня.
+- [es] чужое_мелкое: [world] The Independent — Toyota lanzará minicamiones en EE. UU. tras la petición de Trump — Планы компании по выходу на рынок США, не является событием мирового масштаба.
+- [es] не_новость: [world] TechCrunch — Anthropic lanza Claude Meetings para convertir las discusiones laborales en plan — Анонс функций программного обеспечения.
+- [es] курьёз: [world] Muy Interesante — Encuentran en Turquía una huella de perro de hace 4.000 años que permanecía ocul — Археологический факт, место в «Интересном».
+- [es] курьёз: [world] BBC Mundo — Las personas que solo necesitan dormir 4 horas y cómo lo explica la genética — Научно-популярная статья о генетике, не новость.
+- [es] чужое_мелкое: [world] Азаттык — Sadyr Japarov presentó su candidatura para las elecciones presidenciales en Kirg — Местное событие в Кыргызстане, неуместно в пуле ES.
+- [es] не_новость: [world] BBC Mundo — "Epstein me violó más de 200 veces": los nuevos testimonios de mujeres que fuero — Пересказ старых показаний, не является новым событием.
+- [es] чужое_мелкое: [world] BBC Mundo — Por qué la infidelidad del jefe de Nvidia con una supesta espía china tendrá rep — Слухи вокруг частной жизни директора компании, не является мировой новостью.
