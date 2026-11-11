@@ -1,27 +1,26 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Universal MX — Senadora del PAN critica a compañera migrante de Morena por quedarse en EU; "dej — Внутренняя политическая полемика в Сенате США не является событием для мексиканского читателя.
-- [es] не_новость: [local] El Financiero — No todos se van: ¿Qué sabemos del redoblaje de ‘Wildwood: El bosque salvaje’? — Это обзор/статья об озвучке фильма, а не событие.
-- [es] не_новость: [local] El Sol de México — La vida de Cantinflas llega al streaming con una nueva bioserie de ViX — Анонс запуска сериала на платформе, не является новостью.
-- [es] не_новость: [local] La Jornada — Somos interpondrá queja por intromisión contra la Presidenta — Планы партии подать жалобу — это намерения, а не свершившееся событие.
-- [es] полка: [local] La Jornada — Hallan fósil de anfibio de 66 millones de años; antes de la extinción de dinosau — Находка окаменелости в Испании — это курьёз/наука, не МЕСТНЫЕ.
-- [es] не_новость: [pool] El Tiempo CO — ‘Servir es hacer que las cosas pasen’: la reflexión que reunió en Barranquilla a — Описание отраслевого мероприятия, нет события.
-- [es] курьёз: [pool] Clarín AR — Quiénes son los cuatro jóvenes que van a dialogar con el papa León XIV en la vig — Религиозное событие/встреча, не имеет глобальных последствий, место в интересном.
-- [es] чужое_мелкое: [pool] Clarín AR — Tras la derrota electoral de los republicanos, el vicepresidente de Trump suspen — Отмена поездки вице-президента США — мелкое политическое событие, не требующее внимания.
-- [es] повтор: [pool] El País — Los sindicatos llaman a España a una huelga general por primera vez en 14 años ≈ «El Gobierno y sus socios relacionan la h» — Тот же сюжет о забастовке в Испании.
-- [es] не_новость: [pool] Marca — Pogacar desvelará su futuro en España — Анонс будущей пресс-конференции, нет события.
-- [es] не_новость: [pool] Marca — El Valencia saborea la Copa — Спортивная заметка о матче, нет важного результата или изменения в таблице.
-- [es] не_новость: [pool] El Informador — Feria de turismo ITB Américas es inaugurada en Expo Guadalajara — Открытие выставки — плановое мероприятие, не новость.
-- [es] не_новость: [pool] El Informador — Pablo Lemus promete disminuir poco a poco los tandeos de agua — Обещание политика — это слова, а не свершившееся событие.
-- [es] не_новость: [pool] BBC Mundo — Mi hermano murió tras rechazar una transfusión por sus creencias; semanas despué — Личная история, а не актуальное событие.
-- [es] не_новость: [world] Ars Technica — El ejército de EE. UU. muestra preocupación por la escasez de suministros de lan — Выражение озабоченности ведомством — не новость.
-- [es] не_новость: [world] Engadget — Estos teléfonos Xiaomi dejarán de recibir soporte con la última actualización Hy — Техническая информация об обновлении ПО.
-- [es] чужое_мелкое: [world] Clarín AR — Quién es la mujer en el centro del escándalo de espionaje de Nvidia — Скандал Nvidia — частный случай, не требующий освещения в мировой ленте.
-- [es] чужое_мелкое: [world] Clarín AR — Donald Trump se endurece: amenaza hasta con la cárcel a los demócratas que acorr — Внутренняя риторика Трампа — это слова, а не решение.
-- [es] повтор: [world] El Universal MX — Nvidia contrata a exfiscal para investigar a Jensen Huang; escala caso de presun ≈ «Quién es la mujer en el centro del escán» — Тот же сюжет о скандале в Nvidia.
-- [es] не_новость: [world] Engadget — La aplicación de Disney+ en Meta Quest ahora incluye películas en 3D — Обновление приложения, не событие.
-- [es] не_новость: [world] TechCrunch — Proximal Ventures recauda fondos iniciales para apoyar startups de IA en el desa — Инвестиции в стартап — обычный процесс.
-- [es] курьёз: [world] Muy Interesante — Xiaomi refuerza su apuesta por la gama media con una rebaja en el smartphone Red — Скидка на смартфон — обычное бизнес-событие/реклама.
-- [es] не_новость: [world] Xataka — Madrid se está convirtiendo en el nuevo Los Ángeles y por el camino se ha quedad — Мнение о пробках в Мадриде, не событие.
-- [es] полка: [world] Азаттык — Sadyr Japarov presentó su candidatura para las elecciones presidenciales en Kirg — Выборы в Кыргызстане — событие не для мексиканского пула.
-- [es] повтор: [world] BBC Mundo — Por qué la infidelidad del jefe de Nvidia con una supesta espía china tendrá rep ≈ «Quién es la mujer en el centro del escán» — Разбор ситуации с Nvidia.
+- [ru] полка: [local] Вечерний Бишкек — В России кыргызстанцу выплатили почти миллион рублей долга по зарплате — Событие в РФ, для ленты KG это мировая новость, а не местная.
+- [ru] чужое_мелкое: [pool] РБК — Десять человек спасли из загоревшегося после атаки БПЛА дома в Ярцеве — Локальное происшествие в РФ (Ярцево), не имеет мирового значения.
+- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — Четверо детей пострадали после ночного пожара в общаге на Блюхера в Уфе — подроб — Локальное происшествие в Уфе, не имеет мирового значения.
+- [ru] не_новость: [pool] 76.ru — Ярославль — Куча фотозон и стройматериалы. Как движется ремонт пешеходного центра в Ярославл — Обычный ход ремонтных работ, нет события.
+- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Из-за ремонта трамвайных путей в центре Челябинска легковушки попали в западню ( — Локальное бытовое неудобство в Челябинске.
+- [ru] не_новость: [pool] Азаттык — СМИ: в Туркменистане из-за нехватки врачей в больницы возвращают медиков-пенсион — Аналитика/обзор ситуации с кадрами, нет конкретного события.
+- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — В Югре в страшном ДТП погибли водитель и два пассажира — Локальное ДТП в РФ, не имеет мирового значения.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Выезд из Широкой Речки застрял в пробке из-за ДТП. Видео с места — Локальная пробка в Екатеринбурге.
+- [ru] полка: [pool] Knews.kg — Американские государственные кредиторы отказываются выделять 1,6 млрд долларов н — Событие в KZ, должно быть в 'Новости из...' (региональные), а не в 'Мировых'.
+- [ru] не_новость: [pool] 74.ru — Челябинск — Уберитесь или убирайтесь. Сирота из Челябинска рискует остаться без жилья из-за  — Жалоба сироты, нет события (решения или действия властей).
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — В тагильской больнице скончалась водитель, которая устроила лобовое ДТП — Локальное ДТП в РФ.
+- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Задавили маркетплейсы? Крупная сеть электроники и бытовой техники закрыла сразу  — Закрытие магазинов в Челябинске — бизнес-новость уровня региона.
+- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — Житель Мучкапского района выплатил 1,28 млн за ДТП — Локальная выплата ущерба частным лицом.
+- [ru] курьёз: [pool] 76.ru — Ярославль — Робот будет бороться с борщевиком в Ярославской области — видео — Любопытный факт про робота, нет значимого события для читателя.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Во Пскове росгвардейцы за сутки пресекли серию краж в магазине — Мелкая рутинная работа милиции в Пскове.
+- [ru] не_новость: [pool] 60.ru — Псков — В Красногородске продолжают ремонт Дома культуры — Плановый ремонт, нет события.
+- [ru] чужое_мелкое: [world] 178.ru — Санкт-Петербург — Пулково: десятки задержек, два рейса ушли в Хельсинки — Задержки рейсов в Пулково — региональное событие РФ.
+- [ru] чужое_мелкое: [world] 178.ru — Санкт-Петербург — Перебои с мобильным интернетом в Петербурге 11 ноября — Технический сбой в Петербурге.
+- [ru] не_новость: [world] TechCrunch — X запускает собственную функцию создания клипов для привлечения инфлюенсеров — Запуск функции в соцсети — обновление продукта, не событие.
+- [ru] не_новость: [world] Ars Technica — Камеры Ring становятся мобильными: Amazon представила охранные дрон и робота с И — Анонс новых устройств (еще не вышли), не событие.
+- [ru] не_новость: [world] TechCrunch — OpenAI приобретает Odessia, туристический стартап, созданный основателем Sonder — Корпоративная сделка стартапа, без влияния на мир.
+- [ru] не_новость: [world] TechCrunch — Proximal Ventures привлекла средства в дебютный фонд для поддержки стартапов, вн — Привлечение венчурных инвестиций фондом — не событие для широкого читателя.
+- [ru] курьёз: [world] 60.ru — Псков — Манганьелло критикуют за откровения о Вергаре — Сплетни о голливудских актерах.
+- [ru] не_новость: [world] Fortune — Скандал ставит под сомнение корпоративное управление Nvidia — Слухи/скандал в совете директоров без официального решения.
