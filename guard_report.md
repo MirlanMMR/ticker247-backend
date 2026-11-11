@@ -1,13 +1,28 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [pool] Marca — LaLiga denuncia insultos a Mbappé, Cataluña, Joan García, Abascal... — Внутренняя жалоба ЛаЛиги на оскорбления — не мировая новость.
-- [es] не_новость: [pool] El Nacional VE — Tarifas del servicio eléctrico se calcularán a la moneda de mayor valor: gobiern — Анонс изменения методики расчёта тарифов без факта вступления в силу.
-- [es] повтор: [pool] El Mundo — Huelga general en Andalucía: Canal Sur Televisión se va a negro cinco horas y la ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
-- [es] повтор: [pool] El Mundo — Los supermercados desploman sus ventas un 30% en la jornada de huelga ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
-- [es] повтор: [pool] El País — El PP descalifica la huelga como “preventiva” contra Feijóo y Vox como “circo ge ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
-- [es] повтор: [pool] La Vanguardia — Los sindicatos ven un éxito la huelga en Catalunya: “Esto es un punto de inflexi ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
-- [es] повтор: [pool] eldiario.es — Los sindicatos planean acciones judiciales por las cargas policiales contra piqu ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
-- [es] повтор: [pool] eldiario.es — Los sindicatos cifran el seguimiento de la huelga entre el 75% y el 41% según co ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
-- [es] повтор: [pool] La Vanguardia — Los sindicatos dicen que la huelga “supera las expectativas” y la CEOE cuantific ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
-- [es] повтор: [pool] BBC Mundo — 3 claves de la primera huelga general en España en 14 años (y la paradoja de que ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
-- [es] полка: [world] El Sol de México — Escuelas de Italia e Irlanda del Norte reciben alertas de bomba en una nueva ola — Событие происходит в Италии и Ирландии, не является местным для Мексики и не несет глобальных последствий.
+- [pt] курьёз: [local] G1 Globo — Histórica 1ª imagem de buraco negro tem formato de anel confirmado por nova anál — научная новость о данных 2017 года без прямого влияния на читателя
+- [pt] не_новость: [local] CNN Brasil — Redução da maioridade penal para 14 anos é considerada improvável — рассуждение о вероятности принятия закона, а не принятое решение
+- [pt] полка: [pool] Observador PT — FNAM junta-se à greve geral da administração pública — новость о Португалии (PT) в пуле Бразилии (BR) должна быть в «Мировых», а не «Новости из...»
+- [pt] полка: [pool] Público — Apreendida embarcação de alta velocidade suspeita de ligação ao narcotráfico enc — новость о Португалии (PT) должна быть в «Мировых»
+- [pt] полка: [pool] Público — BE insiste em proposta para proteger trabalhadores em fenómenos climáticos extre — новость о Португалии (PT) должна быть в «Мировых»
+- [pt] полка: [pool] Público — Vilamoura terá vinha como nos tempos de Cupertino de Miranda — новость о Португалии (PT) должна быть в «Мировых»
+- [pt] срочность: [world] Terra BR — URGENTE: Ameaças de bomba esvaziam mais de 300 escolas em 4 países — событие (электронные письма с угрозами) не требует побудки, нет реальной угрозы
+- [pt] чужое_мелкое: [world] RFI — Israel: Mansour Abbas, um potencial aliado sob condições para o 'bloco de mudanç — внутренние политические коалиции Израиля не являются значимыми для широкого круга читателей в Бразилии
+- [pt] чужое_мелкое: [world] Guardian Sport — Jaylen Brown dá recepção fria ao ex-companheiro de equipe Jayson Tatum na vitóri — спортивная хроника (отношения игроков) — это шум, не мировое событие
+- [pt] не_новость: [world] Ars Technica — O novo drive híbrido da Seagate levanta questões antigas — обзор технической новинки, а не новостное событие
+- [pt] чужое_мелкое: [world] Ars Technica — Os militares dos EUA parecem estar preocupados com a escassez de suprimentos par — технические подробности снабжения военного ведомства США не являются мировым событием
+- [fr] полка: [local] France Bleu — Le député de la Vienne, Sacha Houlié, interdit d'entrer en Russie — Событие международного масштаба (санкции против депутата) — место в «Мировых», а не в «Местных».
+- [fr] полка: [local] Franceinfo — "Il faut se mobiliser et faire du bruit pour faire exister" Christophe Gleizes " — Новость из Алжира должна быть в «Новостях из…», а не в «Местных».
+- [fr] не_новость: [local] France Bleu — Carburants : la baisse des prix à la pompe est loin de compenser la hausse due à — Это аналитика/мнение о причинах цен, а не конкретное событие с фактом.
+- [fr] курьёз: [local] Le Figaro — 11 novembre : Roccia, le rapace star d’un régiment de parachutistes — Рассказ о талисмане полка — это интересная история, а не новостное событие.
+- [fr] полка: [pool] Jeune Afrique — RDC : Félix Tshisekedi promulgue une loi ouvrant la voie à un changement de Cons — Новость о ДРК для французского потока — мировая, а не «Новости из…» (региональная для Франции — это франкоязычная Африка
+- [fr] не_новость: [pool] Le Devoir — Le Canada compte 4306 vétérans de la Seconde Guerre mondiale et de la guerre de  — Статистическая справка, нет события.
+- [fr] курьёз: [pool] RTBF — À 104 ans, Alphonsine raconte sa vie de résistante : "Je ne réfléchissais pas. J — История жизни долгожительницы — это «интересное», а не новость.
+- [fr] повтор: [world] France 24 FR — Fin des pourparlers d'Abou Dhabi ≈ «Les émissaires américains rencontreront » — Дублирует сюжет о встрече элиссаров США в Москве.
+- [fr] курьёз: [world] Courrier International — Le M-19, la guérilla colombienne au cœur de “La Prise du palais” — Анонс сериала на Netflix — не новость.
+- [fr] курьёз: [world] Le Devoir — Le décalage horaire se trouve chez les oiseaux aussi — Научный факт про птиц — место в «Интересном».
+- [fr] не_новость: [world] Semafor — La crise du chômage s'aggrave en Afrique du Sud — Очередной отчет по безработице, ситуация затяжная, нет нового события.
+- [fr] не_новость: [world] Africanews FR — Éthiopie : les recettes des exportations de café ont progressé de 15% en un an — Статистический отчет о росте экспорта, нет события.
+- [fr] не_новость: [world] Africanews FR — Ghana : une décharge au cœur d'une crise environnementale et sanitaire — Описательная заметка о проблемах свалки, без привязки к конкретному событию.
+- [fr] полка: [world] Guardian Sport — Noskova bat Gauff et atteint les demi-finales des Finales WTA, tandis que Pegula — Спорт (международный турнир) — мировая новость, не должна лежать в «Новостях из…» или без пометки.
+- [fr] не_новость: [world] Le Nouvelliste — The partnership with Nayib Bukele promises results, assures PM Alix Didier Fils  — Заверения премьера о будущих результатах партнерства — слова, не событие.
