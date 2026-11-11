@@ -1,16 +1,23 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [local] El Universal MX — Fox Sports México cambia de nombre; se transforma en Nación Deportes — Ребрендинг телеканала — это корпоративное событие, а не новость для широкого читателя.
-- [es] не_новость: [local] El Financiero — ¿Por qué Sheinbaum no puede decir si Guadalupe Taddei salió de México? — Спекуляции и вопросы без фактов: «не могу сказать», «нет информации».
-- [es] курьёз: [local] El Informador — CUCEA investiga a profesor que impide entrada a alumna por usar "chanclas" — Локальный конфликт студента и преподавателя из-за дресс-кода, не имеет общественно значимых последствий.
-- [es] не_новость: [local] El Informador — Aplazan a 96 horas el proceso de vinculación de los detenidos junto con el "R2" — Техническое продление срока ареста (процессуальная рутина) без нового события по существу дела.
-- [es] не_новость: [local] Expansión MX — DiDi encuentra en México un mercado clave para su expansión global — Общий очерк о рынке компании, нет конкретного события.
-- [es] чужое_мелкое: [pool] El Financiero — Santiago Peña, expresidente de Paraguay, pasaría 15 años en prisión por Ueno Ban — Судебная перспектива экс-чиновника другой страны (Парагвай) для мексиканского читателя не является событием.
-- [es] не_новость: [pool] BBC Mundo — 3 claves de la primera huelga general en España en 14 años (y la paradoja de que — Анализ и рассуждения о природе забастовки, а не сообщение о событии.
-- [es] не_новость: [world] Variety — FX renueva la serie «Adults» para una tercera temporada — Продление сериала — это индустриальная заметка, не событие.
-- [es] не_новость: [world] El Economista MX — Nvidia elige a Wachtell, bufete famoso por las batallas del mundo empresarial, p — Найм юристов компанией для расследования — это рабочий процесс, а не событие.
-- [es] не_новость: [world] BBC Mundo — Por qué la familia Kennedy demanda a Trump por la polémica construcción de su ar — Подача иска (начало процесса) не является событием, если нет решения суда или значимого этапа.
-- [es] курьёз: [world] El Financiero — Wall Street ‘se emociona’ por próxima OPI de Anthropic; Nasdaq avanza 1.11% — Ежедневная динамика акций («эмоции Wall Street») — это шум, а не событие.
-- [es] чужое_мелкое: [world] Азаттык — OCCRP: Kirguistán vendió un centro recreativo a una estructura vinculada con una — Локальная сделка по недвижимости в Кыргызстане для читателя в Мексике не является мировой новостью.
-- [es] не_новость: [world] The Guardian — «Robaba de 10 a 15 veces al día»: exdelincuentes hablan sobre las adicciones que — Общие рассуждения бывших преступников о проблеме магазинных краж.
-- [es] курьёз: [world] BBC Mundo — Por fin hay un tratamiento para la demencia de mi hijo de 5 años, pero tiene un  — Личная история отдельной семьи, не является событием мирового масштаба.
+- [pt] не_новость: [local] Metrópoles — Debochado, soldado que matou mulher em van diz sonhar em se aposentar na PM — Высказывание преступника о желании выйти на пенсию не является новостью.
+- [pt] не_новость: [local] Poder360 — 5 medidas de Lula perderam validade no Congresso desde outubro — Истечение срока мер в Конгрессе — текущая работа парламента, не событие.
+- [pt] чужое_мелкое: [local] Estadão — Mãe de crianças desaparecidas em Bacabal e advogada dizem ter sido alvo de ataqu — Локальное криминальное происшествие без широкого резонанса.
+- [pt] не_новость: [local] Agência Brasil — Benedita da Silva e Paim recebem homenagem em sessão solene da Câmara — Празднование и чествование политиков в парламенте — протокольное событие.
+- [pt] не_новость: [local] Estadão — "Vamos enfrentar um Congresso que escolheu pessoas LGBT como inimigas" — Цитата без события, отражает мнение.
+- [pt] курьёз: [pool] Observador PT — Elefante da Bélgica chega ao santuário Pangea — Перевозка животного — интересная история, не новость.
+- [pt] чужое_мелкое: [pool] Público — Foragidos, pais de um dos maiores sonegadores do Brasil estariam em Portugal — Информация о частных лицах, находящихся в розыске, не является новостью для Бразилии.
+- [pt] не_новость: [pool] Terra BR — Pedro Scooby revela como barraco com Luana Piovani o salvou de escândalo finance — Сплетни о знаменитостях (шоу-бизнес) не входят в список событий.
+- [pt] не_новость: [pool] Público — Transparência conclui que deputado do PS insultou e ofendeu Rui Paulo Sousa, do  — Внутрипартийные споры и комиссии — шум, не событие.
+- [pt] не_новость: [pool] ECO — Concurso de distribuição de jornais em suspenso após contestação da PergaminhoFl — Обычный спор по тендеру в португальской бюрократии.
+- [pt] не_новость: [pool] BBC Brasil — O 'teste de motorista' que fez empresa desistir de contratação — e qual o peso d — Разбор (совет) о том, как проходить собеседования.
+- [pt] чужое_мелкое: [world] Notícias ao Minuto — Hezbollah congratula-se com derrota de Trump nas eleições intercalares — Заявление лидера Хезболлы о выборах в США — вторичная реакция, а не событие.
+- [pt] не_новость: [world] Engadget — Google disponibiliza o aplicativo Gemini para Apple CarPlay — Обновление ПО — не событие (отсутствует масштаб, меняющий жизнь).
+- [pt] курьёз: [world] Time — Teddy Riner, o renomado atleta olímpico, concorre à presidência da França — Кандидатура спортсмена в президенты при отсутствии реальных шансов выглядит как курьёз.
+- [pt] чужое_мелкое: [world] Guardian Sport — Denúncia apresentada ao fisco dos EUA em relação a funcionário doméstico do pres — Разборки вокруг домашнего персонала — частное дело, не новость.
+- [pt] не_новость: [world] Mental Floss — Julgamento criminal sobre as letras manuscritas de "Hotel California" de Don Hen — Закрытие судебного дела из-за отсутствия предмета спора — не новость.
+- [pt] не_новость: [world] Time — Biden afirma que teria renunciado se soubesse que tinha câncer — Размышления бывшего президента о прошлом.
+- [pt] не_новость: [world] BBC Brasil — Qual é o risco de doença grave nos olhos por uso de Ozempic e Mounjaro que gerou — Разбор рисков применения лекарства (объяснительная статья).
+- [pt] чужое_мелкое: [world] RFI — Israel: Mansour Abbas, um potencial aliado sob condições para o 'bloco de mudanç — Внутренняя политическая рутина формирования коалиции в Израиле.
+- [pt] чужое_мелкое: [world] Азаттык — OCCRP: Quirguistão vendeu base de lazer a uma estrutura ligada a organização rus — Местная коррупционная сделка в Кыргызстане не значима для бразильского читателя.
+- [pt] не_новость: [world] Fortune — 60 milhões de crianças receberam contas Trump; menos de 1% foram reivindicadas n — Статистическая справка о счетах, не является событием.
