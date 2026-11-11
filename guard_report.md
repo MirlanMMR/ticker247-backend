@@ -1,27 +1,14 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] полка: [local] syracuse.com — Reality star arrested after brawl leaves teen dead — Событие в Турции не должно быть на местной полке США.
-- [en] не_новость: [local] NY Post — Steph Curry’s defense of wife sends Gilbert Arenas, Nick Young scrambling to apo — Это светская хроника и обсуждение мнений, а не событие.
-- [en] не_новость: [local] NY Post — Bari Weiss eyed replacing ‘Face the Nation’ host Margaret Brennan as two top pro — Слухи о кадровых перестановках, которые не состоялись.
-- [en] не_новость: [local] OPB — Oregon Veterans Day ceremony honors service members past and present — Обычное празднование Дня ветеранов, нет значимого события.
-- [en] срочность: [local] WSFA — I-65 crash causes lane closure near Elmore County — Обычное ДТП с перекрытием полосы не требует побудки.
-- [en] не_новость: [local] WRDW — Harlem VFW places hundreds of flags on graves for Veterans Day — Ежегодная плановая церемония к празднику.
-- [en] не_новость: [local] WKYT — Veterans reflect on service, challenges at Camp Nelson ceremony — Ежегодное праздничное мероприятие.
-- [en] не_новость: [local] KFVS12 — Avenue of Flags honors veterans in Cape Girardeau County Park — Ежегодное волонтерское мероприятие.
-- [en] не_новость: [local] WFSB — I-Team: CSCU pays media consulting firm $20,000/month to in part monitor our rep — Журналистское расследование деятельности пиар-фирмы, не событие.
-- [en] не_новость: [local] WABI — American Legion Post 93 hosts Veterans Day celebration in Bucksport — Плановое праздничное мероприятие.
-- [en] не_новость: [local] 1011NOW — Four top prospects to join Nebraska volleyball in 2027 — Анонс спортивного трансфера на 2027 год.
-- [en] не_новость: [local] WCTV — ‘It’s really special’: Tallahassee celebrates Veterans Day with annual parade — Ежегодный парад.
-- [en] курьёз: [local] Untitled RSS Feed — Another False Alarm: Cops Called On Strangers — Who Are Christmas Light Guys — Бытовой казус, не новость.
-- [en] не_новость: [local] Latest &amp; Breaking News — Fairfax judges reject over 2 dozen plea deals, citing light penalties and missin — Текущая судебная статистика, а не конкретное событие.
-- [en] не_новость: [local] KFVS12 — CCC introducing new program in 5 southeast Mo. counties — Анонс запуска программы.
-- [en] не_новость: [local] Fort Worth Report — Fort Worth unveils preliminary plans for downtown community arts incubator — Презентация предварительных планов, не реализация.
-- [en] не_новость: [local] WCAX — Voting rights honored at New Hampshire Veterans Home ceremony — Праздничная церемония.
-- [en] не_новость: [local] WFSB — Yale New Haven Health, UnitedHealthcare contract talks raise concerns for patien — Переговорный процесс, нет факта сделки или срыва.
-- [en] не_новость: [local] Georgia Public Broadcasting — Both sides now? Critics slam DOJ moves to dismiss convictions of Trump allies — Мнения экспертов о действиях Минюста.
-- [en] не_новость: [pool] Sky Sports — Tuchel committed to England - but plotting club return after Three Lions stint — Интервью с тренером о планах на будущее.
-- [en] не_новость: [pool] RTÉ Ireland — Zelensky thanks Ireland for 'unwavering support' — Дипломатический этикет, нет события.
-- [en] не_новость: [world] The Independent — Trump team's plan to sell public lands to decrease size of federal estate draws  — Политическая дискуссия о намерениях, не решение.
-- [en] курьёз: [world] Wired — I Saw the Future of Robotics in a Virtual Duck That Chases My Cat — Технологический обзор робота-утки, место в 'Интересном'.
-- [en] не_новость: [world] TechCrunch — CoreWeave turns to customer prepayments, shorter contracts to fund AI growth — Анализ финансовых стратегий компании.
-- [en] курьёз: [world] Mental Floss — The Criminal Trial Over Don Henley’s Handwritten “Hotel California” Lyrics — Историческая справка об альбоме 50-летней давности.
+- [es] чужое_мелкое: [pool] Infobae — Verónica Alcocer habló de las acusaciones de Eva Ferrer por el supuesto transpor — Внутренняя скандальная хроника первой леди Колумбии не имеет мирового значения.
+- [es] чужое_мелкое: [pool] El Financiero — Evo Morales suma acusaciones: Gobierno de Bolivia lo señala de ser jefe de un ca — Внутренняя политическая борьба и обвинения экс-президента Боливии — местная новость для Боливии.
+- [es] чужое_мелкое: [pool] El Nacional VE — Crisis en Paraguay: "Hubo una guerra política detrás de la caída de Ueno Bank y  — События в Парагвае (кризис банка и отставка президента) — местная новость для Парагвая.
+- [es] чужое_мелкое: [pool] El Financiero — Caso Fernando Cerimedo: Nadia Beller sale de Bolivia y viaja a México tras recib — Частный случай с выдачей дип-сопровождения — внутренняя дипломатическая рутина Боливии.
+- [es] чужое_мелкое: [pool] El Financiero — TikTok España es investigado por posibles delitos de abuso sexual infantil en su — Расследование локального представительства TikTok в Испании — мелкая новость, не имеющая мирового веса.
+- [es] повтор: [world] La Nación AR — Frankie Muniz, estrella de Malcolm in the Middle, fue hospitalizado tras sufrir  ≈ «Frankie Muniz choca durante una práctica» — Тот же инцидент с актером Фрэнки Мунизом, что и в №58.
+- [es] повтор: [world] Clarín AR — De transportar a JFK y Marilyn Monroe al fondo del mar: hunden el mítico S.S. Un ≈ «Por qué hunden frente a la costa de Flor» — Тот же сюжет об уничтожении корабля SS United States, что и в №64.
+- [es] чужое_мелкое: [world] Prensa Libre GT — Las pruebas de ADN que lograron la captura de un presunto violador en Florida — Раскрытие старого дела об изнасиловании в США не является мировой новостью.
+- [es] не_новость: [world] TechCrunch — CoreWeave recurre a pagos anticipados de clientes y contratos más cortos para fi — Аналитика финансовой стратегии компании без свершившегося факта (закрытия сделки).
+- [es] чужое_мелкое: [world] BBC Mundo — "Un juez me ordenó por Zoom someterme a una cesárea mientras estaba pariendo en  — Частный судебный спор в США, не имеющий глобальных последствий.
+- [es] чужое_мелкое: [world] BBC Mundo — Por qué la familia Kennedy demanda a Trump por la polémica construcción de su ar — Локальный иск к Дональду Трампу по поводу строительства арки в конкретном месте.
+- [es] полка: [world] Азаттык — OCCRP: Kirguistán vendió un centro recreativo a una estructura vinculada con una — Новость о продаже киргизского объекта недвижимости должна быть в МЕСТНЫХ (или региональных для ЦА), а не в МИРОВЫХ.
