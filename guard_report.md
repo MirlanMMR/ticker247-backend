@@ -1,27 +1,13 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] чужое_мелкое: [local] WTVA — Gulfport Seabee’s overdose death sends three to federal prison — Внутренняя уголовная хроника, событие не имеет значения за пределами США.
-- [en] срочность: [local] WSFA — Man killed in overnight Montgomery shooting — Криминальная хроника (единичное убийство) не требует «срочного» оповещения.
-- [en] не_новость: [local] WDBJ7 — Girl Scout cookie season begins Dec. 1 with two new cookies — Плановое сезонное мероприятие, нет события.
-- [en] не_новость: [local] OPB — A $1 sale saved the Tillamook Air Museum. Now the restoration starts — Завершенный ремонт спустя 10 месяцев, не является оперативной новостью.
-- [en] не_новость: [local] CalMatters — CA overhauled a key conservatorship law. Has anything changed? — Аналитический обзор/рассуждение о законе трехлетней давности.
-- [en] не_новость: [local] El Paso Matters — Las Artistas art show returns; Flying Horse races bring runners to the Borderlan — Анонс предстоящих культурных мероприятий, нет свершившегося события.
-- [en] не_новость: [local] syracuse.com — A 20-year Finger Lakes Christmas market is ending this weekend — Анонс закрытия рынка после двух десятилетий, не является новостным событием.
-- [en] не_новость: [local] reviewjournal — Here’s where veterans can get free meals, other deals on Veterans Day — Подборка маркетинговых акций ко дню ветеранов.
-- [en] не_новость: [local] WKYT — Letters for Santa mailbox now open in London — Установка почтового ящика для писем Санте — бытовая деталь, не новость.
-- [en] срочность: [local] KOB — BCSO: Crash leaves 1 dead in NW Albuquerque — Единичное ДТП с пострадавшим не является событием для побудки.
-- [en] срочность: [local] WSMV — Semi crash shuts down road in Hopkinsville — Обычное ДТП с грузовиком не требует срочного уведомления.
-- [en] не_новость: [local] reviewjournal — Frontier Airlines makeover will put first-class seats on flights — Планы авиакомпании на будущее (до марта), нет совершившегося факта.
-- [en] не_новость: [local] KFYR-TV — Harvey Wells-County football’s playoff run continues to Dakota Bowl — Анонс спортивного матча, нет результата.
-- [en] не_новость: [local] WECT — Cape Fear Community College to launch manufacturing certification program in Jan — Анонс запуска программы в январе, нет события.
-- [en] не_новость: [local] CBS News — Hegseth avoids impeachment after House Republicans rally. — Описание политического процесса (отказ от импичмента), нет изменения статуса.
-- [en] не_новость: [local] WCTV — Woman loses more than $400K of retirement savings to gold courier scam — Описание схемы мошенничества, нет привязки к конкретному свежему происшествию.
-- [en] не_новость: [local] reviewjournal — ‘A different animal’: Four Seasons high-rise complex in Henderson tops $960M in  — Анализ рынка недвижимости, не является новостным событием.
-- [en] не_новость: [local] KOTA — As ‘child predator hunters’ go viral, states grapple with the risks of civilian  — Общий обзор тренда гражданских групп, нет конкретного события.
-- [en] срочность: [local] WIBW — Motorcycle-deer collision reported early Wednesday in Osage County — Мелкое ДТП с животным не требует срочной пометки.
-- [en] срочность: [local] WJXT News4JAX — Traffic Alert: Fatal crash blocks all lanes of Hodges Boulevard at Beach Bouleva — Перекрытие полос из-за аварии — плановое оповещение, не срочно.
-- [en] срочность: [local] WIBW — Crews on scene of house fire early Wednesday in East Topeka — Обычный пожар жилого дома не требует «срочного» уведомления.
-- [en] не_новость: [pool] Variety — Adobe Gives Sneak Peek at Real-Time Generative AI Video Editing Feature — Технологический анонс функции, нет релиза.
-- [en] не_новость: [pool] TechCrunch — X launches its own clipping feature to spur influencer engagement — Запуск функции для инфлюенсеров — описание продукта, не новость.
-- [en] не_новость: [world] TechCrunch — Plurai wants to help AI agents work better using the same approach that helped g — Стартап-аналитика, нет свершившегося события.
-- [en] курьёз: [world] Wired — Exclusive: Your Smartphone Camera Could Get a Big Upgrade With This Tech — Технологический концепт/описание, не новость.
+- [es] чужое_мелкое: [pool] Marca — LaLiga denuncia insultos a Mbappé, Cataluña, Joan García, Abascal... — Внутренняя жалоба ЛаЛиги на оскорбления — не мировая новость.
+- [es] не_новость: [pool] El Nacional VE — Tarifas del servicio eléctrico se calcularán a la moneda de mayor valor: gobiern — Анонс изменения методики расчёта тарифов без факта вступления в силу.
+- [es] повтор: [pool] El Mundo — Huelga general en Andalucía: Canal Sur Televisión se va a negro cinco horas y la ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
+- [es] повтор: [pool] El Mundo — Los supermercados desploman sus ventas un 30% en la jornada de huelga ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
+- [es] повтор: [pool] El País — El PP descalifica la huelga como “preventiva” contra Feijóo y Vox como “circo ge ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
+- [es] повтор: [pool] La Vanguardia — Los sindicatos ven un éxito la huelga en Catalunya: “Esto es un punto de inflexi ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
+- [es] повтор: [pool] eldiario.es — Los sindicatos planean acciones judiciales por las cargas policiales contra piqu ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
+- [es] повтор: [pool] eldiario.es — Los sindicatos cifran el seguimiento de la huelga entre el 75% y el 41% según co ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
+- [es] повтор: [pool] La Vanguardia — Los sindicatos dicen que la huelga “supera las expectativas” y la CEOE cuantific ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
+- [es] повтор: [pool] BBC Mundo — 3 claves de la primera huelga general en España en 14 años (y la paradoja de que ≈ «La primera huelga general en 14 años por» — Один и тот же сюжет: забастовка в Испании.
+- [es] полка: [world] El Sol de México — Escuelas de Italia e Irlanda del Norte reciben alertas de bomba en una nueva ola — Событие происходит в Италии и Ирландии, не является местным для Мексики и не несет глобальных последствий.
