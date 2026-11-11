@@ -1,27 +1,33 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — В Орске сгорел дачный домик — обнаружено тело погибшего — внутренняя бытовая сводка из РФ (Оренбург) для пула ru (Кыргызстан)
-- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — «Никто не виноват»: пассажирка с детьми застряла на чужой станции из-за обрушени — региональное дорожное происшествие в РФ (Архангельск)
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — «В конечном итоге я ее задушил»: убийца уральского главврача рассказал, как расп — криминальная хроника из РФ (Екатеринбург)
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Тысячи домов остались без холодной воды в Самарской области — локальная коммунальная авария в РФ (Самара)
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Автобус с чиновниками столкнулся с фурой на трассе Пермь — местное ДТП в РФ (Пермь)
-- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Прикрыли наркомагазин в даркнете. — местный приговор в РФ (Якутск)
-- [ru] чужое_мелкое: [pool] iXBT — «МегаФон» разогнал мобильный интернет на главных трассах Нижнего Новгорода — корпоративные новости оператора в РФ (Нижний Новгород)
-- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — Накормил брата кислотой. Трехмесячного младенца из Ростова отравили жидкостью дл — бытовое происшествие в РФ (Ростов)
-- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — «Ужас, что дети вспоминать будут». Сотрудника ФСИН насмерть забили битой среди б — криминальная хроника в РФ (Новосибирск)
-- [ru] чужое_мелкое: [pool] Onliner.by — Мобильным операторам запретят автоматически подключать дополнительные гигабайты? — внутренние правила сотового оператора в Беларуси
-- [ru] чужое_мелкое: [pool] Kun.uz — Дело завхоза-педофила из Учкургана направлено в суд — местный суд в Узбекистане
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — После смертельного обрушения горной породы на Гайском ГОКе возбуждено уголовное  — уголовное дело после ЧП в РФ (Оренбург)
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Иностранец с другом изнасиловал девушку на берегу пруда в Екатеринбурге — криминальная хроника в РФ (Екатеринбург)
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Рязанец превратил гараж в табачный склад на миллион рублей — местный полицейский отчет из РФ (Рязань)
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самарской области планируют изменить нормативы по вывозу мусора — местные нормативы по мусору в РФ (Самара)
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Рязани почти месяц ищут женщину в фиолетовой куртке — местный розыск пропавшего в РФ (Рязань)
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — На Касимовском шоссе столкнулись два автомобиля — местное ДТП в РФ (Рязань)
-- [ru] курьёз: [pool] 51.ru — Мурманск — Учёные со всего мира съехались в Мурманск изучать Арктику и Шпицберген — научная конференция в РФ не имеет значения для пула KG
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самаре пропал 16-летний подросток. Его ищут уже шестой день — розыск пропавшего в РФ (Самара)
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Тюменскую школьницу объявили в розыск — о ней ничего неизвестно уже неделю — розыск пропавшего в РФ (Тюмень)
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Какие вирусы разгулялись по Самарской области. Свежие данные от Роспотребнадзора — локальная статистика ОРВИ в РФ (Самара)
-- [ru] чужое_мелкое: [pool] Gazeta.uz — Уголовное дело об изнасиловании девочки в Коканде переквалифицировано — местное уголовное дело в Узбекистане
-- [ru] чужое_мелкое: [pool] 45.ru — Курган — Администрация Кургана прокомментировала ремонт улицы в Черемухово — местный спор о ремонте дороги в РФ (Курган)
-- [ru] чужое_мелкое: [pool] 48.ru — Липецк — Липчанин получил 300 часов работ за пьяную езду — местный приговор суда в РФ (Липецк)
-- [ru] чужое_мелкое: [pool] 48.ru — Липецк — Липецкий суд приговорил 17-летнего за кражи и грабёж — местный приговор суда в РФ (Липецк)
+- [pt] не_новость: [local] Metrópoles — Deputado cobra regras para restringir porte de arma de PMs fora de serviço — депутат «кобра» (требует) правила, это намерение, а не событие.
+- [pt] курьёз: [local] CNN Brasil — Falta de saneamento influencia no desempenho de estudantes no Enem — это анализ влияния среды на обучение, а не событие с конкретным результатом.
+- [pt] не_новость: [local] Agência Brasil — COP 31: estudo mostra que agro pode ter prejuízo com desmatamento — это публикация очередного прогноза/исследования (мнение о будущем), а не событие.
+- [pt] не_новость: [local] G1 Minas — Ministério Público define lista tríplice para escolha do procurador-geral de Jus — составление списка кандидатов — это часть процесса, событие — само назначение.
+- [pt] анонс: [pool] Observador PT — Madeira. Albuquerque avisa para risco de deslizamentos — текст отсутствует, только технический код страницы.
+- [pt] не_новость: [pool] BBC Brasil — Brasil não deveria aumentar o salário mínimo, mas se livrar dele, diz o economis — мнение экономиста о том, что «не стоило бы» делать, не является новостным событием.
+- [pt] не_новость: [world] Engadget — CEO da Lucid afirma que a empresa não sabia a localização de seus próprios carro — признание ошибок прошлого в логистике без конкретного действия или изменения для потребителя.
+- [pt] курьёз: [world] Variety — ‘NAZA’, dos codiretores de ‘No Other Land’, ultrapassa 1,5 milhão de espectadore — статистика просмотров фильма не является мировым событием.
+- [pt] чужое_мелкое: [world] Time — Republicanos da Câmara bloqueiam impeachment de Hegseth, mas democratas podem re — внутриполитические процедурные игры Конгресса США без состоявшегося импичмента.
+- [pt] не_новость: [world] TechCrunch — OpenAI e Anthropic enfrentam nova supervisão com a entrada em vigor da lei de se — процесс подготовки к выполнению закона, а не свершившийся факт/решение.
+- [fr] не_новость: [local] Nice-Matin — Nice, Saint-Laurent-du-Var, Vence, La Trinité… La liste des quartiers candidats  — Это анонс процесса (список кандидатов), а не завершенное событие.
+- [fr] не_новость: [local] France Bleu — Carburants : la baisse des prix à la pompe est loin de compenser la hausse due à — Аналитическая заметка об экономике, а не событие.
+- [fr] не_новость: [local] BFMTV — Le président de SOS Racisme estime que la candidature d'Éric Zemmour, condamné p — Мнение политика о другом кандидате не является событием.
+- [fr] курьёз: [local] La Dépêche — VRAI OU FAUX. Guy Marchand était-il vraiment un agent des services secrets ? Ce  — История об актере, нет события.
+- [fr] не_новость: [local] 20 Minutes — « Vous vous prenez pour qui ? »… Séquence très tendue entre Alexis Corbière et L — Словесная перепалка на телешоу — не новость.
+- [fr] не_новость: [local] Le Figaro — Commémoration du 11 Novembre à l'école : une «polémique très regrettable», estim — Обсуждение полемики, а не событие.
+- [fr] не_новость: [local] Franceinfo — Des maires d'arrondissements parisiens demandent la mise en place d'arrêtés pour — Запрос мэров к властям — это не решение, а намерение.
+- [fr] не_новость: [local] Franceinfo — Bruno Retailleau, patron des Républicains, propose une primaire de la droite et  — Предложение о проведении праймериз — это дискуссия, а не решение.
+- [fr] не_новость: [local] France Bleu — VIDÉOS - Jouets dopés à l'intelligence artificielle, pop coréenne, jeux de carte — Обзор трендов к празднику, а не событие.
+- [fr] курьёз: [local] Le Figaro — 11 novembre : Roccia, le rapace star d’un régiment de parachutistes — Заметка о маскоте части, не новость.
+- [fr] не_новость: [local] 20 Minutes — « L’incertitude se transforme en anxiété »… La santé mentale des jeunes mobilisé — Рассуждение о ментальном состоянии, нет события.
+- [fr] не_новость: [pool] Radio-Canada — Le film Villeneuve : l’ascension d’une légende arrive enfin au cinéma — Анонс выхода фильма в прокат.
+- [fr] не_новость: [pool] Radio-Canada — Sans CF Montréal, la Première ligue canadienne doit viser Québec, selon Rocco Pl — Мнение спортивного функционера.
+- [fr] курьёз: [pool] RTBF — Gault&Millau : "Des clients tentent de se faire passer pour nos inspecteurs afin — История о попытках обмануть рестораны.
+- [fr] не_новость: [pool] RTBF — QR : que font les criminels avec nos données qui ont fuité ? Et que risquons-nou — Разъяснительный материал, «что делать», нет события.
+- [fr] не_новость: [world] La Tribune — Nvidia : l'analyse d'images prouve l'accès privilégié d'Alice Huang au cœur des  — Сплетни/слухи о бизнесе, нет факта сделки или решения.
+- [fr] курьёз: [world] BFMTV — Après les révélations sur sa liaison avec une espionne chinoise supposée, le pat — Материал о мемах, а не о значимом событии.
+- [fr] курьёз: [world] Nice-Matin — En Suisse, une nouvelle méthode permet de détecter le GHB jusqu’à 72 heures aprè — Научно-популярная заметка о методе, нет события.
+- [fr] не_новость: [world] Africanews FR — COP31 : des militants réclament un financement adapté à l'Afrique — Митинг активистов на полях саммита не является новостным событием.
+- [fr] не_новость: [world] RTÉ Ireland — Des dirigeants mondiaux présents à la COP31, mais des absences remarquées — Анонс того, кто приедет или не приедет на саммит.
+- [fr] полка: [world] Guardian Sport — Noskova bat Gauff et atteint les demi-finales des Finales WTA, tandis que Pegula — Спортивный результат (теннис) — это мировая новость, не местная.
