@@ -1,23 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] Metrópoles — Debochado, soldado que matou mulher em van diz sonhar em se aposentar na PM — Высказывание преступника о желании выйти на пенсию не является новостью.
-- [pt] не_новость: [local] Poder360 — 5 medidas de Lula perderam validade no Congresso desde outubro — Истечение срока мер в Конгрессе — текущая работа парламента, не событие.
-- [pt] чужое_мелкое: [local] Estadão — Mãe de crianças desaparecidas em Bacabal e advogada dizem ter sido alvo de ataqu — Локальное криминальное происшествие без широкого резонанса.
-- [pt] не_новость: [local] Agência Brasil — Benedita da Silva e Paim recebem homenagem em sessão solene da Câmara — Празднование и чествование политиков в парламенте — протокольное событие.
-- [pt] не_новость: [local] Estadão — "Vamos enfrentar um Congresso que escolheu pessoas LGBT como inimigas" — Цитата без события, отражает мнение.
-- [pt] курьёз: [pool] Observador PT — Elefante da Bélgica chega ao santuário Pangea — Перевозка животного — интересная история, не новость.
-- [pt] чужое_мелкое: [pool] Público — Foragidos, pais de um dos maiores sonegadores do Brasil estariam em Portugal — Информация о частных лицах, находящихся в розыске, не является новостью для Бразилии.
-- [pt] не_новость: [pool] Terra BR — Pedro Scooby revela como barraco com Luana Piovani o salvou de escândalo finance — Сплетни о знаменитостях (шоу-бизнес) не входят в список событий.
-- [pt] не_новость: [pool] Público — Transparência conclui que deputado do PS insultou e ofendeu Rui Paulo Sousa, do  — Внутрипартийные споры и комиссии — шум, не событие.
-- [pt] не_новость: [pool] ECO — Concurso de distribuição de jornais em suspenso após contestação da PergaminhoFl — Обычный спор по тендеру в португальской бюрократии.
-- [pt] не_новость: [pool] BBC Brasil — O 'teste de motorista' que fez empresa desistir de contratação — e qual o peso d — Разбор (совет) о том, как проходить собеседования.
-- [pt] чужое_мелкое: [world] Notícias ao Minuto — Hezbollah congratula-se com derrota de Trump nas eleições intercalares — Заявление лидера Хезболлы о выборах в США — вторичная реакция, а не событие.
-- [pt] не_новость: [world] Engadget — Google disponibiliza o aplicativo Gemini para Apple CarPlay — Обновление ПО — не событие (отсутствует масштаб, меняющий жизнь).
-- [pt] курьёз: [world] Time — Teddy Riner, o renomado atleta olímpico, concorre à presidência da França — Кандидатура спортсмена в президенты при отсутствии реальных шансов выглядит как курьёз.
-- [pt] чужое_мелкое: [world] Guardian Sport — Denúncia apresentada ao fisco dos EUA em relação a funcionário doméstico do pres — Разборки вокруг домашнего персонала — частное дело, не новость.
-- [pt] не_новость: [world] Mental Floss — Julgamento criminal sobre as letras manuscritas de "Hotel California" de Don Hen — Закрытие судебного дела из-за отсутствия предмета спора — не новость.
-- [pt] не_новость: [world] Time — Biden afirma que teria renunciado se soubesse que tinha câncer — Размышления бывшего президента о прошлом.
-- [pt] не_новость: [world] BBC Brasil — Qual é o risco de doença grave nos olhos por uso de Ozempic e Mounjaro que gerou — Разбор рисков применения лекарства (объяснительная статья).
-- [pt] чужое_мелкое: [world] RFI — Israel: Mansour Abbas, um potencial aliado sob condições para o 'bloco de mudanç — Внутренняя политическая рутина формирования коалиции в Израиле.
-- [pt] чужое_мелкое: [world] Азаттык — OCCRP: Quirguistão vendeu base de lazer a uma estrutura ligada a organização rus — Местная коррупционная сделка в Кыргызстане не значима для бразильского читателя.
-- [pt] не_новость: [world] Fortune — 60 milhões de crianças receberam contas Trump; menos de 1% foram reivindicadas n — Статистическая справка о счетах, не является событием.
+- [en] полка: [local] syracuse.com — Reality star arrested after brawl leaves teen dead — Событие в Турции не должно быть на местной полке США.
+- [en] не_новость: [local] NY Post — Steph Curry’s defense of wife sends Gilbert Arenas, Nick Young scrambling to apo — Это светская хроника и обсуждение мнений, а не событие.
+- [en] не_новость: [local] NY Post — Bari Weiss eyed replacing ‘Face the Nation’ host Margaret Brennan as two top pro — Слухи о кадровых перестановках, которые не состоялись.
+- [en] не_новость: [local] OPB — Oregon Veterans Day ceremony honors service members past and present — Обычное празднование Дня ветеранов, нет значимого события.
+- [en] срочность: [local] WSFA — I-65 crash causes lane closure near Elmore County — Обычное ДТП с перекрытием полосы не требует побудки.
+- [en] не_новость: [local] WRDW — Harlem VFW places hundreds of flags on graves for Veterans Day — Ежегодная плановая церемония к празднику.
+- [en] не_новость: [local] WKYT — Veterans reflect on service, challenges at Camp Nelson ceremony — Ежегодное праздничное мероприятие.
+- [en] не_новость: [local] KFVS12 — Avenue of Flags honors veterans in Cape Girardeau County Park — Ежегодное волонтерское мероприятие.
+- [en] не_новость: [local] WFSB — I-Team: CSCU pays media consulting firm $20,000/month to in part monitor our rep — Журналистское расследование деятельности пиар-фирмы, не событие.
+- [en] не_новость: [local] WABI — American Legion Post 93 hosts Veterans Day celebration in Bucksport — Плановое праздничное мероприятие.
+- [en] не_новость: [local] 1011NOW — Four top prospects to join Nebraska volleyball in 2027 — Анонс спортивного трансфера на 2027 год.
+- [en] не_новость: [local] WCTV — ‘It’s really special’: Tallahassee celebrates Veterans Day with annual parade — Ежегодный парад.
+- [en] курьёз: [local] Untitled RSS Feed — Another False Alarm: Cops Called On Strangers — Who Are Christmas Light Guys — Бытовой казус, не новость.
+- [en] не_новость: [local] Latest &amp; Breaking News — Fairfax judges reject over 2 dozen plea deals, citing light penalties and missin — Текущая судебная статистика, а не конкретное событие.
+- [en] не_новость: [local] KFVS12 — CCC introducing new program in 5 southeast Mo. counties — Анонс запуска программы.
+- [en] не_новость: [local] Fort Worth Report — Fort Worth unveils preliminary plans for downtown community arts incubator — Презентация предварительных планов, не реализация.
+- [en] не_новость: [local] WCAX — Voting rights honored at New Hampshire Veterans Home ceremony — Праздничная церемония.
+- [en] не_новость: [local] WFSB — Yale New Haven Health, UnitedHealthcare contract talks raise concerns for patien — Переговорный процесс, нет факта сделки или срыва.
+- [en] не_новость: [local] Georgia Public Broadcasting — Both sides now? Critics slam DOJ moves to dismiss convictions of Trump allies — Мнения экспертов о действиях Минюста.
+- [en] не_новость: [pool] Sky Sports — Tuchel committed to England - but plotting club return after Three Lions stint — Интервью с тренером о планах на будущее.
+- [en] не_новость: [pool] RTÉ Ireland — Zelensky thanks Ireland for 'unwavering support' — Дипломатический этикет, нет события.
+- [en] не_новость: [world] The Independent — Trump team's plan to sell public lands to decrease size of federal estate draws  — Политическая дискуссия о намерениях, не решение.
+- [en] курьёз: [world] Wired — I Saw the Future of Robotics in a Virtual Duck That Chases My Cat — Технологический обзор робота-утки, место в 'Интересном'.
+- [en] не_новость: [world] TechCrunch — CoreWeave turns to customer prepayments, shorter contracts to fund AI growth — Анализ финансовых стратегий компании.
+- [en] курьёз: [world] Mental Floss — The Criminal Trial Over Don Henley’s Handwritten “Hotel California” Lyrics — Историческая справка об альбоме 50-летней давности.
