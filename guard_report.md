@@ -1,28 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [local] G1 Globo — Histórica 1ª imagem de buraco negro tem formato de anel confirmado por nova anál — научная новость о данных 2017 года без прямого влияния на читателя
-- [pt] не_новость: [local] CNN Brasil — Redução da maioridade penal para 14 anos é considerada improvável — рассуждение о вероятности принятия закона, а не принятое решение
-- [pt] полка: [pool] Observador PT — FNAM junta-se à greve geral da administração pública — новость о Португалии (PT) в пуле Бразилии (BR) должна быть в «Мировых», а не «Новости из...»
-- [pt] полка: [pool] Público — Apreendida embarcação de alta velocidade suspeita de ligação ao narcotráfico enc — новость о Португалии (PT) должна быть в «Мировых»
-- [pt] полка: [pool] Público — BE insiste em proposta para proteger trabalhadores em fenómenos climáticos extre — новость о Португалии (PT) должна быть в «Мировых»
-- [pt] полка: [pool] Público — Vilamoura terá vinha como nos tempos de Cupertino de Miranda — новость о Португалии (PT) должна быть в «Мировых»
-- [pt] срочность: [world] Terra BR — URGENTE: Ameaças de bomba esvaziam mais de 300 escolas em 4 países — событие (электронные письма с угрозами) не требует побудки, нет реальной угрозы
-- [pt] чужое_мелкое: [world] RFI — Israel: Mansour Abbas, um potencial aliado sob condições para o 'bloco de mudanç — внутренние политические коалиции Израиля не являются значимыми для широкого круга читателей в Бразилии
-- [pt] чужое_мелкое: [world] Guardian Sport — Jaylen Brown dá recepção fria ao ex-companheiro de equipe Jayson Tatum na vitóri — спортивная хроника (отношения игроков) — это шум, не мировое событие
-- [pt] не_новость: [world] Ars Technica — O novo drive híbrido da Seagate levanta questões antigas — обзор технической новинки, а не новостное событие
-- [pt] чужое_мелкое: [world] Ars Technica — Os militares dos EUA parecem estar preocupados com a escassez de suprimentos par — технические подробности снабжения военного ведомства США не являются мировым событием
-- [fr] полка: [local] France Bleu — Le député de la Vienne, Sacha Houlié, interdit d'entrer en Russie — Событие международного масштаба (санкции против депутата) — место в «Мировых», а не в «Местных».
-- [fr] полка: [local] Franceinfo — "Il faut se mobiliser et faire du bruit pour faire exister" Christophe Gleizes " — Новость из Алжира должна быть в «Новостях из…», а не в «Местных».
-- [fr] не_новость: [local] France Bleu — Carburants : la baisse des prix à la pompe est loin de compenser la hausse due à — Это аналитика/мнение о причинах цен, а не конкретное событие с фактом.
-- [fr] курьёз: [local] Le Figaro — 11 novembre : Roccia, le rapace star d’un régiment de parachutistes — Рассказ о талисмане полка — это интересная история, а не новостное событие.
-- [fr] полка: [pool] Jeune Afrique — RDC : Félix Tshisekedi promulgue une loi ouvrant la voie à un changement de Cons — Новость о ДРК для французского потока — мировая, а не «Новости из…» (региональная для Франции — это франкоязычная Африка
-- [fr] не_новость: [pool] Le Devoir — Le Canada compte 4306 vétérans de la Seconde Guerre mondiale et de la guerre de  — Статистическая справка, нет события.
-- [fr] курьёз: [pool] RTBF — À 104 ans, Alphonsine raconte sa vie de résistante : "Je ne réfléchissais pas. J — История жизни долгожительницы — это «интересное», а не новость.
-- [fr] повтор: [world] France 24 FR — Fin des pourparlers d'Abou Dhabi ≈ «Les émissaires américains rencontreront » — Дублирует сюжет о встрече элиссаров США в Москве.
-- [fr] курьёз: [world] Courrier International — Le M-19, la guérilla colombienne au cœur de “La Prise du palais” — Анонс сериала на Netflix — не новость.
-- [fr] курьёз: [world] Le Devoir — Le décalage horaire se trouve chez les oiseaux aussi — Научный факт про птиц — место в «Интересном».
-- [fr] не_новость: [world] Semafor — La crise du chômage s'aggrave en Afrique du Sud — Очередной отчет по безработице, ситуация затяжная, нет нового события.
-- [fr] не_новость: [world] Africanews FR — Éthiopie : les recettes des exportations de café ont progressé de 15% en un an — Статистический отчет о росте экспорта, нет события.
-- [fr] не_новость: [world] Africanews FR — Ghana : une décharge au cœur d'une crise environnementale et sanitaire — Описательная заметка о проблемах свалки, без привязки к конкретному событию.
-- [fr] полка: [world] Guardian Sport — Noskova bat Gauff et atteint les demi-finales des Finales WTA, tandis que Pegula — Спорт (международный турнир) — мировая новость, не должна лежать в «Новостях из…» или без пометки.
-- [fr] не_новость: [world] Le Nouvelliste — The partnership with Nayib Bukele promises results, assures PM Alix Didier Fils  — Заверения премьера о будущих результатах партнерства — слова, не событие.
+- [en] срочность: [local] NY Post — ‘Below Deck’ alum arrested in Turkey after fistfight leaves 17-year-old dead as  — Криминальная хроника из-за рубежа не является поводом для экстренного уведомления (побудки).
+- [en] не_новость: [local] Untitled RSS Feed — Who Took A Sublette Commissioner's Sign One Day After He Helped Kill A Project? — Кража знака с частной территории не является событием общегородского или государственного масштаба.
+- [en] чужое_мелкое: [local] Deseret News — Billionaire tax fails in California, deepening Democratic divide — Внутренняя политика штата (Калифорния) — это местная новость, для ленты US она не является «мировой».
+- [en] не_новость: [local] CBS News — Veterans groups keep focus on traumatic brain injuries — Общий обзор темы в рамках праздника, нет конкретного события.
+- [en] курьёз: [local] Clarín AR — Breaking Bad actor lists his California mansion for $3.2 million following separ — Продажа дома актером — частное дело, место в «Интересном».
+- [en] срочность: [local] reviewjournal — Las Vegas civil rights leader charged with DUI in pedestrian crash — Местная криминальная сводка (DUI) не требует статуса «СРОЧНО».
+- [en] не_новость: [local] Cleveland.com — 3.6% VA disability COLA: When the increase starts and how much it adds — Разъяснение о повышении выплат — справочная информация, а не событие.
+- [en] не_новость: [local] Untitled RSS Feed — Angry Farm Owners Put Store On Market, Accuse City Of Cheyenne Of 'Crony Capital — Жалоба владельца фермы на городские власти — частный конфликт, а не общественное событие.
+- [en] не_новость: [local] Arizona's Family — 4 Tillman Scholars receive scholarship for military service, academics — Церемониальное вручение стипендий в рамках программы — плановое событие.
+- [en] не_новость: [local] 1011NOW — Four top prospects to join Nebraska volleyball in 2027 — Обычный спортивный трансфер (набор в университетскую команду) — это не новость уровня ленты.
+- [en] чужое_мелкое: [local] CBS News — Mississippi Senate race leans Democratic as Colom's lead grows — Промежуточный опрос в гонке за место в Сенате — не событие, пока нет результата выборов.
+- [en] не_новость: [local] WCTV — Free admission at Florida State Parks for Veterans Day — Плановая акция (бесплатный вход в парки) — объявление, но не событие-побудка.
+- [en] полка: [pool] Global News CA — Man arrested after alleged bomb threat on flight bound for New Orleans — Местное происшествие (арест на борту) в US должно быть в разделе местных новостей, а не в «Новости из...».
+- [en] не_новость: [pool] Global News CA — Dua Lipa to become 1st British female solo artist to headline Coachella — Объявление артиста для фестиваля — плановое анонсирование.
+- [en] не_новость: [pool] WFPL — Even as production creeps up, coal jobs disappear in eastern Kentucky, reports s — Аналитический отчет о динамике рынка труда — это не событие (нет факта свершения).
+- [en] чужое_мелкое: [pool] Jamaica Gleaner — BUGGERY LAW SHOWDOWN - Tomlinson banking on Trinidad ruling to bolster similar l — Юридические прогнозы активиста — это мнение/анонс, а не событие.
+- [en] не_новость: [pool] Jamaica Gleaner — Golding warns against misuse of Speaker’s powers — Призыв оппозиции к реформам — это слова, а не свершившийся факт или решение.
+- [en] не_новость: [pool] Jamaica Gleaner — Gov’t scrambles to ease MoBay-Negril road chaos ahead of winter season — «Правительство пытается решить проблему» — это намерение, нет конкретного решения или даты.
+- [en] не_новость: [pool] RTÉ Ireland — Reaching pay deal before strike 'coincidental' — Переговоры о сделке — это процесс, событием будет подписание договора.
+- [en] курьёз: [world] Gothamist — Long-lost Georgia O’Keeffe painting found in East Village closet — Находка картины в шкафу — классический пример для «Интересного».
+- [en] не_новость: [world] Mental Floss — The Criminal Trial Over Don Henley’s Handwritten “Hotel California” Lyrics — История создания альбома 1976 года — историческая справка/очерк.
+- [en] не_новость: [world] TechCrunch — OpenAI’s quarterly revenue reportedly crosses $10B for the first time — Финансовый отчет компании — событие, но для ленты US это не новость, если нет влияния на рынок.
+- [en] курьёз: [world] reviewjournal — Las Vegas restaurant chain debuts overseas — in strip mall with other American i — Открытие закусочной в ТЦ за рубежом — не событие мирового масштаба.
+- [en] чужое_мелкое: [world] RFI — Israel: Mansour Abbas as a potential conditional ally for the 'Change Bloc' — Политические маневры по формированию коалиции в Израиле — внутренняя кухня чужой страны.
+- [en] полка: [world] Азаттык — OCCRP: Kyrgyzstan sold vacation resort to entity linked to Russian organization  — Новость о Кыргызстане должна быть в региональном или местном потоке (если применимо), а не «Мировым» для US.
