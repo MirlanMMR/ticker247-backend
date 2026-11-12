@@ -44,7 +44,8 @@ check("восемь поясов по три часа, центры через �
 for pool in S.ACTIVE_POOLS:
     hours = sorted(h for h, ps in S.SLOTS_ALL.items() if pool in ps)   # полная таблица: пул можно вернуть с паузы
     mains = S.POOL_MAIN_BANDS[pool]
-    check(f"{pool}: ровно три слота в сутки", len(hours) == 3)
+    n = S.SLOTS_PER_POOL.get(pool, S.DEFAULT_SLOTS_PER_POOL)
+    check(f"{pool}: ровно {n} слота(ов) в сутки", len(hours) == n)
     check(f"{pool}: два главных пояса, оба из восьми", len(mains) == 2 and all(b in S.BANDS for b in mains))
     for b in mains:
         locs = [S.band_hour(h, b) for h in hours]
@@ -52,16 +53,16 @@ for pool in S.ACTIVE_POOLS:
               all(S.DAY_FROM <= l <= S.DAY_TO for l in locs))
         check(f"{pool}: пояс {b:+d} получает слоты от полудня до вечера (не позже 12:00 первый, не раньше 16:00 последний)", min(locs) <= 12 and max(locs) >= 16)
     # слоты по кругу суток не чаще чем раз в два часа и не реже чем раз в шесть (по UTC от слота к слоту)
-    gaps = [(hours[(i + 1) % 3] - hours[i]) % 24 for i in range(3)]
+    gaps = [(hours[(i + 1) % n] - hours[i]) % 24 for i in range(n)]
     check(f"{pool}: промежутки между слотами {gaps} (не меньше 2 ч); ночной провал один", min(gaps) >= 2 and sum(gaps) == 24)
-check("полная таблица: 15 пул-прогонов в сутки (3 × 5), как с 9 октября", sum(len(ps) for ps in S.SLOTS_ALL.values()) == 15)
+check("полная таблица: 14 пул-прогонов в сутки (3 × 4 пула + 2 у en)", sum(len(ps) for ps in S.SLOTS_ALL.values()) == sum(S.SLOTS_PER_POOL.get(p, S.DEFAULT_SLOTS_PER_POOL) for p in S.ACTIVE_POOLS) == 14)
 live = tuple(p for p in S.ACTIVE_POOLS if p not in S.PAUSED_POOLS)
 check("на паузе только то, что названо; работает хотя бы один пул", set(S.PAUSED_POOLS) <= set(S.ACTIVE_POOLS) and len(live) >= 1)
-check("пулы на паузе не стоят в расписании, живые — по три слота", all(p not in ps for ps in S.SLOTS_UTC.values() for p in S.PAUSED_POOLS) and all(sum(p in ps for ps in S.SLOTS_UTC.values()) == 3 for p in live))
+check("пулы на паузе не стоят в расписании, живые — по заданному числу слотов", all(p not in ps for ps in S.SLOTS_UTC.values() for p in S.PAUSED_POOLS) and all(sum(p in ps for ps in S.SLOTS_UTC.values()) == S.SLOTS_PER_POOL.get(p, S.DEFAULT_SLOTS_PER_POOL) for p in live))
 _gate = " || ".join(f"contains(inputs.pools, '{p}')" for p in live)
 check("fetch.yml: слот планировщика без живых пулов пропускается заданием целиком (живые: " + ",".join(live) + ")",
       f"if: ${{{{ github.event_name != 'workflow_dispatch' || !inputs.from_scheduler || {_gate} }}}}" in wf)
-check("расписание: пул-прогонов в сутки = 3 × число живых пулов", sum(len(ps) for ps in S.SLOTS_UTC.values()) == 3 * len(live))
+check("расписание: пул-прогонов в сутки = сумма слотов живых пулов", sum(len(ps) for ps in S.SLOTS_UTC.values()) == sum(S.SLOTS_PER_POOL.get(p, S.DEFAULT_SLOTS_PER_POOL) for p in live))
 check("в одном запуске не больше двух пулов", all(len(ps) <= 2 for ps in S.SLOTS_UTC.values()))
 check("«полки стран» — в часе, где есть слот", S.COUNTRY_SHELVES_HOUR in S.SLOTS_UTC)
 
