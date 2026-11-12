@@ -1,27 +1,31 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] не_новость: [local] Вечерний Бишкек — В Кыргызстане 10 тысяч человек получают пенсии выше 30 тысяч сомов — статистика по пенсиям — это справочная информация, события нет
-- [ru] чужое_мелкое: [pool] 45.ru — Курган — Фильм про курганского бойца СВО покажут на российских кинофестивалях — локальная новость региона РФ (Курган) в ленте KG
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — «Я в восторге!»: популярный тру-крайм блогер дал лекцию в Челябинске и оценил го — локальная новость региона РФ (Челябинск) в ленте KG
-- [ru] курьёз: [pool] 63.ru — Самара — Самарская филармония оказалась лучше Ковент-Гардена. Почему — рассказала звезда  — мнение оперной певицы о залах — субъективная оценка
-- [ru] не_новость: [pool] iXBT — До двух недель без подзарядки, керамика, AMOLED и 150 режимов: в России стартуют — анонс начала продаж — маркетинговый текст
-- [ru] не_новость: [pool] 71.ru — Тула — В Тульской области 25 лет ищут родственников павшего в боях красноармейца — поиски родственников спустя 25 лет — не событие
-- [ru] не_новость: [pool] iXBT — От звонка врачу до заказа цветов: «Алиса AI» Яндекса перешла от советов к действ — описание функций ИИ-агента — обзор возможностей сервиса
-- [ru] срочность: [pool] 63.ru — Самара — В Самаре снова отключат холодную воду — список адресов — плановое отключение воды не является срочной новостью
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Людей обманом заставляли платить фирме экс-владельца пермской «Дока пиццы». Он у — история о мошенничестве из региона РФ (Челябинск)
-- [ru] курьёз: [pool] 71.ru — Тула — На снеговика не хватит: ночью в Тульской области выпал снег — погода — не новость
-- [ru] срочность: [pool] 63.ru — Самара — В самарском аэропорту произошла авария — фото — инцидент недельной давности (8 ноября) не может быть срочным
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Хирург не доучилась в меде: новые подробности гибели рязанки на липосакции — локальное происшествие в Рязани
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Не давала еду и била метлой. Тюменку наказали за истязания 9-летнего ребенка — криминальная хроника региона РФ (Тюмень)
-- [ru] курьёз: [pool] 74.ru — Челябинск — «Он был как Есенин». В Новосибирске упавшего с моста парня похоронили как безрод — история о погибшем человеке из другого региона (Новосибирск)
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Самаре горел двухэтажный дебаркадер. Видео — пожар в регионе РФ (Самара)
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — У тюменки сгорела квартира. Ее дочка хотела пожарить чипсы — бытовой пожар в Тюмени
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Могли быть проблемы в семье: в Оренбурге студентка ОГУ прямо на паре выпала из о — происшествие в Оренбурге
-- [ru] не_новость: [pool] 63.ru — Самара — В центре Самары предложили построить центр паломничества мусульман — предложение о строительстве — это не решение
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — В Тюменской области ищут 8-летнюю девочку. Она пропала еще полгода назад — розыск пропавшего в Тюменской области
-- [ru] не_новость: [pool] 14.ru — Якутск — Садовников решил построить мост в Якутске через Теплое озеро — анонс мэра о планах построить мост
-- [ru] не_новость: [pool] 14.ru — Якутск — Блогер и трофейный охотник снимет фильм про Якутию. — планы блогера снять фильм — не событие
-- [ru] курьёз: [world] 14.ru — Якутск — Не нравитесь себе на фото, а в зеркале всё идеально? Ученые объяснили этот обман — популярно-научная заметка о зеркалах
-- [ru] курьёз: [world] Futura-Sciences — До 150 падающих звезд в час: пик метеорного потока Геминиды в 2026 году придется — астрономический прогноз, нет события
-- [ru] курьёз: [world] Naked Science — Древние люди начали собирать сувениры уже 500 тысяч лет назад — археологический факт, не событие
-- [ru] не_новость: [world] Semafor — Совет директоров Nvidia готовится к увольнению генерального директора и назначен — слухи о планах совета директоров — это не свершившееся событие
+- [pt] срочность: [local] G1 Rio Grande do Sul — Pousada Garoa: MP denuncia dono, ex-fiscal e homem apontado como autor de incênd — Это расследование по факту прошлого события, не требует немедленного уведомления.
+- [pt] повтор: [world] ECO — Zelensky denuncia novas restrições ao Starlink ≈ «Ucrânia enfrenta novas interrupções no S» — Тот же сюжет, что и в карточке 75.
+- [pt] чужое_мелкое: [world] Poder360 — Greve geral na Espanha reúne 3 milhões de pessoas — Внутренняя забастовка в Испании, для Бразилии не является мировой новостью.
+- [pt] чужое_мелкое: [world] El Mundo — Grupos violentos de Barcelona atacaram com "pirotecnia de alta potência", foguet — Подробности местных беспорядков в Испании (продолжение сюжета №66).
+- [pt] чужое_мелкое: [world] AKIpress Эко — Lançada a pedra fundamental de viveiro florestal em Chuy, sob projeto entre Quir — Местная новость Кыргызстана, не мировая.
+- [pt] чужое_мелкое: [world] El Mundo — A chave da mochila letal do 'Russo' em Oviedo: deixada sobre as caixas de correi — Местный криминал в Испании.
+- [pt] чужое_мелкое: [world] Guardian Sport — Ex-técnico da NFL Rex Ryan é acusado de atropelar pedestres em Nashville — Мелкое происшествие с частным лицом в США.
+- [fr] чужое_мелкое: [local] Sud Ouest — Pierre-Édouard Stérin : le milliardaire conservateur sera jugé en janvier pour s — Внутренняя судебная хроника бизнесмена, не является мировой новостью.
+- [fr] не_новость: [local] BFMTV — DIRECT. Accusations d'antisémitisme: Jordan Bardella a porté plainte pour faux e — Обычная политическая полемика и обмен заявлениями без конкретного события.
+- [fr] курьёз: [pool] TSA Algérie — Salon du livre d’Alger : une prédicatrice salafiste égyptienne crée la polémique — Полемика вокруг высказываний — это интересное, не является значимым событием.
+- [fr] чужое_мелкое: [world] BFMTV — Il devait livrer les États-Unis mais n'a plus "d'instructions": un pétrolier cha — Частный инцидент с танкером без последствий для мировой экономики.
+- [fr] чужое_мелкое: [world] La Libre — L’extrême droite polonaise a confisqué le 11 novembre — Локальное политическое событие (конфискация символики) в Польше.
+- [fr] чужое_мелкое: [world] BBC News — Tim Westwood, DJ, nie de nouvelles accusations d'infractions sexuelles — Рутина уголовного процесса частного лица.
+- [fr] чужое_мелкое: [world] The Hill — Le secrétaire à la Défense Pete Hegseth survit à une tentative de destitution, m — Внутренняя процедура в Конгрессе США, не имеющая мирового веса.
+- [fr] чужое_мелкое: [world] BBC News — L'activiste Daniel Thomas plaide coupable de dégradation après avoir lacéré un c — Криминальная хроника частного активиста.
+- [fr] не_новость: [world] Courrier International — À Taïwan, des élections locales sous influence chinoise — Аналитическая статья о политических влияниях, а не событие.
+- [fr] чужое_мелкое: [world] BBC Sport — Le chaos ayant conduit au licenciement de Michael Carrick après 15 matchs — Спортивная новость (увольнение тренера), нет мирового масштаба.
+- [fr] не_новость: [world] L'Express — "Du chantage" : l'aide à l'Ukraine au cœur d'un bras de fer entre pays européens — Анонс предстоящей дискуссии, а не свершившийся факт.
+- [fr] чужое_мелкое: [world] L'Obs — Adultères, espionnage, chute en Bourse : le PDG de Nvidia Jensen Huang désormais — Сплетни и корпоративные слухи вокруг руководителя компании.
+- [fr] не_новость: [world] Courrier International — En Méditerranée orientale, un navire français à l’épreuve des tensions gréco-tur — Очерк о присутствии корабля в регионе, нет нового события.
+- [fr] не_новость: [world] Rolling Stone — Netflix diffusera le documentaire « Russell Brand: Open Secret » — Анонс выхода документального фильма.
+- [fr] курьёз: [world] Franceinfo — "Ça a explosé comme un volcan" : dans la région turque de Konya, la terre s'effo — Природное явление (карстовые воронки) — познавательный факт, не новость.
+- [fr] курьёз: [world] Le Devoir — «Voyager 1» arrive à une journée-lumière de la Terre — Научный факт о движении зонда в космосе — место в «Интересном».
+- [fr] повтор: [world] Radio-Canada — Nvidia s’apprête à limoger son dirigeant, Jensen Huang, selon des médias américa ≈ «Adultères, espionnage, chute en Bourse :» — То же событие, что в №45.
+- [fr] чужое_мелкое: [world] Engadget — New York contraint T-Mobile à supprimer les plafonds de données sur les forfaits — Регуляторное решение местного уровня в Нью-Йорке.
+- [fr] курьёз: [world] BBC News — Pete Hegseth et ses conseillers rappelés à l'ordre par une sentinelle à la Tombe — Мелкий протокольный инцидент, не является мировой новостью.
+- [fr] курьёз: [world] Ars Technica — Anduril affirme que son premier satellite peut détecter les manœuvres adverses e — Технологическая демонстрация, не является событием для широкого читателя.
+- [fr] не_новость: [world] Engadget — United Airlines restreint l'usage d'agents basés sur l'IA pour les réservations — Корпоративное правило компании, нет мирового значения.
+- [fr] курьёз: [world] BBC Sport — Harry Kane s'apprête à devenir le joueur le plus capé de l'histoire de l'Anglete — Спортивное достижение (статистика), не является срочным событием.
