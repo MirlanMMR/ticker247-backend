@@ -1,27 +1,20 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Financiero — Trump amenaza a México con duplicar araranceles si no detiene caravana migrante: — Внутренняя политика США (анонс угроз) — не мировая новость для Мексики.
-- [es] не_новость: [pool] Infobae — Colombianos valoran positivamente la seguridad en los primeros 100 días de Abela — Обзор итогов работы политика на основе опроса не является событием.
-- [es] повтор: [pool] Infobae — México recibirá inversión de 250 mdd de WEG para producción de tecnología e inte ≈ «Anuncian inversión de WEG por 250 mdd; E» — Дублирует информацию из карточки №2 об инвестициях WEG в Мексику.
-- [es] курьёз: [pool] El Universo EC — Luciano Pereyra se quebró al cantar frente a la Basílica de Luján en la previa d — Событие локального культурного значения в Аргентине, не мирового масштаба.
-- [es] чужое_мелкое: [pool] El Comercio PE — Papa León XIV recibe las llaves de la ciudad y una camiseta de la selección peru — Церемониальные визиты папы в Перу — локальное событие для Перу.
-- [es] не_новость: [pool] El Universo EC — Miguel Ángel Loor buscará la reelección de la Liga Pro en el directorio de la Wo — Намерение участвовать в выборах — не событие, это процесс.
-- [es] не_новость: [pool] Semana CO — El fichaje que se están peleando Nacional, Millonarios, Santa Fe y Deportivo Cal — Слухи о футбольных трансферах — не событие.
-- [es] курьёз: [pool] BBC Mundo — "El papa León XIV es mi padrino de bautizo": la insólita historia de Mildred Cam — История о личной связи человека с папой — это любопытный факт, а не новость.
-- [es] не_новость: [pool] El Nacional VE — Bloomberg: Venezuela envía equipos petroleros a EE UU para su reparación — Техническая процедура ремонта оборудования не является значимым событием.
-- [es] курьёз: [pool] BBC Mundo — "Me los quitaron porque yo estaba sola": la mujer que se reencontró con sus hijo — Личная история, не имеющая актуального новостного повода.
-- [es] чужое_мелкое: [pool] RPP PE — Papa León XIV se reúne con los obispos del Perú en el Palacio Arzobispal de Lima — Протокольный визит в Перу.
-- [es] чужое_мелкое: [pool] La Vanguardia — Rufián estalla contra Junts tras ser llamado “maltratador emocional” por Cruset — Внутриполитическая перепалка в испанском парламенте — не мировая новость.
-- [es] чужое_мелкое: [world] El Universal MX — Enviados de Trump llegan al Kremlin para conversar con Putin; pretenden incorpor — Переговоры о переговорах без конкретного результата — шум.
-- [es] не_новость: [world] El Economista MX — Cámara de Representantes busca consenso para limitar los envíos de chips a China — Поиск консенсуса — обсуждение, а не принятое решение.
-- [es] срочность: [world] France 24 — Ladrones armados huyen de la tienda De Beers en París en motocicletas tras un ro — Ограбление магазина в Париже не требует немедленного оповещения в Мексике.
-- [es] чужое_мелкое: [world] La Nación CR — Trump ordena a JD Vance dejar las negociaciones con Irán y apuntar contra estado — Внутриполитические директивы президента США — не мировая новость.
-- [es] чужое_мелкое: [world] El Mundo — La juez Tardón imputa al ex delegado del Gobierno en Ceuta y le cita en la Audie — Локальное судебное разбирательство в Испании.
-- [es] курьёз: [world] Marca — Kvaratskhelia apoya a Merab tras el ataque recibido: "Muestra al mundo lo que si — Спортивный инцидент, не имеющий мирового значения.
-- [es] не_новость: [world] 14ymedio — Aleccionadora sacudida en Estados Unidos — Аналитическая колонка (мнение автора) о ситуации в США.
-- [es] не_новость: [world] Азаттык (кыргызча) — Elecciones: El número de candidatos alcanza los 11 — Список кандидатов — не событие, плановый процесс.
-- [es] чужое_мелкое: [world] El Mundo — La UCO acude al Tribunal de Cuentas a por información sobre presuntas irregulari — Следственные действия внутри политической партии Испании.
-- [es] не_новость: [world] RFI — En directo - Guerra en Ucrania: de Moscú a Dublín, continúan las negociaciones e — Бесконечные переговоры без итогов — это не новость.
-- [es] чужое_мелкое: [world] Азаттык — En Kazajistán, la policía realizó registros a observadores de «Zhariya» antes de — Мелкий локальный инцидент с полицией в Казахстане.
-- [es] не_новость: [world] BBC Mundo — 4 claves del escándalo de los supuestos "sexocontratos" por el que se investiga  — Анализ политического скандала, который длится долгое время — не событие.
-- [es] чужое_мелкое: [world] Guardian Sport — Svitolina mantiene vivas sus esperanzas en las Finales de la WTA tras una notabl — Результат одного теннисного матча не является мировой новостью.
+- [pt] чужое_мелкое: [world] InfoMoney — Goldman Sachs vê saída de Jensen Huang como negativa para Nvidia, mas mantém com — Gestão corporativa da Nvidia nos EUA é assunto de economia global, mas a especulação sobre saída de CEO é notícia de neg
+- [pt] не_новость: [world] ECO — Seguradoras vão ter de mudar contabilidade em 2027 — Mudança contábil em 2027 é planejamento/norma, não fato consumado com impacto imediato.
+- [pt] курьёз: [world] Rolling Stone — O inovador álbum “Licensed to Ill”, dos Beastie Boys, ganhará uma edição luxuosa — Reedição de álbum de rock é curiosidade cultural, não notícia mundial.
+- [pt] не_новость: [world] Engadget — A pré-venda de alguns dispositivos da Apple Home Collection começa em 13 de nove — Aviso de pré-venda de produtos eletrônicos é anúncio comercial.
+- [pt] чужое_мелкое: [world] iXBT — Jensen Huang deixou o cargo de liderança da Nvidia após 33 anos — Saída de executivo de empresa (mesmo grande) é notícia de mercado, não requer urgência ou importância global.
+- [pt] курьёз: [world] Engadget — A primeira leva de óculos inteligentes com Android XR mudou minha opinião sobre  — Impressões pessoais sobre óculos inteligentes são análise/artigo, não notícia.
+- [fr] курьёз: [local] Nice-Matin — « L’avenir de nos six employés est en jeu » : ce populaire resto buvette du Cros — локальный хозяйственный спор, не является новостью общенационального масштаба
+- [fr] чужое_мелкое: [local] BFMTV — L'un des sponsors de Teddy Riner suspend sa collaboration avec le judoka désorma — спонсорский контракт — частное дело компании и спортсмена, не имеет мирового значения
+- [fr] курьёз: [local] Nice-Matin — « Je ne voulais pas les brûler... » Insolite : des tee-shirts à l’effigie du Tou — незначительный факт про старые футболки, не является новостью
+- [fr] чужое_мелкое: [pool] Jeune Afrique — RDC : après un an de vacance, Washington nomme enfin un ambassadeur à Kinshasa — назначение посла США в ДРК — рутинное событие без глобальных последствий
+- [fr] курьёз: [pool] Nice-Matin — L’historique armurerie Bonafede à Monaco va bientôt laisser place à une… auto-éc — замена магазина на автошколу в Монако не имеет значимости для широкой аудитории
+- [fr] чужое_мелкое: [world] France 24 FR — Scandale Ueno Bank au Paraguay : 93 % des clients ont récupéré leurs fonds — возврат вкладов клиентам банка в Парагвае не является значимой мировой новостью
+- [fr] не_новость: [world] France 24 FR — États-Unis : le patron de Nvidia Jensen Huang démissionne suite aux scandales — подтвержденная отставка гендиректора Nvidia — значимое событие, но ошибочно помечено как СРОЧНО/ВАЖНОЕ, не требующее поб
+- [fr] чужое_мелкое: [world] Courrier International — En Arabie saoudite, une Kényane condamnée à cent coups de fouet pour grossesse h — частный судебный случай в Саудовской Аравии
+- [fr] не_новость: [world] Africanews FR — Centrafrique : l'ONU envisage une réduction progressive de la MINUSCA — плановое рассмотрение мандата миссии ООН, событие не свершилось (на повестке дня)
+- [fr] чужое_мелкое: [world] BBC News — Deux hommes reconnus coupables d'espionnage pour l'Iran visant des journalistes  — локальное судебное решение в Британии, не является мировой новостью
+- [fr] курьёз: [world] RTBF — Pete Hegseth et son entourage vertement rappelés à l’ordre par une sentinelle de — этикетный инцидент с министром США, не имеет общемировой значимости
+- [fr] курьёз: [world] Le Devoir — «Voyager 1» arrive à une journée-lumière de la Terre — научно-популярный факт, место в 'Интересном', а не в 'Мировых'
