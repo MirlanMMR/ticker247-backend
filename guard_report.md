@@ -1,14 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] чужое_мелкое: [local] WTOP — Republicans suffered landslide losses in the midterms. — Внутренняя аналитика по итогам выборов в штате Мэн не является мировой новостью.
-- [en] не_новость: [pool] The Independent — Trump team mulling Howard Lutnick’s future as commerce secretary after Nvidia sc — Слухи и дебаты о возможной отставке министра не являются свершившимся фактом.
-- [en] не_новость: [pool] Fortune — ‘That Nvidia guarantee is not worth what it was worth a week ago’: What Jensen H — Мнение инвестора о последствиях отставки — это аналитика, а не событие.
-- [en] не_новость: [pool] WFPL — Louisville Metro makes preparations for upcoming snow season — Плановая подготовка к зиме — рутина, не событие.
-- [en] не_новость: [pool] Fortune — After Jensen Huang is Howard Lutnick the prime target of national security inqui — Риторический вопрос из колонки мнений не является новостью.
-- [en] не_новость: [pool] Engadget — Ex-NVIDIA CEO Jensen Huang is set to testify before Congress this month — Анонс предстоящего дачи показаний — это будущее событие, а не факт.
-- [en] не_новость: [pool] BBC Sport — How Pochettino came on Man Utd's radar - and what Carrick was told when — История о том, как кто-то попал в поле зрения клуба — это разбор/аналитика.
-- [en] не_новость: [world] TechCrunch — Nebius tests the neocloud playbook with $40 billion in planned spending — Планы по расходам на будущие периоды не являются закрытой сделкой или фактом.
-- [en] не_новость: [world] TechCrunch — Google’s latest Search upgrade promises better answers to your most complicated  — Описание функций обновления сервиса — это технический анонс/релиз.
-- [en] не_новость: [world] Ars Technica — Google rolls out Gemini 4 Hydrogen, finally replacing 3.8 Flash — Выпуск обновления ПО — это не событие согласно белому списку.
-- [en] повтор: [world] Axios — Zelensky says Musk-owned satellite system throttled again, Space X denies it ≈ «Ukraine says Musk’s Starshield service i» — Тот же сюжет о Starlink/Starshield, что и в №74.
-- [en] чужое_мелкое: [world] Азаттык — Police in Kazakhstan conduct searches of 'Zhariya' observers ahead of Maslikhat  — Внутренняя политика Казахстана (обыски у наблюдателей) без последствий для США.
+- [es] чужое_мелкое: [local] El Economista MX — Pedro Sánchez destaca la "firme voluntad" de España y México de progresar juntos — Внутренняя дипломатия Испании и Мексики не является мировой новостью.
+- [es] не_новость: [local] El Financiero — Era más largo que el Titanic: ¿Por qué EU hundió su histórico transatlántico en  — Историческая справка об утилизации корабля, а не актуальное событие.
+- [es] не_новость: [local] El Financiero — ¿Tendremos Mundial Femenil en México? — Спекуляция на тему будущего, нет факта события.
+- [es] чужое_мелкое: [pool] Infobae — Empresaria colombiana que había sido aceptada en la alta sociedad de Miami tendr — Локальное судебное дело, не имеющее мирового значения для мексиканского читателя.
+- [es] чужое_мелкое: [pool] Infobae — Grecia Quiroz pide protección para aspirantes a un cargo público en la contienda — Локальная политика Аргентины и Колумбии, не касается MX.
+- [es] чужое_мелкое: [pool] El Nacional VE — Colombia expulsó a 71 venezolanos acusados de cometer delitos en Bucaramanga — Внутренние дела Колумбии (миграционный вопрос), не касается MX.
+- [es] чужое_мелкое: [pool] eldiario.es — Ayuso ataca a Begoña Gómez en el inicio de campaña y dice que podrá dar "clases  — Локальная политическая перепалка в Испании.
+- [es] чужое_мелкое: [pool] La Vanguardia — Feijóo abre su campaña en Catalunya, clave en la ruta para llegar a la Moncloa — Внутренняя предвыборная кампания Испании.
+- [es] чужое_мелкое: [pool] eldiario.es — Feijóo lanza la campaña del PP desacreditando la huelga: "España va a cambiar y  — Внутренняя предвыборная кампания Испании.
+- [es] чужое_мелкое: [pool] La Vanguardia — Begoña Gómez debuta en campaña y reivindica la causa feminista: “Esta es la Espa — Внутренняя предвыборная кампания Испании.
+- [es] чужое_мелкое: [pool] El Mundo — La UCO señala que Sánchez se reunió 35 minutos en 2023 con el chófer detenido de — Внутренние политические разборки в Испании.
+- [es] чужое_мелкое: [pool] La Vanguardia — La Diputación Permanente salva el decreto antidesahucios pero tumba los contrato — Внутренняя повестка парламента Испании.
+- [es] чужое_мелкое: [world] El Comercio PE — El hombre que dirige la guerra económica contra Irán y terminó refugiado en una  — Персоналии американской администрации, не событие мирового масштаба.
+- [es] не_новость: [world] Prensa Libre GT — La Fed cambia su calendario para 2027: en octubre no decidirá sobre las tasas de — Регламентные изменения в работе органа, нет прямого влияния на читателя.
+- [es] курьёз: [world] Clarín AR — Cambio importante para la detección del cáncer de próstata: nuevas directrices d — Медицинская рекомендация, не новость.
+- [es] курьёз: [world] Clarín AR — Sam Altman, cofundador de OpenAI: "No he dormido bien ni una sola noche desde qu — Личные переживания бизнесмена, не новость.
+- [es] чужое_мелкое: [world] Semafor — Trump afirma que Estados Unidos no necesitan un acuerdo con Irán — Повторяющиеся заявления президента США по Ирану, нет нового события.
+- [es] чужое_мелкое: [world] Clarín AR — Wall Street cierra a la baja, arrastrada por el impacto de Nvidia — Биржевая рутина, нет события мирового уровня.
+- [es] срочность: [world] BBC Mundo — Una falla en Microsoft deja fuera de servicio el correo electrónico de Outlook y — Технический сбой сервиса не требует побудки.
+- [es] чужое_мелкое: [world] El Mundo — Pedro Sánchez le da la voz a Begoña Gómez en el mitin de arranque de la campaña: — Внутренняя предвыборная кампания Испании.
+- [es] чужое_мелкое: [world] RFI — Francia: Jean-Luc Mélenchon y la diputada Mathilde Panot tienen prohibida la ent — Политический конфликт Франции и Израиля, не является мировым событием (дипломатический запрет).
+- [es] чужое_мелкое: [world] El Mundo — Feijóo arranca en Cataluña su carrera hacia La Moncloa: "El cambio es imparable. — Внутренняя предвыборная кампания Испании.
+- [es] чужое_мелкое: [world] El Mundo — El PP y Vox arrancan la campaña con una sólida mayoría absoluta y siguen sacando — Внутренняя предвыборная кампания Испании.
+- [es] чужое_мелкое: [world] Азаттык — En Kazajistán, la policía realizó registros a observadores de «Zhariya» antes de — Внутренняя политика Казахстана, не касается испаноязычного пула.
+- [es] чужое_мелкое: [world] BBC Mundo — 4 claves del escándalo de los supuestos "sexocontratos" por el que se investiga  — Внутренний политический скандал в Колумбии.
