@@ -1,20 +1,23 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [world] InfoMoney — Goldman Sachs vê saída de Jensen Huang como negativa para Nvidia, mas mantém com — Gestão corporativa da Nvidia nos EUA é assunto de economia global, mas a especulação sobre saída de CEO é notícia de neg
-- [pt] не_новость: [world] ECO — Seguradoras vão ter de mudar contabilidade em 2027 — Mudança contábil em 2027 é planejamento/norma, não fato consumado com impacto imediato.
-- [pt] курьёз: [world] Rolling Stone — O inovador álbum “Licensed to Ill”, dos Beastie Boys, ganhará uma edição luxuosa — Reedição de álbum de rock é curiosidade cultural, não notícia mundial.
-- [pt] не_новость: [world] Engadget — A pré-venda de alguns dispositivos da Apple Home Collection começa em 13 de nove — Aviso de pré-venda de produtos eletrônicos é anúncio comercial.
-- [pt] чужое_мелкое: [world] iXBT — Jensen Huang deixou o cargo de liderança da Nvidia após 33 anos — Saída de executivo de empresa (mesmo grande) é notícia de mercado, não requer urgência ou importância global.
-- [pt] курьёз: [world] Engadget — A primeira leva de óculos inteligentes com Android XR mudou minha opinião sobre  — Impressões pessoais sobre óculos inteligentes são análise/artigo, não notícia.
-- [fr] курьёз: [local] Nice-Matin — « L’avenir de nos six employés est en jeu » : ce populaire resto buvette du Cros — локальный хозяйственный спор, не является новостью общенационального масштаба
-- [fr] чужое_мелкое: [local] BFMTV — L'un des sponsors de Teddy Riner suspend sa collaboration avec le judoka désorma — спонсорский контракт — частное дело компании и спортсмена, не имеет мирового значения
-- [fr] курьёз: [local] Nice-Matin — « Je ne voulais pas les brûler... » Insolite : des tee-shirts à l’effigie du Tou — незначительный факт про старые футболки, не является новостью
-- [fr] чужое_мелкое: [pool] Jeune Afrique — RDC : après un an de vacance, Washington nomme enfin un ambassadeur à Kinshasa — назначение посла США в ДРК — рутинное событие без глобальных последствий
-- [fr] курьёз: [pool] Nice-Matin — L’historique armurerie Bonafede à Monaco va bientôt laisser place à une… auto-éc — замена магазина на автошколу в Монако не имеет значимости для широкой аудитории
-- [fr] чужое_мелкое: [world] France 24 FR — Scandale Ueno Bank au Paraguay : 93 % des clients ont récupéré leurs fonds — возврат вкладов клиентам банка в Парагвае не является значимой мировой новостью
-- [fr] не_новость: [world] France 24 FR — États-Unis : le patron de Nvidia Jensen Huang démissionne suite aux scandales — подтвержденная отставка гендиректора Nvidia — значимое событие, но ошибочно помечено как СРОЧНО/ВАЖНОЕ, не требующее поб
-- [fr] чужое_мелкое: [world] Courrier International — En Arabie saoudite, une Kényane condamnée à cent coups de fouet pour grossesse h — частный судебный случай в Саудовской Аравии
-- [fr] не_новость: [world] Africanews FR — Centrafrique : l'ONU envisage une réduction progressive de la MINUSCA — плановое рассмотрение мандата миссии ООН, событие не свершилось (на повестке дня)
-- [fr] чужое_мелкое: [world] BBC News — Deux hommes reconnus coupables d'espionnage pour l'Iran visant des journalistes  — локальное судебное решение в Британии, не является мировой новостью
-- [fr] курьёз: [world] RTBF — Pete Hegseth et son entourage vertement rappelés à l’ordre par une sentinelle de — этикетный инцидент с министром США, не имеет общемировой значимости
-- [fr] курьёз: [world] Le Devoir — «Voyager 1» arrive à une journée-lumière de la Terre — научно-популярный факт, место в 'Интересном', а не в 'Мировых'
+- [es] чужое_мелкое: [local] El Financiero — ¿México puede acercarse a China sin molestar a Trump? — Вопрос о политике Мексики и Китая не является мировым событием.
+- [es] не_новость: [local] El Universal MX — No hubo diálogo para propuestas en el proyecto del Plan General de Desarrollo de — Жалоба соседей без конкретного события, решения или даты.
+- [es] не_новость: [pool] El País — Última hora de la actualidad política, en directo | Begoña Gómez interviene por  — Светская хроника/выступление на митинге, не является новостным событием.
+- [es] не_новость: [pool] Infobae — El Festival de las Flores en la ciudad de Antigua Guatemala cancela las instalac — Отмена установки цветов на фестивале — мелкое организационное событие.
+- [es] курьёз: [pool] El Nacional VE — Magallanero Ángel Reyes muestra su poder y es el líder indiscutido de los jonron — Спортивная статистика игрока не является новостью для широкого круга.
+- [es] не_новость: [pool] Marca — Scaloni renueva hasta el Mundial 2030 — Продление контракта тренера на 2030 год — спекуляция или плановое событие без текущего влияния.
+- [es] не_новость: [pool] Marca — El primer fichaje del Castilla para la próxima temporada — Трансферные слухи/мелкий контракт футболиста.
+- [es] не_новость: [pool] BBC Mundo — "Le pedí al 'joven padre Robert' que fuera el padrino de mi hija en Perú. Treint — Личное воспоминание не является новостью.
+- [es] не_новость: [pool] Marca — El Maratón de Valencia alista a Agnes Ngetich y completa una nómina de atletas d — Анонс участников марафона.
+- [es] чужое_мелкое: [pool] El Mundo — La UCO señala que Pedro Sánchez se reunió 35 minutos en Córdoba con el último de — Внутренняя политическая борьба в Испании.
+- [es] не_новость: [pool] El Nacional VE — María Corina Machado se reúne con eurodiputados de VOX en Caracas y conversa por — Рабочая встреча политиков без конкретного итога.
+- [es] не_новость: [pool] El Universo EC — El Nacional podría tener nuevo presidente y directorio en enero de 2027: este es — Публикация графика выборов в клуб.
+- [es] не_новость: [pool] El Nacional VE — Álvaro Recoba, estratega de Táchira: "Nos queda la estrella y vamos a ir a por e — Цитата тренера о планах на будущее.
+- [es] анонс: [pool] La Vanguardia — Elecciones generales del 29N, hoy en directo: última hora de los decretos de la  — Текстовая трансляция «в прямом эфире».
+- [es] не_новость: [pool] eldiario.es — El CIS pronostica que Compromís-Front Valencià tendría entre 4 y 6 escaños en la — Прогноз социологической службы (опрос).
+- [es] не_новость: [pool] 14ymedio — El Observatorio Cubano de Derechos Humanos insta a investigar la misión médica e — Призыв к расследованию, а не само расследование или итог.
+- [es] не_новость: [pool] La Vanguardia — Sánchez recibirá el próximo lunes a Lula en la Moncloa, en plena campaña elector — Анонс встречи глав государств.
+- [es] не_новость: [pool] eldiario.es — El CIS preelectoral se aleja del resto de encuestas y sitúa a la suma de PP y Vo — Опрос (прогноз) перед выборами.
+- [es] чужое_мелкое: [pool] El Mundo — La Fiscalía Europea envía a la UCO al Ministerio de Igualdad por un presunto fra — Внутреннее испанское расследование махинаций.
+- [es] не_новость: [pool] La Vanguardia — La Diputación Permanente salva el decreto antidesahucios pero tumba los contrato — Политическая процедура в парламенте Испании.
+- [es] чужое_мелкое: [world] El Mundo — La UCO acude al Tribunal de Cuentas a por información sobre presuntas irregulari — Внутреннее испанское расследование партийных донатов.
