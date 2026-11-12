@@ -1,23 +1,17 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Financiero — ¿México puede acercarse a China sin molestar a Trump? — Вопрос о политике Мексики и Китая не является мировым событием.
-- [es] не_новость: [local] El Universal MX — No hubo diálogo para propuestas en el proyecto del Plan General de Desarrollo de — Жалоба соседей без конкретного события, решения или даты.
-- [es] не_новость: [pool] El País — Última hora de la actualidad política, en directo | Begoña Gómez interviene por  — Светская хроника/выступление на митинге, не является новостным событием.
-- [es] не_новость: [pool] Infobae — El Festival de las Flores en la ciudad de Antigua Guatemala cancela las instalac — Отмена установки цветов на фестивале — мелкое организационное событие.
-- [es] курьёз: [pool] El Nacional VE — Magallanero Ángel Reyes muestra su poder y es el líder indiscutido de los jonron — Спортивная статистика игрока не является новостью для широкого круга.
-- [es] не_новость: [pool] Marca — Scaloni renueva hasta el Mundial 2030 — Продление контракта тренера на 2030 год — спекуляция или плановое событие без текущего влияния.
-- [es] не_новость: [pool] Marca — El primer fichaje del Castilla para la próxima temporada — Трансферные слухи/мелкий контракт футболиста.
-- [es] не_новость: [pool] BBC Mundo — "Le pedí al 'joven padre Robert' que fuera el padrino de mi hija en Perú. Treint — Личное воспоминание не является новостью.
-- [es] не_новость: [pool] Marca — El Maratón de Valencia alista a Agnes Ngetich y completa una nómina de atletas d — Анонс участников марафона.
-- [es] чужое_мелкое: [pool] El Mundo — La UCO señala que Pedro Sánchez se reunió 35 minutos en Córdoba con el último de — Внутренняя политическая борьба в Испании.
-- [es] не_новость: [pool] El Nacional VE — María Corina Machado se reúne con eurodiputados de VOX en Caracas y conversa por — Рабочая встреча политиков без конкретного итога.
-- [es] не_новость: [pool] El Universo EC — El Nacional podría tener nuevo presidente y directorio en enero de 2027: este es — Публикация графика выборов в клуб.
-- [es] не_новость: [pool] El Nacional VE — Álvaro Recoba, estratega de Táchira: "Nos queda la estrella y vamos a ir a por e — Цитата тренера о планах на будущее.
-- [es] анонс: [pool] La Vanguardia — Elecciones generales del 29N, hoy en directo: última hora de los decretos de la  — Текстовая трансляция «в прямом эфире».
-- [es] не_новость: [pool] eldiario.es — El CIS pronostica que Compromís-Front Valencià tendría entre 4 y 6 escaños en la — Прогноз социологической службы (опрос).
-- [es] не_новость: [pool] 14ymedio — El Observatorio Cubano de Derechos Humanos insta a investigar la misión médica e — Призыв к расследованию, а не само расследование или итог.
-- [es] не_новость: [pool] La Vanguardia — Sánchez recibirá el próximo lunes a Lula en la Moncloa, en plena campaña elector — Анонс встречи глав государств.
-- [es] не_новость: [pool] eldiario.es — El CIS preelectoral se aleja del resto de encuestas y sitúa a la suma de PP y Vo — Опрос (прогноз) перед выборами.
-- [es] чужое_мелкое: [pool] El Mundo — La Fiscalía Europea envía a la UCO al Ministerio de Igualdad por un presunto fra — Внутреннее испанское расследование махинаций.
-- [es] не_новость: [pool] La Vanguardia — La Diputación Permanente salva el decreto antidesahucios pero tumba los contrato — Политическая процедура в парламенте Испании.
-- [es] чужое_мелкое: [world] El Mundo — La UCO acude al Tribunal de Cuentas a por información sobre presuntas irregulari — Внутреннее испанское расследование партийных донатов.
+- [pt] не_новость: [local] InfoMoney — Motta anuncia grupo de trabalho para discutir propaganda eleitoral nas redes soc — формирование рабочей группы — это рутина, не имеющая завершенного результата для читателя.
+- [pt] не_новость: [local] Poder360 — Ministro defende soluções consensuais do TCU, que estão na mira do STF — защита министром своей позиции в споре — это слова, а не состоявшееся решение.
+- [pt] не_новость: [local] Gazeta do Povo — Lula manda “Exército” cobrar pedido de desculpas da imprensa após decisão sobre  — призыв президента к сторонникам 'кобрить извинения' — это политическая риторика, а не событие.
+- [pt] курьёз: [pool] BBC Brasil — Mãe de menino brasileiro que teve dedo mutilado em escola diz que família teve q — история об инциденте с ребенком в другой стране (PT) для бразильского читателя — частный случай без мирового значения.
+- [pt] чужое_мелкое: [world] Rolling Stone — Jensen Huang teria tido vários casos. Isso o tornou mais vulnerável à espionagem — скандал вокруг руководителя компании — это корпоративные разборки, не требующие срочности и не являющиеся мировой новост
+- [pt] не_новость: [world] Variety — ‘Avengers: Doomsday’ lista Ryan Reynolds e Hugh Jackman entre os 10 roteiristas — фан-теории на основе списков в гильдиях сценаристов не являются подтвержденным фактом сделки или производства.
+- [pt] чужое_мелкое: [world] El Universal MX — Queda da Microsoft afeta 130 mil usuários; problemas relatados no Outlook e Copi — технический сбой локального масштаба у корпорации (Microsoft) — не является мировой катастрофой.
+- [pt] не_новость: [world] Engadget — Quem é Colette Kress, CEO interina da NVIDIA? — биографическая справка о временном CEO — это не событие, а дополнение к другой новости.
+- [pt] повтор: [world] Jornal de Negócios — Microsoft regista problemas no serviço de correio eletrónico Outlook ≈ «Queda da Microsoft afeta 130 mil usuário» — дублирует информацию о сбое в Microsoft.
+- [pt] не_новость: [world] Ars Technica — Ucrânia afirma que não consegue impedir ataques russos devido a limitações do St — заявление президента о невозможности чего-либо из-за ограничений — жалоба, а не свершившийся факт или решение.
+- [pt] не_новость: [world] Engadget — O ex-CEO da NVIDIA, Jensen Huang, deve depor perante o Congresso este mês — анонс о будущем показании в Конгрессе — это планируемое событие, а не свершившееся.
+- [pt] повтор: [world] Engadget — Zelenskyy diz que o Starshield foi desacelerado novamente, colocando em risco a  ≈ «Ucrânia afirma que não consegue impedir » — дублирует информацию о проблемах с системой Starshield.
+- [pt] чужое_мелкое: [world] France 24 — Israel proibirá a entrada do político francês de extrema-esquerda Jean-Luc Mélen — запрет на въезд французскому политику в Израиль — внутренняя миграционная политика, не имеющая последствий для мира.
+- [pt] полка: [world] AKIpress — Quirguistão entra no programa climático CIF ARISE com pacote de US$ 30 milhões — новость из Кыргызстана (издание AKIpress) не является мировой для португалоязычного потока.
+- [pt] полка: [world] Азаттык — No Cazaquistão, polícia realiza buscas contra observadores do grupo 'Zhariya' an — внутренняя полицейская операция в Казахстане не является мировой новостью.
