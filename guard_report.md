@@ -1,21 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] syracuse.com — Central NY man sues police after leg amputated from injuries during arrest — Иск о компенсации не требует срочного оповещения читателей.
-- [en] не_новость: [local] KPLC — Local artist honored at Zigler Art Museum — Это профильный материал/анонс события, а не новость.
-- [en] не_новость: [local] CBS News — Nvidia set to lose over $600 billion as CEO faces possible ouster — «На пути к потере» — это рыночная аналитика и предположения, а не свершившийся факт.
-- [en] чужое_мелкое: [local] CBS News — Attacks on ships continue as Trump and Iran claim the upper hand — Внутренняя риторика Трампа по поводу сделок не является мировой новостью.
-- [en] не_новость: [local] KPLC — New drug may lower repeat risk of stroke — Анонс начала применения нового препарата, а не событие.
-- [en] не_новость: [local] WALB — Oak Grove Baptist hosts free giveaway this Saturday — Мелкое анонсированное мероприятие, не требующее внимания всех читателей.
-- [en] курьёз: [local] Cleveland.com — Popular musical act: Stop ‘throwing s--t at me' — Светская хроника/инцидент с артистом, место в «Интересном».
-- [en] не_новость: [local] WCTV — InvestigateTV+: Printers carry hacker risks — Это разбор/предупреждение о рисках, а не событие.
-- [en] курьёз: [local] WCTV — This country band is breaking the mental health stigma among veterans — Тематический очерк/история, место в «Интересном».
-- [en] курьёз: [local] The Salt Lake Tribune — Robot in your bike lane? A food delivery bot has taken to Salt Lake City’s stree — Заметка о роботе-доставщике, место в «Интересном».
-- [en] курьёз: [pool] Good News Network — ‘There’s a Georgia O’Keefe in the Closet’ – Words that Led to Painting’s Joyous  — История об искусстве, должна быть в «Интересном» (уже есть плашка).
-- [en] не_новость: [pool] BBC News — Some under-25s should get fewer benefits, Milburn review to say — Обсуждение рекомендаций обзора, а не принятое решение.
-- [en] не_новость: [pool] Fortune — Former Sen. Roy Blunt: Trump’s latest China crackdown puts American lives on the — Мнение бывшего сенатора, а не событие.
-- [en] не_новость: [pool] Guardian Sport — NFL midseason awards: Allen’s brilliance, a Seahawks shocker and a new Super Bow — Разбор/аналитика NFL, не новость.
-- [en] курьёз: [pool] WFPL — ‘Are robots scary?’ Phoenix Hill art exhibit examines humans’ AI thoughts, fears — Опрос/выставка мнений об ИИ, место в «Интересном».
-- [en] не_новость: [world] The Independent — Billions for forest fund a ‘powerful signal’ over climate aid, says Ed Miliband — Заявление о намерениях/призыв, события нет.
-- [en] не_новость: [world] Semafor — First Abu Dhabi bank raises 15 billion dirhams for postwar boom — Планы по сбору средств, а не свершившаяся сделка.
-- [en] не_новость: [world] ABC Australia — Putin kills many enemies, one convicted of espionage has a different story — Это очерк о журналисте, а не новость.
-- [en] не_новость: [world] WFPL — Supporting veterans is the mission for a Louisville college student — Благотворительная инициатива студентки, не новость.
+- [es] чужое_мелкое: [local] El Financiero — Trump amenaza a México con duplicar araranceles si no detiene caravana migrante: — Внутренняя политика США (анонс угроз) — не мировая новость для Мексики.
+- [es] не_новость: [pool] Infobae — Colombianos valoran positivamente la seguridad en los primeros 100 días de Abela — Обзор итогов работы политика на основе опроса не является событием.
+- [es] повтор: [pool] Infobae — México recibirá inversión de 250 mdd de WEG para producción de tecnología e inte ≈ «Anuncian inversión de WEG por 250 mdd; E» — Дублирует информацию из карточки №2 об инвестициях WEG в Мексику.
+- [es] курьёз: [pool] El Universo EC — Luciano Pereyra se quebró al cantar frente a la Basílica de Luján en la previa d — Событие локального культурного значения в Аргентине, не мирового масштаба.
+- [es] чужое_мелкое: [pool] El Comercio PE — Papa León XIV recibe las llaves de la ciudad y una camiseta de la selección peru — Церемониальные визиты папы в Перу — локальное событие для Перу.
+- [es] не_новость: [pool] El Universo EC — Miguel Ángel Loor buscará la reelección de la Liga Pro en el directorio de la Wo — Намерение участвовать в выборах — не событие, это процесс.
+- [es] не_новость: [pool] Semana CO — El fichaje que se están peleando Nacional, Millonarios, Santa Fe y Deportivo Cal — Слухи о футбольных трансферах — не событие.
+- [es] курьёз: [pool] BBC Mundo — "El papa León XIV es mi padrino de bautizo": la insólita historia de Mildred Cam — История о личной связи человека с папой — это любопытный факт, а не новость.
+- [es] не_новость: [pool] El Nacional VE — Bloomberg: Venezuela envía equipos petroleros a EE UU para su reparación — Техническая процедура ремонта оборудования не является значимым событием.
+- [es] курьёз: [pool] BBC Mundo — "Me los quitaron porque yo estaba sola": la mujer que se reencontró con sus hijo — Личная история, не имеющая актуального новостного повода.
+- [es] чужое_мелкое: [pool] RPP PE — Papa León XIV se reúne con los obispos del Perú en el Palacio Arzobispal de Lima — Протокольный визит в Перу.
+- [es] чужое_мелкое: [pool] La Vanguardia — Rufián estalla contra Junts tras ser llamado “maltratador emocional” por Cruset — Внутриполитическая перепалка в испанском парламенте — не мировая новость.
+- [es] чужое_мелкое: [world] El Universal MX — Enviados de Trump llegan al Kremlin para conversar con Putin; pretenden incorpor — Переговоры о переговорах без конкретного результата — шум.
+- [es] не_новость: [world] El Economista MX — Cámara de Representantes busca consenso para limitar los envíos de chips a China — Поиск консенсуса — обсуждение, а не принятое решение.
+- [es] срочность: [world] France 24 — Ladrones armados huyen de la tienda De Beers en París en motocicletas tras un ro — Ограбление магазина в Париже не требует немедленного оповещения в Мексике.
+- [es] чужое_мелкое: [world] La Nación CR — Trump ordena a JD Vance dejar las negociaciones con Irán y apuntar contra estado — Внутриполитические директивы президента США — не мировая новость.
+- [es] чужое_мелкое: [world] El Mundo — La juez Tardón imputa al ex delegado del Gobierno en Ceuta y le cita en la Audie — Локальное судебное разбирательство в Испании.
+- [es] курьёз: [world] Marca — Kvaratskhelia apoya a Merab tras el ataque recibido: "Muestra al mundo lo que si — Спортивный инцидент, не имеющий мирового значения.
+- [es] не_новость: [world] 14ymedio — Aleccionadora sacudida en Estados Unidos — Аналитическая колонка (мнение автора) о ситуации в США.
+- [es] не_новость: [world] Азаттык (кыргызча) — Elecciones: El número de candidatos alcanza los 11 — Список кандидатов — не событие, плановый процесс.
+- [es] чужое_мелкое: [world] El Mundo — La UCO acude al Tribunal de Cuentas a por información sobre presuntas irregulari — Следственные действия внутри политической партии Испании.
+- [es] не_новость: [world] RFI — En directo - Guerra en Ucrania: de Moscú a Dublín, continúan las negociaciones e — Бесконечные переговоры без итогов — это не новость.
+- [es] чужое_мелкое: [world] Азаттык — En Kazajistán, la policía realizó registros a observadores de «Zhariya» antes de — Мелкий локальный инцидент с полицией в Казахстане.
+- [es] не_новость: [world] BBC Mundo — 4 claves del escándalo de los supuestos "sexocontratos" por el que se investiga  — Анализ политического скандала, который длится долгое время — не событие.
+- [es] чужое_мелкое: [world] Guardian Sport — Svitolina mantiene vivas sus esperanzas en las Finales de la WTA tras una notabl — Результат одного теннисного матча не является мировой новостью.
