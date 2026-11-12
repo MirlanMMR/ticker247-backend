@@ -1,31 +1,25 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] срочность: [local] G1 Rio Grande do Sul — Pousada Garoa: MP denuncia dono, ex-fiscal e homem apontado como autor de incênd — Это расследование по факту прошлого события, не требует немедленного уведомления.
-- [pt] повтор: [world] ECO — Zelensky denuncia novas restrições ao Starlink ≈ «Ucrânia enfrenta novas interrupções no S» — Тот же сюжет, что и в карточке 75.
-- [pt] чужое_мелкое: [world] Poder360 — Greve geral na Espanha reúne 3 milhões de pessoas — Внутренняя забастовка в Испании, для Бразилии не является мировой новостью.
-- [pt] чужое_мелкое: [world] El Mundo — Grupos violentos de Barcelona atacaram com "pirotecnia de alta potência", foguet — Подробности местных беспорядков в Испании (продолжение сюжета №66).
-- [pt] чужое_мелкое: [world] AKIpress Эко — Lançada a pedra fundamental de viveiro florestal em Chuy, sob projeto entre Quir — Местная новость Кыргызстана, не мировая.
-- [pt] чужое_мелкое: [world] El Mundo — A chave da mochila letal do 'Russo' em Oviedo: deixada sobre as caixas de correi — Местный криминал в Испании.
-- [pt] чужое_мелкое: [world] Guardian Sport — Ex-técnico da NFL Rex Ryan é acusado de atropelar pedestres em Nashville — Мелкое происшествие с частным лицом в США.
-- [fr] чужое_мелкое: [local] Sud Ouest — Pierre-Édouard Stérin : le milliardaire conservateur sera jugé en janvier pour s — Внутренняя судебная хроника бизнесмена, не является мировой новостью.
-- [fr] не_новость: [local] BFMTV — DIRECT. Accusations d'antisémitisme: Jordan Bardella a porté plainte pour faux e — Обычная политическая полемика и обмен заявлениями без конкретного события.
-- [fr] курьёз: [pool] TSA Algérie — Salon du livre d’Alger : une prédicatrice salafiste égyptienne crée la polémique — Полемика вокруг высказываний — это интересное, не является значимым событием.
-- [fr] чужое_мелкое: [world] BFMTV — Il devait livrer les États-Unis mais n'a plus "d'instructions": un pétrolier cha — Частный инцидент с танкером без последствий для мировой экономики.
-- [fr] чужое_мелкое: [world] La Libre — L’extrême droite polonaise a confisqué le 11 novembre — Локальное политическое событие (конфискация символики) в Польше.
-- [fr] чужое_мелкое: [world] BBC News — Tim Westwood, DJ, nie de nouvelles accusations d'infractions sexuelles — Рутина уголовного процесса частного лица.
-- [fr] чужое_мелкое: [world] The Hill — Le secrétaire à la Défense Pete Hegseth survit à une tentative de destitution, m — Внутренняя процедура в Конгрессе США, не имеющая мирового веса.
-- [fr] чужое_мелкое: [world] BBC News — L'activiste Daniel Thomas plaide coupable de dégradation après avoir lacéré un c — Криминальная хроника частного активиста.
-- [fr] не_новость: [world] Courrier International — À Taïwan, des élections locales sous influence chinoise — Аналитическая статья о политических влияниях, а не событие.
-- [fr] чужое_мелкое: [world] BBC Sport — Le chaos ayant conduit au licenciement de Michael Carrick après 15 matchs — Спортивная новость (увольнение тренера), нет мирового масштаба.
-- [fr] не_новость: [world] L'Express — "Du chantage" : l'aide à l'Ukraine au cœur d'un bras de fer entre pays européens — Анонс предстоящей дискуссии, а не свершившийся факт.
-- [fr] чужое_мелкое: [world] L'Obs — Adultères, espionnage, chute en Bourse : le PDG de Nvidia Jensen Huang désormais — Сплетни и корпоративные слухи вокруг руководителя компании.
-- [fr] не_новость: [world] Courrier International — En Méditerranée orientale, un navire français à l’épreuve des tensions gréco-tur — Очерк о присутствии корабля в регионе, нет нового события.
-- [fr] не_новость: [world] Rolling Stone — Netflix diffusera le documentaire « Russell Brand: Open Secret » — Анонс выхода документального фильма.
-- [fr] курьёз: [world] Franceinfo — "Ça a explosé comme un volcan" : dans la région turque de Konya, la terre s'effo — Природное явление (карстовые воронки) — познавательный факт, не новость.
-- [fr] курьёз: [world] Le Devoir — «Voyager 1» arrive à une journée-lumière de la Terre — Научный факт о движении зонда в космосе — место в «Интересном».
-- [fr] повтор: [world] Radio-Canada — Nvidia s’apprête à limoger son dirigeant, Jensen Huang, selon des médias américa ≈ «Adultères, espionnage, chute en Bourse :» — То же событие, что в №45.
-- [fr] чужое_мелкое: [world] Engadget — New York contraint T-Mobile à supprimer les plafonds de données sur les forfaits — Регуляторное решение местного уровня в Нью-Йорке.
-- [fr] курьёз: [world] BBC News — Pete Hegseth et ses conseillers rappelés à l'ordre par une sentinelle à la Tombe — Мелкий протокольный инцидент, не является мировой новостью.
-- [fr] курьёз: [world] Ars Technica — Anduril affirme que son premier satellite peut détecter les manœuvres adverses e — Технологическая демонстрация, не является событием для широкого читателя.
-- [fr] не_новость: [world] Engadget — United Airlines restreint l'usage d'agents basés sur l'IA pour les réservations — Корпоративное правило компании, нет мирового значения.
-- [fr] курьёз: [world] BBC Sport — Harry Kane s'apprête à devenir le joueur le plus capé de l'histoire de l'Anglete — Спортивное достижение (статистика), не является срочным событием.
+- [ru] курьёз: [local] Knews.kg — Физики обнаружили, что ничто не может быть полностью прозрачным — научное наблюдение без последствий для читателя.
+- [ru] чужое_мелкое: [local] Sputnik KG (кыргызча) — Кыргызстандын Украинадагы элчиси үй-бүлөсүнө карата айыптоолорго үн катты — личные оправдания чиновника, не имеющие прямого значения для Кыргызстана.
+- [ru] не_новость: [local] Вечерний Бишкек — В ООН отметили успехи Кыргызстана в развитии дошкольного образования — дипломатическая вежливость без существенных фактов.
+- [ru] полка: [pool] Onliner.by — Упавший с крыши снег со льдом повредил машину. — бытовая история, не новость для широкого круга.
+- [ru] чужое_мелкое: [pool] Азаттык — В Казахстане полиция провела обыски у наблюдателей «Жария» накануне выборов в ма — внутренние дела Казахстана, не имеющие общерегионального веса.
+- [ru] не_новость: [pool] Азаттык (кыргызча) — "Согушка баргыча өзүм өлүп алсамбы...". Орусиянын капасында калгандар — личные истории и эмоции, нет события.
+- [ru] не_новость: [pool] 86.ru — Ханты-Мансийск — Будет ли запущен автобус от Ханты-Мансийска напрямую до Демьянки? Власти дали от — планы и обсуждения без принятого решения.
+- [ru] не_новость: [pool] 93.ru — Краснодар — Власти рекомендуют сделать запас. — рекомендация сделать запас, а не официальное объявление об отключении.
+- [ru] чужое_мелкое: [pool] Kun.uz — В Казахстане задержаны высокопоставленные чиновники: из окна при обыске выбросил — коррупционный скандал в РК, не имеет прямого влияния на Кыргызстан.
+- [ru] не_новость: [world] Variety — Фильм «Low Lies the Land» от продюсера номинированной на «Оскар» ленты «Пещера»  — бизнес-сделки по кинопрокату — информационный шум.
+- [ru] не_новость: [world] Variety — Disney представила планы празднования 50-летия «Звездных войн»: наборы Lego, кол — анонс выпуска мерча и игрушек.
+- [ru] чужое_мелкое: [world] The Independent — Двое граждан Ирана признаны виновными в шпионаже в пользу разведслужб Ирана за ж — уголовное дело внутри Британии, не является мировой новостью.
+- [ru] чужое_мелкое: [world] El Mundo — Судья Тардон вызвала бывшего делегата правительства в Сеуте в качестве обвиняемо — местные судебные вызовы в Испании.
+- [ru] не_новость: [world] Guardian Sport — Смарт удален за удар Бэсси, «Уорриорз» проиграли «Рокетс» и лишились Карри из-за — спортивная хроника, не имеющая мирового статуса.
+- [ru] не_новость: [world] El Nacional VE — Дженсен Хуанг находится на грани отставки с поста главы Nvidia — слухи о смене главы компании, основанные на сплетнях.
+- [ru] чужое_мелкое: [world] El Mundo — Европейская прокуратура направила Центральное оперативное подразделение в Минист — внутренние проверки министерств Испании.
+- [ru] не_новость: [world] Semafor — Ожидается, что Великобритания и Германия превысят прогнозы по экономическому рос — прогнозы экспертов, нет факта события.
+- [ru] не_новость: [world] Азаттык — Из Египта в США экстрадировали гражданина Казахстана и Таджикистана по делу о не — рутинная экстрадиция, нет значимых последствий.
+- [ru] не_новость: [world] Азаттык — Страницы Ассоциации «Права человека в Центральной Азии» в соцсетях взломали посл — взлом аккаунтов в соцсетях.
+- [ru] чужое_мелкое: [world] Knews.kg — Вице-президент Индонезии подал в отставку из-за скандала с дипломом — индонезийская политика, не имеет мирового значения.
+- [ru] не_новость: [world] Rolling Stone — Netflix выпустит документальный фильм «Рассел Брэнд: Секрет полишинеля» — анонс фильма.
+- [ru] не_новость: [world] Guardian Sport — Свитолина сохранила шансы на участие в финале WTA после волевой победы над Мухов — текущий матч, не является «важным» мировым событием.
+- [ru] повтор: [world] Ars Technica — Позиция генерального директора Nvidia Дженсена Хуанга оказалась под угрозой ≈ «Дженсен Хуанг находится на грани отставк» — тот же слух, что в карточке 80.
