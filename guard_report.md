@@ -1,27 +1,26 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] Arizona's Family — Camp Verde, Scottsdale Christian go head-to-head in 2A quarterfinal matchup — Анонс спортивного матча, не свершившееся событие.
-- [en] не_новость: [local] WDBJ7 — First Alert: Cold air has arrived — Прогноз погоды, а не событие.
-- [en] не_новость: [local] OPB — Sport psychology program at University of Western States in Portland earns natio — Получение аккредитации учебной программой — рутина/достижение, не событие.
-- [en] не_новость: [local] El Paso Matters — UTEP raises record $70 million; city of El Paso adopts new plan to improve parks — Еженедельный обзор/дайджест.
-- [en] курьёз: [local] OPB — ‘An American Gulag’ documents the impact of immigration detention in the US — Фотопроект, не событие.
-- [en] не_новость: [local] WSMV — Nashville HBCU students share their hopes for Jefferson Street’s future — Опрос о надеждах студентов — не событие.
-- [en] не_новость: [local] WBAY — De Pere debuts Downtown Unwrapped holiday event — Анонс планового развлекательного мероприятия.
-- [en] не_новость: [local] KWCH — Local Amazon facilities ramping up for holiday rush — Подготовка компании к сезону — рутина.
-- [en] не_новость: [local] WTOP — Wholesale inflation declined last month yet remains stubbornly elevated — Экономическая аналитика (отчет об инфляции), нет конкретного решения или сделки.
-- [en] не_новость: [local] 1011NOW — Remaining chilly through Saturday, warming trend begins Sunday — Прогноз погоды.
-- [en] не_новость: [local] WALB — ‘They’re learning how to do hard things’: Girls on the Run prepares for 5k in Va — Подготовка к забегу — рутинная активность.
-- [en] не_новость: [local] Axios — Oil supplies bounce back, but prices are still high — Аналитика рынка, нет события.
-- [en] не_новость: [local] Georgia Public Broadcasting — 'Punch in the gut': Homes sales fall to their lowest in 16 years — Статистический отчет о продажах жилья.
-- [en] не_новость: [local] WBAL — Poll finds trust in local government higher than trust in state and federal leve — Результаты соцопроса — не событие.
-- [en] не_новость: [local] Connecticut Mirror — Fuel vendors continue to leave CT’s winter heating program — Тенденция ухода поставщиков, а не событие.
-- [en] не_новость: [local] CalMatters — By emptying death row, Newsom broke a promise and disregarded the will of voters — Авторское мнение/аналитика по решению губернатора.
-- [en] курьёз: [local] County 17 — ‘I know how they feel’: Gillette man heads mission that helped save him — История личного успеха, не новость.
-- [en] не_новость: [local] Startribune News — Roper: Police chief rejection leaves Minneapolis stuck in a maddening spiral — Авторская колонка/мнение.
-- [en] не_новость: [local] WSMV — MTSU student group protests Turning Point USA chapter after October event — Протест студентов как мнение, а не событие.
-- [en] не_новость: [local] WCAX — Vermont student has a voice on state education board — Назначение члена в школьный совет (мелкое/рутина).
-- [en] курьёз: [pool] Infobae — Janet Jackson surprised Daddy Yankee at the 2026 Latin Grammy Awards: "Your musi — Светская хроника с награждения.
-- [en] не_новость: [pool] Marca — The big day for Josh Hokit, the most controversial UFC fighter who could become  — Профайл бойца перед матчем.
-- [en] не_новость: [pool] BBC News — Piddington to bring legal challenge over asylum base plans — Планы по подаче иска (слова о будущем).
-- [en] не_новость: [pool] Rolling Stone — Pearl Jam’s Mike McCready Debuts ‘Farewell to Seasons’ Title Track, an Ode to Se — Анонс выхода трека.
-- [en] не_новость: [pool] Rolling Stone — Ron Wood to Play Rare U.S. Solo Concert at New York’s Beacon Theatre — Анонс концерта.
+- [es] чужое_мелкое: [local] El Financiero — ¿México enviará más petróleo a Japón? — Встреча для обсуждения торговых отношений не является мировой новостью.
+- [es] срочность: [pool] El Tiempo CO — Voces de rechazo por el atentado con explosivo al paso de una patrulla cerca de  — Событие произошло в последние часы, но это текущая криминальная хроника, а не катастрофа мирового масштаба.
+- [es] не_новость: [pool] El Tiempo CO — Murió Lucio Chiquito Caicedo a los 110 años, ingeniero que ayudó a fundar EPM y  — Смерть в возрасте 110 лет — это жизненный финал, а не событие по белому списку (если не было скандала или катастрофы).
+- [es] полка: [pool] El Comercio PE — Temblor en Colombia HOY, viernes 13 de noviembre: magnitud y epicentro del últim — Событие в Колумбии для перуанского издания — региональная новость, в потоке MX (региональная) должна стоять в «Новости и
+- [es] чужое_мелкое: [pool] Infobae — Campaña de las elecciones generales 29-N, en directo: el cara a cara entre Pedro — Начало предвыборной кампании в Испании — внутренняя новость Испании, не мировая.
+- [es] не_новость: [pool] La Nación AR — Javier Milei y sus medidas, en vivo: “Lo único que le faltaba al país eran regla — Рассуждения о мнении президента и ожиданиях — не событие.
+- [es] не_новость: [pool] RPP PE — De vuelta a su tierra: el papa León XIV regresó a Chiclayo y fue recibido por un — Приезд папы римского — это плановое мероприятие, а не событие-новость.
+- [es] чужое_мелкое: [pool] eldiario.es — El PSOE denuncia al PP, Eduardo Inda y Okdiario por los pagos de la defensa de K — Внутренние политические споры и иски в Испании не имеют значения для читателя в Мексике.
+- [es] курьёз: [pool] RPP PE — “Perdón, estoy hablando italiano”: León XIV tuvo curioso lapsus con el idioma al — Оговорка папы римского — типичный курьёз, не новость.
+- [es] чужое_мелкое: [pool] eldiario.es — El Tribunal de Cuentas ve indicios de que el ático del Gobierno de Ayuso supuso  — Внутреннее расследование по недвижимости в Мадриде — не мировая новость.
+- [es] не_новость: [pool] eldiario.es — El descuento de 20 céntimos en gasolina y diésel se mantendrá en vigor hasta fin — Продление налоговой льготы — рутина, не событие.
+- [es] чужое_мелкое: [pool] El Mundo — Los mensajes desvelados por la UCO sitúan a Óscar López como impulsor de la reun — Внутренние политические интриги Испании.
+- [es] повтор: [world] El Comercio PE — Rusia reporta 9 muertos y Ucrania 3 tras una ola de ataques cruzados. ≈ «Qué se sabe sobre la falla global que af» — Разные аспекты одного и того же события (сбой Microsoft и международные конфликты).
+- [es] чужое_мелкое: [world] El Economista MX — Alemania aprueba gasto récord de 620,000 millones de dólares para 2027 — Внутренние бюджетные споры Германии.
+- [es] не_новость: [world] TechCrunch — La nueva aplicación de ElevenLabs combina la toma de notas y el dictado para equ — Анонс экспериментальной функции приложения — это реклама или описание функционала, а не событие.
+- [es] чужое_мелкое: [world] Clarín AR — Inflación mayorista alcanza 6,5% anual en EEUU, máximo en 4 años — Статистика инфляции США (показатель PPI) — не событие, а экономический отчет.
+- [es] чужое_мелкое: [world] TechCrunch — Las firmas de capital riesgo de Israel ven oportunidades frente a la crisis de N — Аналитика инвестиционных рисков Израиля из-за смены главы Nvidia.
+- [es] чужое_мелкое: [world] Guardian Sport — Confirmado el traslado de Mauricio Pochettino de la selección de EE. UU. al Manc — Трансфер тренера — спортивная рутина.
+- [es] чужое_мелкое: [world] Азаттык — Tokayev calificó las detenciones de los directivos de «Samruk-Kazyna» y KTZ como — Внутренняя борьба с коррупцией в Казахстане не является мировой новостью.
+- [es] чужое_мелкое: [world] El Sol de México — Singapur arresta a cinco personas por fraude relacionado con chips de Nvidia — Арест за мошенничество с чипами в Сингапуре не имеет глобальных последствий.
+- [es] чужое_мелкое: [world] El Sol de México — Depardieu no apelará su condena por agresión sexual a dos mujeres — Судебное решение по актеру — не мировая новость.
+- [es] повтор: [world] La Vanguardia — Microsoft se recupera poco a poco tras una caída mundial que se ha prolongado ca ≈ «Microsoft se restablece lentamente pero » — Развитие темы глобального сбоя Microsoft.
+- [es] не_новость: [world] BBC Mundo — Investigación BBC: las brutales bandas de tráfico de drogas en Francia que reclu — Исследовательский лонгрид о бандах Франции.
+- [es] чужое_мелкое: [world] El Mundo — "Nuestro amigo Cristian": el ex chofer de Sánchez fue la solución para comprarle — Внутренние коррупционные скандалы Испании.
