@@ -1,21 +1,17 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [local] Estadão — Quem é o médico condenado por divulgar mentiras sobre câncer de mama e mamografi — История о враге-влиятеле не меняет жизнь читателя, место в 'Интересном'.
-- [pt] срочность: [local] G1 São Paulo — Chuva causa alagamentos em SP e mais de 57 mil imóveis ficam sem luz na Grande S — Срочное сообщение об обычном дожде в столице не требует побудки.
-- [pt] курьёз: [local] G1 São Paulo — 'Rosa e Azul': a história sombria do quadro mais famoso do Masp — e o fim trágic — Исторический очерк о картине — это 'Интересное', а не новость.
-- [pt] не_новость: [pool] Notícias ao Minuto — "Paga 800 euros de multa ou ficava mais 4 dias presa. Escolhi os 4 dias" — Личные истории знаменитостей о штрафах не являются новостью.
-- [pt] курьёз: [pool] Terra BR — L7NNON revisita suas origens em novo álbum 'De Volta ao Podium' — Релиз альбома — это 'интересное', но не новость в общепринятом смысле.
-- [pt] не_новость: [pool] Observador PT — Porta-voz do PSD confronta Carneiro: “Soares faria isso?" — Политическая полемика без конкретного события (этикет/спор).
-- [pt] чужое_мелкое: [world] Ars Technica — Kalshi encerra parceria com Donald Trump Jr. como consultor; CEO admitiu que “óp — Внутренняя кадровая перестановка в американской компании, нет мирового масштаба.
-- [pt] курьёз: [world] TechCrunch — Startup de agentes de IA LangChain atinge avaliação de US$ 3 bilhões — Оценка стартапа — рыночный шум, не событие для массового читателя.
-- [pt] не_новость: [world] Engadget — Google agora permite conectar o Gemini a contas bancárias — Обновление функции в приложении — это сервисное сообщение.
-- [pt] не_новость: [world] Variety — Netflix divulga primeira imagem da série animada 'Planeswalker', baseada em Magi — Анонс графики из сериала — не событие.
-- [pt] не_новость: [world] Engadget — Filmes em 3D da Disney chegam ao Meta Quest 3 — Появление фильмов в библиотеке приложения — сервисная новость.
-- [pt] курьёз: [world] Fortune — ‘Pessoas estão se desfazendo de ativos como ouro e Bitcoin’ à medida que a infla — Колебания рынка (биткоин) — шум, если нет обвала экономики.
-- [pt] чужое_мелкое: [world] The Independent — Novo vídeo mostra última entrega de motorista do DoorDash que desapareceu mister — Криминальная хроника из США без последствий для других стран.
-- [pt] повтор: [world] The Independent — Microsoft sofre queda e redes sociais reagem com ironia: 'Não tenham pressa' ≈ «Microsoft relata progresso na restauraçã» — Тот же сюжет о сбое Microsoft, что и в №79.
-- [pt] чужое_мелкое: [world] Fortune — Exclusivo: OpenAI dissolve equipe autônoma de robótica à medida que seus modelos — Внутренняя реорганизация отдела в компании.
-- [pt] курьёз: [world] The Guardian — ‘À frente do seu tempo’: IA ajuda a revelar descobertas ocultas nos cadernos de  — Исследование математических текстов — интересно, но не новость.
-- [pt] курьёз: [world] Ars Technica — Vulnerabilidade zero-day no Windows exposta por pesquisador insatisfeito concede — Техническая уязвимость ПО — это новость для узких специалистов, но не массовая.
-- [pt] не_новость: [world] TechCrunch — Nova carteira do ChatGPT permite que agentes de IA realizem compras — Функционал чат-бота — сервисная новость.
-- [pt] чужое_мелкое: [world] Азаттык — Tokayev classificou as detenções de executivos da Samruk-Kazyna e da KTZ como ev — Внутриполитическая борьба в Казахстане не является мировым событием для бразильца.
+- [en] не_новость: [local] Inquirer.com — Jefferson Health had an $81 million operating loss in the three months ended Sep — Квартальный финансовый отчет компании, не является событием по белому списку.
+- [en] курьёз: [local] WABI — Maine woman collects fuzzy socks for cancer patients in sister’s memory — Личная история о сборе носков, нет общественно значимого события.
+- [en] срочность: [local] WCTV — Tallahassee’s Arion Apartments face water shutoff over ‘significantly delinquent — Угроза отключения воды из-за долгов — плановое хозяйственное уведомление.
+- [en] срочность: [local] KFVS12 — Current boil water orders/advisories in the Heartland — Плановое объявление об ограничении использования воды.
+- [en] не_новость: [local] Gothamist — Mayor Mamdani appoints ex-DSA chair as new NYC nightlife director — Назначение местного чиновника — повседневная кадровая работа.
+- [en] не_новость: [local] CBS News — Never bought Nvidia stock? Its slide could still hit your 401(k). — Аналитический обзор рынка и прогноз, а не свершившееся событие.
+- [en] курьёз: [pool] Variety — Billy Evans Claims He Didn’t ‘Consent’ to ‘You Can See Everything’ Full Frontal  — Спор актера о цветокоррекции и согласии на съемку, не является новостью.
+- [en] не_новость: [pool] Rolling Stone — Hear Tyler Childers Skewer Wealth Inequality on ‘Old Money’ — Анонс песни из саундтрека к фильму.
+- [en] не_новость: [pool] Variety — Music Industry Moves: Diplo and Andrew Bergman Launch Bison Music; Debbie Gibson — Корпоративная заметка о сделках в музыкальной индустрии.
+- [en] курьёз: [pool] TechCrunch — This young startup wants to power floating data centers with the ocean’s heat, a — Рассказ о стартапе и его концепции, не является фактом закрытой сделки или запуска.
+- [en] повтор: [world] France 24 — France among five major powers to represent EU in Ukraine talks ≈ «Europe selects negotiating team for Ukra» — Тот же сюжет о составе делегации на переговорах по Украине.
+- [en] не_новость: [world] Bangor Daily News — Joe Biden’s White House memoir is an unapologetic defense of four years sandwich — Анонс выхода книги-мемуаров.
+- [en] курьёз: [world] Ars Technica — In elephants, the resilience of communities has its limits — Научно-популярный факт о поведении слонов.
+- [en] не_новость: [world] Fortune — Exclusive: OpenAI disbands its stand-alone robotics team as its general models s — Реорганизация внутренних отделов компании, не событие для потребителя.
+- [en] курьёз: [world] The Guardian — ‘Ahead of his time’: AI helps unlock discoveries hidden in notebooks of man who  — Историческое исследование записей математика, не является событием.
