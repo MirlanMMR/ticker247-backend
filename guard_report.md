@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] срочность: [local] Kaktus.media — 16 ноября в части Бишкека отключат свет (список улиц) — плановое отключение электричества не требует побудки
-- [ru] не_новость: [local] Вечерний Бишкек — В Кыргызстане отмечают 100-летие образования Киргизской АССР — конференция — плановое мероприятие, не новость
-- [ru] срочность: [local] Knews.kg — В Бишкеке улица Махатмы Ганди (Муромская) будет временно закрыта — временное закрытие улицы из-за ремонта не является чрезвычайным событием
-- [ru] срочность: [local] Kabar.kg — Бишкектин Асанбай кичирайонунда жылуулук жана ысык суу өчүрүлөт — отключение тепла — плановые работы, не требует пометки СРОЧНО
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — Бывшая студентка казанского университета обвинила преподавателя в изнасиловании — внутренний уголовный скандал университета в Казани
-- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — Миллионы в ведерке из-под майонеза: показываем, как откапывали взятку для Гершта — детали коррупционного дела местного чиновника в РФ
-- [ru] не_новость: [pool] 71.ru — Тула — В Туле снова можно будет оформить пенсию и получить услуги Соцфонда на улице Бра — возобновление работы соцфонда после ремонта
-- [ru] курьёз: [pool] 59.ru — Пермь — «Как робот-таракан из фантастического боевика»: в Перми бетононасос упал в тонне — ДТП с техникой на стройке — локальное происшествие без значимых последствий
-- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — В Новгородской области выявили взятку в миграционной службе — локальное дело о взятке в РФ
-- [ru] не_новость: [pool] 63.ru — Самара — Известная на всю страну кондитер предложила идеальный десерт для Самары — там ес — светская хроника: вручение премии в Самаре
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Водитель Hyundai Accent, «оседлавший» припаркованную «Ладу», был пьян. — бытовое ДТП с пьяным водителем в РФ
-- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — Чистая прибыль Совкомбанка выросла вдвое — финансовый отчет частного банка
-- [ru] не_новость: [pool] 14.ru — Якутск — Новую теплую остановку куда-то повезли в Якутске. Что происходит перед лютыми хо — перестановка автобусной остановки
-- [ru] чужое_мелкое: [pool] 45.ru — Курган — В Курганский городской суд поступило дело экс-руководителя областного департамен — локальное уголовное дело чиновника в РФ
-- [ru] не_новость: [pool] 86.ru — Ханты-Мансийск — «Маршруты просто неадекватные!» Прокуратура проверит работу транспорта в Сургуте — проверка прокуратуры по жалобам — не результат
-- [ru] не_новость: [pool] 76.ru — Ярославль — Новая подтанцовка и блестящие платья: Татьяна Буланова собрала полный зал в Ярос — светская хроника: концерт артиста
-- [ru] курьёз: [pool] 71.ru — Тула — «Мы не просто семья, мы команда!» Супруги воспитали 17 приемных детей и получили — частная история о приемных детях
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — «Пропьюсь, заберу». В Тюмени вторые сутки не могут эвакуировать перевернувшийся  — бытовое ДТП, машину не могут эвакуировать
-- [ru] не_новость: [pool] 53.ru — Великий Новгород — В Новгородской области за 10 месяцев 2026 года произошло 40 ДТП с пешеходами — статистический отчет за 10 месяцев
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — «Я вас не звал»: из Рязанской области выгнали пятерых иностранцев — депортация мигрантов в РФ
-- [ru] не_новость: [pool] 72.ru — Тюмень — Тюменские власти сверстали городской бюджет. На что потратят деньги? — анонс проекта бюджета
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — «Прямо на тротуар»: в Ярославле начал рушиться фасад закрытой поликлиники — разрушение фасада здания в Ярославле
-- [ru] не_новость: [pool] 45.ru — Курган — Администрация Кургана показала, как отремонтировали дорогу у поликлиники по Каре — отчет о завершении дорожных работ
-- [ru] не_новость: [pool] 76.ru — Ярославль — В Ярославской области могут сократить рейсы электричек — подробности — обсуждение сокращения рейсов
-- [ru] курьёз: [pool] 71.ru — Тула — На трассе М-4 «Дон» в Тульской области спасли кота, который выпрыгнул из машины — спасение кота на трассе
+- [en] не_новость: [local] Arizona's Family — Camp Verde, Scottsdale Christian go head-to-head in 2A quarterfinal matchup — Анонс спортивного матча, не свершившееся событие.
+- [en] не_новость: [local] WDBJ7 — First Alert: Cold air has arrived — Прогноз погоды, а не событие.
+- [en] не_новость: [local] OPB — Sport psychology program at University of Western States in Portland earns natio — Получение аккредитации учебной программой — рутина/достижение, не событие.
+- [en] не_новость: [local] El Paso Matters — UTEP raises record $70 million; city of El Paso adopts new plan to improve parks — Еженедельный обзор/дайджест.
+- [en] курьёз: [local] OPB — ‘An American Gulag’ documents the impact of immigration detention in the US — Фотопроект, не событие.
+- [en] не_новость: [local] WSMV — Nashville HBCU students share their hopes for Jefferson Street’s future — Опрос о надеждах студентов — не событие.
+- [en] не_новость: [local] WBAY — De Pere debuts Downtown Unwrapped holiday event — Анонс планового развлекательного мероприятия.
+- [en] не_новость: [local] KWCH — Local Amazon facilities ramping up for holiday rush — Подготовка компании к сезону — рутина.
+- [en] не_новость: [local] WTOP — Wholesale inflation declined last month yet remains stubbornly elevated — Экономическая аналитика (отчет об инфляции), нет конкретного решения или сделки.
+- [en] не_новость: [local] 1011NOW — Remaining chilly through Saturday, warming trend begins Sunday — Прогноз погоды.
+- [en] не_новость: [local] WALB — ‘They’re learning how to do hard things’: Girls on the Run prepares for 5k in Va — Подготовка к забегу — рутинная активность.
+- [en] не_новость: [local] Axios — Oil supplies bounce back, but prices are still high — Аналитика рынка, нет события.
+- [en] не_новость: [local] Georgia Public Broadcasting — 'Punch in the gut': Homes sales fall to their lowest in 16 years — Статистический отчет о продажах жилья.
+- [en] не_новость: [local] WBAL — Poll finds trust in local government higher than trust in state and federal leve — Результаты соцопроса — не событие.
+- [en] не_новость: [local] Connecticut Mirror — Fuel vendors continue to leave CT’s winter heating program — Тенденция ухода поставщиков, а не событие.
+- [en] не_новость: [local] CalMatters — By emptying death row, Newsom broke a promise and disregarded the will of voters — Авторское мнение/аналитика по решению губернатора.
+- [en] курьёз: [local] County 17 — ‘I know how they feel’: Gillette man heads mission that helped save him — История личного успеха, не новость.
+- [en] не_новость: [local] Startribune News — Roper: Police chief rejection leaves Minneapolis stuck in a maddening spiral — Авторская колонка/мнение.
+- [en] не_новость: [local] WSMV — MTSU student group protests Turning Point USA chapter after October event — Протест студентов как мнение, а не событие.
+- [en] не_новость: [local] WCAX — Vermont student has a voice on state education board — Назначение члена в школьный совет (мелкое/рутина).
+- [en] курьёз: [pool] Infobae — Janet Jackson surprised Daddy Yankee at the 2026 Latin Grammy Awards: "Your musi — Светская хроника с награждения.
+- [en] не_новость: [pool] Marca — The big day for Josh Hokit, the most controversial UFC fighter who could become  — Профайл бойца перед матчем.
+- [en] не_новость: [pool] BBC News — Piddington to bring legal challenge over asylum base plans — Планы по подаче иска (слова о будущем).
+- [en] не_новость: [pool] Rolling Stone — Pearl Jam’s Mike McCready Debuts ‘Farewell to Seasons’ Title Track, an Ode to Se — Анонс выхода трека.
+- [en] не_новость: [pool] Rolling Stone — Ron Wood to Play Rare U.S. Solo Concert at New York’s Beacon Theatre — Анонс концерта.
