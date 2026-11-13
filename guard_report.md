@@ -1,17 +1,16 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] Inquirer.com — Jefferson Health had an $81 million operating loss in the three months ended Sep — Квартальный финансовый отчет компании, не является событием по белому списку.
-- [en] курьёз: [local] WABI — Maine woman collects fuzzy socks for cancer patients in sister’s memory — Личная история о сборе носков, нет общественно значимого события.
-- [en] срочность: [local] WCTV — Tallahassee’s Arion Apartments face water shutoff over ‘significantly delinquent — Угроза отключения воды из-за долгов — плановое хозяйственное уведомление.
-- [en] срочность: [local] KFVS12 — Current boil water orders/advisories in the Heartland — Плановое объявление об ограничении использования воды.
-- [en] не_новость: [local] Gothamist — Mayor Mamdani appoints ex-DSA chair as new NYC nightlife director — Назначение местного чиновника — повседневная кадровая работа.
-- [en] не_новость: [local] CBS News — Never bought Nvidia stock? Its slide could still hit your 401(k). — Аналитический обзор рынка и прогноз, а не свершившееся событие.
-- [en] курьёз: [pool] Variety — Billy Evans Claims He Didn’t ‘Consent’ to ‘You Can See Everything’ Full Frontal  — Спор актера о цветокоррекции и согласии на съемку, не является новостью.
-- [en] не_новость: [pool] Rolling Stone — Hear Tyler Childers Skewer Wealth Inequality on ‘Old Money’ — Анонс песни из саундтрека к фильму.
-- [en] не_новость: [pool] Variety — Music Industry Moves: Diplo and Andrew Bergman Launch Bison Music; Debbie Gibson — Корпоративная заметка о сделках в музыкальной индустрии.
-- [en] курьёз: [pool] TechCrunch — This young startup wants to power floating data centers with the ocean’s heat, a — Рассказ о стартапе и его концепции, не является фактом закрытой сделки или запуска.
-- [en] повтор: [world] France 24 — France among five major powers to represent EU in Ukraine talks ≈ «Europe selects negotiating team for Ukra» — Тот же сюжет о составе делегации на переговорах по Украине.
-- [en] не_новость: [world] Bangor Daily News — Joe Biden’s White House memoir is an unapologetic defense of four years sandwich — Анонс выхода книги-мемуаров.
-- [en] курьёз: [world] Ars Technica — In elephants, the resilience of communities has its limits — Научно-популярный факт о поведении слонов.
-- [en] не_новость: [world] Fortune — Exclusive: OpenAI disbands its stand-alone robotics team as its general models s — Реорганизация внутренних отделов компании, не событие для потребителя.
-- [en] курьёз: [world] The Guardian — ‘Ahead of his time’: AI helps unlock discoveries hidden in notebooks of man who  — Историческое исследование записей математика, не является событием.
+- [es] не_новость: [local] El Universal MX — Mauricio Islas despide a su padre, Juan Islas Mendoza — частное сообщение о смерти отца актёра, не является общественно значимым событием.
+- [es] срочность: [local] El Informador — CFE: El municipio en Jalisco que se quedará sin luz este viernes 13.11. — плановое техническое отключение электричества не является поводом для побудки.
+- [es] срочность: [pool] El Tiempo CO — El MIO informa plan de desvíos en el norte por protesta por agua en la ladera y  — информация о дорожных заторах из-за протестов не является экстренным событием мирового масштаба.
+- [es] полка: [pool] La Nación CR — Fallece reconocido actor de ‘La Familia P. Luche’ — смерть актёра — это не мировая новость, для мексиканского потока это местная новость, но в ленте «Новости из…» она выгля
+- [es] повтор: [pool] Infobae — Dámaso Castro enfrenta dos investigaciones en Sinaloa: por acusaciones de EEUU y ≈ «Descongelan cuentas a Rubén Rocha Moya: » — тема преследования Рубена Рочи Мойя уже раскрыта в карточке 9.
+- [es] не_новость: [pool] Infobae — Santiago Segura y María Luisa Gutiérrez en FICAL: "Sin espectadores no hay indus — вручение локальной премии кинодеятелям не является новостью для широкого круга читателей.
+- [es] не_новость: [pool] Semana CO — Consejo de Estado respalda al presidente De la Espriella: expresiones religiosas — судебное решение по частному иску, не имеющее глобальных последствий.
+- [es] не_новость: [pool] Semana CO — Sale a la luz parte médico de Rogelio, el gato que fue sometido a una intervenci — отчет о состоянии здоровья кота в университете не является событием для новостного агрегатора.
+- [es] полка: [pool] Marca — El Celta sentencia por la vía rápida — спортивный отчет о матче кубка Испании — это не «Новости из…» (аргентинского издания), а мировая спортивная новость или 
+- [es] полка: [pool] El Nacional VE — Magallanes vio rota su racha de victorias y se quedó corto buscando el récord — спортивный результат венесуэльской лиги не является значимой новостью для мексиканского читателя.
+- [es] не_новость: [pool] Diario Libre DO — Agente de la Policía muerte en persecución dejó cuatro hijos huérfanos — трагическая гибель полицейского при исполнении, но подана как история о сиротах, а не как официальное событие.
+- [es] полка: [world] El Mundo — La izquierda no encuentra revulsivo y PP y Vox crecen en votos hasta el 50,7% tr — внутренняя предвыборная аналитика Испании в разделе «Мировые» не имеет отношения к миру.
+- [es] полка: [world] Азаттык — Tokayev calificó las detenciones de los directivos de «Samruk-Kazyna» y KTZ como — коррупционный скандал в Казахстане не является мировой новостью для мексиканского читателя.
+- [es] полка: [world] La Vanguardia — Microsoft avanza hacia una recuperación de servicios y descarta un problema de s — сбой серверов Microsoft в Испании — это местная новость для Испании, а не мировая, если не сказано о последствиях в Мекс
