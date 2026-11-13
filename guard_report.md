@@ -1,28 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [local] Poder360 — SpaceX tentará recuperar nave e propulsor em voo inédito — Технологический тест компании (SpaceX) не является мировой новостью.
-- [pt] не_новость: [pool] Notícias ao Minuto — Portugal tem até quarta-feira para apresentar candidatos ao BCE — Обычный бюрократический дедлайн подачи кандидатур.
-- [pt] курьёз: [pool] Observador PT — Fotos de Naomi Martin sobre Portugal finalistas em Londres — Результаты фотоконкурса — это не событие.
-- [pt] полка: [pool] Público — Anitta conquista primeiro Grammy Latino e lembra: Brasil também é América Latina — Новость про Anitta и Grammy — культурное событие, а не новость из стран португальского языка.
-- [pt] не_новость: [world] Variety — Aero Films adquire direitos norte-americanos para sátira da Ivy League 'Kingston — Сделка по покупке прав на фильм — бизнес-рутина, не мировая новость.
-- [pt] не_новость: [world] Variety — Kai Cech fará a voz principal na animação ‘Lost in Mandala’ — Выбор актера озвучки — не событие.
-- [pt] чужое_мелкое: [world] CBS News — Processo alega que grandes desenvolvedoras de IA não conseguem controlar suas pr — Иск против ИИ-разработчиков в США — локальное правовое событие, не мирового масштаба.
-- [pt] срочность: [world] Ars Technica — Interrupção global da Microsoft pode ser pior que a da Amazon ou da CrowdStrike, — Глобальный сбой — важное событие, но без конкретных последствий для читателя (разбор) не тянет на срочность.
-- [pt] курьёз: [world] Ars Technica — GPS sem tela: Slate Auto diz: "Lembre-se do atlas rodoviário" — Анонс концепта автомобиля — не событие.
-- [pt] не_новость: [world] TechCrunch — Novo aplicativo da ElevenLabs combina anotações de reuniões e ditado para equipe — Выпуск приложения — рекламный анонс продукта.
-- [pt] чужое_мелкое: [world] El Financiero — Alice Huang, suposta espiã, comprou chips proibidos da Nvidia, que acabaram em u — Слухи об шпионаже и частных покупках — расследование без свершившегося факта (задержания, решения).
-- [pt] повтор: [world] Time — Microsoft enfrenta dificuldades para reparar interrupção global. Saiba o que aco ≈ «Interrupção global da Microsoft pode ser» — Тот же сюжет про сбой Microsoft.
-- [pt] не_новость: [world] Engadget — O Motorola Signature 27 é um dispositivo de alto desempenho — Презентация нового смартфона — рекламный материал.
-- [pt] курьёз: [world] Wired — Startup aposta em microdramas de IA para promover mais histórias negras em Holly — Споры вокруг ИИ-сериала — не новость.
-- [pt] чужое_мелкое: [world] Азаттык — Tokayev classificou as detenções de executivos da Samruk-Kazyna e da KTZ como ev — Комментарии президента о текущем ходе следствия — не является ключевым событием.
-- [pt] курьёз: [world] Superinteressante — Como um veterinário salvou o animal mais velho do mundo, de 194 anos, cego e mor — История о старой черепахе — классический курьёз.
-- [fr] полка: [local] Nice-Matin — « Je ne m’y attendais pas » : trois succès en trois courses, record explosé, la  — Событие произошло в Испании (ES), в МЕСТНОЙ ленте Франции это лишнее, должна быть в МИРОВЫХ.
-- [fr] не_новость: [local] La Dépêche — Avec ses 26 mètres d'envergure, cet avion-cargo de poche en forme d'aile volante — Это анонс разработки прототипа, который полетит только в 2027 году.
-- [fr] повтор: [world] Futura-Sciences — Panne géante chez Microsoft : ce que ce blocage mondial d’Outlook révèle sur not ≈ «Panne mondiale chez Microsoft : Quels so» — Сюжет о глобальном сбое Microsoft дублирует карточку 61.
-- [fr] не_новость: [world] Nice-Matin — Antonelli, Hamilton, Leclerc, Verstappen... On connaît (presque) tous les noms d — Список гонщиков — это справочная информация, а не событие.
-- [fr] чужое_мелкое: [world] Courrier International — Espagne : Begoña Gómez, la femme de Pedro Sánchez, entre dans la campagne des lé — Внутренняя предвыборная кампания в Испании не является мировой новостью для французского читателя.
-- [fr] чужое_мелкое: [world] L'Obs — « Il a une épée de Damoclès au-dessus de la tête » : Pete Hegseth, le « yes man  — Внутренняя политика США (процедура отставки в Конгрессе) не является мировой новостью, если нет критических последствий.
-- [fr] чужое_мелкое: [world] RTBF — Affaire Nvidia : que savait Donald Trump des soupçons autour de Jensen Huang et  — Спекулятивные слухи о личной жизни и политических интригах в США.
-- [fr] чужое_мелкое: [world] Courrier International — Indonésie : le président Prabowo sur écoute, la police nationale au banc des acc — Внутренний скандал в правоохранительных органах Индонезии.
-- [fr] чужое_мелкое: [world] Le Devoir — Chris Van Hollen défie Chuck Schumer pour le poste de chef de la majorité démocr — Внутренняя кадровая перестановка в Сенате США не является мировой новостью.
-- [fr] повтор: [world] RFI — Panne mondiale d’Outlook: des améliorations dans la reprise des services ≈ «Panne mondiale chez Microsoft : Quels so» — Развитие сюжета о сбое Microsoft, дублирует 61.
+- [es] курьёз: [local] El Financiero — Avril Lavigne anuncia el nacimiento de su primer bebé: ‘Nuestra pequeña princesa — Смерть или рождение ребенка знаменитости не является новостью для общественности.
+- [es] не_новость: [local] La Jornada — Celac: es el momento de que un latinoamericano sea secretario de la ONU — Призыв 24 стран к ООН — это декларация намерений, а не свершившееся событие.
+- [es] не_новость: [local] La Jornada — Vadhir Derbez obtiene su segundo amparo contra orden de aprehensión — Получение судебного запрета — это процессуальный этап, не имеющий широких последствий.
+- [es] не_новость: [local] La Jornada — Las caravanas no llegan a EU, responde la Presidenta a Trump — Ответ президента на угрозу — это риторика/этикет, а не новое событие.
+- [es] не_новость: [local] La Jornada — Burocracia retrasa el pago a profesores; es una deuda pendiente, admite Lomelí — Признание долга и бюрократические задержки не являются новостным событием.
+- [es] не_новость: [local] Expansión MX — Mientras Walmart tiene cajas de autocobro, OXXO busca robots para que sus emplea — Анализ планов компании не является свершившимся фактом.
+- [es] курьёз: [pool] Infobae — Dos estudiantes porteños competirán en las Olimpiadas Iberoamericanas de Ciencia — Участие студентов в школьной олимпиаде — это локальная заметка, не имеющая общественной значимости.
+- [es] полка: [pool] Infobae — Cuauhtémoc Blanco rescató a México ante Jamaica: así fue el partido que mantuvo  — Архивный спортивный матч 20-летней давности не является мировой новостью.
+- [es] не_новость: [pool] Semana CO — Renunció el gerente del Fondo Milagro Jaime Uribe tras cuestionamientos por alto — Отставка менеджера фонда из-за «вопросов по затратам» — плановый уход/слухи, нет конкретного события.
+- [es] чужое_мелкое: [pool] El Universal MX — Varios países detectan activos de Ueno Bank; Fiscalía busca congelar valores — Следствие в Парагвае по финансовому банку не имеет значимости для читателя в Мексике.
+- [es] курьёз: [pool] Marca — Brutal récord de la joya de la natación española — Спортивный рекорд юниора — это любопытный факт, а не важная новость.
+- [es] не_новость: [pool] RPP PE — Papa León XIV visitó la capilla San Óscar A. Romero que ayudó a reconstruir dura — Визит папы в частную часовню — рутинное церковное событие без общественно-политических последствий.
+- [es] не_новость: [pool] La Nación CR — Este es el enemigo invisible que enfrentarán Bryan Ruiz y la Selección de Costa  — Анонс предстоящего футбольного матча не является свершившимся событием.
+- [es] не_новость: [pool] El Comercio PE — Keiko Fujimori acude a misa del papa León XIV en Pampas de Pimentel en Chiclayo — Присутствие президента на массовой церемонии — это рутина, не меняющая повестку.
+- [es] не_новость: [pool] El Universo EC — Campaña electoral avanza en Santa Elena; Daniel Noboa visitó dos cantones con ca — Агитационные поездки кандидатов — плановая предвыборная рутина.
+- [es] повтор: [pool] El Nacional VE — "Bienvenido a casa": Chiclayo recibe a lo grande al papa León XIV ≈ «Papa León XIV visitó la capilla San Ósca» — Тот же сюжет о визите папы, что и в №40.
+- [es] не_новость: [pool] Clarín AR — San Isidro tendrá un nuevo paseo costero de casi un kilómetro — Открытие парковой зоны — местная рутина, не имеющая общественной значимости.
+- [es] не_новость: [pool] El Mundo — Sánchez fija en el 75% el umbral de participación el 29-N para tener alguna opci — Анализ шансов на выборах — не событие.
+- [es] не_новость: [pool] El Financiero — ‘No es tanto’: Sheinbaum minimiza acusaciones de dumping contra China previo a r — Минимизация обвинений президентом — риторика, а не действие.
+- [es] не_новость: [pool] El País — El Tribunal de Cuentas aprecia indicios de indebido uso de fondos en la compra d — Наличие «индикаторов» нарушений в отчете суда — промежуточный этап, а не приговор или решение.
+- [es] чужое_мелкое: [world] Infobae — Marruecos abre una investigación contra España por posible competencia desleal e — Торговый спор Марокко и Испании о соусах не является мировой новостью.
+- [es] не_новость: [world] El Nacional VE — Paraguay incluye al Tren de Aragua, el ELN y la Mara Salvatrucha en su lista de  — Расширение списка террористических организаций — это административное решение, не меняющее статус-кво прямо сейчас.
+- [es] не_новость: [world] TechCrunch — La nueva función de billetera de ChatGPT permite que agentes de IA realicen comp — Запуск новой функции в приложении — это рекламный инфоповод, а не новость.
+- [es] курьёз: [world] BBC Mundo — "Nací en España y un día me miré al espejo y me di cuenta de que era china" — Личная история самоидентификации — это эссе/очерк.
+- [es] не_новость: [world] Азаттык — Tokayev calificó las detenciones de los directivos de «Samruk-Kazyna» y KTZ como — Оценка президентом действий следствия — это слова, а не событие.
