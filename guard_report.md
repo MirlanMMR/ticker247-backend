@@ -1,26 +1,28 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Financiero — ¿México enviará más petróleo a Japón? — Встреча для обсуждения торговых отношений не является мировой новостью.
-- [es] срочность: [pool] El Tiempo CO — Voces de rechazo por el atentado con explosivo al paso de una patrulla cerca de  — Событие произошло в последние часы, но это текущая криминальная хроника, а не катастрофа мирового масштаба.
-- [es] не_новость: [pool] El Tiempo CO — Murió Lucio Chiquito Caicedo a los 110 años, ingeniero que ayudó a fundar EPM y  — Смерть в возрасте 110 лет — это жизненный финал, а не событие по белому списку (если не было скандала или катастрофы).
-- [es] полка: [pool] El Comercio PE — Temblor en Colombia HOY, viernes 13 de noviembre: magnitud y epicentro del últim — Событие в Колумбии для перуанского издания — региональная новость, в потоке MX (региональная) должна стоять в «Новости и
-- [es] чужое_мелкое: [pool] Infobae — Campaña de las elecciones generales 29-N, en directo: el cara a cara entre Pedro — Начало предвыборной кампании в Испании — внутренняя новость Испании, не мировая.
-- [es] не_новость: [pool] La Nación AR — Javier Milei y sus medidas, en vivo: “Lo único que le faltaba al país eran regla — Рассуждения о мнении президента и ожиданиях — не событие.
-- [es] не_новость: [pool] RPP PE — De vuelta a su tierra: el papa León XIV regresó a Chiclayo y fue recibido por un — Приезд папы римского — это плановое мероприятие, а не событие-новость.
-- [es] чужое_мелкое: [pool] eldiario.es — El PSOE denuncia al PP, Eduardo Inda y Okdiario por los pagos de la defensa de K — Внутренние политические споры и иски в Испании не имеют значения для читателя в Мексике.
-- [es] курьёз: [pool] RPP PE — “Perdón, estoy hablando italiano”: León XIV tuvo curioso lapsus con el idioma al — Оговорка папы римского — типичный курьёз, не новость.
-- [es] чужое_мелкое: [pool] eldiario.es — El Tribunal de Cuentas ve indicios de que el ático del Gobierno de Ayuso supuso  — Внутреннее расследование по недвижимости в Мадриде — не мировая новость.
-- [es] не_новость: [pool] eldiario.es — El descuento de 20 céntimos en gasolina y diésel se mantendrá en vigor hasta fin — Продление налоговой льготы — рутина, не событие.
-- [es] чужое_мелкое: [pool] El Mundo — Los mensajes desvelados por la UCO sitúan a Óscar López como impulsor de la reun — Внутренние политические интриги Испании.
-- [es] повтор: [world] El Comercio PE — Rusia reporta 9 muertos y Ucrania 3 tras una ola de ataques cruzados. ≈ «Qué se sabe sobre la falla global que af» — Разные аспекты одного и того же события (сбой Microsoft и международные конфликты).
-- [es] чужое_мелкое: [world] El Economista MX — Alemania aprueba gasto récord de 620,000 millones de dólares para 2027 — Внутренние бюджетные споры Германии.
-- [es] не_новость: [world] TechCrunch — La nueva aplicación de ElevenLabs combina la toma de notas y el dictado para equ — Анонс экспериментальной функции приложения — это реклама или описание функционала, а не событие.
-- [es] чужое_мелкое: [world] Clarín AR — Inflación mayorista alcanza 6,5% anual en EEUU, máximo en 4 años — Статистика инфляции США (показатель PPI) — не событие, а экономический отчет.
-- [es] чужое_мелкое: [world] TechCrunch — Las firmas de capital riesgo de Israel ven oportunidades frente a la crisis de N — Аналитика инвестиционных рисков Израиля из-за смены главы Nvidia.
-- [es] чужое_мелкое: [world] Guardian Sport — Confirmado el traslado de Mauricio Pochettino de la selección de EE. UU. al Manc — Трансфер тренера — спортивная рутина.
-- [es] чужое_мелкое: [world] Азаттык — Tokayev calificó las detenciones de los directivos de «Samruk-Kazyna» y KTZ como — Внутренняя борьба с коррупцией в Казахстане не является мировой новостью.
-- [es] чужое_мелкое: [world] El Sol de México — Singapur arresta a cinco personas por fraude relacionado con chips de Nvidia — Арест за мошенничество с чипами в Сингапуре не имеет глобальных последствий.
-- [es] чужое_мелкое: [world] El Sol de México — Depardieu no apelará su condena por agresión sexual a dos mujeres — Судебное решение по актеру — не мировая новость.
-- [es] повтор: [world] La Vanguardia — Microsoft se recupera poco a poco tras una caída mundial que se ha prolongado ca ≈ «Microsoft se restablece lentamente pero » — Развитие темы глобального сбоя Microsoft.
-- [es] не_новость: [world] BBC Mundo — Investigación BBC: las brutales bandas de tráfico de drogas en Francia que reclu — Исследовательский лонгрид о бандах Франции.
-- [es] чужое_мелкое: [world] El Mundo — "Nuestro amigo Cristian": el ex chofer de Sánchez fue la solución para comprarle — Внутренние коррупционные скандалы Испании.
+- [pt] чужое_мелкое: [local] Poder360 — SpaceX tentará recuperar nave e propulsor em voo inédito — Технологический тест компании (SpaceX) не является мировой новостью.
+- [pt] не_новость: [pool] Notícias ao Minuto — Portugal tem até quarta-feira para apresentar candidatos ao BCE — Обычный бюрократический дедлайн подачи кандидатур.
+- [pt] курьёз: [pool] Observador PT — Fotos de Naomi Martin sobre Portugal finalistas em Londres — Результаты фотоконкурса — это не событие.
+- [pt] полка: [pool] Público — Anitta conquista primeiro Grammy Latino e lembra: Brasil também é América Latina — Новость про Anitta и Grammy — культурное событие, а не новость из стран португальского языка.
+- [pt] не_новость: [world] Variety — Aero Films adquire direitos norte-americanos para sátira da Ivy League 'Kingston — Сделка по покупке прав на фильм — бизнес-рутина, не мировая новость.
+- [pt] не_новость: [world] Variety — Kai Cech fará a voz principal na animação ‘Lost in Mandala’ — Выбор актера озвучки — не событие.
+- [pt] чужое_мелкое: [world] CBS News — Processo alega que grandes desenvolvedoras de IA não conseguem controlar suas pr — Иск против ИИ-разработчиков в США — локальное правовое событие, не мирового масштаба.
+- [pt] срочность: [world] Ars Technica — Interrupção global da Microsoft pode ser pior que a da Amazon ou da CrowdStrike, — Глобальный сбой — важное событие, но без конкретных последствий для читателя (разбор) не тянет на срочность.
+- [pt] курьёз: [world] Ars Technica — GPS sem tela: Slate Auto diz: "Lembre-se do atlas rodoviário" — Анонс концепта автомобиля — не событие.
+- [pt] не_новость: [world] TechCrunch — Novo aplicativo da ElevenLabs combina anotações de reuniões e ditado para equipe — Выпуск приложения — рекламный анонс продукта.
+- [pt] чужое_мелкое: [world] El Financiero — Alice Huang, suposta espiã, comprou chips proibidos da Nvidia, que acabaram em u — Слухи об шпионаже и частных покупках — расследование без свершившегося факта (задержания, решения).
+- [pt] повтор: [world] Time — Microsoft enfrenta dificuldades para reparar interrupção global. Saiba o que aco ≈ «Interrupção global da Microsoft pode ser» — Тот же сюжет про сбой Microsoft.
+- [pt] не_новость: [world] Engadget — O Motorola Signature 27 é um dispositivo de alto desempenho — Презентация нового смартфона — рекламный материал.
+- [pt] курьёз: [world] Wired — Startup aposta em microdramas de IA para promover mais histórias negras em Holly — Споры вокруг ИИ-сериала — не новость.
+- [pt] чужое_мелкое: [world] Азаттык — Tokayev classificou as detenções de executivos da Samruk-Kazyna e da KTZ como ev — Комментарии президента о текущем ходе следствия — не является ключевым событием.
+- [pt] курьёз: [world] Superinteressante — Como um veterinário salvou o animal mais velho do mundo, de 194 anos, cego e mor — История о старой черепахе — классический курьёз.
+- [fr] полка: [local] Nice-Matin — « Je ne m’y attendais pas » : trois succès en trois courses, record explosé, la  — Событие произошло в Испании (ES), в МЕСТНОЙ ленте Франции это лишнее, должна быть в МИРОВЫХ.
+- [fr] не_новость: [local] La Dépêche — Avec ses 26 mètres d'envergure, cet avion-cargo de poche en forme d'aile volante — Это анонс разработки прототипа, который полетит только в 2027 году.
+- [fr] повтор: [world] Futura-Sciences — Panne géante chez Microsoft : ce que ce blocage mondial d’Outlook révèle sur not ≈ «Panne mondiale chez Microsoft : Quels so» — Сюжет о глобальном сбое Microsoft дублирует карточку 61.
+- [fr] не_новость: [world] Nice-Matin — Antonelli, Hamilton, Leclerc, Verstappen... On connaît (presque) tous les noms d — Список гонщиков — это справочная информация, а не событие.
+- [fr] чужое_мелкое: [world] Courrier International — Espagne : Begoña Gómez, la femme de Pedro Sánchez, entre dans la campagne des lé — Внутренняя предвыборная кампания в Испании не является мировой новостью для французского читателя.
+- [fr] чужое_мелкое: [world] L'Obs — « Il a une épée de Damoclès au-dessus de la tête » : Pete Hegseth, le « yes man  — Внутренняя политика США (процедура отставки в Конгрессе) не является мировой новостью, если нет критических последствий.
+- [fr] чужое_мелкое: [world] RTBF — Affaire Nvidia : que savait Donald Trump des soupçons autour de Jensen Huang et  — Спекулятивные слухи о личной жизни и политических интригах в США.
+- [fr] чужое_мелкое: [world] Courrier International — Indonésie : le président Prabowo sur écoute, la police nationale au banc des acc — Внутренний скандал в правоохранительных органах Индонезии.
+- [fr] чужое_мелкое: [world] Le Devoir — Chris Van Hollen défie Chuck Schumer pour le poste de chef de la majorité démocr — Внутренняя кадровая перестановка в Сенате США не является мировой новостью.
+- [fr] повтор: [world] RFI — Panne mondiale d’Outlook: des améliorations dans la reprise des services ≈ «Panne mondiale chez Microsoft : Quels so» — Развитие сюжета о сбое Microsoft, дублирует 61.
