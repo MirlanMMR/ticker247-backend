@@ -1,27 +1,21 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] курьёз: [local] El Financiero — Avril Lavigne anuncia el nacimiento de su primer bebé: ‘Nuestra pequeña princesa — Смерть или рождение ребенка знаменитости не является новостью для общественности.
-- [es] не_новость: [local] La Jornada — Celac: es el momento de que un latinoamericano sea secretario de la ONU — Призыв 24 стран к ООН — это декларация намерений, а не свершившееся событие.
-- [es] не_новость: [local] La Jornada — Vadhir Derbez obtiene su segundo amparo contra orden de aprehensión — Получение судебного запрета — это процессуальный этап, не имеющий широких последствий.
-- [es] не_новость: [local] La Jornada — Las caravanas no llegan a EU, responde la Presidenta a Trump — Ответ президента на угрозу — это риторика/этикет, а не новое событие.
-- [es] не_новость: [local] La Jornada — Burocracia retrasa el pago a profesores; es una deuda pendiente, admite Lomelí — Признание долга и бюрократические задержки не являются новостным событием.
-- [es] не_новость: [local] Expansión MX — Mientras Walmart tiene cajas de autocobro, OXXO busca robots para que sus emplea — Анализ планов компании не является свершившимся фактом.
-- [es] курьёз: [pool] Infobae — Dos estudiantes porteños competirán en las Olimpiadas Iberoamericanas de Ciencia — Участие студентов в школьной олимпиаде — это локальная заметка, не имеющая общественной значимости.
-- [es] полка: [pool] Infobae — Cuauhtémoc Blanco rescató a México ante Jamaica: así fue el partido que mantuvo  — Архивный спортивный матч 20-летней давности не является мировой новостью.
-- [es] не_новость: [pool] Semana CO — Renunció el gerente del Fondo Milagro Jaime Uribe tras cuestionamientos por alto — Отставка менеджера фонда из-за «вопросов по затратам» — плановый уход/слухи, нет конкретного события.
-- [es] чужое_мелкое: [pool] El Universal MX — Varios países detectan activos de Ueno Bank; Fiscalía busca congelar valores — Следствие в Парагвае по финансовому банку не имеет значимости для читателя в Мексике.
-- [es] курьёз: [pool] Marca — Brutal récord de la joya de la natación española — Спортивный рекорд юниора — это любопытный факт, а не важная новость.
-- [es] не_новость: [pool] RPP PE — Papa León XIV visitó la capilla San Óscar A. Romero que ayudó a reconstruir dura — Визит папы в частную часовню — рутинное церковное событие без общественно-политических последствий.
-- [es] не_новость: [pool] La Nación CR — Este es el enemigo invisible que enfrentarán Bryan Ruiz y la Selección de Costa  — Анонс предстоящего футбольного матча не является свершившимся событием.
-- [es] не_новость: [pool] El Comercio PE — Keiko Fujimori acude a misa del papa León XIV en Pampas de Pimentel en Chiclayo — Присутствие президента на массовой церемонии — это рутина, не меняющая повестку.
-- [es] не_новость: [pool] El Universo EC — Campaña electoral avanza en Santa Elena; Daniel Noboa visitó dos cantones con ca — Агитационные поездки кандидатов — плановая предвыборная рутина.
-- [es] повтор: [pool] El Nacional VE — "Bienvenido a casa": Chiclayo recibe a lo grande al papa León XIV ≈ «Papa León XIV visitó la capilla San Ósca» — Тот же сюжет о визите папы, что и в №40.
-- [es] не_новость: [pool] Clarín AR — San Isidro tendrá un nuevo paseo costero de casi un kilómetro — Открытие парковой зоны — местная рутина, не имеющая общественной значимости.
-- [es] не_новость: [pool] El Mundo — Sánchez fija en el 75% el umbral de participación el 29-N para tener alguna opci — Анализ шансов на выборах — не событие.
-- [es] не_новость: [pool] El Financiero — ‘No es tanto’: Sheinbaum minimiza acusaciones de dumping contra China previo a r — Минимизация обвинений президентом — риторика, а не действие.
-- [es] не_новость: [pool] El País — El Tribunal de Cuentas aprecia indicios de indebido uso de fondos en la compra d — Наличие «индикаторов» нарушений в отчете суда — промежуточный этап, а не приговор или решение.
-- [es] чужое_мелкое: [world] Infobae — Marruecos abre una investigación contra España por posible competencia desleal e — Торговый спор Марокко и Испании о соусах не является мировой новостью.
-- [es] не_новость: [world] El Nacional VE — Paraguay incluye al Tren de Aragua, el ELN y la Mara Salvatrucha en su lista de  — Расширение списка террористических организаций — это административное решение, не меняющее статус-кво прямо сейчас.
-- [es] не_новость: [world] TechCrunch — La nueva función de billetera de ChatGPT permite que agentes de IA realicen comp — Запуск новой функции в приложении — это рекламный инфоповод, а не новость.
-- [es] курьёз: [world] BBC Mundo — "Nací en España y un día me miré al espejo y me di cuenta de que era china" — Личная история самоидентификации — это эссе/очерк.
-- [es] не_новость: [world] Азаттык — Tokayev calificó las detenciones de los directivos de «Samruk-Kazyna» y KTZ como — Оценка президентом действий следствия — это слова, а не событие.
+- [pt] курьёз: [local] Estadão — Quem é o médico condenado por divulgar mentiras sobre câncer de mama e mamografi — История о враге-влиятеле не меняет жизнь читателя, место в 'Интересном'.
+- [pt] срочность: [local] G1 São Paulo — Chuva causa alagamentos em SP e mais de 57 mil imóveis ficam sem luz na Grande S — Срочное сообщение об обычном дожде в столице не требует побудки.
+- [pt] курьёз: [local] G1 São Paulo — 'Rosa e Azul': a história sombria do quadro mais famoso do Masp — e o fim trágic — Исторический очерк о картине — это 'Интересное', а не новость.
+- [pt] не_новость: [pool] Notícias ao Minuto — "Paga 800 euros de multa ou ficava mais 4 dias presa. Escolhi os 4 dias" — Личные истории знаменитостей о штрафах не являются новостью.
+- [pt] курьёз: [pool] Terra BR — L7NNON revisita suas origens em novo álbum 'De Volta ao Podium' — Релиз альбома — это 'интересное', но не новость в общепринятом смысле.
+- [pt] не_новость: [pool] Observador PT — Porta-voz do PSD confronta Carneiro: “Soares faria isso?" — Политическая полемика без конкретного события (этикет/спор).
+- [pt] чужое_мелкое: [world] Ars Technica — Kalshi encerra parceria com Donald Trump Jr. como consultor; CEO admitiu que “óp — Внутренняя кадровая перестановка в американской компании, нет мирового масштаба.
+- [pt] курьёз: [world] TechCrunch — Startup de agentes de IA LangChain atinge avaliação de US$ 3 bilhões — Оценка стартапа — рыночный шум, не событие для массового читателя.
+- [pt] не_новость: [world] Engadget — Google agora permite conectar o Gemini a contas bancárias — Обновление функции в приложении — это сервисное сообщение.
+- [pt] не_новость: [world] Variety — Netflix divulga primeira imagem da série animada 'Planeswalker', baseada em Magi — Анонс графики из сериала — не событие.
+- [pt] не_новость: [world] Engadget — Filmes em 3D da Disney chegam ao Meta Quest 3 — Появление фильмов в библиотеке приложения — сервисная новость.
+- [pt] курьёз: [world] Fortune — ‘Pessoas estão se desfazendo de ativos como ouro e Bitcoin’ à medida que a infla — Колебания рынка (биткоин) — шум, если нет обвала экономики.
+- [pt] чужое_мелкое: [world] The Independent — Novo vídeo mostra última entrega de motorista do DoorDash que desapareceu mister — Криминальная хроника из США без последствий для других стран.
+- [pt] повтор: [world] The Independent — Microsoft sofre queda e redes sociais reagem com ironia: 'Não tenham pressa' ≈ «Microsoft relata progresso na restauraçã» — Тот же сюжет о сбое Microsoft, что и в №79.
+- [pt] чужое_мелкое: [world] Fortune — Exclusivo: OpenAI dissolve equipe autônoma de robótica à medida que seus modelos — Внутренняя реорганизация отдела в компании.
+- [pt] курьёз: [world] The Guardian — ‘À frente do seu tempo’: IA ajuda a revelar descobertas ocultas nos cadernos de  — Исследование математических текстов — интересно, но не новость.
+- [pt] курьёз: [world] Ars Technica — Vulnerabilidade zero-day no Windows exposta por pesquisador insatisfeito concede — Техническая уязвимость ПО — это новость для узких специалистов, но не массовая.
+- [pt] не_новость: [world] TechCrunch — Nova carteira do ChatGPT permite que agentes de IA realizem compras — Функционал чат-бота — сервисная новость.
+- [pt] чужое_мелкое: [world] Азаттык — Tokayev classificou as detenções de executivos da Samruk-Kazyna e da KTZ como ev — Внутриполитическая борьба в Казахстане не является мировым событием для бразильца.
