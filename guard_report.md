@@ -1,26 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] полка: [local] Exame — Argentina prepara medidas para reduzir filas na fronteira com o Brasil — Новость про Аргентину должна быть в «Новости из...», а не в «Местных».
-- [pt] не_новость: [local] G1 Globo — Fux suspende julgamento sobre escala 5x2 e leva caso para plenário físico do STF — Это процедурный шаг в суде, а не решение по существу или приговор.
-- [pt] не_новость: [local] Poder360 — Corinthians busca acordo com o MP para evitar intervenção judicial — Переговоры не являются событием до официального заключения сделки или соглашения.
-- [pt] не_новость: [local] Metrópoles — Cada dia sua agonia, Lula tem pressa nas últimas pautas da tributária — Описаны рабочие процессы и планы правительства, а не свершившийся факт.
-- [pt] не_новость: [local] Metrópoles — Veneziano assume a linha de frente contra o retorno das bets no Senado — Политическая деятельность депутата не является новостным событием.
-- [pt] не_новость: [local] Metrópoles — Tirar Camilo Santana do Senado é o único erro que Lula não pode cometer — Аналитика/мнение о законодательном процессе, а не новость.
-- [pt] не_новость: [local] CNN Brasil — Brasil evita pressionar o maior cliente antes de suspensão da carne suína — Протокольная встреча без конкретных результатов или подписанных документов.
-- [pt] не_новость: [local] CNN Brasil — Alan Ruschel, sobrevivente da tragédia da Chape, é festejado em despedida — Плановое окончание карьеры — это не событие с последствиями, а личное решение.
-- [pt] не_новость: [local] Poder360 — Projeto cria token para acesso a sites de conteúdo adulto — Законопроект на стадии предложения, закон ещё не принят.
-- [pt] не_новость: [local] Agência Brasil — Governo abre consulta pública sobre enfrentamento ao calor extremo — Открытие консультации — это подготовительный этап, не событие по списку.
-- [pt] не_новость: [local] Gazeta do Povo — PT apresenta pacote para tributar LCIs, LCAs e grandes fortunas e taxar em 15% l — Протоколирование проектов законов не является событием.
-- [pt] курьёз: [local] G1 Rio Grande do Sul — Conheça jovem que sonha ser presidente do Brasil e vai à Índia representar o paí — История о мечтах студентки — типичный «надо же» без новостного повода.
-- [pt] повтор: [pool] RTP Notícias — Seleção nacional vestida com o 7 de Ronaldo ≈ «Federação Portuguesa de Futebol muda gra» — Тот же сюжет про футболку Роналду.
-- [pt] не_новость: [pool] CNN Brasil — José Manuel Diogo lança novo livro “Um homem entra numa livraria” — Анонс выхода книги — не событие в жизни общества.
-- [pt] не_новость: [pool] Téla Nón — BASTA critica nomeação de Américo Ramos e defende Governo de unidade nacional — Критика политических оппонентов не является новостным событием.
-- [pt] не_новость: [world] The Independent — John Fetterman indica que consideraria deixar o Partido Democrata se elegerem um — Гипотетическое рассуждение политика «если... то...» не является событием.
-- [pt] не_новость: [world] Variety — Dawn Greenhalgh, veterana do teatro canadense e voz da Rainha em 'Babar', morre  — Смерть актрисы в возрасте 93 лет — естественная смерть, не событие в повестке.
-- [pt] курьёз: [world] Rolling Stone — Looze Cannon já fazia rap antes de você conhecer o 'Big Michael' — Вирусное видео — это «интересное», а не мировая новость.
-- [pt] не_новость: [world] TechCrunch — Governos asiáticos reagem à saída do CEO da Nvidia, Jensen Huang — Спекуляции о рыночных реакциях на слухи/события.
-- [pt] полка: [world] Азаттык — Deputados reuniram-se com os opositores condenados no Quirguistão, Sultanbekov e — Внутренняя новость Кыргызстана для португальского пула — это чужое, а не «мировое».
-- [pt] не_новость: [world] Guardian Sport — Anthony Santander, do Blue Jays, pede desculpas por compartilhar publicações ant — Извинение за посты в соцсетях не имеет глобального веса.
-- [pt] курьёз: [world] Ars Technica — Telescópio James Webb encontra gelo mais antigo que a estrela que orbita — Научный факт/открытие для раздела «Интересное».
-- [pt] курьёз: [world] Ars Technica — Produtores de vinho descobrem que a conservação pode beneficiar os negócios — Отраслевой опыт виноделов — это не событие, а рекомендация.
-- [pt] не_новость: [world] Ars Technica — Voo 15 da Starship alcança a órbita, preparando terreno para possível captura no — Очередной плановый полёт (15-й по счёту) без аварии или успеха — рутина.
+- [en] не_новость: [local] KOTA — Black Hills Center for Equality names Maggie Lepa-Wince as board president — Назначение нового президента совета организации — внутренняя кадровая перестановка.
+- [en] чужое_мелкое: [local] WIBW — ESU football drops third straight to end regular season — Обычный результат матча университетской лиги, не имеет мирового значения.
+- [en] курьёз: [local] NY Post — Warriors without Steph Curry leads to embarrassing NBA downgrade — Спортивная аналитика/обзор состава команды, а не событие.
+- [en] курьёз: [local] Untitled RSS Feed — Rare Bear River White Bison Calf Among 14 To Be Sold By Wyoming State Parks — Продажа телят государственным парком — местная заметка без масштаба.
+- [en] не_новость: [local] Untitled RSS Feed — Wyoming House Leadership Team Unveils Wyoming-First Priorities List — Внутрипартийное обсуждение приоритетов — слова о планах, а не свершившийся факт.
+- [en] чужое_мелкое: [local] WSMV — Tennessee wide receiver suffers lower body injury against Texas A&M — Спортивная травма игрока в студенческом футболе.
+- [en] не_новость: [local] Cleveland.com — DeBoer on Keelon Russell, defense and staying hungry — Мнение тренера о матче, а не само событие.
+- [en] не_новость: [local] Untitled RSS Feed — Tara Nethercott Nominated Wyoming Senate President, Lloyd Larsen House Speaker — Партийная номинация — этап внутренних процедур, а не принятое решение.
+- [en] не_новость: [local] Santa Fe New Mexican — New Mexico House Democratic leaders retain their posts — Переизбрание лидеров фракции — внутренняя рутина.
+- [en] не_новость: [local] OPB — Oregon Senate Democrats pick leaders as they head into long session with a stron — Выбор лидера фракции демократов в Сенате штата.
+- [en] курьёз: [local] Fort Worth Report — DFW Airport board hears ask for Founders’ Plaza improvements — Обсуждение планов благоустройства зоны отдыха в аэропорту.
+- [en] не_новость: [local] KOTA — Cheyenne River Youth Project seeks help with annual holiday toy drive — Призыв к участию в благотворительной акции — это не событие.
+- [en] не_новость: [local] New Jersey 101.5 — A Philadelphia Broadcasting Legend is Signing Off After 69 Years — Плановый выход на пенсию после 69 лет карьеры.
+- [en] не_новость: [local] reviewjournal — NBA Las Vegas expansion bid process sees 2 groups, potential arena sites emerge — Обзор процесса подачи заявок, который еще продолжается.
+- [en] курьёз: [local] Concord Monitor — ‘Really frustrating bureaucracy’: Totally Tea + Coffee owner to create documenta — Владелец кафе планирует снять фильм о споре с Facebook.
+- [en] не_новость: [local] San Antonio Report — Parents of students with disabilities fear losing Texas’ “life-changing” school  — Выражение опасений родителями — это не событие.
+- [en] чужое_мелкое: [pool] The Independent — Affluent LA residents living by the iconic Hollywood sign are fed up with touris — Жалобы жителей на туристов — повседневная городская хроника.
+- [en] чужое_мелкое: [pool] Guardian Sport — Georgia football recruit Marcellus Young Casario dies at 18 after medical emerge — Частный случай смерти школьника, несмотря на его спортивный статус.
+- [en] не_новость: [pool] The Independent — John Fetterman signals he would consider quitting Democratic Party if they make  — Политик лишь «сигнализирует», что «рассмотрит возможность» — это намерения.
+- [en] не_новость: [pool] BBC News — Young people should have legal guarantee of job or training, Milburn tells BBC — Предложение бывшего министра, которое еще не принято.
+- [en] курьёз: [pool] Ars Technica — Winemakers are learning that conservation can be good for business — Статья о методах виноделия, не имеющая актуального новостного повода.
+- [en] не_новость: [pool] The Guardian — ‘The social contract is broken’: young people on feeling shut out of careers — Подборка мнений молодых людей о карьере.
+- [en] курьёз: [world] Rolling Stone — Lana Del Rey, Dua Lipa, Zara Larsson Contribute New Music to ‘GTA VI: The Album’ — Утечка списка треков из игры — не событие в мире новостей.
+- [en] не_новость: [world] Fortune — The downfall of AI’s $5.7 trillion man — Статья-портрет о падении карьеры менеджера.
+- [en] не_новость: [world] BBC News — Noel Fielding 'appalled' by jokes he made with Russell Brand — Выражение личного сожаления о прошлых шутках.
