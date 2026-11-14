@@ -1,27 +1,35 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [pool] El Tiempo CO — Accidente dejó 15 heridos y se verifica número de muertos en Huila: se trata de  — Авария в Колумбии — местное событие для колумбийских СМИ, для читателя в Мексике это не мировое событие.
-- [es] чужое_мелкое: [pool] El Tiempo CO — Grúas, reclamos y enfrentamientos: fuerte pulso entre autoridades y comerciantes — Локальный конфликт торговцев и властей в Санта-Марте (Колумбия).
-- [es] не_новость: [pool] Semana CO — Abelardo De La Espriella: “La reconstrucción de Colombia es una prioridad nacion — Мнение политика, а не свершившееся событие.
-- [es] курьёз: [pool] Semana CO — Fue atropellado y perdió una de sus patas: él es Max, el perro que inspira campa — История про собаку не является новостью мирового масштаба.
-- [es] чужое_мелкое: [pool] El Nacional VE — Trasladan de urgencia a sargento recluido en Ramo Verde tras complicaciones por  — Внутреннее событие Венесуэлы, не влияющее на мир.
-- [es] не_новость: [pool] Semana CO — Gobierno se reúne con el Centro Democrático: detalles de la cita en Antioquia — Обычная рабочая встреча политиков, без итоговых решений.
-- [es] чужое_мелкое: [pool] El Universo EC — Traumatismos y fatiga, entre las siete emergencias atendidas durante el primer d — Локальное происшествие на религиозном мероприятии в Эквадоре.
-- [es] не_новость: [pool] Marca — El Madrid reabre el parque de atracciones — Заголовок-шутка или описание мероприятия (парк аттракционов), события нет.
-- [es] чужое_мелкое: [pool] Montevideo Portal — Una falla afectó a casi todos los puntos de carga del país para vehículos eléctr — Технический сбой в Уругвае — мелкая локальная новость.
-- [es] чужое_мелкое: [pool] Clarín AR — El Estado se mete en una empresa clave de Lázaro Báez: el empresario seguía haci — Местная судебная хроника Аргентины.
-- [es] чужое_мелкое: [pool] Montevideo Portal — Estafa en local de cobranzas de La Teja: hay tres nuevas condenas y ya son 16 in — Локальная судебная хроника в Уругвае (приговоры).
-- [es] чужое_мелкое: [pool] 14ymedio — "Cuando pienso en quebrarme, me llega tu energía", escribe Eddy Ceballos a su ma — Частная история заключенного на Кубе.
-- [es] не_новость: [pool] 14ymedio — Muere el general cubano 'Mandarria', que llegó a pedir el fusilamiento de su pro — Смерть отставного военного — не мировая новость.
-- [es] чужое_мелкое: [pool] eldiario.es — Aldama acusa al director de Okdiario de chantajear al exministro Ábalos a cambio — Местный политический скандал в Испании (обвинения между изданием и политиком).
-- [es] чужое_мелкое: [pool] El País — El PSOE pelea las elecciones en 18 provincias que tiene identificadas como prior — Внутриполитическая борьба PSOE в Испании.
-- [es] курьёз: [world] Xataka — De hacer el cabra en YouTube a entrevistar al presidente del Gobierno de España: — Анализ интервью блогера — не событие.
-- [es] чужое_мелкое: [world] El Nacional VE — Cuba afirma que prepara su defensa ante una eventual agresión de EE UU — Риторика властей Кубы о защите — обычный политический дискурс, нет факта нападения.
-- [es] повтор: [world] The Independent — Trump atribuye la paralización de vuelos en EE. UU. a «equipos viejos y rotos» m ≈ «Advierten más cancelaciones de vuelos en» — Повтор сюжета о сбое авиасообщения в США.
-- [es] повтор: [world] BBC Mundo — Zelensky asegura que EE.UU. propuso a Ucrania ceder el Donbás a Rusia a cambio d ≈ «Zelenski se niega a ceder el Donbás y ad» — Повтор сюжета о заявлении Зеленского.
-- [es] курьёз: [world] Ars Technica — El telescopio James Webb halla hielo más antiguo que la estrella que orbita — Научная находка без последствий для читателя (Интересное).
-- [es] повтор: [world] Axios — 3.000 vuelos cancelados mientras el caos por la paralización de la FAA se extien ≈ «Advierten más cancelaciones de vuelos en» — Повтор сюжета о сбое авиасообщения в США.
-- [es] чужое_мелкое: [world] RFI — ¿Se verá afectado el gobierno de Trump por las consecuencias del caso Nvidia? — Спекуляции о правительстве США вокруг частной компании.
-- [es] чужое_мелкое: [world] La Vanguardia — El terrorífico viernes 13 que paralizó a Microsoft y a medio mundo — Вчерашний технический сбой Microsoft — вчерашняя новость.
-- [es] повтор: [world] BBC Mundo — Un inflexible Putin eleva sus exigencias para alcanzar la paz con Ucrania ≈ «Zelensky asegura que EE.UU. propuso a Uc» — Повтор темы переговоров Путина и Зеленского.
-- [es] не_новость: [world] Semafor — El grupo de trabajo de IA de Trump analiza los riesgos cibernéticos — Анализ работы группы экспертов, события нет.
+- [pt] срочность: [local] Poder360 — El Niño está associado a 42.200 mortes de idosos no Brasil, diz estudo — исследование — не повод для побудки
+- [pt] срочность: [local] G1 Rio — Jovem de 20 anos e homem de 62 são baleados durante tiroteio no Tanque. — инцидент с перестрелкой — криминальная хроника, не требует срочности
+- [pt] срочность: [local] G1 Rio — Predador recebia 'caixinha extra' para fazer segurança de traficantes do Rio apó — криминальный отчет о задержании не требует прерывания дел
+- [pt] срочность: [local] G1 Rio Grande do Sul — El Niño e corredor de tornados: RS soma sete tornados no ano; entenda o que caus — разбор причин явления (торнадо) — это не срочное событие
+- [pt] полка: [pool] RFI — Incêndios na Amazônia: estado brasileiro declara estado de emergência ambiental — новость о Бразилии в португальском пуле должна быть в «Местных»
+- [pt] чужое_мелкое: [world] The Hill — Suspensão de voos pela FAA causa atrasos e adiamentos no futebol universitário — повседневные задержки рейсов — внутренняя новость США
+- [pt] повтор: [world] UPI — SpaceX lança Starship em órbita e cancela tentativa de captura do propulsor ≈ «Voo 15 da Starship alcança a órbita, pre» — тот же сюжет про запуск Starship
+- [pt] не_новость: [world] TechCrunch — Saída de Jensen Huang cria lacuna no financiamento de startups de IA, dizem fund — отставка CEO после 33 лет работы без скандала — плановый уход
+- [pt] срочность: [world] TechCrunch — Governo dos EUA suspende todos os voos no país devido a 'circunstâncias extraord — задержка рейсов в США не требует срочности для читателя в Бразилии
+- [fr] курьёз: [local] Nice-Matin — Un vainqueur de « Ninja warrior » ouvre un complexe inspiré de la célèbre émissi — открытие развлекательного центра — частный бизнес, не событие.
+- [fr] не_новость: [local] L'Obs — Le chroniqueur Arnaud Viviant quitte « Le masque et la plume » disant avoir été  — уход хроникёра из радиопередачи не является значимым событием.
+- [fr] не_новость: [local] Franceinfo — Microsoft annonce le rétablissement total de ses services après la panne mondial — новость о том, что IT-сбой завершился, является запоздалым и не меняет ситуацию сейчас.
+- [fr] не_новость: [local] Nice-Matin — Moins de cambriolages mais de nouvelles inquiétudes : les défis de Roquebrune-Ca — общий обзор состояния безопасности в городе — аналитика, а не событие.
+- [fr] курьёз: [local] L'Express — Bonnard, Dubuffet, Picasso... La collection Jean Planque fait son retour en Suis — возвращение коллекции картин в музей — культурная хроника, «интересное».
+- [fr] не_новость: [pool] La Presse TN — Face aux lenteurs de la réconciliation pénale: Détermination présidentielle à re — очередная рабочая встреча президента без новых решений.
+- [fr] не_новость: [pool] RTBF — Pairi Daiza bientôt directement accessible aux voyageurs en train : la gare sera — плановый проект переноса станции — это инфраструктурный анонс.
+- [fr] не_новость: [pool] RTBF — Dysfonctionnements à l’ONE : une procédure ouverte pour faire toute la lumière — открытие процедуры проверки — рутина, нет результата или решения.
+- [fr] курьёз: [pool] Radio-Canada — De la Lune à l’IA : des décennies à compter les oiseaux — научное наблюдение за птицами — не событие, «интересное».
+- [fr] не_новость: [pool] RTBF — Négociations budgétaires : après le kern de ce vendredi, les discussions se pour — переговоры продолжаются — событие будет, когда примут бюджет.
+- [fr] не_новость: [world] Jeune Afrique — Paul Biya mobilise le RDPC, Dangote lance un méga projet en Namibie, Gadi Eizenk — подборка из пяти тем — это дайджест, а не новость.
+- [fr] не_новость: [world] Jeune Afrique — Russie-Afrique : une stratégie d’influence entravée par les retombées de la guer — разбор стратегии влияния — аналитическая статья.
+- [fr] курьёз: [world] BFMTV — Insolite : la police péruvienne intervient déguisée lors une opération antidrogu — полиция в костюмах — забавный факт, не мировая новость.
+- [fr] не_новость: [world] BFMTV — Le bâtiment avait été racheté par un futur député du parti d'extrême droite La L — история здания и его покупателя — не новость.
+- [fr] курьёз: [world] L'Obs — « Simona Kossak cherchait à transmettre l’importance de restaurer les liens avec — творческое эссе о художнице и биологе — «интересное».
+- [fr] курьёз: [world] Futura-Sciences — Quel est cet étonnant tsunami qui peut déferler dans le ciel ? — объяснение природного явления — наука, «интересное».
+- [fr] не_новость: [world] La Dépêche — 25 chevaux sont retirés d'une prestigieuse course à cause de l'état de l'hippodr — снятие лошадей с забега из-за погоды — мелкий инцидент.
+- [fr] курьёз: [world] L'Express — Euclid : 900 millions de galaxies observées, le télescope européen s'attaque aux — отчет о данных телескопа — наука, «интересное».
+- [fr] не_новость: [world] Sud Ouest — Turquie : sept maires emprisonnés rejoignent le principal parti d’opposition à l — описание состава партии — не является событием.
+- [fr] курьёз: [world] Sciences et Avenir — Un nouvel espoir contre le cancer du pancréas — исследование лекарства — не событие (промежуточный результат).
+- [fr] не_новость: [world] 20 Minutes — L’Eurovision débarque en Asie, avec l’espoir de surfer sur la vague K-pop — анонс запуска конкурса — нет события.
+- [fr] не_новость: [world] RFI — Le gouvernement Trump sera-t-il éclaboussé par les conséquences de l'affaire Nvi — спекуляции о возможных последствиях скандала — не событие.
+- [fr] не_новость: [world] TechCrunch — Le départ de Jensen Huang crée un vide dans le financement des startups d'IA, se — мнения экспертов о последствиях ухода главы Nvidia — это аналитика.
+- [fr] курьёз: [world] Sciences et Avenir — Ce système de deux anneaux de débris offre un aperçu du futur Système solaire — наблюдение за кольцами дебри — наука, «интересное».
