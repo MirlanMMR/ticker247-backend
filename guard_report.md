@@ -1,18 +1,26 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [pool] Infobae — Otegi pide el voto a quienes no han votado a EH Bildu para "amargarles la noche  — Внутренняя политика Испании, не имеющая последствий для Мексики или остального мира.
-- [es] не_новость: [pool] El Nacional VE — Excarcelaron a ítalo-venezolano Daniel Enrique Echenagucia tras pasar dos años p — Отчет о рекомендации юридической инстанции без свершившегося факта освобождения.
-- [es] чужое_мелкое: [pool] Marca — Un nefasto inicio de partido condena a España ante Chile — Спортивный отчет о матче Испании, не имеющий мирового значения.
-- [es] чужое_мелкое: [pool] eldiario.es — Cuca Gamarra rechaza dar "pábulo" a Koldo García tras reconocer Feijóo que ella  — Внутренние политические споры в Испании.
-- [es] чужое_мелкое: [pool] eldiario.es — El PSOE denuncia a la editora de Okdiario ante la Agencia Tributaria — Внутренние юридические дрязги между политической партией и СМИ в Испании.
-- [es] не_новость: [pool] El Nacional VE — Comité de Postulaciones Judiciales contabilizó 1.149 candidatos para cargos judi — Процесс подсчета заявок, обычная бюрократическая процедура.
-- [es] курьёз: [pool] Marca — Vaya joya tiene la Real: uno de los goles del año sin lugar a dudas — Спортивный эпизод (гол), не имеющий значимости за пределами испанской лиги.
-- [es] чужое_мелкое: [pool] El País — Colau contrapone su propuesta para ampliar la cobertura de la sanidad pública co — Внутренние политические дебаты в Испании (местное соперничество PP и Colau).
-- [es] чужое_мелкое: [pool] El País — Abascal defiende la prioridad nacional: “Nos presentamos a las elecciones para h — Внутренняя испанская политика.
-- [es] срочность: [pool] Diario Libre DO — Padre de bebé en video de abuso sexual se enteró por las redes — Криминальная хроника, не требующая побудки читателя.
-- [es] чужое_мелкое: [pool] eldiario.es — Aldama acusa al director de Okdiario de chantajear al exministro Ábalos a cambio — Внутренние споры испанских политиков и журналистов.
-- [es] чужое_мелкое: [pool] El País — El PSOE pelea las elecciones en 18 provincias que tiene identificadas como prior — Внутренняя предвыборная стратегия PSOE в Испании.
-- [es] срочность: [world] La Nación AR — Gales venció a All Blacks por primera vez en 73 años: el triunfo de una defensa  — Спортивная новость (регби), не требующая срочной метки.
-- [es] курьёз: [world] BBC Mundo — Me dijeron que mi bebé había fallecido... 42 años después me envió un correo ele — Личная история воссоединения, не является мировой новостью (интересное).
-- [es] чужое_мелкое: [world] La Vanguardia — Zelenski asegura que EE.UU. ha planteado admitir a Ucrania en la OTAN si cede el — Слухи/предложения в рамках переговорного процесса, не являются свершившимся фактом.
-- [es] не_новость: [world] La Jornada — Editorial: Tráfico aéreo: otro desastre Trumpista — Редакционная колонка (Editorial), а не новостное событие.
+- [pt] полка: [local] Exame — Argentina prepara medidas para reduzir filas na fronteira com o Brasil — Новость про Аргентину должна быть в «Новости из...», а не в «Местных».
+- [pt] не_новость: [local] G1 Globo — Fux suspende julgamento sobre escala 5x2 e leva caso para plenário físico do STF — Это процедурный шаг в суде, а не решение по существу или приговор.
+- [pt] не_новость: [local] Poder360 — Corinthians busca acordo com o MP para evitar intervenção judicial — Переговоры не являются событием до официального заключения сделки или соглашения.
+- [pt] не_новость: [local] Metrópoles — Cada dia sua agonia, Lula tem pressa nas últimas pautas da tributária — Описаны рабочие процессы и планы правительства, а не свершившийся факт.
+- [pt] не_новость: [local] Metrópoles — Veneziano assume a linha de frente contra o retorno das bets no Senado — Политическая деятельность депутата не является новостным событием.
+- [pt] не_новость: [local] Metrópoles — Tirar Camilo Santana do Senado é o único erro que Lula não pode cometer — Аналитика/мнение о законодательном процессе, а не новость.
+- [pt] не_новость: [local] CNN Brasil — Brasil evita pressionar o maior cliente antes de suspensão da carne suína — Протокольная встреча без конкретных результатов или подписанных документов.
+- [pt] не_новость: [local] CNN Brasil — Alan Ruschel, sobrevivente da tragédia da Chape, é festejado em despedida — Плановое окончание карьеры — это не событие с последствиями, а личное решение.
+- [pt] не_новость: [local] Poder360 — Projeto cria token para acesso a sites de conteúdo adulto — Законопроект на стадии предложения, закон ещё не принят.
+- [pt] не_новость: [local] Agência Brasil — Governo abre consulta pública sobre enfrentamento ao calor extremo — Открытие консультации — это подготовительный этап, не событие по списку.
+- [pt] не_новость: [local] Gazeta do Povo — PT apresenta pacote para tributar LCIs, LCAs e grandes fortunas e taxar em 15% l — Протоколирование проектов законов не является событием.
+- [pt] курьёз: [local] G1 Rio Grande do Sul — Conheça jovem que sonha ser presidente do Brasil e vai à Índia representar o paí — История о мечтах студентки — типичный «надо же» без новостного повода.
+- [pt] повтор: [pool] RTP Notícias — Seleção nacional vestida com o 7 de Ronaldo ≈ «Federação Portuguesa de Futebol muda gra» — Тот же сюжет про футболку Роналду.
+- [pt] не_новость: [pool] CNN Brasil — José Manuel Diogo lança novo livro “Um homem entra numa livraria” — Анонс выхода книги — не событие в жизни общества.
+- [pt] не_новость: [pool] Téla Nón — BASTA critica nomeação de Américo Ramos e defende Governo de unidade nacional — Критика политических оппонентов не является новостным событием.
+- [pt] не_новость: [world] The Independent — John Fetterman indica que consideraria deixar o Partido Democrata se elegerem um — Гипотетическое рассуждение политика «если... то...» не является событием.
+- [pt] не_новость: [world] Variety — Dawn Greenhalgh, veterana do teatro canadense e voz da Rainha em 'Babar', morre  — Смерть актрисы в возрасте 93 лет — естественная смерть, не событие в повестке.
+- [pt] курьёз: [world] Rolling Stone — Looze Cannon já fazia rap antes de você conhecer o 'Big Michael' — Вирусное видео — это «интересное», а не мировая новость.
+- [pt] не_новость: [world] TechCrunch — Governos asiáticos reagem à saída do CEO da Nvidia, Jensen Huang — Спекуляции о рыночных реакциях на слухи/события.
+- [pt] полка: [world] Азаттык — Deputados reuniram-se com os opositores condenados no Quirguistão, Sultanbekov e — Внутренняя новость Кыргызстана для португальского пула — это чужое, а не «мировое».
+- [pt] не_новость: [world] Guardian Sport — Anthony Santander, do Blue Jays, pede desculpas por compartilhar publicações ant — Извинение за посты в соцсетях не имеет глобального веса.
+- [pt] курьёз: [world] Ars Technica — Telescópio James Webb encontra gelo mais antigo que a estrela que orbita — Научный факт/открытие для раздела «Интересное».
+- [pt] курьёз: [world] Ars Technica — Produtores de vinho descobrem que a conservação pode beneficiar os negócios — Отраслевой опыт виноделов — это не событие, а рекомендация.
+- [pt] не_новость: [world] Ars Technica — Voo 15 da Starship alcança a órbita, preparando terreno para possível captura no — Очередной плановый полёт (15-й по счёту) без аварии или успеха — рутина.
