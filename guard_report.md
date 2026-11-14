@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] курьёз: [local] Cleveland.com — Country music and blues star battling rare cancer: ‘My sickbed ain’t been kind t — История о борьбе с болезнью — личная драма, а не новость для широкого круга.
-- [en] курьёз: [local] CBS News — Man in his 70s diagnosed with heart defect usually found in infancy — Частный случай диагностики редкого заболевания у одного пациента не является общественно значимым событием.
-- [en] не_новость: [local] The Salt Lake Tribune — Utah’s Cottonwood Canyon traction stickers are back — just in time for big snow — Начало выдачи сезонных наклеек — плановая рутина, а не событие.
-- [en] чужое_мелкое: [local] WFSB — Man arrested after police investigate gambling and trespassing in Hartford — Локальное задержание с наркотиками в Хартфорде не имеет значимости за пределами штата.
-- [en] не_новость: [local] Bangor Daily News — 1 person trapped after vehicle lands in ditch in Orrington — Мелкое ДТП без массовых последствий (один пострадавший) не является новостью.
-- [en] не_новость: [local] Gothamist — 'A palace for the people': Historic, grand Loew's theater reopens in Jersey City — Открытие отреставрированного театра — событие местного культурного масштаба, не новость.
-- [en] не_новость: [local] Charleston Gazette-Mail — WV Congress representatives won't say if they’ll work with Dems on reversing Med — Отказ комментировать что-либо — это слова и отсутствие позиции, а не событие.
-- [en] не_новость: [local] Axios — Wholesale food prices are on the rise — Абстрактный обзор роста цен без конкретных цифр или решений — аналитика, а не факт.
-- [en] не_новость: [local] Charleston Gazette-Mail — Heating bill assistance program reopens for applications, but funds are limited — Открытие приема заявок на помощь — плановое административное действие.
-- [en] не_новость: [local] LA Times — California Democrats plan to investigate Trump but leave a third impeachment off — Планы по проведению расследований в будущем — это намерения, а не состоявшееся событие.
-- [en] не_новость: [local] WHYY — No yellow bus, just two wheels: Lewes students pedal their way to school in a ne — Пилотный проект школьного автобуса — частная локальная инициатива, не событие.
-- [en] не_новость: [local] NPR News — An organ transplant controversy tests 'the dead donor rule' — Обсуждение этики трансплантологии — это дискуссия, а не принятое решение.
-- [en] курьёз: [local] ProPublica — I Investigated the Online Sports Betting Industry. DraftKings Shut Down My Accou — Конфликт блогера с сервисом — частная история, не новость.
-- [en] не_новость: [local] Cardinal News — Bristol may consider even higher property taxes on old Virginia Intermont campus — Обсуждение возможности повышения налогов — это дискуссия, а не решение.
-- [en] не_новость: [local] Hawaii News Now — Hawaii Workers Center cheers changes from election in annual ‘Victory Celebratio — Ежегодное празднование победы — рутинное плановое мероприятие.
-- [en] не_новость: [local] Santa Fe New Mexican — City of Santa Fe planning to replace closed Salvador Perez Pool — Планы по замене бассейна — обсуждение намерений, без факта начала работ.
-- [en] не_новость: [local] WDAM — Hattiesburg firefighter returns to work after January injury, receives Iron Will — Награждение пожарного спустя полгода — частная история, не событие.
-- [en] не_новость: [local] Santa Fe New Mexican — What could consumer protections from data centers look like in New Mexico? — Вопрос «что если» — аналитика, а не событие.
-- [en] не_новость: [local] NonDoc — Amid water supply concerns, new law allows OWRB to tighten usage regulations — Разработка регулировок — рабочий процесс, а не завершенное событие.
-- [en] курьёз: [pool] Guardian Sport — Blue Jays’ Anthony Santander apologizes for sharing anti-Muslim social media pos — Извинение спортсмена за посты в соцсетях — частный случай, не новость.
-- [en] курьёз: [pool] BBC News — King jokes with Elton John as he marks 78th birthday with radio show — Шутки короля в эфире — светская хроника, не новость.
-- [en] не_новость: [pool] The Guardian — ‘The social contract is broken’: young people on feeling shut out of careers — Мнение молодежи о рынке труда — очерк, не событие.
-- [en] не_новость: [pool] TechCrunch — Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders — Слухи/мнение о последствиях отставки — аналитика, а не новость.
-- [en] не_новость: [pool] TechCrunch — This young startup wants to power floating data centers with the ocean’s heat, a — Стартап «хочет» запустить проект — это намерение, а не состоявшийся запуск.
-- [en] не_новость: [world] TechCrunch — Amazon’s new Kindle Colorsoft is a premium e-reader with a premium price — Обзор потребительского товара — рекламный/потребительский материал, а не новость.
+- [es] чужое_мелкое: [pool] El Tiempo CO — Accidente dejó 15 heridos y se verifica número de muertos en Huila: se trata de  — Авария в Колумбии — местное событие для колумбийских СМИ, для читателя в Мексике это не мировое событие.
+- [es] чужое_мелкое: [pool] El Tiempo CO — Grúas, reclamos y enfrentamientos: fuerte pulso entre autoridades y comerciantes — Локальный конфликт торговцев и властей в Санта-Марте (Колумбия).
+- [es] не_новость: [pool] Semana CO — Abelardo De La Espriella: “La reconstrucción de Colombia es una prioridad nacion — Мнение политика, а не свершившееся событие.
+- [es] курьёз: [pool] Semana CO — Fue atropellado y perdió una de sus patas: él es Max, el perro que inspira campa — История про собаку не является новостью мирового масштаба.
+- [es] чужое_мелкое: [pool] El Nacional VE — Trasladan de urgencia a sargento recluido en Ramo Verde tras complicaciones por  — Внутреннее событие Венесуэлы, не влияющее на мир.
+- [es] не_новость: [pool] Semana CO — Gobierno se reúne con el Centro Democrático: detalles de la cita en Antioquia — Обычная рабочая встреча политиков, без итоговых решений.
+- [es] чужое_мелкое: [pool] El Universo EC — Traumatismos y fatiga, entre las siete emergencias atendidas durante el primer d — Локальное происшествие на религиозном мероприятии в Эквадоре.
+- [es] не_новость: [pool] Marca — El Madrid reabre el parque de atracciones — Заголовок-шутка или описание мероприятия (парк аттракционов), события нет.
+- [es] чужое_мелкое: [pool] Montevideo Portal — Una falla afectó a casi todos los puntos de carga del país para vehículos eléctr — Технический сбой в Уругвае — мелкая локальная новость.
+- [es] чужое_мелкое: [pool] Clarín AR — El Estado se mete en una empresa clave de Lázaro Báez: el empresario seguía haci — Местная судебная хроника Аргентины.
+- [es] чужое_мелкое: [pool] Montevideo Portal — Estafa en local de cobranzas de La Teja: hay tres nuevas condenas y ya son 16 in — Локальная судебная хроника в Уругвае (приговоры).
+- [es] чужое_мелкое: [pool] 14ymedio — "Cuando pienso en quebrarme, me llega tu energía", escribe Eddy Ceballos a su ma — Частная история заключенного на Кубе.
+- [es] не_новость: [pool] 14ymedio — Muere el general cubano 'Mandarria', que llegó a pedir el fusilamiento de su pro — Смерть отставного военного — не мировая новость.
+- [es] чужое_мелкое: [pool] eldiario.es — Aldama acusa al director de Okdiario de chantajear al exministro Ábalos a cambio — Местный политический скандал в Испании (обвинения между изданием и политиком).
+- [es] чужое_мелкое: [pool] El País — El PSOE pelea las elecciones en 18 provincias que tiene identificadas como prior — Внутриполитическая борьба PSOE в Испании.
+- [es] курьёз: [world] Xataka — De hacer el cabra en YouTube a entrevistar al presidente del Gobierno de España: — Анализ интервью блогера — не событие.
+- [es] чужое_мелкое: [world] El Nacional VE — Cuba afirma que prepara su defensa ante una eventual agresión de EE UU — Риторика властей Кубы о защите — обычный политический дискурс, нет факта нападения.
+- [es] повтор: [world] The Independent — Trump atribuye la paralización de vuelos en EE. UU. a «equipos viejos y rotos» m ≈ «Advierten más cancelaciones de vuelos en» — Повтор сюжета о сбое авиасообщения в США.
+- [es] повтор: [world] BBC Mundo — Zelensky asegura que EE.UU. propuso a Ucrania ceder el Donbás a Rusia a cambio d ≈ «Zelenski se niega a ceder el Donbás y ad» — Повтор сюжета о заявлении Зеленского.
+- [es] курьёз: [world] Ars Technica — El telescopio James Webb halla hielo más antiguo que la estrella que orbita — Научная находка без последствий для читателя (Интересное).
+- [es] повтор: [world] Axios — 3.000 vuelos cancelados mientras el caos por la paralización de la FAA se extien ≈ «Advierten más cancelaciones de vuelos en» — Повтор сюжета о сбое авиасообщения в США.
+- [es] чужое_мелкое: [world] RFI — ¿Se verá afectado el gobierno de Trump por las consecuencias del caso Nvidia? — Спекуляции о правительстве США вокруг частной компании.
+- [es] чужое_мелкое: [world] La Vanguardia — El terrorífico viernes 13 que paralizó a Microsoft y a medio mundo — Вчерашний технический сбой Microsoft — вчерашняя новость.
+- [es] повтор: [world] BBC Mundo — Un inflexible Putin eleva sus exigencias para alcanzar la paz con Ucrania ≈ «Zelensky asegura que EE.UU. propuso a Uc» — Повтор темы переговоров Путина и Зеленского.
+- [es] не_новость: [world] Semafor — El grupo de trabajo de IA de Trump analiza los riesgos cibernéticos — Анализ работы группы экспертов, события нет.
