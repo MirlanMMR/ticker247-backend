@@ -1,27 +1,24 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] полка: [local] Kaktus.media — У россиянина изъяли 135 млн рублей, которые он хотел вывезти в Бишкек — новость из РФ для пула KG — это «Новости из...», а не «Местные».
-- [ru] не_новость: [local] Knews.kg — Сколько людей не умрет на Земле, если очистить воздух от выхлопов — аналитический материал с оценками исследователей, не событие.
-- [ru] не_новость: [pool] iXBT — «Спутникс» разрабатывает лазерную связь — разработка технологии, нет завершенного факта внедрения или продукта.
-- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — В Новосибирске 19-летнего курьера будут судить за обман четырех пенсионеров на 9 — обычное уголовное дело в другом регионе РФ, не имеет мирового значения.
-- [ru] не_новость: [pool] ngs.ru — Новосибирск — Обследовать коллектор: мэрия планирует устранить яму возле ТЦ в Заельцовском рай — планирование работ по устранению ямы, нет факта начала или окончания.
-- [ru] курьёз: [pool] ngs55.ru — Омск — Полуслепой шпиц и уравновешенный Пряник: шесть историй собак из приютов, которые — история о собаках, не новость, место в «Интересном».
-- [ru] курьёз: [pool] ngs.ru — Новосибирск — «Длинноногий бегун»: в Сибири обнаружили не известный ранее вид динозавра — его  — находка окаменелостей, место в «Интересном».
-- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — Разин взял вину за проблемы СКА и пообещал баллоны — комментарии тренера, не событие в жизни клуба.
-- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — Мировых судей Петербурга хотят наградить цепью с гербом — обсуждение идеи награждения, решение не принято.
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Девушка получила 8 лет колонии за убийство и насилие над полицейским — рядовое уголовное дело в Псковской области, не имеет значимости для KG.
-- [ru] курьёз: [world] Вечерний Бишкек — Двалишвили заявил о нападении Нурмагомедова в Абу-Даби — личный конфликт бойцов в отеле, не мировая новость.
-- [ru] не_новость: [world] Onliner.by — 11.11. Как в Китае превратили День холостяков в главную мировую распродажу — обзорный материал о том, как проходит распродажа, не событие.
-- [ru] чужое_мелкое: [world] 24.kg — В ОАЭ брата Хабиба Нурмагомедова арестовали на полгода за массовую драку — повтор сюжета №53, мелкий криминал за границей, нет значимости для KG.
-- [ru] не_новость: [world] The Hill — Разработчик ИИ-инструмента SMART для FAA отрицает связь с приостановкой полетов — опровержение слухов, не событие.
-- [ru] курьёз: [world] Вечерний Бишкек — Вратарь "Челси" Роберт Санчес разбил элитный спорткар "Феррари" — ДТП с футболистом, не мировая новость.
-- [ru] не_новость: [world] ngs55.ru — Омск — «Шмель» и «Прима» вам о чем-нибудь говорят? 5 омских брендов, которые знал весь  — историческая подборка брендов СССР.
-- [ru] курьёз: [world] ScienceAlert — Ученые обнаружили богомола возрастом 98 миллионов лет с «листьями» на брюшке, за — находка богомола в янтаре, место в «Интересном».
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Лев убил 19-летнего работника фермы во время съёмок видео — несчастный случай на ферме в Пакистане, нет последствий за границей.
-- [ru] повтор: [world] UPI — SpaceX вывела Starship на орбиту, но отказалась от попытки захвата ускорителя ≈ «SpaceX провела 15-й испытательный полет » — тот же сюжет про SpaceX, информация об отказе — это развитие темы.
-- [ru] чужое_мелкое: [world] The Independent — Жительница Пенсильвании арестована по ордерам сразу после неожиданных домашних р — криминальная хроника штата Пенсильвания.
-- [ru] не_новость: [world] The Independent — Скандал вокруг Nvidia в Белом доме: на фоне сообщений о связях бывшего гендирект — слухи о личной жизни, не доказанное событие в бизнесе.
-- [ru] не_новость: [world] Engadget — Коды активации некоторых физических копий GTA VI могут быть видны снаружи упаков — брак упаковки товара, не событие.
-- [ru] не_новость: [world] Ars Technica — Миллионы американцев принимают препараты GLP-1 не по назначению — публикация результатов исследования, не событие.
-- [ru] курьёз: [world] Smithsonian Magazine — Спустя два столетия после обнаружения бронзовой ноги в шотландском болоте археол — археологическая находка, место в «Интересном».
-- [ru] срочность: [world] Good News Network — Мужчина спас соседей во время «библейского» наводнения во Флориде — прошедшее событие (спасение во время наводнения), не требует побудки.
+- [fr] повтор: [local] La Dépêche — France-Afrique du Sud : le changement de première ligne chez les Boks, pourquoi  ≈ «XV de France - Afrique du Sud (21-19) : » — Сюжет о матче Франция-ЮАР уже освещен в карточке 2.
+- [fr] чужое_мелкое: [local] France Bleu — Panne d'Outlook : "large reprise" de la messagerie, Microsoft dit être "profondé — Технический сбой IT-сервиса Microsoft в 74 странах не требует срочного внимания в ленте.
+- [fr] не_новость: [local] L'Obs — Fausses alertes à la bombe en France et en Europe : ce que l’on sait et ce que l — Сводка о «том, что известно и неизвестно» про ложные угрозы — это аналитический обзор, а не событие.
+- [fr] не_новость: [local] 20 Minutes — Colère lycéenne : Des consignes pour systématiser les sanctions disciplinaires c — Анонс плановых правительственных инструкций для школ, без факта принятия/начала санкций.
+- [fr] курьёз: [local] L'Express — Ventes de livres : Jordan Bardella résiste-t-il à Jean-Luc Mélenchon en librairi — Анализ популярности книг политиков — любопытный факт, не являющийся новостным событием.
+- [fr] повтор: [local] Le Figaro — Manifestation du 14 novembre à Paris : le parcours entre République et Nation au ≈ «Mobilisation du 14 novembre : suivez l'"» — Сюжет о манифестациях 14 ноября дублирует карточку 8.
+- [fr] полка: [pool] Sud Ouest — Narcotrafic : arrestation à Bruxelles d’un homme recherché depuis 2021 par la Fr — Арест преступника, разыскиваемого Францией, — это местная новость для Франции, а не «Новость из...» (внешняя).
+- [fr] не_новость: [pool] RTBF — Météo en Belgique : un samedi ensoleillé avant le retour de la pluie et du vent  — Прогноз погоды не является новостным событием.
+- [fr] не_новость: [pool] Radio-Canada — Le Canada et les Philippines concluent les discussions en vue d’un accord commer — Анонс завершения обсуждений об торговом соглашении без подписи документа — это намерения, а не событие.
+- [fr] не_новость: [pool] Radio-Canada — L’Alberta dévoile un nouvel incitatif aux pétrolières — Анонс намерений властей Альберты по новым субсидиям, решение еще не принято.
+- [fr] не_новость: [pool] Radio-Canada — Stelco rappelle l’ensemble des employés licenciés à son aciérie de Hamilton — Реакция компании на лицензирование (выплата компенсаций) — это рутина бизнеса, не требующая пуша.
+- [fr] не_новость: [pool] Africanews FR — La France dénonce les restrictions commerciales de l'Algérie auprès de l’UE — Заявление о намерении Франции «рассмотреть возможность» жалобы — это этикет и слова, а не свершившееся действие.
+- [fr] повтор: [world] Bénin Web TV — Microsoft annonce le rétablissement complet d’Outlook, Teams et Copilot après la ≈ «Panne d'Outlook : "large reprise" de la » — Дублирует сюжет о сбое Microsoft.
+- [fr] повтор: [world] Le Temps — Sommet Trump-Xi-Poutine le 21 novembre en Chine: le Moyen-Orient à l'agenda, l'U ≈ «Donald Trump, Vladimir Poutine et Xi Jin» — Дублирует встречу лидеров в Китае.
+- [fr] не_новость: [world] RFI — Le gouvernement Trump sera-t-il éclaboussé par les conséquences de l'affaire Nvi — Спекуляции о влиянии личных связей на правительство — это мнение/слухи, а не событие.
+- [fr] не_новость: [world] BBC News — Donald Trump, Vladimir Poutine et Xi Jinping prévoient une réunion historique en — Анонс встречи лидеров на следующей неделе — плановое мероприятие, событием станет сама встреча.
+- [fr] повтор: [world] Courrier International — L’espace aérien américain fermé pendant plusieurs heures à cause d’une panne de  ≈ «Le trafic aérien a repris aux États-Unis» — Дублирует сюжет о сбое авиасообщения в США (карточка 45).
+- [fr] повтор: [world] France 24 FR — Des vols toujours annulés aux États-Unis malgré la réouverture de l'espace aérie ≈ «Le trafic aérien a repris aux États-Unis» — Развитие темы сбоя авиасообщения в США (карточка 45).
+- [fr] повтор: [world] Radio-Canada — Une rencontre entre Trump, Xi et Poutine aura lieu jeudi en Chine ≈ «Donald Trump, Vladimir Poutine et Xi Jin» — Дублирует встречу лидеров в Китае.
+- [fr] не_новость: [world] TechCrunch — Le départ de Jensen Huang crée un vide dans le financement des startups d'IA, se — Анализ последствий ухода руководителя компании — это мнение экспертов, а не событие.
+- [fr] не_новость: [world] 20 Minutes — Guerre en Ukraine : Les Européens reviennent dans le jeu diplomatique mais se mé — Вечерняя сводка/дайджест новостей не является самостоятельным событием.
+- [fr] курьёз: [world] Sciences et Avenir — Surpoids et obésité : l’IMC montre ses limites, une étude le confirme — Научный обзор об ограничениях ИМТ — это тема для «Интересного».
