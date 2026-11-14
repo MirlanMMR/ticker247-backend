@@ -1,45 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [local] Exame — Reeleição de Lula destrava fundo de brasileiros que compra strip malls na Flórid — Внутренняя бизнес-новость о бразильских инвестициях в США, нет события мирового масштаба.
-- [pt] не_новость: [local] Exame — Ela pegou R$ 5 mil emprestados do pai. — Это рекламный очерк/инструкция по франшизе, а не событие.
-- [pt] не_новость: [local] Gazeta do Povo — Toffoli vota para preservar mensagens da Lava Jato obtidas por hackers — Голосование министра — часть длительного процесса, а не свершившийся факт/решение.
-- [pt] не_новость: [local] Agência Brasil — STF tem 4 votos para manter início da escala 5x2 em dezembro — Промежуточный подсчет голосов в суде не является событием.
-- [pt] не_новость: [local] G1 Minas — Mulher que passou 3 dias com Xuxa em 1987 se prepara para 'reencontro' com a apr — Личные воспоминания фанатки — это не новость.
-- [pt] не_новость: [local] G1 Rio — Câmara do Rio aprovou 362 homenagens em 2026; propostas não aparecem na ordem do — Обычная бюрократическая рутина, не имеющая последствий для населения.
-- [pt] срочность: [local] G1 Minas — Homem que manteve mãe e filho de 4 anos reféns em lotérica de Contagem tem prisã — Событие произошло в прошлом, нет причин для побудки.
-- [pt] не_новость: [pool] Expresso das Ilhas — Câmara de Turismo contesta aumento da TSA e pede adiamento até Maio de 2027 — Обычная жалоба/контестация, а не принятое решение.
-- [pt] не_новость: [pool] Téla Nón — BASTA critica nomeação de Américo Ramos e defende Governo de unidade nacional — Политическая критика и мнение оппозиции, а не событие.
-- [pt] срочность: [pool] G1 Rio Grande do Sul — PF investiga sobrepreço em aluguel de bombas de água na enchente de 2024 no RS — Расследование старых событий не требует пометки «важное».
-- [pt] не_новость: [pool] BBC Brasil — Amazônia queimando afeta a saúde e o bolso do Brasil inteiro, diz bióloga dedica — Мнение/интервью эксперта, а не событие.
-- [pt] срочность: [world] The Hill — Trump diz que a guerra no Irã está 'efetivamente encerrada'. — Заявление политика о завершении войны — оценочное суждение, а не факт, не требует побудки.
-- [pt] повтор: [world] Público — O que sabemos sobre a suspensão de quatro horas nos voos de e para os EUA ≈ «Governo dos EUA suspende todos os voos n» — Тот же сюжет, что в №75.
-- [pt] повтор: [world] Observador PT — Forças de defesa da Ucrânia neutralizam 81 drones russos ≈ «Petroleiro pega fogo após atingir mina n» — Тот же сюжет про танкеры в Ормузском проливе.
-- [pt] курьёз: [world] Engadget — Algumas cópias físicas internacionais de GTA VI supostamente podem ser resgatada — Незначительный факт, не является общественно важным событием.
-- [pt] не_новость: [world] TechCrunch — Saída de Jensen Huang cria lacuna no financiamento de startups de IA, dizem fund — Отставка CEO после 33 лет — плановый уход, нет скандала или внезапности.
-- [pt] не_новость: [world] Semafor — 'A máquina não para': o plano de Abu Dhabi para manter sua ambição cultural em t — Планы чиновника — не событие.
-- [pt] не_новость: [world] Ars Technica — Milhões de americanos não estão tomando medicamentos GLP-1 conforme prescrito — Аналитическая заметка о статистике лекарств, а не событие.
-- [pt] не_новость: [world] Semafor — Força-tarefa de IA de Trump discute riscos cibernéticos — Рабочее обсуждение экспертов — не событие.
-- [pt] курьёз: [world] Superinteressante — Você conhece o “novo IMC”? Entenda o que pode mudar no diagnóstico da obesidade — Популярный разбор, а не новость.
-- [pt] не_новость: [world] TechCrunch — Startup jovem quer alimentar centros de dados flutuantes com o calor do oceano,  — Стартап с планами — не событие.
-- [pt] не_новость: [world] Engadget — Google agora permite conectar o Gemini a contas bancárias — Функция в приложении — это обновление продукта, а не новость.
-- [pt] курьёз: [world] Superinteressante — Testículos podem diminuir de tamanho? Veja 5 possíveis causas — Медицинский совет, а не новость.
-- [pt] полка: [world] AKIpress Эко — Dois homens são detidos com captura ilegal de peixe sisco no reservatório de Ort — Новость из Кыргызстана (издание KG) в ленте PT — не местная.
-- [fr] срочность: [local] Nice-Matin — Vous empruntez le tunnel de Tende ? Une nouvelle plage horaire à la mi-journée e — Плановое изменение графика работы туннеля не является срочным событием.
-- [fr] полка: [local] France Bleu — Huit personnes mises en examen, soupçonnées de trafic d'armes entre les Ardennes — Событие происходит в Бельгии и Франции (международный трафик), не должно быть на полке местных новостей Франции.
-- [fr] не_новость: [local] Sud Ouest — Interdiction de la pêche à l’anguille jaune : la France décrète un moratoire sur — Запрет на вылов угря — это регулирование отрасли, а не срочное или экстраординарное событие.
-- [fr] полка: [local] L'Express — Bonnard, Dubuffet, Picasso... La collection Jean Planque fait son retour en Suis — Событие в Швейцарии, должно быть в разделе «Новости из...».
-- [fr] не_новость: [local] Franceinfo — "Ils nous mettent dans le pressoir à pommes" : combien de temps Edouard Philippe — Рассуждения о возможном участии политика в праймериз — это домыслы, а не событие.
-- [fr] не_новость: [local] Franceinfo — Interdictions de manifestations, couvre-feux, parcours hors des centres-villes…  — Описательный обзор мер префектов без фиксации конкретного нового события.
-- [fr] не_новость: [local] 20 Minutes — Mobilisation du 14 novembre : « Pas envie d’être fiché »… Pourquoi tant de manif — Аналитическая статья о причинах ношения масок, а не событие.
-- [fr] не_новость: [local] Le Figaro — « Quand le ministère annonce 50 lycées bloqués, nous en comptons 150 à 200 qui n — Спор о статистике между профсоюзами и правительством — это дискуссия, а не событие.
-- [fr] полка: [pool] L'Obs — Horlogerie : Genève en surchauffe — Событие в Швейцарии, должно быть в «Новости из...» (как и другие региональные события).
-- [fr] срочность: [world] The Independent — Un pétrolier en feu après avoir heurté une mine dans le détroit d'Ormuz — Происшествие с иностранным танкером в Персидском заливе не требует побудки французского читателя.
-- [fr] не_новость: [world] The Hill — Trump déclare la guerre en Iran « effectivement terminée », bien qu'elle coûte t — Заявление о «завершении войны» без реального прекращения боевых действий или мирного договора — слова, а не событие.
-- [fr] не_новость: [world] RTBF — COP31 : au nord d’Antalya, les serres agricoles de Kumluca vont-elles épuiser le — Статья-рассуждение о долгосрочных экологических последствиях, не является событием.
-- [fr] чужое_мелкое: [world] RFI — Le gouvernement Trump sera-t-il éclaboussé par les conséquences de l'affaire Nvi — Слухи и скандалы вокруг личной жизни топ-менеджера Nvidia не имеют мирового значения.
-- [fr] курьёз: [world] RFI — En visite au Pérou, le pape Léon XIV retrouve son diocèse de Chiclayo — Визит папы римского — плановое событие, новость подана в стиле интересного факта.
-- [fr] не_новость: [world] BBC Mundo — Un Poutine inflexible rehausse ses exigences pour parvenir à la paix en Ukraine — Очередное высказывание Путина с повторением прежних требований не является новым событием.
-- [fr] не_новость: [world] TechCrunch — Le départ de Jensen Huang crée un vide dans le financement des startups d'IA, se — Аналитика последствий ухода директора компании, а не событие.
-- [fr] курьёз: [world] Good News Network — Un homme secourt ses voisins piégés par des inondations « bibliques » en Floride — Частная история спасения в США — это «Интересное», а не «Важное» в мировой повестке.
-- [fr] курьёз: [world] Sciences et Avenir — Ce système de deux anneaux de débris offre un aperçu du futur Système solaire — Астрономическое открытие не имеет последствий для повседневной жизни читателя, должно быть в «Интересном».
-- [fr] курьёз: [world] Sciences et Avenir — Rare découverte d’un bébé cyclope inhumé dans une céramique Nazca — Археологическая находка — это «Интересное», а не новость.
+- [ru] полка: [local] Kaktus.media — В ООН поддержали мораторий на смертную казнь. Кыргызстан также выступал за его в — Это мировая новость (ООН), а не местная для Кыргызстана.
+- [ru] метка_места: [local] Kabar.kg — Алматыда Айтматов атындагы маданий борбор ачылып, бюсту орнотулду — Событие произошло в Алматы, Казахстан, а не в Кыргызстане.
+- [ru] чужое_мелкое: [pool] РИА Новости — МИД прокомментировал голосование в ООН по борьбе с героизацией нацизма — Дипломатический комментарий МИД РФ по голосованию в ООН — внутренняя политическая повестка РФ.
+- [ru] не_новость: [pool] iXBT — «Роскосмос» предложил зарубежным странам отечественные ракетные двигатели — Предложение «Роскосмоса» обсуждать поставки — декларация о намерениях, а не свершившееся событие.
+- [ru] повтор: [pool] Азаттык — Генпрокуратура: в Узбекистане на территориях исторических объектов самовольно во ≈ «Бывшим судьям, смягчившим наказание Акма» — Один сюжет о коррупции в Узбекистане.
+- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — «Водник» сыграл с «Саяны» из Абакана: чем закончился матч — Результат рядового матча чемпионата РФ по хоккею с мячом не является мировой новостью.
+- [ru] срочность: [pool] 62.ru — Рязань — БПЛА могут атаковать Рязанскую область — Предупреждение о БПЛА — это жизнь людей, но для пула «ru» (Кыргызстан) это внутренняя новость РФ, не требующая побудки ч
+- [ru] не_новость: [pool] 59.ru — Пермь — В Перми трамваи временно не будут ездить в Осенцы из-за реконструкции шоссе Косм — Плановое ограничение движения из-за ремонта — местная рутина РФ, не мировая новость.
+- [ru] не_новость: [pool] ngs.ru — Новосибирск — После открытия четвертого моста в Новосибирске цену на проезд смогут повышать —  — Обсуждение условий тарифов на будущее — не событие.
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Позывной «Робот»: в зоне СВО погиб сотрудник Минцифры Оренбургской области Алекс — Личная трагедия сотрудника регионального ведомства РФ — местная новость РФ.
+- [ru] чужое_мелкое: [pool] chita.ru — Чита — Новую продвинутую спортивную площадку открыли в центре Читы — Открытие детской площадки в Чите — сугубо местная новость РФ.
+- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — В Нягани построили первый в Югре модульный бассейн — фото — Строительство бассейна в Нягани — сугубо местная новость РФ.
+- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Уникальную операцию на глазах провели в Якутии. — Локальная медицинская операция в Якутии — местная новость РФ.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Соревнования по КУДО пройдут в Псковской области — Анонс соревнований в Пскове — не новость и не событие мирового масштаба.
+- [ru] чужое_мелкое: [world] The Hill — Пелтола увеличила отрыв от Салливана почти до 4 процентных пунктов после подсчет — Подсчет бюллетеней на местных выборах в США — внутренняя политика США.
+- [ru] не_новость: [world] France 24 — U2 выпустили первый за десятилетие студийный альбом «Caranaval de Luz» — Релиз альбома группы U2 — это не событие в рамках нашего белого списка.
+- [ru] курьёз: [world] Fortune — Состоятельные родители платят 75 000 долларов за двухчасовой учебный день в ИИ-ш — Обзор частной школы — это статья для «Интересного», а не мировая новость.
+- [ru] повтор: [world] RFI — Что известно о полной приостановке полетов в США в пятницу? ≈ «Правительство США приостановило все рейс» — Один сюжет о сбое в авиасообщении США.
+- [ru] не_новость: [world] Variety — Обзор «Hen»: стойкая курица раз за разом сбегает из курятника в неожиданно волну — Обзор видеоигры — не событие.
+- [ru] срочность: [world] The Hill — Трамп заявил, что война в Иране «фактически окончена», но она по-прежнему обходи — Срочная метка на заявлении политика о ходе войны излишня — это обсуждение статуса конфликта, а не экстренное событие.
+- [ru] курьёз: [world] Fortune — Когда Walmart уходит из города, соседние магазины не переманивают клиентов — год — Результаты исследования ритейла — в «Интересное».
+- [ru] не_новость: [world] BBC Русская служба — «За неповиновение отрубали пальцы». Что такое «Химпром» и как он укоренился в Ук — Журналистский разбор деятельности преступной группы — не оперативное событие.
+- [ru] повтор: [world] Naked Science — Первая попытка полного спасения ракеты в истории наполовину не удалась: впереди  ≈ «SpaceX отказалась от попытки поймать ниж» — Один сюжет об испытаниях SpaceX.
+- [ru] чужое_мелкое: [world] Guardian Sport — Запрет FAA на полеты нарушил планы команд НБА, НХЛ и студенческих лиг перед выхо — Логистические трудности спортивных команд — не мировая новость.
+- [ru] курьёз: [world] 60.ru — Псков — Лев убил 19-летнего работника фермы во время съёмок видео — Трагический случай на ферме в Пакистане — типичная криминальная сводка, но без мирового значения.
