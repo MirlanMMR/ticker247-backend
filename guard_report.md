@@ -1,35 +1,18 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] срочность: [local] Poder360 — El Niño está associado a 42.200 mortes de idosos no Brasil, diz estudo — исследование — не повод для побудки
-- [pt] срочность: [local] G1 Rio — Jovem de 20 anos e homem de 62 são baleados durante tiroteio no Tanque. — инцидент с перестрелкой — криминальная хроника, не требует срочности
-- [pt] срочность: [local] G1 Rio — Predador recebia 'caixinha extra' para fazer segurança de traficantes do Rio apó — криминальный отчет о задержании не требует прерывания дел
-- [pt] срочность: [local] G1 Rio Grande do Sul — El Niño e corredor de tornados: RS soma sete tornados no ano; entenda o que caus — разбор причин явления (торнадо) — это не срочное событие
-- [pt] полка: [pool] RFI — Incêndios na Amazônia: estado brasileiro declara estado de emergência ambiental — новость о Бразилии в португальском пуле должна быть в «Местных»
-- [pt] чужое_мелкое: [world] The Hill — Suspensão de voos pela FAA causa atrasos e adiamentos no futebol universitário — повседневные задержки рейсов — внутренняя новость США
-- [pt] повтор: [world] UPI — SpaceX lança Starship em órbita e cancela tentativa de captura do propulsor ≈ «Voo 15 da Starship alcança a órbita, pre» — тот же сюжет про запуск Starship
-- [pt] не_новость: [world] TechCrunch — Saída de Jensen Huang cria lacuna no financiamento de startups de IA, dizem fund — отставка CEO после 33 лет работы без скандала — плановый уход
-- [pt] срочность: [world] TechCrunch — Governo dos EUA suspende todos os voos no país devido a 'circunstâncias extraord — задержка рейсов в США не требует срочности для читателя в Бразилии
-- [fr] курьёз: [local] Nice-Matin — Un vainqueur de « Ninja warrior » ouvre un complexe inspiré de la célèbre émissi — открытие развлекательного центра — частный бизнес, не событие.
-- [fr] не_новость: [local] L'Obs — Le chroniqueur Arnaud Viviant quitte « Le masque et la plume » disant avoir été  — уход хроникёра из радиопередачи не является значимым событием.
-- [fr] не_новость: [local] Franceinfo — Microsoft annonce le rétablissement total de ses services après la panne mondial — новость о том, что IT-сбой завершился, является запоздалым и не меняет ситуацию сейчас.
-- [fr] не_новость: [local] Nice-Matin — Moins de cambriolages mais de nouvelles inquiétudes : les défis de Roquebrune-Ca — общий обзор состояния безопасности в городе — аналитика, а не событие.
-- [fr] курьёз: [local] L'Express — Bonnard, Dubuffet, Picasso... La collection Jean Planque fait son retour en Suis — возвращение коллекции картин в музей — культурная хроника, «интересное».
-- [fr] не_новость: [pool] La Presse TN — Face aux lenteurs de la réconciliation pénale: Détermination présidentielle à re — очередная рабочая встреча президента без новых решений.
-- [fr] не_новость: [pool] RTBF — Pairi Daiza bientôt directement accessible aux voyageurs en train : la gare sera — плановый проект переноса станции — это инфраструктурный анонс.
-- [fr] не_новость: [pool] RTBF — Dysfonctionnements à l’ONE : une procédure ouverte pour faire toute la lumière — открытие процедуры проверки — рутина, нет результата или решения.
-- [fr] курьёз: [pool] Radio-Canada — De la Lune à l’IA : des décennies à compter les oiseaux — научное наблюдение за птицами — не событие, «интересное».
-- [fr] не_новость: [pool] RTBF — Négociations budgétaires : après le kern de ce vendredi, les discussions se pour — переговоры продолжаются — событие будет, когда примут бюджет.
-- [fr] не_новость: [world] Jeune Afrique — Paul Biya mobilise le RDPC, Dangote lance un méga projet en Namibie, Gadi Eizenk — подборка из пяти тем — это дайджест, а не новость.
-- [fr] не_новость: [world] Jeune Afrique — Russie-Afrique : une stratégie d’influence entravée par les retombées de la guer — разбор стратегии влияния — аналитическая статья.
-- [fr] курьёз: [world] BFMTV — Insolite : la police péruvienne intervient déguisée lors une opération antidrogu — полиция в костюмах — забавный факт, не мировая новость.
-- [fr] не_новость: [world] BFMTV — Le bâtiment avait été racheté par un futur député du parti d'extrême droite La L — история здания и его покупателя — не новость.
-- [fr] курьёз: [world] L'Obs — « Simona Kossak cherchait à transmettre l’importance de restaurer les liens avec — творческое эссе о художнице и биологе — «интересное».
-- [fr] курьёз: [world] Futura-Sciences — Quel est cet étonnant tsunami qui peut déferler dans le ciel ? — объяснение природного явления — наука, «интересное».
-- [fr] не_новость: [world] La Dépêche — 25 chevaux sont retirés d'une prestigieuse course à cause de l'état de l'hippodr — снятие лошадей с забега из-за погоды — мелкий инцидент.
-- [fr] курьёз: [world] L'Express — Euclid : 900 millions de galaxies observées, le télescope européen s'attaque aux — отчет о данных телескопа — наука, «интересное».
-- [fr] не_новость: [world] Sud Ouest — Turquie : sept maires emprisonnés rejoignent le principal parti d’opposition à l — описание состава партии — не является событием.
-- [fr] курьёз: [world] Sciences et Avenir — Un nouvel espoir contre le cancer du pancréas — исследование лекарства — не событие (промежуточный результат).
-- [fr] не_новость: [world] 20 Minutes — L’Eurovision débarque en Asie, avec l’espoir de surfer sur la vague K-pop — анонс запуска конкурса — нет события.
-- [fr] не_новость: [world] RFI — Le gouvernement Trump sera-t-il éclaboussé par les conséquences de l'affaire Nvi — спекуляции о возможных последствиях скандала — не событие.
-- [fr] не_новость: [world] TechCrunch — Le départ de Jensen Huang crée un vide dans le financement des startups d'IA, se — мнения экспертов о последствиях ухода главы Nvidia — это аналитика.
-- [fr] курьёз: [world] Sciences et Avenir — Ce système de deux anneaux de débris offre un aperçu du futur Système solaire — наблюдение за кольцами дебри — наука, «интересное».
+- [es] чужое_мелкое: [pool] Infobae — Otegi pide el voto a quienes no han votado a EH Bildu para "amargarles la noche  — Внутренняя политика Испании, не имеющая последствий для Мексики или остального мира.
+- [es] не_новость: [pool] El Nacional VE — Excarcelaron a ítalo-venezolano Daniel Enrique Echenagucia tras pasar dos años p — Отчет о рекомендации юридической инстанции без свершившегося факта освобождения.
+- [es] чужое_мелкое: [pool] Marca — Un nefasto inicio de partido condena a España ante Chile — Спортивный отчет о матче Испании, не имеющий мирового значения.
+- [es] чужое_мелкое: [pool] eldiario.es — Cuca Gamarra rechaza dar "pábulo" a Koldo García tras reconocer Feijóo que ella  — Внутренние политические споры в Испании.
+- [es] чужое_мелкое: [pool] eldiario.es — El PSOE denuncia a la editora de Okdiario ante la Agencia Tributaria — Внутренние юридические дрязги между политической партией и СМИ в Испании.
+- [es] не_новость: [pool] El Nacional VE — Comité de Postulaciones Judiciales contabilizó 1.149 candidatos para cargos judi — Процесс подсчета заявок, обычная бюрократическая процедура.
+- [es] курьёз: [pool] Marca — Vaya joya tiene la Real: uno de los goles del año sin lugar a dudas — Спортивный эпизод (гол), не имеющий значимости за пределами испанской лиги.
+- [es] чужое_мелкое: [pool] El País — Colau contrapone su propuesta para ampliar la cobertura de la sanidad pública co — Внутренние политические дебаты в Испании (местное соперничество PP и Colau).
+- [es] чужое_мелкое: [pool] El País — Abascal defiende la prioridad nacional: “Nos presentamos a las elecciones para h — Внутренняя испанская политика.
+- [es] срочность: [pool] Diario Libre DO — Padre de bebé en video de abuso sexual se enteró por las redes — Криминальная хроника, не требующая побудки читателя.
+- [es] чужое_мелкое: [pool] eldiario.es — Aldama acusa al director de Okdiario de chantajear al exministro Ábalos a cambio — Внутренние споры испанских политиков и журналистов.
+- [es] чужое_мелкое: [pool] El País — El PSOE pelea las elecciones en 18 provincias que tiene identificadas como prior — Внутренняя предвыборная стратегия PSOE в Испании.
+- [es] срочность: [world] La Nación AR — Gales venció a All Blacks por primera vez en 73 años: el triunfo de una defensa  — Спортивная новость (регби), не требующая срочной метки.
+- [es] курьёз: [world] BBC Mundo — Me dijeron que mi bebé había fallecido... 42 años después me envió un correo ele — Личная история воссоединения, не является мировой новостью (интересное).
+- [es] чужое_мелкое: [world] La Vanguardia — Zelenski asegura que EE.UU. ha planteado admitir a Ucrania en la OTAN si cede el — Слухи/предложения в рамках переговорного процесса, не являются свершившимся фактом.
+- [es] не_новость: [world] La Jornada — Editorial: Tráfico aéreo: otro desastre Trumpista — Редакционная колонка (Editorial), а не новостное событие.
