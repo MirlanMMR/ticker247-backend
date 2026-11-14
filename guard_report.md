@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] KOTA — Black Hills Center for Equality names Maggie Lepa-Wince as board president — Назначение нового президента совета организации — внутренняя кадровая перестановка.
-- [en] чужое_мелкое: [local] WIBW — ESU football drops third straight to end regular season — Обычный результат матча университетской лиги, не имеет мирового значения.
-- [en] курьёз: [local] NY Post — Warriors without Steph Curry leads to embarrassing NBA downgrade — Спортивная аналитика/обзор состава команды, а не событие.
-- [en] курьёз: [local] Untitled RSS Feed — Rare Bear River White Bison Calf Among 14 To Be Sold By Wyoming State Parks — Продажа телят государственным парком — местная заметка без масштаба.
-- [en] не_новость: [local] Untitled RSS Feed — Wyoming House Leadership Team Unveils Wyoming-First Priorities List — Внутрипартийное обсуждение приоритетов — слова о планах, а не свершившийся факт.
-- [en] чужое_мелкое: [local] WSMV — Tennessee wide receiver suffers lower body injury against Texas A&M — Спортивная травма игрока в студенческом футболе.
-- [en] не_новость: [local] Cleveland.com — DeBoer on Keelon Russell, defense and staying hungry — Мнение тренера о матче, а не само событие.
-- [en] не_новость: [local] Untitled RSS Feed — Tara Nethercott Nominated Wyoming Senate President, Lloyd Larsen House Speaker — Партийная номинация — этап внутренних процедур, а не принятое решение.
-- [en] не_новость: [local] Santa Fe New Mexican — New Mexico House Democratic leaders retain their posts — Переизбрание лидеров фракции — внутренняя рутина.
-- [en] не_новость: [local] OPB — Oregon Senate Democrats pick leaders as they head into long session with a stron — Выбор лидера фракции демократов в Сенате штата.
-- [en] курьёз: [local] Fort Worth Report — DFW Airport board hears ask for Founders’ Plaza improvements — Обсуждение планов благоустройства зоны отдыха в аэропорту.
-- [en] не_новость: [local] KOTA — Cheyenne River Youth Project seeks help with annual holiday toy drive — Призыв к участию в благотворительной акции — это не событие.
-- [en] не_новость: [local] New Jersey 101.5 — A Philadelphia Broadcasting Legend is Signing Off After 69 Years — Плановый выход на пенсию после 69 лет карьеры.
-- [en] не_новость: [local] reviewjournal — NBA Las Vegas expansion bid process sees 2 groups, potential arena sites emerge — Обзор процесса подачи заявок, который еще продолжается.
-- [en] курьёз: [local] Concord Monitor — ‘Really frustrating bureaucracy’: Totally Tea + Coffee owner to create documenta — Владелец кафе планирует снять фильм о споре с Facebook.
-- [en] не_новость: [local] San Antonio Report — Parents of students with disabilities fear losing Texas’ “life-changing” school  — Выражение опасений родителями — это не событие.
-- [en] чужое_мелкое: [pool] The Independent — Affluent LA residents living by the iconic Hollywood sign are fed up with touris — Жалобы жителей на туристов — повседневная городская хроника.
-- [en] чужое_мелкое: [pool] Guardian Sport — Georgia football recruit Marcellus Young Casario dies at 18 after medical emerge — Частный случай смерти школьника, несмотря на его спортивный статус.
-- [en] не_новость: [pool] The Independent — John Fetterman signals he would consider quitting Democratic Party if they make  — Политик лишь «сигнализирует», что «рассмотрит возможность» — это намерения.
-- [en] не_новость: [pool] BBC News — Young people should have legal guarantee of job or training, Milburn tells BBC — Предложение бывшего министра, которое еще не принято.
-- [en] курьёз: [pool] Ars Technica — Winemakers are learning that conservation can be good for business — Статья о методах виноделия, не имеющая актуального новостного повода.
-- [en] не_новость: [pool] The Guardian — ‘The social contract is broken’: young people on feeling shut out of careers — Подборка мнений молодых людей о карьере.
-- [en] курьёз: [world] Rolling Stone — Lana Del Rey, Dua Lipa, Zara Larsson Contribute New Music to ‘GTA VI: The Album’ — Утечка списка треков из игры — не событие в мире новостей.
-- [en] не_новость: [world] Fortune — The downfall of AI’s $5.7 trillion man — Статья-портрет о падении карьеры менеджера.
-- [en] не_новость: [world] BBC News — Noel Fielding 'appalled' by jokes he made with Russell Brand — Выражение личного сожаления о прошлых шутках.
+- [es] не_новость: [local] El Economista MX — Ley Antimemes entra en vigor en México: hasta cinco años de cárcel y multas de 1 — Анонс закона, принятого 14 ноября, но сам заголовок «Ley Antimemes» носит характер социальной страшилки/сатиры, а не юри
+- [es] срочность: [local] El Universal MX — Nave Starship de SpaceX regresa de la órbita; cohete logra ser atrapado en una m — Это технологическое событие, не требующее побудки читателя.
+- [es] не_новость: [local] Expansión MX — Farmacias Benavides anuncia un acuerdo definitivo para ser adquirida por Farmaci — Коммерческая сделка (поглощение бизнеса) не является общественно значимым событием для широкого круга читателей.
+- [es] не_новость: [local] Expansión MX — En puente, Hacienda aumenta IEPS a combustibles: deja en 0.02 pesos el estimulo  — Техническое изменение налоговых ставок (IEPS) — рутина, не являющаяся событием.
+- [es] чужое_мелкое: [pool] La Nación AR — La caída del Ueno Bank en Paraguay revela el avance de los tecnomagnates en Amér — Финансовый скандал в Парагвае, не влияющий на Мексику.
+- [es] чужое_мелкое: [pool] La Nación AR — Vendedores de drogas usaban la réplica de un AK-47 para defender su búnker en el — Криминальная хроника из Аргентины.
+- [es] не_новость: [pool] Semana CO — Equipos con el punto invisible en cuadrangulares: definido el acompañante de Atl — Спортивная статистика и рутинное обновление таблицы лиги.
+- [es] курьёз: [pool] El Nacional VE — El nuevo pez que fuma triunfa en el Festival Internacional de Cine de Mar del Pl — Награда на кинофестивале — культурная заметка, не событие.
+- [es] чужое_мелкое: [pool] Clarín AR — Corrupción en el fútbol: al menos 1.270.000 dólares de la AFA terminaron en yate — Коррупционный скандал в АФА (Аргентина) не является мировой новостью.
+- [es] чужое_мелкое: [pool] eldiario.es — Cuca Gamarra rechaza dar "pábulo" a Koldo García tras reconocer Feijóo que ella  — Внутриполитические споры Испании.
+- [es] чужое_мелкое: [pool] eldiario.es — El PSOE denuncia a la editora de Okdiario ante la Agencia Tributaria — Судебная тяжба между партией и газетой в Испании.
+- [es] не_новость: [pool] Montevideo Portal — Clausura: Nacional y Albion están empatando 0-0 en el Gran Parque Central — Спортивная трансляция в процессе (ничья 0-0), результата нет.
+- [es] не_новость: [pool] Diario Libre DO — Faride Raful: La seguridad ciudadana se construye desde la acción — Политическое высказывание («безопасность строится из действий») без совершённого действия.
+- [es] не_новость: [pool] Diario Libre DO — Recuerdan al sargento ultimado en Santiago como hombre ejemplar — Некролог/память о человеке, погибшем ранее, не является событием.
+- [es] чужое_мелкое: [pool] eldiario.es — Aldama acusa al director de Okdiario de chantajear al exministro Ábalos a cambio — Обвинения в СМИ внутри Испании.
+- [es] не_новость: [pool] El País — El PSOE pelea las elecciones en 18 provincias que tiene identificadas como prior — Стратегические планы партии на выборы — не событие.
+- [es] курьёз: [world] Guardian Sport — Andreeva derrota a Pegula y alcanza la final de las WTA Finals tras la polémica  — Спортивный результат матча WTA — не мировая новость (не является событием мирового масштаба).
+- [es] чужое_мелкое: [world] Guardian Sport — El recluta de fútbol americano de Georgia, Marcellus Young Casario, muere a los  — Смерть спортсмена-школьника — трагично, но не является мировой новостью.
+- [es] не_новость: [world] Rolling Stone — Lana Del Rey, Dua Lipa y Zara Larsson aportan nueva música a ‘GTA VI: The Album’ — Утечка саундтрека к видеоигре.
+- [es] чужое_мелкое: [world] Guardian Sport — Clara Luvanga marca en la victoria del Washington Spirit sobre el Utah Royals, c — Спортивный результат в лиге США.
+- [es] не_новость: [world] TechCrunch — Tesla abre las reservas del Cybercab para uso personal con restricciones geográf — Маркетинговое объявление о начале приема предзаказов.
+- [es] не_новость: [world] Fortune — La caída del hombre de los 5,7 billones de dólares de la IA — Аналитическая статья про падение акций/бизнеса.
+- [es] курьёз: [world] BBC Mundo — Me dijeron que mi bebé había fallecido... 42 años después me envió un correo ele — Личная история (найденный ребенок) — это курьез, не влияющий на мир.
+- [es] курьёз: [world] Ars Technica — El telescopio James Webb halla hielo más antiguo que la estrella que orbita — Астрономическое исследование — интересная наука, но не событие.
+- [es] не_новость: [world] The Guardian — «El contrato social está roto»: los jóvenes sobre la sensación de exclusión labo — Подборка мнений молодежи о рынке труда.
