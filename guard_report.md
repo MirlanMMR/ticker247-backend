@@ -1,18 +1,25 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] Gazeta do Povo — Chapa de Lula minimiza inconsistências e afirma ter comprovado R$ 48 milhões — Это политическая полемика и обсуждение внутренних процедур, а не свершившееся событие.
-- [pt] не_новость: [local] G1 Rio — Rio lidera número de viagens de moto por aplicativo no país; mulheres representa — Статистика использования транспорта без привязки к конкретному событию.
-- [pt] не_новость: [local] G1 Rio — 'Marechalwood': Câmara aprova projeto para tornar Marechal Hermes distrito do au — Законотворческая инициатива/название района — это еще не свершившееся преобразование инфраструктуры.
-- [pt] не_новость: [local] Gazeta do Povo — Críticas ao Ministério da Cultura dividem artistas e provocam acusações de racis — Дискуссия и обмен мнениями не являются событием по белому списку.
-- [pt] полка: [pool] Notícias ao Minuto — Eleições presidenciais em Cabo Verde: Mesas fecham e contagem começa — Событие в Кабо-Верде (CV), а не в Португалии. Должно быть в «Мировых».
-- [pt] не_новость: [pool] Téla Nón — BASTA critica nomeação de Américo Ramos e defende Governo de unidade nacional — Критика оппозицией назначения политика не является событием.
-- [pt] чужое_мелкое: [world] Metrópoles — Procurador acusa senadora de planejar investigações contra aliados de Trump — Внутриполитическая борьба в США (обвинения между сенатором и прокурором) не имеет мировых последствий.
-- [pt] срочность: [world] Guardian Sport — Confusão em Nova York: brigas e cinco cartões vermelhos marcam ‘amistoso’ contra — Драка на футбольном матче не требует побудки читателя.
-- [pt] не_новость: [world] CNN Brasil — Com o peso de mil elefantes e o tamanho de um prédio, a maior escavadeira da Eur — Техническое описание оборудования для строительства не является новостным событием.
-- [pt] чужое_мелкое: [world] Semafor — Sob pressão, Lutnick junta-se a Trump na China — Перемещения чиновников США не являются мировой новостью без конкретных результатов переговоров.
-- [pt] полка: [world] ECO — Checos contra plano do Governo de financiamento dos meios de comunicação público — Событие в Чехии (CZ) — это мировая новость, а не португальская.
-- [pt] полка: [world] AKIpress Эко — Sadyr Japarov lembrou que a proibição de sacolas plásticas será introduzida no Q — Это местная новость для Кыргызстана, но в португальском пуле она должна идти в «Мировые» (если имеет значение) или не по
-- [pt] чужое_мелкое: [world] El Mundo — Sánchez adianta programa eleitoral do PSOE e compromete-se a criar a figura da " — Внутренняя административная инициатива испанского правительства, не имеющая международных последствий.
-- [pt] чужое_мелкое: [world] El Mundo — PP e Vox mantêm 51% dos votos e até 199 assentos, com PSOE estagnado — Прогнозы и опросы общественного мнения перед выборами — это не события.
-- [pt] чужое_мелкое: [world] Азаттык — Mulher do Turcomenistão que denunciou ex-marido oficial por abuso sexual contra  — Внутреннее судебное дело в Туркменистане не является мировой новостью.
-- [pt] чужое_мелкое: [world] Азаттык — Deputados reuniram-se com os opositores condenados no Quirguistão, Sultanbekov e — Внутренняя политика Кыргызстана для португальского пула не является значимым событием.
+- [en] срочность: [local] WZZM13 — SUV crash led to foot chase, injury and road closure in Park Township — Обычное ДТП с перекрытием дороги, не повод для побудки.
+- [en] не_новость: [local] WCTV — Florida launches new statewide hotline to report animal abuse and neglect — Запуск горячей линии — административное действие, не событие.
+- [en] повтор: [local] WSMV — Titans fall 40-23 to Jaguars at Nissan Stadium ≈ «Kirk Cousins has triumphant return as Vi» — Оба сюжета про матчи НФЛ с участием Vikings/Packers и Titans/Jaguars.
+- [en] повтор: [local] WAFB — Panthers seize NFC South lead with 20-17 victory over Saints ≈ «Kirk Cousins has triumphant return as Vi» — Тот же спортивный день, что и в 8 и 22.
+- [en] не_новость: [local] WSAZ — Tony Gibson announces coaching change — Анонс кадровых перестановок в будущем, не совершённое действие.
+- [en] не_новость: [local] WRDW — S.C. law allowing UTVs on some public roads take effect this week — Вступление в силу планового закона — не событие.
+- [en] не_новость: [pool] Global News CA — Maas, Kilam to take time with roster decisions — Тренеры только планируют решения по составу, событие не произошло.
+- [en] не_новость: [pool] Forbes — ‘The Chosen’ Is Back: Season 6 Premiere, Full Episode Schedule And Where To Watc — Анонс выхода сезона и расписание — это не событие.
+- [en] чужое_мелкое: [pool] The Independent — Man arrested for allegedly posing as decorated combat veteran to steal $80k — Мелкое мошенничество локального жителя не является мировой новостью.
+- [en] не_новость: [pool] Variety — Phil Collins Says He’s a ‘Well Man’ Now and Hints at the ‘Possibility of Doing S — Публичное появление и рассуждения не являются событием.
+- [en] курьёз: [pool] Rolling Stone — Slayer’s Tom Araya Pauses Concert to Reprimand Unruly Fans: ‘Maintain Yourself’ — Увещевание фанатов на концерте — локальный инцидент, не событие.
+- [en] не_новость: [pool] Time — Air Traffic Control Systems Are Outdated. What’s Being Done to Prevent Another O — Обсуждение проблем систем и комментарии министра — это не событие.
+- [en] не_новость: [world] The Independent — Pope Leo wants justice for Amazon rainforest campaigners as South American tour  — Требования и речи понтифика не меняют положение дел.
+- [en] не_новость: [world] Engadget — AO3 is back online but with limited features — Техническое восстановление сайта — не новость.
+- [en] не_новость: [world] Engadget — Wi-Fi 8 is an attempt to fix the biggest problem with wireless internet — Описание спецификаций Wi-Fi 8 — это разбор технологий, а не событие.
+- [en] не_новость: [world] Toronto Star — 32 Americans named as Rhodes scholars have variety of interests, from space junk — Список имен стипендиатов — не событие.
+- [en] не_новость: [world] Fortune — Treasury Secretary Scott Bessent says if Nvidia was a bank, ‘a lot of the execut — Мнение министра о том, кого следовало бы уволить — не событие.
+- [en] курьёз: [world] BBC Sport — Ronaldinho, 46, makes comeback for Ravenna — Возвращение ветерана в игру в третьей лиге — локальный курьёз.
+- [en] не_новость: [world] BBC News — Pope Leo rides in helicopter cockpit during Peru trip — Видео с полета на вертолете — не событие.
+- [en] не_новость: [world] Ars Technica — How the world’s fires changed while humanity hit pause — Ретроспективный анализ лесных пожаров 2019-2020 годов.
+- [en] полка: [world] Knews.kg — Elon Musk's Starship returns to launch pad for the first time via 'chopstick' me — Новость о SpaceX в Кыргызстане не нужна. В США это уже старое событие (повтор 94).
+- [en] не_новость: [world] Fortune — Son of ex-Alamo Rent a Car owner went from hip hop label founder to lithium lead — Биографический очерк предпринимателя — не новость.
+- [en] чужое_мелкое: [world] Азаттык — Deputies meet with imprisoned opposition figures Sultanbekov and Atambayev in Ky — Внутренняя политика и встречи депутатов в Кыргызстане для US потока не нужны.
