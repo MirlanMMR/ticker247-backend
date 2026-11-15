@@ -1,25 +1,22 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] WZZM13 — SUV crash led to foot chase, injury and road closure in Park Township — Обычное ДТП с перекрытием дороги, не повод для побудки.
-- [en] не_новость: [local] WCTV — Florida launches new statewide hotline to report animal abuse and neglect — Запуск горячей линии — административное действие, не событие.
-- [en] повтор: [local] WSMV — Titans fall 40-23 to Jaguars at Nissan Stadium ≈ «Kirk Cousins has triumphant return as Vi» — Оба сюжета про матчи НФЛ с участием Vikings/Packers и Titans/Jaguars.
-- [en] повтор: [local] WAFB — Panthers seize NFC South lead with 20-17 victory over Saints ≈ «Kirk Cousins has triumphant return as Vi» — Тот же спортивный день, что и в 8 и 22.
-- [en] не_новость: [local] WSAZ — Tony Gibson announces coaching change — Анонс кадровых перестановок в будущем, не совершённое действие.
-- [en] не_новость: [local] WRDW — S.C. law allowing UTVs on some public roads take effect this week — Вступление в силу планового закона — не событие.
-- [en] не_новость: [pool] Global News CA — Maas, Kilam to take time with roster decisions — Тренеры только планируют решения по составу, событие не произошло.
-- [en] не_новость: [pool] Forbes — ‘The Chosen’ Is Back: Season 6 Premiere, Full Episode Schedule And Where To Watc — Анонс выхода сезона и расписание — это не событие.
-- [en] чужое_мелкое: [pool] The Independent — Man arrested for allegedly posing as decorated combat veteran to steal $80k — Мелкое мошенничество локального жителя не является мировой новостью.
-- [en] не_новость: [pool] Variety — Phil Collins Says He’s a ‘Well Man’ Now and Hints at the ‘Possibility of Doing S — Публичное появление и рассуждения не являются событием.
-- [en] курьёз: [pool] Rolling Stone — Slayer’s Tom Araya Pauses Concert to Reprimand Unruly Fans: ‘Maintain Yourself’ — Увещевание фанатов на концерте — локальный инцидент, не событие.
-- [en] не_новость: [pool] Time — Air Traffic Control Systems Are Outdated. What’s Being Done to Prevent Another O — Обсуждение проблем систем и комментарии министра — это не событие.
-- [en] не_новость: [world] The Independent — Pope Leo wants justice for Amazon rainforest campaigners as South American tour  — Требования и речи понтифика не меняют положение дел.
-- [en] не_новость: [world] Engadget — AO3 is back online but with limited features — Техническое восстановление сайта — не новость.
-- [en] не_новость: [world] Engadget — Wi-Fi 8 is an attempt to fix the biggest problem with wireless internet — Описание спецификаций Wi-Fi 8 — это разбор технологий, а не событие.
-- [en] не_новость: [world] Toronto Star — 32 Americans named as Rhodes scholars have variety of interests, from space junk — Список имен стипендиатов — не событие.
-- [en] не_новость: [world] Fortune — Treasury Secretary Scott Bessent says if Nvidia was a bank, ‘a lot of the execut — Мнение министра о том, кого следовало бы уволить — не событие.
-- [en] курьёз: [world] BBC Sport — Ronaldinho, 46, makes comeback for Ravenna — Возвращение ветерана в игру в третьей лиге — локальный курьёз.
-- [en] не_новость: [world] BBC News — Pope Leo rides in helicopter cockpit during Peru trip — Видео с полета на вертолете — не событие.
-- [en] не_новость: [world] Ars Technica — How the world’s fires changed while humanity hit pause — Ретроспективный анализ лесных пожаров 2019-2020 годов.
-- [en] полка: [world] Knews.kg — Elon Musk's Starship returns to launch pad for the first time via 'chopstick' me — Новость о SpaceX в Кыргызстане не нужна. В США это уже старое событие (повтор 94).
-- [en] не_новость: [world] Fortune — Son of ex-Alamo Rent a Car owner went from hip hop label founder to lithium lead — Биографический очерк предпринимателя — не новость.
-- [en] чужое_мелкое: [world] Азаттык — Deputies meet with imprisoned opposition figures Sultanbekov and Atambayev in Ky — Внутренняя политика и встречи депутатов в Кыргызстане для US потока не нужны.
+- [es] не_новость: [local] El Universal MX — PAN exige investigar presuntas irregularidades en gestión de Taddei; pide un INE — Это политическая полемика и требование оппозиции, а не свершившееся событие.
+- [es] не_новость: [local] El Financiero — La historia de Diego Luna y Miguel Ángel Félix Gallardo: ‘No quiero ningún conta — Обсуждение сериала и актерской игры, не является новостным событием.
+- [es] не_новость: [local] La Jornada — Entra en vigor la ley de derechos de autor; no hay censura a memes — Заявление политика о вступлении закона в силу, само по себе не является событием для ленты.
+- [es] чужое_мелкое: [pool] Infobae — Haití enviará a su ministro de Justicia a El Salvador — Дипломатический визит третьестепенного уровня, не имеющий мирового значения.
+- [es] повтор: [pool] La Nación AR — Nations League: Inglaterra pasó de la goleada al sufrimiento, pero igual se qued ≈ «Francia cumple y se clasifica para cuart» — Тот же сюжет о результатах Nations League.
+- [es] чужое_мелкое: [pool] La Nación AR — Financial Times, sobre la interna oficial con Bullrich: “Milei se enfrenta al lí — Внутренняя политическая борьба в Аргентине, не имеет последствий для читателя в Мексике.
+- [es] не_новость: [pool] Clarín AR — El Gobierno ya tendría los fondos para pagar US$ 4.500 millones a los bonistas e — Финансовые планы правительства, а не свершившийся факт выплаты или дефолта.
+- [es] не_новость: [pool] El País — El PSOE propone destinar el 1% del PIB a vivienda social y crear una prestación  — Предвыборные обещания партии, а не принятые законы.
+- [es] чужое_мелкое: [pool] El País — Feijóo hará campaña en Gipuzkoa tras la agresión a jóvenes de Nuevas Generacione — Мелкий эпизод предвыборной кампании в Испании, не имеющий значения для мира.
+- [es] повтор: [pool] El País — Claves | De un nuevo impuesto a los grandes empresarios a la “unión de la amista ≈ «El PSOE propone destinar el 1% del PIB a» — Тот же сюжет о программе PSOE.
+- [es] чужое_мелкое: [pool] El País — Abascal vincula inmigración y delincuencia con datos falsos sobre la población e — Внутренняя политическая риторика в Испании.
+- [es] повтор: [pool] El Mundo — Sánchez avanza el programa electoral del PSOE y se compromete a crear la figura  ≈ «El PSOE propone destinar el 1% del PIB a» — Тот же сюжет о программе PSOE.
+- [es] не_новость: [pool] El País — El PSOE gana por la izquierda lo que pierde por la derecha, según el tercer ‘tra — Аналитика и результаты опросов, а не сами выборы.
+- [es] не_новость: [pool] El Mundo — PP y Vox se aferran al 51% de los votos y hasta 199 escaños con un PSOE estancad — Аналитика предвыборных блоков, а не событие.
+- [es] не_новость: [world] Semafor — Rusia reitera su exigencia de que la OTAN se retire en las conversaciones sobre  — Дипломатические заявления и требования, а не военные действия или принятые решения.
+- [es] чужое_мелкое: [world] Clarín AR — Kansas inaugura más de 100 viviendas asequibles en un histórico hotel — Открытие социального жилья в Канзасе — локальное событие штата США.
+- [es] не_новость: [world] El Mundo — Con la voz al límite y su asesor fetiche, Lula compartirá con Sánchez la fórmula — Обсуждение политических советов, а не свершившееся событие.
+- [es] полка: [world] Expansión MX — Microsoft restablece por completo sus servicios pero advierte a usuarios por aum — Это местная новость для MX (о работе сервисов), должна быть в Местных.
+- [es] повтор: [world] Expansión MX — Suman más de 16 mil vuelos cancelados en Estados Unidos por fallas en comunicaci ≈ «Espacio aéreo de EU está abierto de nuev» — Тот же сюжет о сбое в авиасообщении США.
+- [es] полка: [world] Expansión MX — Espacio aéreo de EU está abierto de nuevo y descartan ciberataque; culpan a "har — Событие мирового масштаба (авиаколлапс США), должно быть в Мировых.
