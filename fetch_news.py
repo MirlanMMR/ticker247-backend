@@ -21,7 +21,8 @@ from textcut import (display_source, lead, trim_to_boundary, wants_page_body,
                      _looks_blocked, strip_title_echo, strip_leading_service, sentence_start,
                      final_start_guard, final_end_guard, final_title_guard, strip_known_stubs,
                      drop_stub_summaries, drop_foreign_script, has_foreign_script, is_stub_summary,
-                     is_foreign_script_text, drop_foreign_script_stories)
+                     is_foreign_script_text, drop_foreign_script_stories,
+                     is_legal_footer, drop_legal_footer_blocks)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -2583,7 +2584,7 @@ def _page_body_legacy(url: str) -> str:
         body = _trafilatura_body(r.content)
         # Библиотека честно достаёт основной текст страницы, но не знает, что
         # перед ней не статья, а заслон. Проверка обязательна именно здесь
-        if _looks_blocked(body):
+        if _looks_blocked(body) or is_legal_footer(body):
             return ""
         if len(body) >= 200:
             body = cap_article(body)
@@ -2848,12 +2849,15 @@ def _ai_rescue_body(url: str, broken: str, soup) -> str:
             "- Ничего не сокращай и не пересказывай своими словами — это "
             "извлечение, а не выжимка. Перечни (улицы, списки, пункты) "
             "переноси ПОЛНОСТЬЮ: ради них новость и открывают.\n"
+            "- Подвал сайта, авторские права, «все права защищены», условия "
+            "использования, дисклеймер редакции — это НЕ новость. Если кроме них "
+            "на странице ничего нет, верни ровно: НЕТ_ТЕКСТА\n"
             "- Если текста новости на странице нет вовсе (это видеосюжет, "
             "фотогалерея или страница-заглушка), верни ровно: НЕТ_ТЕКСТА\n\n"
             f"Страница:\n{raw}"
         )
         out = ask_gemini(prompt, charter=False).strip()
-        if out.startswith("НЕТ_ТЕКСТА") or len(out) < 120:
+        if out.startswith("НЕТ_ТЕКСТА") or len(out) < 120 or is_legal_footer(out):
             out = ""
         PAGE_BODY_CACHE[key] = {"text": out, "ts": int(datetime.now().timestamp() * 1000)}
         return out
@@ -4785,9 +4789,15 @@ def load_page_bodies():
              and 600 < len(str(v.get("text", ""))) < 780]
     for k in short:
         PAGE_BODY_CACHE.pop(k, None)
+    # J76: подвал сайта, записанный в память вместо статьи, жил бы сутки и после правки кода
+    footers = [k for k, v in PAGE_BODY_CACHE.items()
+               if isinstance(v, dict) and is_legal_footer(str(v.get("text", ""))[:900])]
+    for k in footers:
+        PAGE_BODY_CACHE.pop(k, None)
     print(f"  📄 Память разобранных страниц: {len(PAGE_BODY_CACHE)}"
           + (f" (выброшено с курсами валют: {len(bad)})" if bad else "")
-          + (f" (обрезанных по старому пределу: {len(short)})" if short else ""))
+          + (f" (обрезанных по старому пределу: {len(short)})" if short else "")
+          + (f" (подвалов сайта вместо статьи: {len(footers)})" if footers else ""))
 
 
 def save_page_bodies():
@@ -6693,8 +6703,12 @@ def _story_block(item, role, lang="ru"):
                 body = str(cached.get("text") or "")
         except Exception:
             body = ""
-        if len(body) > len(summary):
+        # J76: в памяти страниц бывает подвал сайта вместо статьи — длиннее выжимки он всё равно
+        # «побеждает» по длине, поэтому плашку отсекаем до сравнения
+        if len(body) > len(summary) and not is_legal_footer(body):
             summary = body
+    if is_legal_footer(summary):
+        summary = ""          # плашка вместо текста: лучше пустой блок (его снимет последний шаг), чем чужой подвал
     # Прежде здесь при неудаче текст резался ровно по семисотому знаку —
     # посреди слова. Единое правило вместо третьей самописной копии
     summary = trim_to_boundary(summary, 700)
@@ -9827,6 +9841,8 @@ def main():
         }
         # J75: обзор прессы с непереведённым чужим алфавитом в эфир не уходит — последний шаг
         stories = drop_foreign_script_stories(stories, lang, STORY_MIN_BIG)
+        # J76: и юридическая плашка сайта вместо текста блока — тот же последний шаг
+        stories = drop_legal_footer_blocks(stories, lang, STORY_MIN_BIG)
         if stories:
             payload["stories"] = stories
         db.reference(f"/news/{lang}").set(payload)

@@ -36,6 +36,8 @@ from enum import Enum
 
 from bs4 import BeautifulSoup
 
+from textcut import is_legal_footer
+
 try:
     import trafilatura
 except ImportError:
@@ -180,6 +182,30 @@ def _text_len(node) -> int:
         return 0
 
 
+# Ядро статьи: блок со сплошным текстом (≥ 400 знаков, ссылок меньше пятой части слов). Журнал J76,
+# 15.11.2026: 24.kg после смены вёрстки положил статью (700 знаков) в колонку вместе со списком «Другие
+# новости»; доля ссылок у колонки вышла 0,43, доля текста страницы 0,14 — и правило «список ссылок»
+# выбросило колонку ЦЕЛИКОМ, статью вместе с ней. От страницы остался подвал сайта. Правило должно резать
+# сам список, а не контейнер, в котором он соседствует со статьёй: контейнер с ядром статьи внутри не
+# трогаем, а список внутри него проверяется отдельно, на своём уровне.
+PROSE_CORE_MIN_CHARS = 400
+
+
+def _prose_holders(soup) -> set:
+    """id() всех предков блоков со сплошным текстом статьи — их нельзя выбрасывать целиком."""
+    holders = set()
+    for node in soup.find_all(["div", "section", "article", "main", "p"]):
+        try:
+            if (_text_len(node) >= PROSE_CORE_MIN_CHARS
+                    and _link_density(node) < LINK_DENSITY_MAX / 2
+                    and not is_legal_footer(node.get_text(" ", strip=True)[:900])):
+                for parent in node.parents:
+                    holders.add(id(parent))
+        except Exception:
+            continue
+    return holders
+
+
 def presanitize_dom(html: bytes) -> BeautifulSoup:
     """Выносит из дерева служебные узлы и блоки с высокой плотностью ссылок.
 
@@ -199,6 +225,7 @@ def presanitize_dom(html: bytes) -> BeautifulSoup:
 
     body = soup.body or soup
     total = max(_text_len(body), 1)
+    holders = _prose_holders(soup)
 
     # Список собираем ЗАРАНЕЕ: decompose() правит дерево, и обход на лету
     # пропускает узлы. А у части элементов живой вёрстки атрибутов нет вовсе
@@ -222,6 +249,8 @@ def presanitize_dom(html: bytes) -> BeautifulSoup:
             continue
         if _text_len(tag) / total > KEEP_IF_TEXT_SHARE:
             continue          # здесь лежит статья — не трогаем
+        if id(tag) in holders:
+            continue          # внутри — сплошной текст статьи: колонку не режем, чистим вокруг
         try:
             tag.decompose()
         except Exception:
@@ -232,7 +261,8 @@ def presanitize_dom(html: bytes) -> BeautifulSoup:
         try:
             if (tag.parent is not None
                     and _link_density(tag) > LINK_DENSITY_MAX
-                    and _text_len(tag) / total <= KEEP_IF_TEXT_SHARE):
+                    and _text_len(tag) / total <= KEEP_IF_TEXT_SHARE
+                    and id(tag) not in holders):
                 tag.decompose()
         except Exception:
             continue
@@ -808,6 +838,11 @@ class QualityGate:
         # следующий разборщик, который увидит ту же самую страницу
         if text and self._BLOCKED.search(text[:600]) and len(text) < 1200:
             return Verdict.REJECTED, "страница-заслон вместо статьи"
+
+        # Подвал сайта по форме — обычный текст (буквы, предложения, длина), поэтому метрики его
+        # пропускают. Ворота не REJECT, а NEEDS_FALLBACK: на следующей ступени статья может найтись
+        if is_legal_footer(text):
+            return Verdict.NEEDS_FALLBACK, "юридическая плашка сайта вместо статьи"
 
         if not text or len(text) < self.MIN_CHARS:
             return Verdict.NEEDS_FALLBACK, f"короче {self.MIN_CHARS} знаков"

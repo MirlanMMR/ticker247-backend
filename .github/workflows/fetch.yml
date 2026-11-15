@@ -245,6 +245,7 @@ jobs:
           python test_category_guard.py
           python test_ai_spend.py
           python test_press_review_script.py
+          python test_legal_footer.py
 
       - name: Run fetch script
         run: python fetch_news.py

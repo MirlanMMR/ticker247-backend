@@ -925,8 +925,60 @@ _STUB_SUMMARY = re.compile(
     r"últimas notícias, comentários e vídeos", re.I)
 
 
+# ─── Юридическая плашка сайта вместо текста (журнал J76, 15.11.2026) ────────
+#
+# 15.11 владелец открыл обзор прессы «Трагедия в Оше»: затравка от 24.kg — не новость, а подвал сайта
+# «© ИА «24.kg» - Новости Кыргызстана. Все права защищены. Вся информация… не подлежит распространению
+# без письменного разрешения…». Издание сменило вёрстку, предчистка вырезала колонку со статьёй вместе
+# со «списком ссылок», trafilatura осталась с одним подвалом, а ворота качества пропустили его: по
+# метрикам (буквы, длина предложений) плашка неотличима от текста. Один детектор на все пути: разбор
+# страницы, ИИ-спасение, память страниц, блок обзора, карточка, последний шаг перед записью.
+#
+# Признаки общие для всех изданий и языков, без названий сайтов: текст ОТКРЫВАЕТСЯ знаком авторского
+# права, либо это короткий текст, где ≥ 2 юридических оборота подряд.
+_LEGAL_HEAD = re.compile(r"^\W{0,3}(?:©|\(c\)|copyright\b|все права защищены|all rights reserved)", re.I)
+_LEGAL_MARKER = re.compile(
+    r"все права защищены|all rights reserved|tous droits réservés|todos los derechos reservados|"
+    r"todos os direitos reservados|не подлежит распространению|без письменного разрешения|"
+    r"предназначена только для персонального|редакция не несет ответственности|"
+    r"редакция не несёт ответственности|любое копирование|without (?:the )?(?:prior )?written permission|"
+    r"may not be (?:reproduced|republished|redistributed)|terms of use|политик[аи] конфиденциальности|"
+    r"privacy policy|política de privacidad|política de privacidade|politique de confidentialité", re.I)
+
+
+def is_legal_footer(text) -> bool:
+    """True: вместо статьи — юридическая плашка сайта (подвал, дисклеймер, авторские права)."""
+    t = re.sub(r"\s+", " ", str(text or "")).strip()
+    if len(t) < 20:
+        return False
+    if _LEGAL_HEAD.match(t):
+        return True
+    return len(t) < 900 and len({m.group(0).lower() for m in _LEGAL_MARKER.finditer(t)}) >= 2
+
+
 def is_stub_summary(item) -> bool:
-    return bool(_STUB_SUMMARY.search((item.get("summary") or "")[:200]))
+    s = item.get("summary") or ""
+    return bool(_STUB_SUMMARY.search(s[:200])) or is_legal_footer(s[:900])
+
+
+def drop_legal_footer_blocks(stories, lang, min_sources=2):
+    """Последний шаг перед записью обзоров: блок, чей текст — юридическая плашка, снимаем; обзор,
+    у которого после этого меньше `min_sources` изданий, снимаем целиком. Как и
+    `drop_foreign_script_stories`, не зависит от того, каким путём плашка попала в блок."""
+    out = []
+    for st in stories or []:
+        if not isinstance(st, dict):
+            continue
+        blocks = [b for b in st.get("blocks", []) if isinstance(b, dict)
+                  and not is_legal_footer(b.get("summary"))]
+        dropped = len(st.get("blocks", [])) - len(blocks)
+        if dropped:
+            print(f"  🧾 Блоков обзора с юридической плашкой вместо текста снято [{lang}]: {dropped}")
+        if len({b.get("source") for b in blocks}) < min_sources:
+            print(f"  🧾 Обзор прессы снят: после чистки плашек мало изданий [{lang}]: «{str(st.get('title', ''))[:40]}»")
+            continue
+        out.append({**st, "blocks": blocks} if dropped else st)
+    return out
 
 
 def drop_stub_summaries(items, lang):
