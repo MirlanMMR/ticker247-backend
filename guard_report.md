@@ -1,27 +1,34 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] полка: [local] El Universal MX — Sheinbaum viaja a China por cumbre APEC; reunión con Xi Jinping y foro con empre — Событие международного масштаба (саммит APEC) должно быть в «Мировых», а не в «Местных».
-- [es] не_новость: [local] La Jornada — Entra en vigor la ley de derechos de autor; no hay censura a memes — Вступление в силу закона — плановое событие, здесь нет нового факта, меняющего ситуацию для читателя сегодня.
-- [es] не_новость: [local] El Financiero — ¡Ni una victoria para Márquez! — Это спортивный комментарий/эмоциональный заголовок, а не результат матча.
-- [es] полка: [pool] El Tiempo CO — Cali enciende la economía decembrina: Concejo aprueba extensión del alumbrado na — Новость из Колумбии для мексиканского потока — мировая, а не региональная/местная.
-- [es] срочность: [pool] El Tiempo CO — La pista que une los atentados en peajes de Huila y Cauca y las explosiones en C — Это расследование уже идущих атак, а не экстренное сообщение о новой угрозе, требующее побудки.
-- [es] полка: [pool] El Tiempo CO — La Defensoría del Pueblo exige blindar a Briceño ante posibles retaliaciones tra — Колумбийская новость для Мексики — мировая.
-- [es] курьёз: [pool] Infobae — El Señor de los Milagros sale al encuentro del papa León XIV en Lima — Религиозная процессия — не новость в новостном агрегаторе, а «интересное».
-- [es] полка: [pool] Semana CO — Los peajes, la nueva diana de las disidencias de Mordisco con las que pretende d — Колумбийская внутренняя политика для Мексики — мировая.
-- [es] полка: [pool] El Universo EC — Cuatro provincias registran 16 ríos y esteros desbordados este domingo, 15 de no — Эквадорская новость для Мексики — мировая.
-- [es] не_новость: [pool] Semana CO — Andrea Valdiri estalló tras las críticas por vencer a La Divaza en ‘Stream Fight — Скандал в соцсетях вокруг шоу — не новость.
-- [es] полка: [pool] Semana CO — Alias Primo Gay cayó en la operación Nimrod 015: minDefensa, Jorge Eduardo Mora, — Колумбийская новость для Мексики — мировая.
-- [es] чужое_мелкое: [pool] El País — Abascal vincula inmigración y delincuencia con datos falsos sobre la población e — Внутриполитические споры Испании о местных выборах — чужое мелкое для Мексики.
-- [es] чужое_мелкое: [pool] El Mundo — Sánchez avanza el programa electoral del PSOE y se compromete a crear la figura  — Предвыборное обещание испанского политика — не новость.
-- [es] чужое_мелкое: [pool] El País — Feijóo hará campaña en Guipúzcoa tras la agresión a jóvenes de Nuevas Generacion — Предвыборная кампания в Испании — для Мексики это мировой уровень, но масштаб события локален.
-- [es] чужое_мелкое: [pool] El País — El PSOE propone destinar el 1% del PIB a vivienda social y crear una prestación  — Предвыборное предложение партии в Испании — не новость.
-- [es] полка: [pool] Montevideo Portal — Sindicato del Inau reclamó “contradicción inaceptable” por encierro a agresoras  — Уругвайская новость для Мексики — мировая.
-- [es] чужое_мелкое: [pool] eldiario.es — Feijóo llama "gentuza" a EH Bildu y pide a Sánchez que diga a "sus socios que no — Испанская предвыборная риторика — чужое мелкое.
-- [es] чужое_мелкое: [pool] eldiario.es — Sánchez promete subir los impuestos a los grandes propietarios que tengan vivien — Испанское предвыборное обещание — не новость.
-- [es] не_новость: [pool] La Vanguardia — PSOE y PP se amenazan mutuamente con el escándalo, pero aún pactan en Europa — Политический разбор/анализ отношений партий — не новость.
-- [es] не_новость: [pool] El País — El PSOE gana por la izquierda lo que pierde por la derecha, según el tercer ‘tra — Очередной опрос/трекинг рейтинга перед выборами — не событие.
-- [es] не_новость: [pool] El Mundo — PP y Vox se aferran al 51% de los votos y hasta 199 escaños con un PSOE estancad — Анализ предвыборных блоков — не новость.
-- [es] не_новость: [pool] Diario Libre DO — Seis temblores en República Dominicana durante 2026 — Статистика землетрясений за год — не новость.
-- [es] повтор: [world] Semana CO — Donald Trump culpó a Joe Biden por la crítica situación que atraviesa la aviació ≈ «Trump finalmente aborda la crisis nacion» — Один сюжет с 39.
-- [es] повтор: [world] RPP PE — La India opera por primera vez la columna vertebral de un bebé antes de nacer ≈ «Cirugía fetal inédita en India salva a u» — Один сюжет с 37.
-- [es] повтор: [world] The Hill — Brechas de seguridad y una colisión en pista agravan las consecuencias de la par ≈ «EE. UU. investiga la paralización de vue» — Один сюжет с 43 и 59.
+- [pt] срочность: [local] Metrópoles — Avião agrícola atinge carro, mata homem e deixa dois feridos em Goiás — Событие произошло вчера, это рядовое ДТП, не требующее побудки.
+- [pt] не_новость: [pool] Observador PT — Revolut afasta-se de compra do Banco CTT — Отказ от покупки — это текущие переговоры, а не свершившийся факт сделки.
+- [pt] не_новость: [world] Exame — IPO da Anthropic põe à prova a aposta de US$ 1,4 trilhão em IA — Подготовка к IPO — это намерение, а не состоявшееся бизнес-событие.
+- [pt] чужое_мелкое: [world] Exame — Caso Jensen Huang: Megaspeed diz que empresária suspeita de espionagem deixou gr — Детали кадровых перестановок в компании не являются мировой новостью.
+- [pt] чужое_мелкое: [world] G1 Globo — Secretário do Tesouro dos EUA defende que Nvidia busque novo CEO fora da empresa — Мнение госсекретаря США о кадровой политике частной компании — не мировая новость.
+- [pt] курьёз: [world] Rolling Stone — Cynthia Erivo e Travis Barker homenageiam Phil Collins com vocais poderosos e ba — Светская хроника с церемонии награждения — не новость мирового масштаба.
+- [pt] чужое_мелкое: [world] Observador PT — Canadá anuncia verba para proteger florestas tropicais — Региональная финансовая помощь не является мировой новостью.
+- [pt] срочность: [world] CNN Brasil — Forças da Arábia Saudita são obrigadas a recuar em guerra contra Houthis — Война в Йемене затяжная, текущее отступление — не срочное событие для всего мира.
+- [pt] курьёз: [world] Rolling Stone — Red Hot Chili Peppers usam barbas características de Rick Rubin em performance n — Развлекательный факт о внешнем виде музыкантов.
+- [pt] повтор: [world] Jornal de Negócios — Trump atribui "desastre" da aviação civil ao legado de Biden ≈ «Trump culpa Biden por crise aérea que pr» — Тот же сюжет о критике властей США за авиационный кризис.
+- [pt] курьёз: [world] Variety — Prêmios de Tessalônica: 'A Day in the Life of Jo: Chapter Phaedra', de Jacquelin — Результаты кинофестиваля — не новость для широкой аудитории.
+- [pt] курьёз: [world] Variety — Prêmios do Festival de Cinema Europeu de Sevilha: ‘You Don’t Belong Here’, ‘Fall — Результаты кинофестиваля — не новость для широкой аудитории.
+- [pt] чужое_мелкое: [world] BBC Brasil — Por que Trump está sob pressão por escândalo sexual na Nvidia — Спекуляции вокруг скандала в частной компании — не мировая новость.
+- [pt] не_новость: [world] TechCrunch — Elon Musk e outros executivos de tecnologia assinam petição pedindo que a Nvidia — Петиция — это выражение мнения, а не юридически значимое событие.
+- [pt] полка: [world] Азаттык — Deputados reuniram-se com os opositores condenados no Quirguistão, Sultanbekov e — Новость о политиках Кыргызстана (KG) ошибочно попала в мировой пул или раздел, хотя является местной для потока KG (и чу
+- [fr] чужое_мелкое: [local] La Dépêche — Guerre en Ukraine : "Elle nous isolera en Europe..." Emmanuel Macron et son ento — Внутренняя политическая полемика Франции не является мировой новостью, несмотря на упоминание Украины.
+- [fr] не_новость: [local] 20 Minutes — En images : Mélenchon, Chirac, Sarkozy, Royal… Les insultes marquantes de la Ve  — Обзор книги об исторических оскорблениях — это развлекательный материал, а не событие.
+- [fr] чужое_мелкое: [world] Jeune Afrique — Brouillé avec Donald Trump, Cyril Ramaphosa en visite aux États-Unis pour tenter — Рабочая поездка президента ЮАР в США для переговоров с IT-компаниями — частный случай бизнес-дипломатии.
+- [fr] курьёз: [world] La Dépêche — Elle apprend sur la ligne d'arrivée sa disqualification après un marathon couru  — Частный инцидент на марафоне не имеет мирового значения.
+- [fr] чужое_мелкое: [world] Sud Ouest — Brésil : le président Lula va rencontrer le Premier ministre espagnol Pedro Sánc — Обычная двусторонняя встреча лидеров Бразилии и Испании не имеет глобальных последствий.
+- [fr] чужое_мелкое: [world] Le Temps — Insatisfaits des conditions de collaboration, près de 800 hôtels suisses se joig — Внутренний судебный спор отельеров Швейцарии с платформой — не мировая новость.
+- [fr] курьёз: [world] Bénin Web TV — Nollywood : « Issakaba » retrouve les salles vingt-cinq ans après le film origin — Релиз фильма — локальная новость культуры Нигерии.
+- [fr] чужое_мелкое: [world] Sud Ouest — Hongrie : 17 millions d’euros cachés dans la forêt, un ancien ministre de Viktor — Коррупционное дело бывшего венгерского министра — внутренняя политика Венгрии.
+- [fr] не_новость: [world] France 24 FR — MMA : Gane conserve sa ceinture au terme d'un rude combat face à Hokit — Результат спортивного поединка, если это не финал мирового чемпионата, не является мировым событием.
+- [fr] не_новость: [world] BFMTV — La Chine ne veut plus seulement vendre des électriques bon marché: avec sa limou — Маркетинговая стратегия китайской компании — это не событие, а описание рынка.
+- [fr] не_новость: [world] France 24 FR — Méta, Google, Microsoft ... L'Europe sous perfusion technologique ? — Аналитическая программа с приглашенным экспертом — не событие.
+- [fr] не_новость: [world] L'Express — Affaire Nvidia : comment le scandale d'espionnage chinois pourrait parasiter les — Аналитический материал о возможных последствиях скандала, а не сообщение о свершившемся факте изменения отношений.
+- [fr] не_новость: [world] RFI — Que pensent les Ukrainiens de la proposition d'échanger le Donbass contre l'inté — Обсуждение гипотетической идеи/предложения — не событие (нет принятого решения).
+- [fr] не_новость: [world] RFI — La relation Mbappé-Zidane, l'autre enjeu du match des Bleus contre la Turquie — Спортивная аналитика (готовность игрока к матчу) — не событие в мировом масштабе.
+- [fr] чужое_мелкое: [world] L'Express — Allemagne : Ilse Aigner, cette conservatrice atypique qui pourrait devenir la pr — Внутренний политический процесс (выбор кандидата в президенты) Германии.
+- [fr] не_новость: [world] Africanews FR — Pérou : à Zaña, la visite de Léon XIV a mis en lumière la traite négrière — Визит папы римского — плановое мероприятие, не имеющее глобальных последствий.
+- [fr] чужое_мелкое: [world] RFI — «Un acharnement»: depuis la Côte d'Ivoire, les exilés burkinabè répondent au rég — Внутренняя политическая ситуация в Буркина-Фасо и преследование оппозиции.
