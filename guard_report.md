@@ -1,23 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [fr] чужое_мелкое: [local] Le Figaro — MMA : au terme d’une âpre bataille, Ciryl Gane conserve son titre de champion de — Спортивная новость о победе в UFC не является событием мирового масштаба для общей ленты.
-- [fr] не_новость: [local] Franceinfo — Face à la Turquie, Kylian Mbappé à la recherche du temps perdu avec Zinédine Zid — Это спортивная аналитика/слухи о поиске формы, а не состоявшееся событие.
-- [fr] не_новость: [local] Le Figaro — Présidentielle 2027 : Jean-Luc Mélenchon s’installe à la deuxième place, Teddy R — Результаты соцопросов по выборам 2027 года — это не события.
-- [fr] не_новость: [local] Le Figaro — Présidentielle 2027 : Gérard Larcher propose aux candidats de droite et du centr — Предложение о встрече — это намерение, а не состоявшееся событие.
-- [fr] не_новость: [local] Le Figaro — Protection des enfants, opposition au «permis de tuer» et au gouvernement : à Pa — Описание затухающего социального движения не содержит конкретного события.
-- [fr] не_новость: [local] 20 Minutes — Teddy Riner en campagne : « Lui ou Macron… » Au salon du Made in France, le judo — Зарисовка с выставки, где спортсмен просто присутствовал среди людей.
-- [fr] не_новость: [local] Le Figaro — Allègements de charges : le ministre du Travail assure que les entreprises ont « — Заверения министра о планах правительства — это не событие.
-- [fr] не_новость: [local] Franceinfo — "J'ai l'impression de travailler à perte" : salariés au smic, ils racontent un q — Рассказы сотрудников о жизни — это очерк, а не событие.
-- [fr] не_новость: [world] Jeune Afrique — Paul Biya mobilise le RDPC, Dangote lance un méga projet en Namibie, Gadi Eizenk — Подборка «5 новостей» — это обзор, а не отдельное событие.
-- [fr] курьёз: [world] Futura-Sciences — Ils profitent de l’ombre de la Terre pour agir en toute discrétion : ce mini-sat — Научно-популярный факт о спутниках без конкретного события.
-- [fr] чужое_мелкое: [world] RTBF — Crise du logement à Lisbonne : l’Europe veut mieux encadrer les locations touris — Обсуждение европейского регулирования аренды в Лиссабоне — это не мировая новость.
-- [fr] не_новость: [world] RFI — Haïti: dernier jour pour les inscriptions aux élections présidentielle et législ — Напоминание о крайнем сроке подачи заявок на выборы.
-- [fr] не_новость: [world] Radio Okapi — À Londres, le ministre des Droits humains plaide pour la reconnaissance des géno — Выступление министра с призывом в Лондоне — это дипломатическая активность без результата.
-- [fr] чужое_мелкое: [world] Franceinfo — Au Masters de Turin, Arthur Fils devra confirmer son nouveau statut après une an — Спортивная новость о выступлении теннисиста не является мировой новостью.
-- [fr] повтор: [world] Courrier International — SpaceX, manifestations en France et concours Eurovision d’Asie : les information ≈ «États-Unis: SpaceX réussi à rattraper l'» — Повторяет новость о запуске SpaceX.
-- [fr] чужое_мелкое: [world] Radio-Canada — Seul candidat en lice, Mike Morrice remporte la chefferie du Parti vert du Canad — Внутренняя партийная новость Канады.
-- [fr] чужое_мелкое: [world] Le Devoir — Les Roses perdent en finale de la SLN contre l’AFC Toronto — Результат местного футбольного матча в Канаде.
-- [fr] не_новость: [world] Radio-Canada — Carney posera aux côtés de Poutine pour la « photo de famille » de l’APEC — Слова политика о намерении участвовать в фотосессии.
-- [fr] чужое_мелкое: [world] RFI — Israël: le bras de fer Eisenkot-Netanyahu se poursuit, la formation d'un gouvern — Внутренние сложности формирования коалиции в Израиле.
-- [fr] не_новость: [world] Radio-Canada — COP31 : la ministre fédérale de l’Environnement accusée de mentir — Обвинения в адрес министра — это политический спор, а не событие.
-- [fr] курьёз: [world] Sciences et Avenir — Ce système de deux anneaux de débris offre un aperçu du futur Système solaire — Астрономическое наблюдение, не имеющее последствий для читателя.
+- [ru] курьёз: [local] Kaktus.media — Биткоин впервые с августа упал ниже $65 тыс. — Криптовалютные колебания без последствий для читателя.
+- [ru] полка: [local] Вечерний Бишкек — Кыргызстанцы в Москве отметили Год единства народов России — Новость о жизни диаспоры в РФ — это внешние новости, а не местные.
+- [ru] не_новость: [local] Knews.kg — Налоговая служба Кыргызстана начала третий этап принудительной ликвидации бездей — Плановая административная процедура (ликвидация юрлиц), а не событие.
+- [ru] чужое_мелкое: [pool] Onliner.by — На трассе Минск — Витебск сегодня перекроют движение в сторону столицы — Локальное перекрытие дороги в Беларуси.
+- [ru] не_новость: [pool] РБК — Bloomberg рассказал, как банки могут заранее обнаружить деменцию клиента — Это научпоп-статья, а не новостное событие.
+- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Жителям Омской области отключат телевещание — Плановое отключение телевещания в регионе РФ.
+- [ru] срочность: [pool] v1.ru — Волгоград — В Волгограде пьяный пассажир угрожал захватить вылетающий в Москву лайнер «Аэроф — Происшествие случилось 8 ноября, это уже не срочная новость.
+- [ru] чужое_мелкое: [pool] sochi1.ru — Сочи — Аэропорт Сочи впервые за десять дней прерывал работу — Кратковременная задержка рейсов в аэропорту Сочи — локальная рутина.
+- [ru] чужое_мелкое: [pool] Onliner.by — Пьяный мопедист пытался скрыться от ГАИ. — Мелкое происшествие (задержание пьяного мопедиста) в Беларуси.
+- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — «Второй этаж только начали строить»: женщина, погибшая при пожаре в Челябинской  — Локальная трагедия в РФ, не имеет мирового масштаба.
+- [ru] не_новость: [pool] ngs24.ru — Красноярск — Шесть лет пришлось бы не тратить зарплату, чтобы купить квартиру в Красноярске. — Аналитическая статья о ценах на недвижимость, а не событие.
+- [ru] курьёз: [pool] ufa1.ru — Уфа — Взрывной рост популяции: почему волков в России стало в 4 раза больше — Научпоп про популяцию волков, место в «Интересном».
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — В Новотроицке 71-летний пенсионер, ехавший на «Ладе-Гранте» задним ходом, сбил р — Бытовое ДТП в Оренбургской области.
+- [ru] чужое_мелкое: [pool] Gazeta.uz — В Ташкенте снизилось давление газа. — Локальные перебои с газом в Ташкенте.
+- [ru] чужое_мелкое: [pool] Kun.uz — Дело о противостоянии БПИ и ОВД прекращено, инспектор профилактики освобожден — Локальное дело инспектора в Узбекистане.
+- [ru] чужое_мелкое: [pool] NewsGeorgia — Смена владельца Holiday Inn Tbilisi: актив перешел к компании бывшей жены Темура — Смена владельца отеля в Грузии.
+- [ru] курьёз: [world] Folha de S.Paulo — Зонд NASA «Вояджер-1» станет первым творением человека, удалившимся на расстояни — Научный факт о «Вояджере», не является событием для массового читателя.
+- [ru] чужое_мелкое: [world] 116.ru — Казань — Попавший под удар БПЛА дом в Нижнекамске обследуют саперы — Рутина после падения БПЛА в Нижнекамске.
+- [ru] не_новость: [world] Sputnik KG — Байден резко высказался в адрес Зеленского в своих мемуарах — Обсуждение мемуаров — не событие.
+- [ru] чужое_мелкое: [world] 24.kg — Иран планирует покушение на Трампа, заявили в разведке Израиля — Слухи/заявления разведки Израиля о покушении — не подтвержденное событие.
+- [ru] чужое_мелкое: [world] Kaktus.media — Усмана Нурмагомедова приговорили к тюрьме после драки с Двалишвили. Что известно — Приговор бойцу ММА — локальное событие Абу-Даби.
+- [ru] чужое_мелкое: [world] The Hill — Федеральный судья временно запретил администрации Трампа закрывать парк Ист-Пото — Судебный запрет на закрытие одного парка в США.
+- [ru] чужое_мелкое: [world] Guardian Sport — Судье НФЛ предстоит преодолеть 112 миль между двумя матчами в воскресенье из-за  — График работы судьи НФЛ.
+- [ru] повтор: [world] Ars Technica — SpaceX вернула ракету Starship в субботу, но есть нюанс ≈ «SpaceX компаниясынын Starship кемеси сын» — Дублирует сюжет о посадке Starship.
+- [ru] курьёз: [world] BBC Русская служба — У Земли появилась минилуна. И это не в первый раз — Астрономический факт, не событие.
