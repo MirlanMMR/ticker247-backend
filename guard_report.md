@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [local] El Economista MX — Ley Antimemes entra en vigor en México: hasta cinco años de cárcel y multas de 1 — Анонс закона, принятого 14 ноября, но сам заголовок «Ley Antimemes» носит характер социальной страшилки/сатиры, а не юри
-- [es] срочность: [local] El Universal MX — Nave Starship de SpaceX regresa de la órbita; cohete logra ser atrapado en una m — Это технологическое событие, не требующее побудки читателя.
-- [es] не_новость: [local] Expansión MX — Farmacias Benavides anuncia un acuerdo definitivo para ser adquirida por Farmaci — Коммерческая сделка (поглощение бизнеса) не является общественно значимым событием для широкого круга читателей.
-- [es] не_новость: [local] Expansión MX — En puente, Hacienda aumenta IEPS a combustibles: deja en 0.02 pesos el estimulo  — Техническое изменение налоговых ставок (IEPS) — рутина, не являющаяся событием.
-- [es] чужое_мелкое: [pool] La Nación AR — La caída del Ueno Bank en Paraguay revela el avance de los tecnomagnates en Amér — Финансовый скандал в Парагвае, не влияющий на Мексику.
-- [es] чужое_мелкое: [pool] La Nación AR — Vendedores de drogas usaban la réplica de un AK-47 para defender su búnker en el — Криминальная хроника из Аргентины.
-- [es] не_новость: [pool] Semana CO — Equipos con el punto invisible en cuadrangulares: definido el acompañante de Atl — Спортивная статистика и рутинное обновление таблицы лиги.
-- [es] курьёз: [pool] El Nacional VE — El nuevo pez que fuma triunfa en el Festival Internacional de Cine de Mar del Pl — Награда на кинофестивале — культурная заметка, не событие.
-- [es] чужое_мелкое: [pool] Clarín AR — Corrupción en el fútbol: al menos 1.270.000 dólares de la AFA terminaron en yate — Коррупционный скандал в АФА (Аргентина) не является мировой новостью.
-- [es] чужое_мелкое: [pool] eldiario.es — Cuca Gamarra rechaza dar "pábulo" a Koldo García tras reconocer Feijóo que ella  — Внутриполитические споры Испании.
-- [es] чужое_мелкое: [pool] eldiario.es — El PSOE denuncia a la editora de Okdiario ante la Agencia Tributaria — Судебная тяжба между партией и газетой в Испании.
-- [es] не_новость: [pool] Montevideo Portal — Clausura: Nacional y Albion están empatando 0-0 en el Gran Parque Central — Спортивная трансляция в процессе (ничья 0-0), результата нет.
-- [es] не_новость: [pool] Diario Libre DO — Faride Raful: La seguridad ciudadana se construye desde la acción — Политическое высказывание («безопасность строится из действий») без совершённого действия.
-- [es] не_новость: [pool] Diario Libre DO — Recuerdan al sargento ultimado en Santiago como hombre ejemplar — Некролог/память о человеке, погибшем ранее, не является событием.
-- [es] чужое_мелкое: [pool] eldiario.es — Aldama acusa al director de Okdiario de chantajear al exministro Ábalos a cambio — Обвинения в СМИ внутри Испании.
-- [es] не_новость: [pool] El País — El PSOE pelea las elecciones en 18 provincias que tiene identificadas como prior — Стратегические планы партии на выборы — не событие.
-- [es] курьёз: [world] Guardian Sport — Andreeva derrota a Pegula y alcanza la final de las WTA Finals tras la polémica  — Спортивный результат матча WTA — не мировая новость (не является событием мирового масштаба).
-- [es] чужое_мелкое: [world] Guardian Sport — El recluta de fútbol americano de Georgia, Marcellus Young Casario, muere a los  — Смерть спортсмена-школьника — трагично, но не является мировой новостью.
-- [es] не_новость: [world] Rolling Stone — Lana Del Rey, Dua Lipa y Zara Larsson aportan nueva música a ‘GTA VI: The Album’ — Утечка саундтрека к видеоигре.
-- [es] чужое_мелкое: [world] Guardian Sport — Clara Luvanga marca en la victoria del Washington Spirit sobre el Utah Royals, c — Спортивный результат в лиге США.
-- [es] не_новость: [world] TechCrunch — Tesla abre las reservas del Cybercab para uso personal con restricciones geográf — Маркетинговое объявление о начале приема предзаказов.
-- [es] не_новость: [world] Fortune — La caída del hombre de los 5,7 billones de dólares de la IA — Аналитическая статья про падение акций/бизнеса.
-- [es] курьёз: [world] BBC Mundo — Me dijeron que mi bebé había fallecido... 42 años después me envió un correo ele — Личная история (найденный ребенок) — это курьез, не влияющий на мир.
-- [es] курьёз: [world] Ars Technica — El telescopio James Webb halla hielo más antiguo que la estrella que orbita — Астрономическое исследование — интересная наука, но не событие.
-- [es] не_новость: [world] The Guardian — «El contrato social está roto»: los jóvenes sobre la sensación de exclusión labo — Подборка мнений молодежи о рынке труда.
+- [ru] чужое_мелкое: [local] 24.kg — Google встроила «Кошелек» в Gemini: ИИ сможет анализировать ваши расходы — Это технологическая новость Google, не является событием в Кыргызстане.
+- [ru] не_новость: [local] Kaktus.media — ГНС предупредила импортеров о новых требованиях с 1 января 2027 года — Это призыв/предупреждение о будущем требовании, а не свершившееся событие.
+- [ru] чужое_мелкое: [local] Sputnik KG (кыргызча) — Песков: Москва европалык сүйлөшүү тобуна эч кандай шарт койбойт — Внешнеполитическая риторика РФ не является значимой новостью для жителей КР.
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — В Новотроицке 71-летний пенсионер, ехавший на «Ладе-Гранте» задним ходом, сбил р — Мелкая бытовая криминальная сводка из РФ.
+- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — В Красноярском крае на полтора месяца зафиксируют цены на топливо (надбавку АЗС) — Локальное регулирование цен в Красноярском крае.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Екатеринбуржца по ошибке признали шизофреником. Врач спутал его с другим пациент — Частный случай врачебной ошибки в РФ.
+- [ru] курьёз: [pool] 59.ru — Пермь — На рынке в Заостровке теперь продают не только овощи и фрукты, но и газировку и  — Обзор товаров в магазине — это не событие, а интересное/потребительский обзор.
+- [ru] чужое_мелкое: [pool] 116.ru — Казань — В Нижнекамске и Альметьевске завыли сирены — Локальные учения/сирены в РФ.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Детей ловят через их родителей. — Описание схемы мошенничества, не является событием.
+- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — В Новосибирской области резко вырастет государственный долг — цифры за три года — Прогноз бюджета региона РФ.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Развращавшую подростка милфу из Екатеринбурга обвинили в сексуальном насилии — Криминальная хроника региона РФ.
+- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — Предложили проверить на подлинность: сибиряк помог мошенникам украсть у женщины  — Криминальная хроника региона РФ.
+- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Красноярец заманил девушку в клуб и ограбил на 100 рублей и телефон — Бытовое преступление в РФ.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Офицер на Урале отправил отца двоих детей в нокаут у бара. Тот умер в реанимации — Бытовая трагедия в РФ.
+- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — «Он всегда усмехался»: как маньяк-форточник насиловал омичек в их постелях — Описание старого уголовного дела в РФ.
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Неспокойное начало выходных: в Оренбуржье пятый раз за ноябрь объявили опасность — Региональная сводка РФ о БПЛА.
+- [ru] не_новость: [pool] 14.ru — Якутск — Новый ЕТОР откроет дорогу крупным сетям в Якутию? Узнали у Корпорации развития — Разъяснение о будущем преференциальном режиме, нет свершившегося факта.
+- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — Концерт Niletto в Екатеринбурге закончился давкой и дракой в гардеробе — видео — Бытовой инцидент на концерте в РФ.
+- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Разводку мостов в Петербурге отменили из-за ветра — Локальная коммунальная информация Петербурга.
+- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Пожар в центре Петербурга: эвакуированы 19 человек — Локальное происшествие в Петербурге.
+- [ru] не_новость: [pool] Азаттык — Депутаты встретились с осужденными в Кыргызстане оппозиционерами Султанбековым и — Встреча депутатов с осужденными — это рабочий процесс, нет результата или изменения статуса.
+- [ru] не_новость: [world] 24.kg — Трансляции в прямом эфире станет опасно доверять ИИ из-за новой разработки — Подача патентной заявки — это не свершившееся событие, меняющее жизнь читателя.
+- [ru] повтор: [world] Naked Science — Первая попытка полного спасения ракеты в истории наполовину не удалась: впереди  ≈ «Starship Илона Маска впервые вернулся на» — Дублирует тему испытания Starship.
+- [ru] метка_места: [world] 60.ru — Псков — Лев убил 19-летнего работника фермы во время съёмок видео — Издание (Псков) пишет про Индию, событие не в РФ.
+- [ru] повтор: [world] Ars Technica — 15-й испытательный полет Starship: ракета вышла на орбиту, подготовка к возможно ≈ «Starship Илона Маска впервые вернулся на» — Дублирует тему испытания Starship.
