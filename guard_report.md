@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] чужое_мелкое: [local] WV MetroNews — Justices side with state school board on rule-making authority — Внутренняя административная тяжба штата, не имеет значения за пределами округа.
-- [en] не_новость: [local] NY Post — Wendy’s Frosty Day: how to get a free small dessert today — Маркетинговая акция бренда, не является общественно значимым событием.
-- [en] не_новость: [local] El Paso Matters — El Paso leaders look for locals to land appointments as Hinojosa prepares to gov — Анонс кадровых поисков губернатора, нет факта назначения.
-- [en] не_новость: [local] WDBJ7 — At Issue: Nov. 15 features 2028 presidential predictions, one-on-one with Roanok — Анонс программы новостей и прогнозы, не является событием.
-- [en] курьёз: [local] KOTA — Deadwood History draws winning ticket in 150th anniversary motorcycle raffle — Результат лотереи в местном клубе — это «интересное», а не событие.
-- [en] не_новость: [local] NY Post — Ron Howard reveals what surprised him most about legendary photographer Richard  — Личное мнение режиссера о фотографе, не новость.
-- [en] не_новость: [local] VTDigger — Vermont skier Ben Ogden began the year winning 2 Olympic medals. Then came the t — Ретроспективный очерк о спортсмене, событие (медали) было давно.
-- [en] срочность: [local] Concord Monitor — Overnight bridge construction taking place on East Side Drive over I-393 — Плановые дорожные работы — жизненно важная информация, но не срочная побудка.
-- [en] курьёз: [local] The Salt Lake Tribune — Letter: A police drone recently invaded my Salt Lake City backyard. How’s this a — Жалоба жителя в редакцию — это частное мнение, а не событие.
-- [en] полка: [local] CBS News — U.S. reportedly floated trading Ukrainian land for NATO membership — Мировая новость (Украина/НАТО), не должна быть в местных.
-- [en] не_новость: [local] Mississippi Today — Scott Colom’s win in the midterm election ends years of job security for a senat — Аналитическая статья о политической карьере, нет свежего события.
-- [en] не_новость: [local] Wisconsin Watch — Nonprofit celebrates return of program that sends free books to Wisconsin prison — Отчет о деятельности НКО за 18 лет, нет конкретного события сегодня.
-- [en] не_новость: [local] WABI — Bar Harbor Historical Society announces restructuring plan for the winter — Внутренняя реструктуризация штата организации, нет события для читателя.
-- [en] не_новость: [local] WHYY — A superhero, a monster and the fight against voter apathy: Young Pa. artists use — Обзор арт-проекта по вовлечению граждан, нет события.
-- [en] не_новость: [local] LA Times — LAPD's plan to install license plate readers on Western Avenue hits roadblock — Планы, которые отменены/не движутся — это отсутствие события.
-- [en] не_новость: [local] Startribune News — After bruising campaign, Minnesota’s Somali neighborhoods shift toward Democrats — Аналитическая заметка о демографическом сдвиге в голосовании.
-- [en] не_новость: [local] Startribune News — School apps hand parents a new kind of homework — and it’s exhausting — Жалоба на неудобство приложения, не является событием.
-- [en] не_новость: [local] Honolulu Star-Advertiser — Carpenters spent $14.8 million on candidates and issues in Hawaii’s elections th — Итоговый отчет о тратах на выборы, событие прошло.
-- [en] не_новость: [local] NPR News — A new generation of disability rights activists carry on Judy Heumann's legacy — Очерк-память об активисте, событие отсутствует.
-- [en] не_новость: [local] Connecticut Mirror — For veterans, joining the workforce can be tough. This group wants to help. — Анонс благотворительной деятельности, нет свершившегося события.
-- [en] не_новость: [local] Charleston Gazette-Mail — Marshall women's basketball: Herd continues November gantlet at Duke — Анонс спортивного матча, не является новостью.
-- [en] не_новость: [local] Connecticut Mirror — The Holland Tunnel’s centennial year — Исторический очерк к годовщине тоннеля.
-- [en] повтор: [local] Santa Fe New Mexican — Policy fixes could curb accidental shootings in New Mexico — but they’re tough t ≈ «Santa Fe has seen a rash of unintentiona» — Тот же сюжет про случайные стрельбы в Санта-Фе.
-- [en] не_новость: [local] Santa Fe New Mexican — Santa Fe County funding for La Sala Crisis Triage Center uncertain — Финансовый спор, событие не наступило (бюджет не принят).
-- [en] не_новость: [world] TechCrunch — Where was Nvidia’s security team? — Аналитический разбор (почему ушел директор) без нового факта.
+- [es] полка: [local] El Universal MX — Sheinbaum viaja a China por cumbre APEC; reunión con Xi Jinping y foro con empre — Событие международного масштаба (саммит APEC) должно быть в «Мировых», а не в «Местных».
+- [es] не_новость: [local] La Jornada — Entra en vigor la ley de derechos de autor; no hay censura a memes — Вступление в силу закона — плановое событие, здесь нет нового факта, меняющего ситуацию для читателя сегодня.
+- [es] не_новость: [local] El Financiero — ¡Ni una victoria para Márquez! — Это спортивный комментарий/эмоциональный заголовок, а не результат матча.
+- [es] полка: [pool] El Tiempo CO — Cali enciende la economía decembrina: Concejo aprueba extensión del alumbrado na — Новость из Колумбии для мексиканского потока — мировая, а не региональная/местная.
+- [es] срочность: [pool] El Tiempo CO — La pista que une los atentados en peajes de Huila y Cauca y las explosiones en C — Это расследование уже идущих атак, а не экстренное сообщение о новой угрозе, требующее побудки.
+- [es] полка: [pool] El Tiempo CO — La Defensoría del Pueblo exige blindar a Briceño ante posibles retaliaciones tra — Колумбийская новость для Мексики — мировая.
+- [es] курьёз: [pool] Infobae — El Señor de los Milagros sale al encuentro del papa León XIV en Lima — Религиозная процессия — не новость в новостном агрегаторе, а «интересное».
+- [es] полка: [pool] Semana CO — Los peajes, la nueva diana de las disidencias de Mordisco con las que pretende d — Колумбийская внутренняя политика для Мексики — мировая.
+- [es] полка: [pool] El Universo EC — Cuatro provincias registran 16 ríos y esteros desbordados este domingo, 15 de no — Эквадорская новость для Мексики — мировая.
+- [es] не_новость: [pool] Semana CO — Andrea Valdiri estalló tras las críticas por vencer a La Divaza en ‘Stream Fight — Скандал в соцсетях вокруг шоу — не новость.
+- [es] полка: [pool] Semana CO — Alias Primo Gay cayó en la operación Nimrod 015: minDefensa, Jorge Eduardo Mora, — Колумбийская новость для Мексики — мировая.
+- [es] чужое_мелкое: [pool] El País — Abascal vincula inmigración y delincuencia con datos falsos sobre la población e — Внутриполитические споры Испании о местных выборах — чужое мелкое для Мексики.
+- [es] чужое_мелкое: [pool] El Mundo — Sánchez avanza el programa electoral del PSOE y se compromete a crear la figura  — Предвыборное обещание испанского политика — не новость.
+- [es] чужое_мелкое: [pool] El País — Feijóo hará campaña en Guipúzcoa tras la agresión a jóvenes de Nuevas Generacion — Предвыборная кампания в Испании — для Мексики это мировой уровень, но масштаб события локален.
+- [es] чужое_мелкое: [pool] El País — El PSOE propone destinar el 1% del PIB a vivienda social y crear una prestación  — Предвыборное предложение партии в Испании — не новость.
+- [es] полка: [pool] Montevideo Portal — Sindicato del Inau reclamó “contradicción inaceptable” por encierro a agresoras  — Уругвайская новость для Мексики — мировая.
+- [es] чужое_мелкое: [pool] eldiario.es — Feijóo llama "gentuza" a EH Bildu y pide a Sánchez que diga a "sus socios que no — Испанская предвыборная риторика — чужое мелкое.
+- [es] чужое_мелкое: [pool] eldiario.es — Sánchez promete subir los impuestos a los grandes propietarios que tengan vivien — Испанское предвыборное обещание — не новость.
+- [es] не_новость: [pool] La Vanguardia — PSOE y PP se amenazan mutuamente con el escándalo, pero aún pactan en Europa — Политический разбор/анализ отношений партий — не новость.
+- [es] не_новость: [pool] El País — El PSOE gana por la izquierda lo que pierde por la derecha, según el tercer ‘tra — Очередной опрос/трекинг рейтинга перед выборами — не событие.
+- [es] не_новость: [pool] El Mundo — PP y Vox se aferran al 51% de los votos y hasta 199 escaños con un PSOE estancad — Анализ предвыборных блоков — не новость.
+- [es] не_новость: [pool] Diario Libre DO — Seis temblores en República Dominicana durante 2026 — Статистика землетрясений за год — не новость.
+- [es] повтор: [world] Semana CO — Donald Trump culpó a Joe Biden por la crítica situación que atraviesa la aviació ≈ «Trump finalmente aborda la crisis nacion» — Один сюжет с 39.
+- [es] повтор: [world] RPP PE — La India opera por primera vez la columna vertebral de un bebé antes de nacer ≈ «Cirugía fetal inédita en India salva a u» — Один сюжет с 37.
+- [es] повтор: [world] The Hill — Brechas de seguridad y una colisión en pista agravan las consecuencias de la par ≈ «EE. UU. investiga la paralización de vue» — Один сюжет с 43 и 59.
