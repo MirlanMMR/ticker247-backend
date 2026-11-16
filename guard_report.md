@@ -1,22 +1,17 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [world] Sciences et Avenir — Licença para matar para robôs? A ONU discute a questão — Вопрос о роботах на поле боя — теоретическая дискуссия в ООН, а не свершившееся событие.
-- [pt] курьёз: [world] The Guardian — O animal de estimação que nunca esquecerei: Sr. Baxter, que destruiu nossos pert — История о домашнем питомце — это развлекательный очерк, а не новость.
-- [pt] курьёз: [world] Naked Science — Análise da atmosfera terrestre indica uma grande fonte desconhecida de dióxido d — Научный факт о неизвестном источнике CO2 — познавательный материал для раздела «Интересное».
-- [pt] курьёз: [world] Superinteressante — Titanoboa: a cobra de 13 metros que viveu onde hoje é a América do Sul — Палеонтологический факт о доисторической змее — это не новость, а любопытный факт.
-- [pt] чужое_мелкое: [world] BBC Brasil — Quem é o 1º senador negro do Mississippi em 140 anos e por que tão poucos foram  — Аналитическая статья об истории выборов в штате США не является мировой новостью.
-- [pt] курьёз: [world] Superinteressante — O Universo poderia ter 26,7 bilhões de anos (e nenhuma matéria ou energia escura — Научно-популярная гипотеза о возрасте Вселенной — это любопытный факт.
-- [pt] чужое_мелкое: [world] The Guardian — ‘Tenho que vender meu corpo no OnlyFans para sair em turnê’: Kate Nash sobre fam — Личная история британской певицы о способах заработка не является мировой новостью.
-- [pt] не_новость: [world] Rolling Stone — Jennifer Lopez sugere novas músicas no ‘Fallon’: ‘Esta parece uma era feliz’ — Разговоры о планах на будущее или ощущениях от творческого процесса не являются новостями.
-- [pt] курьёз: [world] BBC Brasil — A mulher que está há anos presa em ilha paradisíaca por problema com visto — История о задержке человека на острове из-за визы — это жизненная драма, но не общественно значимое событие.
-- [pt] не_новость: [world] RFI — Expulsões para países terceiros: o que se sabe sobre o projeto de 'hubs de retor — Обсуждение проекта или намерения пяти стран создать центры депортации — это только планы, а не решение.
-- [fr] не_новость: [local] 20 Minutes — Gérard Depardieu se désiste de l’appel de sa condamnation et présente ses « excu — Отказ от апелляции и извинения — это юридическая процедура и жест, а не значимое событие.
-- [fr] курьёз: [local] 20 Minutes — Paris : « Ça fait peur de vivre comme ça »… Entre fissures et étais, pourquoi la — Жалоба жильцов на трещины в стене — местный бытовой сюжет, не новость.
-- [fr] не_новость: [pool] Le Nouvelliste — Gros-Morne, Cité Soleil, Fort-Dimanche: the FRG and the PNH multiply operations — Анонс операции без свершившегося факта её успеха или завершения.
-- [fr] курьёз: [pool] Le Nouvelliste — Salvadorans seize the EDH offices on the bicentennial and the Portail Léogane su — Криминальная хроника локального уровня, не мировая новость.
-- [fr] курьёз: [world] Naked Science — L'analyse de l'atmosphère terrestre révèle une importante source inconnue de dio — Научный факт/исследование без последствий для читателя.
-- [fr] курьёз: [world] Courrier International — Au Danemark, plus de 133 000 euros de cartes Pokémon volées dans une boutique — Мелкая кража в датском магазине — не событие мирового масштаба.
-- [fr] полка: [world] Азаттык (кыргызча) — Gulbara Ishenapysova annonce l'interdiction de la production et de l'importation — Кыргызская новость в потоке FR (должна быть в спецблоке или другой рубрике, но не в мировых).
-- [fr] не_новость: [world] RFI — Jeu vidéo GTA: de la radio aux plateformes de streaming, son incroyable pouvoir  — Анонс релиза видеоигры.
-- [fr] чужое_мелкое: [world] Le Devoir — La purification des listes électorales — Внутренняя административная процедура Индии, не имеет мирового значения.
-- [fr] чужое_мелкое: [world] RFI — Aux États-Unis, le secrétaire au Commerce pris à son tour dans la tempête Nvidia — Кадровые перестановки в частной компании, не влияющие на глобальный рынок или политику.
+- [ru] полка: [local] Kabar.kg — COP31: ӨКМ бийик тоолуу көлдөрдү көзөмөлдөө ыкмаларын сунуштады — Событие международного масштаба (COP31), должно быть в 'Мировых'
+- [ru] чужое_мелкое: [pool] Азаттык — «Силовики допустили просчеты». Пресс-секретарь Токаева назвал причины отставки Е — Внутренние кадровые перестановки в Казахстане не имеют последствий для мира
+- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — «Перевел деньги родителей мошенникам»: как молодой уфимец стал террористом — Локальное задержание в РФ не является мировой или важной региональной новостью
+- [ru] не_новость: [pool] 45.ru — Курган — Главный судебный пристав Зауралья ушел в отставку — Плановая отставка чиновника без скандала или последствий
+- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — Афганистан заинтересовался уфимскими вузами: студентов хотят отправить на учёбу  — Внутренняя региональная повестка Башкирии
+- [ru] курьёз: [world] Onliner.by — Работник Google запустил Windows 11 на складном iPhone — Технологический курьёз, не является событием
+- [ru] чужое_мелкое: [world] The Independent — Представительница неонацистской группировки арестована за угрозу «устроить массо — Арест по подозрению в угрозах не имеет международного масштаба
+- [ru] чужое_мелкое: [world] Ars Technica — Дроны для доставки становятся реальностью, что вызывает опасения у людей с ПТСР — Обсуждение бизнес-планов Amazon — корпоративная новость
+- [ru] чужое_мелкое: [world] Wired — Самолет Агентства по охране окружающей среды США (EPA) для обнаружения химически — Техническая неисправность конкретного самолета в США
+- [ru] чужое_мелкое: [world] Вечерний Бишкек — Роналдиньо вернулся в профессиональный футбол в 46 лет — Событие в итальянском футболе для кыргызского читателя — не новость
+- [ru] чужое_мелкое: [world] Time — Демократы требуют расследования в отношении военачальников после заявлений инфор — Внутренние политические споры США
+- [ru] чужое_мелкое: [world] RFI — Саммит АСЕАН: Филиппины ожидают приезда Дональда Трампа — Анонс визита политика, а не состоявшееся событие
+- [ru] не_новость: [world] RFI — Франкофония: из-за отсутствия консенсуса МОФ перенесла выборы генерального секре — Перенос выборов из-за отсутствия консенсуса — бюрократическая рутина
+- [ru] чужое_мелкое: [world] 60.ru — Псков — Трамп обвинил Байдена в авиационном коллапсе — Внутренняя политическая критика в США через СМИ
+- [ru] чужое_мелкое: [world] Time — Планы Дональда Трампа по строительству поля для гольфа столкнулись с юридическим — Локальный судебный спор о поле для гольфа в США
