@@ -1,26 +1,11 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] полка: [local] El Financiero — Wall Street amanece en rojo, arrastrado por el sector tecnológico y la crisis de — Это мировая новость (кризис Nvidia, рынки), не местная для Мексики.
-- [es] чужое_мелкое: [local] WTNH — Hombre acusado de homicidio involuntario en un choque mortal contra un estudiant — Криминальная хроника из США не является значимой для мексиканского читателя.
-- [es] полка: [pool] Infobae — La jueza que ordenó aprehensión de César Jáuregui renunció un día después de su  — Местная новость (Мексика), должна быть в Местных.
-- [es] чужое_мелкое: [pool] Marca — Bernardo Silva vuelve a Madrid con polémica — Внутренние дела португальского футбола не значимы для латиноамериканского читателя.
-- [es] полка: [pool] La Nación CR — Scaloni anuncia cambios en Argentina para enfrentar a la Selección de Costa Rica — Событие в Аргентине/Коста-Рике, это не новости Мексики.
-- [es] чужое_мелкое: [pool] La Nación AR — Presupuesto 2027: los gobernadores negocian y condicionan el respaldo en el Cong — Внутренняя бюджетная политика Аргентины не является мировой новостью.
-- [es] чужое_мелкое: [pool] Clarín AR — Maniobras con el dólar: el BCRA multó a otra casa de cambios que participó del c — Внутренние дела аргентинского Центробанка прошлых лет — шум.
-- [es] полка: [pool] El Financiero — Termina en prisión Santiago Peña, expresidente de Paraguay, por Ueno bank: ‘Está — Событие в Парагвае, должно быть в 'Новости из…'.
-- [es] чужое_мелкое: [pool] El País — Frente Amplio busca desmarcarse del PSOE con un programa que blinda la vivienda  — Внутриполитические споры Испании о жилищном вопросе — шум.
-- [es] чужое_мелкое: [pool] El País — El PSOE remonta pero no altera la mayoría de la derecha — Внутренние опросы по выборам в Испании — шум.
-- [es] чужое_мелкое: [pool] El Mundo — Sánchez se vuelca con Madrid para dar munición al PSOE frente a Ayuso ante "la i — Локальная политическая агитация в Испании — шум.
-- [es] курьёз: [world] BBC Mundo — "Traigan a Jensen de vuelta": la campaña de los millonarios tecnológicos a favor — Слухи/кампании вокруг Nvidia — это шум, а не событие.
-- [es] чужое_мелкое: [world] Infobae — Le Pen ratificó que Francia dejará de financiar a Ucrania si se convierte en pre — Предвыборные обещания кандидата — это слова, а не свершившийся факт.
-- [es] срочность: [world] Variety — California demanda a OpenAI después de que agentes de IA se comportaran de forma — Иск против OpenAI не требует побудки.
-- [es] не_новость: [world] Wired — El iPhone Duo recibirá una versión limitada de Face ID — Обновление ПО не является мировым событием.
-- [es] курьёз: [world] Clarín AR — Susan y Michael Dell compraron un departamento de lujo de 382 metros cuadrados p — Покупка недвижимости частными лицами не является мировой новостью.
-- [es] не_новость: [world] TechCrunch — El FBI afirma que la herramienta de hacking de código abierto Artex fue utilizad — Предупреждение ФБР без конкретного инцидента — не новость.
-- [es] не_новость: [world] Wired — AO3 vuelve a estar en línea — Возобновление работы сайта — рядовое событие, не мировое.
-- [es] чужое_мелкое: [world] El Financiero — Organización Internacional del Trabajo ‘ventila’ a EU y le exige liquidar adeudo — Споры ОИТ с США — бюрократия, не мировое событие.
-- [es] курьёз: [world] BBC Mundo — "Es Pattinson, Robert Pattinson": el actor británico será el nuevo James Bond — Выбор актера на роль в кино — это не мировая новость, а развлечение.
-- [es] курьёз: [world] Montevideo Portal — Ladrón atacó con piedras a un Tesla, pero el auto resistió golpes y el conductor — Инцидент с хулиганом в Уругвае — мелкое происшествие.
-- [es] не_новость: [world] Азаттык — Mirziyoyev y Tokayev aparecen en el ranking de los musulmanes más influyentes de — Попадание в рейтинги влиятельных лиц — не является событием.
-- [es] полка: [world] Азаттык — En Kirguistán se realizará una votación de prueba en los colegios electorales an — Событие в Кыргызстане, должно быть в 'Новости из…'.
-- [es] полка: [world] Азаттык (кыргызча) — Ishenapysova anuncia la prohibición de la producción e importación de bebidas en — Событие в Кыргызстане, должно быть в 'Новости из…'.
+- [pt] чужое_мелкое: [world] The Independent — Autoridades da FAA culpam roteador por paralisação de voos; especialistas dizem  — Технический сбой в авиакомпании США — рядовое событие, не имеет мирового значения.
+- [pt] чужое_мелкое: [world] TechCrunch — Uber informa que hackers roubaram informações de quase 150.000 carteiras de moto — Утечка данных локальной группы водителей Uber в США — это не мировая новость.
+- [pt] не_новость: [world] UPI — Papa Leão XIV encerra turnê pela América do Sul com apelos por paz e justiça — Отчёт о завершении поездки Папы Римского — протокольное событие без конкретных решений.
+- [pt] курьёз: [world] The Independent — Mulher de Nova Jersey processa Taco Bell após se engasgar com luva de borracha e — Бытовой иск клиента Taco Bell — не мировая новость.
+- [pt] не_новость: [world] Variety — Netflix encomenda minissérie 'The Innocent', de Harlan Coben, da equipe de 'I Wi — Заказ сериала Netflix — коммерческое решение, не событие для ленты новостей.
+- [pt] не_новость: [world] Guardian Sport — Mauricio Pochettino envia treinadores a Manchester para preparar trabalho no Uni — Подготовка тренера к работе (отправка помощников) — рабочая рутина, а не новость.
+- [pt] курьёз: [world] Fortune — Aos 17 anos, a promessa GG Banks constrói sua marca antes da estreia universitár — Презентация личного логотипа 17-летней спортсменки — не новость.
+- [pt] курьёз: [world] Азаттык — Mirziyoyev e Tokayev na lista dos muçulmanos mais influentes do mundo — Попадание политиков в очередной рейтинг — не событие, а медийный факт.
+- [pt] не_новость: [world] Fortune — Conheça os gerentes da Sweetgreen que podem ganhar US$ 200 mil treinando futuros — Внутренняя кадровая политика сети ресторанов (зарплата менеджеров) — не новость.
