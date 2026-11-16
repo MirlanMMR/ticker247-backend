@@ -1,24 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] Mississippi Today — Crews are cleaning SpaceXSI chemical spill in Southaven as data center company f — Это происшествие, ликвидация последствий не требует побудки всей страны.
-- [en] срочность: [local] NY Post — Oldest remaining Pearl Harbor vet Freeman Johnson — who survived the attack belo — Смерть в 106 лет — это не событие для срочного уведомления.
-- [en] полка: [local] Infobae — Judge strikes down Trump administration rule tightening visas for foreign journa — Внутренняя судебная новость США не является мировой новостью.
-- [en] не_новость: [local] WRDW — 1 person dead at scene after clash with dogs reported — Событие не описано: «кто-то пострадал от собак» без подробностей — это слух, а не новость.
-- [en] не_новость: [local] FOX 2 — Prosecutors won't charge driver in fatal road rage shooting — Прокурор не предъявил обвинение — это решение, но не массовое событие.
-- [en] не_новость: [local] KFVS12 — Power outage, school early dismissal causes traffic congestion in Carbondale — Пробки из-за отключения света — это побочный эффект, а не самостоятельное событие.
-- [en] чужое_мелкое: [local] Bridge Michigan — Defying court order, Trump admin again forces Michigan coal plant to stay open — Внутренняя административная тяжба США не является мировой новостью.
-- [en] не_новость: [local] Mirror Indy — Irvington Community Schools could face closure over financial crisis, canceled c — Письмо о возможной угрозе закрытия — это не принятое решение, а предупреждение.
-- [en] курьёз: [local] Cleveland.com — Hillary Clinton has shock answer when asked who the leader of the free world is — Мнение экс-политика — не новость и не событие.
-- [en] чужое_мелкое: [pool] WFPL — Judge approves temporary order preventing Indiana Sen. Garten from being seated — Внутренняя региональная политика штата Индиана не должна быть в ленте «Новости из…».
-- [en] не_новость: [pool] BBC News — Forensic expert says his analysis of autopsy photos suggests Epstein was killed — Мнение эксперта о старом деле — это не новость.
-- [en] курьёз: [pool] Sky Sports — WTA chair on Pegula-Andreeva hot mic incident: It's not bad for viewership — Обсуждение того, что кто-то что-то услышал в микрофон — это не новость.
-- [en] не_новость: [pool] BBC Sport — How Frank can restore reputation and save Crystal Palace — Рассуждение о том, как «вернуть репутацию» — это аналитика, а не событие.
-- [en] не_новость: [world] Daily Maverick — THE MEGA ABUSERS: The dog days are over — Russell Brand and legal pushback again — Статья-очерк о поведении знаменитости — это не событие.
-- [en] чужое_мелкое: [world] Semafor — Elon Musk’s policy difficulty prevents Starlink’s South Africa entry — Внутренняя политика ЮАР по Starlink не является мировой новостью.
-- [en] не_новость: [world] Semafor — North Korea outreach in the mix for Trump’s Asia swing — «Может включать», «допускает возможность» — это не событие, а предположение.
-- [en] курьёз: [world] Xataka — SpaceX makes history with Starship flights 14 and 15; eyes on flight 16 — Обзор серии полетов SpaceX — для раздела «Интересное», но фактов события нет.
-- [en] не_новость: [world] BBC News — Russell Brand prison message 'appalling' and being investigated, No 10 says — Комментарий правительства о старом деле — не новость.
-- [en] срочность: [world] KFYR-TV — Nationwide Emergency Alert System test to take place Tuesday. — Плановое государственное тестирование системы оповещения не требует срочности.
-- [en] не_новость: [world] Азаттык — Mirziyoyev and Tokayev in the ranking of the world's most influential Muslims — Попадание в рейтинги влиятельных людей — не новость.
-- [en] полка: [world] Азаттык — Test voting to be held at polling stations in Kyrgyzstan before presidential ele — Новость из Кыргызстана для английского потока — это Мировая, но событие не имеет мирового масштаба.
-- [en] полка: [world] Азаттык (кыргызча) — Ishenapysova announces ban on production and import of energy drinks — Местная новость Кыргызстана в английском потоке — не является мировой новостью.
+- [es] чужое_мелкое: [local] El Economista MX — Alsea acuerda la venta de Burger King en Argentina; deja en duda su futuro en Mé — Внутренняя сделка по сети фастфуда в Аргентине не является мировой новостью.
+- [es] не_новость: [local] El Informador — Conmemoran un año más del Desfile Cívico Deportivo para celebrar la Revolución M — Отчет о прошедшем мероприятии без новых фактов или последствий.
+- [es] срочность: [local] El Informador — ¿A qué hora inician las movilizaciones en carreteras de Jalisco este 17 de novie — Анонс протеста, не является экстренным событием.
+- [es] не_новость: [local] La Jornada — Buscan ser candidatos a diputados o alcaldes más de 21 mil morenistas — Внутренняя процедура регистрации кандидатов в партии — это рутина, а не событие.
+- [es] чужое_мелкое: [local] La Jornada — “Venganza de la extrema derecha”, juicio contra él y Evo — Судебный процесс над бывшим политиком другого государства не является актуальной новостью для Мексики.
+- [es] чужое_мелкое: [pool] El Tiempo CO — Policía investigado por presuntamente matar a su amigo de la infancia podría que — Местная уголовная хроника Колумбии без международного значения.
+- [es] чужое_мелкое: [pool] El Tiempo CO — El angustioso llamado de la familia de Lizeth Alejandra Castaño tras 20 días de  — Локальная хроника похищения в Колумбии.
+- [es] не_новость: [pool] El Tiempo CO — Más de 18.000 asistentes y 70 expositores: Barranquilla respondió al llamado de  — Отчет об окончании выставки (закрытии) — это не событие с последствиями.
+- [es] чужое_мелкое: [pool] Infobae — Volvieron a subir todas las cotizaciones del dólar y el riesgo país superó los 8 — Экономическая статистика и риски Аргентины.
+- [es] чужое_мелкое: [pool] Infobae — La Libertad es la cuarta región con mayor incidencia de dengue del país — Эпидемиологическая ситуация в Перу.
+- [es] чужое_мелкое: [pool] Infobae — Pelea por el descenso en Liga 1 Perú 2026 EN VIVO HOY: ADT, CD Moquegua y FC Caj — Внутренний футбольный турнир Перу.
+- [es] чужое_мелкое: [pool] Infobae — U2 hace historia en Argentina: sumó una cuarta fecha en River Plate — Добавление даты концерта в Аргентине — локальная новость для этой страны.
+- [es] чужое_мелкое: [pool] La Nación AR — Mega-granizo en Córdoba: un temporal azotó a la provincia y hay alerta naranja p — Погода и происшествия в Аргентине.
+- [es] чужое_мелкое: [pool] El Comercio PE — Gonzalo Bueno derrotó 2-1 a Juan Pablo Varillas por el ATP Challenger 75 de Mont — Результат матча Challenger (локальное событие для Аргентины/Перу).
+- [es] чужое_мелкое: [pool] La Nación AR — “Fueron 45 minutos horribles”: una severa tormenta dejó importantes daños en San — Погодные разрушения в Аргентине.
+- [es] чужое_мелкое: [pool] RPP PE — Y el milagro llegó a los 103 minutos: CD Moquegua venció 2-1 a Atlético Grau y s — Результат футбольного матча в Перу.
+- [es] чужое_мелкое: [pool] RPP PE — Comisión del Congreso aprueba reducir 450 millones de soles de su presupuesto pa — Бюджетные процедуры конгресса Перу.
+- [es] срочность: [pool] El Nacional VE — La Policía Nacional de Panamá detiene al primer sospechoso del atentado incendia — Задержание подозреваемого в преступлении в Панаме не требует побудки мексиканского читателя.
+- [es] повтор: [world] El Financiero — Falla en despegues afecta a United a tres días de suspensión de todos los vuelos ≈ «Primero fueron los aviones y Microsoft..» — Повторяет сюжет о технических сбоях в банковской сфере США.
+- [es] повтор: [world] CNN Brasil — Ucrania atacó Moscú con más de 160 drones, según el alcalde de la capital ≈ «Varias regiones de Rusia sufren ataques » — Повторяет сюжет об атаке дронов на РФ.
+- [es] повтор: [world] El Economista MX — Usuarios de EU reportan fallos informáticos en aplicaciones bancarias ≈ «Primero fueron los aviones y Microsoft..» — Повторяет сюжет о технических сбоях в банковской сфере США.
+- [es] повтор: [world] Wired — La interrupción bancaria podría no estar relacionada con su banco ≈ «Primero fueron los aviones y Microsoft..» — Повторяет сюжет о технических сбоях в банковской сфере США.
+- [es] повтор: [world] BBC Mundo — "Es Pattinson, Robert Pattinson": el actor británico será el nuevo James Bond ≈ «Carlos III saluda al nuevo James Bond: “» — Повторяет новость о новом актере на роль Джеймса Бонда.
+- [es] курьёз: [world] Азаттык — Mirziyoyev y Tokayev aparecen en el ranking de los musulmanes más influyentes de — Рейтинг влиятельных лиц — не новость с последствиями, а список.
+- [es] чужое_мелкое: [world] Азаттык — En Kirguistán se realizará una votación de prueba en los colegios electorales an — Внутренние технические тесты инфраструктуры в Кыргызстане.
