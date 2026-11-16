@@ -1,11 +1,19 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] WSMV — Driver killed after striking deer, colliding head-on with pickup truck in Kentuc — Смертельное ДТП — трагедия, но не повод для побудки в мировом масштабе.
-- [en] срочность: [local] Bangor Daily News — A 16-year-old Washington County girl is missing — Поиск пропавшего человека не является поводом для push-уведомления.
-- [en] срочность: [local] WSPA — Early morning fire in Greer leaves 1 injured — Бытовой пожар с одним пострадавшим не требует срочной метки.
-- [en] срочность: [local] WKYT — 2.3 magnitude earthquake recorded in Lexington — Землетрясение 2.3 — микрособытие, не требующее срочности.
-- [en] полка: [pool] Toronto Star — The Latest: Trump will head to Asia for economic deals and historic nuclear talk — Визит президента — мировая новость, а не «Новости из…» (чужая страна).
-- [en] курьёз: [world] Азаттык — Mirziyoyev and Tokayev in the ranking of the world's most influential Muslims — Рейтинги влияния — субъективные списки, не событие по белому списку.
-- [en] полка: [world] Азаттык — Test voting to be held at polling stations in Kyrgyzstan before presidential ele — Событие в Кыргызстане в пуле US должно быть в разделе мировых новостей.
-- [en] полка: [world] Азаттык (кыргызча) — Ishenapysova announces ban on production and import of energy drinks — Событие в Кыргызстане в пуле US должно быть в разделе мировых новостей.
-- [en] полка: [world] Азаттык (кыргызча) — A number of Russian regions hit by drone attacks — Война — мировая новость, а не «Новости из…».
+- [es] срочность: [local] El Universal MX — Irrumpen hombres armados en una vivienda de Villa Bonita, Culiacán; derriban por — Криминальная хроника — не повод для побудки.
+- [es] полка: [local] WTNH — Hombre acusado de homicidio involuntario en un choque mortal contra un estudiant — Местная новость США, не мировая.
+- [es] не_новость: [pool] La Nación AR — El gran gesto de Davo con un fan suyo durante el partido de 412 contra Luzu TV — Развлекательное мероприятие, нет события.
+- [es] полка: [pool] El Nacional VE — Presidente de Uruguay pide a Delcy Rodríguez una hoja de ruta y elecciones libre — Событие происходит в Уругвае, должно быть в «Новости из...».
+- [es] не_новость: [pool] El Comercio PE — Fieles congregados junto a estatua del papa León XIV en el Callao saludaron a co — Это описание сопровождения кортежа, а не событие.
+- [es] не_новость: [pool] RPP PE — León XIV se dirige a la Base Aérea Las Palmas tras culminar su actividad en el C — Сообщение о перемещении кортежа не является новостью.
+- [es] не_новость: [world] Variety — CBS anuncia la fecha de estreno de la temporada 52 de ‘Survivor’ y otras novedad — Анонс даты выхода сезона не является событием.
+- [es] не_новость: [world] Variety — Robert Pattinson es oficialmente James Bond: conozca al nuevo actor del 007 — Кастинг актера на роль не меняет жизнь читателя.
+- [es] не_новость: [world] Variety — Los podcasts de Apple llegan a la aplicación Apple TV — Обновление функции в приложении — технологическая новость, не событие.
+- [es] не_новость: [world] Rolling Stone — Aloe Blacc forma el supergrupo Mudkings junto a Robert Randolph, G. Love, Sam Ho — Создание музыкальной группы — не событие.
+- [es] курьёз: [world] Азаттык — Mirziyoyev y Tokayev aparecen en el ranking de los musulmanes más influyentes de — Рейтинг влиятельных людей не имеет последствий.
+- [es] не_новость: [world] Азаттык — En Kirguistán se realizará una votación de prueba en los colegios electorales an — Тестовое голосование — техническое мероприятие, не событие.
+- [es] не_новость: [world] BBC Mundo — 3 poco conocidas disputas limítrofes dentro de países de América Latina (y por q — Обзорная статья об исторических спорах.
+- [es] курьёз: [world] BBC Mundo — Jojo, el gorila que lleva 11 años solo tras la muerte de su familia y para el qu — История о животном — классическое «интересное», не новость.
+- [es] не_новость: [world] Wired — El avión de detección química de la EPA ha dejado de cumplir su función — Прекращение работы программы — не событие.
+- [es] полка: [world] Азаттык (кыргызча) — Ishenapysova anuncia la prohibición de la producción e importación de bebidas en — Событие в Кыргызстане, но в пуле «es» это не мировая новость.
+- [es] срочность: [world] Expansión MX — Microsoft restablece por completo sus servicios pero advierte a usuarios por aum — Сбой сервисов уже устранен, информация о безопасности — не срочно.
