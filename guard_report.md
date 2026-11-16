@@ -1,19 +1,17 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] срочность: [local] El Universal MX — Irrumpen hombres armados en una vivienda de Villa Bonita, Culiacán; derriban por — Криминальная хроника — не повод для побудки.
-- [es] полка: [local] WTNH — Hombre acusado de homicidio involuntario en un choque mortal contra un estudiant — Местная новость США, не мировая.
-- [es] не_новость: [pool] La Nación AR — El gran gesto de Davo con un fan suyo durante el partido de 412 contra Luzu TV — Развлекательное мероприятие, нет события.
-- [es] полка: [pool] El Nacional VE — Presidente de Uruguay pide a Delcy Rodríguez una hoja de ruta y elecciones libre — Событие происходит в Уругвае, должно быть в «Новости из...».
-- [es] не_новость: [pool] El Comercio PE — Fieles congregados junto a estatua del papa León XIV en el Callao saludaron a co — Это описание сопровождения кортежа, а не событие.
-- [es] не_новость: [pool] RPP PE — León XIV se dirige a la Base Aérea Las Palmas tras culminar su actividad en el C — Сообщение о перемещении кортежа не является новостью.
-- [es] не_новость: [world] Variety — CBS anuncia la fecha de estreno de la temporada 52 de ‘Survivor’ y otras novedad — Анонс даты выхода сезона не является событием.
-- [es] не_новость: [world] Variety — Robert Pattinson es oficialmente James Bond: conozca al nuevo actor del 007 — Кастинг актера на роль не меняет жизнь читателя.
-- [es] не_новость: [world] Variety — Los podcasts de Apple llegan a la aplicación Apple TV — Обновление функции в приложении — технологическая новость, не событие.
-- [es] не_новость: [world] Rolling Stone — Aloe Blacc forma el supergrupo Mudkings junto a Robert Randolph, G. Love, Sam Ho — Создание музыкальной группы — не событие.
-- [es] курьёз: [world] Азаттык — Mirziyoyev y Tokayev aparecen en el ranking de los musulmanes más influyentes de — Рейтинг влиятельных людей не имеет последствий.
-- [es] не_новость: [world] Азаттык — En Kirguistán se realizará una votación de prueba en los colegios electorales an — Тестовое голосование — техническое мероприятие, не событие.
-- [es] не_новость: [world] BBC Mundo — 3 poco conocidas disputas limítrofes dentro de países de América Latina (y por q — Обзорная статья об исторических спорах.
-- [es] курьёз: [world] BBC Mundo — Jojo, el gorila que lleva 11 años solo tras la muerte de su familia y para el qu — История о животном — классическое «интересное», не новость.
-- [es] не_новость: [world] Wired — El avión de detección química de la EPA ha dejado de cumplir su función — Прекращение работы программы — не событие.
-- [es] полка: [world] Азаттык (кыргызча) — Ishenapysova anuncia la prohibición de la producción e importación de bebidas en — Событие в Кыргызстане, но в пуле «es» это не мировая новость.
-- [es] срочность: [world] Expansión MX — Microsoft restablece por completo sus servicios pero advierte a usuarios por aum — Сбой сервисов уже устранен, информация о безопасности — не срочно.
+- [pt] чужое_мелкое: [world] The Independent — Pentágono é criticado por falhas na guerra com o Irã por major denunciante: 'Não — Crítica de um major do exército sobre gestão militar não é evento de escala mundial, é assunto interno do Pentágono.
+- [pt] чужое_мелкое: [world] CNN Brasil — Novo julgamento de mãe que matou filhos nos EUA é marcado para 2027 — Data de novo julgamento de caso doméstico nos EUA não é notícia mundial, é assunto de justiça local.
+- [fr] срочность: [local] Nice-Matin — Davantage de contrôles, augmentation des abonnements, horaires élargis : ce qui  — Плановое объявление об изменениях в работе парковок не требует срочной метки.
+- [fr] курьёз: [local] Franceinfo — Un quart des Français adhèrent encore à des préjugés antisémites, alerte une étu — Это пересказ результатов иностранного исследования, не имеющий прямого новостного повода во Франции.
+- [fr] курьёз: [local] Sciences et Avenir — Permis de tuer pour les robots ? L'ONU s'écharpe sur la question — Дискуссия в ООН о роботах-убийцах — философский вопрос, не является событием по белому списку.
+- [fr] чужое_мелкое: [pool] Jeune Afrique — Niger : des milliers de nomades arabes Mahamid sommés de quitter le pays avant l — Локальное решение правительства Нигера, не имеющее глобальных последствий или прямой связи с интересами франкоязычного м
+- [fr] курьёз: [pool] BFMTV — Il faudra payer 10.000 euros pour chaque lettre: Monaco va lancer des plaques d' — Запуск персонализированных номеров в Монако — новость не мирового масштаба, это не новость для широкой аудитории.
+- [fr] не_новость: [pool] Radio-Canada — Avenir de Santé Québec : le gouvernement péquiste veut abolir la haute direction — Это политическое намерение оппозиции («péquiste»), а не свершившийся факт или принятое решение.
+- [fr] не_новость: [world] BFMTV — Affaire Nvidia: pour Donald Trump, le retour de Jensen Huang à la tête du géant  — Мнение Дональда Трампа о том, что возвращение главы Nvidia «было бы неплохой идеей» — это слова, а не решение или событи
+- [fr] не_новость: [world] Courrier International — Les data centers n’ont plus la cote chez les investisseurs — Общие рассуждения об инвестициях, нет конкретного события, факта или цифр.
+- [fr] чужое_мелкое: [world] The Independent — Un commandant de l'armée américaine dénonce les échecs du Pentagone concernant l — Критика военного командования США в адрес Пентагона — внутренняя повестка США, не мировая новость.
+- [fr] курьёз: [world] Courrier International — Qui est Carmelle, la grande gagnante philippine de la première édition de l’Euro — Результаты развлекательного конкурса Eurovision Asia не являются мировой новостью.
+- [fr] чужое_мелкое: [world] Semafor — Les États-Unis prennent des mesures pour fermer une faille liée à l'accès distan — Техническое регулирование доступа к чипам в США — внутренняя административная мера, не требующая побудки читателя.
+- [fr] не_новость: [world] Азаттык — Un vote test sera organisé dans les bureaux de vote au Kirghizistan avant l'élec — Анонс технического теста системы голосования — это плановое мероприятие, а не событие, меняющее жизнь читателей.
+- [fr] не_новость: [world] Азаттык (кыргызча) — Gulbara Ishenapysova annonce l'interdiction de la production et de l'importation — Заявление замминистра о намерении запретить энергетики — это обсуждение и планы, а не принятый закон.
