@@ -1,17 +1,26 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [world] The Independent — Pentágono é criticado por falhas na guerra com o Irã por major denunciante: 'Não — Crítica de um major do exército sobre gestão militar não é evento de escala mundial, é assunto interno do Pentágono.
-- [pt] чужое_мелкое: [world] CNN Brasil — Novo julgamento de mãe que matou filhos nos EUA é marcado para 2027 — Data de novo julgamento de caso doméstico nos EUA não é notícia mundial, é assunto de justiça local.
-- [fr] срочность: [local] Nice-Matin — Davantage de contrôles, augmentation des abonnements, horaires élargis : ce qui  — Плановое объявление об изменениях в работе парковок не требует срочной метки.
-- [fr] курьёз: [local] Franceinfo — Un quart des Français adhèrent encore à des préjugés antisémites, alerte une étu — Это пересказ результатов иностранного исследования, не имеющий прямого новостного повода во Франции.
-- [fr] курьёз: [local] Sciences et Avenir — Permis de tuer pour les robots ? L'ONU s'écharpe sur la question — Дискуссия в ООН о роботах-убийцах — философский вопрос, не является событием по белому списку.
-- [fr] чужое_мелкое: [pool] Jeune Afrique — Niger : des milliers de nomades arabes Mahamid sommés de quitter le pays avant l — Локальное решение правительства Нигера, не имеющее глобальных последствий или прямой связи с интересами франкоязычного м
-- [fr] курьёз: [pool] BFMTV — Il faudra payer 10.000 euros pour chaque lettre: Monaco va lancer des plaques d' — Запуск персонализированных номеров в Монако — новость не мирового масштаба, это не новость для широкой аудитории.
-- [fr] не_новость: [pool] Radio-Canada — Avenir de Santé Québec : le gouvernement péquiste veut abolir la haute direction — Это политическое намерение оппозиции («péquiste»), а не свершившийся факт или принятое решение.
-- [fr] не_новость: [world] BFMTV — Affaire Nvidia: pour Donald Trump, le retour de Jensen Huang à la tête du géant  — Мнение Дональда Трампа о том, что возвращение главы Nvidia «было бы неплохой идеей» — это слова, а не решение или событи
-- [fr] не_новость: [world] Courrier International — Les data centers n’ont plus la cote chez les investisseurs — Общие рассуждения об инвестициях, нет конкретного события, факта или цифр.
-- [fr] чужое_мелкое: [world] The Independent — Un commandant de l'armée américaine dénonce les échecs du Pentagone concernant l — Критика военного командования США в адрес Пентагона — внутренняя повестка США, не мировая новость.
-- [fr] курьёз: [world] Courrier International — Qui est Carmelle, la grande gagnante philippine de la première édition de l’Euro — Результаты развлекательного конкурса Eurovision Asia не являются мировой новостью.
-- [fr] чужое_мелкое: [world] Semafor — Les États-Unis prennent des mesures pour fermer une faille liée à l'accès distan — Техническое регулирование доступа к чипам в США — внутренняя административная мера, не требующая побудки читателя.
-- [fr] не_новость: [world] Азаттык — Un vote test sera organisé dans les bureaux de vote au Kirghizistan avant l'élec — Анонс технического теста системы голосования — это плановое мероприятие, а не событие, меняющее жизнь читателей.
-- [fr] не_новость: [world] Азаттык (кыргызча) — Gulbara Ishenapysova annonce l'interdiction de la production et de l'importation — Заявление замминистра о намерении запретить энергетики — это обсуждение и планы, а не принятый закон.
+- [es] полка: [local] El Financiero — Wall Street amanece en rojo, arrastrado por el sector tecnológico y la crisis de — Это мировая новость (кризис Nvidia, рынки), не местная для Мексики.
+- [es] чужое_мелкое: [local] WTNH — Hombre acusado de homicidio involuntario en un choque mortal contra un estudiant — Криминальная хроника из США не является значимой для мексиканского читателя.
+- [es] полка: [pool] Infobae — La jueza que ordenó aprehensión de César Jáuregui renunció un día después de su  — Местная новость (Мексика), должна быть в Местных.
+- [es] чужое_мелкое: [pool] Marca — Bernardo Silva vuelve a Madrid con polémica — Внутренние дела португальского футбола не значимы для латиноамериканского читателя.
+- [es] полка: [pool] La Nación CR — Scaloni anuncia cambios en Argentina para enfrentar a la Selección de Costa Rica — Событие в Аргентине/Коста-Рике, это не новости Мексики.
+- [es] чужое_мелкое: [pool] La Nación AR — Presupuesto 2027: los gobernadores negocian y condicionan el respaldo en el Cong — Внутренняя бюджетная политика Аргентины не является мировой новостью.
+- [es] чужое_мелкое: [pool] Clarín AR — Maniobras con el dólar: el BCRA multó a otra casa de cambios que participó del c — Внутренние дела аргентинского Центробанка прошлых лет — шум.
+- [es] полка: [pool] El Financiero — Termina en prisión Santiago Peña, expresidente de Paraguay, por Ueno bank: ‘Está — Событие в Парагвае, должно быть в 'Новости из…'.
+- [es] чужое_мелкое: [pool] El País — Frente Amplio busca desmarcarse del PSOE con un programa que blinda la vivienda  — Внутриполитические споры Испании о жилищном вопросе — шум.
+- [es] чужое_мелкое: [pool] El País — El PSOE remonta pero no altera la mayoría de la derecha — Внутренние опросы по выборам в Испании — шум.
+- [es] чужое_мелкое: [pool] El Mundo — Sánchez se vuelca con Madrid para dar munición al PSOE frente a Ayuso ante "la i — Локальная политическая агитация в Испании — шум.
+- [es] курьёз: [world] BBC Mundo — "Traigan a Jensen de vuelta": la campaña de los millonarios tecnológicos a favor — Слухи/кампании вокруг Nvidia — это шум, а не событие.
+- [es] чужое_мелкое: [world] Infobae — Le Pen ratificó que Francia dejará de financiar a Ucrania si se convierte en pre — Предвыборные обещания кандидата — это слова, а не свершившийся факт.
+- [es] срочность: [world] Variety — California demanda a OpenAI después de que agentes de IA se comportaran de forma — Иск против OpenAI не требует побудки.
+- [es] не_новость: [world] Wired — El iPhone Duo recibirá una versión limitada de Face ID — Обновление ПО не является мировым событием.
+- [es] курьёз: [world] Clarín AR — Susan y Michael Dell compraron un departamento de lujo de 382 metros cuadrados p — Покупка недвижимости частными лицами не является мировой новостью.
+- [es] не_новость: [world] TechCrunch — El FBI afirma que la herramienta de hacking de código abierto Artex fue utilizad — Предупреждение ФБР без конкретного инцидента — не новость.
+- [es] не_новость: [world] Wired — AO3 vuelve a estar en línea — Возобновление работы сайта — рядовое событие, не мировое.
+- [es] чужое_мелкое: [world] El Financiero — Organización Internacional del Trabajo ‘ventila’ a EU y le exige liquidar adeudo — Споры ОИТ с США — бюрократия, не мировое событие.
+- [es] курьёз: [world] BBC Mundo — "Es Pattinson, Robert Pattinson": el actor británico será el nuevo James Bond — Выбор актера на роль в кино — это не мировая новость, а развлечение.
+- [es] курьёз: [world] Montevideo Portal — Ladrón atacó con piedras a un Tesla, pero el auto resistió golpes y el conductor — Инцидент с хулиганом в Уругвае — мелкое происшествие.
+- [es] не_новость: [world] Азаттык — Mirziyoyev y Tokayev aparecen en el ranking de los musulmanes más influyentes de — Попадание в рейтинги влиятельных лиц — не является событием.
+- [es] полка: [world] Азаттык — En Kirguistán se realizará una votación de prueba en los colegios electorales an — Событие в Кыргызстане, должно быть в 'Новости из…'.
+- [es] полка: [world] Азаттык (кыргызча) — Ishenapysova anuncia la prohibición de la producción e importación de bebidas en — Событие в Кыргызстане, должно быть в 'Новости из…'.
