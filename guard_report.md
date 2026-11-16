@@ -1,11 +1,24 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [world] The Independent — Autoridades da FAA culpam roteador por paralisação de voos; especialistas dizem  — Технический сбой в авиакомпании США — рядовое событие, не имеет мирового значения.
-- [pt] чужое_мелкое: [world] TechCrunch — Uber informa que hackers roubaram informações de quase 150.000 carteiras de moto — Утечка данных локальной группы водителей Uber в США — это не мировая новость.
-- [pt] не_новость: [world] UPI — Papa Leão XIV encerra turnê pela América do Sul com apelos por paz e justiça — Отчёт о завершении поездки Папы Римского — протокольное событие без конкретных решений.
-- [pt] курьёз: [world] The Independent — Mulher de Nova Jersey processa Taco Bell após se engasgar com luva de borracha e — Бытовой иск клиента Taco Bell — не мировая новость.
-- [pt] не_новость: [world] Variety — Netflix encomenda minissérie 'The Innocent', de Harlan Coben, da equipe de 'I Wi — Заказ сериала Netflix — коммерческое решение, не событие для ленты новостей.
-- [pt] не_новость: [world] Guardian Sport — Mauricio Pochettino envia treinadores a Manchester para preparar trabalho no Uni — Подготовка тренера к работе (отправка помощников) — рабочая рутина, а не новость.
-- [pt] курьёз: [world] Fortune — Aos 17 anos, a promessa GG Banks constrói sua marca antes da estreia universitár — Презентация личного логотипа 17-летней спортсменки — не новость.
-- [pt] курьёз: [world] Азаттык — Mirziyoyev e Tokayev na lista dos muçulmanos mais influentes do mundo — Попадание политиков в очередной рейтинг — не событие, а медийный факт.
-- [pt] не_новость: [world] Fortune — Conheça os gerentes da Sweetgreen que podem ganhar US$ 200 mil treinando futuros — Внутренняя кадровая политика сети ресторанов (зарплата менеджеров) — не новость.
+- [en] срочность: [local] Mississippi Today — Crews are cleaning SpaceXSI chemical spill in Southaven as data center company f — Это происшествие, ликвидация последствий не требует побудки всей страны.
+- [en] срочность: [local] NY Post — Oldest remaining Pearl Harbor vet Freeman Johnson — who survived the attack belo — Смерть в 106 лет — это не событие для срочного уведомления.
+- [en] полка: [local] Infobae — Judge strikes down Trump administration rule tightening visas for foreign journa — Внутренняя судебная новость США не является мировой новостью.
+- [en] не_новость: [local] WRDW — 1 person dead at scene after clash with dogs reported — Событие не описано: «кто-то пострадал от собак» без подробностей — это слух, а не новость.
+- [en] не_новость: [local] FOX 2 — Prosecutors won't charge driver in fatal road rage shooting — Прокурор не предъявил обвинение — это решение, но не массовое событие.
+- [en] не_новость: [local] KFVS12 — Power outage, school early dismissal causes traffic congestion in Carbondale — Пробки из-за отключения света — это побочный эффект, а не самостоятельное событие.
+- [en] чужое_мелкое: [local] Bridge Michigan — Defying court order, Trump admin again forces Michigan coal plant to stay open — Внутренняя административная тяжба США не является мировой новостью.
+- [en] не_новость: [local] Mirror Indy — Irvington Community Schools could face closure over financial crisis, canceled c — Письмо о возможной угрозе закрытия — это не принятое решение, а предупреждение.
+- [en] курьёз: [local] Cleveland.com — Hillary Clinton has shock answer when asked who the leader of the free world is — Мнение экс-политика — не новость и не событие.
+- [en] чужое_мелкое: [pool] WFPL — Judge approves temporary order preventing Indiana Sen. Garten from being seated — Внутренняя региональная политика штата Индиана не должна быть в ленте «Новости из…».
+- [en] не_новость: [pool] BBC News — Forensic expert says his analysis of autopsy photos suggests Epstein was killed — Мнение эксперта о старом деле — это не новость.
+- [en] курьёз: [pool] Sky Sports — WTA chair on Pegula-Andreeva hot mic incident: It's not bad for viewership — Обсуждение того, что кто-то что-то услышал в микрофон — это не новость.
+- [en] не_новость: [pool] BBC Sport — How Frank can restore reputation and save Crystal Palace — Рассуждение о том, как «вернуть репутацию» — это аналитика, а не событие.
+- [en] не_новость: [world] Daily Maverick — THE MEGA ABUSERS: The dog days are over — Russell Brand and legal pushback again — Статья-очерк о поведении знаменитости — это не событие.
+- [en] чужое_мелкое: [world] Semafor — Elon Musk’s policy difficulty prevents Starlink’s South Africa entry — Внутренняя политика ЮАР по Starlink не является мировой новостью.
+- [en] не_новость: [world] Semafor — North Korea outreach in the mix for Trump’s Asia swing — «Может включать», «допускает возможность» — это не событие, а предположение.
+- [en] курьёз: [world] Xataka — SpaceX makes history with Starship flights 14 and 15; eyes on flight 16 — Обзор серии полетов SpaceX — для раздела «Интересное», но фактов события нет.
+- [en] не_новость: [world] BBC News — Russell Brand prison message 'appalling' and being investigated, No 10 says — Комментарий правительства о старом деле — не новость.
+- [en] срочность: [world] KFYR-TV — Nationwide Emergency Alert System test to take place Tuesday. — Плановое государственное тестирование системы оповещения не требует срочности.
+- [en] не_новость: [world] Азаттык — Mirziyoyev and Tokayev in the ranking of the world's most influential Muslims — Попадание в рейтинги влиятельных людей — не новость.
+- [en] полка: [world] Азаттык — Test voting to be held at polling stations in Kyrgyzstan before presidential ele — Новость из Кыргызстана для английского потока — это Мировая, но событие не имеет мирового масштаба.
+- [en] полка: [world] Азаттык (кыргызча) — Ishenapysova announces ban on production and import of energy drinks — Местная новость Кыргызстана в английском потоке — не является мировой новостью.
