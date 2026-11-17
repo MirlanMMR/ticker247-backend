@@ -1,32 +1,25 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] срочность: [local] G1 Minas — 57% dos pedidos de pensão de morte para cônjuge ao Ipsemg vêm do interior; servi — плановое исследование о пенсиях, не требует побудки
-- [pt] чужое_мелкое: [world] The Independent — Ex-CEO da Nvidia, Jensen Huang, prestará depoimento ao Congresso — внутренняя процедура США, не является мировой новостью
-- [pt] чужое_мелкое: [world] The Hill — Principal advogado da Nvidia concorda em depor perante o Congresso — аналогично №61, процедурный вопрос
-- [pt] не_новость: [world] Público — Zelensky “teimoso”, Putin “petulante” e Netanyahu “trumpista” nas memórias de Bi — обсуждение мемуаров и мнений экс-президента, без события
-- [pt] курьёз: [world] Superinteressante — Bebê norte-americano marca recorde mundial de cinco gerações da mesma família na — любопытный факт из 2005 года, не событие
-- [pt] курьёз: [world] Superinteressante — Sonda Voyager 1, da Nasa, ficará a um dia-luz da Terra, distância inédita para u — популярно-научный факт о зонде, место в 'Интересном'
-- [fr] не_новость: [local] Le Figaro — Pourquoi Franceinfo a précisé les liens conjugaux entre la militante féministe A — портрет/анализ отношений, нет события
-- [fr] не_новость: [local] France Bleu — Soins esthétiques : les médecins et dermatologues ne pourront y consacrer que 30 — интерпретация старого декрета без нового события
-- [fr] не_новость: [local] L'Express — Le marché de l'emploi cadre rattrapé par la morosité économique — обзор рынка, отсутствие конкретного события
-- [fr] не_новость: [local] L'Obs — Projet de loi de finances 2027 : le régime des donations va-t-il changer ? — рассуждение/анонс гипотетических изменений
-- [fr] не_новость: [local] L'Obs — Relance du nucléaire : « Cinq ans après le discours de Macron à Belfort, deux de — аналитическая статья, а не новостное событие
-- [fr] курьёз: [pool] Le Temps — Les Romands consomment 50% plus d’antibiotiques que les Alémaniques, un écart cu — статистический факт, без последствий для читателя
-- [fr] не_новость: [pool] RTBF — Halfprice : une offre de plus sur le marché des bonnes affaires... mais dépendan — обзор бизнес-модели магазина, нет события
-- [fr] курьёз: [pool] Radio-Canada — Opération nettoyage : voici comment Qualinet a manipulé sa réputation en ligne — репутационный кейс, интересно, но не новость
-- [fr] чужое_мелкое: [world] BFMTV — Cyberattaques: le FBI alerte sur la libre disponibilité d'outils utilisant l'IA  — предупреждение без конкретного инцидента
-- [fr] не_новость: [world] France 24 FR — Jeux vidéos : GTA VI s'apprête enfin à sortir après 13 ans d'attente — ожидание выхода игры — анонс, а не факт выхода
-- [fr] повтор: [world] France 24 FR — Mozambique : le procès du principal opposant pour "terrorisme" ouvert ≈ «Au Mozambique, le procès de l’opposant V» — один и тот же суд над оппозиционером
-- [fr] курьёз: [world] Sciences et Avenir — Gaz lacrymogène et douleurs gynécologiques, le vide scientifique — научное наблюдение без события
-- [fr] не_новость: [world] La Dépêche — Mort mystérieuse du fondateur de Mango : "Il est impossible de déterminer les ca — стадия расследования без новых фактов
-- [fr] курьёз: [world] Smithsonian Magazine — Les États-Unis perdent leur statut d'élimination de la rougeole, détenu depuis 2 — статистика заболеваемости, место в «Интересном»
-- [fr] курьёз: [world] Futura-Sciences — Visible depuis l’espace, un ruban brun de 8 850 km traverse l’Atlantique et bat  — научный факт о природе, место в «Интересном»
-- [fr] не_новость: [world] Franceinfo — Les 403 plus grands data centers américains émettent plus de gaz à effet de serr — обсуждение данных исследования, а не событие
-- [fr] не_новость: [world] Fortune — Kevin Warsh demande à la Réserve fédérale d'élaborer des plans de contingence fa — слова о планах, нет принятого решения
-- [fr] не_новость: [world] La Libre — Ren Zhengfei, l'homme derrière la plus grande peur des Américains — биографический очерк, не новость
-- [fr] повтор: [world] RTBF — GTA 6 sort ce 19 novembre : dix chiffres pour mesurer l'ampleur d'un événement d ≈ «Jeux vidéos : GTA VI s'apprête enfin à s» — тот же сюжет про релиз игры
-- [fr] чужое_мелкое: [world] BBC World — Megaspeed, partenaire de Nvidia, visé par une enquête du gouvernement américain  — очередная новость о санкциях/расследовании вокруг Nvidia, перебор
-- [fr] повтор: [world] Le Devoir — La Chine et le Canada s’entendent sur de nouvelles réductions des droits de doua ≈ «Le Canada s’entend avec la Chine pour le» — одна и та же торговая сделка Канады и Китая
-- [fr] не_новость: [world] L'Express — Diesel russe : l'accord entre Donald Trump et Vladimir Poutine bute sur le droit — аналитика о буксующем соглашении, события нет
-- [fr] чужое_мелкое: [world] Knews.kg — CNN : Selon le renseignement américain, l'Iran planifierait l'utilisation d'une  — прогноз разведки США, не является фактом события
-- [fr] чужое_мелкое: [world] L'Express — En Asie aussi, les incursions d'avions russes font monter les tensions — мелкая военная рутина, не имеющая глобальных последствий
+- [es] не_новость: [local] El Informador — Monitoreo GPS del transporte público en Jalisco operará en 2027: Setran — Плановое сообщение о том, что мониторинг заработает в будущем.
+- [es] не_новость: [local] El Informador — Alistan en Guadalajara concentración feminista por el 25N — Анонс предстоящей акции, а не событие.
+- [es] не_новость: [local] El Informador — Siteur lanza plataforma para consultar disponibilidad de elevadores en el Tren L — Запуск платформы — сервисная информация, не является новостным событием.
+- [es] не_новость: [local] El Sol de México — Trabajadores del IMSS instalan plantón en Segob y anuncian que se reunirán con l — Протест и «план встречи» — слова и намерения, а не состоявшееся решение.
+- [es] не_новость: [local] La Jornada — Oaxaca: sección 22 alista paro de 48 horas por adeudos a docentes — Анонс предстоящего забастовочного пара на 48 часов.
+- [es] срочность: [pool] El Tiempo CO — Ataques con explosivos, cilindros abandonados y miedo: así sería el 'ajedrez tác — Описание «тактики групп» не требует немедленной побудки читателя.
+- [es] не_новость: [pool] El Mundo — Sánchez esquilma a toda la izquierda: Podemos se aleja del escaño para Irene Mon — Анализ предвыборных рейтингов и прогнозы — не событие.
+- [es] не_новость: [pool] Semana CO — Dólar cierra la jornada más barato tras completar con tendencia a la baja el mar — Ежедневное колебание курса валют без экстренных скачков.
+- [es] не_новость: [pool] El País — Ayuso critica el apoyo de Lula a Pedro Sánchez en la campaña: “Cada vez hay más  — Политическая критика и обмен мнениями между политиками.
+- [es] не_новость: [pool] El Informador — Alerta de tráfico en Jalisco: dónde y por qué protestarán productores del campo — Анонс протестов: «где и почему будут протестовать».
+- [es] курьёз: [pool] El País — “Yo sí te voy a votar”: Adrián, el cocinero valenciano que compuso la canción vi — История про автора песни в TikTok, не является новостью.
+- [es] не_новость: [world] TechCrunch — Google amplía el acceso a Gemini Tasks, que ayuda con llamadas y compras — Рутинное обновление функции приложения Google.
+- [es] не_новость: [world] El Financiero — Trump bromea con despedir al secretario de Estado de EU, Marco Rubio, si no cont — Шутка президента не является кадровым решением.
+- [es] не_новость: [world] Variety — Derek DelGaudio y Frank Oz se reúnen para la obra 'Unknown Caller' en el Public  — Анонс новой театральной постановки.
+- [es] не_новость: [world] TechCrunch — Google conservará los chats de Gemini durante 2 meses, frente a las 72 horas ant — Изменение настроек хранения данных сервиса — не новостное событие.
+- [es] не_новость: [world] Variety — Blink-182 y Pierce the Veil encabezarán el festival When We Were Young 2027 — Объявление лайн-апа фестиваля на 2027 год — анонс.
+- [es] не_новость: [world] Variety — Roadside Attractions adquiere los derechos en EE. UU. del thriller 'One Second A — Сделка по правам на фильм — бизнес-рутина, а не событие для широкого читателя.
+- [es] не_новость: [world] El Financiero — Jensen Huang reconoce que está dispuesto a regresar como CEO de Nvidia: ‘Será un — Слова руководителя о «готовности вернуться» не являются фактом возвращения.
+- [es] курьёз: [world] BBC Mundo — El gran hito del Voyager: cuánto es un día luz, la distancia más lejana a la que — Популярно-научная заметка о космосе.
+- [es] не_новость: [world] Wired — VSCO busca competir con Adobe Lightroom con su nueva aplicación de escritorio — Выход обновления программы для десктопа.
+- [es] не_новость: [world] Guardian Sport — Tiger Woods regresará al golf tras dos años en el Hero World Challenge — Анонс возвращения спортсмена в будущем.
+- [es] не_новость: [world] RFI — Aplazamiento de la elección del secretario general de la OIF: negociaciones tens — «Переговоры», «отсутствие согласия» — нет факта завершенного события.
+- [es] курьёз: [world] La Jornada — Por primera vez son mujeres las artistas que tienen más nominaciones a los Gramm — Статистика номинаций на премию, не является общественно важным событием.
