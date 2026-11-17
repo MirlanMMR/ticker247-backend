@@ -1,144 +1,209 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-11-17 20:19 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-11-17 22:18 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [pt]: помечено 62 из 411 за 4 запросов
-  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 85 в 25 регионах
-  🧭 [pt] после чистки текста: всего 70 — местных 28, соседей 14, мира 28; областных 85 в 25 регионах
-  🧭 [pt] после обзоров прессы: всего 67 — местных 25, соседей 14, мира 28; областных 56 в 11 регионах
-  🧭 [pt] после склейки пересказов: всего 63 — местных 23, соседей 13, мира 27; областных 52 в 11 регионах
-  🧭 [pt] после рубежа: всего 58 — местных 22, соседей 13, мира 23; областных 51 в 11 регионах
+  🧪 Этап 1 (боевой) [en]: помечено 214 из 1272 за 11 запросов
+  🧭 [en] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 300 в 66 регионах
+  🧭 [en] после чистки текста: всего 67 — местных 25, соседей 14, мира 28; областных 290 в 66 регионах
+  🧭 [en] после обзоров прессы: всего 55 — местных 20, соседей 18, мира 17; областных 266 в 54 регионах
+  🧭 [en] после склейки пересказов: всего 32 — местных 12, соседей 10, мира 10; областных 209 в 52 регионах
+  🧭 [en] после рубежа: всего 26 — местных 9, соседей 9, мира 8; областных 143 в 46 регионах
 
-  🗞 Редактор [pt] (В ЭФИРЕ): карточек 109, спрошено 76, вторым 0
-     память не сработала: новая 70, текст вырос 6
-     снято: нет события 7, повтор 7, не для читателя 1
-     починено: текст сокращён до сути 64, фото заменено 20, строка НОС принята 11, нужно другое фото 1
-     🎲 Любопытное [pt] (в полосу «Интересное»): 1
-       🎲 в эфире · [G1 Rio] VÍDEO: sequência de quase 300 fotos flagra a lua passeando entre nuvens atrás das torres da Igreja da Penha · https://g1.globo.com/rj/rio-de-janeiro/noticia/2026/11/17/sequencia-de-fotos-flagra-a-lua-passeando-entre-nuvens-atras-das-torres-da-igreja-da-penha.ghtml
-       📝 [G1 Globo] Toneladas de peixes mortos são encontradas em três → Toneladas de peixes mortos foram encontradas em três rios de São Félix do Xingu, no Pará.
-       ✂️ [G1 Globo] Toneladas de peixes mortos são encontradas em três rios de S — абзацы 3/7
-       ✂️ [Folha de S.Paulo] Líder do governo no Congresso apresenta projeto para taxar b — абзацы 5/7
-       ✂️ [Agência Brasil] Congresso pede que STF julgue lei que beneficia condenados p — абзацы 3/16
-       ✂️ [G1 Globo] Idoso é encontrado morto dentro de banheiro de casa em Boa V — абзацы 5/6
-       ✗ нет события: [G1 Globo] Corpo de jovem desaparecido é encontrado em área rural de MT após moto ser achada queimada — нет снимка (остался только заголовок/лого)
-       ✗ повтор: [G1 Globo] Polícia prende suspeito de matar casal em Sete Lagoas; principal linha de investigação é l — событие уже освещалось, фото совпадает с предыдущим
-       ✂️ [G1 Globo] Passos realiza semana de programação gratuita em valorização — абзацы 2/7
-       🖼 [G1 Globo] Passos realiza semana de programação gratuita em v — фото: №2 вместо №1
-       ✂️ [Folha de S.Paulo] Tecnologia brasileira verificará resultado de iniciativas pa — абзацы 6/17
-       ✗ нет события: [Folha de S.Paulo] 1926: Ministro afirma que presos sem processos estão sendo libertados — архивное событие 1926 года без актуального повода
-       ✂️ [Folha de S.Paulo] Ibovespa incluirá ações de empresas brasileiras listadas no  — абзацы 8/19
-       ✂️ [CNN Brasil] Após polêmica envolvendo Neymar, Bruna Biancardi posta foto  — абзацы 5/12; убраны абзацы с домыслами фанатов и слухами
-       ✂️ [Agência Brasil] Mostra gratuita no Rio debate quem se beneficia com a minera — абзацы 4/13; убран лишний повтор заголовка и рекламный абзац
-       ✂️ [Agência Brasil] Brasileiros percebem racismo estrutural e defendem políticas — абзацы 4/5; убран финальный абзац
-       ✂️ [Estadão] Bope e PF apreendem máquina capaz de produzir 3 mil fuzis po — абзацы 3/6; статья закрыта, выпускаем как есть
-       ✂️ [Estadão] Quem era a jornalista e locutora que morreu em acidente entr — абзацы 4/9; снято лишнее описание поиска и реакций
-       ✂️ [Estadão] Nobel da Paz, condecorado por papa e rainha: quem é o cienti — абзацы 4/10; взяты содержательные абзацы; исключены шапка и хвост
-       ✂️ [BBC Brasil] Até onde o dólar pode subir? Por que o real é a moeda que ma — абзацы 7/34; исключены повтор заголовка и вода
-       ✂️ [BBC Brasil] O que é o ajuste fiscal que o mercado cobra de Lula? Entenda — абзацы 7/84
-       🖼 [BBC Brasil] O que é o ajuste fiscal que o mercado cobra de Lul — фото: №2 вместо №1
-       ✂️ [Notícias ao Minuto] Portugal estreia primeiro carregador de 1.000 kW para camiõe — абзацы 7/9; взят основной текст; исключен последний абзац
-       ✂️ [Público] AIMA pode cancelar autorização de residência de 4.195 imigra — абзацы 6/10; исключены служебные абзацы 1 и 2; последний абзац не берется
-       ✂️ [Téla Nón] Lula da Silva e José Maria Neves reforçam a cooperação entre — абзацы 4/5
-       ✂️ [BBC Brasil] O 'exército das avós': os números que mostram as responsávei — абзацы 7/35
-       ✂️ [Terra BR] Flamengo vê alvo se tornar mais distante após clubes da Euro — абзацы 7/9
-       ✂️ [Terra BR] Ex-James Bond aconselha Robert Pattinson: 'Bem-vindo ao club — абзацы 3/9
-       ✂️ [Observador PT] PS acusa Moedas de querer limitar acesso a documentos — абзацы 3/8
-       ✗ нет события: [Observador PT] "Ressabiamento". PSD desvaloriza Isaltino, que vem "dividir" — анализ без повода
-       ✂️ [Notícias ao Minuto] Lisboa recebe sábado protesto nacional contra megaprojetos — абзацы 4/10
-       📝 [Inquirer.com] EUA perdem status de eliminação do sarampo conform → EUA perdem status de eliminação do sarampo conforme surtos se espalham.
-       📝 [CBS News] Irã descarta inspeções em locais nucleares danific → Irã descarta inspeções da AIEA em locais nucleares até o fim da guerra.
-       📝 [RTP Notícias] Avião militar russo despenha-se na Sibéria e faz 1 → Avião militar russo despenhou-se na Sibéria Ocidental; 19 mortos.
-       ✂️ [RTP Notícias] Avião militar russo despenha-se na Sibéria e faz 19 mortos — абзацы 4/6
-       📝 [RFI] Como a Ucrânia destruiu parcialmente a ponte de Ke → Exército ucraniano destrói parcialmente seção da ponte de Kerch após ataques em dois dias.
-       ✂️ [RTP Notícias] Ucrânia. Zelensky apela a ajuda na defesa anti-aérea — абзацы 3/4
-       ✂️ [ECO] Moldova fecha espaço aéreo após intrusão de drone — абзацы 8/14
-       ✂️ [ECO] Zelensky propõe cessar-fogo humanitário em dez locais tomado — абзацы 5/11
-       🖼 [TechCrunch] Google expande acesso ao Gemini Tasks, que auxilia — фото: №3 вместо №1
-       ✗ повтор: [Variety] SAG-AFTRA desliga milhares de membros por falta de pagamento de taxas em meio a tensões in — уже есть аналогичные сообщения в ленте издания
-       ✗ нет события: [Ars Technica] Humanidade se prepara para invasão alienígena no teaser da 2ª temporada de 3 Body Problem — анонс выхода сериала
-       ✂️ [BBC Brasil] Drones, carros autônomos e robôs: o que a China vai mostrar  — абзацы 8/83; убрал повтор заголовка
-       ✂️ [Folha de S.Paulo] Novo exame de sangue diz detectar mais de 50 tipos de câncer — абзацы 6/42
-       📝 [G1 Rio Grande do Sul] Polícia investiga se carro encontrado carbonizado  → Polícia encontra carro carbonizado que pode ter sido usado em série de assassinatos no RS.
-       ✂️ [G1 Rio Grande do Sul] Polícia investiga se carro encontrado carbonizado foi usado  — абзацы 6/18
-       📝 [G1 Pernambuco] Iphan diz que não foi comunicado sobre achado de p → Iphan não foi avisado sobre descoberta de possível artefato da 2ª Guerra em Noronha.
-       ✂️ [G1 Pernambuco] Iphan diz que não foi comunicado sobre achado de possível ar — абзацы 3/4
-       📝 [G1 Santa Catarina] Atingidos por tornado em Chapecó podem sacar R$ 6, → Atingidos por tornado em Chapecó podem sacar até R$ 6,6 mil do FGTS.
-       ✂️ [G1 Santa Catarina] Atingidos por tornado em Chapecó podem sacar R$ 6,6 mil do F — абзацы 5/11
-       🖼 [G1 Santa Catarina] Atingidos por tornado em Chapecó podem sacar R$ 6, — фото: №2 вместо №1
-       ✂️ [G1 São Paulo] Incêndio de grandes proporções destrói depósito de mercadori — абзацы 4/14
-       🖼 [G1 São Paulo] Incêndio de grandes proporções destrói depósito de — фото: №2 вместо №1
-       ✂️ [G1 Distrito Federal] Preso grupo suspeito de desviar R$ 1,4 milhão de obra no Lag — абзацы 5/7
-       ✂️ [Gazeta do Povo] Lindbergh alerta para risco de recessão e expõe racha no PT  — абзацы 3/10
-       ✂️ [G1 Minas] Paralisação de médicos em UBSs de Santa Luzia impacta atendi — абзацы 2/10
-       🖼 [G1 Minas] Paralisação de médicos em UBSs de Santa Luzia impa — фото: №2 вместо №1
-       ✂️ [G1 Rio] Alexandre de Moraes arquiva inquérito contra Daniel Silveira — абзацы 3/53
-       ✗ нет события: [74.ru] Sósia de Michael Jackson de 12 anos encontra irmãos do cantor e participa do 'The Voice Ki — интервью, повода нет
-       ✗ не для читателя: [60.ru] Professora confessa abuso de aluno de 16 anos — криминал в США
-       📝 [G1 Rio Grande do Sul] Tornado que atingiu RS em julho é reclassificado c → Tornado que atingiu o RS em julho é reclassificado como devastador pela UFSM.
-       ✂️ [G1 Rio Grande do Sul] Tornado que atingiu RS em julho é reclassificado como devast — абзацы 4/21
-       🖼 [G1 Rio Grande do Sul] Tornado que atingiu RS em julho é reclassificado c — фото: №2 вместо №1
-       ✂️ [G1 Bahia] PF conclui investigação sobre desvio de R$ 48,7 milhões na c — абзацы 4/17
-       ✂️ [G1 Pernambuco] Operação contra tráfico de drogas e lavagem de dinheiro em P — абзацы 3/16
-       🖼 [G1 Pernambuco] Operação contra tráfico de drogas e lavagem de din — фото: №3 вместо №1
-       ✗ повтор: [G1 São Paulo] Após jogar filha de viaduto em SP, mãe invadiu ambulância e gritou 'matei minha filha', di — новое не добавлено, старый снимок
-       ✂️ [G1 Distrito Federal] Mauro Cid pede ao STF para cumprir pena no RJ para reduzir c — абзацы 4/12
-       ✂️ [G1 Minas] Delegada vira ré por emprestar arma usada para matar gari em — абзацы 7/27
-       ✂️ [G1 Rio] Homem suspeito de se passar por delegado para estuprar mulhe — абзацы 6/10
-       ✗ нет события: [60.ru] Esposa de Hegseth é acusada de gerenciar sua imagem — слухи об имидже, не событие
-       📝 [G1 Rio Grande do Sul] Após ataques a tiros com 8 mortes no RS, polícia a → Polícia busca executores e mandantes após ataques com 8 mortes no RS.
-       ✂️ [G1 Rio Grande do Sul] Após ataques a tiros com 8 mortes no RS, polícia ainda busca — абзацы 8/24
-       ✂️ [G1 São Paulo] Câmera de segurança registra empresário entregando videogame — абзацы 4/9; выбраны абзацы с ключевыми фактами, убран хвост
-       ✗ нет события: [Gazeta do Povo] Nikolas Ferreira ameaça sair do PL caso partido se aliie a Hugo Motta — политические угрозы и рассуждения
-       🖼 [60.ru] Priscilla Presley luta para remover acusações de p — фото: №2 вместо №1
-       🖼 [G1 Rio Grande do Sul] Caminhão com carga de papel higiênico cai de viadu — фото: №2 вместо №1
-       ✂️ [G1 São Paulo] Seu Jorge, Jota.Pê e Rincon Sapiência fazem shows gratuitos  — абзацы 6/15; убран первый абзац (подпись к фото) и хвост
-       ✂️ [G1 Minas] Polícia apreende 43 notebooks, tablets e computadores em imó — абзацы 7/16; убраны подписи к фото и незаконченный 10 абзац
-       ✗ повтор: [G1 Rio] Zona Sul e Centro concentram 37% dos casos de mpox no Rio; boate suspendeu atividades após — повтор снимка и темы из связанных материалов
-       ✂️ [G1 Paraná] Mãe e padrasto são indiciados por morte de criança de 2 anos — абзацы 3/8; выбраны суть, детали и итог расследования
-       🖼 [G1 Paraná] Mãe e padrasto são indiciados por morte de criança — фото: №2 вместо №1
-       ✂️ [G1 Minas] Homem é encontrado em grota com múltiplas fraturas após ser  — абзацы 4/11; выбраны суть, помощь и детали происшествия
-       ✂️ [G1 Rio] Professor espancado no Centro foi arrastado pela calçada e l — абзацы 7/41; выбраны суть и детали нападения
-       🖼 [G1 Rio] Professor espancado no Centro foi arrastado pela c — фото: №3 вместо №1
-       ✂️ [G1 São Paulo] Quem é Can Yaman? Galã turco que causou alvoroço em aeroport — абзацы 7/31; выбраны суть, цель визита и справка
-       🖼 [G1 São Paulo] Quem é Can Yaman? Galã turco que causou alvoroço e — фото: №2 вместо №1
-       ✂️ [G1 Minas] Mais de 260 aprovados em concursos da Polícia Civil são nome — абзацы 5/10; убрал абзац с рекламой фото, не берём последний
-       ✂️ [G1 Rio] Mônica Benício entra com novo recurso contra homenagem à Edu — абзацы 8/31; убрал последний абзац
-       ✂️ [G1 São Paulo] Polícia faz operação contra grupo suspeito de aplicar golpe  — абзацы 6/14; убран лишний вводный абзац и хвост с деталями перевода
-       📝 [G1 Minas] 57% dos pedidos de pensão de morte para cônjuge ao → Ipsemg amplia atendimento para pensão de morte com opção online.
-       ✗ повтор: [G1 Rio] PM busca quem ordenou envio de coroas de flores com nomes de policiais vivos a batalhão — новость уже была
-       ✂️ [G1 São Paulo] Concessionária do Aeroporto de Congonhas é multada em R$ 50  — абзацы 3/8
-       🖼 [G1 São Paulo] Concessionária do Aeroporto de Congonhas é multada — фото: №2 вместо №1
-       ✂️ [G1 Minas] Cleitinho anuncia futura cúpula da PM e comando da Advocacia — абзацы 3/23
-       🖼 [G1 Minas] Cleitinho anuncia futura cúpula da PM e comando da — фото: №2 вместо №1
-       ✂️ [G1 Minas] Chuva forte causa alagamentos e estragos na capital, Grande  — абзацы 8/13
-       ✗ повтор: [G1 Rio] Câmara do Rio faz audiência sobre projeto que autoriza torres de 80 andares no Porto — уже была в ленте, снимок тот же
-       ✂️ [G1 São Paulo] Operação em SP mira advogadas suspeitas de fraude em process — абзацы 3/7
-       🖼 [G1 São Paulo] Operação em SP mira advogadas suspeitas de fraude  — фото: №2 вместо №1
-       ✗ повтор: [G1 Minas] Tentativa de sequestro de bebê em maternidade de BH: veja a cronologia — детали уже были в предыдущих новостях
-       ✂️ [G1 Rio] Gêmeos presos por estupro em MG têm grupo de pagode em Niter — абзацы 5/21
-       🖼 [G1 Rio] Gêmeos presos por estupro em MG têm grupo de pagod — фото: №2 вместо №1
-       ✂️ [G1 São Paulo] Três policiais civis são presos suspeitos de desviar drogas  — абзацы 8/27; фото 1 — не снимок, 3 — заглушка
-       🖼 [G1 São Paulo] Três policiais civis são presos suspeitos de desvi — фото 1 — не снимок, 3 — заглушка
-       ✂️ [G1 São Paulo] Falha em trem provoca lentidão na Linha 15-Prata do monotril — абзацы 7/15; убраны лишние абзацы, выбран снимок из статьи
-       🖼 [G1 São Paulo] Falha em trem provoca lentidão na Linha 15-Prata d — фото: №2 вместо №1
-       ✂️ [G1 Rio] Quem é Loirinho, preso pela 1ª vez aos 18 anos que, aos 35,  — абзацы 3/8; снял повторы и лишние детали, объединил суть
-       ✂️ [G1 São Paulo] Procurado pela Interpol, influencer será julgado acusado de  — абзацы 2/27
-       🖼 [G1 São Paulo] Procurado pela Interpol, influencer será julgado a — фото: №2 вместо №1
-       ✂️ [G1 Rio] Homem é preso por feminicídio após companheira ser encontrad — абзацы 5/6; удален хвост с контактами
-     лента: было 109, снято 15, добрано до полной 18, стало 112; фото: взято у соседа 0, убрано чужих 1
-     💰 редактор: $0.0289
-  🧭 [pt] после редактора (в эфир): всего 56 — местных 25, соседей 12, мира 19; областных 40 в 9 регионах
+  🗞 Редактор [en] (В ЭФИРЕ): карточек 169, спрошено 158, вторым 0
+     память не сработала: новая 157, текст вырос 1
+     снято: нет события 17, повтор 3, реклама 2
+     починено: текст сокращён до сути 115, строка НОС принята 23, строка НОС: из заголовка 6, фото заменено 6, нужно другое фото 6, строка НОС: сжата кодом 1
+     🎲 Любопытное [en] (в полосу «Интересное»): 3
+       🎲 снято · [El Universo EC] Brad Pitt expresses interest in becoming the next James Bond villain alongside Robert Pattinson · https://eluniverso.com/entretenimiento/gente/brad-pitt-quiere-convertirse-en-el-proximo-villano-de-james-bond-junto-a-robert-pattinson-nota/ — интервью-предположение, не событие
+       🎲 в эфире · [Cardinal & Pine] Asheville’s Salvage Station looks to rebound from a flood, a fire, and the loss of its riverfront space · https://cardinalpine.com/local/culture/asheville-salvage-station-looks-to-return/ — нет события: это планы на будущее, а не свершившийся факт
+       🎲 снято · [KOB] Pay it 4ward: Albuquerque lip reading teacher and friend honored · https://www.kob.com/new-mexico/albuquerque-metro/master-lip-reader-and-teacher-honored/ — позитивная история без новостного повода
+       📝 [UPI] Three killed after plane crashes near Grand Canyon → Three people were killed in a plane crash near the North Rim of the Grand Canyon.
+       📝 [KOB] BCSO deputies investigate shooting in South Valley → BCSO deputies are investigating a shooting in South Valley; a suspect is in custody.
+       ✂️ [KOB] BCSO deputies investigate shooting in South Valley — абзацы 3/5
+       ✂️ [KFYR-TV] South Dakota workers to see minimum wage increase Jan. 1 — абзацы 6/8
+       ✂️ [NBC News] A Kremlin trap? Europe sees danger in Vladimir Putin’s new d — абзацы 3/14; не беру 4-й — это слова/предыстория
+       ✗ нет события: [NBC News] New Concerns Arise Over What AI Toys Could Be Teaching Kids — репортаж-анонс без конкретики
+       ✂️ [CBS News] Anthropic's IPO set for blastoff this week in key test for A — абзацы 4/10
+       ✂️ [LA Times] Haitian boy taken into ICE custody during check-in reunited  — абзацы 4/6
+       ✂️ [Toronto Star] Divided appeals court blocks Pentagon from expelling several — абзацы 8/14
+       ✂️ [CNA] US chip export curbs test Southeast Asia’s AI ambitions, but — абзацы 4/13
+       ✂️ [The Globe and Mail] Carney, Sheinbaum discuss future of Canada-Mexico trade on s — абзацы 8/27
+       ✂️ [The Globe and Mail] A Canadian teen was blackmailed after sending nude images. I — абзацы 6/125; убрал хвост; выбрал абзацы с сутью
+       ✂️ [Sky Sports] Wales beaten by 10-man Portugal as Neto scores but is sent o — абзацы 4/5; убрал последний абзац
+       ✗ нет события: [El Universo EC] Brad Pitt expresses interest in becoming the next James Bond villain alongside Robert Patt — интервью-предположение, не событие
+       📝 [BBC World] Russian military plane crashes killing all 19 on b → Russian military transport plane crashed in Siberia, all 19 people on board killed.
+       ✂️ [BBC World] Russian military plane crashes killing all 19 on board — абзацы 6/11
+       📝 [Knews.kg] CNN: U.S. intelligence suggests Iran is planning a → CNN: U.S. intelligence suggests Iran planning a dirty bomb attack in Washington.
+       ✂️ НОС [The Hill] Hung Cao grilled by Senate over suicide attempts, Iran war:  → Hung Cao grilled by Senate over suicide attempts, Iran war: 5 takeaways.
+       ✂️ НОС [RFI] How Ukraine partially destroyed the Kerch Bridge in Crimea → Ukrainian military strikes have left the Kerch Bridge in Crimea unusable.
+       ✂️ [BBC News] Government backs welfare shake-up to prevent 'lost generatio — абзацы 6/39
+       ✂️ [BBC News] American soldier arrested by UK police on suspicion of spyin — абзацы 7/14
+       ✗ нет события: [Semafor] Europe the natural location for Mistral IPO, CEO says — мнение CEO, IPO в будущем
+       ✂️ [BBC Sport] FA wants to host Nations League finals in England — абзацы 6/9; убрал воду, спорт-детали и предысторию
+       📝 [KRON4] Flash flood watch issued for parts of Napa County  → Flash flood watch issued for Napa County due to heavy rain.
+       ✗ нет события: [KARE11] Mall of America to attempt Guinness World Record during Black Friday celebration — рекламный промо-актив, не новость
+       ✂️ НОС [KOLO] Police investigating bomb threat that forced lockdown of Loy → Police investigating bomb threat that forced lockdown of Loyalton schools.
+       ✂️ [KOLO] Police investigating bomb threat that forced lockdown of Loy — абзацы 3/6
+       📝 [WREG] Man gets 60 years in shooting death of Memphis mus → Man sentenced to 60 years for killing Memphis musician Blake Rhea.
+       📝 [WKYT] Crash shuts down section of Man o’War Boulevard → A serious crash has shut down a section of Man o’War Boulevard in Lexington.
+       📝 [KOLD] One injured, one arrested following possible stabb → One injured and one arrested following a possible stabbing in Tucson.
+       ✂️ [KOLD] One injured, one arrested following possible stabbing in Tuc — абзацы 3/7
+       📝 [KRQE] Gas leak shuts down community center in Bernalillo → A gas leak has forced the closure of a Bernalillo County community center.
+       📝 [WAFF] Road closed in Lawrence County due to structure fi → Byler Road in Lawrence County is closed due to a structure fire.
+       ✂️ НОС [KLKN-TVKLKN-TV] Update given for LTU and LPSNRD’s flood reduction project → Update given for LTU and LPSNRD’s flood reduction project.
+       ✂️ [KLKN-TVKLKN-TV] Update given for LTU and LPSNRD’s flood reduction project — абзацы 4/8
+       📝 [KWCH] Wichita East High School cleared after bomb threat → Wichita East High School has been cleared following a bomb threat.
+       📝 [Mississippi Today] Drought causing spike in Jackson water line breaks → Drought conditions are causing a sharp increase in water line breaks across Jackson.
+       📝 [Louisiana First News] Shooting on North 47th Street leaves 1 injured → One person was hospitalized following a shooting on North 47th Street in Baton Rouge.
+       📝 [Gothamist] NYC inspection blitz halts construction at sites t → NYC inspectors halted work at sites linked to companies involved in a fatal building collapse.
+       ✂️ [Gothamist] NYC inspection blitz halts construction at sites tied to fat — абзацы 3/15
+       ✗ повтор: [WALB] Fifth suspect arrested in deadly shooting of Albany 15-year-old — новость о поимке 5-го подозреваемого уже была
+       📝 [WV MetroNews] Man in custody after Wheeling bank robbery → A suspect is in custody following a bank robbery in downtown Wheeling.
+       ✂️ [WV MetroNews] Man in custody after Wheeling bank robbery — абзацы 3/4
+       ✂️ НОС [Cardinal & Pine] Asheville’s Salvage Station looks to rebound from a flood, a → Asheville’s Salvage Station looks to rebound from a flood, a fire.
+       ✂️ [Cardinal & Pine] Asheville’s Salvage Station looks to rebound from a flood, a — абзацы 7/21; нет события: это планы на будущее, а не свершившийся факт
+       📝 [KELOLAND] UPDATE: 25-year-old man killed in eastern Sioux Fa → 25-year-old man killed in crash in eastern Sioux Falls.
+       📝 [KSL.com] A 2-month lull ends with Iran's third strike on US → Iran launched drone strikes on a U.S. radar facility in Bahrain.
+       ✂️ [KSL.com] A 2-month lull ends with Iran's third strike on US targets i — абзацы 3/4
+       ✂️ НОС [Latest &amp; Breaking News (fox35orlando)] Orlando weather: Flood watches, warnings issued for Florida' → Orlando weather: Flood watches, warnings issued for Florida's east coast.
+       ✂️ [Latest &amp; Breaking News (fox35orlando)] Orlando weather: Flood watches, warnings issued for Florida' — абзацы 3/4
+       ✗ нет события: [VTDigger] State help for flood survivors was disorganized and slow to arrive. For some, it never cam — расследование-аналитика, нет оперативного повода
+       ✗ нет события: [WBAL] Bednar, Jeffers accept $23.15 million qualifying offers, records for average salaries at p — спорт-трансферы и зарплаты — не наше
+       ✗ повтор: [KTUU] Anchorage man shot by Wasilla police charged with assault — новость о том же инциденте уже была
+       ✂️ [Honolulu Civil Beat] More Than Half Of Hawaiʻi Households Living On Financial Bri — абзацы 6/63; убраны личные истории и цитаты без фактов
+       ✂️ [Oil City News] Casper’s Mountain West Technologies merges with Nebraska’s V — абзацы 5/7; убраны цитаты-этикеты и последний абзац
+       ✂️ [Texas Standard] Texas Democrats demand immediate immigration reform deal fol — абзацы 3/9; убраны общие цитаты и повторы
+       ✂️ [NJ Spotlight News] NJ Monitor: More could lose food stamp benefits under Trump  — абзацы 8/18
+       ✂️ [Bridge Michigan] Defying court order, Trump admin again forces Michigan coal  — абзацы 6/11; убрал воду, мнение экологов и цитаты
+       ✗ нет события: [The Oregonian] Experts release early Oregon State vs. Utah State predictions: Beavers chase bowl eligibil — спортивная аналитика и прогнозы
+       ✂️ [Concord Monitor] Concord Police receive suspicious package, later determined  — абзацы 4/5; убран последний абзац с контактами
+       ✗ нет события: [WHYY] WHYY hosts ‘pop-up’ newsroom and resource fair, delving into foster care in Delaware — репортаж с мероприятия (pop-up newsroom)
+       ✂️ НОС [Startribune News] Measles is no longer considered eliminated in the US and Mex → Measles is no longer considered eliminated in the US and Mexico.
+       📝 [WPLN] MNPD fatally shot a man in Melrose, TBI is investi → A man fatally shot by Nashville police after pointing a gun at officers is under investigation.
+       ✂️ [WPLN] MNPD fatally shot a man in Melrose, TBI is investigating — абзацы 5/6
+       ✂️ [WFPL] Judge approves temporary order preventing Indiana Sen. Garte — абзацы 3/24; выбраны ключевые факты об ограничении
+       📝 [KOLD] Suspect accused of shooting at Tucson police offic → A suspect was arrested after firing at Tucson police during a chase on Nov. 16.
+       ✂️ [KOLD] Suspect accused of shooting at Tucson police officers during — абзацы 4/9
+       📝 [KOB] Board of Peace delivers bleak report on Gaza, warn → The Board of Peace warns the Gaza ceasefire may collapse without immediate action.
+       ✂️ [KOB] Board of Peace delivers bleak report on Gaza, warning of cea — абзацы 3/6
+       📝 [WAFF] 1 dead, 1 taken to hospital after Meridianville cr → 1 person died and 1 was hospitalized after a 2-car crash in Meridianville.
+       ✂️ [WAFF] 1 dead, 1 taken to hospital after Meridianville crash — абзацы 3/5
+       ✂️ [1011NOW] Police arrest 5 more teens suspected of participating in Oma — абзацы 7/26
+       📝 [Louisiana First News] BRPD: 1 hurt in shooting on Plank Road → One person was shot on Plank Road in Baton Rouge on Tuesday.
+       ✂️ [KCRG] Frost brings one of Iowa’s longest growing seasons to a clos — абзацы 8/13
+       ✂️ [Portland Press Herald] Pro-choice Mainers pressure Susan Collins ahead of FDA confi — абзацы 7/19
+       ✂️ [WV MetroNews] A day after indictment of West Virginia auditor, more scruti — абзацы 3/31
+       ✂️ [WDBJ7] $722,000 in specialty crop block grant awarded to support Vi — абзацы 3/30; убран лишний хвост
+       ✂️ [KSFY] Lt. Gov. leads South Dakota trade mission to Australia — абзацы 8/10; убран хвост с контактами
+       ✗ повтор: [KSL.com] Man to spend 120 days in jail after being stopped by grappling device in car chase — фото уже было у связанного материала
+       ✂️ [WCAX] Vermont truth and reconciliation draft report examines state — абзацы 6/13; убраны лишние цитаты и хвост
+       ✂️ [KTUU] Suspect apprehended after firing shots into Mountain View Re — абзацы 5/7; убран хвост с опросом
+       ✂️ [WyoFile] Gordon would extend property tax relief with new supplementa — абзацы 8/14
+       ✗ нет события: [Fort Worth Report] Fort Worth Economic Development Partnership strengthens bench with Frisco hire — найм сотрудника без влияния на жизнь города
+       ✂️ [nj.com] N.J. girls soccer program wins in 2OT to reach first state-t — абзацы 8/12
+       ✗ нет события: [WBUR] What Nvidia spy scandal fallout means for AI industry — интервью-обсуждение, события нет
+       ✂️ [KFYR-TV] Audit finds ineligible businesses received bioscience grant  — абзацы 1/13; важная проверка расходования средств
+       ✂️ [Missoula Current] Downtown transportation overhaul delayed as costs climb — абзацы 3/5; задержка дорожного проекта
+       ✂️ [Indian Express Mumbai] Why toddlers in Maharashtra may have to spend another year i — абзацы 3/6
+       ✂️ [CalMatters] U.S. Supreme Court rejects Trump’s effort to impose DEI poli — абзацы 8/27
+       🖼 [CalMatters] U.S. Supreme Court rejects Trump’s effort to impos — фото: №2 вместо №1
+       ✂️ [MinnPost] Recounts rarely flip election results, but at least four are — абзацы 4/38
+       ✂️ [WPLN] DesJarlais concedes, Tennessee District 4 officially flips b — абзацы 4/8
+       ✂️ [KOB] Congress agrees on civilian plane locator mandate after dead — абзацы 8/12
+       ✂️ [Connecticut Mirror] New CT therapeutic arts pavilion breaks ground: ‘A living la — абзацы 7/16
+       ✂️ [WBRC] Irondale unveils storm shelter on Beacon Drive — абзацы 2/14
+       🖼 [WBRC] Irondale unveils storm shelter on Beacon Drive — фото: №3 вместо №1
+       ✂️ [WIBW] Governor-elect Cindy Holscher launches transition website — абзацы 2/8
+       ✗ реклама: [WLBT] TrustCare Health treats patients on holidays and after hours — реклама клиники, нет события
+       ✂️ [OKC News] Brent Venables previews Oklahoma vs. Texas A&M, discusses Ja — абзацы 3/28
+       ✂️ [KPLC] Southwest District Livestock Show and Rodeo returns to SWLA — абзацы 1/11
+       ✂️ [Gothamist] Woman arrested after climbing outside of a Manhattan skyscra — абзацы 3/6
+       ✂️ [WISH-TV] Docs: Teenager charged in Indianapolis girl’s murder says an — абзацы 4/6
+       ✂️ [Bangor Daily News] THAW Radiothon Thursday to help local families stay warm thi — абзацы 6/7
+       ✂️ [KFVS12] Scouting for Food returns to benefit Southeast Missouri Food — абзацы 1/7
+       ✂️ [WBAY] Fox Cities mother awarded national Pillar Award; donating $2 — абзацы 3/33
+       🖼 [WBAY] Fox Cities mother awarded national Pillar Award; d — фото: №4 вместо №1
+       ✗ нет события: [Deseret News] Utah flips commitment of former Latter-day Saint missionary, BYU signee — спорт: трансфер игрока
+       ✂️ [WCTV] ‘Culture war’ issues out, AI regulation in on first legislat — абзацы 6/12; о законодательных планах штата
+       ✂️ [VTDigger] Vermont public schools expect the lowest health insurance in — абзацы 6/31
+       ✂️ [WTOP] Dolby Laboratories: Fiscal Q4 Earnings Snapshot — абзацы 7/10
+       ✂️ [WyoFile] Gordon stalls $13M grant to trona company that’s cutting 350 — абзацы 5/16; выбраны абзацы с сутью: решение Гордона, суть бизнеса и сокращений
+       ✂️ [Cascade PBS] Immigration enforcement continues to impact local families — абзацы 6/16; реальные факты иммиграционной политики
+       ✂️ [OPB] Curry County commissioners urge Congress to extend mining ba — абзацы 4/5
+       ✂️ [Missoula Current] Medicaid work rules don't apply to Montana Native Americans — абзацы 3/14
+       ✗ нет события: [Spotlight Delaware] Meet ‘The Dark Lord of Prices Corner,’ Delaware musician Gentle Jones — портрет музыканта
+       ✂️ [Indian Express Mumbai] Why Gulf airlines are fighting Adani’s Mumbai airport over 1 — абзацы 3/8
+       ✂️ [CalMatters] California is suing OpenAI over its ‘rogue’ AI agent hack — абзацы 3/4
+       ✗ нет события: [KOLO] Nevada looks to snap two-game losing streak as it takes on Idaho — повтор: тот же снимок
+       ✂️ [WPLN] Tennessee Correction’s new leader has been on both sides of  — абзацы 8/10
+       ✂️ [WKYT] EKU Volleyball head coach Johnna Bazzani signs Extension thr — абзацы 6/11
+       ✂️ [Cronkite News] Luck of the draw: Huge class of House freshmen compete in of — абзацы 3/30
+       ✂️ [WFSB] New Haven alders ask state to let cities ban small liquor bo — абзацы 3/25
+       ✂️ [WIBW] Emporia State women’s basketball drops home opener to Angelo — абзацы 3/5
+       🖼 [WIBW] Emporia State women’s basketball drops home opener — фото: №3 вместо №1
+       ✂️ [WLBT] Library director: Funding shortfall behind potential branch  — абзацы 4/31
+       ✂️ [OKC News] Eric Morris press conference: Oklahoma State prepares for Ar — абзацы 4/30; выбраны факты о подготовке к матчу
+       ✂️ [WAFB] St. Tammany school aide pleads guilty to battery of special  — абзацы 6/8
+       ✂️ [NY Post] Larry David announces 2027 live conversation tour, with Broo — абзацы 2/17; местное событие: график тура и даты билетов
+       ✗ нет события: [WTOC] Savannah Police updates Top 10 Most Wanted list — обновление списка розыска — рутина
+       ✂️ [KCRG] Peaceful protest organized against planned lead azide detona — абзацы 5/15; предупреждение о выбросе свинца
+       ✗ нет события: [Bangor Daily News] Maine County Official of November, Evan Goodkowsky — награждение местного чиновника — не новость
+       ✂️ [Homepage] Memorial casket and car wrap business booming in Milwaukee — абзацы 3/4; выбраны факты о бизнесе и причинах, хвост исключен
+       ✂️ [WJXT News4JAX] ‘I needed that sense of touch’: Baker County mom reunites wi — абзацы 3/13; выбраны ключевые факты дела, исключены повторы эмоций
+       ✂️ [MarylandReporter.com] State Roundup: Van Hollen mounts challenge to Schumer; state — абзацы 4/17; выбраны основные события из дайджеста, убраны повторы и лишние цитаты
+       ✂️ [WIS-TV] Man charged with Lower Richland Boulevard homicide — абзацы 5/6; хвост про прошлую судимость исключен
+       ✂️ [Untitled RSS Feed] After Grueling Six-Day Hunt, Wyoming Hunter Bags One Of Bigg — абзацы 3/11; выбраны факты охоты, фото с героями
+       ✂️ [New Jersey 101.5] Driver without a license admits role in crash that killed ch — абзацы 6/15; убрал повтор, выбрал суть дела
+       ✂️ [masslive.com] Mass. sex offender pleads guilty to having 1,000s of child s — абзацы 4/6; убрал последний абзац
+       🖼 [News] Kootenai County has been designated as a World War — фото: №4 вместо №1
+       ✂️ [OPB] Donors poured tens of millions into second most expensive go — абзацы 6/22; сократил до сути выборов
+       ✂️ [Missoula Current] AG pushes harsher arson penalties after devastating WA wildf — абзацы 6/16; убрал повтор заголовка и автора
+       ✗ реклама: [Spotlight Delaware] Annual Report: Spotlight Delaware and the value of local news — самопиар издания
+       ✂️ [Indian Express Mumbai] Mumbai’s BEST buses have lost nearly 100 routes. Where did t — абзацы 3/10
+       ✂️ [CalMatters] Bonuses tick up at California pension funds with 3 executive — абзацы 5/12
+       ✂️ [reviewjournal] ‘Shoot em!’: Protester sues Las Vegas police, claiming exces — абзацы 5/24; выбран снимок из статьи
+       🖼 [reviewjournal] ‘Shoot em!’: Protester sues Las Vegas police, clai — фото: №5 вместо №1
+       ✂️ [WKYT] UK guard Emily McDonald earns SEC Freshman of the Week — абзацы 7/8
+       ✗ нет события: [KOB] Pay it 4ward: Albuquerque lip reading teacher and friend honored — позитивная история без новостного повода
+       ✂️ [WFSB] Glastonbury High School locked down after hoax call, police  — абзацы 2/26; снято, повтор события, была серия таких звонков
+       ✂️ [WBRC] Hoover parents ask school board for cameras in special educa — абзацы 5/12
+       ✂️ [WOWT] Omaha man charged with burglary after cops trace power cord  — абзацы 7/8
+       ✂️ [WIBW] Royals make trade with Red Sox for right-handed pitcher — абзацы 5/6
+       ✂️ [NY Post] Secretive hedge fund RenTech dodges Nvidia bloodbath that hi — абзацы 3/38
+       ✂️ [WTOC] Savannah alderwoman defends exchange with officers at double — абзацы 4/26
+       ✂️ [WABI] AIO to distribute Thanksgiving meals to 600 households in Kn — абзацы 3/12
+       ✂️ [WDBJ7] Community input meeting held on future of Evans Spring — абзацы 5/15
+       ✂️ [KOTA] South Dakota opens annual contest inviting residents to name — абзацы 4/11
+       ✂️ [Deseret News] Salt Lake City tried to save 10 million gallons of water per — абзацы 8/19; need_photo: true, иконки не подходят
+       ✂️ [WCTV] ‘What a season’: St. George Island sea turtle hatchlings dro — абзацы 5/7
+       ✂️ [WCAX] Skiers return to Killington as World Cup snowmaking deadline — абзацы 6/16
+       ✂️ [Latest &amp; Breaking News] Northwest High principal moves to MCPS Central Services afte — абзацы 3/7
+       ✂️ [Hawaii News Now] Spotlight Now: HMSA, Hawaii Pacific Health leaders answer qu — абзацы 5/33
+       ✂️ [WyoFile] Campbell County blames meth, denies excessive force in fatal — абзацы 3/13
+       ✂️ [NJ Spotlight News] NJ lawmakers launch bid to restore cost-of-living adjustment — абзацы 6/39
+       ✂️ [OPB] More than 2M Oregonians break previous record for midterm el — абзацы 5/11
+       ✂️ [Missoula Current] Idaho Fish and Game Commish pleads guilty to hunting charges — абзацы 3/7
+       ✂️ [Cronkite News] Round Rock’s Erich Rogers takes his roping skills to Phoenix — абзацы 8/25
+       ✂️ [Connecticut Mirror] Sal Monarca, guilty of bribing Kosta Diamantis, avoids jail  — абзацы 7/19
+       ✂️ [WIBW] Miracle on Kansas Avenue parade returns to downtown Topeka D — абзацы 3/11
+       ✂️ [WLBT] Nissan donates Canton-built Altima to high school driver edu — абзацы 5/6
+       ✂️ [WAFB] 78-year-old dies after trying to help woman break up a dogfi — абзацы 3/7
+       ✗ нет события: [NY Post] Star Chef Eyal Shani is opening a Lower East Side outpost of Miami hotspot Bella — реклама открытия нового ресторана
+       📝 [WDBJ7] Franklin County High School closed Tuesday due to  → Franklin County High School is closed Tuesday due to a power outage.
+     лента: было 169, снято 20, добрано до полной 46, стало 195; фото: взято у соседа 0, убрано чужих 7
+     💰 редактор: $0.0565
+  🧭 [en] после редактора (в эфир): всего 60 — местных 35, соседей 16, мира 9; областных 115 в 44 регионах
 
-💰 Расход по этапам: всего $0.0812
-     редактор: $0.0289 (36%), запросов 18
-     спасение текста: $0.0144 (18%), запросов 8
-     отбор (этап 2): $0.0137 (17%), запросов 5
-     перевод: $0.0060 (7%), запросов 5
-     отсев (этап 1): $0.0049 (6%), запросов 4
-     склейка пересказов: $0.0034 (4%), запросов 1
-     прочее: $0.0028 (4%), запросов 1
-     мировые сюжеты: $0.0027 (3%), запросов 1
-     снимки происшествий: $0.0023 (3%), запросов 8
-     обзоры прессы: $0.0020 (2%), запросов 1
+💰 Расход по этапам: всего $0.1795
+     отбор (этап 2): $0.0537 (30%), запросов 20
+     редактор: $0.0520 (29%), запросов 36
+     спасение текста: $0.0346 (19%), запросов 23
+     отсев (этап 1): $0.0128 (7%), запросов 11
+     склейка пересказов: $0.0073 (4%), запросов 1
+     перевод: $0.0061 (3%), запросов 4
+     обзоры прессы: $0.0042 (2%), запросов 1
+     прочее: $0.0038 (2%), запросов 2
+     мировые сюжеты: $0.0027 (2%), запросов 1
+     снимки происшествий: $0.0023 (1%), запросов 8
 ```

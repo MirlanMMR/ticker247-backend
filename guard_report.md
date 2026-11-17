@@ -1,11 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [world] ECO — Rede interna da agência de segurança dos EUA sofre falha informática — Технический сбой в сети агентства США — локальное событие без внешних последствий.
-- [pt] чужое_мелкое: [world] Engadget — Google Wallet é lançado para iOS — Запуск приложения Google Wallet для iOS в США — рядовое событие для американского рынка.
-- [pt] чужое_мелкое: [world] TechCrunch — A Model ML angaria US$ 250 milhões para automatizar trabalho braçal em bancos de — Привлечение инвестиций стартапом — внутренняя бизнес-новость Британии.
-- [pt] не_новость: [world] TechCrunch — Google expande acesso ao Gemini Tasks, que auxilia em chamadas e compras — Описание расширения функционала Gemini — это анонс обновления, а не свершившееся событие.
-- [pt] чужое_мелкое: [world] Ars Technica — Califórnia processa OpenAI após empresa admitir 80 incidentes de perda de contro — Судебный иск штата Калифорния к компании OpenAI — локальное разбирательство.
-- [pt] не_новость: [world] BBC Brasil — Drones, carros autônomos e robôs: o que a China vai mostrar a Trump e Putin — e  — Аналитическая статья о планах Китая — это рассуждение, а не факт события.
-- [pt] не_новость: [world] Guardian Sport — Tiger Woods retornará ao golfe competitivo após dois anos no Hero World Challeng — Анонс участия Тайгера Вудса в будущем турнире (декабрь).
-- [pt] чужое_мелкое: [world] Expresso das Ilhas — Primeiro rascunho da COP31 rejeitado pela UE — Рабочий процесс отклонения чернового текста на конференции COP31 не является мировой новостью.
-- [pt] чужое_мелкое: [world] Guardian Sport — Los Angeles Chargers vencem o Baltimore Ravens e conquistam a primeira vitória d — Результат матча регулярного сезона НФЛ — локальное спортивное событие США, не имеющее мирового значения.
+- [en] курьёз: [local] Untitled RSS Feed — After Grueling Six-Day Hunt, Wyoming Hunter Bags One Of Biggest Bison Ever In Ut — Охотничья история, не событие для ленты US.
+- [en] срочность: [local] KRON4 — Flash flood watch issued for parts of Napa County as heavy rain approaches — Flash flood watch — прогноз погоды, не экстренное событие.
+- [en] не_новость: [local] WCTV — ‘Culture war’ issues out, AI regulation in on first legislative day — Первый день сессии законодательного собрания — процедурное событие.
+- [en] не_новость: [local] WTOP — Dolby Laboratories: Fiscal Q4 Earnings Snapshot — Стандартный квартальный финансовый отчет.
+- [en] срочность: [local] WECT — Abbey Nature Preserve closed after reports of potentially dangerous wildlife, of — Закрытие парка из-за животных — не требует побудки.
+- [en] не_новость: [local] WCTV — ‘What a season’: St. George Island sea turtle hatchlings drop to third of 2025 t — Экологическая статистика за год, не событие.
+- [en] курьёз: [local] 11Alive — NASA's Voyager mission will reach another interstellar milestone Wednesday, Nov. — Космический факт, место в «Интересном», а не в общих новостях.
+- [en] срочность: [local] WAFF — Road closed in Lawrence County due to structure fire — Локальный пожар не является событием для всей страны (US).
+- [en] не_новость: [pool] TechCrunch — SEC reportedly investigating Nvidia amid Huang exit — Слухи о проверке SEC без официального подтверждения.
+- [en] не_новость: [pool] The Hill — Ocasio-Cortez, in rare Fox News appearance, says DOT shouldn't get blank check — Описание политического выступления/мнения, а не принятого решения.
+- [en] не_новость: [pool] KSFY — Lt. Gov. leads South Dakota trade mission to Australia — Торговая миссия — плановое рабочее мероприятие.
+- [en] не_новость: [pool] Variety — ‘3 Body Problem’ Sets Season 2 Release Date at Netflix (TV News Roundup) — Анонс даты выхода сериала.
+- [en] не_новость: [pool] Ars Technica — “Trump was in bed with Jensen”: Critics balk at Huang’s wish to return to Nvidia — Пересказ политических обвинений и предвыборной риторики.
+- [en] не_новость: [pool] Fortune — Altria CEO says ‘responsibility needs to be at the heart’ of its FDA-regulated n — Выступление CEO с общими словами о стратегии.
+- [en] не_новость: [pool] Engadget — Google Wallet is launching on iOS — Запуск приложения — маркетинговое событие, а не новость.
+- [en] не_новость: [pool] Rolling Stone — Blink-182 and Pierce the Veil Lead When We Were Young 2027 Festival Lineup — Анонс музыкального фестиваля.
+- [en] не_новость: [pool] BBC News — Government backs welfare shake-up to prevent 'lost generation' — Правительство поддержало планы (намерения), а не приняло закон.
+- [en] курьёз: [pool] The Globe and Mail — A Canadian teen was blackmailed after sending nude images. — Частная история, не имеет общественно значимых последствий.
+- [en] не_новость: [pool] Indian Express Mumbai — New elevator rules in Maharashtra: Why children under 12 can no longer ride alon — Местные правила эксплуатации лифтов в индийском штате — чужое мелкое.
+- [en] не_новость: [pool] Indian Express Mumbai — Why toddlers in Maharashtra may have to spend another year in playgroup — Местные правила приема в детсад — чужое мелкое.
+- [en] не_новость: [pool] Indian Express Mumbai — Why Gulf airlines are fighting Adani’s Mumbai airport over 14 routes — Спор авиакомпаний за слоты — бизнес-конфликт, нет события.
+- [en] не_новость: [pool] Indian Express Mumbai — Mumbai’s BEST buses have lost nearly 100 routes. Where did they go? — Описание изменения маршрутной сети (обзор), не событие.
+- [en] не_новость: [world] TechCrunch — Model ML raises $250M to automate investment banking grunt work — Привлечение инвестиций стартапом — бизнес-рутина.
+- [en] курьёз: [world] Ars Technica — Humanity braces for an alien invasion in 3 Body Problem S2 teaser — Анонс трейлера сериала.
+- [en] не_новость: [world] Guardian Sport — Tiger Woods to make golf return after two years at Hero World Challenge — Анонс возвращения спортсмена к соревнованиям.
