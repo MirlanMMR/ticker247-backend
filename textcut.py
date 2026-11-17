@@ -961,14 +961,48 @@ def _squash(t) -> str:
     return re.sub(r"\s+", " ", str(t or "")).strip()
 
 
+_RIGHTS = re.compile(
+    r"все права защищены|all rights reserved|tous droits réservés|todos los derechos reservados|"
+    r"todos os direitos reservados", re.I)
+RIGHTS_TAIL_MAX = 900     # подвал короток; длинный хвост после фразы — это уже не подвал, а текст
+
+
+def cut_from_rights_reserved(text):
+    """Владелец 17.11: «начиная со слов „все права защищены“» — от этой фразы и до конца всё долой.
+
+    Режем только там, где фраза стоит отдельным предложением (в начале текста, абзаца или после точки) и
+    за ней не больше RIGHTS_TAIL_MAX знаков: статья, в которой фраза встретилась посреди рассказа
+    («…закон: все права защищены договором…»), остаётся целой. Предложение с ©, стоявшее прямо перед
+    фразой («© ИА «24.kg» - Новости Кыргызстана.»), уходит вместе с ней."""
+    s = str(text or "")
+    for m in _RIGHTS.finditer(s):
+        before, rest = s[:m.start()], s[m.start():]
+        if len(rest) > RIGHTS_TAIL_MAX:
+            continue
+        b = before.rstrip()
+        if b and b[-1] not in ".!?…»”\n" and not re.search(r"(?:©|\(c\)|copyright)[^.!?\n]{0,160}$", b, re.I):
+            continue                                  # фраза внутри предложения — не подвал
+        # убрать стоящее перед ней предложение с ©
+        b = re.sub(r"(?:^|(?<=[.!?…»”\n]))\s*(?:©|\(c\)|copyright)[^\n]{0,160}$", "", b, flags=re.I).rstrip()
+        return b
+    return s
+
+
 def strip_known_footers(text):
-    """Вырезает из текста известные подвалы сайтов (`KNOWN_FOOTERS`) в любом месте и возрастную метку после них."""
+    """Вырезает из текста известные подвалы сайтов (`KNOWN_FOOTERS`) в любом месте и возрастную метку после них;
+    затем — всё от фразы «Все права защищены» до конца (`cut_from_rights_reserved`)."""
+    orig = str(text or "")
+    out = cut_from_rights_reserved(_strip_known(orig))
+    return out.strip() if out != orig else text
+
+
+def _strip_known(text):
     out = str(text or "")
     for f in KNOWN_FOOTERS:
         # пробелы в тексте бывают любые (переносы, неразрывные), поэтому ищем по гибкому шаблону
         pat = re.compile(r"\s+".join(re.escape(w) for w in f.split()) + r"(?:\s*\+\d{1,2})?")
         out = pat.sub("", out)
-    return out.strip() if out != str(text or "") else text
+    return out
 
 
 def is_legal_footer(text) -> bool:
