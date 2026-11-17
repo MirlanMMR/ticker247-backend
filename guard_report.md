@@ -1,25 +1,11 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [local] El Informador — Monitoreo GPS del transporte público en Jalisco operará en 2027: Setran — Плановое сообщение о том, что мониторинг заработает в будущем.
-- [es] не_новость: [local] El Informador — Alistan en Guadalajara concentración feminista por el 25N — Анонс предстоящей акции, а не событие.
-- [es] не_новость: [local] El Informador — Siteur lanza plataforma para consultar disponibilidad de elevadores en el Tren L — Запуск платформы — сервисная информация, не является новостным событием.
-- [es] не_новость: [local] El Sol de México — Trabajadores del IMSS instalan plantón en Segob y anuncian que se reunirán con l — Протест и «план встречи» — слова и намерения, а не состоявшееся решение.
-- [es] не_новость: [local] La Jornada — Oaxaca: sección 22 alista paro de 48 horas por adeudos a docentes — Анонс предстоящего забастовочного пара на 48 часов.
-- [es] срочность: [pool] El Tiempo CO — Ataques con explosivos, cilindros abandonados y miedo: así sería el 'ajedrez tác — Описание «тактики групп» не требует немедленной побудки читателя.
-- [es] не_новость: [pool] El Mundo — Sánchez esquilma a toda la izquierda: Podemos se aleja del escaño para Irene Mon — Анализ предвыборных рейтингов и прогнозы — не событие.
-- [es] не_новость: [pool] Semana CO — Dólar cierra la jornada más barato tras completar con tendencia a la baja el mar — Ежедневное колебание курса валют без экстренных скачков.
-- [es] не_новость: [pool] El País — Ayuso critica el apoyo de Lula a Pedro Sánchez en la campaña: “Cada vez hay más  — Политическая критика и обмен мнениями между политиками.
-- [es] не_новость: [pool] El Informador — Alerta de tráfico en Jalisco: dónde y por qué protestarán productores del campo — Анонс протестов: «где и почему будут протестовать».
-- [es] курьёз: [pool] El País — “Yo sí te voy a votar”: Adrián, el cocinero valenciano que compuso la canción vi — История про автора песни в TikTok, не является новостью.
-- [es] не_новость: [world] TechCrunch — Google amplía el acceso a Gemini Tasks, que ayuda con llamadas y compras — Рутинное обновление функции приложения Google.
-- [es] не_новость: [world] El Financiero — Trump bromea con despedir al secretario de Estado de EU, Marco Rubio, si no cont — Шутка президента не является кадровым решением.
-- [es] не_новость: [world] Variety — Derek DelGaudio y Frank Oz se reúnen para la obra 'Unknown Caller' en el Public  — Анонс новой театральной постановки.
-- [es] не_новость: [world] TechCrunch — Google conservará los chats de Gemini durante 2 meses, frente a las 72 horas ant — Изменение настроек хранения данных сервиса — не новостное событие.
-- [es] не_новость: [world] Variety — Blink-182 y Pierce the Veil encabezarán el festival When We Were Young 2027 — Объявление лайн-апа фестиваля на 2027 год — анонс.
-- [es] не_новость: [world] Variety — Roadside Attractions adquiere los derechos en EE. UU. del thriller 'One Second A — Сделка по правам на фильм — бизнес-рутина, а не событие для широкого читателя.
-- [es] не_новость: [world] El Financiero — Jensen Huang reconoce que está dispuesto a regresar como CEO de Nvidia: ‘Será un — Слова руководителя о «готовности вернуться» не являются фактом возвращения.
-- [es] курьёз: [world] BBC Mundo — El gran hito del Voyager: cuánto es un día luz, la distancia más lejana a la que — Популярно-научная заметка о космосе.
-- [es] не_новость: [world] Wired — VSCO busca competir con Adobe Lightroom con su nueva aplicación de escritorio — Выход обновления программы для десктопа.
-- [es] не_новость: [world] Guardian Sport — Tiger Woods regresará al golf tras dos años en el Hero World Challenge — Анонс возвращения спортсмена в будущем.
-- [es] не_новость: [world] RFI — Aplazamiento de la elección del secretario general de la OIF: negociaciones tens — «Переговоры», «отсутствие согласия» — нет факта завершенного события.
-- [es] курьёз: [world] La Jornada — Por primera vez son mujeres las artistas que tienen más nominaciones a los Gramm — Статистика номинаций на премию, не является общественно важным событием.
+- [pt] чужое_мелкое: [world] ECO — Rede interna da agência de segurança dos EUA sofre falha informática — Технический сбой в сети агентства США — локальное событие без внешних последствий.
+- [pt] чужое_мелкое: [world] Engadget — Google Wallet é lançado para iOS — Запуск приложения Google Wallet для iOS в США — рядовое событие для американского рынка.
+- [pt] чужое_мелкое: [world] TechCrunch — A Model ML angaria US$ 250 milhões para automatizar trabalho braçal em bancos de — Привлечение инвестиций стартапом — внутренняя бизнес-новость Британии.
+- [pt] не_новость: [world] TechCrunch — Google expande acesso ao Gemini Tasks, que auxilia em chamadas e compras — Описание расширения функционала Gemini — это анонс обновления, а не свершившееся событие.
+- [pt] чужое_мелкое: [world] Ars Technica — Califórnia processa OpenAI após empresa admitir 80 incidentes de perda de contro — Судебный иск штата Калифорния к компании OpenAI — локальное разбирательство.
+- [pt] не_новость: [world] BBC Brasil — Drones, carros autônomos e robôs: o que a China vai mostrar a Trump e Putin — e  — Аналитическая статья о планах Китая — это рассуждение, а не факт события.
+- [pt] не_новость: [world] Guardian Sport — Tiger Woods retornará ao golfe competitivo após dois anos no Hero World Challeng — Анонс участия Тайгера Вудса в будущем турнире (декабрь).
+- [pt] чужое_мелкое: [world] Expresso das Ilhas — Primeiro rascunho da COP31 rejeitado pela UE — Рабочий процесс отклонения чернового текста на конференции COP31 не является мировой новостью.
+- [pt] чужое_мелкое: [world] Guardian Sport — Los Angeles Chargers vencem o Baltimore Ravens e conquistam a primeira vitória d — Результат матча регулярного сезона НФЛ — локальное спортивное событие США, не имеющее мирового значения.
