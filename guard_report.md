@@ -1,27 +1,23 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] курьёз: [local] Untitled RSS Feed — After Grueling Six-Day Hunt, Wyoming Hunter Bags One Of Biggest Bison Ever In Ut — Охотничья история, не событие для ленты US.
-- [en] срочность: [local] KRON4 — Flash flood watch issued for parts of Napa County as heavy rain approaches — Flash flood watch — прогноз погоды, не экстренное событие.
-- [en] не_новость: [local] WCTV — ‘Culture war’ issues out, AI regulation in on first legislative day — Первый день сессии законодательного собрания — процедурное событие.
-- [en] не_новость: [local] WTOP — Dolby Laboratories: Fiscal Q4 Earnings Snapshot — Стандартный квартальный финансовый отчет.
-- [en] срочность: [local] WECT — Abbey Nature Preserve closed after reports of potentially dangerous wildlife, of — Закрытие парка из-за животных — не требует побудки.
-- [en] не_новость: [local] WCTV — ‘What a season’: St. George Island sea turtle hatchlings drop to third of 2025 t — Экологическая статистика за год, не событие.
-- [en] курьёз: [local] 11Alive — NASA's Voyager mission will reach another interstellar milestone Wednesday, Nov. — Космический факт, место в «Интересном», а не в общих новостях.
-- [en] срочность: [local] WAFF — Road closed in Lawrence County due to structure fire — Локальный пожар не является событием для всей страны (US).
-- [en] не_новость: [pool] TechCrunch — SEC reportedly investigating Nvidia amid Huang exit — Слухи о проверке SEC без официального подтверждения.
-- [en] не_новость: [pool] The Hill — Ocasio-Cortez, in rare Fox News appearance, says DOT shouldn't get blank check — Описание политического выступления/мнения, а не принятого решения.
-- [en] не_новость: [pool] KSFY — Lt. Gov. leads South Dakota trade mission to Australia — Торговая миссия — плановое рабочее мероприятие.
-- [en] не_новость: [pool] Variety — ‘3 Body Problem’ Sets Season 2 Release Date at Netflix (TV News Roundup) — Анонс даты выхода сериала.
-- [en] не_новость: [pool] Ars Technica — “Trump was in bed with Jensen”: Critics balk at Huang’s wish to return to Nvidia — Пересказ политических обвинений и предвыборной риторики.
-- [en] не_новость: [pool] Fortune — Altria CEO says ‘responsibility needs to be at the heart’ of its FDA-regulated n — Выступление CEO с общими словами о стратегии.
-- [en] не_новость: [pool] Engadget — Google Wallet is launching on iOS — Запуск приложения — маркетинговое событие, а не новость.
-- [en] не_новость: [pool] Rolling Stone — Blink-182 and Pierce the Veil Lead When We Were Young 2027 Festival Lineup — Анонс музыкального фестиваля.
-- [en] не_новость: [pool] BBC News — Government backs welfare shake-up to prevent 'lost generation' — Правительство поддержало планы (намерения), а не приняло закон.
-- [en] курьёз: [pool] The Globe and Mail — A Canadian teen was blackmailed after sending nude images. — Частная история, не имеет общественно значимых последствий.
-- [en] не_новость: [pool] Indian Express Mumbai — New elevator rules in Maharashtra: Why children under 12 can no longer ride alon — Местные правила эксплуатации лифтов в индийском штате — чужое мелкое.
-- [en] не_новость: [pool] Indian Express Mumbai — Why toddlers in Maharashtra may have to spend another year in playgroup — Местные правила приема в детсад — чужое мелкое.
-- [en] не_новость: [pool] Indian Express Mumbai — Why Gulf airlines are fighting Adani’s Mumbai airport over 14 routes — Спор авиакомпаний за слоты — бизнес-конфликт, нет события.
-- [en] не_новость: [pool] Indian Express Mumbai — Mumbai’s BEST buses have lost nearly 100 routes. Where did they go? — Описание изменения маршрутной сети (обзор), не событие.
-- [en] не_новость: [world] TechCrunch — Model ML raises $250M to automate investment banking grunt work — Привлечение инвестиций стартапом — бизнес-рутина.
-- [en] курьёз: [world] Ars Technica — Humanity braces for an alien invasion in 3 Body Problem S2 teaser — Анонс трейлера сериала.
-- [en] не_новость: [world] Guardian Sport — Tiger Woods to make golf return after two years at Hero World Challenge — Анонс возвращения спортсмена к соревнованиям.
+- [es] не_новость: [local] El Economista MX — Digitalizar no se decreta — мнение автора, а не событие.
+- [es] срочность: [local] El Financiero — EU emite alerta por bloqueos de productores de maíz en Guadalajara: ‘Pueden ser  — рекомендация избегать мест протеста не является экстренной побудкой.
+- [es] курьёз: [local] Expansión MX — El 73% del mundo pide prohibir redes sociales a menores, pero el 40% acepta la I — результаты опроса не являются событием (белый список).
+- [es] курьёз: [local] Expansión MX — El efecto GTA VI llega a las oficinas: las vacaciones aumentan 32% antes del est — феномен вокруг выхода видеоигры — интересное, но не новость.
+- [es] не_новость: [local] Expansión MX — El 90% de concesionarios de radio y TV ya implementó los lineamientos de derecho — отчет о выполнении регламента, нет события.
+- [es] не_новость: [local] La Jornada — Decidirá la Corte si atrae litigio entre Telcel y AT&T — анонс судебного заседания, решения еще нет.
+- [es] чужое_мелкое: [local] La Jornada — “Advirtieron” a regidor de Cuernavaca por denunciar a criminales — угрозы местному политику — внутренняя хроника без влияния на страну.
+- [es] не_новость: [pool] Infobae — Carlos Bianco defendió las PASO, pero advirtió: “El peronismo debe llegar con un — политическое рассуждение о будущем, события нет.
+- [es] курьёз: [pool] La Nación AR — Cristian Coloca advirtió sobre un error al invertir: “Confiar en altos rendimien — совет инвесторам — не новость.
+- [es] не_новость: [pool] La Nación AR — Máximo goleador de la selección argentina: cómo está la tabla, tras el retiro de — спортивная статистика, события нет.
+- [es] курьёз: [pool] Clarín AR — Cómo funciona la inteligencia artificial que ya se usa en Buenos Aires para cont — описание технологии — не событие.
+- [es] чужое_мелкое: [pool] El Mundo — Sánchez esquilma a toda la izquierda: Podemos se aleja del escaño para Irene Mon — внутренняя предвыборная аналитика Испании.
+- [es] чужое_мелкое: [world] Semafor — China amenaza con represalias ante las restricciones estadounidenses a los chips — угрозы без свершившихся санкций или ограничений.
+- [es] не_новость: [world] El Nacional VE — Mets tocan la puerta del agente libre Tarik Skubal — слухи о трансфере, сделка не закрыта.
+- [es] не_новость: [world] TechCrunch — Amazon y Google poseerán juntos casi el 30% de Anthropic tras su salida a bolsa — финансовые прогнозы, нет сделки.
+- [es] курьёз: [world] BBC Mundo — Cómo los directores del premiado documental "Naza" convencieron a soldados israe — обсуждение документального фильма.
+- [es] не_новость: [world] Wired — La junta directiva de Nvidia no tiene planes de traer de vuelta a Jensen Huang — кадровая перестановка в совете директоров — корпоративный процесс.
+- [es] чужое_мелкое: [world] Clarín AR — Crece el riesgo de cierre de escuelas públicas y recortes presupuestarios en Nue — муниципальная статистика образования в одном городе США.
+- [es] курьёз: [world] BBC Mundo — El gran hito del Voyager, el objeto fabricado por la humanidad que más lejos lle — популярно-научный факт, не новость.
+- [es] не_новость: [world] Guardian Sport — Tiger Woods regresará al golf tras dos años en el Hero World Challenge — анонс участия спортсмена в турнире.
+- [es] чужое_мелкое: [world] El Mundo — Feijóo se planta entre gritos e insultos ante los violentos en Guipúzcoa: "¡Ni u — внутренний конфликт местной партии в Испании.
