@@ -925,8 +925,121 @@ _STUB_SUMMARY = re.compile(
     r"últimas notícias, comentários e vídeos", re.I)
 
 
+# ─── Юридическая плашка сайта вместо текста (журнал J76, 15.11.2026) ────────
+#
+# 15.11 владелец открыл обзор прессы «Трагедия в Оше»: затравка от 24.kg — не новость, а подвал сайта
+# «© ИА «24.kg» - Новости Кыргызстана. Все права защищены. Вся информация… не подлежит распространению
+# без письменного разрешения…». Издание сменило вёрстку, предчистка вырезала колонку со статьёй вместе
+# со «списком ссылок», trafilatura осталась с одним подвалом, а ворота качества пропустили его: по
+# метрикам (буквы, длина предложений) плашка неотличима от текста. Один детектор на все пути: разбор
+# страницы, ИИ-спасение, память страниц, блок обзора, карточка, последний шаг перед записью.
+#
+# Признаки общие для всех изданий и языков, без названий сайтов: текст ОТКРЫВАЕТСЯ знаком авторского
+# права, либо это короткий текст, где ≥ 2 юридических оборота подряд.
+_LEGAL_HEAD = re.compile(r"^\W{0,3}(?:©|\(c\)|copyright\b|все права защищены|all rights reserved)", re.I)
+_LEGAL_MARKER = re.compile(
+    r"все права защищены|all rights reserved|tous droits réservés|todos los derechos reservados|"
+    r"todos os direitos reservados|не подлежит распространению|без письменного разрешения|"
+    r"предназначена только для персонального|редакция не несет ответственности|"
+    r"редакция не несёт ответственности|любое копирование|without (?:the )?(?:prior )?written permission|"
+    r"may not be (?:reproduced|republished|redistributed)|terms of use|политик[аи] конфиденциальности|"
+    r"privacy policy|política de privacidad|política de privacidade|politique de confidentialité", re.I)
+
+
+# Известные подвалы — скопированы со страниц дословно (владелец 17.11: «скопировать футер и зашить»).
+# Опознаются по точному тексту независимо от общих признаков ниже и вырезаются из любого места текста,
+# вместе с возрастной меткой «+18», которую сайт клеит следом. Нашли новый подвал — дописать сюда.
+KNOWN_FOOTERS = (
+    "© ИА «24.kg» - Новости Кыргызстана. Все права защищены. Вся информация, размещенная на данном "
+    "веб-сайте, предназначена только для персонального использования и не подлежит распространению "
+    "без письменного разрешения ИА «24.kg». Редакция не несет ответственности за содержимое "
+    "перепечатанных материалов и высказывания отдельных лиц.",
+)
+
+
+def _squash(t) -> str:
+    return re.sub(r"\s+", " ", str(t or "")).strip()
+
+
+_RIGHTS = re.compile(
+    r"все права защищены|all rights reserved|tous droits réservés|todos los derechos reservados|"
+    r"todos os direitos reservados", re.I)
+RIGHTS_TAIL_MAX = 900     # подвал короток; длинный хвост после фразы — это уже не подвал, а текст
+
+
+def cut_from_rights_reserved(text):
+    """Владелец 17.11: «начиная со слов „все права защищены“» — от этой фразы и до конца всё долой.
+
+    Режем только там, где фраза стоит отдельным предложением (в начале текста, абзаца или после точки) и
+    за ней не больше RIGHTS_TAIL_MAX знаков: статья, в которой фраза встретилась посреди рассказа
+    («…закон: все права защищены договором…»), остаётся целой. Предложение с ©, стоявшее прямо перед
+    фразой («© ИА «24.kg» - Новости Кыргызстана.»), уходит вместе с ней."""
+    s = str(text or "")
+    for m in _RIGHTS.finditer(s):
+        before, rest = s[:m.start()], s[m.start():]
+        if len(rest) > RIGHTS_TAIL_MAX:
+            continue
+        b = before.rstrip()
+        if b and b[-1] not in ".!?…»”\n" and not re.search(r"(?:©|\(c\)|copyright)[^.!?\n]{0,160}$", b, re.I):
+            continue                                  # фраза внутри предложения — не подвал
+        # убрать стоящее перед ней предложение с ©
+        b = re.sub(r"(?:^|(?<=[.!?…»”\n]))\s*(?:©|\(c\)|copyright)[^\n]{0,160}$", "", b, flags=re.I).rstrip()
+        return b
+    return s
+
+
+def strip_known_footers(text):
+    """Вырезает из текста известные подвалы сайтов (`KNOWN_FOOTERS`) в любом месте и возрастную метку после них;
+    затем — всё от фразы «Все права защищены» до конца (`cut_from_rights_reserved`)."""
+    orig = str(text or "")
+    out = cut_from_rights_reserved(_strip_known(orig))
+    return out.strip() if out != orig else text
+
+
+def _strip_known(text):
+    out = str(text or "")
+    for f in KNOWN_FOOTERS:
+        # пробелы в тексте бывают любые (переносы, неразрывные), поэтому ищем по гибкому шаблону
+        pat = re.compile(r"\s+".join(re.escape(w) for w in f.split()) + r"(?:\s*\+\d{1,2})?")
+        out = pat.sub("", out)
+    return out
+
+
+def is_legal_footer(text) -> bool:
+    """True: вместо статьи — юридическая плашка сайта (подвал, дисклеймер, авторские права)."""
+    t = _squash(text)
+    if len(t) < 20:
+        return False
+    if any(f in t for f in KNOWN_FOOTERS):
+        return True
+    if _LEGAL_HEAD.match(t):
+        return True
+    return len(t) < 900 and len({m.group(0).lower() for m in _LEGAL_MARKER.finditer(t)}) >= 2
+
+
 def is_stub_summary(item) -> bool:
-    return bool(_STUB_SUMMARY.search((item.get("summary") or "")[:200]))
+    s = item.get("summary") or ""
+    return bool(_STUB_SUMMARY.search(s[:200])) or is_legal_footer(s[:900])
+
+
+def drop_legal_footer_blocks(stories, lang, min_sources=2):
+    """Последний шаг перед записью обзоров: блок, чей текст — юридическая плашка, снимаем; обзор,
+    у которого после этого меньше `min_sources` изданий, снимаем целиком. Как и
+    `drop_foreign_script_stories`, не зависит от того, каким путём плашка попала в блок."""
+    out = []
+    for st in stories or []:
+        if not isinstance(st, dict):
+            continue
+        blocks = [b for b in st.get("blocks", []) if isinstance(b, dict)
+                  and not is_legal_footer(b.get("summary"))]
+        dropped = len(st.get("blocks", [])) - len(blocks)
+        if dropped:
+            print(f"  🧾 Блоков обзора с юридической плашкой вместо текста снято [{lang}]: {dropped}")
+        if len({b.get("source") for b in blocks}) < min_sources:
+            print(f"  🧾 Обзор прессы снят: после чистки плашек мало изданий [{lang}]: «{str(st.get('title', ''))[:40]}»")
+            continue
+        out.append({**st, "blocks": blocks} if dropped else st)
+    return out
 
 
 def drop_stub_summaries(items, lang):

@@ -45,7 +45,7 @@ from native_lang import detect_native
 from shelves import verdict as shelf_verdict, pool_shelf_fix, world_to_home_fix
 from twins import drop_twins
 from urgent_guard import foreign_small_urgent, layout_category, p2_excess, personnel_change, prepared_material
-from textcut import ends_inside_quote, first_sentence_title, card_text
+from textcut import ends_inside_quote, first_sentence_title, card_text, is_legal_footer
 
 DB = "https://ticker247-default-rtdb.asia-southeast1.firebasedatabase.app/news/{pool}/items.json"
 KEEP_LIMIT = 1300
@@ -114,6 +114,21 @@ def check(x, pool="ru"):
     if CREDIT.match(x.get("summary", "")):
         flaws["credit"] = True
     return {"source": x["source"], "title": card[:70], "flaws": flaws}
+
+
+def story_blocks_with_footer(pool):
+    """Блоки обзоров прессы, где вместо текста юридическая плашка сайта (J76, 15.11.2026).
+    Аудит смотрел только карточки ленты, а обзоры — нет: плашка 24.kg в «Трагедии в Оше» прошла мимо."""
+    try:
+        data = json.load(urllib.request.urlopen(DB.format(pool=pool).replace("/items.json", "/stories.json")))
+    except Exception:
+        return []
+    bad = []
+    for st in (data if isinstance(data, list) else list((data or {}).values())):
+        for b in (st or {}).get("blocks", []):
+            if is_legal_footer(b.get("summary")):
+                bad.append({"story": st.get("title"), "source": b.get("source")})
+    return bad
 
 
 def pool_space(pool):
@@ -206,6 +221,7 @@ def main():
                 rows.append(row)
             row["flaws"].update(flaw)
     bad = [r for r in rows if r["flaws"]]
+    footer_blocks = story_blocks_with_footer(a.pool)
     pct = 100.0 * len(bad) / max(1, len(rows))
     loc = [x for x in items if x.get("scope") == "local"]
     nat = [x for x in loc if detect_native(x)]
@@ -230,7 +246,7 @@ def main():
     shelf_floor = {"neighbours": sorted(nb), "cards_36h": len(shelf_cards), "floor": 6,
                    "by_country": {c: sum(1 for x in shelf_cards if (x.get("country") or "").upper() == c) for c in sorted(nb)}}
     if a.json:
-        print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad), "shelf_floor": shelf_floor,
+        print(json.dumps({"pool": a.pool, "checked": len(rows), "bad": len(bad), "shelf_floor": shelf_floor, "story_footer_blocks": footer_blocks,
                           "percent": round(pct, 1), "kinds": kinds, "shelf": {"known": shelf_known, "wrong": shelf_wrong, "total": len(vs), "where_scale": new_fields}, "rows": bad},
                          ensure_ascii=False, indent=1))
     else:
@@ -246,10 +262,12 @@ def main():
         print(f"    «Новости из…» дома {hm}: {shelf_floor['cards_36h']} карточек за 36 ч от соседей "
               f"{','.join(shelf_floor['neighbours'])} (пол {shelf_floor['floor']}) {mark}; "
               f"по странам {shelf_floor['by_country']}")
+        print(f"    обзоры прессы: блоков с юридической плашкой вместо текста {len(footer_blocks)} (допуск 0)"
+              + "".join(f" · {f['story']} / {f['source']}" for f in footer_blocks))
         print(f"    родной язык на «Местных»: {len(nat)} из {len(loc)} ({share:.0f}%, потолок 50%)")
         for r in bad:
             print(" ·", r["source"], "|", r["title"], "|", r["flaws"])
-    sys.exit(1 if pct > a.max_bad_percent else 0)
+    sys.exit(1 if pct > a.max_bad_percent or footer_blocks else 0)
 
 
 if __name__ == "__main__":
