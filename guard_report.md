@@ -1,12 +1,32 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [pool] Marca — Los aliados sorpresa por la final del Mundial en España — Это рассуждение о будущем (2030 год), а не свершившееся событие.
-- [es] не_новость: [pool] Semana CO — Primera decisión del nuevo director de la comisión arbitral: es oficial para Nac — Анонс предстоящего матча, а не результат.
-- [es] повтор: [pool] BBC Mundo — "Soy ilegal en mi propio país": los nicaragüenses a los que el gobierno de Orteg ≈ «"Soy ilegal en mi propio país": los nica» — Текст карточки дублирует сам себя в рамках одного блока.
-- [es] повтор: [pool] El Nacional VE — Plus Ultra suspende sus rutas internacionales, excepto Venezuela ≈ «Aerolínea de precios bajos suspende ruta» — Дублирует информацию из карточки 20 об отмене маршрутов авиакомпании.
-- [es] не_новость: [pool] El Nacional VE — Dinorah Figuera recuerda que postulaciones al TSJ cierran el 18 de noviembre — Напоминание о сроке подачи заявок, а не факт назначения или выбора.
-- [es] курьёз: [pool] El Universo EC — Actriz Moria Casán fue reconocida como personalidad destacada de la cultura en B — Вручение культурной премии — частное событие, не имеет мировой значимости.
-- [es] курьёз: [world] Xataka — Madrid enfrenta el momento más complicado de la A-5: excavar 172 metros para peg — Местные ремонтные работы в Мадриде не являются мировой новостью.
-- [es] повтор: [world] Franceinfo — Operaciones en Rusia, vínculos con Jeffrey Epstein y Donald Trump… Las prácticas ≈ «Inside Deutsche Bank: la filtración de 1» — Один и тот же сюжет об утечке документов Deutsche Bank.
-- [es] повтор: [world] eldiario.es — Oligarcas y secreto bancario: la arriesgada relación de Deutsche Bank con Rusia ≈ «Documentos filtrados revelan que Deutsch» — Повторение темы связей Deutsche Bank с Россией.
-- [es] повтор: [world] eldiario.es — Los archivos del Deutsche Bank vinculan a sociedades de Trump con supuestas tram ≈ «Operaciones en Rusia, vínculos con Jeffr» — Еще одна карточка про документы Deutsche Bank.
+- [pt] срочность: [local] G1 Minas — 57% dos pedidos de pensão de morte para cônjuge ao Ipsemg vêm do interior; servi — плановое исследование о пенсиях, не требует побудки
+- [pt] чужое_мелкое: [world] The Independent — Ex-CEO da Nvidia, Jensen Huang, prestará depoimento ao Congresso — внутренняя процедура США, не является мировой новостью
+- [pt] чужое_мелкое: [world] The Hill — Principal advogado da Nvidia concorda em depor perante o Congresso — аналогично №61, процедурный вопрос
+- [pt] не_новость: [world] Público — Zelensky “teimoso”, Putin “petulante” e Netanyahu “trumpista” nas memórias de Bi — обсуждение мемуаров и мнений экс-президента, без события
+- [pt] курьёз: [world] Superinteressante — Bebê norte-americano marca recorde mundial de cinco gerações da mesma família na — любопытный факт из 2005 года, не событие
+- [pt] курьёз: [world] Superinteressante — Sonda Voyager 1, da Nasa, ficará a um dia-luz da Terra, distância inédita para u — популярно-научный факт о зонде, место в 'Интересном'
+- [fr] не_новость: [local] Le Figaro — Pourquoi Franceinfo a précisé les liens conjugaux entre la militante féministe A — портрет/анализ отношений, нет события
+- [fr] не_новость: [local] France Bleu — Soins esthétiques : les médecins et dermatologues ne pourront y consacrer que 30 — интерпретация старого декрета без нового события
+- [fr] не_новость: [local] L'Express — Le marché de l'emploi cadre rattrapé par la morosité économique — обзор рынка, отсутствие конкретного события
+- [fr] не_новость: [local] L'Obs — Projet de loi de finances 2027 : le régime des donations va-t-il changer ? — рассуждение/анонс гипотетических изменений
+- [fr] не_новость: [local] L'Obs — Relance du nucléaire : « Cinq ans après le discours de Macron à Belfort, deux de — аналитическая статья, а не новостное событие
+- [fr] курьёз: [pool] Le Temps — Les Romands consomment 50% plus d’antibiotiques que les Alémaniques, un écart cu — статистический факт, без последствий для читателя
+- [fr] не_новость: [pool] RTBF — Halfprice : une offre de plus sur le marché des bonnes affaires... mais dépendan — обзор бизнес-модели магазина, нет события
+- [fr] курьёз: [pool] Radio-Canada — Opération nettoyage : voici comment Qualinet a manipulé sa réputation en ligne — репутационный кейс, интересно, но не новость
+- [fr] чужое_мелкое: [world] BFMTV — Cyberattaques: le FBI alerte sur la libre disponibilité d'outils utilisant l'IA  — предупреждение без конкретного инцидента
+- [fr] не_новость: [world] France 24 FR — Jeux vidéos : GTA VI s'apprête enfin à sortir après 13 ans d'attente — ожидание выхода игры — анонс, а не факт выхода
+- [fr] повтор: [world] France 24 FR — Mozambique : le procès du principal opposant pour "terrorisme" ouvert ≈ «Au Mozambique, le procès de l’opposant V» — один и тот же суд над оппозиционером
+- [fr] курьёз: [world] Sciences et Avenir — Gaz lacrymogène et douleurs gynécologiques, le vide scientifique — научное наблюдение без события
+- [fr] не_новость: [world] La Dépêche — Mort mystérieuse du fondateur de Mango : "Il est impossible de déterminer les ca — стадия расследования без новых фактов
+- [fr] курьёз: [world] Smithsonian Magazine — Les États-Unis perdent leur statut d'élimination de la rougeole, détenu depuis 2 — статистика заболеваемости, место в «Интересном»
+- [fr] курьёз: [world] Futura-Sciences — Visible depuis l’espace, un ruban brun de 8 850 km traverse l’Atlantique et bat  — научный факт о природе, место в «Интересном»
+- [fr] не_новость: [world] Franceinfo — Les 403 plus grands data centers américains émettent plus de gaz à effet de serr — обсуждение данных исследования, а не событие
+- [fr] не_новость: [world] Fortune — Kevin Warsh demande à la Réserve fédérale d'élaborer des plans de contingence fa — слова о планах, нет принятого решения
+- [fr] не_новость: [world] La Libre — Ren Zhengfei, l'homme derrière la plus grande peur des Américains — биографический очерк, не новость
+- [fr] повтор: [world] RTBF — GTA 6 sort ce 19 novembre : dix chiffres pour mesurer l'ampleur d'un événement d ≈ «Jeux vidéos : GTA VI s'apprête enfin à s» — тот же сюжет про релиз игры
+- [fr] чужое_мелкое: [world] BBC World — Megaspeed, partenaire de Nvidia, visé par une enquête du gouvernement américain  — очередная новость о санкциях/расследовании вокруг Nvidia, перебор
+- [fr] повтор: [world] Le Devoir — La Chine et le Canada s’entendent sur de nouvelles réductions des droits de doua ≈ «Le Canada s’entend avec la Chine pour le» — одна и та же торговая сделка Канады и Китая
+- [fr] не_новость: [world] L'Express — Diesel russe : l'accord entre Donald Trump et Vladimir Poutine bute sur le droit — аналитика о буксующем соглашении, события нет
+- [fr] чужое_мелкое: [world] Knews.kg — CNN : Selon le renseignement américain, l'Iran planifierait l'utilisation d'une  — прогноз разведки США, не является фактом события
+- [fr] чужое_мелкое: [world] L'Express — En Asie aussi, les incursions d'avions russes font monter les tensions — мелкая военная рутина, не имеющая глобальных последствий
