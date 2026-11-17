@@ -66,6 +66,20 @@ for t in REAL:
     check(f"настоящий текст не плашка: {t[:30]!r}", not T.is_legal_footer(t))
 
 
+# ── Известный подвал вырезается дословно, где бы ни стоял (владелец 17.11) ──────
+FOOT = T.KNOWN_FOOTERS[0]
+check("известный подвал опознан", T.is_legal_footer(FOOT + " +18"))
+body = "Первый абзац статьи про отопление в Бишкеке, подробности ниже."
+check("вырезка: подвал в конце + метка +18", T.strip_known_footers(body + "\n\n" + FOOT + " +18") == body)
+check("вырезка: подвал в середине", "Все права" not in T.strip_known_footers(body + " " + FOOT + " Второй абзац."))
+check("вырезка: переносы и неразрывные пробелы внутри подвала",
+      T.strip_known_footers(body + " " + FOOT.replace(" ", "\u00a0\n", 3)) == body)
+check("вырезка: текст без подвала не тронут", T.strip_known_footers(body) == body)
+check("strip_boilerplate: подвал из текста статьи убран", "права защищены" not in FN.strip_boilerplate(body + " " + FOOT + " +18"))
+check("страница из одного подвала: пусто, а не подвал",
+      not X.extract_article(("<html><body><p>" + FOOT + " +18</p></body></html>").encode("utf-8"), "https://e.test/x").text)
+
+
 # ── Звено 2: ворота качества ────────────────────────────────────────────────
 v, why = X.GATE.evaluate(FOOTERS["24.kg"])
 check("ворота: плашка не PASSED", v is not X.Verdict.PASSED)

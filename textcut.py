@@ -946,11 +946,38 @@ _LEGAL_MARKER = re.compile(
     r"privacy policy|política de privacidad|política de privacidade|politique de confidentialité", re.I)
 
 
+# Известные подвалы — скопированы со страниц дословно (владелец 17.11: «скопировать футер и зашить»).
+# Опознаются по точному тексту независимо от общих признаков ниже и вырезаются из любого места текста,
+# вместе с возрастной меткой «+18», которую сайт клеит следом. Нашли новый подвал — дописать сюда.
+KNOWN_FOOTERS = (
+    "© ИА «24.kg» - Новости Кыргызстана. Все права защищены. Вся информация, размещенная на данном "
+    "веб-сайте, предназначена только для персонального использования и не подлежит распространению "
+    "без письменного разрешения ИА «24.kg». Редакция не несет ответственности за содержимое "
+    "перепечатанных материалов и высказывания отдельных лиц.",
+)
+
+
+def _squash(t) -> str:
+    return re.sub(r"\s+", " ", str(t or "")).strip()
+
+
+def strip_known_footers(text):
+    """Вырезает из текста известные подвалы сайтов (`KNOWN_FOOTERS`) в любом месте и возрастную метку после них."""
+    out = str(text or "")
+    for f in KNOWN_FOOTERS:
+        # пробелы в тексте бывают любые (переносы, неразрывные), поэтому ищем по гибкому шаблону
+        pat = re.compile(r"\s+".join(re.escape(w) for w in f.split()) + r"(?:\s*\+\d{1,2})?")
+        out = pat.sub("", out)
+    return out.strip() if out != str(text or "") else text
+
+
 def is_legal_footer(text) -> bool:
     """True: вместо статьи — юридическая плашка сайта (подвал, дисклеймер, авторские права)."""
-    t = re.sub(r"\s+", " ", str(text or "")).strip()
+    t = _squash(text)
     if len(t) < 20:
         return False
+    if any(f in t for f in KNOWN_FOOTERS):
+        return True
     if _LEGAL_HEAD.match(t):
         return True
     return len(t) < 900 and len({m.group(0).lower() for m in _LEGAL_MARKER.finditer(t)}) >= 2

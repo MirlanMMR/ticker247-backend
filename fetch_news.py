@@ -22,7 +22,7 @@ from textcut import (display_source, lead, trim_to_boundary, wants_page_body,
                      final_start_guard, final_end_guard, final_title_guard, strip_known_stubs,
                      drop_stub_summaries, drop_foreign_script, has_foreign_script, is_stub_summary,
                      is_foreign_script_text, drop_foreign_script_stories,
-                     is_legal_footer, drop_legal_footer_blocks)
+                     is_legal_footer, drop_legal_footer_blocks, strip_known_footers)
 from extract import extract_article
 from state_outlets import STATE_RSS, STATE_RADIO
 try:
@@ -2321,6 +2321,7 @@ def strip_tail(text: str) -> str:
 
 def strip_boilerplate(text: str) -> str:
     """Убираем служебные фразы источников из начала текста и хвост из конца"""
+    text = strip_known_footers(text)
     for pattern in BOILERPLATE_PATTERNS:
         idx = text.find(pattern)
         if 0 <= idx < 300:

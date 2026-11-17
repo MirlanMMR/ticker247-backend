@@ -36,7 +36,7 @@ from enum import Enum
 
 from bs4 import BeautifulSoup
 
-from textcut import is_legal_footer
+from textcut import is_legal_footer, strip_known_footers
 
 try:
     import trafilatura
@@ -907,6 +907,7 @@ def extract_article(html: bytes, url: str = "", extra_extractors=None) -> Extrac
         except Exception as e:
             notes.append(f"{name}: сбой — {str(e)[:60]}")
             continue
+        text = strip_known_footers(text)       # известный подвал сайта — дословная вырезка, где бы он ни стоял
         if not text:
             notes.append(f"{name}: пусто")
             continue
