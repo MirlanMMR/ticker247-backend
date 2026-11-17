@@ -1,27 +1,12 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] WBNS RSS Feed: news — Juvenile injured in single-car crash into tree; passengers leave scene — рядовое ДТП с травмами не требует побудки читателя.
-- [en] срочность: [local] WDAM — UPDATE: One dead after crash sends 18-wheeler into Pascagoula River — инцидент с ДТП без массовых последствий не требует срочного уведомления.
-- [en] не_новость: [local] Bangor Daily News — Janet Mills’ transportation commissioner is resigning — плановый уход по возрасту/на пенсию.
-- [en] срочность: [local] WDBJ7 — Franklin County High School closed Tuesday due to power outage — локальное отключение электричества в школе — не повод для срочного уведомления всей аудитории.
-- [en] срочность: [local] WKYT — ‘Active emergency scene’ in Whitley County causes road closure — неизвестное «активное происшествие» без уточнений не должно будить пользователя.
-- [en] полка: [local] Georgia Public Broadcasting — California sues OpenAI over hacking risks — иск США против OpenAI — мировая новость (из-за влияния на ИИ), а не местная.
-- [en] не_новость: [local] WBAL — Gloria Steinem’s famed talking circles are still going strong. — очерк о знаменитости, не событие.
-- [en] не_новость: [local] WABI — Harlem Globetrotters to perform in Augusta, Bangor and Portland on Rivalry Tour — анонс выступлений (плановое событие).
-- [en] не_новость: [local] Homepage — Brewers manager Pat Murphy going on statewide speaking tour in January — анонс турне (плановое событие).
-- [en] курьёз: [local] WCTV — She married at 16. Now she’s fighting to end child marriage in Ohio — статья-расследование, не актуальное событие.
-- [en] не_новость: [local] The Salt Lake Tribune — How Utah wide receiver Creed Whittemore became the hero the Utes needed against  — анализ спортивного матча, а не результат.
-- [en] не_новость: [local] CalMatters — The soil scientist who revolutionized organic strawberry farming in California — очерк о фермере, не событие.
-- [en] не_новость: [local] New Jersey 101.5 — You hit record without telling anyone. Did you break NJ law? — разбор закона, не событие.
-- [en] курьёз: [local] WBIR — 'The Voice' to pay tribute to Dolly Parton — развлекательная заметка о телешоу.
-- [en] не_новость: [pool] WFPL — U of L discloses its under federal review for race-based criteria following KPR  — внутренние административные проверки университета.
-- [en] не_новость: [pool] TechCrunch — Upside Foods can now make a million pounds of chicken a year without killing any — отчет о деятельности компании, а не событие.
-- [en] не_новость: [pool] KSFY — Plankinton School District closed Wednesday for Gerald Hoffman celebration of li — локальный день памяти (плановое).
-- [en] срочность: [pool] RTÉ Ireland — Nurse's family seeks action as hit-and-run driver jailed — судебный приговор по делу, завершившемуся ранее.
-- [en] не_новость: [pool] VTDigger — Canadian spending in Vermont has plummeted as cross-border tourism slowed 28% in — статистическая сводка за 2025 год.
-- [en] не_новость: [pool] Sky Sports — NFL Week 11 games live on Sky Sports — расписание трансляций матчей.
-- [en] не_новость: [pool] Sky Sports — Barrow remove themselves from Super League consideration — отказ от участия — административное решение, не требующее срочности.
-- [en] не_новость: [pool] Rolling Stone — Stephen Wilson Jr. Announces Double Album and Unveils Stunning ‘I’m a Song’ With — анонс альбома (не событие).
-- [en] курьёз: [world] Engadget — Natural Cycles updates its cycle-tracking wearable — обновление потребительского гаджета.
-- [en] не_новость: [world] Wired — The Apple Watch’s Live Rewind Can Record and Rewind Spoken Conversations. — инструкция по использованию функций часов.
-- [en] не_новость: [world] BBC Sport — Will Infantino feel he's already won as Fifa challengers are revealed? — политический комментарий/прогноз до выборов.
+- [es] не_новость: [pool] Marca — Los aliados sorpresa por la final del Mundial en España — Это рассуждение о будущем (2030 год), а не свершившееся событие.
+- [es] не_новость: [pool] Semana CO — Primera decisión del nuevo director de la comisión arbitral: es oficial para Nac — Анонс предстоящего матча, а не результат.
+- [es] повтор: [pool] BBC Mundo — "Soy ilegal en mi propio país": los nicaragüenses a los que el gobierno de Orteg ≈ «"Soy ilegal en mi propio país": los nica» — Текст карточки дублирует сам себя в рамках одного блока.
+- [es] повтор: [pool] El Nacional VE — Plus Ultra suspende sus rutas internacionales, excepto Venezuela ≈ «Aerolínea de precios bajos suspende ruta» — Дублирует информацию из карточки 20 об отмене маршрутов авиакомпании.
+- [es] не_новость: [pool] El Nacional VE — Dinorah Figuera recuerda que postulaciones al TSJ cierran el 18 de noviembre — Напоминание о сроке подачи заявок, а не факт назначения или выбора.
+- [es] курьёз: [pool] El Universo EC — Actriz Moria Casán fue reconocida como personalidad destacada de la cultura en B — Вручение культурной премии — частное событие, не имеет мировой значимости.
+- [es] курьёз: [world] Xataka — Madrid enfrenta el momento más complicado de la A-5: excavar 172 metros para peg — Местные ремонтные работы в Мадриде не являются мировой новостью.
+- [es] повтор: [world] Franceinfo — Operaciones en Rusia, vínculos con Jeffrey Epstein y Donald Trump… Las prácticas ≈ «Inside Deutsche Bank: la filtración de 1» — Один и тот же сюжет об утечке документов Deutsche Bank.
+- [es] повтор: [world] eldiario.es — Oligarcas y secreto bancario: la arriesgada relación de Deutsche Bank con Rusia ≈ «Documentos filtrados revelan que Deutsch» — Повторение темы связей Deutsche Bank с Россией.
+- [es] повтор: [world] eldiario.es — Los archivos del Deutsche Bank vinculan a sociedades de Trump con supuestas tram ≈ «Operaciones en Rusia, vínculos con Jeffr» — Еще одна карточка про документы Deutsche Bank.
