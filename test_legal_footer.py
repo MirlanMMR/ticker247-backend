@@ -115,6 +115,15 @@ res = X.extract_article(html, "https://example.test/a")
 check("разбор: достали статью, не подвал", "Трое детей погибли" in res.text and not T.is_legal_footer(res.text))
 check("разбор: подвала в тексте нет", "Все права защищены" not in res.text)
 
+# Короткая срочная заметка (17.11, 24.kg про отопление: снова плашка, теперь в карточке «Срочно») — ниже
+# прежнего порога 400 знаков (но выше порога ворот, 200): ядро статьи должно защищать колонку и тогда
+SHORT = ("<p>В Бишкеке временно приостановили подачу отопления и горячей воды в ряд жилых домов, сообщили "
+         "городские власти. Причиной назвали ремонт поврежденного участка тепловой сети на улице Панфилова. "
+         "Подача возобновится после окончания работ, сроки в мэрии не называют.</p>")
+html_s = page(f"<div class='more'>{RELATED}</div>").replace(ARTICLE.encode("utf-8"), SHORT.encode("utf-8"))
+res_s = X.extract_article(html_s, "https://example.test/s")
+check("короткая заметка: достали текст, не подвал", "Бишкеке временно" in res_s.text and not T.is_legal_footer(res_s.text))
+
 # Страница, где статьи нет вовсе, а есть только подвал: пустота честнее подвала
 bare = ("<html><body><div class='top'>" + MENU + "</div>" + LEGAL + "</body></html>").encode("utf-8")
 res2 = X.extract_article(bare, "https://example.test/b")
