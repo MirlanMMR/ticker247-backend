@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Economista MX — Alsea acuerda la venta de Burger King en Argentina; deja en duda su futuro en Mé — Внутренняя сделка по сети фастфуда в Аргентине не является мировой новостью.
-- [es] не_новость: [local] El Informador — Conmemoran un año más del Desfile Cívico Deportivo para celebrar la Revolución M — Отчет о прошедшем мероприятии без новых фактов или последствий.
-- [es] срочность: [local] El Informador — ¿A qué hora inician las movilizaciones en carreteras de Jalisco este 17 de novie — Анонс протеста, не является экстренным событием.
-- [es] не_новость: [local] La Jornada — Buscan ser candidatos a diputados o alcaldes más de 21 mil morenistas — Внутренняя процедура регистрации кандидатов в партии — это рутина, а не событие.
-- [es] чужое_мелкое: [local] La Jornada — “Venganza de la extrema derecha”, juicio contra él y Evo — Судебный процесс над бывшим политиком другого государства не является актуальной новостью для Мексики.
-- [es] чужое_мелкое: [pool] El Tiempo CO — Policía investigado por presuntamente matar a su amigo de la infancia podría que — Местная уголовная хроника Колумбии без международного значения.
-- [es] чужое_мелкое: [pool] El Tiempo CO — El angustioso llamado de la familia de Lizeth Alejandra Castaño tras 20 días de  — Локальная хроника похищения в Колумбии.
-- [es] не_новость: [pool] El Tiempo CO — Más de 18.000 asistentes y 70 expositores: Barranquilla respondió al llamado de  — Отчет об окончании выставки (закрытии) — это не событие с последствиями.
-- [es] чужое_мелкое: [pool] Infobae — Volvieron a subir todas las cotizaciones del dólar y el riesgo país superó los 8 — Экономическая статистика и риски Аргентины.
-- [es] чужое_мелкое: [pool] Infobae — La Libertad es la cuarta región con mayor incidencia de dengue del país — Эпидемиологическая ситуация в Перу.
-- [es] чужое_мелкое: [pool] Infobae — Pelea por el descenso en Liga 1 Perú 2026 EN VIVO HOY: ADT, CD Moquegua y FC Caj — Внутренний футбольный турнир Перу.
-- [es] чужое_мелкое: [pool] Infobae — U2 hace historia en Argentina: sumó una cuarta fecha en River Plate — Добавление даты концерта в Аргентине — локальная новость для этой страны.
-- [es] чужое_мелкое: [pool] La Nación AR — Mega-granizo en Córdoba: un temporal azotó a la provincia y hay alerta naranja p — Погода и происшествия в Аргентине.
-- [es] чужое_мелкое: [pool] El Comercio PE — Gonzalo Bueno derrotó 2-1 a Juan Pablo Varillas por el ATP Challenger 75 de Mont — Результат матча Challenger (локальное событие для Аргентины/Перу).
-- [es] чужое_мелкое: [pool] La Nación AR — “Fueron 45 minutos horribles”: una severa tormenta dejó importantes daños en San — Погодные разрушения в Аргентине.
-- [es] чужое_мелкое: [pool] RPP PE — Y el milagro llegó a los 103 minutos: CD Moquegua venció 2-1 a Atlético Grau y s — Результат футбольного матча в Перу.
-- [es] чужое_мелкое: [pool] RPP PE — Comisión del Congreso aprueba reducir 450 millones de soles de su presupuesto pa — Бюджетные процедуры конгресса Перу.
-- [es] срочность: [pool] El Nacional VE — La Policía Nacional de Panamá detiene al primer sospechoso del atentado incendia — Задержание подозреваемого в преступлении в Панаме не требует побудки мексиканского читателя.
-- [es] повтор: [world] El Financiero — Falla en despegues afecta a United a tres días de suspensión de todos los vuelos ≈ «Primero fueron los aviones y Microsoft..» — Повторяет сюжет о технических сбоях в банковской сфере США.
-- [es] повтор: [world] CNN Brasil — Ucrania atacó Moscú con más de 160 drones, según el alcalde de la capital ≈ «Varias regiones de Rusia sufren ataques » — Повторяет сюжет об атаке дронов на РФ.
-- [es] повтор: [world] El Economista MX — Usuarios de EU reportan fallos informáticos en aplicaciones bancarias ≈ «Primero fueron los aviones y Microsoft..» — Повторяет сюжет о технических сбоях в банковской сфере США.
-- [es] повтор: [world] Wired — La interrupción bancaria podría no estar relacionada con su banco ≈ «Primero fueron los aviones y Microsoft..» — Повторяет сюжет о технических сбоях в банковской сфере США.
-- [es] повтор: [world] BBC Mundo — "Es Pattinson, Robert Pattinson": el actor británico será el nuevo James Bond ≈ «Carlos III saluda al nuevo James Bond: “» — Повторяет новость о новом актере на роль Джеймса Бонда.
-- [es] курьёз: [world] Азаттык — Mirziyoyev y Tokayev aparecen en el ranking de los musulmanes más influyentes de — Рейтинг влиятельных лиц — не новость с последствиями, а список.
-- [es] чужое_мелкое: [world] Азаттык — En Kirguistán se realizará una votación de prueba en los colegios electorales an — Внутренние технические тесты инфраструктуры в Кыргызстане.
+- [ru] чужое_мелкое: [local] Sputnik KG — В Подмосковье почтили память героев-панфиловцев — фото — Памятная акция в Подмосковье не является новостью для кыргызстанского читателя.
+- [ru] чужое_мелкое: [local] Kabar.kg — Голливудда кино легендаларына ардактуу “Оскар” сыйлыгы тапшырылды — Вручение почетных «Оскаров» — светское событие, не имеющее прямого отношения к Кыргызстану.
+- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Владелица скандальной частной школы в Тюмени проиграла суд с клиентом — Судебный спор частного лица с частной школой в Тюмени — внутренняя российская хроника.
+- [ru] не_новость: [pool] iXBT — Человекоподобные роботы начнут системно работать в поездах РЖД — Планы РЖД на 2-3 года вперед — это намерения, а не свершившееся событие.
+- [ru] чужое_мелкое: [pool] Азаттык — Казахстанца экстрадировали из Италии в США по обвинению в хакерских атаках — Экстрадиция казахстанца в США — событие, не затрагивающее интересы Кыргызстана.
+- [ru] не_новость: [pool] 72.ru — Тюмень — По Тюмени проедут легендарные белые медведи — точное время и маршрут на карте — Анонс новогодних гуляний в Тюмени.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Отопление дали, но батареи снова холодные: почему Рязань продолжает замерзать в  — Проблемы с отоплением в Рязани — внутренняя российская новость.
+- [ru] чужое_мелкое: [pool] 45.ru — Курган — В Кургане ремонтируют детскую стоматологию в Шевелевке — Ремонт стоматологии в Кургане.
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — Суд назвал точные сроки сноса ресторана на набережной Волги — Снос ресторана в Тольятти.
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — На реконструкцию отправили памятник 300-летию «Мотовилихинских заводов» — на нег — Реконструкция памятника в Перми.
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — В Новгородской области в четырёх ДТП пострадали четыре человека — Сводка ДТП в Новгородской области.
+- [ru] чужое_мелкое: [pool] 71.ru — Тула — Из Росгвардии — в районную администрацию: кто управляет Белёвским районом — Назначение чиновника в районе Тульской области.
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — «Мама, вы зря паникуете»: в пермской больнице умерла пациентка с редким диагнозо — Смерть пациентки в Перми — частный случай, не имеющий значения за пределами РФ.
+- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — А что с горбушей? В Тюмени резко подскочила цена на эту красную рыбу — Цена на горбушу в Тюмени.
+- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Якутянка украла 5 млн рублей у погибшей невестки. Это были похоронные ее брата — Кража в Якутии.
+- [ru] не_новость: [pool] 63.ru — Самара — «Рубашку танцора диско взял за бесценок»: в Самаре появились магазины отказных т — Обзор магазинов распродаж в Самаре.
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — Будут ли перевозить куда-то фермеров, когда закроют Центральный рынок, и откроют — Реновация рынка в Перми.
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Суд дал четыре года колонии особого режима за кражу — Приговор за кражу в Новгородской области.
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Затопили коридор, заплатили еще и за кухню. — Судебный спор из-за затопления квартиры в Оренбурге.
+- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Машину разорвало в клочья. Ехавшая в Якутск «Тойота» улетела в кювет — Смертельное ДТП в Якутии.
+- [ru] чужое_мелкое: [pool] 14.ru — Якутск — УАЗ провалился под лед в Якутии. Тело 70-летнего водителя достали спасатели — Смерть водителя в Якутии.
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Житель Новгорода осуждён за неуплату алиментов — Приговор за алименты в Новгороде.
+- [ru] курьёз: [pool] 14.ru — Якутск — Рыбку почистили и на печь. Панда Саха выпустил новый рецепт, как приготовить уху — Рецепт ухи от блогера — это интересный контент, а не событие.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Более 600 жителей Псковской области ограничены в водительских правах — Ограничение прав водителей в Пскове.
+- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — «Он будто навсегда ушел в ночь на работу». В Волгограде готовятся к прощанию с п — Похороны в Волгограде.
