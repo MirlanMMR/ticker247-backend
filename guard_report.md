@@ -1,27 +1,31 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] не_новость: [local] Kaktus.media — Здание НИИХСТО через несколько лет хотят снести. Депутат просит этого не делать — депутат только просит, решения нет
-- [ru] полка: [local] Вечерний Бишкек — Кыргызстан и Россия расширяют сотрудничество омбудсменов — новость про сотрудничество РФ и KG, должна быть в МИРОВЫХ, а не в местных
-- [ru] курьёз: [local] Knews.kg — Наша одержимость эффективностью лишает нас человечности — философское рассуждение о технологиях, нет события
-- [ru] курьёз: [local] Knews.kg — ООН предупреждает: химикаты, нарушающие работу гормонов и содержащиеся в бытовых — общее предупреждение ООН без конкретного события
-- [ru] чужое_мелкое: [pool] РИА Новости — Платформа Solar SIEM получила сертификат ФСТЭК — узкоспециализированная новость об IT-сертификате РФ
-- [ru] чужое_мелкое: [pool] Onliner.by — Самый известный белорусский кикбоксер завершил карьеру. Ранее его признавали луч — завершение карьеры белорусского спортсмена для KG не является значимым
-- [ru] чужое_мелкое: [pool] Onliner.by — БелЖД запустит новогодний поезд в поместье Деда Мороза — расписание поездов в Беларуси
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — «У нас трубы! Возможно, криминал». Росгвардия и СК нагрянули к директору УК из-з — местный конфликт УК и правоохранителей в Челябинске
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Новомосковске хирурги удалили у 62-летней пациентки опухоль весом более пяти к — медицинская операция в Туле
-- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — В Сургуте завершили восстановление железобетонных конструкций моста через Обь — отчет о завершении ремонта моста в Сургуте
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — На омскую ферму, где сжигали коров, завезли новый скот — локальная новость омской фермы
-- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — В Уфе спилили 50-летнюю ель, чтобы установить ее в парке «Волна» — установка елки в Уфе
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — В Татарстане нашли тела двух девочек-подростков — локальное криминальное происшествие в Татарстане
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — В Тольятти умер известный музыкант — смерть музыканта в Тольятти
-- [ru] не_новость: [pool] ngs55.ru — Омск — «Будет еще хуже»: экономист объяснил причины снижения зарплат омичей — мнение экономиста, а не событие
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Подростки устроили массовую драку в Красноярске — видео — подростковая драка в Красноярске
-- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — С теплохода на Ладоге эвакуировали мужчину — локальное происшествие на Ладоге
-- [ru] курьёз: [world] Naked Science — Затопление города из GTA V помогло оценить угрозу наводнений для Лос-Анджелеса — моделирование ситуации в игре GTA V
-- [ru] курьёз: [world] 14.ru — Якутск — «Это уже покойники». Охотник из Якутии заметил сцену жестокой драки и каннибализ — наблюдение охотника за животными
-- [ru] курьёз: [world] Fortune — Бои роботов в клетке и наночастицы: заметки из Кремниевой долины — заметка о боях роботов без значимых последствий
-- [ru] повтор: [world] Semafor — Некоторые директора Nvidia продолжают настаивать на возвращении Хуанга ≈ «Nvidia обещает, что выручка продолжит ра» — развитие сюжета вокруг ухода Хуанга
-- [ru] чужое_мелкое: [world] Engadget — Пользователи Google Gemini получили возможность просматривать и редактировать да — обновление функции Google Gemini
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Бойфренд звезды SNL умер в 43 года — смерть частного лица (бойфренда актрисы) в США
-- [ru] чужое_мелкое: [world] Ars Technica — Сотни сайтов распространяли вредоносное ПО среди посетителей — техническая новость о вредоносном ПО на сайтах
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Учительница призналась в развращении 16-летнего ученика — частное криминальное дело в США
+- [pt] не_новость: [local] CNN Brasil — “A Fazenda 18”: Alfredo, Ana Bruna, Darlin e Lucas estão na 9ª roça — Это анонс эпизода реалити-шоу, а не событие.
+- [pt] не_новость: [local] Agência Brasil — Bolsa Família: Caixa paga beneficiários com NIS de final 3 a 0 — Плановая выплата пособия — не новость, а рутина.
+- [pt] курьёз: [local] G1 Distrito Federal — 'Identidade e memória': entenda por que o STF agora tem uma escultura de Xangô n — Разбор символики объекта — не новость.
+- [pt] не_новость: [local] G1 Rio Grande do Sul — Menos de um mês antes da aposentadoria, servidor de prefeitura no RS morre em ac — Смерть человека не является новостью без общественно значимых обстоятельств.
+- [pt] не_новость: [local] G1 São Paulo — O que se sabe e o que falta saber sobre suspeita de golpe contra filho de Lula d — Спекуляции о ходе частного бракоразводного процесса.
+- [pt] не_новость: [local] Agência Brasil — Indígenas isolados se aproximam de aldeia e governo fica em alerta — «Правительство в алерте» — нет события, только наблюдение.
+- [pt] повтор: [local] Agência Brasil — STF inaugura símbolo da Justiça na tradição iorubá ≈ «'Identidade e memória': entenda por que » — То же событие, что и в 30.
+- [pt] не_новость: [pool] BBC Brasil — 'A gente não tem cara de panaca': como samba-enredo inspirado na Constituinte de — Аналитическая статья о песне, не является новостью.
+- [pt] не_новость: [pool] BBC Brasil — 'Sociedade se sente traída por Suzane von Richthofen' porque se vê nela, diz con — Мнение эксперта о документальном фильме.
+- [pt] не_новость: [pool] BBC Brasil — Os filhos que lutam na Justiça para apagar nomes de pais ausentes ou abusivos do — Очерк о жизненных трудностях, без конкретного события.
+- [pt] курьёз: [world] Exame — Voyager 1 chega a um dia-luz da Terra após 49 anos; entenda o marco — Научно-популярный факт, событие мирового масштаба отсутствует.
+- [pt] чужое_мелкое: [world] Guardian Sport — As 133 corridas de Duckett garantem vitória da Inglaterra na série ODI — Спортивная новость из Австралии, не имеет мирового значения.
+- [pt] повтор: [world] Latest &amp; Breaking News (fox35orlando) — Voyager 1 da NASA atinge recorde de 16 bilhões de milhas: um 'Dia-Luz' da Terra ≈ «Voyager 1 chega a um dia-luz da Terra ap» — То же событие, что в 59.
+- [pt] курьёз: [world] Superinteressante — Triângulo das Bermudas: por que tantos aviões e navios desaparecem? — Статья-легенда об известном мифе.
+- [pt] повтор: [world] Sciences et Avenir — Voyager 1 prepara-se para atingir distância recorde além do Sistema Solar ≈ «Voyager 1 chega a um dia-luz da Terra ap» — То же событие, что в 59.
+- [pt] не_новость: [world] Engadget — YouTube começará a aumentar contagens de visualizações públicas em TVs — Техническое изменение алгоритма подсчета — не событие.
+- [pt] курьёз: [world] Superinteressante — Quanto pesa a Via Láctea? Mais de 1 trilhão de vezes a massa do Sol — Астрономический факт, а не новость.
+- [pt] полка: [world] G1 Minas — Obras de Aleijadinho são expostas no Vaticano — Выставка в Ватикане — это международное культурное событие, а не местная новость из Minas.
+- [fr] чужое_мелкое: [pool] Le Nouvelliste — Haiti: Thousands of Protesters Take to the Streets to Cheer Bukele and Salvadora — Внутреннее событие Гаити, изложено СМИ Гаити, для французского читателя не является мировой новостью.
+- [fr] не_новость: [world] La Tribune — Jensen Huang serait « honoré » de revenir, mais Nvidia n’en veut pas — Спекуляции о возвращении бывшего гендиректора в компанию, которая от этого отказывается.
+- [fr] чужое_мелкое: [world] RFI — Sénat américain: les démocrates s'imposent en Alaska et obtiennent leur plus lar — Локальные выборы в штате США, не имеют мирового значения.
+- [fr] чужое_мелкое: [world] Courrier International — Les Norvégiens de moins de 30 ans doivent s’attendre à travailler jusqu’à 70 ans — Предложение правительства Норвегии, не имеющее последствий за пределами страны.
+- [fr] не_новость: [world] The Hill — Le projet de 50 milliards de dollars du secrétaire aux Transports Sean Duffy pou — Предложение бюджета, которое столкнулось с оппозицией (обсуждение, а не факт реализации).
+- [fr] повтор: [world] Clarín AR — L'Iran élargit ses attaques dans le golfe Persique et frappe Bahreïn ainsi qu'un ≈ «Trois morts dans une frappe russe sur Od» — Дублирует контекст международной напряженности, при этом фактология о якобы атаках в Персидском заливе требует проверки 
+- [fr] повтор: [world] BBC World — Les Démocrates remportent l'élection sénatoriale en Alaska deux semaines après l ≈ «Sénat américain: les démocrates s'impose» — Повтор новости о результатах выборов в Аляске.
+- [fr] курьёз: [world] Sciences et Avenir — Les États-Unis perdent leur statut de pays ayant éliminé la rougeole — Повтор темы из карточки 36, но с подходом «интересного факта» без новых данных.
+- [fr] повтор: [world] L'Express — Midterms : au bout du suspense, les démocrates remportent aussi l'Alaska ≈ «Sénat américain: les démocrates s'impose» — Третий повтор новости о победе демократов в Аляске.
+- [fr] курьёз: [world] Radio-Canada — Voyager 1 à une journée-lumière de la Terre, un record — Научно-популярный факт (рекорд расстояния Voyager 1), для ленты новостей — «интересное».
+- [fr] не_новость: [world] Le Figaro — Élection Fifa : appui de l’UEFA, campagne tardive, l’ombre de Donald Trump… Phil — Аналитический материал о шансах кандидата на выборах, без свершившегося события.
