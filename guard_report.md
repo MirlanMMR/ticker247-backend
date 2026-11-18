@@ -1,24 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [local] Exame — Sony resgata fone do Walkman com USB-C na onda retrô da geração Z — Это обзор гаджета, а не новостное событие.
-- [pt] курьёз: [local] Exame — Ozempic e Mounjaro podem ter efeito inesperado no cérebro, aponta estudo — Описание результатов научного исследования без факта практического изменения.
-- [pt] срочность: [local] Estadão — Sobrevivente das bombas de Hiroshima e Nagasaki morre aos 97 anos em Santa Catar — Смерть человека, даже известного, не является срочной новостью для побудки.
-- [pt] срочность: [local] G1 Santa Catarina — Explosão em caldeira de fábrica da Klabin deixa feridos em SC; empresa diz que 1 — Это производственная авария, плашка 'СРОЧНО' завышена для этого масштаба.
-- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Norte-americano resgatado de navio após dificuldades respiratórias — Частный инцидент на судне без последствий для читателей в Бразилии.
-- [pt] не_новость: [pool] Terra BR — Corinthians vai à Justiça contra ex-diretor por declaração sobre 'cambismo insti — Подача иска — рутинное юридическое действие, не меняющее статус событий.
-- [pt] курьёз: [pool] Terra BR — Thais Carla passa por nova cirurgia após perder 131 kg e faz revelação sobre tra — Частная история знаменитости, не имеющая общественной значимости.
-- [pt] не_новость: [pool] Observador PT — Porto. Tinoco, NAPA e Sétima Legião na programação de Natal — Анонс развлекательной программы, не является событием.
-- [pt] курьёз: [world] Xataka — El Hierro recebeu em duas semanas quase tantas pessoas quanto habitantes tem. — Статистический факт, не является новостью в белом списке.
-- [pt] курьёз: [world] La Nación AR — Islã superará o cristianismo em 2035 e mudará o mapa religioso do mundo — Прогноз на 2035 год — это мнение/исследование, не является событием.
-- [pt] не_новость: [world] TechCrunch — Snapchat permite que desenvolvedores criem Lenses de RA com assistentes de IA co — Обновление функционала ПО не является событием для читателя.
-- [pt] чужое_мелкое: [world] Folha de S.Paulo — Zverev é acusado de quebra de acordo em caso de suposta violência doméstica — Судебные тяжбы частного лица (теннисиста) — не мировая новость.
-- [pt] анонс: [world] Observador PT — EUA alertam para aumento de atentados mortais pelo Irão — В тексте только технический мусор верстки сайта, нет новости.
-- [pt] курьёз: [world] Engadget — Policiais de GTA 6 irão se lembrar do jogador graças ao sistema 'Heat' — Игровая механика видеоигры не является новостью.
-- [pt] не_новость: [world] TechCrunch — Plataforma de gestão de despesas Payhawk anuncia captação de US$ 280 milhões e a — Привлечение инвестиций стартапом — бизнес-рутина, не новость для широкого читателя.
-- [pt] не_новость: [world] Ars Technica — Governo Trump ordena que a Kalshi interrompa apostas sobre quais palavras Trump  — Юридический спор о ставках — частное дело компании.
-- [pt] не_новость: [world] Rolling Stone — Bruce Dickinson já tem novo álbum solo e datas de turnê durante o intervalo do I — Анонс выхода альбома музыканта — не событие в рамках белого списка.
-- [pt] не_новость: [world] TechCrunch — Recurso de IA na Busca do Google ganha modo anônimo próprio — Техническое обновление функции поиска.
-- [pt] повтор: [world] Guardian Sport — Alexander Zverev é notificado de processo judicial movido por ex-parceira durant ≈ «Zverev é acusado de quebra de acordo em » — Тот же сюжет о Zverev, что в №63.
-- [pt] не_новость: [world] Rolling Stone — Histórico show de Bruce Springsteen em Berlim Oriental de 1988 é retratado em no — Выход документального фильма о событиях 1988 года.
-- [pt] не_новость: [world] Guardian Sport — Netflix, Fox e a proposta de US$ 2 bilhões pela Copa do Mundo de 2030 que pode r — Обсуждение ставок на права трансляции — это предположения, а не свершившаяся сделка.
-- [pt] курьёз: [world] Sciences et Avenir — Voyager 1 prepara-se para atingir distância recorde além do Sistema Solar — Научный факт о движении зонда без изменений для жизни людей.
+- [en] не_новость: [local] KFVS12 — The Arts Council of Southeast Missouri’s Arts and Crafts Extravaganza returns th — Плановое ежегодное мероприятие (Arts and Crafts Extravaganza).
+- [en] не_новость: [local] WIBW — 3,500 pounds of trout to be stocked at Lake Shawnee — Плановая сезонная процедура (stocking fish).
+- [en] не_новость: [local] WSFA — First Alert: Light rain still possible at times as temperatures turn warmer — Прогноз погоды, а не событие.
+- [en] не_новость: [local] KSFY — Avera Women’s and Children’s Center nearly complete — Анонс о том, что центр скоро откроется.
+- [en] срочность: [local] WSPA — Upstate schools switch to e-learning due to water outage — Отключение воды — плановое жизненно важное, не требует «срочно» (согласно инструкции).
+- [en] не_новость: [local] Arizona's Family — Arizona family misses $6,000 cruise after FAA ground stop disrupts flight — Частная жалоба семьи на пропущенный отпуск.
+- [en] не_новость: [local] Gothamist — Trump said congestion pricing would end NYC. Now, his admin wants it in more cit — Мнение/аналитика, а не свершившееся событие.
+- [en] не_новость: [local] VTDigger — Vermont Conversation: Former GOP strategist Stuart Stevens says Republican Party — Анонс подкаста и мнение эксперта.
+- [en] курьёз: [pool] Rolling Stone — John Mayer Transports Michael J. Fox Back to the Future With Chuck Berry Perform — Развлекательный факт о выступлении музыкантов.
+- [en] не_новость: [pool] Rolling Stone — Mullin Says Skipping LSU Game Amid FAA Crisis Would Have Caused ‘Confusion’ — Выступление чиновника в комитете с оправданиями, нет нового факта-события.
+- [en] не_новость: [pool] TechCrunch — Palmer Luckey thinks China is ‘thrilled to have Jensen out,’ so he wants the ous — Мнение частного лица (Palmer Luckey) о кадровых решениях компании.
+- [en] курьёз: [pool] Global News CA — ‘Human’ chosen as word of the year by Cambridge Dictionary amid AI fears — Словарный рейтинг — любопытный факт, не новость.
+- [en] не_новость: [pool] Engadget — Rockstar just settled a major question about GTA 6's controversial FPS decision — Разбор технических характеристик игры, а не событие.
+- [en] не_новость: [pool] Fortune — Waymo says its robotaxis crash far less than humans. — Обзор и сравнение данных регулятором, нет факта нарушения или санкции.
+- [en] не_новость: [pool] Sky Sports — Cadillac confirm Bottas to stay with team for 2027 — Спорт: слухи о контракте, который уже подтвержден, нет изменения положения.
+- [en] не_новость: [pool] Ars Technica — Best Buy sells Blu-rays online and in-store again — Бизнес-информация о способе продажи товаров, не является событием.
+- [en] не_новость: [pool] Ars Technica — Muse privacy invasions are freaking out Meta staffers, internal chats show — Обсуждение внутренних переписок компании без факта утечки или правовых последствий.
+- [en] чужое_мелкое: [world] France 24 — Reconstruction begins at Limoges City Hall after devastating fire — Внутренняя городская стройка во Франции, нет мирового значения.
+- [en] чужое_мелкое: [world] BBC World — William and Kate meet PM Modi as they wrap up India tour — Дипломатический этикет (визит вежливости), нет события.
+- [en] курьёз: [world] Xataka — El Hierro has received almost as many migrants in two weeks as its total populat — Статистический факт без чрезвычайных последствий.
+- [en] не_новость: [world] Engadget — GTA 6's cops will remember you thanks to the 'Heat' system — Разбор механики игры, а не новость.
+- [en] не_новость: [world] Engadget — You can finally edit an Instagram Story without deleting it — Техническое обновление функции приложения.
+- [en] курьёз: [world] The Guardian — I jumped from a plane at 12,000ft. In mid-air, a friend’s knee collided into my  — Личная история без события.
+- [en] не_новость: [world] Guardian Sport — Netflix, Fox and the $2bn bid for the 2030 World Cup that could reshape live spo — Аналитическая статья о будущем рынка прав на трансляции.
+- [en] курьёз: [world] Fortune — Prediction market giant Kalshi is hiring someone to play GTA VI—no resume or cov — Вакансии и околоигровой шум.
