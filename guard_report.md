@@ -1,27 +1,16 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] KFVS12 — The Arts Council of Southeast Missouri’s Arts and Crafts Extravaganza returns th — Плановое ежегодное мероприятие (Arts and Crafts Extravaganza).
-- [en] не_новость: [local] WIBW — 3,500 pounds of trout to be stocked at Lake Shawnee — Плановая сезонная процедура (stocking fish).
-- [en] не_новость: [local] WSFA — First Alert: Light rain still possible at times as temperatures turn warmer — Прогноз погоды, а не событие.
-- [en] не_новость: [local] KSFY — Avera Women’s and Children’s Center nearly complete — Анонс о том, что центр скоро откроется.
-- [en] срочность: [local] WSPA — Upstate schools switch to e-learning due to water outage — Отключение воды — плановое жизненно важное, не требует «срочно» (согласно инструкции).
-- [en] не_новость: [local] Arizona's Family — Arizona family misses $6,000 cruise after FAA ground stop disrupts flight — Частная жалоба семьи на пропущенный отпуск.
-- [en] не_новость: [local] Gothamist — Trump said congestion pricing would end NYC. Now, his admin wants it in more cit — Мнение/аналитика, а не свершившееся событие.
-- [en] не_новость: [local] VTDigger — Vermont Conversation: Former GOP strategist Stuart Stevens says Republican Party — Анонс подкаста и мнение эксперта.
-- [en] курьёз: [pool] Rolling Stone — John Mayer Transports Michael J. Fox Back to the Future With Chuck Berry Perform — Развлекательный факт о выступлении музыкантов.
-- [en] не_новость: [pool] Rolling Stone — Mullin Says Skipping LSU Game Amid FAA Crisis Would Have Caused ‘Confusion’ — Выступление чиновника в комитете с оправданиями, нет нового факта-события.
-- [en] не_новость: [pool] TechCrunch — Palmer Luckey thinks China is ‘thrilled to have Jensen out,’ so he wants the ous — Мнение частного лица (Palmer Luckey) о кадровых решениях компании.
-- [en] курьёз: [pool] Global News CA — ‘Human’ chosen as word of the year by Cambridge Dictionary amid AI fears — Словарный рейтинг — любопытный факт, не новость.
-- [en] не_новость: [pool] Engadget — Rockstar just settled a major question about GTA 6's controversial FPS decision — Разбор технических характеристик игры, а не событие.
-- [en] не_новость: [pool] Fortune — Waymo says its robotaxis crash far less than humans. — Обзор и сравнение данных регулятором, нет факта нарушения или санкции.
-- [en] не_новость: [pool] Sky Sports — Cadillac confirm Bottas to stay with team for 2027 — Спорт: слухи о контракте, который уже подтвержден, нет изменения положения.
-- [en] не_новость: [pool] Ars Technica — Best Buy sells Blu-rays online and in-store again — Бизнес-информация о способе продажи товаров, не является событием.
-- [en] не_новость: [pool] Ars Technica — Muse privacy invasions are freaking out Meta staffers, internal chats show — Обсуждение внутренних переписок компании без факта утечки или правовых последствий.
-- [en] чужое_мелкое: [world] France 24 — Reconstruction begins at Limoges City Hall after devastating fire — Внутренняя городская стройка во Франции, нет мирового значения.
-- [en] чужое_мелкое: [world] BBC World — William and Kate meet PM Modi as they wrap up India tour — Дипломатический этикет (визит вежливости), нет события.
-- [en] курьёз: [world] Xataka — El Hierro has received almost as many migrants in two weeks as its total populat — Статистический факт без чрезвычайных последствий.
-- [en] не_новость: [world] Engadget — GTA 6's cops will remember you thanks to the 'Heat' system — Разбор механики игры, а не новость.
-- [en] не_новость: [world] Engadget — You can finally edit an Instagram Story without deleting it — Техническое обновление функции приложения.
-- [en] курьёз: [world] The Guardian — I jumped from a plane at 12,000ft. In mid-air, a friend’s knee collided into my  — Личная история без события.
-- [en] не_новость: [world] Guardian Sport — Netflix, Fox and the $2bn bid for the 2030 World Cup that could reshape live spo — Аналитическая статья о будущем рынка прав на трансляции.
-- [en] курьёз: [world] Fortune — Prediction market giant Kalshi is hiring someone to play GTA VI—no resume or cov — Вакансии и околоигровой шум.
+- [es] не_новость: [local] El Financiero — Metrobús baja 80% su tarifa entre Terminales 1 y 2 del AICM: ¿Cuántos costará el — Это техническая информация об изменении тарифа, а не событие с общественным значением.
+- [es] не_новость: [local] Expansión MX — Salinas Pliego evalúa sustituir a los cajeros de Banco Azteca por máquinas ante  — Это мнение владельца бизнеса о планах на будущее, а не принятое решение.
+- [es] срочность: [local] El Informador — “El Topo”, detenido en Zapopan, tiene dos carpetas de investigación en Jalisco:  — Задержание преступника — рутина, не требующая побудки читателя.
+- [es] не_новость: [local] El Sol de México — Exfiscal de Chihuahua apela proceso por traición a la patria; lo acusan de dejar — Речь об апелляции и назначении даты слушания, само событие (суд) еще не произошло.
+- [es] не_новость: [pool] Infobae — Con dos jugadores clave recuperados y una sorpresa: el probable equipo de Boca p — Спортивная аналитика и прогнозы состава команды перед матчем не являются новостями.
+- [es] не_новость: [pool] Marca — Endrick deshoja la margarita — Спекуляции о будущем игрока, конкретного события (трансфера) нет.
+- [es] курьёз: [pool] Xataka — El Hierro ha recibido en dos semanas casi tantas personas como habitantes tiene. — Это познавательный факт о демографии острова, а не новостное событие.
+- [es] не_новость: [pool] El Mundo — PP y Vox mantienen su mayoría, Podemos baja del 1% y los bloques se estancan a l — Анализ предвыборных опросов и рейтингов без конкретных событий.
+- [es] не_новость: [pool] El Mundo — "Hola delincuentes": Albiol coloca vallas contra las okupaciones y los multirrei — Политический пиар, лозунги и обещания кандидата, а не свершившееся событие.
+- [es] не_новость: [pool] El País — El PP consolida su posición frente a Vox — Аналитическая заметка о ходе кампании, а не новость.
+- [es] курьёз: [world] Engadget — Rockstar resuelve la controversia sobre la tasa de cuadros por segundo en GTA 6 — Информация о графике (fps) игры — тема для фанатов, не мировая новость.
+- [es] курьёз: [world] Engadget — La policía de GTA 6 recordará al jugador gracias al sistema 'Heat' — Описание механики видеоигры — не новостное событие.
+- [es] курьёз: [world] La Jornada — La nave Voyager 1 logra un hito: la distancia de un día luz de la Tierra — Научный факт о движении зонда, место в разделе «Интересное».
+- [es] курьёз: [world] Sciences et Avenir — Voyager 1 se prepara para alcanzar una distancia récord más allá del Sistema Sol — Повторяет суть карточки 71, это научный факт, а не новость.
