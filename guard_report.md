@@ -1,23 +1,24 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [local] El Financiero — ¿Se acabó el permiso de Juan de Dios Gámez? — Плановая ситуация: истек срок лицензии, решение еще не принято.
-- [es] не_новость: [local] El Financiero — ‘Ningún árbol derribó la estatua de Calderón’: Gil Zuarth denuncia que autoridad — Спор о том, упало дерево или нет — не новость, нет события.
-- [es] курьёз: [local] El Financiero — Casa de subastas Christie’s retira un cuadro de Frida Kahlo tras petición de Méx — Обычная практика аукционов, не является значимым событием.
-- [es] курьёз: [local] Expansión MX — El 73% del mundo pide prohibir redes sociales a menores, pero el 40% acepta la I — Результаты опроса не являются событием по белому списку.
-- [es] срочность: [pool] El Tiempo CO — Mujer fue golpeada frente a su hija de 7 años por un cliente tras caso de intole — Криминальная хроника, нет угрозы для широкого круга лиц.
-- [es] не_новость: [pool] El Tiempo CO — Policía abrió investigación tras video de presunto montaje de pruebas durante al — Начало расследования по видео из соцсетей — это не решение и не факт.
-- [es] чужое_мелкое: [pool] Infobae — Junts propone desocupaciones exprés y una moratoria hasta 2028 a que la banca co — Предложение политической партии (Junts) — это внутренняя политика Испании.
-- [es] не_новость: [pool] El Mundo — PP y Vox mantienen su mayoría, Podemos baja del 1% y los bloques se estancan a l — Анализ предвыборных опросов — это мнение и прогнозы, а не событие.
-- [es] не_новость: [pool] Clarín AR — La Plata cumple 144 años y tendrá un feriado este jueves 19 de noviembre: quiéne — Плановый праздник города (годовщина основания).
-- [es] не_новость: [pool] Clarín AR — Departamentos con jardín en CABA: en qué barrios hay más y cuántos se venden — Обзор рынка недвижимости, нет конкретного события.
-- [es] не_новость: [pool] Clarín AR — Autos usados de dueño directo: cuántos hay y en qué zonas se consiguen más — Совет по покупке подержанных авто, нет события.
-- [es] не_новость: [pool] El País — Sánchez, en Antena 3: “Absoluta tranquilidad, el PSOE no se ha financiado irregu — Интервью политика в рамках предвыборной кампании.
-- [es] не_новость: [pool] El Mundo — Ex dirigentes de PSOE, UCD, CiU, Cs y PP, junto a académicos, abogan por el camb — Заявление группы лиц о желании перемен — нет события.
-- [es] не_новость: [pool] Marca — "¿Si tenemos en mente vender a Balde en enero? No" — Спортивные слухи о продаже игрока («нет» в ответ на вопрос).
-- [es] не_новость: [pool] El Mundo — "Hola delincuentes": Albiol coloca vallas contra las okupaciones y los multirrei — Предвыборная риторика кандидата, нет конкретного решения.
-- [es] не_новость: [pool] El País — Feijóo abre la puerta a una “derogación total” de la ley de la eutanasia — Заявление политика о намерении (отмена закона) — это слова, а не решение.
-- [es] не_новость: [pool] BBC Mundo — Investigué el asesinato de mi padre y desafío la versión oficial de un episodio  — Личное расследование убийства родственника, не является общественно значимым событием.
-- [es] курьёз: [world] Xataka — Antonio Roma tiene 350.000 seguidores y no existe. — Факт существования ИИ-певца — это любопытная заметка, а не событие.
-- [es] не_новость: [world] Wired — Detalles de la primera reunión general de Nvidia tras la salida de Jensen Huang: — Внутренняя корпоративная встреча, нет свершившегося факта сделки или отставки.
-- [es] курьёз: [world] BBC Mundo — Encuentran una falla crítica en Java, el lenguaje de programación del que depend — Обнаружение уязвимости исследователями — это любопытный факт, нет инцидента.
-- [es] не_новость: [world] La Jornada — IA y Brasil, ejes temáticos del 47 Festival del Nuevo Cine en La Habana — Объявление тем фестиваля — это анонс, а не событие.
+- [pt] курьёз: [local] Exame — Sony resgata fone do Walkman com USB-C na onda retrô da geração Z — Это обзор гаджета, а не новостное событие.
+- [pt] курьёз: [local] Exame — Ozempic e Mounjaro podem ter efeito inesperado no cérebro, aponta estudo — Описание результатов научного исследования без факта практического изменения.
+- [pt] срочность: [local] Estadão — Sobrevivente das bombas de Hiroshima e Nagasaki morre aos 97 anos em Santa Catar — Смерть человека, даже известного, не является срочной новостью для побудки.
+- [pt] срочность: [local] G1 Santa Catarina — Explosão em caldeira de fábrica da Klabin deixa feridos em SC; empresa diz que 1 — Это производственная авария, плашка 'СРОЧНО' завышена для этого масштаба.
+- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Norte-americano resgatado de navio após dificuldades respiratórias — Частный инцидент на судне без последствий для читателей в Бразилии.
+- [pt] не_новость: [pool] Terra BR — Corinthians vai à Justiça contra ex-diretor por declaração sobre 'cambismo insti — Подача иска — рутинное юридическое действие, не меняющее статус событий.
+- [pt] курьёз: [pool] Terra BR — Thais Carla passa por nova cirurgia após perder 131 kg e faz revelação sobre tra — Частная история знаменитости, не имеющая общественной значимости.
+- [pt] не_новость: [pool] Observador PT — Porto. Tinoco, NAPA e Sétima Legião na programação de Natal — Анонс развлекательной программы, не является событием.
+- [pt] курьёз: [world] Xataka — El Hierro recebeu em duas semanas quase tantas pessoas quanto habitantes tem. — Статистический факт, не является новостью в белом списке.
+- [pt] курьёз: [world] La Nación AR — Islã superará o cristianismo em 2035 e mudará o mapa religioso do mundo — Прогноз на 2035 год — это мнение/исследование, не является событием.
+- [pt] не_новость: [world] TechCrunch — Snapchat permite que desenvolvedores criem Lenses de RA com assistentes de IA co — Обновление функционала ПО не является событием для читателя.
+- [pt] чужое_мелкое: [world] Folha de S.Paulo — Zverev é acusado de quebra de acordo em caso de suposta violência doméstica — Судебные тяжбы частного лица (теннисиста) — не мировая новость.
+- [pt] анонс: [world] Observador PT — EUA alertam para aumento de atentados mortais pelo Irão — В тексте только технический мусор верстки сайта, нет новости.
+- [pt] курьёз: [world] Engadget — Policiais de GTA 6 irão se lembrar do jogador graças ao sistema 'Heat' — Игровая механика видеоигры не является новостью.
+- [pt] не_новость: [world] TechCrunch — Plataforma de gestão de despesas Payhawk anuncia captação de US$ 280 milhões e a — Привлечение инвестиций стартапом — бизнес-рутина, не новость для широкого читателя.
+- [pt] не_новость: [world] Ars Technica — Governo Trump ordena que a Kalshi interrompa apostas sobre quais palavras Trump  — Юридический спор о ставках — частное дело компании.
+- [pt] не_новость: [world] Rolling Stone — Bruce Dickinson já tem novo álbum solo e datas de turnê durante o intervalo do I — Анонс выхода альбома музыканта — не событие в рамках белого списка.
+- [pt] не_новость: [world] TechCrunch — Recurso de IA na Busca do Google ganha modo anônimo próprio — Техническое обновление функции поиска.
+- [pt] повтор: [world] Guardian Sport — Alexander Zverev é notificado de processo judicial movido por ex-parceira durant ≈ «Zverev é acusado de quebra de acordo em » — Тот же сюжет о Zverev, что в №63.
+- [pt] не_новость: [world] Rolling Stone — Histórico show de Bruce Springsteen em Berlim Oriental de 1988 é retratado em no — Выход документального фильма о событиях 1988 года.
+- [pt] не_новость: [world] Guardian Sport — Netflix, Fox e a proposta de US$ 2 bilhões pela Copa do Mundo de 2030 que pode r — Обсуждение ставок на права трансляции — это предположения, а не свершившаяся сделка.
+- [pt] курьёз: [world] Sciences et Avenir — Voyager 1 prepara-se para atingir distância recorde além do Sistema Solar — Научный факт о движении зонда без изменений для жизни людей.
