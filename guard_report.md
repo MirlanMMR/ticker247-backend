@@ -1,20 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] WSMV — Group calls on NES board to pause potential winter shutoffs in Nashville over ic — Это плановое обсуждение долгов, не требует побудки.
-- [en] повтор: [local] Startribune News — Fridley school district launches own investigation after news of BCA probe ≈ «Democrats flipped 9 US Senate seats — th» — Сюжет о победе демократов в Сенате.
-- [en] срочность: [local] New Jersey 101.5 — Pepper spray sends multiple middle school students to hospital — Инцидент с перцовым баллончиком — рядовое происшествие.
-- [en] не_новость: [local] MarylandReporter.com — State Roundup: Data center critics seek temporary ban; Maryland’s caretakers nee — Подборка предложений, а не совершившихся событий.
-- [en] не_новость: [pool] Ars Technica — Tesla will sell you a Cybercab for $30,000. Then charge $299 a month to use it — Описание условий подписки, а не новое событие.
-- [en] чужое_мелкое: [pool] The Independent — White House pulls Trump’s FDA nominee on eve of key Senate vote — Событие US в издании GB — для US читателя местная, а не мировая.
-- [en] курьёз: [pool] BBC Sport — Joint-record six referee errors in last Premier League weekend — Статистика ошибок судей — это не новость, а любопытный факт.
-- [en] не_новость: [pool] The Guardian — Fresh off recent wins, the left has a new goal: get AOC to run for president — Обсуждение планов, а не выдвижение кандидата.
-- [en] полка: [pool] KSL.com — Democrats flipped 9 US Senate seats — the most in almost 70 years — Местная новость (US), лежит в «Новости из…».
-- [en] не_новость: [pool] The Guardian — ‘In the end, nothing happened’: how Reform’s Doge-style crackdown fell flat — Аналитический разбор провала политики, события нет.
-- [en] не_новость: [world] Engadget — You'll need the latest PS5 firmware update to play GTA VI — Техническое требование к игре, а не событие.
-- [en] курьёз: [world] TechCrunch — Felicis leads $7.5M bet on Unsiloed AI to make enterprise documents usable by AI — Инвестиции стартапа — деловой шум, а не мировая новость.
-- [en] не_новость: [world] TechCrunch — China dominates battery graphite, but this startup could break the monopoly — Отраслевой обзор рынка, события нет.
-- [en] повтор: [world] BBC World — Democrats win Alaska Senate race two weeks after midterms counting began ≈ «Democrats flipped 9 US Senate seats — th» — Повтор сюжета о выборах в Сенат.
-- [en] чужое_мелкое: [world] Honolulu Star-Advertiser — China steps up propaganda campaign portraying Japan as a threat — Анализ пропаганды, события нет.
-- [en] курьёз: [world] Engadget — Palmer Luckey says his SLAB seastead is 'way cooler' than a floating data center — Мнение о проекте, события нет.
-- [en] курьёз: [world] BBC Sport — From one of Ajax's future stars to quitting football for music — История футболиста, не новость.
-- [en] повтор: [world] WPRI — FAA halts router upgrades after ground stop fuels infrastructure concerns ≈ «FAA suspends installation of router that» — Повтор сюжета о сбое маршрутизаторов FAA.
+- [es] срочность: [local] El Universal MX — Se aplazan multas para que más bicis eléctricas se registren; la Semovi anunciar — Плановое объявление об отсрочке штрафов и новых сроках не требует побудки.
+- [es] срочность: [local] El Financiero — Detienen a ‘El Topo’, líder de ‘Los Deltas’ del CJNG, acusado del secuestro del  — Задержание преступника — текущая новость, а не экстренное событие для побудки.
+- [es] не_новость: [local] El Universal MX — Designan a Viridiana Gabriela Yáñez como la nueva titular de Talleres Gráficos;  — Назначение чиновника — обычная кадровая рутина, если нет скандала или неожиданности.
+- [es] не_новость: [local] El Financiero — Elecciones 2027: ‘Andy’ López Beltrán ya no tiene poder en Morena, asegura Evari — Мнение одного политика о расстановке сил в другой партии не является свершившимся событием.
+- [es] срочность: [local] La Jornada — Agricultores bloquean carreteras en 5 entidades; exigen pagos pendientes — Массовые протесты и блокировки дорог — важная новость, но для ленты, а не для срочного уведомления.
+- [es] не_новость: [local] La Jornada — La Auditoría de Nuevo León detecta más triangulaciones a familia de Samuel Garcí — Продолжение расследований и «детектирование» — процесс, а не новое завершенное событие.
+- [es] не_новость: [local] Expansión MX — La Ley de Economía Digital exige hoy el respaldo de empresas como Broxel — Вступление в силу закона — плановое событие, а не новостной повод для уведомления.
+- [es] курьёз: [local] Expansión MX — Carlos Slim rescató una vieja fábrica de aluminio y le puso albercas, toboganes, — Описание проекта Карлоса Слима — это любопытный факт (очерк), а не актуальное событие.
+- [es] не_новость: [pool] El Tiempo CO — ‘Hay que averiguar en la Fiscalía qué está pasando’: Procurador exige respuestas — Требование прокурора ответов — это слова (этикет), события нет.
+- [es] не_новость: [pool] El Tiempo CO — Crisis inminente en el Hospital Alma Máter de Medellín: deudas millonarias, sin  — Описание «кризиса» (длительное состояние, а не разовое событие) не содержит события.
+- [es] не_новость: [pool] Semana CO — “Es falso”: crece la pelea entre exministro Pedro Sánchez y el ministro Jorge Mo — Словесная перепалка между политиками — это слова, а не событие.
+- [es] полка: [pool] El Economista MX — Falsas amenazas de bomba obligan a evacuar varios colegios en España — Событие в Испании для Мексики — это мировая новость (или «Новости из...»), но издание El Economista MX подает это как ре
+- [es] полка: [pool] Prensa Libre GT — Arda Güler renueva con el Real Madrid y busca convertirse en una leyenda del clu — Событие в Испании для Гватемалы — это мировая новость, не региональная.
+- [es] чужое_мелкое: [pool] El Nacional VE — Trasladan a Santiago Peña a una cárcel militar para evitar “privilegios” — Внутреннее перемещение политика внутри парагвайской тюрьмы не имеет мировых последствий.
+- [es] не_новость: [pool] Marca — Antonio Adán anuncia su retirada — Плановая отставка спортсмена — не событие, если нет скандальных причин или последствий.
+- [es] не_новость: [pool] Clarín AR — Una ambulancia del PAMI le devolvió a su marido muerto y lo dejó sentado cuatro  — Индивидуальный инцидент с машиной скорой помощи — происшествие, но не новость для широкого круга.
+- [es] не_новость: [pool] El Nacional VE — Trabajadores de la UCV cierran entrada al campus para exigir aumento en el pago  — Забастовка или закрытие входа — это форма давления, но здесь нет итога или массового события.
+- [es] не_новость: [pool] El Mundo — El empuje de Adelante puede barrer al Frente Amplio en Andalucía y el PP lo iden — Предвыборные прогнозы и оценки — не событие.
+- [es] не_новость: [pool] El País — Feijóo abre la puerta a una “derogación total” de la ley de la eutanasia — Заявление политика об изменении закона в будущем — это не свершившееся решение.
+- [es] не_новость: [pool] eldiario.es — El PSOE entrega a la Audiencia Nacional el listado de todos los abogados contrat — Передача документов в суд — часть процессуальной рутины.
+- [es] срочность: [pool] Diario Libre DO — Paro de maestros afecta a cerca de 90 mil estudiantes en Santiago — Забастовка учителей — плановое мероприятие, не требует побудки.
+- [es] не_новость: [pool] El Mundo — El descendiente del héroe castellano que se presenta (con su mote) por Valladoli — Интервью с историческим персонажем о политике — это очерк, события нет.
+- [es] не_новость: [pool] eldiario.es — Feijóo señala a Gamarra como responsable política de las reuniones del abogado d — Указания политика на другого политика — это обвинения, а не событие.
+- [es] срочность: [world] The Independent — Organismo de control del Congreso utiliza chatbots de IA para planificar ataques — Результаты теста полугодовой давности не требуют пометки «СРОЧНО».
+- [es] не_новость: [world] The Independent — El servicio religioso mensual de Pete Hegseth en el Pentágono incluye a un pasto — Обсуждение того, кто был на службе, — не новость с последствиями.
