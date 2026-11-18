@@ -1,27 +1,37 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] срочность: [local] El Universal MX — Se aplazan multas para que más bicis eléctricas se registren; la Semovi anunciar — Плановое объявление об отсрочке штрафов и новых сроках не требует побудки.
-- [es] срочность: [local] El Financiero — Detienen a ‘El Topo’, líder de ‘Los Deltas’ del CJNG, acusado del secuestro del  — Задержание преступника — текущая новость, а не экстренное событие для побудки.
-- [es] не_новость: [local] El Universal MX — Designan a Viridiana Gabriela Yáñez como la nueva titular de Talleres Gráficos;  — Назначение чиновника — обычная кадровая рутина, если нет скандала или неожиданности.
-- [es] не_новость: [local] El Financiero — Elecciones 2027: ‘Andy’ López Beltrán ya no tiene poder en Morena, asegura Evari — Мнение одного политика о расстановке сил в другой партии не является свершившимся событием.
-- [es] срочность: [local] La Jornada — Agricultores bloquean carreteras en 5 entidades; exigen pagos pendientes — Массовые протесты и блокировки дорог — важная новость, но для ленты, а не для срочного уведомления.
-- [es] не_новость: [local] La Jornada — La Auditoría de Nuevo León detecta más triangulaciones a familia de Samuel Garcí — Продолжение расследований и «детектирование» — процесс, а не новое завершенное событие.
-- [es] не_новость: [local] Expansión MX — La Ley de Economía Digital exige hoy el respaldo de empresas como Broxel — Вступление в силу закона — плановое событие, а не новостной повод для уведомления.
-- [es] курьёз: [local] Expansión MX — Carlos Slim rescató una vieja fábrica de aluminio y le puso albercas, toboganes, — Описание проекта Карлоса Слима — это любопытный факт (очерк), а не актуальное событие.
-- [es] не_новость: [pool] El Tiempo CO — ‘Hay que averiguar en la Fiscalía qué está pasando’: Procurador exige respuestas — Требование прокурора ответов — это слова (этикет), события нет.
-- [es] не_новость: [pool] El Tiempo CO — Crisis inminente en el Hospital Alma Máter de Medellín: deudas millonarias, sin  — Описание «кризиса» (длительное состояние, а не разовое событие) не содержит события.
-- [es] не_новость: [pool] Semana CO — “Es falso”: crece la pelea entre exministro Pedro Sánchez y el ministro Jorge Mo — Словесная перепалка между политиками — это слова, а не событие.
-- [es] полка: [pool] El Economista MX — Falsas amenazas de bomba obligan a evacuar varios colegios en España — Событие в Испании для Мексики — это мировая новость (или «Новости из...»), но издание El Economista MX подает это как ре
-- [es] полка: [pool] Prensa Libre GT — Arda Güler renueva con el Real Madrid y busca convertirse en una leyenda del clu — Событие в Испании для Гватемалы — это мировая новость, не региональная.
-- [es] чужое_мелкое: [pool] El Nacional VE — Trasladan a Santiago Peña a una cárcel militar para evitar “privilegios” — Внутреннее перемещение политика внутри парагвайской тюрьмы не имеет мировых последствий.
-- [es] не_новость: [pool] Marca — Antonio Adán anuncia su retirada — Плановая отставка спортсмена — не событие, если нет скандальных причин или последствий.
-- [es] не_новость: [pool] Clarín AR — Una ambulancia del PAMI le devolvió a su marido muerto y lo dejó sentado cuatro  — Индивидуальный инцидент с машиной скорой помощи — происшествие, но не новость для широкого круга.
-- [es] не_новость: [pool] El Nacional VE — Trabajadores de la UCV cierran entrada al campus para exigir aumento en el pago  — Забастовка или закрытие входа — это форма давления, но здесь нет итога или массового события.
-- [es] не_новость: [pool] El Mundo — El empuje de Adelante puede barrer al Frente Amplio en Andalucía y el PP lo iden — Предвыборные прогнозы и оценки — не событие.
-- [es] не_новость: [pool] El País — Feijóo abre la puerta a una “derogación total” de la ley de la eutanasia — Заявление политика об изменении закона в будущем — это не свершившееся решение.
-- [es] не_новость: [pool] eldiario.es — El PSOE entrega a la Audiencia Nacional el listado de todos los abogados contrat — Передача документов в суд — часть процессуальной рутины.
-- [es] срочность: [pool] Diario Libre DO — Paro de maestros afecta a cerca de 90 mil estudiantes en Santiago — Забастовка учителей — плановое мероприятие, не требует побудки.
-- [es] не_новость: [pool] El Mundo — El descendiente del héroe castellano que se presenta (con su mote) por Valladoli — Интервью с историческим персонажем о политике — это очерк, события нет.
-- [es] не_новость: [pool] eldiario.es — Feijóo señala a Gamarra como responsable política de las reuniones del abogado d — Указания политика на другого политика — это обвинения, а не событие.
-- [es] срочность: [world] The Independent — Organismo de control del Congreso utiliza chatbots de IA para planificar ataques — Результаты теста полугодовой давности не требуют пометки «СРОЧНО».
-- [es] не_новость: [world] The Independent — El servicio religioso mensual de Pete Hegseth en el Pentágono incluye a un pasto — Обсуждение того, кто был на службе, — не новость с последствиями.
+- [pt] курьёз: [local] Superinteressante — A hora e a vez do vinho brasileiro — Это лонгрид/обзор о вине, а не событие по белому списку.
+- [pt] не_новость: [pool] Notícias ao Minuto — Câmara de Arcos de Valdevez anuncia construção de canil e gatil em 2027 — Плановое объявление о строительстве в 2027 году — это не событие текущего дня.
+- [pt] курьёз: [pool] Notícias ao Minuto — Preço do cabaz alimentar desce 87 cêntimos a 255,86 euros — Еженедельное колебание цен на продукты (87 центов) — это не событие.
+- [pt] курьёз: [world] Muy Interesante — Vaso romano de 2.000 anos decorado com gladiadores continha restos de um homem q — Археологическая находка 2000-летней давности не является новостью.
+- [pt] чужое_мелкое: [world] El Mundo — "Olá criminosos": Albiol instala outdoors contra ocupações e reincidentes na áre — Местная предвыборная кампания в Испании без международного влияния.
+- [pt] курьёз: [world] Smithsonian Magazine — Chihuahuas possuem vestígios de DNA de coiote, mas isso provavelmente não explic — Исследование генома собак не является событием.
+- [pt] курьёз: [world] Naked Science — Idade de cães é estimada por meio de bactérias bucais — Исследование микробиома собак не является событием.
+- [pt] не_новость: [world] Superinteressante — A saga de GTA VI — Обзор видеоигры GTA VI, а не событие.
+- [pt] чужое_мелкое: [world] El Mundo — Frente Amplio alerta sobre o custo da OPA do PSOE a Ada Colau: 7 cadeiras que ir — Внутренняя партийная борьба в Испании.
+- [pt] курьёз: [world] Naked Science — Milhões de medições revelam como a época do ano influencia o funcionamento do co — Научное исследование влияния времени года на сердце.
+- [pt] не_новость: [world] Semafor — Aké Arts & Book Festival retorna a Lagos — Плановое ежегодное мероприятие (фестиваль).
+- [pt] не_новость: [world] Engadget — Você precisará da atualização de firmware mais recente do PS5 para jogar GTA VI — Инструкция для игроков, а не событие.
+- [pt] чужое_мелкое: [world] El Mundo — O impulso do Adelante pode varrer o Frente Amplio na Andaluzia e o PP identifica — Прогнозы локальных выборов в Испании.
+- [pt] не_новость: [world] TechCrunch — Felicis lidera aporte de US$ 7,5 milhões na Unsiloed AI para tornar documentos c — Привлечение инвестиций стартапом — не событие (отсутствует масштаб).
+- [pt] полка: [world] G1 Minas — Obras de Aleijadinho são expostas no Vaticano — Выставка в Ватикане — мировое событие, а не местное для Бразилии.
+- [fr] полка: [local] 20 Minutes — Militaires français en Ukraine : « Cette notion de cobelligérance est absurde, e — Это международная политическая дискуссия, а не внутренняя новость Украины (событие: UA), место в «Мировых».
+- [fr] повтор: [local] Franceinfo — "Si des failles sont constituées, on l'énoncera clairement" : 106 saisines reçue ≈ «Mobilisation sociale en France: plus de » — Один и тот же факт о 106 обращениях к Défenseur des droits.
+- [fr] метка_места: [pool] RTBF — Epilogue pour le cold case de "la petite martyre de l’A10" : 20 ans de prison po — Это французский судебный процесс (дело «маленькой мученицы с А10»), событие произошло во Франции.
+- [fr] чужое_мелкое: [pool] Radio-Canada — Rapprochement avec la Chine : un pari risqué de Mark Carney, disent des experts — Анализ внешней политики Канады — это локальная повестка, не имеющая мирового веса.
+- [fr] чужое_мелкое: [pool] Le Nouvelliste — Haiti: Thousands of Protesters Take to the Streets to Cheer Bukele and Salvadora — Локальная политическая акция в Гаити, не имеющая мирового значения.
+- [fr] курьёз: [world] Bénin Web TV — Classement FIFA : le Maroc cinquième mondial, le Nigeria passe devant l’Algérie — Рейтинг ФИФА — регулярная статистика, не новостное событие.
+- [fr] не_новость: [world] Sud Ouest — Tourisme : la crise climatique redessine déjà la carte mondiale des destinations — Обзор-прогноз о влиянии климата на туризм, нет свершившегося события.
+- [fr] повтор: [world] Courrier International — Des milliers d’Haïtiens manifestent en soutien de l’intervention de Bukele contr ≈ «Haiti: Thousands of Protesters Take to t» — Один и тот же сюжет о поддержке Букеле в Гаити.
+- [fr] чужое_мелкое: [world] Straits Times — Selon des sources, les attaques de drones ukrainiens ont réduit de près de moiti — Сводка оперативной обстановки (эффект от атак), это текущая рутина войны, не срочная мировая новость.
+- [fr] курьёз: [world] Futura-Sciences — La Royal Navy vient de lancer une flottille de 30 bateaux sans marins : voici à  — Техническое описание военной техники и общие рассуждения, нет конкретного события.
+- [fr] не_новость: [world] Courrier International — En Grèce, la mémoire bien vivante du soulèvement étudiant de 1973 — Ежегодная памятная акция (годовщина событий 1973 года), а не новостное событие.
+- [fr] курьёз: [world] BBC Mundo — Une rencontre inhabituelle avec les Awá, un groupe indigène isolé au Brésil, sus — Антропологическое наблюдение за племенем, нет события.
+- [fr] чужое_мелкое: [world] Bénin Web TV — Thomas Markle visé par trois plaintes pénales aux Philippines après son arrestat — Судебные иски против частного лица (Томас Маркл) в Филиппинах не являются значимым мировым событием.
+- [fr] повтор: [world] Knews.kg — Vladimir Poutine et Donald Trump en Chine : accueil des dirigeants à Shenzhen ≈ «Trump, Xi et Poutine à pied d’œuvre en C» — Тот же сюжет о саммите в Китае.
+- [fr] повтор: [world] RFI — Sénat américain: les démocrates s'imposent en Alaska et obtiennent leur plus lar ≈ «Mary Peltola élue au Sénat, un succès dé» — Тот же сюжет о выборах в Аляске.
+- [fr] повтор: [world] L'Express — La rougeole est de retour aux Etats-Unis : les raisons d’un tragique bond en arr ≈ «Pourquoi les Etats-Unis ont-ils perdu le» — Тот же сюжет о ситуации с корью в США.
+- [fr] чужое_мелкое: [world] Le Nouvelliste — Nayib Bukele announces the destruction of the house of gang leader Jeff gwo lwa — Действия президента Сальвадора в отношении местного бандита — локальная новость.
+- [fr] не_новость: [world] Radio-Canada — En matière de climat, l’IA donnerait souvent raison à l’utilisateur sans égard a — Результаты исследования UNESCO (научный доклад), не событие.
+- [fr] повтор: [world] Radio-Canada — Voyager 1 à une journée-lumière de la Terre, un record ≈ «Voyager 1 s'apprête à franchir une dista» — Тот же сюжет о Voyager 1.
+- [fr] не_новость: [world] Fortune — Cours du pétrole au 17 novembre 2026 — Биржевая сводка цен на нефть — рутина, не событие.
