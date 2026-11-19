@@ -1,26 +1,36 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [local] El Financiero — Juzgado impone 36 horas de arresto a Luis de Llano: ‘No ha cumplido con su sente — Это судебный процесс, а не завершенное событие; 36 часов ареста — это процедурная мера, а не итоговое наказание по делу.
-- [es] не_новость: [local] La Jornada — Aumentó el personal de inteligencia este sexenio, reporta García Harfuch — Отчет об увеличении штата сотрудников за длительный период (sexenio) без конкретного события.
-- [es] не_новость: [local] La Jornada — Tranquiliza al INE que después de Taddei se apunten a licitaciones — Субъективное ощущение («спокойствие») чиновников не является новостью.
-- [es] полка: [local] Expansión MX — Mientras el Olinia costará 150,000 pesos, el Mitsubishi eK X EV vale 293,568, re — Новость из Японии (JP), не является региональной для Мексики.
-- [es] курьёз: [local] Expansión MX — “Si nos la gana Coca-Cola o Corona sería lamentable”: cómo Alberto Baillères cre — История возникновения рекламной фразы — это очерк, а не актуальное событие.
-- [es] не_новость: [pool] El Tiempo CO — Familia de profesor asesinado en Sucre teme que su homicida confeso quede libre  — Страх семьи перед будущим решением суда — это мнение/эмоция, а не свершившееся событие.
-- [es] чужое_мелкое: [pool] Infobae — México niega practicar fracking ante la ONU y asegura que no habrá proyectos sin — Внутренняя административная переписка с ООН о политике страны, без последствий для других стран.
-- [es] чужое_мелкое: [pool] Infobae — Claudia Sheinbaum se contradice sobre el acuerdo del río Sonora con Grupo México — Внутренний спор о контрактах внутри страны, не имеющий внешних последствий.
-- [es] чужое_мелкое: [pool] La Nación AR — Golpe en el tablero: tras una compra, un gigante argentino del campo se converti — Бизнес-сделка внутри Аргентины, не затрагивает интересы Мексики или мира.
-- [es] чужое_мелкое: [pool] El Mundo — Vox pide a la Fiscalía del Supremo que investigue las "contraprestaciones" que n — Внутриполитический запрос оппозиции в Испании.
-- [es] чужое_мелкое: [pool] La Nación CR — Consejo Institucional del TEC repudia ataques de Chaves contra su rectora — Внутриуниверситетский конфликт в Коста-Рике.
-- [es] чужое_мелкое: [pool] El Nacional VE — Rocío San Miguel pide conocer el alcance del acuerdo militar entre Venezuela y E — Требование прозрачности соглашения внутри страны.
-- [es] чужое_мелкое: [pool] La Nación CR — Angie Cruickshank rechaza renunciar como defensora de los Habitantes, pese a moc — Внутриполитический отказ от отставки в Коста-Рике.
-- [es] курьёз: [pool] Marca — El ‘Tinder rojo’ para ligar por ideología arrasa en España: “La identidad políti — Обзор тренда в приложении для знакомств, не является важным событием.
-- [es] не_новость: [pool] La Nación CR — Tuasa pide alzas de hasta 60% en pasajes, pero Aresep le señala inconsistencias  — Запрос на повышение тарифа — это намерение компании, а не свершившийся факт.
-- [es] не_новость: [pool] Clarín AR — Gestionan una "reducción de riesgo argentino" ante la exigencia europea contra l — Встреча для анализа рисков — это обсуждение, а не принятое решение.
-- [es] не_новость: [pool] BBC Mundo — "Se están quedando encerradas en sus casas sin un futuro": el drama de las perso — Описание сложной социальной ситуации как часть очерка, а не фиксация события.
-- [es] чужое_мелкое: [pool] El País — Emilio Delgado llama “cobarde” a Ayuso por criticarlo por ir con su pareja a la  — Словесная перепалка местных политиков в Испании.
-- [es] не_новость: [pool] eldiario.es — El último cara a cara Sánchez-Feijóo: el PP rebaja sus expectativas y el líder d — Аналитика/прогноз предстоящих дебатов, а не событие.
-- [es] не_новость: [pool] eldiario.es — Las generales más difíciles para el PNV: las encuestas encienden las alarmas y m — Обзор предвыборных рейтингов и настроений — это не событие.
-- [es] чужое_мелкое: [pool] 14ymedio — Una misteriosa enfermedad mata en pocas horas a las gallinas de Sancti Spíritus — Локальная эпидемия среди птиц в одной провинции Кубы.
-- [es] чужое_мелкое: [world] The Independent — Esposa e hija arrestadas tras el hallazgo de la cabeza cercenada de un hombre de — Криминальная хроника (убийство) в семье, не имеет мирового значения.
-- [es] курьёз: [world] Sciences et Avenir — Tabaquismo: Europa sigue siendo adicta al cigarrillo — Статистический обзор ситуации с курением, не является новостным поводом.
-- [es] не_новость: [world] Sciences et Avenir — Productos alisadores y riesgo de cáncer: L'Oréal llega a un acuerdo con cuatro d — Урегулирование частного иска компанией — рутинная юридическая практика.
+- [pt] не_новость: [local] Metrópoles — Corinthians x Botafogo: súmula diz que Depay não foi autor do segundo gol — Это спортивный отчет о счете матча и содержании судейского протокола, а не событие.
+- [pt] курьёз: [local] G1 Globo — Roupa de minipapa que recebeu colo de Leão XIV foi feita em 7 dias por costureir — История про одежду младенца — это развлекательный факт, не новость.
+- [pt] не_новость: [local] CNN Brasil — CNN Brasil vence Prêmio Sicredi 2026 com reportagem sobre crédito no agro — Получение корпоративной премии не является общественно значимым событием.
+- [pt] курьёз: [local] Folha de S.Paulo — Presença de Anitta em 'GTA 6' como 'doutora do sexo' vira meme — Обсуждение мемов о персонаже игры — развлекательный контент.
+- [pt] курьёз: [local] G1 São Paulo — Padre registra BO contra festa de Santa Cecília organizada por músicos e comerci — Бытовой конфликт вокруг организации локального праздника в районе — это не новость.
+- [pt] не_новость: [local] G1 Minas — BHTrans regulamenta circulação de bicicletas elétricas e patinetes e ciclomotore — Это анонс новых правил, которые начинают действовать, но без даты ввода или последствий для жителей сейчас.
+- [pt] срочность: [local] G1 São Paulo — Linha 9-Esmeralda tem falha em trem, lentidão e estação sem energia na manhã des — Рутинная задержка общественного транспорта в часы пик не является поводом для побудки.
+- [pt] не_новость: [local] Estadão — O futuro da IA precisa incluir quem vive ao lado dos data centers — Это мнение/колонка о будущем ИИ, а не новость о событии.
+- [pt] не_новость: [pool] Notícias ao Minuto — Albuquerque diz que relação institucional com a República "está ótima" — Заявление политика, что отношения с правительством «отличные» — этикет, а не событие.
+- [pt] не_новость: [world] Variety — Brennan Lee Mulligan, do Dropout, apresentará o podcast complementar da série 'D — Анонс запуска подкаста к сериалу — коммерческий контент/анонс.
+- [pt] курьёз: [world] Variety — Quadro de evidências da cena de crime de 'Law & Order: SVU' de Taylor Swift, exi — Выставка реквизита из шоу — развлекательный факт, не событие.
+- [pt] не_новость: [world] Variety — Série musical animada 'Ozzy Fox' define data de estreia no Disney+ — Обычный анонс даты релиза сериала на стриминге.
+- [pt] курьёз: [world] Rolling Stone — Como 'GTA VI' construiu sua sonoridade de Vice City — Разбор звукового оформления игры — это статья для «Интересного», а не новостное событие.
+- [pt] курьёз: [world] Engadget — Análise do anel de IA Pebble Index 01: quando uma única funcionalidade se torna  — Обзор гаджета (кольца) — это статья-тест, а не новость.
+- [pt] не_новость: [world] Wired — IPO recorde da Anthropic destaca o pior inimigo da gigante de IA: ela mesma — Аналитическая статья о финансовом положении компании, а не событие.
+- [pt] повтор: [world] Knews.kg — Donald Trump, Vladimir Putin e Xi Jinping realizam negociações em Shenzhen ≈ «Casa Branca publica foto de Putin, Xi Ji» — Тот же сюжет о встрече лидеров в Шэньчжэне.
+- [fr] не_новость: [local] Sud Ouest — COP31 : la référence aux énergies fossiles disparaît dans le projet de décision  — COP31 — это процесс, в тексте обсуждается проект, а не принятое решение.
+- [fr] курьёз: [local] La Dépêche — "Si je n’avais pas sauté, je ne serais pas là pour vous parler" : sous OQTF, Bou — История об отдельном человеке без последствий для общества.
+- [fr] курьёз: [local] La Dépêche — Des échanges racistes, sexistes et homophobes au sein d’un groupe WhatsApp de po — Внутренние сплетни внутри одного подразделения полиции (WhatsApp).
+- [fr] курьёз: [local] Franceinfo — "Je n'ai jamais joué à un jeu aussi marquant" : le jeu vidéo "GTA VI" reçoit les — Подборка отзывов прессы на видеоигру.
+- [fr] повтор: [pool] Courrier International — En France, les CRS aussi en ont “ras le bol” ≈ «Les violences urbaines des 17 et 18 octo» — Тема недовольства французских силовиков уже освещена.
+- [fr] чужое_мелкое: [pool] La Dépêche — Présidentielle 2027 : les liens d'affaires à plusieurs millions d'euros entre Te — Бизнес-связи частного лица, не являющиеся официальной политикой.
+- [fr] курьёз: [pool] Nice-Matin — La princesse Stéphanie et sa fille Camille Gottlieb en toute simplicité avec les — Светская хроника монаршей семьи.
+- [fr] чужое_мелкое: [world] The Hill — La Maison-Blanche confisque les téléphones des journalistes voyageant avec le pr — Технический инцидент с телефонами журналистов — не событие мирового масштаба.
+- [fr] курьёз: [world] Futura-Sciences — Des scientifiques ont utilisé GTA pour simuler la montée des eaux : voici ce qui — Симуляция в видеоигре не является научным фактом или событием.
+- [fr] повтор: [world] Africanews FR — Soudan : le général Daglo, chef des FSR, de nouveau condamné à mort ≈ «L'ONU déclare le Myanmar coupable de gén» — Новости о судебных решениях по Мьянме/Рохинджа дублируются множеством источников.
+- [fr] чужое_мелкое: [world] BBC Sport — Les clubs de Premier League couvriront les frais juridiques si les sponsors de M — Внутренние корпоративные расходы клубов АПЛ.
+- [fr] повтор: [world] BBC Mundo — L'ONU déclare le Myanmar coupable de génocide contre les Rohingyas. ≈ «La Birmanie coupable de génocide à l'enc» — Тема вердикта по Мьянме повторяется.
+- [fr] чужое_мелкое: [world] Le Devoir — Elon Musk se sent «un peu idiot» d’avoir dépensé autant d’argent pour soutenir l — Мнение частного лица о своих тратах.
+- [fr] чужое_мелкое: [world] L'Express — Faux papiers, fichage et filatures : en Californie, un Russe soupçonné d'avoir e — Мелкое криминальное дело об одном шпионе.
+- [fr] повтор: [world] ABC Australia — La cour de l'ONU déclare que le Myanmar a commis un génocide contre les Rohingya ≈ «La Birmanie coupable de génocide à l'enc» — Тема вердикта по Мьянме повторяется.
+- [fr] курьёз: [world] Sciences et Avenir — Produits défrisants et risques de cancer : L'Oréal trouve un accord avec quatre  — Корпоративное соглашение по старому иску.
+- [fr] не_новость: [world] L'Express — Une attaque sous faux drapeau à Kaliningrad : cet attentat meurtrier envisagé pa — Аналитика/домыслы о том, что «может быть» (envisagé), а не событие.
+- [fr] повтор: [world] RTÉ Ireland — Le Myanmar a commis un génocide contre les Rohingyas, selon la CIJ ≈ «La Birmanie coupable de génocide à l'enc» — Тема вердикта по Мьянме повторяется.
