@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] полка: [local] Folha de S.Paulo — Guto Miguel treina com astros do ATP Finals e se encanta com Alcaraz — Это спортивная новость из Италии, не местная для BR.
-- [pt] не_новость: [local] G1 Globo — Exame de sangue pode ajudar a detectar em vida doença cerebral ligada a impactos — Научно-популярный материал об исследовании, не событие.
-- [pt] не_новость: [local] CNN Brasil — WhatsApp libera agendamento de mensagens para mais usuários; veja como usar — Инструкция (как использовать), а не событие.
-- [pt] не_новость: [local] Estadão — São Paulo recebe mil doses da vacina contra a mpox; veja quem pode tomar — Разъяснительный материал, а не свежее событие.
-- [pt] полка: [pool] Notícias ao Minuto — Mariza e Tony Carreira juntos em festival solidário em Lisboa — Новость из Португалии (PT) в ленте BR.
-- [pt] полка: [pool] Notícias ao Minuto — Programa Escolhas recebe 30 milhões de euros para os próximos três anos — Новость из Португалии (PT) в ленте BR.
-- [pt] полка: [pool] Jornal de Negócios — Estrela da Amadora entra na elite dos negócios do futebol europeu — Новость из Португалии (PT) в ленте BR.
-- [pt] полка: [pool] Jornal de Negócios — Aprovada isenção de mais-valias em venda de segundas casas. — Новость из Португалии (PT) в ленте BR.
-- [pt] полка: [pool] RTP Notícias — PSP fala em "situações de resistência" e nega "utilização generalizada ou indisc — Новость из Португалии (PT) в ленте BR.
-- [pt] полка: [pool] ECO — Registos de Alojamento Local diminuem pela primeira vez a nível nacional até out — Новость из Португалии (PT) в ленте BR.
-- [pt] полка: [pool] RTP Notícias — MP pede "mão pesada" para polícias acusados no caso da esquadra do Rato — Новость из Португалии (PT) в ленте BR.
-- [pt] полка: [pool] Público — Celebrar O Canto e as Armas de Adriano num concerto da AJA a “cantar contra a gu — Новость из Португалии (PT) в ленте BR.
-- [pt] полка: [pool] Expresso das Ilhas — PCA da ARME defende regulação que proteja consumidores e garanta estabilidade às — Новость из Кабо-Верде (CV) в ленте BR.
-- [pt] чужое_мелкое: [world] Observador PT — Quatro condenados por violarem mulher drogada pelo marido — Внутренняя криминальная хроника Великобритании без международного влияния.
-- [pt] чужое_мелкое: [world] InfoMoney — Ações da AMD caem forte após fundo alegar “negócio potencialmente arriscado na C — Биржевая аналитика акций США, не мировое событие.
-- [pt] не_новость: [world] Variety — Festival de Cinema de Doha abre com mensagem de resiliência — Обычный отчёт об открытии фестиваля.
-- [pt] чужое_мелкое: [world] InfoMoney — Trump comprou até US$ 265.000 em ações da Nvidia em setembro — Личные финансовые операции президента США, не мировое событие.
-- [pt] не_новость: [world] Variety — Meta lança mais de 150 filmes em 3D para aluguel e compra em headsets Quest VR,  — Анонс обновления ПО/сервиса.
-- [pt] не_новость: [world] Engadget — Apple TV expande sua cobertura esportiva com a F1 Academy, composta apenas por m — Коммерческое соглашение о трансляции, не событие.
-- [pt] чужое_мелкое: [world] Engadget — Ubisoft demite mais 166 funcionários e abre estúdio de inteligência artificial g — Корпоративные увольнения (не массовое бедствие), внутренняя кухня Ubisoft.
-- [pt] не_новость: [world] TechCrunch — Google capacita o Gemini a usar seu Mac — Обновление функционала приложения.
-- [pt] курьёз: [world] TechCrunch — Relatório indica que o agente de IA da Meta, Muse, mistura conversas e expõe dad — Технический сбой чат-бота, интересная заметка, но не новость.
-- [pt] курьёз: [world] Wired — Google construiu uma 'Dimensão Espelhada' da internet para testar seus agentes d — Техническая разработка Google для внутренних тестов.
-- [pt] чужое_мелкое: [world] The Guardian — “Nós não produzimos ‘neets’”: a escola de Londres reconhecida no prêmio World’s  — Локальная школьная премия в Лондоне.
-- [pt] курьёз: [world] Sciences et Avenir — Tabagismo: a Europa continua viciada em cigarros — Обзор ситуации с курением — аналитика, не событие.
+- [en] не_новость: [local] NY Post — Larry Fink’s next major move could be an AI play — with deep-pocketed partners i — предположение о будущей сделке, нет факта события
+- [en] не_новость: [local] WDBJ7 — Downtown Roanoke businesses hope parking changes bring more shoppers — обсуждение планов и надежд, а не состоявшееся действие
+- [en] не_новость: [local] WTVA — Local hospitals graded on safety — слишком общая информация без конкретики и даты
+- [en] не_новость: [local] WECT — WECT INVESTIGATES INSIDER: Flock cameras bagged, school board member faces resig — анонс обсуждения в подкасте/интервью, не новость
+- [en] не_новость: [local] WCAX — Storage units proposed for former Burlington Macy’s — предложение по использованию здания, нет решения
+- [en] не_новость: [local] CBS News — Consumers stock doomsday pantries as tech outages cause jitters — общее описание настроений потребителей, нет события
+- [en] не_новость: [local] WKYT — UK, Louisville athletic directors give update on NIL to Ky Lawmakers — обсуждение с законодателями без принятого решения
+- [en] срочность: [local] WJXT News4JAX — Deck the Chairs pushes back opening date due to weather — перенос даты по погоде не требует срочности
+- [en] не_новость: [local] Fort Worth Report — Workforce Pell can help pay for short-term job training. — обсуждение планов по изменению программ, нет события
+- [en] курьёз: [local] Live Science — Computer glitch prevents Voyager 1 from sharing science data on its light-day mi — технический сбой, типично для колонки «интересное»
+- [en] не_новость: [local] Untitled RSS Feed — Abandoned Cats Are Overrunning Uinta County And Nobody Seems To Have Solutions — описание проблемы без конкретного события/решения
+- [en] не_новость: [local] WFPL — Parents and cast raise questions after StageOne cancels performances, launches c — описание жалоб родителей, нет события
+- [en] чужое_мелкое: [local] Bangor Daily News — Trump administration urges judge to lift order blocking Kennedy Center’s two-yea — административная тяжба Trump administration касается только функционирования центра
+- [en] не_новость: [local] WCTV — State officials warn against sanctuary cities as some consider ending ICE agreem — описание намерений/угроз властей, нет свершившегося факта
+- [en] не_новость: [local] News — Idaho Botanical Garden expansion aims to build community — описание расширения, произошедшего ранее в этом году
+- [en] не_новость: [pool] TechCrunch — Meta’s new Muse Charm device may cost $300 — предположение о будущей цене устройства
+- [en] не_новость: [pool] The Independent — Katie Zacharia under investigation over legal work in California, state bar says — начало расследования — это процедура, не событие
+- [en] не_новость: [pool] The Independent — Burnham agrees to ‘let 100,000 come to UK a year in youth scheme’ in new EU deal — обсуждение сделки, не завершенное решение
+- [en] не_новость: [pool] Ars Technica — MAHA PAC spent more on steak, luxury club than candidates, report shows — анализ расходов политического движения, не событие
+- [en] не_новость: [pool] Fortune — Social Security has less than 6 years before a 22% cut. — прогноз о будущем состоянии фонда, не событие
+- [en] не_новость: [pool] Engadget — Employees call out Google over AI Search in schools — жалоба профсоюза, нет события
+- [en] не_новость: [pool] Fortune — Exclusive: AWS Marketplace head on letting AI agents shop for software: ‘People  — интервью/описание процесса, не событие
+- [en] не_новость: [pool] Jamaica Gleaner — AI plans under scrutiny - Morris Dixon seeks to assure that no deal has been rea — заверения о том, что сделки еще нет
+- [en] не_новость: [world] Straits Times — Brazil's Lula closing in on finance minister pick, sources say — слухи о назначении, нет факта
+- [en] не_новость: [world] Latest &amp; Breaking News — GTA VI pulls in estimated $1.84 billion by release day, more than double GTA V’s — оценка выручки игры, не является событием по списку
