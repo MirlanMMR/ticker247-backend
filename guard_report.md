@@ -1,26 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [local] El Universal MX — Diputados del Congreso de CDMX recibirán aguinaldo de 96 mil 816 pesos; equivale — Это текущие операционные расходы госоргана, а не значимое событие для общества.
-- [es] чужое_мелкое: [pool] El Tiempo CO — Panorama de una mortalidad que no cede: siete de cada diez siniestros fatales en — Локальная статистика ДТП в Колумбии для мексиканского читателя.
-- [es] курьёз: [pool] El Tiempo CO — De tocar con instrumentos prestados a ganar premios nacionales: Escuela de Músic — История об успехах местной музыкальной школы, нет значимого события.
-- [es] чужое_мелкое: [pool] El Comercio PE — Horacio Melgarejo se despidió de Cienciano con mensaje en redes sociales: “Volve — Спортивная новость местного уровня другой страны.
-- [es] не_новость: [pool] Infobae — Federico Gutiérrez nombró al mayor Juan Camilo Amazará como nuevo secretario de  — Служебная перестановка в Колумбии, не имеющая мирового значения.
-- [es] курьёз: [pool] Infobae — Sorpresa en Boca Juniors por el control antidopaje que realizó la Conmebol en la — Рутинная процедура допинг-контроля в аргентинском клубе.
-- [es] чужое_мелкое: [pool] RPP PE — Tras persecución entre Magdalena y Jesús María, detienen a tres presuntos secues — Криминальная хроника локального уровня (Перу).
-- [es] не_новость: [pool] El Universo EC — ¿Barcelona SC con directiva en el limbo?: esto dice viceministro Roberto Ibáñez  — Внутрикорпоративный административный спор в эквадорском клубе.
-- [es] курьёз: [pool] Marca — Pepe Martí: “Quiero adoptar el espíritu de Alonso al equipo” — Цитата гонщика, не является новостью.
-- [es] не_новость: [pool] El Mundo — Carles Puigdemont: "Si Vox llama a la puerta de Junts el portazo lo recordarán t — Политическая перепалка в интервью, нет события.
-- [es] не_новость: [pool] El Mundo — Carles Puigdemont: "El PSOE me propuso una foto con Sánchez en los pasillos del  — Пересказ личных воспоминаний политика, нет события.
-- [es] не_новость: [pool] eldiario.es — La Junta Electoral abre expediente a Tellado por pedir el voto fuera de plazo y  — Рутинное административное решение избиркома Испании.
-- [es] чужое_мелкое: [pool] 14ymedio — Asesinada por su pareja una mujer de 40 años en Cárdenas — Криминальная хроника локального уровня (Куба).
-- [es] не_новость: [pool] Montevideo Portal — “No hago corregir a nadie, por favor”: Orsi ratificó apoyo a Lustemberg ante int — Дискуссия в уругвайском парламенте без итогового решения.
-- [es] не_новость: [pool] El Mundo — Vox pide a la Fiscalía del Supremo que investigue las "contraprestaciones" que n — Политическое обвинение одной партии в адрес другой.
-- [es] чужое_мелкое: [pool] BBC Mundo — "Se están quedando encerradas en sus casas sin un futuro": el drama de las perso — Внутренняя социальная повестка Аргентины.
-- [es] не_новость: [pool] El País — Emilio Delgado llama “cobarde” a Ayuso por criticarlo por ir con su pareja a la  — Перепалка депутатов в соцсетях.
-- [es] не_новость: [pool] La Vanguardia — Feijóo combinará “moderación” con un tono “exigente” con Sánchez en el cara a ca — Анонс подготовки к дебатам, нет события.
-- [es] курьёз: [world] TechCrunch — Google otorga a Gemini la capacidad de utilizar su Mac en su lugar — Обновление функции в приложении, нет значимого события.
-- [es] курьёз: [world] TechCrunch — El agente de IA Muse de Meta mezcla conversaciones y expone datos privados, segú — Техническая проблема в бета-версии ИИ.
-- [es] курьёз: [world] TechCrunch — Everful, startup de una exejecutiva de Alibaba, recauda 48,5 millones de dólares — Очередной раунд инвестиций в стартап.
-- [es] курьёз: [world] Wired — Google construyó una 'dimensión espejo' gigante de internet para probar sus agen — Технические детали разработки компании Google.
-- [es] чужое_мелкое: [world] 14.ru — Putin advirtió sobre una respuesta de Rusia a los ataques al puente de Crimea — Риторика лидера РФ без изменения ситуации для мексиканского читателя.
-- [es] курьёз: [world] BBC Mundo — Por qué la niebla está abandonando un excepcional bosque en Costa Rica y cambian — Научно-популярная заметка об экологии, нет события.
+- [pt] полка: [local] Folha de S.Paulo — Guto Miguel treina com astros do ATP Finals e se encanta com Alcaraz — Это спортивная новость из Италии, не местная для BR.
+- [pt] не_новость: [local] G1 Globo — Exame de sangue pode ajudar a detectar em vida doença cerebral ligada a impactos — Научно-популярный материал об исследовании, не событие.
+- [pt] не_новость: [local] CNN Brasil — WhatsApp libera agendamento de mensagens para mais usuários; veja como usar — Инструкция (как использовать), а не событие.
+- [pt] не_новость: [local] Estadão — São Paulo recebe mil doses da vacina contra a mpox; veja quem pode tomar — Разъяснительный материал, а не свежее событие.
+- [pt] полка: [pool] Notícias ao Minuto — Mariza e Tony Carreira juntos em festival solidário em Lisboa — Новость из Португалии (PT) в ленте BR.
+- [pt] полка: [pool] Notícias ao Minuto — Programa Escolhas recebe 30 milhões de euros para os próximos três anos — Новость из Португалии (PT) в ленте BR.
+- [pt] полка: [pool] Jornal de Negócios — Estrela da Amadora entra na elite dos negócios do futebol europeu — Новость из Португалии (PT) в ленте BR.
+- [pt] полка: [pool] Jornal de Negócios — Aprovada isenção de mais-valias em venda de segundas casas. — Новость из Португалии (PT) в ленте BR.
+- [pt] полка: [pool] RTP Notícias — PSP fala em "situações de resistência" e nega "utilização generalizada ou indisc — Новость из Португалии (PT) в ленте BR.
+- [pt] полка: [pool] ECO — Registos de Alojamento Local diminuem pela primeira vez a nível nacional até out — Новость из Португалии (PT) в ленте BR.
+- [pt] полка: [pool] RTP Notícias — MP pede "mão pesada" para polícias acusados no caso da esquadra do Rato — Новость из Португалии (PT) в ленте BR.
+- [pt] полка: [pool] Público — Celebrar O Canto e as Armas de Adriano num concerto da AJA a “cantar contra a gu — Новость из Португалии (PT) в ленте BR.
+- [pt] полка: [pool] Expresso das Ilhas — PCA da ARME defende regulação que proteja consumidores e garanta estabilidade às — Новость из Кабо-Верде (CV) в ленте BR.
+- [pt] чужое_мелкое: [world] Observador PT — Quatro condenados por violarem mulher drogada pelo marido — Внутренняя криминальная хроника Великобритании без международного влияния.
+- [pt] чужое_мелкое: [world] InfoMoney — Ações da AMD caem forte após fundo alegar “negócio potencialmente arriscado na C — Биржевая аналитика акций США, не мировое событие.
+- [pt] не_новость: [world] Variety — Festival de Cinema de Doha abre com mensagem de resiliência — Обычный отчёт об открытии фестиваля.
+- [pt] чужое_мелкое: [world] InfoMoney — Trump comprou até US$ 265.000 em ações da Nvidia em setembro — Личные финансовые операции президента США, не мировое событие.
+- [pt] не_новость: [world] Variety — Meta lança mais de 150 filmes em 3D para aluguel e compra em headsets Quest VR,  — Анонс обновления ПО/сервиса.
+- [pt] не_новость: [world] Engadget — Apple TV expande sua cobertura esportiva com a F1 Academy, composta apenas por m — Коммерческое соглашение о трансляции, не событие.
+- [pt] чужое_мелкое: [world] Engadget — Ubisoft demite mais 166 funcionários e abre estúdio de inteligência artificial g — Корпоративные увольнения (не массовое бедствие), внутренняя кухня Ubisoft.
+- [pt] не_новость: [world] TechCrunch — Google capacita o Gemini a usar seu Mac — Обновление функционала приложения.
+- [pt] курьёз: [world] TechCrunch — Relatório indica que o agente de IA da Meta, Muse, mistura conversas e expõe dad — Технический сбой чат-бота, интересная заметка, но не новость.
+- [pt] курьёз: [world] Wired — Google construiu uma 'Dimensão Espelhada' da internet para testar seus agentes d — Техническая разработка Google для внутренних тестов.
+- [pt] чужое_мелкое: [world] The Guardian — “Nós não produzimos ‘neets’”: a escola de Londres reconhecida no prêmio World’s  — Локальная школьная премия в Лондоне.
+- [pt] курьёз: [world] Sciences et Avenir — Tabagismo: a Europa continua viciada em cigarros — Обзор ситуации с курением — аналитика, не событие.
