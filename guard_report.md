@@ -1,27 +1,18 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] NY Post — Larry Fink’s next major move could be an AI play — with deep-pocketed partners i — предположение о будущей сделке, нет факта события
-- [en] не_новость: [local] WDBJ7 — Downtown Roanoke businesses hope parking changes bring more shoppers — обсуждение планов и надежд, а не состоявшееся действие
-- [en] не_новость: [local] WTVA — Local hospitals graded on safety — слишком общая информация без конкретики и даты
-- [en] не_новость: [local] WECT — WECT INVESTIGATES INSIDER: Flock cameras bagged, school board member faces resig — анонс обсуждения в подкасте/интервью, не новость
-- [en] не_новость: [local] WCAX — Storage units proposed for former Burlington Macy’s — предложение по использованию здания, нет решения
-- [en] не_новость: [local] CBS News — Consumers stock doomsday pantries as tech outages cause jitters — общее описание настроений потребителей, нет события
-- [en] не_новость: [local] WKYT — UK, Louisville athletic directors give update on NIL to Ky Lawmakers — обсуждение с законодателями без принятого решения
-- [en] срочность: [local] WJXT News4JAX — Deck the Chairs pushes back opening date due to weather — перенос даты по погоде не требует срочности
-- [en] не_новость: [local] Fort Worth Report — Workforce Pell can help pay for short-term job training. — обсуждение планов по изменению программ, нет события
-- [en] курьёз: [local] Live Science — Computer glitch prevents Voyager 1 from sharing science data on its light-day mi — технический сбой, типично для колонки «интересное»
-- [en] не_новость: [local] Untitled RSS Feed — Abandoned Cats Are Overrunning Uinta County And Nobody Seems To Have Solutions — описание проблемы без конкретного события/решения
-- [en] не_новость: [local] WFPL — Parents and cast raise questions after StageOne cancels performances, launches c — описание жалоб родителей, нет события
-- [en] чужое_мелкое: [local] Bangor Daily News — Trump administration urges judge to lift order blocking Kennedy Center’s two-yea — административная тяжба Trump administration касается только функционирования центра
-- [en] не_новость: [local] WCTV — State officials warn against sanctuary cities as some consider ending ICE agreem — описание намерений/угроз властей, нет свершившегося факта
-- [en] не_новость: [local] News — Idaho Botanical Garden expansion aims to build community — описание расширения, произошедшего ранее в этом году
-- [en] не_новость: [pool] TechCrunch — Meta’s new Muse Charm device may cost $300 — предположение о будущей цене устройства
-- [en] не_новость: [pool] The Independent — Katie Zacharia under investigation over legal work in California, state bar says — начало расследования — это процедура, не событие
-- [en] не_новость: [pool] The Independent — Burnham agrees to ‘let 100,000 come to UK a year in youth scheme’ in new EU deal — обсуждение сделки, не завершенное решение
-- [en] не_новость: [pool] Ars Technica — MAHA PAC spent more on steak, luxury club than candidates, report shows — анализ расходов политического движения, не событие
-- [en] не_новость: [pool] Fortune — Social Security has less than 6 years before a 22% cut. — прогноз о будущем состоянии фонда, не событие
-- [en] не_новость: [pool] Engadget — Employees call out Google over AI Search in schools — жалоба профсоюза, нет события
-- [en] не_новость: [pool] Fortune — Exclusive: AWS Marketplace head on letting AI agents shop for software: ‘People  — интервью/описание процесса, не событие
-- [en] не_новость: [pool] Jamaica Gleaner — AI plans under scrutiny - Morris Dixon seeks to assure that no deal has been rea — заверения о том, что сделки еще нет
-- [en] не_новость: [world] Straits Times — Brazil's Lula closing in on finance minister pick, sources say — слухи о назначении, нет факта
-- [en] не_новость: [world] Latest &amp; Breaking News — GTA VI pulls in estimated $1.84 billion by release day, more than double GTA V’s — оценка выручки игры, не является событием по списку
+- [es] полка: [local] El Financiero — Costos de guerra de Irán superan los 48.000 mdd, sin contar daños a bases milita — Событие в Иране, но в заголовке нет связи с Мексикой. Не «Местная».
+- [es] чужое_мелкое: [pool] La Nación AR — Aprueban la nueva ley de Discapacidad y reclaman que el Gobierno cumpla con su r — Внутренняя законодательная деятельность Аргентины не является важной для мексиканского читателя.
+- [es] чужое_мелкое: [pool] Infobae — Feijóo desborda a Sánchez, que solo se crece en el minuto final del debate cara  — Внутренняя политика Испании, дебаты кандидатов не являются мировой новостью.
+- [es] чужое_мелкое: [pool] Marca — Rufián lanza un dardo a Sánchez tras el cara a cara: “Si Feijóo te come así, es  — Внутренняя политика Испании, перепалки политиков.
+- [es] чужое_мелкое: [pool] Marca — Pedro Sánchez recuerda a Feijóo cuando era presidente de la Xunta: "¿Y su gestió — Внутренняя политика Испании, дебаты.
+- [es] чужое_мелкое: [pool] El País — Feijóo recrimina a Sánchez los muertos en Urda y Adamuz y él se disculpa: “Es un — Внутренняя политика Испании, спор о прошлых происшествиях.
+- [es] чужое_мелкое: [pool] Clarín AR — La AFA confirmó la clasificación de Madryn tras el escándalo contra Maipú: cómo  — Локальный спортивный турнир Аргентины.
+- [es] чужое_мелкое: [pool] El Mundo — El PP coge fuerza a costa de Vox y Sánchez llega al cara a cara a cuatro puntos  — Внутренняя политика Испании, предвыборные рейтинги.
+- [es] чужое_мелкое: [pool] El Mundo — Carles Puigdemont: "Si Vox llama a la puerta de Junts el portazo lo recordarán t — Внутренняя политика Испании, интервью Пучдемона.
+- [es] чужое_мелкое: [pool] El Mundo — Carles Puigdemont: "El PSOE me propuso una foto con Sánchez en los pasillos del  — Внутренняя политика Испании, детали переговоров.
+- [es] не_новость: [world] TechCrunch — El nuevo dispositivo Muse Charm de Meta podría costar 300 dólares — Слух/анонс о цене устройства.
+- [es] чужое_мелкое: [world] Ars Technica — Un informe revela que el MAHA PAC gastó más en cenas y clubes de lujo que en can — Внутренние финансовые отчеты частного PAC (комитета) США.
+- [es] не_новость: [world] Engadget — Ya puede comprar la Steam Machine de 512 GB como una consola convencional — Изменение статуса продаж, не является значимым событием.
+- [es] не_новость: [world] Engadget — Empleados critican a Google por la integración de la IA en el buscador — Корпоративная дискуссия сотрудников Google.
+- [es] курьёз: [world] The Guardian — ‘No producimos ninis’: la escuela de Londres reconocida en los premios World’s B — Локальная новость об образовании в Лондоне.
+- [es] курьёз: [world] Sciences et Avenir — Tabaquismo: Europa sigue siendo adicta al cigarrillo — Статистический обзор без события.
