@@ -1,27 +1,33 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] чужое_мелкое: [local] Sputnik KG — У России, США и Китая много общих интересов в урегулировании конфликтов — мнения экспертов о геополитике без привязки к конкретному событию — это не новость
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — Приговор банде экс-депутатов из Волгограда, осужденных за страховые мошенничеств — судебная жалоба в РФ не является значимой новостью для жителей Кыргызстана
-- [ru] не_новость: [pool] ngs24.ru — Красноярск — Жильцам падающей девятиэтажки в Черемушках дали два дня на выезд — онлайн-трансл — онлайн-трансляция расселения не является завершенным событием
-- [ru] чужое_мелкое: [pool] Avesta.tj — В Узбекистане создадут промышленную зону Turon Turk с инвестициями $350 млн — инвестиции в промышленную зону Узбекистана — внутренняя новость соседней страны
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — «Просила прощения у них»: стала известна причина поножовщины в Большеречье — подробности бытового конфликта в Омской области не имеют мировой значимости
-- [ru] чужое_мелкое: [pool] Onliner.by — ДТП с двумя Toyota в Минске: после столкновения оба автомобиля отбросило на встр — мелкое ДТП в Минске — событие без последствий для других стран
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — «Перед ней белена как через полиэтиленовый пакет»: в Дивногорске пациенты получи — бытовой инцидент в больнице РФ — не мировая новость
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — Молодой парень насмерть разбился под Волгоградом, врезавшись в дерево — ДТП в Волгоградской области — локальная криминальная хроника РФ
-- [ru] не_новость: [pool] 51.ru — Мурманск — В Мурманске откроют выставку «12 стульев» из коллекции Андрея Малахова — анонс выставки в Мурманске — местная новость РФ, неинтересна пулу
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Под Ярославлем микроавтобус с пассажирами вылетел в кювет — ДТП под Ярославлем — локальная хроника РФ
-- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — Вопрос решается: как следком отреагировал на жалобу об изнасиловании жительницы  — криминальная хроника Башкирии
-- [ru] не_новость: [pool] chita.ru — Чита — В мутной воде чахнет рыба. Минприроды устроит проверку подозрительной реки в Заб — проверка еще не проведена, событие — жалоба жительницы
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — Нож со следами крови нашли на дне озера под Волгоградом. Три дня назад им убили  — криминальная хроника Волгоградской области
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — Под Волгоградом достроят поликлинику, стоившую свободы генподрядчику — хозяйственная новость Волгограда
-- [ru] курьёз: [pool] 59.ru — Пермь — «Эта боль не смогла победить человека»: про узницу концлагеря из Перми сняли док — информация о документальном фильме — не новость дня
-- [ru] чужое_мелкое: [pool] chita.ru — Чита — Плиты с потолка рухнули на студентов во время занятий в читинской медакадемии — локальное происшествие в Чите
-- [ru] курьёз: [pool] ufa1.ru — Уфа — Ротенбергу приглянулись три хоккеиста «Салавата Юлаева» — спортивная новость местного значения (РФ)
-- [ru] не_новость: [pool] chita.ru — Чита — Главу комитета горхозяйства Читы взяли на карандаш после коммунального провала — административное дело за отключение воды в Чите — локальная рутина
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — УК и магазины Волгограда будут штрафовать за сугробы, гололед, мусор и сухие вет — введение штрафов в Волгограде — внутренняя политика РФ
-- [ru] не_новость: [pool] chita.ru — Чита — Читинка получила сотрясение на гололеде, но всё равно пришла к приставам за конс — бытовой случай в Чите
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — «Наше время еще впереди»: пермский фигурист отреагировал на недопуск на Гран-при — частная спортивная ситуация фигуриста из РФ
-- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Полежаевский парк хотят сократить на 1,4 га — внутренние дела парка в Петербурге
-- [ru] не_новость: [pool] 14.ru — Якутск — Якутский дацан построит себе новое здание. Уже есть коробка — плановое строительство здания в Якутске
-- [ru] чужое_мелкое: [pool] chita.ru — Чита — Дело о гибели от нападения оленя в зоопитомнике «Амодово» передано в суд — суд в Чите по делу зоопарка
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Дело перинатального центра о нарушении лицензии рассмотрит суд — внутреннее дело псковской больницы
+- [pt] не_новость: [local] Poder360 — Vou para a rua se governo der dinheiro a clubes, diz Casagrande — мнение комментатора, не событие
+- [pt] курьёз: [local] Estadão — O futuro da IA precisa incluir quem vive ao lado dos data centers — рассуждение об ИИ, не новость
+- [pt] курьёз: [local] G1 Rio Grande do Sul — 'Acredite se quiser, a gente tá com uma tartaruga na proa': piloto relata situaç — незначительный случай, не новость
+- [pt] срочность: [pool] Notícias ao Minuto — Mulher detida por abusar sexualmente do ex-enteado de 12 anos em Lisboa — криминальная хроника не требует побудки
+- [pt] не_новость: [pool] Notícias ao Minuto — Penas de arguidos no processo Hells Angels reduzidas para menos de metade — судебная рутина, нет нового события
+- [pt] курьёз: [pool] Observador PT — Mais de 70% da população timorense tem menos 35 anos — статистический факт, не новость
+- [pt] срочность: [pool] Observador PT — GNR detém homem em Tondela e apreende armas — обычное задержание, не требует побудки
+- [pt] не_новость: [pool] RTP Notícias — Euribor sobe a 3 meses para segundo máximo consecutivo de quase dois anos — ежедневная рыночная рутина
+- [pt] полка: [pool] Téla Nón — Produção do cacau baixa cerca de 25% em 2026 e pode condicionar o crescimento da — событие в Сан-Томе (ST), а не в Португалии (PT)
+- [pt] срочность: [world] The Independent — Paramédica chamada para acidente fatal descobre que homem esmagado pelo carro é  — трагическое происшествие, но не мировая новость
+- [pt] не_новость: [world] The Hill — Republicano da Câmara promove minerais e comércio para a paz na crise entre Etió — планы депутата, а не свершившееся событие
+- [pt] не_новость: [world] 24.kg — Negociações entre os chefes da China, Rússia e EUA são encerradas sem declaraçõe — отсутствие итогов переговоров — это не новость
+- [pt] не_новость: [world] Semafor — Republicanos buscam democratas para financiar o Pentágono — политический процесс внутри партии, без итога
+- [pt] не_новость: [world] Semafor — Democratas parecem recuar de paralisação do governo por conta da guerra no Irã — внутрипартийные маневры, нет события
+- [pt] не_новость: [world] Engadget — Waymo suspende serviço em São Francisco após robotáxis ficarem presos em ruas al — временная приостановка сервиса из-за погоды
+- [fr] не_новость: [local] Franceinfo — Un nombre de produits limités, des recours en cas de complications... La Haute A — Презентация рекомендаций HAS — административный процесс, не событие с последствиями.
+- [fr] не_новость: [local] Franceinfo — "Tous les autres pays européens" ont-ils repoussé l'âge de départ à la retraite  — Спор и проверка фактов о пенсионном возрасте не являются новостным событием.
+- [fr] не_новость: [pool] RTBF — Journée mondiale des toilettes : un élève sur deux se retient d’y aller, comment — День мировой осведомленности — не новостное событие, информационный повод.
+- [fr] повтор: [world] La Dépêche — "Je me sens assez bête" : Elon Musk regrette d'avoir dépensé près de 500 million ≈ «Midterms 2026: Elon Musk dit se sentir «» — Один и тот же сюжет про Илона Маска.
+- [fr] повтор: [world] BFMTV — Vladimir Poutine, Donald Trump et Xi Jinping dans la même pièce: les trois dirig ≈ «Le sommet avec une “portée fondatrice”, » — Один и тот же сюжет про встречу в Шэньчжэне.
+- [fr] повтор: [world] Courrier International — Trump et ses “amis” Xi et Poutine mettent en scène leur camaraderie à Shenzhen ≈ «Le sommet avec une “portée fondatrice”, » — Один и тот же сюжет про встречу в Шэньчжэне.
+- [fr] курьёз: [world] RTBF — Le prince Harry déclare qu'il retournerait dans l'armée pour se battre contre la — Высказывание принца о гипотетическом желании воевать — не событие.
+- [fr] курьёз: [world] Courrier International — “GTA VI” bat des records quelques heures après sa sortie — Рекорды продаж видеоигры — тема для рубрики «Интересное».
+- [fr] курьёз: [world] Sciences et Avenir — Produits défrisants et risques de cancer : L'Oréal trouve un accord avec quatre  — Соглашение по старому иску — не событие мирового значения.
+- [fr] чужое_мелкое: [world] Courrier International — La Liste étudiante entre au Parlement serbe, l’ex-président Vucic joue l’obstruc — Внутриполитические события Сербии без последствий для других стран.
+- [fr] не_новость: [world] Semafor — Les Démocrates semblent reculer sur la menace d'un « shutdown » liée à la guerre — «Демократы, кажется, отступают» — предположение, а не принятое решение.
+- [fr] не_новость: [world] L'Express — Une attaque sous faux drapeau à Kaliningrad : cet attentat meurtrier envisagé pa — Разбор или предположение об «идее» атаки, а не свершившийся факт.
+- [fr] чужое_мелкое: [world] Courrier International — Alejandro Ordóñez, “brûleur de livres” et nouveau ministre de l’Intérieur colomb — Назначение министра в Колумбии — локальная новость для колумбийцев.
+- [fr] повтор: [world] Le Figaro — Sommet à Shenzhen : Jean-Noël Barrot ne croit à aucune avancée entre Poutine, Xi ≈ «Le sommet avec une “portée fondatrice”, » — Тот же сюжет про встречу в Шэньчжэне.
+- [fr] не_новость: [world] L'Express — Couche d’ozone, famines, sida : ces fléaux pour lesquels l’espoir renaît — Архивный обзор старых выпусков газеты.
+- [fr] чужое_мелкое: [world] Ars Technica — L'Ukraine a détruit le pont de Vladimir Poutine en utilisant des drones relais p — Очередной эпизод затяжного конфликта, не имеет пометки «важное» или «срочно» для мировой ленты.
