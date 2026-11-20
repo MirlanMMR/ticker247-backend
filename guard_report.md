@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] чужое_мелкое: [local] WTOP — Trump administration use of encrypted messaging apps like Signal is scrutinized  — Внутренняя политическая проверка аппарата — не событие мирового масштаба.
-- [en] не_новость: [local] Bangor Daily News — Brewer woman pleads guilty to depositing counterfeit government checks — Обычное судебное решение по уголовному делу, нет значимости для ленты.
-- [en] не_новость: [local] reviewjournal — Nakobe Dean, Raiders hope focus on details leads to improvements on defense — Спортивная аналитика, а не факт события.
-- [en] не_новость: [local] WTOP — Tech stocks pull US markets lower early with Anthropic’s historic debut doing li — Биржевая сводка, не имеющая конкретного новостного события.
-- [en] курьёз: [local] OPB — Transgender comedians give reasons to laugh during ‘weird’ time — Описание выступления комиков не является значимым событием.
-- [en] не_новость: [local] NY Post — Tiger Woods’ golf return prompts brutal reality check from sportsbooks — Спортивное мнение/аналитика о форме игрока.
-- [en] не_новость: [local] KCRG — Lawmakers call for promise of campaign neutrality if the tax is raised to fund I — Призывы политиков к будущим действиям — это слова, а не событие.
-- [en] полка: [local] Cleveland.com — Inmate escapes Wisconsin prison by simply walking out with hat — Побег заключенного в штате Висконсин лежит в местных новостях для читателя в другом штате.
-- [en] не_новость: [local] KOLD — Arizona universities delay Greek life recruitment for first-year students — Внутреннее организационное решение университетов, не является событием для широкого круга.
-- [en] не_новость: [local] WSAZ — Railroad track repairs underway in Lawrence County, Ky — Плановые ремонтные работы на путях.
-- [en] не_новость: [local] WCAX — Burlington wants input on new North End development — Призыв к общественному обсуждению планов — не событие.
-- [en] не_новость: [local] CBS News — Musk said he'd "look into" this disclosure law. Now it heads to court. — Обычный судебный процесс по административному делу.
-- [en] не_новость: [local] NH Union Leader Latest News — Casella Waste Systems compost site tainted with PFAS is months overdue for closu — Плановое закрытие, которое просрочено — не событие.
-- [en] не_новость: [local] New Jersey 101.5 — I griped about NJ gas prices all year. Now they’re falling fast — Личные наблюдения о ценах на бензин.
-- [en] не_новость: [local] WBAL — In the unflinching ‘Josephine,’ Beth de Araújo transmutes tragedy into art — Рецензия на фильм.
-- [en] не_новость: [local] WCTV — How police are using this device to help track people with dementia — Общий материал об использовании технологий полицией без конкретного события.
-- [en] не_новость: [local] Capitol News Illinois — Lessons from 3 communities: Report details resident concerns about data centers — Пересказ отчета университета о мнениях жителей.
-- [en] не_новость: [local] CalMatters — California just elected its most diverse group of lawmakers yet — Итоги выборов (аналитика состава), произошедшие ранее.
-- [en] не_новость: [pool] Rolling Stone — ‘A Lot of Fighting’: What Happened Before Courtney Clenney Killed Christian Obum — Разбор старой истории (предыстория преступления).
-- [en] не_новость: [pool] Guardian Sport — Victor Wembanyama has turned his NBA finals humiliation into a revenge tour for  — Спортивная аналитика.
-- [en] не_новость: [pool] BBC Sport — Southampton give head coach Eckert new deal — Продление контракта — рутинная работа клуба.
-- [en] не_новость: [pool] Sky Sports — James Bowen latest jockey to reveal death threat incident — Личные заявления о поступивших угрозах — не событие.
-- [en] не_новость: [pool] The Guardian — Pink Rabbit: the provocative bedroom drama about a Muslim OnlyFans star interrup — Описание сюжета драматического сериала.
-- [en] не_новость: [pool] Guardian Sport — Houston Texans keep playoff hopes alive as they trample hapless Indianapolis Col — Спортивный отчет.
-- [en] курьёз: [world] BBC News — Secret UK cyber operation protected tens of thousands of fridges from hackers — Техническая заметка о безопасности бытовой техники.
+- [es] полка: [local] El Universal MX — Deutsche Bank vendió un negocio fiduciario a CIBanco a pesar de una alerta inter — Это новость о Германии, место в «Мировых», а не в «Местных» Мексики.
+- [es] полка: [pool] Infobae — La trampa digital que acecha a los migrantes nicaragüenses: coyotes, promesas fa — Новость о Никарагуа, должна быть в «Мировых».
+- [es] чужое_мелкое: [pool] Infobae — Con dura carta, Abelardo de la Espriella definió cómo será el desarrollo de su g — Внутренняя политика Колумбии, для мексиканского читателя это не мировой масштаб.
+- [es] чужое_мелкое: [pool] RPP PE — Luis Galarreta respaldó a Carlos Espá tras inconvenientes en la misa del papa Le — Внутренняя политика Перу, не имеет мирового значения.
+- [es] чужое_мелкое: [pool] Marca — Zidane 'olvida' las semifinales del Mundial: "No es una revancha" — Спортивная аналитика Испании, не мировой уровень значимости.
+- [es] чужое_мелкое: [pool] El Comercio PE — La odisea de viajar en el Corredor Morado: buses llenos y largas colas de pasaje — Городская рутина Перу, не мировой масштаб.
+- [es] чужое_мелкое: [pool] La Nación AR — El 41% de los hogares con chicos no llega a cubrir los gastos del mes y hay más  — Внутренняя социальная статистика Аргентины.
+- [es] чужое_мелкое: [pool] La Nación AR — Javier Milei y sus medidas, en vivo: “Los responsables van a ser juzgados”, dijo — Внутренняя политика Аргентины.
+- [es] чужое_мелкое: [pool] El Nacional VE — Chavismo y oposición extienden la cuarta ronda de diálogo por trabajo en mesas t — Внутренний процесс диалога в Венесуэле.
+- [es] чужое_мелкое: [pool] Clarín AR — Vicente López instaló nuevas cámaras en todas sus patrullas para monitorear en t — Местная муниципальная новость Аргентины.
+- [es] чужое_мелкое: [pool] RPP PE — En megaoperativo en Lima y regiones, PNP y Fiscalía desarticularon la peligrosa  — Локальная полицейская операция в Перу.
+- [es] чужое_мелкое: [pool] Clarín AR — La tarjeta SUBE sufrirá una interrupción este domingo 22 de noviembre: a qué hor — Локальное транспортное объявление в Аргентине.
+- [es] чужое_мелкое: [pool] Marca — Adrián Cordero arbitrará el Real Madrid-Celta y José María Sánchez, el Sevilla-B — Назначение судей в чемпионате Испании.
+- [es] чужое_мелкое: [pool] El Universo EC — Centros comerciales activan horarios especiales y parqueo gratis por Black Frida — Локальная коммерческая акция в Эквадоре.
+- [es] чужое_мелкое: [pool] El Mundo — "Celebro que se ponga a Sánchez colorado como si fuera yo quien lo hace": Abasca — Внутриполитические перепалки в Испании.
+- [es] чужое_мелкое: [pool] Montevideo Portal — Se hizo homenaje a Fidel Castro en el Parlamento: qué se dijo y las críticas de  — Местное парламентское мероприятие в Уругвае.
+- [es] чужое_мелкое: [pool] El País — Feijóo se lanza al ataque ante un Sánchez que evita el cuerpo a cuerpo — Внутренняя политическая полемика в Испании.
+- [es] чужое_мелкое: [pool] 14ymedio — El Estado cubano se deshace de sus cafeterías y despide a sus trabajadores sin i — Внутренняя трудовая проблема на Кубе.
+- [es] не_новость: [world] La Nación AR — De qué murió Patrick Stewart: revelaron la verdadera causa — Смерть знаменитости (спустя 3 недели) — событием не является.
+- [es] срочность: [world] Prensa Libre GT — Video | Niño de 10 años presuntamente mata a adolescente en EE. UU. por música a — Прошедшее происшествие, плашка срочно не требуется.
+- [es] чужое_мелкое: [world] RFI — Mali: los detalles de la «liberación» de soldados prisioneros del grupo independ — Локальный военный эпизод в Мали.
+- [es] полка: [world] Азаттык (кыргызча) — «Las condiciones son malas, no hay contacto»: cerca de doscientos ciudadanos de  — Новость о гражданах Кыргызстана — это местная новость KG, но не для MX и не мировая.
+- [es] чужое_мелкое: [world] RFI — Presidenciales 2027 en Francia: Dominique de Villepin anuncia oficialmente su ca — Внутриполитическая новость Франции.
+- [es] чужое_мелкое: [world] El Mundo — Decepción en la izquierda con el papel de Sánchez en el debate: Colau lamenta qu — Внутриполитическая аналитика Испании.
+- [es] чужое_мелкое: [world] RFI — Las negociaciones sobre el clima se estancan: balance de la última jornada de la — Локальная климатическая конференция в Турции.
