@@ -1,20 +1,23 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [local] Gazeta do Povo — Moraes mantém retenção de passaportes e proibições impostas a Flávio Bolsonaro — Внутренняя политика Бразилии, но это процессуальный вопрос (решение судьи по частному иску).
-- [pt] курьёз: [local] CNN Brasil — Atriz trans de “A Dona do Pedaço” vira Maria da Paz da vida real — Карьера актрисы в кондитерском деле — не событие, нет общественной значимости.
-- [pt] чужое_мелкое: [local] CNN Brasil — GTA VI: Trilha sonora tem nomes de peso como Dua Lipa e Travis Scott — Новость о саундтреке к видеоигре — не событие, предмет интереса фанатов, а не новостной ленты.
-- [pt] срочность: [local] G1 São Paulo — Ex-BBB Ana Carolina Madeira tem celular roubado em SP, e ladrão faz empréstimo e — Кража телефона — криминальная хроника, не требует побудки.
-- [pt] срочность: [local] G1 Minas — 'Gangue da marcha ré' é suspeita de usar carro para arrombar supermercado e furt — Кража продуктов из магазина — рядовое преступление, не требует срочной метки.
-- [pt] курьёз: [local] G1 São Paulo — Gato desaparecido há 23 dias é encontrado morto em caixa d'água fechada de prédi — Гибель домашнего животного — печальное происшествие, но не новость.
-- [pt] не_новость: [pool] Jornal de Negócios — Ribeiro da Silva foi nomeado em agosto para a ERSE, mas nunca exerceu por "incom — Назначение, которое не состоялось из-за личных причин — не событие.
-- [pt] не_новость: [pool] Jornal de Negócios — Despedimentos provocados pela IA podem gerar uma "emergência social" e Estado de — Рассуждения о возможном будущем влиянии ИИ — мнение экспертов, а не факт события.
-- [pt] курьёз: [world] Straits Times — Pesquisador da Anthropic afirma que o chatbot de IA Claude resolveu o maior enig — Математическая гипотеза — научная новость, место в «Интересном».
-- [pt] чужое_мелкое: [world] The Independent — O Serviço Florestal do governo Trump tem divulgado discretamente arquivos secret — Конспирология и секретные файлы о «Бигфуте» — не новость.
-- [pt] не_новость: [world] Metrópoles — Harry Kane aponta Michael Olise como sucessor no prêmio da Bola de Ouro — Мнение спортсмена о другом спортсмене — не событие.
-- [pt] чужое_мелкое: [world] The Independent — Cliente processa a In-N-Out Burger alegando que funcionários não impediram ataqu — Гражданский иск клиента против частной сети фастфуда — частный спор.
-- [pt] не_новость: [world] Ars Technica — Exército dos EUA adia detonação de azida de chumbo perigosa após protestos — Отмена или перенос плановых работ — канцелярия, не требующая широкого освещения.
-- [pt] курьёз: [world] Engadget — O primeiro leitor de CD da Teenage Engineering assemelha-se a um gira-discos — Запуск дизайнерского плеера — товарная новинка, не событие.
-- [pt] не_новость: [world] Engadget — OpenAI disponibiliza os espaços colaborativos 'Space' para utilizadores do plano — Обновление функций программного обеспечения — не событие.
-- [pt] повтор: [world] Live Science — Matemático da Anthropic afirma ter provado a hipótese de Riemann. ≈ «Pesquisador da Anthropic afirma que o ch» — Тот же сюжет про гипотезу Римана и Claude.
-- [pt] не_новость: [world] BBC Brasil — Como comprimido diário é a grande esperança contra um dos cânceres mais letais — «Надежда против рака» — это описание перспективного исследования, а не свершившийся факт победы над болезнью.
-- [pt] курьёз: [world] Naked Science — História do maior impacto na Lua reconstruída a partir de amostras da Chang'e-6 — Научно-популярный факт о Луне — место в «Интересном».
+- [en] курьёз: [local] KOLD — Tucson Subaru and Youth on Their Own reveal new El Tour pace car — Спонсорство машины для гонок — мелкий локальный инфоповод.
+- [en] не_новость: [local] WTVA — Why the MFC conducts prescribed burns during burn bans — Это разъяснение политики ведомства, а не разовое событие.
+- [en] курьёз: [local] Untitled RSS Feed — Whoops! 60,000-Gallon Water Tower In Basin Torn Down, Falls In Wrong Direction! — Снос башни — курьезный случай, не требующий внимания всей страны.
+- [en] не_новость: [local] Colorado Public Radio — Colorado senators diverge on permitting package — Разногласия сенаторов без принятого решения — процесс, а не событие.
+- [en] курьёз: [local] Deseret News — BYU and ‘The Wizard of Oz’ have more than Kansas in common — Сравнение BYU с 'Волшебником страны Оз' — тематический очерк.
+- [en] курьёз: [local] KWCH — KHP video shows drivers speeding through Kansas City traffic — Видео дорожной полиции — не новость общенационального масштаба.
+- [en] не_новость: [local] WDBJ7 — Mineral & Gem Society’s Rock Show returns to Salem Civic Center — Плановое ежегодное мероприятие (выставка камней).
+- [en] не_новость: [local] Cleveland.com — Why is Puka Nacua suspended? What happened and when could he return? — Спортивная новость, детали дисквалификации в тексте не меняют значимости события.
+- [en] курьёз: [local] WDBJ7 — Salem foundation seeks funds to care for 200-year-old Osage orange tree — Сбор средств на дерево — локальная история.
+- [en] не_новость: [local] WTVA — Upgrades to old water system completed — Завершение плановых технических работ.
+- [en] полка: [pool] OPB — The U.K. and EU hold a rare summit to strengthen ties — Саммит Британии и ЕС — мировая новость, а не «Новости из…».
+- [en] метка_места: [pool] La Nación CR — Mystery surrounds the death of a famous Netflix actor: authorities are investiga — Смерть американского актера — это событие в США, а не в CR.
+- [en] чужое_мелкое: [pool] Straits Times — US Vice President Vance declines to say he would have ordered Iran strikes — Внутренняя политика США (мнение вице-президента) не должна быть «Новостью из Сингапура».
+- [en] чужое_мелкое: [pool] Sky Sports — Drones, data and Bruno - Pochettino on his early Man Utd challenges — Тренер рассуждает о деталях тренировок — частное спортивное мнение.
+- [en] не_новость: [pool] TechCrunch — Daniel Ek backs AI researcher’s fusion power startup. Here’s what they’re buildi — Стартап привлек инвестиции — обычная бизнес-рутина.
+- [en] чужое_мелкое: [pool] BBC News — Man guilty of murdering woman he groomed on fetish site — Криминальная хроника Британии не должна быть «Новостью из США».
+- [en] не_новость: [pool] BBC Sport — Man Utd fan criticism has gone too far at times - Berrada — Мнение руководителя клуба — не является событием по белому списку.
+- [en] чужое_мелкое: [pool] BBC Sport — Filming training by drones should be illegal - Iraola — Спортивный комментарий тренера о правилах — не новость.
+- [en] не_новость: [world] Rolling Stone — The Best Music Moments and Surprise Cameos From ‘GTA VI’ — Разбор музыкальных моментов в игре — это обзор, а не событие.
+- [en] чужое_мелкое: [world] Straits Times — Aim is to ‘polarise’: Influencer deepfakes used to stoke Canada-US tensions — История инфлюенсера о дипфейках не является событием мирового уровня.
+- [en] не_новость: [world] The Guardian — ‘They’re struggling for oxygen’: children pay the price as countries allow measl — Публицистический материал о проблеме кори, а не новостное событие.
