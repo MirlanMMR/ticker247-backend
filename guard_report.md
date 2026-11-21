@@ -1,22 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] не_новость: [local] 24.kg — Температурные рекорды: когда Бишкек пережил самое холодное 21 ноября — климатическая справка о рекордах 1951 года не является новостью
-- [ru] не_новость: [local] Kabar.kg — Кыргызстанда 15–19 жаштагы ар бир миң кызга 29 төрөт туура келет — статистическая подборка без события
-- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — Будут обслуживать на дому: спасенная зоозащитницей пенсионерка вернется в кварти — частная история пенсионерки из Новосибирска
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — «Раздевали, вымогали деньги, заставляли есть с пола». В Екатеринбурге банда вось — криминальная хроника местного значения из Екатеринбурга
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — В зону КРТ на Островского, где хотят построить 25-этажку, попал мини-рынок. Его  — локальный спор о мини-рынке в Перми
-- [ru] курьёз: [pool] 74.ru — Челябинск — «Кредит уже на вас!»: челябинка рассказала, как ей удалось отбиться от мошеннико — частная история о попытке мошенничества, не новость
-- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Коррупционный скандал недели: экс-главе Минздрава в Поморье вынесли суровый приг — региональный приговор в РФ
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — В Дедовичском районе завершили дело о смертельном избиении отца — региональное уголовное дело
-- [ru] чужое_мелкое: [pool] ngs.ru — Новосибирск — «Вместо помощи начался кошмар»: новосибирец с раком пищевода добивается от больн — частная жалоба жителя Новосибирска
-- [ru] не_новость: [pool] 72.ru — Тюмень — Цены набирают разгон: сравниваем, как подорожал бензин в Тюмени всего за две нед — анализ цен на бензин без совершившегося события
-- [ru] курьёз: [pool] e1.ru — Екатеринбург — Екатеринбуржцу без согласия заменили счетчик в доме, а потом насчитали космическ — частный бытовой спор о счетчиках
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — (А)моральный ущерб? Владелица «лохматого» BMW требует 5 млн рублей с водителя Ка — частный гражданский иск по ДТП в Челябинске
-- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Водоканал обсудит с кафе засор труб на Сампсониевском — локальное обсуждение засора труб в Петербурге
-- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Суд в Боровичах вынес приговор за распространение фотографий — региональный уголовный приговор
-- [ru] не_новость: [pool] 59.ru — Пермь — Толпа людей и сияющий паровоз: фоторепортаж со встречи поезда Деда Мороза в Перм — описание развлекательного мероприятия
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Спор «на слабо» закончился ножевым ранением и колонией — региональный приговор
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Суд не расторг договор купли-продажи автомобиля с изменённым VIN — региональное судебное решение
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Экс-пресс-секретаря Белого дома проверят из-за слова «юрист» — проверка документов бывшего пресс-секретаря — не мировой масштаб
-- [ru] не_новость: [world] BBC Русская служба — В Британии не взламывали холодильники в супермаркетах. — сообщение о несостоявшемся событии (не взламывали)
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Демократы требуют документы у Кушнера и сыновей Трампа — рутинное требование документов в рамках внутренней политики США
+- [fr] не_новость: [local] BFMTV — Une course contre la montre "pour appliquer les correctifs dès que possible": de — Техническая заметка о коде, нет события.
+- [fr] не_новость: [local] La Dépêche — "Qu’ils fassent leur travail plutôt que de faire de la politique" : Éric Ciotti  — Спор и петиция не являются событием (слова против слов).
+- [fr] не_новость: [local] Le Figaro — Pourquoi le gouvernement doit trouver d’urgence plus de 6 milliards d’euros d’éc — Обсуждение бюджета, а не принятый факт.
+- [fr] не_новость: [local] Franceinfo — Des syndicats de sept pays européens appellent à des "manifestations coordonnées — Анонс предстоящих протестов.
+- [fr] не_новость: [local] France 24 FR — Sixième samedi de manifestation contre la vie chère, premier round contre les vi — Анонс предстоящих протестов.
+- [fr] не_новость: [local] L'Obs — Manifestations du samedi 21 novembre : anniversaire des « gilets jaunes », parco — Анонс и ожидание события.
+- [fr] не_новость: [local] L'Obs — Dominique de Villepin candidat : y a-t-il un espace pour un « gaulliste de gauch — Рассуждение о потенциальном кандидате, нет факта выдвижения.
+- [fr] не_новость: [local] La Dépêche — Présidentielle 2027 : "Pour l'instant, je vote pour lui"... Carole Bouquet et Fa — Знаменитости «поддерживают» кандидата — не новость.
+- [fr] не_новость: [pool] Radio Okapi — L’ACAJ réclame des sanctions contre les opérateurs de télécommunications pour la — Призыв к санкциям, нет действия.
+- [fr] не_новость: [pool] Radio-Canada — Stellantis serait en possession de 831 millions $ provenant du fédéral — Слухи/предположения («Stellantis serait...»).
+- [fr] не_новость: [pool] RTBF — Fitch maintient la note belge à A + mais épingle une "incertitude politique élev — Оценка агентством ситуации, а не само событие.
+- [fr] не_новость: [pool] Radio-Canada — Lorne Doerkson endosse son rôle de premier ministre et dévoile le Cabinet — Рутинное назначение/представление кабинета.
+- [fr] не_новость: [world] La Tribune — Iceye relance le rêve d’un « SpaceX européen » — Мечты и планы («relance le rêve»).
+- [fr] не_новость: [world] Jeune Afrique — Le Gabon obtiendra-t-il un programme avec le FMI d’ici à la fin de l’année ? — Надежды на программу МИФ, нет результата.
+- [fr] не_новость: [world] Jeune Afrique — GTA : les coulisses du probable retrait du géant BP du Sénégal et de Mauritanie — Слухи о «вероятном» выходе компании.
+- [fr] курьёз: [world] Nice-Matin — « Ça n’a jamais été aussi grave dans toute la ville » : à Rome, les murmurations — Жалобы на птиц не являются мировой новостью.
+- [fr] курьёз: [world] Courrier International — À Rotterdam, un artiste défie les “cyclopes” de la vidéosurveillance — Художественная акция, не событие.
+- [fr] не_новость: [world] BBC News — Zelensky qualifie Poutine de « tueur » après que Trump l'a désigné comme un ami — Словесная перепалка политиков.
+- [fr] не_новость: [world] L'Express — Législatives en Espagne : comment la crise de Ceuta a fracturé le pays — Аналитическая статья о кризисе, нет события.
+- [fr] не_новость: [world] BFMTV — C'est son père qui a transformé ce village de pêcheurs en capitale mondiale de l — Историческая справка/портрет, нет текущего события.
+- [fr] не_новость: [world] Franceinfo — "Les médias ont clairement été le déclencheur" : en République tchèque, une réfo — Обсуждение реформы, нет факта принятия.
+- [fr] курьёз: [world] Courrier International — L’IA pourrait avoir résolu le problème le plus célèbre des mathématiques : l’hyp — Теоретическое утверждение о математике, не событие.
+- [fr] не_новость: [world] 20 Minutes — Etats-Unis : Trump adoube Miller comme futur président, gros tacle à Rubio et Va — Назначение в аппарат президента — рутина, не событие.
+- [fr] повтор: [world] RFI — France: le silence du RN interroge après la révélation par la presse de fuites d ≈ «"Bulldozer", "super shérif" et "serviteu» — Повторение темы префекта Moutouh.
+- [fr] повтор: [world] L'Obs — Du fromage au simili Erasmus : ce qui va changer après le rabibochage diplomatiq ≈ «En quoi consiste l'accord de « redémarra» — Тот же сюжет об отношениях UK-EU.
