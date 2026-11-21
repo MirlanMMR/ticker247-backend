@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [fr] не_новость: [local] BFMTV — Une course contre la montre "pour appliquer les correctifs dès que possible": de — Техническая заметка о коде, нет события.
-- [fr] не_новость: [local] La Dépêche — "Qu’ils fassent leur travail plutôt que de faire de la politique" : Éric Ciotti  — Спор и петиция не являются событием (слова против слов).
-- [fr] не_новость: [local] Le Figaro — Pourquoi le gouvernement doit trouver d’urgence plus de 6 milliards d’euros d’éc — Обсуждение бюджета, а не принятый факт.
-- [fr] не_новость: [local] Franceinfo — Des syndicats de sept pays européens appellent à des "manifestations coordonnées — Анонс предстоящих протестов.
-- [fr] не_новость: [local] France 24 FR — Sixième samedi de manifestation contre la vie chère, premier round contre les vi — Анонс предстоящих протестов.
-- [fr] не_новость: [local] L'Obs — Manifestations du samedi 21 novembre : anniversaire des « gilets jaunes », parco — Анонс и ожидание события.
-- [fr] не_новость: [local] L'Obs — Dominique de Villepin candidat : y a-t-il un espace pour un « gaulliste de gauch — Рассуждение о потенциальном кандидате, нет факта выдвижения.
-- [fr] не_новость: [local] La Dépêche — Présidentielle 2027 : "Pour l'instant, je vote pour lui"... Carole Bouquet et Fa — Знаменитости «поддерживают» кандидата — не новость.
-- [fr] не_новость: [pool] Radio Okapi — L’ACAJ réclame des sanctions contre les opérateurs de télécommunications pour la — Призыв к санкциям, нет действия.
-- [fr] не_новость: [pool] Radio-Canada — Stellantis serait en possession de 831 millions $ provenant du fédéral — Слухи/предположения («Stellantis serait...»).
-- [fr] не_новость: [pool] RTBF — Fitch maintient la note belge à A + mais épingle une "incertitude politique élev — Оценка агентством ситуации, а не само событие.
-- [fr] не_новость: [pool] Radio-Canada — Lorne Doerkson endosse son rôle de premier ministre et dévoile le Cabinet — Рутинное назначение/представление кабинета.
-- [fr] не_новость: [world] La Tribune — Iceye relance le rêve d’un « SpaceX européen » — Мечты и планы («relance le rêve»).
-- [fr] не_новость: [world] Jeune Afrique — Le Gabon obtiendra-t-il un programme avec le FMI d’ici à la fin de l’année ? — Надежды на программу МИФ, нет результата.
-- [fr] не_новость: [world] Jeune Afrique — GTA : les coulisses du probable retrait du géant BP du Sénégal et de Mauritanie — Слухи о «вероятном» выходе компании.
-- [fr] курьёз: [world] Nice-Matin — « Ça n’a jamais été aussi grave dans toute la ville » : à Rome, les murmurations — Жалобы на птиц не являются мировой новостью.
-- [fr] курьёз: [world] Courrier International — À Rotterdam, un artiste défie les “cyclopes” de la vidéosurveillance — Художественная акция, не событие.
-- [fr] не_новость: [world] BBC News — Zelensky qualifie Poutine de « tueur » après que Trump l'a désigné comme un ami — Словесная перепалка политиков.
-- [fr] не_новость: [world] L'Express — Législatives en Espagne : comment la crise de Ceuta a fracturé le pays — Аналитическая статья о кризисе, нет события.
-- [fr] не_новость: [world] BFMTV — C'est son père qui a transformé ce village de pêcheurs en capitale mondiale de l — Историческая справка/портрет, нет текущего события.
-- [fr] не_новость: [world] Franceinfo — "Les médias ont clairement été le déclencheur" : en République tchèque, une réfo — Обсуждение реформы, нет факта принятия.
-- [fr] курьёз: [world] Courrier International — L’IA pourrait avoir résolu le problème le plus célèbre des mathématiques : l’hyp — Теоретическое утверждение о математике, не событие.
-- [fr] не_новость: [world] 20 Minutes — Etats-Unis : Trump adoube Miller comme futur président, gros tacle à Rubio et Va — Назначение в аппарат президента — рутина, не событие.
-- [fr] повтор: [world] RFI — France: le silence du RN interroge après la révélation par la presse de fuites d ≈ «"Bulldozer", "super shérif" et "serviteu» — Повторение темы префекта Moutouh.
-- [fr] повтор: [world] L'Obs — Du fromage au simili Erasmus : ce qui va changer après le rabibochage diplomatiq ≈ «En quoi consiste l'accord de « redémarra» — Тот же сюжет об отношениях UK-EU.
+- [ru] полка: [local] 24.kg — Биткоин продолжает падение: опустился до самого низкого уровня с 2024 года — Биткоин — мировая новость, не местная.
+- [ru] не_новость: [pool] РИА Новости — Часть багажа пассажиров рейса Nordwind доставят в Новокузнецк за сутки — Обычная задержка багажа авиакомпании — не событие для ленты.
+- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — В бюджете республики не хватает 3 миллиарда — власти задумались о новом налоге д — Внутрироссийские обсуждения налогов в Уфе — не повестка для KG.
+- [ru] метка_места: [pool] Onliner.by — Забивают унитазы подгузниками и влажными салфетками. Коммунальщики рассказали о  — Белорусская заметка о местных коммунальных проблемах.
+- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — В природном парке «Аслы-Куль» отдали земли без проведения торгов — Локальный спор о землях парка в Башкирии.
+- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — Волгоградский «Ротор» сыграл вничью в раннем матче в Хабаровске — Результат рядового матча российских клубов.
+- [ru] не_новость: [pool] e1.ru — Екатеринбург — «Мой папа — любящий отец!» Дочь обвиняемого в убийстве екатеринбуржца разнесла с — Личное эмоциональное высказывание частного лица.
+- [ru] срочность: [pool] ngs55.ru — Омск — На «трассе смерти» легковушка столкнулась с тремя грузовиками — кадры с места — ДТП в другом регионе России не повод для побудки.
+- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — В Волгоградской области уничтожат опасных для других животных бобров — Локальное решение экологов РФ по бобрам.
+- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — «Я должна стоять на стороне студенток»: ректор ЮФУ — о скандале со скрытыми каме — Внутренний скандал в российском вузе.
+- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — В Уфе поднимут цены на еще один популярный маршрут из-за инфляции — Повышение цены на локальном автобусном маршруте в РФ.
+- [ru] срочность: [pool] chita.ru — Чита — Смертельное ДТП произошло на трассе Забайкалье — машина влетела в стоящую фуру — ДТП в РФ, нет повода для срочности в KG.
+- [ru] не_новость: [pool] ngs55.ru — Омск — В Росавиации предложили изменить финансирование Омск-Федоровки — Предложение чиновника, а не принятое решение.
+- [ru] чужое_мелкое: [pool] 116.ru — Казань — В пригороде Набережных Челнов собрали 3 тысячи подписей против строительства мег — Протесты против стройки в РФ.
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — В зону КРТ на Островского, где хотят построить 25-этажку, попал мини-рынок. Его  — Судьба мини-рынка в Перми.
+- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — Минтранс анонсировал знаки и правила для СИМ — Анонс проекта поправок, а не готовое правило.
+- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Жители дома в Солнечном делят единственный выезд со стройтехникой. Им сделают но — Бытовые проблемы жильцов дома в Красноярске.
+- [ru] курьёз: [pool] 74.ru — Челябинск — «Кредит уже на вас!»: челябинка рассказала, как ей удалось отбиться от мошеннико — История о мошенниках без события (поучительный рассказ).
+- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — В Красноярске возбудили уголовное дело после нападения собаки на пятилетнего мал — Рядовое возбуждение дела о нападении собаки в РФ.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — В Дедовичском районе завершили дело о смертельном избиении отца — Расследование бытовой драки в Псковской области.
+- [ru] курьёз: [pool] 56.ru — Оренбург — Мирра Андреева заработала больше всех российских теннисистов. Подсчитали все ее  — Статистика призовых теннисистки — интересное, а не новость.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Спор «на слабо» закончился ножевым ранением и колонией — Приговор за бытовой спор в Великих Луках.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Суд не расторг договор купли-продажи автомобиля с изменённым VIN — Гражданский суд по частному иску в РФ.
+- [ru] повтор: [world] Sputnik KG (кыргызча) — Трамп жаңжал бүтмөйүнчө Киевдин коопсуздук кепилдигин талкуулабай турганын айтты ≈ «"Сначала сделка" — Трамп отказался обсуж» — Тот же сюжет про слова Трампа.
+- [ru] чужое_мелкое: [world] 60.ru — Псков — Экс-пресс-секретаря Белого дома проверят из-за слова «юрист» — Проверка частного лица (экс-пресс-секретаря) в США.
