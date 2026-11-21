@@ -1,27 +1,43 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] полка: [local] 24.kg — Биткоин продолжает падение: опустился до самого низкого уровня с 2024 года — Биткоин — мировая новость, не местная.
-- [ru] не_новость: [pool] РИА Новости — Часть багажа пассажиров рейса Nordwind доставят в Новокузнецк за сутки — Обычная задержка багажа авиакомпании — не событие для ленты.
-- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — В бюджете республики не хватает 3 миллиарда — власти задумались о новом налоге д — Внутрироссийские обсуждения налогов в Уфе — не повестка для KG.
-- [ru] метка_места: [pool] Onliner.by — Забивают унитазы подгузниками и влажными салфетками. Коммунальщики рассказали о  — Белорусская заметка о местных коммунальных проблемах.
-- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — В природном парке «Аслы-Куль» отдали земли без проведения торгов — Локальный спор о землях парка в Башкирии.
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — Волгоградский «Ротор» сыграл вничью в раннем матче в Хабаровске — Результат рядового матча российских клубов.
-- [ru] не_новость: [pool] e1.ru — Екатеринбург — «Мой папа — любящий отец!» Дочь обвиняемого в убийстве екатеринбуржца разнесла с — Личное эмоциональное высказывание частного лица.
-- [ru] срочность: [pool] ngs55.ru — Омск — На «трассе смерти» легковушка столкнулась с тремя грузовиками — кадры с места — ДТП в другом регионе России не повод для побудки.
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — В Волгоградской области уничтожат опасных для других животных бобров — Локальное решение экологов РФ по бобрам.
-- [ru] чужое_мелкое: [pool] 161.ru — Ростов-на-Дону — «Я должна стоять на стороне студенток»: ректор ЮФУ — о скандале со скрытыми каме — Внутренний скандал в российском вузе.
-- [ru] чужое_мелкое: [pool] ufa1.ru — Уфа — В Уфе поднимут цены на еще один популярный маршрут из-за инфляции — Повышение цены на локальном автобусном маршруте в РФ.
-- [ru] срочность: [pool] chita.ru — Чита — Смертельное ДТП произошло на трассе Забайкалье — машина влетела в стоящую фуру — ДТП в РФ, нет повода для срочности в KG.
-- [ru] не_новость: [pool] ngs55.ru — Омск — В Росавиации предложили изменить финансирование Омск-Федоровки — Предложение чиновника, а не принятое решение.
-- [ru] чужое_мелкое: [pool] 116.ru — Казань — В пригороде Набережных Челнов собрали 3 тысячи подписей против строительства мег — Протесты против стройки в РФ.
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — В зону КРТ на Островского, где хотят построить 25-этажку, попал мини-рынок. Его  — Судьба мини-рынка в Перми.
-- [ru] не_новость: [pool] 178.ru — Санкт-Петербург — Минтранс анонсировал знаки и правила для СИМ — Анонс проекта поправок, а не готовое правило.
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — Жители дома в Солнечном делят единственный выезд со стройтехникой. Им сделают но — Бытовые проблемы жильцов дома в Красноярске.
-- [ru] курьёз: [pool] 74.ru — Челябинск — «Кредит уже на вас!»: челябинка рассказала, как ей удалось отбиться от мошеннико — История о мошенниках без события (поучительный рассказ).
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — В Красноярске возбудили уголовное дело после нападения собаки на пятилетнего мал — Рядовое возбуждение дела о нападении собаки в РФ.
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — В Дедовичском районе завершили дело о смертельном избиении отца — Расследование бытовой драки в Псковской области.
-- [ru] курьёз: [pool] 56.ru — Оренбург — Мирра Андреева заработала больше всех российских теннисистов. Подсчитали все ее  — Статистика призовых теннисистки — интересное, а не новость.
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Спор «на слабо» закончился ножевым ранением и колонией — Приговор за бытовой спор в Великих Луках.
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Суд не расторг договор купли-продажи автомобиля с изменённым VIN — Гражданский суд по частному иску в РФ.
-- [ru] повтор: [world] Sputnik KG (кыргызча) — Трамп жаңжал бүтмөйүнчө Киевдин коопсуздук кепилдигин талкуулабай турганын айтты ≈ «"Сначала сделка" — Трамп отказался обсуж» — Тот же сюжет про слова Трампа.
-- [ru] чужое_мелкое: [world] 60.ru — Псков — Экс-пресс-секретаря Белого дома проверят из-за слова «юрист» — Проверка частного лица (экс-пресс-секретаря) в США.
+- [pt] курьёз: [local] Exame — Montanha-russa a 120 km/h e 55% feito: como está o parque de R$ 2 bi da Cacau Sh — Это описание рекламного проекта парка развлечений, а не новостное событие.
+- [pt] срочность: [local] G1 Rio Grande do Sul — Caminhão em fuga atinge viatura em perseguição com tiros, oito feridos e engavet — Происшествие (погоня и ДТП) не является поводом для побудки читателя.
+- [pt] срочность: [local] G1 Globo — Motociclista morre após perder o controle e bater contra tampa de bueiro em Óbid — Смертельное ДТП — трагедия, но не повод для срочной побудки.
+- [pt] срочность: [local] G1 Globo — Vídeo mostra ruas transformadas em rios e carros parcialmente submersos após chu — Последствия непогоды и наводнения — это важная информация, но не срочная побудка.
+- [pt] срочность: [local] G1 Globo — Incêndio atinge área do Bioparque da Amazônia e gera preocupação com animais no  — Пожар без массовой угрозы не требует срочной метки.
+- [pt] срочность: [local] G1 Bahia — Três pessoas são mortas a tiros e uma fica ferida em cidade na Bahia — Криминальная хроника не является поводом для прерывания дел читателя.
+- [pt] срочность: [local] G1 Rio Grande do Sul — RS: temporal com ventos de 114 km/h destrói casas, derruba torre de igreja e dei — Событие произошло ночью, метка срочности спустя часы неуместна.
+- [pt] срочность: [local] G1 São Paulo — Médica de 49 anos é encontrada morta dentro de hospital na Zona Leste de SP — Находка тела — тяжелая новость, но не повод для срочной побудки.
+- [pt] не_новость: [local] G1 Minas — Detentos publicam fotos nas redes sociais dentro de presídio; Polícia Penal de M — Посты заключенных в соцсетях — рутина, а не значимое событие.
+- [pt] срочность: [local] G1 Minas — Nove pessoas são presas em operação contra facções suspeitas de homicídios em BH — Операция по задержанию преступников — текущая работа полиции, не требует срочности.
+- [pt] чужое_мелкое: [world] CNN Brasil — Mortes por hipotermia em Gaza podem aumentar no inverno, diz agência da ONU — Прогнозы и запросы гуманитарных агентств — не событие, а общие рассуждения.
+- [pt] курьёз: [world] Wired — Sonda espacial retorna a asteroides onde a NASA testou sistemas de defesa planet — Научно-популярная заметка без события и последствий.
+- [pt] не_новость: [world] Fortune — Google disse às escolas para aceitar IA ou perder a Busca; agora, 3 dos 4 maiore — Корпоративный ультиматум без завершенного факта (школы сопротивляются).
+- [pt] чужое_мелкое: [world] The Independent — Ex-chefe da polícia italiana é encontrado morto durante investigação sobre a máf — Смерть чиновника в ходе следствия — частное событие, не влияющее на мир или Бразилию.
+- [pt] не_новость: [world] Fortune — CEO do GoFundMe vê 'nova era de desespero' após salto de 40% em pedidos de ajuda — Аналитическая заметка о статистике обращений, без конкретного события.
+- [pt] не_новость: [world] France 24 — Vladimir Putin foi 'ignorado' por Xi Jinping? Vídeo viral de aperto de mão é fal — Разбор фейкового видео не является новостным событием.
+- [pt] не_новость: [world] NPR News — O boom da IA teve uma semana muito ruim — e está gerando alarmes — Аналитика рынка («неделя была плохой») — не событие.
+- [pt] чужое_мелкое: [world] The Hill — Virgínia registra a primeira morte relacionada ao sarampo em 2026 — Единичная смерть от болезни в США — локальное событие для местного здравоохранения.
+- [pt] не_новость: [world] Engadget — YouTube pode pagar US$ 3 bilhões para encerrar processos sobre vício em redes so — Судебный процесс «может заплатить» — это вероятность, а не свершившийся факт.
+- [pt] не_новость: [world] Engadget — Funcionários do Internet Archive estão se sindicalizando — Начало процесса профсоюзного объединения — внутренняя корпоративная рутина.
+- [pt] курьёз: [world] BBC Brasil — Como comprimido diário é a grande esperança contra um dos cânceres mais letais — Научный анонс исследования о лекарстве без факта регистрации или успеха лечения.
+- [pt] не_новость: [world] Guardian Sport — Campeonato Mundial de Xadrez 2026: perguntas e respostas sobre o confronto entre — Справочный материал «вопросы и ответы» к спортивному событию.
+- [fr] курьёз: [local] Nice-Matin — C’est plus que les recettes de la dernière tournée de Taylor Swift : « GTA VI »  — GTA VI — это видеоигра, новость не несет последствий для реальности.
+- [fr] не_новость: [local] France Bleu — Lieux de vente, qualité du reconditionnement : le marché des jouets de Noël de s — Это обзор рынка, а не конкретное событие.
+- [fr] курьёз: [local] L'Express — "Mon admiration pour Stephen King peut me paralyser" : Maxime Chattam, mordu de  — Интервью/мнение автора о литературе, нет события.
+- [fr] анонс: [local] Franceinfo — Cargo échoué sur une plage des Landes : comment va se passer la remise à flot de — Текст состоит из призыва смотреть видео, нет самого события.
+- [fr] курьёз: [pool] Courrier International — Des étudiants canadiens pourraient avoir trouvé une parade aux risques de ruptur — Научный проект студентов — находка, не событие с последствиями.
+- [fr] курьёз: [pool] Radio-Canada — Ruiner les tactiques de drague des insectes plutôt que recourir aux pesticides — Описание поведения насекомых — познавательный факт, а не новость.
+- [fr] курьёз: [pool] Futura-Sciences — À 78 ans, une radio avant une opération révèle qu'il n'a aucune clavicule — Медицинский казус — классическое «Интересное».
+- [fr] не_новость: [pool] Courrier International — Ces résidents étrangers en France qui continuent de manifester malgré la peur — Очерк о жизни мигрантов, нет конкретного события.
+- [fr] не_новость: [pool] RTBF — Victime d'une agression homophobe, Bastien choisit de témoigner : "Ce n'est pas  — Личный рассказ (интервью) пострадавшего без описания юридических последствий.
+- [fr] не_новость: [world] BFMTV — +330% en Bourse en six mois: après avoir gagné des milliards grâce au Covid puis — Аналитический разбор котировок акций, нет закрытой сделки или события.
+- [fr] срочность: [world] BFMTV — Le FBI et le ministère de l'Agriculture ont été piratés selon plusieurs médias a — Прошедшее событие, не требует побудки.
+- [fr] не_новость: [world] TSA Algérie — Tourisme : l’Algérie vise 8 millions de visiteurs en 2029 et mobilise sa diaspor — Анонс целей на 2029 год.
+- [fr] не_новость: [world] Radio-Canada — Climat : deux heures pour trouver de l’eau à Madagascar — Репортаж о климатических проблемах, нет конкретного события.
+- [fr] не_новость: [world] Radio-Canada — Fin du télescope Swift : bilan de mission — Итоги старой миссии (ретроспектива).
+- [fr] не_новость: [world] Radio-Canada — Commission royale sur les peuples autochtones : le legs inachevé d’un rapport fo — Обзор старого отчета 30-летней давности.
+- [fr] курьёз: [world] Sciences et Avenir — 200 hippopotames : l'encombrant héritage d'un baron de la drogue — История про бегемотов — классическое «Интересное».
+- [fr] чужое_мелкое: [world] The Hill — La Virginie rapporte le premier décès lié à la rougeole en 2026 — Внутренняя медицинская статистика США.
+- [fr] не_новость: [world] BBC News — Le recul des valeurs technologiques entraîne les marchés à la baisse, les action — Рыночный комментарий о падении акций.
+- [fr] чужое_мелкое: [world] BBC Mundo — Les cris d'un détenu pendant son exécution au Texas relancent le débat sur la pe — Внутренние юридические и этические дебаты США.
