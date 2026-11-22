@@ -1,19 +1,23 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] курьёз: [local] Untitled RSS Feed — New Study: Wyoming's Biggest Dinosaurs Passed A Lot Of Gas, Emitted Tons Of Meth — Научное любопытство о динозаврах — место в «Интересном», а не в общих лентах.
-- [en] курьёз: [local] Untitled RSS Feed — Thermopolis Boy Spends His 12th Birthday Money Doing 12 Random Acts Of Kindness — Частная история о мальчике и подарке не является общественно значимым событием.
-- [en] не_новость: [local] CBS News — Ossoff's broad and decisive Senate win fuels 2028 speculation — Спекуляции о выборах 2028 года не являются свершившимся событием.
-- [en] чужое_мелкое: [pool] The Independent — Texas Sen. John Cornyn takes parting shot at Ted Cruz as he heads for the door a — Внутренняя перепалка сенаторов США — мелкий политический эпизод без последствий.
-- [en] не_новость: [pool] Fortune — Ronald Reagan said you can achieve anything—if you don’t care who gets the credi — Размышления и обзоры не являются новостью по белому списку.
-- [en] курьёз: [pool] NPR News — Meet the young authors! A literacy program inspires kids in South Africa — История о детской программе в ЮАР — интересная зарисовка, а не мировая новость.
-- [en] не_новость: [world] TechCrunch — OpenAI’s chief scientist has thoughts on how to limit AI development — Мнение ученого в блоге не является свершившимся событием.
-- [en] не_новость: [world] Rolling Stone — PlaqueBoyMax Wants to Find Your Next Favorite Artist — Рекламное продвижение артиста в журнале не является новостью.
-- [en] курьёз: [world] Fortune — High-end genealogy travel is booming, offering luxe journeys to the roots of you — Путевые заметки о генеалогическом туризме — это lifestyle-контент.
-- [en] не_новость: [world] Xataka — The new cold war between the United States and China is not about chips: it is a — Аналитическая статья о «новой холодной войне» — это мнение/обзор, а не событие.
-- [en] не_новость: [world] Rolling Stone — Russell Brand’s Wife Will ‘Honor’ Prison Rules Barring His Messages — Светская хроника о личной жизни и запретах не является значимым событием.
-- [en] курьёз: [world] Rolling Stone — Boy George on His Israel Trip: ‘I Wasn’t Able to Not Say Something’ — Личное мнение артиста о поездке не является общественно значимым событием.
-- [en] не_новость: [world] Axios — Behind the Curtain — AI 2027: The reckoning — Анонс цикла статей («За кулисами») не является новостью.
-- [en] не_новость: [world] WFPL — Why the U.S. air traffic control system still relies on an 'antique' network — Аналитическая статья о старых системах — это лонгрид-разбор.
-- [en] не_новость: [world] Ars Technica — GLP-1 drugs could have a surprisingly large environmental payoff — Теоретические рассуждения об экологическом влиянии препаратов — это не событие.
-- [en] не_новость: [world] Semafor — Trading soars on Jensen Huang-related prediction market bets — Анализ ставок на рынках предсказаний — это производная активность, а не новость.
-- [en] не_новость: [world] Fortune — Intuit moves to sell Mailchimp for $3.68 billion as AI reshapes its growth strat — Стратегические бизнес-планы и рассуждения не являются свершившимся событием.
+- [es] курьёз: [local] El Financiero — ‘Gullit’ Peña niega haber tocado a Gabriela Echeverría: ‘Tengo una madre e hijas — Спортивная полемика и личные оправдания игрока не являются новостью, это светская хроника.
+- [es] курьёз: [local] Expansión MX — El Dr. Simi lleva café y atención veterinaria a una misma esquina de Holbox — Работа Dr. Simi в туристическом месте — это забавный факт, а не событие.
+- [es] курьёз: [pool] Infobae — La sorprendente actuación de Lionel Scaloni en una tradicional competencia de ci — Участие тренера в любительском велозаезде — любопытный факт, а не новость.
+- [es] не_новость: [pool] Marca — Koke y Simeone no pueden irse nunca — Аналитическая колонка о любви к тренеру и игроку, нет события.
+- [es] не_новость: [pool] 14ymedio — En Cuba, ni con dos trabajos alcanza para llenar la mesa — Очерк о тяжелой жизни обычного человека без конкретного события.
+- [es] чужое_мелкое: [pool] El Mundo — PP y PSOE desembarcan en Formentera: la isla que se decide por la mínima y que p — Внутренняя предвыборная кампания на маленьком острове — местечковая новость Испании.
+- [es] чужое_мелкое: [pool] eldiario.es — Abascal quiere más que una "simple mayoría absoluta" para finiquitar el estado a — Внутриполитическая риторика партии Vox — местная политика Испании.
+- [es] чужое_мелкое: [pool] eldiario.es — Feijóo, frente al fantasma de 2023: "Que no se relaje nadie" — Обычное предвыборное выступление кандидатов, нет события.
+- [es] чужое_мелкое: [pool] eldiario.es — Sánchez desafía a PP y Vox tras declararlo persona non grata en Murcia: "El 29N  — Внутриполитическая полемика в испанском регионе.
+- [es] не_новость: [pool] El País — El PSOE acaricia el empate con el PP, según el ‘tracking’ de 40dB. — Очередной предвыборный рейтинг — это анализ, а не событие.
+- [es] не_новость: [pool] La Vanguardia — La derecha suma mayoría absoluta mientras el PSOE se acerca al PP — Очередной соцопрос перед выборами, нет события.
+- [es] срочность: [world] El Tiempo CO — Gobernadora del Valle respalda bombardeo contra el Eln en Dagua: 'Cada acción co — Это регулярная военная сводка, нет повода будить читателя.
+- [es] чужое_мелкое: [world] Guardian Sport — Los Mets acuerdan un contrato de 450 millones de dólares con Tarik Skubal, el ac — Контракт игрока в американской лиге — это спорт, но не мировое событие для читателя в Мексике.
+- [es] курьёз: [world] Engadget — Esta aplicación gratuita conecta su teléfono Android a su PC con Windows de form — Обзор приложения — полезная информация, но не новость.
+- [es] чужое_мелкое: [world] Guardian Sport — Resumen de la NFL: Chiefs, Lions y Bills continúan su racha; Metcalf es expulsad — Результаты матчей НФЛ — типичный спортивный шум.
+- [es] чужое_мелкое: [world] El Financiero — Narcoterrorismo y armas: Los delitos por los que EU busca encarcelar de por vida — Судебные процессы над локальными преступниками в США не являются мировыми событиями.
+- [es] чужое_мелкое: [world] The Guardian — El efecto del nuevo entrenador Pochettino fracasa tras la desastrosa decisión de — Результаты футбольных матчей в Британии — спорт, не мировое событие.
+- [es] чужое_мелкое: [world] France 24 — El demócrata Hubbard gana el recuento en Carolina del Norte y logra una mayoría  — Итоги локальных выборов в штате США — это внутренняя политика США.
+- [es] курьёз: [world] Xataka — La nueva guerra fría entre Estados Unidos y China no es por los chips: es por lo — Аналитика про использование обезьян в лабораториях — научно-популярный материал.
+- [es] курьёз: [world] BBC Mundo — Cómo dos neveras abandonadas por el ejército de EE.UU. en Toscana dieron origen  — Историческая справка об итальянском мороженом — материал для рубрики «интересное».
+- [es] чужое_мелкое: [world] Ars Technica — La FCC bajo la administración Trump declara que California no puede aplicar norm — Регулирование телефонной связи в Калифорнии — это внутренняя административная новость США.
