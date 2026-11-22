@@ -1,34 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] CNN Brasil — Compromisso com ajuste pode virar o mercado, diz estrategista — мнение аналитика об ожиданиях рынка, нет факта свершившегося события.
-- [pt] не_новость: [local] G1 Rio — Legista que investigou mortes de Zuzu Angel, Lamarca e Mengele lança no Rio livr — анонс выхода книги, а не событие.
-- [pt] не_новость: [local] G1 Paraná — Herói das Sete Quedas: homem salvou seis pessoas de tragédia que matou 32 antes  — исторический очерк/воспоминания, нет актуального события.
-- [pt] не_новость: [local] G1 Bahia — Cinema, maquiagem, massagem e mais: confira a estrutura do camarote de luxo da M — описание структуры инфраструктуры фестиваля, а не событие.
-- [pt] не_новость: [local] G1 Bahia — Brincadeiras africanas e afro-brasileiras atuam como ferramenta antirracista na  — методическая статья о педагогике, нет события.
-- [pt] не_новость: [pool] Notícias ao Minuto — Olhares do Mediterrâneo celebra o coletivo e estreia projeto comunitário — анонс начала фестиваля, нет свершившегося события.
-- [pt] не_новость: [pool] ECO — A ineficiência também come à mesa do Orçamento — авторская колонка/рассуждение, нет события.
-- [pt] курьёз: [world] BBC Brasil — Como um adolescente e sua mãe ajudaram a resgatar uma garota desaparecida após u — человеческая история, не имеющая мирового значения.
-- [pt] не_новость: [world] Guardian Sport — Bruno Fernandes revela que negociações para novo contrato com o Manchester Unite — переговоры в процессе, нет закрытой сделки или подписанного контракта.
-- [pt] не_новость: [world] El Nacional VE — Sessão de encerramento da COP31 começa com poucas chances de um pacto de consens — описание процесса ожидания заседания, нет итога.
-- [pt] не_новость: [world] Superinteressante — Doença falciforme: como uma série da Netflix pode esclarecer muito além da doenç — культурологический разбор сериала, не событие.
-- [pt] не_новость: [world] Variety — SXSW estabelece parceria com o festival egípcio UTH, dedicado à cultura jovem — сообщение о партнерстве без конкретного события (анонс сотрудничества).
-- [pt] не_новость: [world] Variety — Cinebiografia 'Caesar', apoiada pela Neon sobre oficial sírio que denunciou tort — анонс будущего фильма, не событие.
-- [pt] курьёз: [world] Muy Interesante — Um novo estudo questiona uma teoria centenária sobre a origem da vida na Terra — научная дискуссия без последствий для читателя.
-- [pt] курьёз: [world] Naked Science — Machos de abelhões provaram ser necessários para mais do que apenas a reprodução — научный факт о поведении насекомых.
-- [pt] курьёз: [world] Superinteressante — Pequena chihuahua de apenas 9 centímetros de altura é o menor cachorro vivo do m — информация о собаке, не является новостью.
-- [pt] курьёз: [world] Good News Network — Respiração de baleia capturada por drone permite o sequenciamento completo do ge — описание научного метода сбора данных, не новость.
-- [pt] курьёз: [world] Naked Science — Abelhões levam cientistas a reconsiderar a relação entre tamanho do cérebro e ca — описание научного исследования, не событие.
-- [pt] курьёз: [world] Sciences et Avenir — 200 hipopótamos: o incômodo legado de um barão da droga — научно-популярный материал об экологии.
-- [pt] не_новость: [world] Smithsonian Magazine — Uma das pinturas abstratas raríssimas de Hilma af Klint foi vendida por um recor — описание аукционного лота, не событие.
-- [pt] не_новость: [world] Semafor — OpenAI reforça controle sobre revendedores de modelos de IA — объявление внутренних требований компании к партнерам, не новость для широкого круга читателей.
-- [fr] не_новость: [local] La Dépêche — Doit-on s'attendra à Noël sans sapins ? Pourquoi les producteurs alertent sur un — тревога о нехватке ёлок на будущие праздники — не событие.
-- [fr] не_новость: [local] La Dépêche — France-Argentine : "Mon pauvre bébé !" Santiago, 7 ans, fils de l'ancien joueur  — материал о событиях 2022 года, нет актуального инфоповода.
-- [fr] срочность: [pool] Radio Okapi — La Police empêche la tenue de la messe du cardinal Ambongo avec les jeunes au st — инцидент с отменой мессы — не требует немедленного уведомления (побудки).
-- [fr] не_новость: [pool] Le Devoir — Des étudiants envisagent de lancer une grève illimitée durant la session d’hiver — обсуждение возможности забастовки — это намерение, не состоявшееся событие.
-- [fr] повтор: [world] RTBF — COP31 à Antalya : le président turque Murat Kurum annonce qu'il n'y a pas d'acco ≈ «La COP31 en Turquie devient la plus long» — тот же сюжет про COP31.
-- [fr] курьёз: [world] Sud Ouest — « Si tu n’as pas de dollars, tu es cuit » : à Cuba, Cuba, la nostalgie de Fidel  — ностальгический очерк о десятилетии после смерти Кастро.
-- [fr] курьёз: [world] Courrier International — Chats, chiens et hérissons : ces animaux qui épaulent les soldats ukrainiens au  — история о животных на фронте — это очерк, не новостное событие.
-- [fr] не_новость: [world] RFI — Trois jours après la rencontre Trump-Xi-Poutine, les Britanniques réaffirment le — дипломатический этикет (подтверждение поддержки), нет нового факта.
-- [fr] срочность: [world] Africanews FR — Ukraine : un conducteur échappe de justesse à une frappe russe — сводки с фронта, очередное видео с места — не повод для побудки.
-- [fr] не_новость: [world] TechCrunch — Signal restreint les captures d'écran mobiles face à la « menace existentielle » — изменение функционала приложения — повод для обновлений, а не новость.
-- [fr] не_новость: [world] Азаттык — Melania Trump a évoqué la possibilité d'un cessez-le-feu en Ukraine avant Noël — мнение о «возможности» — слова, не имеющие силы решения.
+- [ru] полка: [local] Sputnik KG (кыргызча) — Москвада орус тили боюнча эл аралык олимпиадада жеңген беш кыргызстандык сыйланд — новость из РФ про РФ, для KG это мировая, а не местная
+- [ru] курьёз: [local] Kaktus.media — "Вояджер-1" удалился от Земли на один световой день. Это рекорд человечества — научно-популярный факт, место в «Интересном»
+- [ru] чужое_мелкое: [local] Kaktus.media — Стример обошел 35 тысяч человек и получил работу мечты - играть в GTA VI за $120 — частная история стримера из США, не новость для KG
+- [ru] полка: [local] Kabar.kg — Данияр Мелисов дзюдо боюнча жаштар арасында дүйнө чемпиону болду — новость из Узбекистана, должна быть в «Новости из...» или «Мировые»
+- [ru] чужое_мелкое: [pool] РИА Новости — В нескольких районах Сочи устраняют последствия ночного ливня — локальное происшествие в Сочи (РФ), не мировое событие
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — В Перми сбежавшую от мамы 12-летнюю девочку нашли погибшей — трагедию прокоммент — локальное происшествие в Перми, не мировой масштаб
+- [ru] не_новость: [pool] 72.ru — Тюмень — «Стоило ли оно того?»: бизнесмен посчитал, сколько потратил на открытие популярн — личный опыт бизнесмена, очерк
+- [ru] не_новость: [pool] 29.ru — Архангельск — Работодатели в Архангельской области стали предлагать больше денег: какие ваканс — обзор рынка труда, аналитика
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — В Ярославской области начали реставрировать знаменитую на всю Россию колокольню — локальная реставрация в РФ, не мировое событие
+- [ru] чужое_мелкое: [pool] Avesta.tj — Вдоль автодороги Бохтар–Душанбе высадили 1500 саженцев деревьев — местная акция в Таджикистане
+- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Полиция устроила погоню и штурм ворот в центре Петербурга — локальное задержание в РФ
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Четыре кредитки для «Александра Ибрагима»: в Оренбуржье женщину обманул представ — бытовое мошенничество в РФ
+- [ru] не_новость: [pool] 29.ru — Архангельск — Скоро архангельский «Водник» сыграет против своего бывшего капитана: когда смотр — анонс спортивного матча
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — В возрасте 57 лет умер Михаил Ипатов — известный пермский тренер, экс-хоккеист,  — смерть местного тренера в РФ
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Время тратить бюджет — Рязанская облдума закупит часы на 149 тысяч рублей — мелкая закупка регионального парламента в РФ
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Жаловался на адвоката и называл свою жизнь никчемной: суд не отпустил на свободу — местная судебная хроника из РФ
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — Череповчанин завоевал бронзу на Кубке России по пулевой стрельбе — локальные спортивные результаты в РФ
+- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Подлетела от удара: появилось видео момента ДТП, где 20-летний парень сбил женщи — рядовое ДТП в РФ
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Водителя «Ларгуса» признали виновным в аварии с тремя погибшими. Оренбуржец не у — местная судебная хроника из РФ
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — Череповчанка заплатит соседке за сломанное в споре плечо — бытовой соседский спор в РФ
+- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — У соседей на Ямале разрешили отстреливать медведей, которые крутятся у месторожд — локальное распоряжение в РФ
+- [ru] курьёз: [pool] 56.ru — Оренбург — Отслоилась сетчатка на обоих глазах: в Оренбурге офтальмологи помогли многодетно — медицинский случай из РФ, без мирового значения
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Считал себя хозяином города — в Рязани задержали бойца ММА — мелкое задержание в РФ
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — В Бузулуке суд оставил в СИЗО обвиняемого в смертельном избиении знакомой — местная судебная хроника из РФ
+- [ru] не_новость: [pool] 14.ru — Якутск — Ушла эпоха. Здание Мирнинской типографии в Якутии выставили на торги — выставление недвижимости на торги (объявление)
