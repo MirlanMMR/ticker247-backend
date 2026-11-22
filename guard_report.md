@@ -1,23 +1,36 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] срочность: [local] El Economista MX — Fracasa COP31: Discrepancias sobre combustibles fósiles impide acuerdo — Провал переговоров — политическая рутина, не повод будить читателя.
-- [es] чужое_мелкое: [local] El Financiero — Inés Gómez Mont, la constructora: Así habría recibido 178 mdp de dos empresas, s — Уголовное дело частного лица в США — не новость для Мексики.
-- [es] курьёз: [pool] Infobae — El aeropuerto de Madrid reanuda el servicio de tren entre las terminales T4 y Sa — Техническое обслуживание аэропорта — не мировая новость.
-- [es] чужое_мелкое: [pool] RPP PE — "Solo fue un mareo por tantas vueltas juntas": Leandro Paredes tranquiliza a la  — Мелкий инцидент со здоровьем игрока в Аргентине не является мировой новостью.
-- [es] чужое_мелкое: [pool] 14ymedio — Cuba pierde su soberanía sismológica y depende de la estación de la Base Naval d — Внутренние проблемы кубинского ведомства — не мировая новость.
-- [es] полка: [pool] Prensa Libre GT — “Atrapados entre los hierros”: Accidentes de tránsito dejan al menos tres muerto — ДТП в Гватемале не должно быть в карусели новостей для Мексики (если там нет мексиканцев).
-- [es] чужое_мелкое: [pool] eldiario.es — Colau pide en Gran Canaria “cambiar las reglas del juego” y frenar el turismo ma — Предвыборное выступление местного политика Испании не является мировой новостью.
-- [es] чужое_мелкое: [pool] eldiario.es — Feijóo, frente al fantasma de 2023: "Que no se relaje nadie" — Внутренняя политическая борьба в Испании — не мировая новость.
-- [es] чужое_мелкое: [pool] Diario Libre DO — Detención de Willy Manuel Zorrilla y habeas corpus — Локальное судебное дело в Доминикане — не мировая новость.
-- [es] чужое_мелкое: [pool] La Vanguardia — La derecha suma mayoría absoluta mientras el PSOE se acerca al PP — Внутренние опросы в Испании — не мировая новость.
-- [es] не_новость: [pool] La Vanguardia — La mayoría quiere que el nuevo gobierno se centre en la vivienda — Опрос о предпочтениях избирателей — не событие, а мнение.
-- [es] срочность: [world] The Independent — Los Ángeles enfrenta un riesgo récord de inundaciones por mareas vivas esta sema — Предупреждение о приливах в Лос-Анджелесе не требует срочной метки для Мексики.
-- [es] не_новость: [world] Folha de S.Paulo — Una sonda conjunta de Europa y Japón entró en la órbita de Mercurio — Космическая миссия длится годами, достижение орбиты — рабочий этап, а не срочная новость.
-- [es] курьёз: [world] Clarín AR — Más de 1.100 chinchillas fueron entregadas tras una inspección en Ohio: qué enco — Инспекция фермы шиншилл в США — типичное «интересное».
-- [es] срочность: [world] The Independent — Un video de cámara de seguridad muestra un misil ruso pasando a metros de un aut — Видео с камер — не срочно. Будить человека стоит только при смене фронтовой обстановки.
-- [es] повтор: [world] Marca — Y Marc Márquez superó a Valentino... ≈ «Marc Márquez ganó su octavo título de Mo» — Тот же сюжет о победе Маркеса.
-- [es] чужое_мелкое: [world] France 24 — Israel investiga ataques incendiarios en Cisjordania — Обычные полицейские расследования в Израиле — не мировое событие.
-- [es] курьёз: [world] BBC Mundo — Cómo dos neveras abandonadas por el ejército de EE.UU. en Toscana dieron origen  — История про холодильники — чистое «интересное».
-- [es] не_новость: [world] The Guardian — Empresas británicas celebran el acuerdo alimentario entre Reino Unido y la UE: « — Корпоративные комментарии о сделке не являются событием.
-- [es] не_новость: [world] TechCrunch — Signal restringe las capturas de pantalla móviles ante la «amenaza existencial»  — Обновление функции в приложении — не новость.
-- [es] чужое_мелкое: [world] Semafor — OpenAI endurece el control sobre los revendedores de sus modelos — Внутренние правила OpenAI для посредников — не мировая новость.
+- [pt] не_новость: [local] G1 Globo — MT Hemocentro terá programação especial pelo Dia do Doador de Sangue em Cuiabá — Плановая программа к календарной дате, не событие.
+- [pt] не_новость: [local] Gazeta do Povo — Master: um ano depois, crises institucionais inundam investigações e escândalo s — Аналитическая статья о годовщине расследования без нового факта.
+- [pt] курьёз: [local] G1 Bahia — Brincadeiras africanas e afro-brasileiras atuam como ferramenta antirracista na  — Это культурно-педагогическая заметка, не новостное событие.
+- [pt] курьёз: [pool] Notícias ao Minuto — Fato típico de Portugal no Miss Universo é uma homenagem ao mar — Обзор наряда на конкурсе красоты — не новостное событие.
+- [pt] не_новость: [pool] Terra BR — Sophia Abrahão desabafa sobre morte de Lua Blanco e reencontro de 'Rebelde': 'Ju — Эмоциональное высказывание актрисы о прошлом, не событие.
+- [pt] чужое_мелкое: [world] The Independent — Agentes mascarados do ICE detêm passageiros em voo no aeroporto de Seattle em pr — Локальное задержание полицией США, нет значимости для мира.
+- [pt] чужое_мелкое: [world] Poder360 — Mianmar chama decisão da Asean de “injusta e desequilibrada” — Реакция МИД Мьянмы на дипломатическое решение, не имеет глобальных последствий.
+- [pt] не_новость: [world] Variety — J.A. Bayona, Guneet Monga Kapoor e Vikas Khanna juntam-se ao vencedor do Student — Формирование жюри или состав участников фестиваля — не событие.
+- [pt] курьёз: [world] BBC Brasil — Como um adolescente e sua mãe ajudaram a resgatar uma garota desaparecida após u — История о том, как кто-то помог кому-то, носит частный характер.
+- [pt] не_новость: [world] Superinteressante — Doença falciforme: como uma série da Netflix pode esclarecer muito além da doenç — Мнение исследователя о сериале — не новость.
+- [pt] не_новость: [world] The Guardian — Ataques cibernéticos, IA e teorias da conspiração: por que estamos enfrentando t — Аналитическая колонка с вопросом, нет факта события.
+- [pt] не_новость: [world] Азаттык — Melania Trump sugere cessar-fogo na Ucrânia até o Natal — Слова (мнение) без полномочий принимать решения, не событие.
+- [pt] не_новость: [world] Semafor — OpenAI reforça controle sobre revendedores de modelos de IA — Регуляторное требование компании к партнерам — рутина бизнеса, не событие.
+- [fr] курьёз: [local] BFMTV — Perte de poids, nouvelle taille de vêtement, visage creusé… Avec l'essor des méd — Это рассуждение об эффекте лекарства, а не событие.
+- [fr] не_новость: [local] Sud Ouest — Animaux de compagnie : une association milite pour la création d’un congé d’un j — Предложение ассоциации — это не принятое решение.
+- [fr] курьёз: [local] Sud Ouest — Faut-il faire taire les cloches de l’église, qui sonnent tous les quarts d’heure — Локальный спор о колоколах — это не новость мирового или национального масштаба.
+- [fr] не_новость: [local] France Bleu — VIDÉO - Pourquoi les arbres mettent-ils du temps à prendre leurs couleurs d'auto — Научно-популярный материал об осени — не событие.
+- [fr] не_новость: [local] L'Express — Pourquoi tant de cancers colorectaux chez les jeunes ? L’intrigante piste de la  — Медицинский разбор причин рака без конкретного события.
+- [fr] чужое_мелкое: [pool] Bénin Web TV — Mali : près de 80 milliards FCFA de pénalités portuaires évitées à Dakar et Abid — Административное решение по тарифам в портах Мали — не мировая новость для Франции.
+- [fr] полка: [pool] RTBF — Un œil sur demain : ils parviennent à recycler les textiles à l’infini — Статья о французском заводе в бельгийской ленте должна быть в мировых или французских новостях, но не «новостях из» (дру
+- [fr] курьёз: [world] Le Temps — Le stress lié à la pandémie aurait accéléré le processus de vieillissement des a — Пересказ исследования — это интересное, а не новость.
+- [fr] не_новость: [world] Courrier International — Séoul mise sur la vie nocturne pour relancer sa croissance — Аналитика планов Сеула по туризму без свершившегося факта.
+- [fr] чужое_мелкое: [world] Franceinfo — "On a découvert une facette plus personnelle des candidats" : en Espagne, un you — Детали предвыборной кампании в Испании не являются мировым событием.
+- [fr] не_новость: [world] Courrier International — Au Portugal, la révolte contre les mégaprojets gagne du terrain — Обзорная статья-мнение о проектах в Португалии.
+- [fr] чужое_мелкое: [world] Guardian Sport — Le joueur de la NFL Jaylen Harrell aurait agressé un chauffeur. — Мелкий криминал со спортсменом в США — не мировая новость.
+- [fr] чужое_мелкое: [world] Radio-Canada — Israël : les partis d’Eisenkot et de Nétanyahou reprennent leurs pourparlers — Местные переговоры партий в Израиле не имеют глобальных последствий.
+- [fr] не_новость: [world] France 24 FR — Italie : décès de Gianni De Gennaro, ex-chef de la police — Смерть бывшего чиновника (естественная причина или просто факт) без уточнения, что это меняет сегодня.
+- [fr] не_новость: [world] Guardian Sport — Max Verstappen déclare que George Russell est « bien en dessous de son niveau »  — Словесная перепалка пилотов после гонки — шум, а не событие.
+- [fr] повтор: [world] Africanews FR — ONU : "Robots tueurs" aucun accord contraignant n'a été adopté ≈ «L’ONU adopte une entente limitée sur l’u» — Тот же сюжет про провал переговоров по ИИ в ООН.
+- [fr] курьёз: [world] Radio-Canada — La fin de la chasse à la baleine en Islande bloquée par un millionnaire — История об одном человеке, который «блокирует» отрасль — не новость.
+- [fr] не_новость: [world] 20 Minutes — Guerre en Ukraine : Comment fonctionne le « dôme de guerre électronique » censé  — Разбор технологии защиты Киева — это объясняющая статья, а не событие.
+- [fr] не_новость: [world] 20 Minutes — Comment le changement climatique augmente les mariages forcés de mineures — Тематическая статья о связи климата и социальных проблем.
+- [fr] не_новость: [world] TechCrunch — Signal restreint les captures d'écran mobiles face à la « menace existentielle » — Обновление функции в приложении — рекламный инфоповод, а не новость.
+- [fr] не_новость: [world] Азаттык — Melania Trump a évoqué la possibilité d'un cessez-le-feu en Ukraine avant Noël — Слова Мелании Трамп — это рассуждения, а не подтвержденный дипломатический факт.
