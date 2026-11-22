@@ -1,82 +1,124 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-11-22 19:16 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-11-22 20:16 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [es]: помечено 91 из 340 за 3 запросов
-  🧭 [es] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 12 в 5 регионах
-  🧭 [es] после чистки текста: всего 66 — местных 25, соседей 14, мира 27; областных 12 в 5 регионах
-  🧭 [es] после обзоров прессы: всего 53 — местных 20, соседей 15, мира 18; областных 8 в 3 регионах
-  🧭 [es] после склейки пересказов: всего 48 — местных 17, соседей 15, мира 16; областных 8 в 3 регионах
-  🧭 [es] после рубежа: всего 43 — местных 15, соседей 14, мира 14; областных 8 в 3 регионах
+  🧪 Этап 1 (боевой) [pt]: помечено 74 из 389 за 4 запросов
+  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 55 в 13 регионах
+  🧭 [pt] после чистки текста: всего 69 — местных 28, соседей 14, мира 27; областных 55 в 13 регионах
+  🧭 [pt] после обзоров прессы: всего 52 — местных 22, соседей 12, мира 18; областных 50 в 9 регионах
+  🧭 [pt] после склейки пересказов: всего 46 — местных 19, соседей 11, мира 16; областных 43 в 9 регионах
+  🧭 [pt] после рубежа: всего 41 — местных 17, соседей 9, мира 15; областных 41 в 8 регионах
 
-  🗞 Редактор [es] (В ЭФИРЕ): карточек 51, спрошено 45, вторым 0
-     память не сработала: новая 45
-     снято: нет события 14
-     починено: текст сокращён до сути 25, строка НОС принята 4, строка НОС: из заголовка 2, строка НОС: сжата кодом 1, нужно другое фото 1, фото заменено 1
-     🎲 Любопытное [es] (в полосу «Интересное»): 2
-       🎲 в эфире · [ufa1.ru] El millonario sin brazos ni piernas: cómo un hombre con discapacidad de Bashkiria hizo historia en la Europa d · https://ufa1.ru/text/world/2026/11/22/76268658/
-       🎲 в эфире · [El Informador] Unidad de Rescate de Tlajomulco atiende a cachorro de jaguarundí rescatado · https://www.informador.mx/jalisco/unidad-de-rescate-de-tlajomulco-atiende-a-cachorro-de-jaguarundi-rescatado-20261122-0047.html
-       📝 [El Sol de México] Ataque contra batallón del Ejército colombiano dej → Un militar muerto y más de 12 heridos deja un ataque contra el Ejército colombiano.
-       ✂️ [El Financiero] ¡Acelera rumbo al subcampeonato! Max Verstappen gana Gran Pr — абзацы 5/55
-       ✗ нет события: [El Universal MX] Benny Ibarra celebra 35 años como solista entre recuerdos de Timbiriche y una declaración  — концерт и личные воспоминания
-       ✂️ [El Universal MX] México exporta 108 mil cabezas de ganado bovino a EU desde a — абзацы 4/15
-       ✗ нет события: [El Universal MX] Caso Sasha Sokol y pleito legal de Nodal y su padre, entre lo más leído de la semana — подборка старых новостей
-       ✂️ [El Universal MX] Alistan en el Senado reunión con legisladores de EU; abordar — абзацы 5/14
-       ✂️ [El Economista MX] Prevén mejora del crecimiento económico en la mayoría de los — абзацы 4/5
-       ✂️ [El Economista MX] Morelia avanza para convertir su Festival de Música en un ep — абзацы 3/8
-       ✂️ [Expansión MX] El Dr. Simi lleva café y atención veterinaria a una misma es — абзацы 3/4
-       ✂️ [Expansión MX] El plan de los empresarios para amortiguar el golpe de la in — абзацы 5/9
-       ✂️ [El Financiero] Golpe a mercado negro de relojes de lujo en CDMX: Detienen a — абзацы 3/17
-       ✗ нет события: [Reforma] Se incendia departamento en la BJ; evacuan a 250 personas — нет другого снимка
-       ✂️ [El Financiero] ¿Cómo es la empresa de Antonio Carlos Santos? El negocio del — абзацы 3/21; выбраны абзацы 1, 2, 3
-       ✂️ [El Tiempo CO] ‘Tusi’, videojuegos y fusiles: la escuela sicarial de ‘la In — абзацы 4/8; выбраны 1-4, последний исключен
-       ✂️ [El Tiempo CO] Dos menores, entre ellos el hijo de un concejal, fueron ases — абзацы 4/5; выбраны 1-4, последний исключен
-       ✂️ [Semana CO] Cayó en Ecuador hombre implicado en la muerte de patinadora  — абзацы 4/5; выбраны 1-4, последний исключен
-       ✂️ [eldiario.es] Sánchez desafía a PP y Vox tras declararlo persona non grata — абзацы 3/23; выбраны 1-3, последний исключен
-       ✂️ [eldiario.es] Abascal quiere más que una "simple mayoría absoluta" para fi — абзацы 3/11; выбраны 1-3, последний исключен
-       ✂️ [14ymedio] En Cuba, ni con dos trabajos alcanza para llenar la mesa — абзацы 4/8; рассказ о проблеме без события
-       ✂️ [Montevideo Portal] Elecciones del BPS: hasta qué hora se puede votar, plan circ — абзацы 2/30
-       ✗ нет события: [La Nación AR] Tenían entre uno y cuatro años cuando Boca ganó su última copa: hoy son campeones y alcanz — портрет/история игроков
-       ✗ нет события: [La Nación AR] Los albañiles coinciden: “Las nuevas generaciones abandonan la obra al primer día” — колонка/мнение
-       ✗ нет события: [La Nación AR] Él brilló en la final de Boca con un gol y ella lo acompaña desde siempre: la historia de  — история любви
-       ✂️ [El Tiempo CO] Colombia vivirá sus alumbrados navideños y de Año Nuevo con  — абзацы 5/18; решения мэрий по освещению и энергосбережению
-       ✂️ [Clarín AR] Abel Pintos, las Pastorutti, Cazzu y los Carabajal, entre la — абзацы 3/14
-       ✂️ НОС [El Nacional VE] Al menos 16 muertos y casi 600 hospitalizados al consumir al → Al menos 16 personas murieron y cerca de 600 fueron hospitalizadas en la India.
-       ✂️ [El Nacional VE] Al menos 16 muertos y casi 600 hospitalizados al consumir al — абзацы 4/8
-       📝 [La Nación CR] Tres muertos y 36 desaparecidos tras incendio en f → Al menos 3 muertos y 36 desaparecidos tras un incendio en una fábrica de caramelos en Indonesia.
-       ✂️ [La Nación CR] Tres muertos y 36 desaparecidos tras incendio en fábrica de  — абзацы 5/12
-       ✂️ НОС [CBS News] Buque de guerra ruso fue alcanzado por presuntos drones ucra → Buque de guerra ruso fue alcanzado por presuntos drones ucranianos en una base naval en Libia.
-       📝 [Time] La cifra de muertos por ébola supera los 5.700. ¿S → La cifra de muertos por ébola supera los 5700 en la República Democrática del Congo.
-       ✂️ НОС [Straits Times] Irán presenta un lanzamisiles mientras comandantes destacan  → Irán presenta un lanzamisiles mientras comandantes destacan sus capacidades militares frente a EE.
-       📝 [Notícias ao Minuto] Aumenta a 29 el número de muertos en el naufragio  → Aumenta a 29 el número de muertos en el naufragio de una embarcación en el sur de Nigeria.
-       ✗ нет события: [TechCrunch] Por qué los centros de datos están en el centro de las críticas a las grandes tecnológicas — обзор книги
-       ✗ нет события: [Fortune] ¿Debería abastecerse ante posibles apagones? El jefe de inteligencia de EE. UU. cita el CO — интервью-мнение
-       ✗ нет события: [Азаттык] Melania Trump sugirió un posible alto el fuego en Ucrania antes de Navidad — этикет, заявление без фактического результата
-       ✗ нет события: [Variety] Fallece a los 35 años Sheila Mangubat, estrella de «90 Day Fiancé: Before the 90 Days» — некролог
-       ✗ нет события: [Rolling Stone] Boy George sobre su viaje a Israel: «No podía quedarme callado» — колонка/этикет
-       ✗ нет события: [The Guardian] Crítica de «Oobah Butler: Scams for a Better Tomorrow»: estas bromas audaces resultan muy  — обзор фильма, нет события
-       ✗ нет события: [The Guardian] Hackeos, IA y teorías conspirativas: ¿por qué sufrimos tantas interrupciones técnicas? — рассуждение, не новость
-       ✂️ [El Informador] Tapatíos se movilizan en nueva manifestación por el agua en  — абзацы 3/9; выбраны факты о протесте, убран повтор и личные эмоции
-       ✂️ [El Informador] Policía Metropolitana asegura almacén de vehículos robados e — абзацы 3/5; убрана статистика, не относящаяся к текущему событию
-       ✗ нет события: [ufa1.ru] El multimillonario austriaco Lasselsberger anuncia su tercera planta en Bashkortostán: qui — переговоры, нет факта сделки
-       🖼 [60.ru] Musk y las islas en Filipinas: qué se sabe — фото: №2 вместо №1
-       ✂️ [El Informador] Discusión familiar termina con disparos en Mexicaltzingo; ha — абзацы 3/4
-       ✂️ [El Informador] Unidad de Rescate de Tlajomulco atiende a cachorro de jaguar — абзацы 3/4
-       ✂️ [El Informador] Guadalajara, lista para The 50 Best Restaurants Latin Americ — абзацы 3/4
-     лента: было 51, снято 14, добрано до полной 40, стало 77; фото: взято у соседа 0, убрано чужих 2
-     💰 редактор: $0.0240
-  🧭 [es] после редактора (в эфир): всего 49 — местных 11, соседей 23, мира 15; областных 5 в 1 регионах
+  🗞 Редактор [pt] (В ЭФИРЕ): карточек 82, спрошено 55, вторым 0
+     память не сработала: новая 54, текст вырос 1
+     снято: нет события 9, повтор 5
+     починено: текст сокращён до сути 49, фото заменено 15, строка НОС принята 4, строка НОС: из заголовка 3, строка НОС отклонена замком 1
+     🎲 Любопытное [pt] (в полосу «Интересное»): 5
+       🎲 снято · [BBC Brasil] 'Fui coagida a ter um filho': como um bilionário enganou a DJ de sucesso Liv Nervo para que ela engravidasse · https://www.bbc.com/portuguese/articles/cmze7178k7d2o?at_medium=RSS&at_campaign=rss — история о прошлых отношениях, нет событийного повода
+       🎲 снято · [BBC Brasil] Como dois refrigeradores abandonados pelo exército dos EUA na Toscana deram origem ao sorvete italiano · https://www.bbc.com/portuguese/articles/cqr7g87en4pno?at_medium=RSS&at_campaign=rss — познавательная статья, нет события
+       🎲 снято · [BBC Brasil] Os significados ocultos na obra A Grande Onda, uma das mais conhecidas da arte japonesa · https://www.bbc.com/portuguese/articles/cm3wgpye8glyo?at_medium=RSS&at_campaign=rss — искусствоведческий разбор
+       🎲 в эфире · [Xataka] A nova guerra fria entre Estados Unidos e China não é sobre chips: é sobre macacos de laboratório · https://www.xataka.com/investigacion/nueva-guerra-fria-estados-unidos-china-no-chips-monos-laboratorio
+       🎲 снято · [ufa1.ru] O milionário sem braços nem pernas: como um homem com deficiência da Basquíria entrou para a história da Europ · https://ufa1.ru/text/world/2026/11/22/76268658/ — исторический очерк
+       ⛔ строка НОС отклонена: «Governo federal reconhece calamidade em Tupanciretã após tempestade deixar 5 mor» ← Governo Lula reconhece calamidade em Tupanciretã, 
+       ✂️ [Estadão] Governo Lula reconhece calamidade em Tupanciretã, no RS; chu — абзацы 5/23
+       📝 [Estadão] Paraná registra dois tornados no mesmo dia, classi → Dois tornados foram registrados no Paraná nesta sexta-feira.
+       ✂️ [Estadão] Paraná registra dois tornados no mesmo dia, classifica Simep — абзацы 3/5
+       ✂️ [Agência Brasil] Brasil fecha Mundial Júnior de Judô com bronze por equipes m — абзацы 4/5
+       ✂️ [Estadão] 24 Estados e DF recebem alerta para temporais neste domingo; — абзацы 1/8; предупреждение о штормах
+       ✗ повтор: [G1 Globo] Shakira é confirmada no Réveillon de Balneário Camboriú — повтор новости об анонсе тура
+       ✂️ [G1 Rio] Corpo de jovem que morreu após se afogar no Recreio segue no — абзацы 4/20; добавлена важная информация по поиску помощи
+       ✂️ [G1 Globo] Motorista de 20 anos fica gravemente ferido após carro capot — абзацы 7/8
+       ✂️ [Folha de S.Paulo] Série sobre Sócrates dirigida por Walter Salles estreia em d — абзацы 3/12
+       ✂️ [CNN Brasil] Haas confirma Rafa Câmara nas duas últimas corridas da Fórmu — абзацы 5/22
+       ✂️ [CNN Brasil] Maus-tratos a animais crescem 15,54% em MG até setembro de 2 — абзацы 3/10
+       ✂️ [Metrópoles] Fazenda histórica de SP deve receber R$ 63,2 milhões do gove — абзацы 3/6
+       ✂️ [Metrópoles] Belo Horizonte prepara Fan Festival para Copa do Mundo Femin — абзацы 2/5
+       ✂️ [Metrópoles] Estudante de medicina é assassinado ao tentar socorrer vítim — абзацы 1/4
+       ✂️ [Poder360] Editora L&PM aciona Justiça contra OpenAI por direitos autor — абзацы 4/14; убраны абзацы с повторами и рекламой
+       ✗ нет события: [BBC Brasil] 'Fui coagida a ter um filho': como um bilionário enganou a DJ de sucesso Liv Nervo para qu — история о прошлых отношениях, нет событийного повода
+       ✗ нет события: [BBC Brasil] Como dois refrigeradores abandonados pelo exército dos EUA na Toscana deram origem ao sorv — познавательная статья, нет события
+       ✗ нет события: [BBC Brasil] Os significados ocultos na obra A Grande Onda, uma das mais conhecidas da arte japonesa — искусствоведческий разбор
+       ✗ нет события: [Terra BR] Léo Pereira é visto aos beijos com morena após fim de noivado com Karoline Lima — светская хроника, не новость
+       ✂️ [Observador PT] COP31. Nórdicos reafirmam importância do multilateralismo — абзацы 4/7
+       ✂️ [Observador PT] Capitão do Boca Juniors desmaia em direto na flash interview — абзацы 5/8
+       ✂️ [Observador PT] Carlitos não é o melhor oficial – é o melhor em tudo o resto — абзацы 3/22
+       ✂️ [Notícias ao Minuto] FC Porto goleou Sporting frágil no primeiro Clássico no femi — абзацы 3/32
+       🖼 [Notícias ao Minuto] FC Porto goleou Sporting frágil no primeiro Clássi — фото: №3 вместо №1
+       ✂️ НОС [Clarín AR] Bahrein afirma que ataque do Irã contra instalação industria → Bahrein afirma que ataque do Irã contra instalação industrial civil deixou 2 feridos.
+       📝 [РИА Новости] Novas explosões são registradas em Dnipropetrovsk → Novas explosões são registradas em Dnipropetrovsk durante alerta de ataque aéreo.
+       ✂️ НОС [Time] Número de mortos por Ebola ultrapassa 5.700. O surto pode se → Número de mortos por Ebola ultrapassa 5.700.
+       ✂️ НОС [Straits Times] Irã apresenta lançador de mísseis enquanto comandantes exalt → Irã apresenta lançador de mísseis enquanto comandantes exaltam capacidades em conflito com os EUA.
+       📝 [Daily Maverick] Negociações climáticas da COP31 fracassam após rej → Negociações climáticas da COP31 fracassam após rejeição da UE e outros países.
+       📝 [RTÉ Ireland] Seis mortos em ataques russos em Kiev → Ataque russo contra prédio residencial em Kiev deixa mortos.
+       ✗ повтор: [RFI] Ucrânia: seis mortos durante ataques russos na região de Kiev — информация дублирует карточку №4
+       ✗ нет события: [TechCrunch] Por que os data centers estão no centro da reação contra as Big Techs — обзор книги/аналитика, нет события
+       ✗ нет события: [TechCrunch] Signal restringe capturas de tela em dispositivos móveis para enfrentar a 'ameaça existenc — Это анонс функционала, а не событие.
+       ✂️ [Folha de S.Paulo] Alcaraz vence Zverev e conquista o ATP Finals pela primeira  — абзацы 4/22
+       ✂️ [Notícias ao Minuto] EUA. Democratas conquistam melhor resultado na Câmara desde  — абзацы 3/18
+       ✂️ [Exame] Trump sanciona lei que encerra a produção da moeda de 1 cent — абзацы 6/12
+       ✂️ [RTP Notícias] Polícia israelita abre inquérito a ataques de colonos na Cis — абзацы 3/4
+       ✂️ [Gazeta do Povo] Políticos de direita se mobilizam e pedem orações pela saúde — абзацы 4/20
+       ✗ повтор: [G1 São Paulo] Sabesp conclui manutenção no Sistema Cantareira, mas cinco regiões da Grande SP ainda têm  — событие уже было в ленте
+       ✂️ [G1 Minas] Homem morre e outro fica ferido dentro de caminhonete após a — абзацы 4/15; выбраны факты о нападении
+       ✂️ [G1 Rio] Polícia Civil prende gerente do tráfico de morro de Queimado — абзацы 3/4; убрана общая информация
+       ✗ нет события: [ufa1.ru] O milionário sem braços nem pernas: como um homem com deficiência da Basquíria entrou para — исторический очерк
+       ✂️ [G1 São Paulo] Palmeirense é empurrado, bate a cabeça e morre após suposta  — абзацы 1/9
+       ✂️ [G1 Bahia] Treze pessoas são presas por suspeita de furto e roubo de ce — абзацы 4/5; убран лишний абзац (1 - подпись, 5 - лишний)
+       ✂️ [G1 Rio] Acidente com carreta interdita RJ-124, a ViaLagos, no sentid — абзацы 3/11
+       ✗ нет события: [ufa1.ru] O bilionário austríaco Lasselsberger anuncia a terceira fábrica na Basquíria: saiba quem e — переговоры, а не свершившийся факт
+       ✗ нет события: [60.ru] Russell Brand não conseguiu lembrar quando se casou com Katy Perry — интервью/детали о личной жизни
+       ✂️ [G1 Rio Grande do Sul] Homens rendem sete pessoas da mesma família e matam mulher n — абзацы 4/5
+       ✂️ [G1 São Paulo] PM é preso após disparar arma na rua e ameaçar vigilantes de — абзацы 6/22
+       ✂️ [G1 Bahia] Deslizamento de terra deixa cinco famílias desalojadas em Sa — абзацы 4/6
+       🖼 [G1 Bahia] Deslizamento de terra deixa cinco famílias desaloj — фото: №2 вместо №1
+       ✂️ [G1 Minas] Casa de jogador do Cruzeiro é invadida em BH; suspeito furta — абзацы 3/13; основные факты кражи
+       🖼 [60.ru] Musk e ilhas nas Filipinas: o que se sabe — фото: №2 вместо №1
+       ✂️ [G1 Rio Grande do Sul] 'Tinha muito medo de não conseguir', diz mãe de bebê que nas — абзацы 5/18
+       ✂️ [G1 Paraná] Motociclista é arremessado a mais de 30 metros após batida c — абзацы 3/9
+       🖼 [G1 Paraná] Motociclista é arremessado a mais de 30 metros apó — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Criminoso armado invade joalheria em shopping na Zona Sul de — абзацы 8/10; убран последний абзац
+       ✂️ [G1 Rio] Torcedores do Botafogo invadem sede do clube após vídeo de h — абзацы 3/6; выбрано релевантное фото, убран хвост
+       🖼 [G1 Rio] Torcedores do Botafogo invadem sede do clube após  — фото: №2 вместо №1
+       🖼 [60.ru] Camilla é criticada pelo silêncio sobre Walliams — фото: №2 вместо №1
+       ✂️ [G1 Rio Grande do Sul] GTA da vida real? Motorista com 38 kg de maconha tenta fugir — абзацы 3/5
+       🖼 [G1 Rio Grande do Sul] GTA da vida real? Motorista com 38 kg de maconha t — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Incêndio atinge centro comunitário de igreja na Zona Norte d — абзацы 5/14
+       🖼 [G1 São Paulo] Incêndio atinge centro comunitário de igreja na Zo — фото: №2 вместо №1
+       ✂️ [G1 Minas] Vídeo mostra moto caindo na BR-040 antes de carreta 'passar  — абзацы 3/5
+       🖼 [G1 Minas] Vídeo mostra moto caindo na BR-040 antes de carret — фото: №2 вместо №1
+       ✂️ [G1 Rio] Legista que investigou mortes de Zuzu Angel, Lamarca e Menge — абзацы 3/9
+       ✂️ [G1 São Paulo] VÍDEO: PMs quebram janela de casa e resgatam idosa e cachorr — абзацы 4/5
+       🖼 [G1 São Paulo] VÍDEO: PMs quebram janela de casa e resgatam idosa — фото: №2 вместо №1
+       ✂️ [G1 Minas] Deslizamento em Ouro Preto atinge hotel tombado e abre crate — абзацы 3/11
+       🖼 [G1 Minas] Deslizamento em Ouro Preto atinge hotel tombado e  — фото: №2 вместо №1
+       ✗ повтор: [G1 Rio] Turista americano morto a tiros na Lapa havia anunciado viagem ao Rio nas redes sociais: ' — новость уже была в ленте
+       ✂️ [G1 São Paulo] Família denuncia suspeita de agressão contra idoso em clínic — абзацы 7/48
+       ✗ повтор: [G1 Minas] Presos que postaram selfies nas redes sociais dentro de celas foram identificados e são mo — фото №1 совпадает с предыдущим, других нет
+       ✂️ [G1 Rio] Corpo de motorista de aplicativo morto em tentativa de assal — абзацы 3/18; выбраны факты о смерти и причина, убраны эмоции
+       🖼 [G1 Rio] Corpo de motorista de aplicativo morto em tentativ — фото: №2 вместо №1
+       ✂️ [G1 Rio Grande do Sul] VÍDEO: Mais de 20h após perseguição, caminhão é retirado em  — абзацы 4/16; выбран подходящий снимок, развитие темы
+       🖼 [G1 Rio Grande do Sul] VÍDEO: Mais de 20h após perseguição, caminhão é re — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Funcionários de mercado seguem atriz na rua e a acusam de fu — абзацы 7/24
+       ✂️ [G1 Rio] Amigos afirmam que professor espancado no Centro do Rio apre — абзацы 3/25; Фото №1 совпадает с предыдущим, взято №4
+       🖼 [G1 Rio] Amigos afirmam que professor espancado no Centro d — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Em uma semana, ao menos 10 corpos são encontrados pela políc — абзацы 8/26; Фото №1 совпадает с предыдущим, взято №2
+       ✂️ [G1 Rio] Rio foi a 2ª capital mais quente do país neste sábado, com 3 — абзацы 3/13; №1 дублирует старую новость, взят другой снимок
+       ✂️ [G1 São Paulo] Trabalhadores enfrentam fila quilométrica para deixar de pag — абзацы 5/10; взят подходящий снимок из статьи
+       🖼 [G1 São Paulo] Trabalhadores enfrentam fila quilométrica para dei — фото: №2 вместо №1
+     лента: было 82, снято 11, добрано до полной 30, стало 101; фото: взято у соседа 0, убрано чужих 3
+     💰 редактор: $0.0315
+  🧭 [pt] после редактора (в эфир): всего 51 — местных 17, соседей 7, мира 27; областных 29 в 6 регионах
 
-💰 Расход по этапам: всего $0.0740
-     редактор: $0.0240 (32%), запросов 16
-     спасение текста: $0.0203 (27%), запросов 12
-     отбор (этап 2): $0.0099 (13%), запросов 4
-     перевод: $0.0050 (7%), запросов 4
-     отсев (этап 1): $0.0044 (6%), запросов 3
-     прочее: $0.0029 (4%), запросов 1
-     мировые сюжеты: $0.0027 (4%), запросов 1
-     склейка пересказов: $0.0018 (2%), запросов 1
-     обзоры прессы: $0.0015 (2%), запросов 1
-     снимки происшествий: $0.0015 (2%), запросов 5
+💰 Расход по этапам: всего $0.0823
+     редактор: $0.0228 (28%), запросов 16
+     спасение текста: $0.0211 (26%), запросов 14
+     отбор (этап 2): $0.0101 (12%), запросов 4
+     перевод: $0.0097 (12%), запросов 8
+     отсев (этап 1): $0.0048 (6%), запросов 4
+     прочее: $0.0033 (4%), запросов 1
+     склейка пересказов: $0.0030 (4%), запросов 1
+     мировые сюжеты: $0.0027 (3%), запросов 1
+     снимки происшествий: $0.0023 (3%), запросов 8
+     обзоры прессы: $0.0023 (3%), запросов 1
 ```

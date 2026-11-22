@@ -1,21 +1,19 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [local] El Financiero — ¿Cómo es la empresa de Antonio Carlos Santos? — Это профиль человека, а не новостное событие.
-- [es] не_новость: [local] La Jornada — FMF ratifica apoyo a Infantino en la FIFA — Официальная поддержка (этикет) без новых фактов.
-- [es] полка: [pool] Infobae — Incendio en departamentos de la Benito Juárez moviliza a cuerpos de emergencia:  — Событие в MX, должно быть в 'Местные'.
-- [es] полка: [pool] Infobae — Nueve personas son atendidas tras el incidente con una sustancia desconocida en  — Событие в CO, должно быть в 'Новости из...'.
-- [es] курьёз: [pool] Infobae — Lima soporta sensación térmica de hasta 33 °C pese a la ausencia de brillo solar — Погода — не новость.
-- [es] чужое_мелкое: [pool] Semana CO — Cayó en Ecuador hombre implicado en la muerte de patinadora en Cali. Fue deporta — Событие произошло в 2025 году, это неактуальная хроника.
-- [es] чужое_мелкое: [pool] Clarín AR — Paredes encabezó el retorno de Boca ya recuperado del desmayo y con la Copa Suda — Спортивная ретроспектива, а не новость.
-- [es] не_новость: [pool] La Nación CR — ¿Dónde puede utilizar la cédula digital en Costa Rica? — Справочная информация (инструкция по использованию документа).
-- [es] не_новость: [pool] 14ymedio — En Cuba, ni con dos trabajos alcanza para llenar la mesa — Очерк о жизни, нет события.
-- [es] не_новость: [pool] Diario Libre DO — Melissa Medina y resultados de análisis toxicológicos — Ожидание результатов анализов — не событие.
-- [es] чужое_мелкое: [pool] El Universo EC — De vender maquillaje por WhatsApp a equipar un estudio de belleza: más de 11.000 — Региональная бизнес-история, не имеющая мирового значения.
-- [es] не_новость: [pool] Montevideo Portal — Elecciones del BPS: hasta qué hora se puede votar, plan circuital y cuáles son l — Инструкция для избирателей перед днём голосования.
-- [es] чужое_мелкое: [world] Clarín AR — Falla de sistema automatizado provoca retrasos de vuelos de Delta en Atlanta — Технический сбой авиакомпании, мелкое событие.
-- [es] чужое_мелкое: [world] Clarín AR — Por qué un centro de datos de Mississippi abrió un debate sobre permisos y consu — Локальная дискуссия о водопользовании в штате США.
-- [es] не_новость: [world] TechCrunch — TechCrunch Mobility: pruebas A/B entre robots y humanos — Отраслевой обзор/аналитика.
-- [es] курьёз: [world] BBC Mundo — Cómo dos neveras abandonadas por el ejército de EE.UU. en Toscana dieron origen  — Историческая байка, 'надо же'.
-- [es] курьёз: [world] Ars Technica — Los fármacos GLP-1 podrían tener un impacto medioambiental sorprendentemente pos — Научное предположение, не событие.
-- [es] не_новость: [world] BBC Mundo — La princesa de Gales, Kate Middleton, habla abiertamente sobre cómo el cáncer ca — Анонс документального фильма.
-- [es] чужое_мелкое: [world] Ars Technica — La FCC bajo la administración Trump declara que California no puede aplicar norm — Регуляторный спор штата с федералами, не мировой масштаб.
+- [pt] чужое_мелкое: [local] Gazeta do Povo — Políticos de direita se mobilizam e pedem orações pela saúde de Bolsonaro — Внутренняя политика и состояние здоровья экс-президента не имеют внешних последствий.
+- [pt] курьёз: [local] G1 Rio — Torcedores do Botafogo invadem sede do clube após vídeo de homem cantando música — Событие локального масштаба внутри фан-среды, не является значимой новостью.
+- [pt] не_новость: [local] G1 Rio — Legista que investigou mortes de Zuzu Angel, Lamarca e Mengele lança no Rio livr — Выпуск книги не является событием по белому списку.
+- [pt] курьёз: [local] G1 Rio Grande do Sul — 'Tinha muito medo de não conseguir', diz mãe de bebê que nasceu com 22 semanas n — Личная история, не имеющая общественно значимых последствий.
+- [pt] не_новость: [local] G1 Rio — Amigos afirmam que professor espancado no Centro do Rio apresenta sinais de reaç — Описание процесса выздоровления после инцидента — не событие.
+- [pt] повтор: [pool] Notícias ao Minuto — FC Porto goleou Sporting frágil no primeiro Clássico no feminino ≈ «Taça de Portugal. Torreense -SL Benfica» — Речь об одном и том же матче, детали дублируют друг друга.
+- [pt] не_новость: [world] Xataka — A nova guerra fria entre Estados Unidos e China não é sobre chips: é sobre macac — Аналитическая статья-рассуждение, не является событием.
+- [pt] курьёз: [world] Superinteressante — Canetas “emagrecedoras” podem complementar tratamento após bariátrica? — Медицинская консультация, не является новостью.
+- [pt] курьёз: [world] The Independent — Mulher na Califórnia é processada após incorporadora construir casa de US$ 500 m — Частный имущественный спор, не имеет мирового значения.
+- [pt] чужое_мелкое: [world] The Independent — Howard Lutnick estava prestes a ser demitido até fazer uma doação massiva para a — Внутриполитические кадровые перестановки в США без международных последствий.
+- [pt] повтор: [world] RFI — Futebol: ruptura de ligamento no joelho de Désiré Doué obriga o PSG a agir no me ≈ «Ligue 1: PSG amplia sequência de vitória» — Тот же сюжет, что и в карточке 75 (травма игрока в том же матче).
+- [pt] не_новость: [world] Guardian Sport — ESPN lamenta a morte do analista da NFL Tom Jackson, aos 75 anos — Смерть аналитика — личная утрата, не является общественно значимым событием по списку.
+- [pt] курьёз: [world] Ars Technica — Medicamentos GLP-1 podem gerar um impacto ambiental surpreendentemente positivo — Обсуждение возможного влияния лекарств, без свершившегося факта.
+- [pt] курьёз: [world] BBC Brasil — Como um adolescente e sua mãe ajudaram a resgatar uma garota desaparecida após u — Частная история спасения, не имеет масштаба события.
+- [pt] не_новость: [world] Superinteressante — Doença falciforme: como uma série da Netflix pode esclarecer muito além da doenç — Мнение о сериале не является новостью.
+- [pt] чужое_мелкое: [world] Ars Technica — FCC da administração Trump declara que a Califórnia não tem permissão para aplic — Административное решение регулятора штата США без влияния на международную повестку.
+- [pt] чужое_мелкое: [world] Semafor — OpenAI reforça controle sobre revendedores de modelos de IA — Внутренние бизнес-правила компании без глобальных последствий.
