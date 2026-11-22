@@ -1,19 +1,19 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [local] Gazeta do Povo — Políticos de direita se mobilizam e pedem orações pela saúde de Bolsonaro — Внутренняя политика и состояние здоровья экс-президента не имеют внешних последствий.
-- [pt] курьёз: [local] G1 Rio — Torcedores do Botafogo invadem sede do clube após vídeo de homem cantando música — Событие локального масштаба внутри фан-среды, не является значимой новостью.
-- [pt] не_новость: [local] G1 Rio — Legista que investigou mortes de Zuzu Angel, Lamarca e Mengele lança no Rio livr — Выпуск книги не является событием по белому списку.
-- [pt] курьёз: [local] G1 Rio Grande do Sul — 'Tinha muito medo de não conseguir', diz mãe de bebê que nasceu com 22 semanas n — Личная история, не имеющая общественно значимых последствий.
-- [pt] не_новость: [local] G1 Rio — Amigos afirmam que professor espancado no Centro do Rio apresenta sinais de reaç — Описание процесса выздоровления после инцидента — не событие.
-- [pt] повтор: [pool] Notícias ao Minuto — FC Porto goleou Sporting frágil no primeiro Clássico no feminino ≈ «Taça de Portugal. Torreense -SL Benfica» — Речь об одном и том же матче, детали дублируют друг друга.
-- [pt] не_новость: [world] Xataka — A nova guerra fria entre Estados Unidos e China não é sobre chips: é sobre macac — Аналитическая статья-рассуждение, не является событием.
-- [pt] курьёз: [world] Superinteressante — Canetas “emagrecedoras” podem complementar tratamento após bariátrica? — Медицинская консультация, не является новостью.
-- [pt] курьёз: [world] The Independent — Mulher na Califórnia é processada após incorporadora construir casa de US$ 500 m — Частный имущественный спор, не имеет мирового значения.
-- [pt] чужое_мелкое: [world] The Independent — Howard Lutnick estava prestes a ser demitido até fazer uma doação massiva para a — Внутриполитические кадровые перестановки в США без международных последствий.
-- [pt] повтор: [world] RFI — Futebol: ruptura de ligamento no joelho de Désiré Doué obriga o PSG a agir no me ≈ «Ligue 1: PSG amplia sequência de vitória» — Тот же сюжет, что и в карточке 75 (травма игрока в том же матче).
-- [pt] не_новость: [world] Guardian Sport — ESPN lamenta a morte do analista da NFL Tom Jackson, aos 75 anos — Смерть аналитика — личная утрата, не является общественно значимым событием по списку.
-- [pt] курьёз: [world] Ars Technica — Medicamentos GLP-1 podem gerar um impacto ambiental surpreendentemente positivo — Обсуждение возможного влияния лекарств, без свершившегося факта.
-- [pt] курьёз: [world] BBC Brasil — Como um adolescente e sua mãe ajudaram a resgatar uma garota desaparecida após u — Частная история спасения, не имеет масштаба события.
-- [pt] не_новость: [world] Superinteressante — Doença falciforme: como uma série da Netflix pode esclarecer muito além da doenç — Мнение о сериале не является новостью.
-- [pt] чужое_мелкое: [world] Ars Technica — FCC da administração Trump declara que a Califórnia não tem permissão para aplic — Административное решение регулятора штата США без влияния на международную повестку.
-- [pt] чужое_мелкое: [world] Semafor — OpenAI reforça controle sobre revendedores de modelos de IA — Внутренние бизнес-правила компании без глобальных последствий.
+- [en] курьёз: [local] Untitled RSS Feed — New Study: Wyoming's Biggest Dinosaurs Passed A Lot Of Gas, Emitted Tons Of Meth — Научное любопытство о динозаврах — место в «Интересном», а не в общих лентах.
+- [en] курьёз: [local] Untitled RSS Feed — Thermopolis Boy Spends His 12th Birthday Money Doing 12 Random Acts Of Kindness — Частная история о мальчике и подарке не является общественно значимым событием.
+- [en] не_новость: [local] CBS News — Ossoff's broad and decisive Senate win fuels 2028 speculation — Спекуляции о выборах 2028 года не являются свершившимся событием.
+- [en] чужое_мелкое: [pool] The Independent — Texas Sen. John Cornyn takes parting shot at Ted Cruz as he heads for the door a — Внутренняя перепалка сенаторов США — мелкий политический эпизод без последствий.
+- [en] не_новость: [pool] Fortune — Ronald Reagan said you can achieve anything—if you don’t care who gets the credi — Размышления и обзоры не являются новостью по белому списку.
+- [en] курьёз: [pool] NPR News — Meet the young authors! A literacy program inspires kids in South Africa — История о детской программе в ЮАР — интересная зарисовка, а не мировая новость.
+- [en] не_новость: [world] TechCrunch — OpenAI’s chief scientist has thoughts on how to limit AI development — Мнение ученого в блоге не является свершившимся событием.
+- [en] не_новость: [world] Rolling Stone — PlaqueBoyMax Wants to Find Your Next Favorite Artist — Рекламное продвижение артиста в журнале не является новостью.
+- [en] курьёз: [world] Fortune — High-end genealogy travel is booming, offering luxe journeys to the roots of you — Путевые заметки о генеалогическом туризме — это lifestyle-контент.
+- [en] не_новость: [world] Xataka — The new cold war between the United States and China is not about chips: it is a — Аналитическая статья о «новой холодной войне» — это мнение/обзор, а не событие.
+- [en] не_новость: [world] Rolling Stone — Russell Brand’s Wife Will ‘Honor’ Prison Rules Barring His Messages — Светская хроника о личной жизни и запретах не является значимым событием.
+- [en] курьёз: [world] Rolling Stone — Boy George on His Israel Trip: ‘I Wasn’t Able to Not Say Something’ — Личное мнение артиста о поездке не является общественно значимым событием.
+- [en] не_новость: [world] Axios — Behind the Curtain — AI 2027: The reckoning — Анонс цикла статей («За кулисами») не является новостью.
+- [en] не_новость: [world] WFPL — Why the U.S. air traffic control system still relies on an 'antique' network — Аналитическая статья о старых системах — это лонгрид-разбор.
+- [en] не_новость: [world] Ars Technica — GLP-1 drugs could have a surprisingly large environmental payoff — Теоретические рассуждения об экологическом влиянии препаратов — это не событие.
+- [en] не_новость: [world] Semafor — Trading soars on Jensen Huang-related prediction market bets — Анализ ставок на рынках предсказаний — это производная активность, а не новость.
+- [en] не_новость: [world] Fortune — Intuit moves to sell Mailchimp for $3.68 billion as AI reshapes its growth strat — Стратегические бизнес-планы и рассуждения не являются свершившимся событием.
