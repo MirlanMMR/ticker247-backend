@@ -1,27 +1,34 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] не_новость: [local] Вечерний Бишкек — Легенды спорта и руководители федераций встретились в Бишкеке — встреча представителей федераций — плановое рабочее мероприятие без конкретного результата.
-- [ru] не_новость: [local] Вечерний Бишкек — Таможенная служба КР продлила прием документов в кадровый резерв — продление сроков приема документов в кадровый резерв — рутина.
-- [ru] чужое_мелкое: [pool] Onliner.by — В Минске директор фирмы вынесла из ТЦ гору одежды, чтобы снять стресс — бытовая кража в Беларуси для читателя в Кыргызстане — шум.
-- [ru] чужое_мелкое: [pool] РИА Новости — ОЭЗ Москвы будет развивать робототехнику со столичным колледжем — региональное партнерство внутри РФ.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Считал себя хозяином города — в Рязани задержали бойца ММА — задержание местного бойца в РФ.
-- [ru] не_новость: [pool] e1.ru — Екатеринбург — Правительство Свердловской области покинул самый богатый министр — плановая отставка регионального министра в РФ.
-- [ru] не_новость: [pool] ngs24.ru — Красноярск — Новую иллюминацию и 30 арт-объектов установят на Мира в декабре — анонс установки иллюминации к празднику.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — В Бузулуке суд оставил в СИЗО обвиняемого в смертельном избиении знакомой — продление меры пресечения в суде РФ.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — «Торетто» из Матвеевского района, едва не «размотавшийся» на «УАЗе-буханке», отв — уголовное дело районного масштаба в РФ.
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Призывал к уничтожению населения: силовики скрутили 59-летнего ярославца на улиц — задержание экстремиста регионального уровня в РФ.
-- [ru] не_новость: [pool] 14.ru — Якутск — Ушла эпоха. Здание Мирнинской типографии в Якутии выставили на торги — объявление о продаже здания на торгах.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — В Касимове семейные сбережения ушли на алкоголь и компьютерные игры — бытовая кража в РФ.
-- [ru] не_новость: [pool] 72.ru — Тюмень — Чиновники отреагировали на слова тюменского депутата, заявившего о проблемах с п — обсуждение заявлений депутата о школьном питании.
-- [ru] не_новость: [pool] 29.ru — Архангельск — Потянет ли Архангельск 32-этажный дом? Что известно о самой необычной стройке в  — описание строящегося ЖК, а не событие.
-- [ru] не_новость: [pool] 56.ru — Оренбург — «Мы разделяем беспокойство пассажиров»: новый поезд планируют запустить между Уф — планы по запуску поезда — это не событие, а намерение.
-- [ru] чужое_мелкое: [pool] 29.ru — Архангельск — В Архангельске 18-летний парень перекрыл полосу на Краснофлотском мосту — незначительное ДТП в РФ.
-- [ru] не_новость: [pool] 59.ru — Пермь — «Мы обещаем каждый день вдохновенно трудиться»: в библиотеке им. Горького открыл — открытие центра реставрации книг — плановое мероприятие.
-- [ru] курьёз: [pool] 178.ru — Санкт-Петербург — ИИ-мем с Румпельштильцхеном: как россиянки создали вирусный ролик — вирусный ролик в интернете.
-- [ru] не_новость: [pool] ngs24.ru — Красноярск — В «Планете» окончательно закрылся «О'Кей». Мы побывали там в последний день рабо — закрытие одного магазина в ТЦ.
-- [ru] чужое_мелкое: [pool] Азаттык — СМИ: из прокатной версии «Күлпәш» убрали титры о жертвах Ашаршылық — изменение в прокатной версии фильма в Казахстане.
-- [ru] чужое_мелкое: [world] iXBT — Samsung сократит выпуск смартфонов Galaxy A и увеличит долю Galaxy S27 Pro и Ult — внутренняя бизнес-оптимизация Samsung.
-- [ru] курьёз: [world] iXBT — Как ломается экран нового iPhone. — тест техноблогера на поломку iPhone.
-- [ru] курьёз: [world] iXBT — Рамка как у iPhone 8, Android-интерфейс и камера с 5-кратным зумом. — обсуждение гаджета персонажа игры.
-- [ru] полка: [world] Вечерний Бишкек — Си Цзиньпин призвал к построению азиатско-тихоокеанского сообщества — выступление Си Цзиньпина в «Вечернем Бишкеке» не может быть местной новостью.
-- [ru] полка: [world] Knews.kg — Европу охватила волна забастовок и молодежных протестов: от Рима до стран Балтии — мировая новость (протесты в 25 странах) попала в местные.
+- [pt] не_новость: [local] CNN Brasil — Compromisso com ajuste pode virar o mercado, diz estrategista — мнение аналитика об ожиданиях рынка, нет факта свершившегося события.
+- [pt] не_новость: [local] G1 Rio — Legista que investigou mortes de Zuzu Angel, Lamarca e Mengele lança no Rio livr — анонс выхода книги, а не событие.
+- [pt] не_новость: [local] G1 Paraná — Herói das Sete Quedas: homem salvou seis pessoas de tragédia que matou 32 antes  — исторический очерк/воспоминания, нет актуального события.
+- [pt] не_новость: [local] G1 Bahia — Cinema, maquiagem, massagem e mais: confira a estrutura do camarote de luxo da M — описание структуры инфраструктуры фестиваля, а не событие.
+- [pt] не_новость: [local] G1 Bahia — Brincadeiras africanas e afro-brasileiras atuam como ferramenta antirracista na  — методическая статья о педагогике, нет события.
+- [pt] не_новость: [pool] Notícias ao Minuto — Olhares do Mediterrâneo celebra o coletivo e estreia projeto comunitário — анонс начала фестиваля, нет свершившегося события.
+- [pt] не_новость: [pool] ECO — A ineficiência também come à mesa do Orçamento — авторская колонка/рассуждение, нет события.
+- [pt] курьёз: [world] BBC Brasil — Como um adolescente e sua mãe ajudaram a resgatar uma garota desaparecida após u — человеческая история, не имеющая мирового значения.
+- [pt] не_новость: [world] Guardian Sport — Bruno Fernandes revela que negociações para novo contrato com o Manchester Unite — переговоры в процессе, нет закрытой сделки или подписанного контракта.
+- [pt] не_новость: [world] El Nacional VE — Sessão de encerramento da COP31 começa com poucas chances de um pacto de consens — описание процесса ожидания заседания, нет итога.
+- [pt] не_новость: [world] Superinteressante — Doença falciforme: como uma série da Netflix pode esclarecer muito além da doenç — культурологический разбор сериала, не событие.
+- [pt] не_новость: [world] Variety — SXSW estabelece parceria com o festival egípcio UTH, dedicado à cultura jovem — сообщение о партнерстве без конкретного события (анонс сотрудничества).
+- [pt] не_новость: [world] Variety — Cinebiografia 'Caesar', apoiada pela Neon sobre oficial sírio que denunciou tort — анонс будущего фильма, не событие.
+- [pt] курьёз: [world] Muy Interesante — Um novo estudo questiona uma teoria centenária sobre a origem da vida na Terra — научная дискуссия без последствий для читателя.
+- [pt] курьёз: [world] Naked Science — Machos de abelhões provaram ser necessários para mais do que apenas a reprodução — научный факт о поведении насекомых.
+- [pt] курьёз: [world] Superinteressante — Pequena chihuahua de apenas 9 centímetros de altura é o menor cachorro vivo do m — информация о собаке, не является новостью.
+- [pt] курьёз: [world] Good News Network — Respiração de baleia capturada por drone permite o sequenciamento completo do ge — описание научного метода сбора данных, не новость.
+- [pt] курьёз: [world] Naked Science — Abelhões levam cientistas a reconsiderar a relação entre tamanho do cérebro e ca — описание научного исследования, не событие.
+- [pt] курьёз: [world] Sciences et Avenir — 200 hipopótamos: o incômodo legado de um barão da droga — научно-популярный материал об экологии.
+- [pt] не_новость: [world] Smithsonian Magazine — Uma das pinturas abstratas raríssimas de Hilma af Klint foi vendida por um recor — описание аукционного лота, не событие.
+- [pt] не_новость: [world] Semafor — OpenAI reforça controle sobre revendedores de modelos de IA — объявление внутренних требований компании к партнерам, не новость для широкого круга читателей.
+- [fr] не_новость: [local] La Dépêche — Doit-on s'attendra à Noël sans sapins ? Pourquoi les producteurs alertent sur un — тревога о нехватке ёлок на будущие праздники — не событие.
+- [fr] не_новость: [local] La Dépêche — France-Argentine : "Mon pauvre bébé !" Santiago, 7 ans, fils de l'ancien joueur  — материал о событиях 2022 года, нет актуального инфоповода.
+- [fr] срочность: [pool] Radio Okapi — La Police empêche la tenue de la messe du cardinal Ambongo avec les jeunes au st — инцидент с отменой мессы — не требует немедленного уведомления (побудки).
+- [fr] не_новость: [pool] Le Devoir — Des étudiants envisagent de lancer une grève illimitée durant la session d’hiver — обсуждение возможности забастовки — это намерение, не состоявшееся событие.
+- [fr] повтор: [world] RTBF — COP31 à Antalya : le président turque Murat Kurum annonce qu'il n'y a pas d'acco ≈ «La COP31 en Turquie devient la plus long» — тот же сюжет про COP31.
+- [fr] курьёз: [world] Sud Ouest — « Si tu n’as pas de dollars, tu es cuit » : à Cuba, Cuba, la nostalgie de Fidel  — ностальгический очерк о десятилетии после смерти Кастро.
+- [fr] курьёз: [world] Courrier International — Chats, chiens et hérissons : ces animaux qui épaulent les soldats ukrainiens au  — история о животных на фронте — это очерк, не новостное событие.
+- [fr] не_новость: [world] RFI — Trois jours après la rencontre Trump-Xi-Poutine, les Britanniques réaffirment le — дипломатический этикет (подтверждение поддержки), нет нового факта.
+- [fr] срочность: [world] Africanews FR — Ukraine : un conducteur échappe de justesse à une frappe russe — сводки с фронта, очередное видео с места — не повод для побудки.
+- [fr] не_новость: [world] TechCrunch — Signal restreint les captures d'écran mobiles face à la « menace existentielle » — изменение функционала приложения — повод для обновлений, а не новость.
+- [fr] не_новость: [world] Азаттык — Melania Trump a évoqué la possibilité d'un cessez-le-feu en Ukraine avant Noël — мнение о «возможности» — слова, не имеющие силы решения.
