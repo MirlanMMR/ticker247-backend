@@ -1,36 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [local] G1 Globo — Quase metade dos lares em SP têm gatos e cachorros — исследование домашних животных — интересный факт, не новость.
-- [pt] курьёз: [local] G1 São Paulo — Influenciadora é assaltada, recupera celular e diz que ganhou bicicleta do ladrã — личная история блогера о краже телефона — не является значимым общественным событием.
-- [pt] срочность: [local] G1 São Paulo — Após manutenção da Sabesp, escola estadual na Zona Norte de SP fica sem água — локальное бытовое отключение воды не требует плашки 'СРОЧНО'.
-- [pt] чужое_мелкое: [local] Poder360 — JBS investe US$ 150 milhões em fábricas de carne em Omã — инвестиции компании в Омане не имеют последствий для бразильского читателя.
-- [pt] курьёз: [local] G1 Rio — Professor relata ameaças de criminoso por mensagens após ter celular roubado — личная жалоба профессора на угрозы в мессенджере — частный случай.
-- [pt] не_новость: [local] G1 São Paulo — Fred Bruno anuncia o nascimento do segundo filho: 'maior amor que um ser humano  — сообщение о рождении ребенка у знаменитости — светская хроника, не событие.
-- [pt] чужое_мелкое: [pool] Notícias ao Minuto — MLSTP ameaça com medidas políticas contra paralisia do Constitucional — внутренний политический спор в Сан-Томе и Принсипи не имеет значимости для BR.
-- [pt] не_новость: [pool] RTP Notícias — Altimira diz que Paulo Fonseca trouxe “nova energia” ao balneário do Sporting — цитирование мнения игрока о тренере — это слова, а не спортивное событие.
-- [pt] курьёз: [pool] Público — Marionet estreia em Coimbra peça sobre os Mundos Possíveis da mente — премьера театральной пьесы — культурное событие без массового значения.
-- [pt] чужое_мелкое: [world] InfoMoney — Atividade empresarial nos EUA volta a mostrar perda de ritmo em novembro — статистический обзор экономики США не является новостью-событием.
-- [pt] чужое_мелкое: [world] Gazeta do Povo — Deputada americana diz que democratas vão investigar se governo Trump ajudou na  — внутриполитическая полемика в США вокруг личных дел — шум, не событие.
-- [pt] чужое_мелкое: [world] The Independent — Netanyahu intensifica pressão sobre Trump para atacar o Irã o mais rápido possív — давление премьер-министра на президента США — политическая риторика, нет свершившегося факта.
-- [pt] курьёз: [world] TechCrunch — Autoridade de privacidade holandesa aconselha consumidores a não comprarem 'ócul — совет регулятора по потребительским гаджетам — не новость-событие.
-- [pt] чужое_мелкое: [world] Semafor — Acordo da Amazon com a Telkom sobreviverá à tentativa de aquisição pela MTN — хозяйственная деятельность компаний в ЮАР не является мировой новостью.
-- [pt] курьёз: [world] Wired — Nvidia impulsiona interfaces cérebro-computador — партнерство компаний в сфере технологий — бизнес-рутина, не событие.
-- [pt] не_новость: [world] Guardian Sport — Os Ravens são há muito tempo um modelo de estabilidade. Agora, estão perdendo o  — анализ серии поражений спортивной команды без привязки к итогу турнира.
-- [pt] курьёз: [world] The Guardian — Rankin revela fotos inéditas de estrelas como Liam e Noel Gallagher, Björk e Dav — публикация старых архивных фото знаменитостей — типичный 'интересный' контент.
-- [fr] не_новость: [local] 20 Minutes — Doué blessé : Au bout de combien de temps et dans quel état sont revenus les aut — аналитический разбор спортивной травмы, нет события.
-- [fr] не_новость: [local] France Bleu — Acompte et avance sur salaire : comment les demander, et peuvent-ils être refusé — полезный совет (how-to), не является событием.
-- [fr] чужое_мелкое: [pool] Radio-Canada — Le serment au roi est obligatoire, statue la Cour supérieure du Québec — внутренняя административная процедура Канады, не мировая новость.
-- [fr] не_новость: [pool] Radio-Canada — Possible grève étudiante générale illimitée au Québec en février 2027 — анонс возможной забастовки, не свершившийся факт.
-- [fr] не_новость: [pool] RTBF — Unia et Testachats mettent fin à leur action en justice contre la tarification d — прекращение судебного иска, не имеет последствий для читателя.
-- [fr] не_новость: [pool] Radio-Canada — Un autre projet de la filière batterie en difficulté au Québec — проблемы проекта — не событие без конкретного решения или последствий.
-- [fr] не_новость: [pool] Radio-Canada — Montréal doit « mettre le paquet » pour accueillir la Banque de la défense — конкуренция городов за проект — это процесс, а не событие.
-- [fr] чужое_мелкое: [world] CBS News — L'Iran promet de mettre fin au blocus naval américain par « tous les moyens disp — дипломатическая риторика без реальных действий.
-- [fr] не_новость: [world] BFMTV — "Aucune volonté à la hauteur de l'urgence et du besoin": face aux réticences des — рассказ о провальных переговорах ООН, не приведших к изменениям.
-- [fr] повтор: [world] Courrier International — Jensen Huang réinstallé à la tête de Nvidia onze jours après sa chute ≈ «Nvidia : Coup de théâtre ! Jensen Huang » — тот же сюжет про Nvidia.
-- [fr] курьёз: [world] Futura-Sciences — Une IA guidée par un humain a résolu l'une des plus grandes énigmes des mathémat — научно-популярный факт, не событие.
-- [fr] не_новость: [world] La Libre — Contraint de fuir, ce médecin veut retourner soigner à Gaza : "un devoir" — личная история врача, нет факта события.
-- [fr] чужое_мелкое: [world] Courrier International — En Israël, le gouvernement “d’urgence nationale” n’est pas pour tout de suite — внутренняя политика Израиля, затянувшийся процесс.
-- [fr] повтор: [world] Courrier International — L’échec de la COP31, conséquence de la coprésidence entre la Turquie et l’Austra ≈ «Absence d’accord à la COP31 : chronique » — тот же сюжет про COP31.
-- [fr] курьёз: [world] Le Temps — La maîtresse du patron de Nvidia a gardé des liens avec l’espionnage chinois — слухи о частной жизни без влияния на бизнес или политику.
-- [fr] не_новость: [world] L'Express — Comment l'IA s'invite dans la rivalité nucléaire entre la Chine et les Etats-Uni — аналитическая статья, нет события.
-- [fr] повтор: [world] L'Obs — COP31 : indignation et appels aux réformes après l’échec à adopter un projet de  ≈ «Absence d’accord à la COP31 : chronique » — тот же сюжет про COP31.
+- [es] чужое_мелкое: [pool] El Tiempo CO — Final de la Sudamericana dejó 60 millones de dólares en Barranquilla: cada visit — Внутренние экономические итоги матча в Колумбии для мексиканской ленты — лишний шум.
+- [es] чужое_мелкое: [pool] El Tiempo CO — Agresión a contratista de la Alcaldía de Sincelejo salpica al entorno familiar d — Местный инцидент с муниципальным подрядчиком в Колумбии.
+- [es] не_новость: [pool] La Nación AR — Naomi Holdt, psicóloga: “El producto natural de luchar contra un huracán es un a — Интервью/мнение психолога, события нет.
+- [es] не_новость: [pool] Prensa Libre GT — Parque Mundo Petapa enciende la Navidad 2026: inauguración de la temporada navid — Анонс праздничных мероприятий в парке.
+- [es] чужое_мелкое: [pool] La Nación AR — La dura denuncia de Francisco Álvarez por los atrasos salariales en Argentinos J — Внутренняя проблема аргентинского футбольного клуба.
+- [es] чужое_мелкое: [pool] Infobae — La UNP le notificó al periodista Daniel Coronell que le retiran su esquema de se — Личный вопрос безопасности колумбийского журналиста.
+- [es] чужое_мелкое: [pool] Marca — John Korir no podrá defender su corona en el Maratón de Valencia — Спортивная новость Испании о марафоне.
+- [es] чужое_мелкое: [pool] RPP PE — Con el Universitario vs Géminis: conoce la programación de la fecha 7 de la Fase — График лиги перуанского волейбола.
+- [es] курьёз: [pool] La Nación AR — Un chef argentino distinguido en París por la prestigiosa guía La Liste — Присуждение премии ресторану — «интересное», а не новость.
+- [es] чужое_мелкое: [pool] Marca — Silvia Intxaurrondo recurrirá la sanción de la Junta Electoral Central: "Ataque  — Внутренний юридический спор испанского журналиста.
+- [es] чужое_мелкое: [pool] El Nacional VE — Acceso a la Justicia alerta sobre inconsistencias en los títulos académicos de a — Внутренняя административная проблема Венесуэлы.
+- [es] чужое_мелкое: [pool] La Nación CR — ICE declara ‘confidencial’ inversión en tope de San José: ‘No es posible divulga — Административное решение в Коста-Рике.
+- [es] чужое_мелкое: [pool] Clarín AR — La confianza en el Gobierno de Milei volvió a subir en noviembre, pero sigue lej — Аргентинский внутренний политический рейтинг.
+- [es] чужое_мелкое: [pool] El Mundo — Sánchez y Díaz lanzan en campaña el permiso por fallecimiento de 10 días pactado — Внутренняя повестка правительства Испании.
+- [es] не_новость: [pool] El Universo EC — Christian Noboa, Felipe Caicedo e Iván Hurtado se unen a una campaña para apoyar — Участие футболистов в благотворительной кампании.
+- [es] не_новость: [pool] El Nacional VE — Cámara Minera de Venezuela exige reglamento de la Ley de Minas — Требование ассоциации — слова, а не событие.
+- [es] чужое_мелкое: [pool] El País — El Gobierno ampliará este martes el permiso de duelo por fallecimiento a 10 días — Внутреннее решение правительства Испании.
+- [es] чужое_мелкое: [pool] El Mundo — El 'último' servicio de Tezanos: el CIS asegura que el PSOE arrasará y Sánchez g — Внутренняя политика Испании, данные CIS.
+- [es] чужое_мелкое: [pool] La Jornada — Encuestas prevén dura batalla entre PP y PSOE en comicios españoles — Прогнозы выборов в Испании.
+- [es] чужое_мелкое: [pool] eldiario.es — El 'CIS andaluz' da la victoria al PP en las generales y la irrupción de Adelant — Оценка предвыборной ситуации в Испании.
+- [es] курьёз: [world] El Tiempo CO — ¿Cómo medio millón de botellas de aguardiente se convierten en nuevos equipos mé — Необычный факт об инвестициях в больницу.
+- [es] не_новость: [world] Engadget — Estos anillos inteligentes subestimados son más asequibles que el Oura Ring 5 — Совет по выбору техники.
+- [es] курьёз: [world] La Nación AR — La emoción de Reid Wiseman al observar la Tierra desde el espacio: “Una vista ma — Эмоциональное высказывание астронавта.
+- [es] чужое_мелкое: [world] The Independent — Autoridades escolares no proporcionaron RCP durante seis minutos a un estudiante — Мелкое происшествие/иск в США без общемирового значения.
+- [es] не_новость: [world] Ars Technica — Marvel incluye a todos los superhéroes en el tráiler final de Avengers: Doomsday — Анонс трейлера фильма.
