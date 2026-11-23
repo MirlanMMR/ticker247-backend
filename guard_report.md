@@ -1,24 +1,16 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] Oil City News — Dense fog advisory in place for Natrona County Monday morning — Dense fog advisory — обычное погодное предупреждение, не стоит «срочности».
-- [en] не_новость: [local] KCRG — Man given probation for child sex abuse case — Отчет о судебном приговоре без новых последствий или общественной значимости.
-- [en] не_новость: [local] Cleveland.com — TLC star unexpectedly dies at 35 — Смерть участника реалити-шоу — светская хроника, не новость.
-- [en] не_новость: [local] WSMV — Lynyrd Skynyrd to open 2027 season at Kentucky’s Beaver Dam Amphitheater — Анонс концерта на 2027 год — это планирование развлечений, а не новость.
-- [en] не_новость: [local] WSAZ — First Alert Weather | Cooler air arrives after Monday morning rain showers — Прогноз погоды — не является новостным событием.
-- [en] не_новость: [local] Capitol News Illinois — ‘Under our wing’: Behind the Scenes with the champion Flying Salukis — Рассказ о спортивной команде и их истории — это статья-очерк, а не событие.
-- [en] не_новость: [local] New Jersey 101.5 — No ticket on your windshield? It could still be in the mail — Разъяснение закона о штрафах — это справочная информация.
-- [en] не_новость: [local] Homepage — UWM students blend yoga and rescue dogs for 'Paws, Poses and Prosecco' event ben — Анонс университетского мероприятия — не новость.
-- [en] не_новость: [local] PennLive — Time is running out to claim part of $32 million healthcare website settlement — Напоминание о сроке подачи заявок на выплату — не событие.
-- [en] не_новость: [pool] Variety — Rian Johnson Warns Against ‘Demonizing’ AI and Says His ‘’Poker Face’ Revival Wi — Мнение режиссера об индустрии — это интервью, не новость.
-- [en] не_новость: [pool] The Independent — Split over Israel and Gaza: Over 100 writers launch breakaway U.S. PEN chapter t — Создание группы писателей — это организационное событие без значимых последствий.
-- [en] не_новость: [pool] Guardian Sport — ‘This isn’t F1’: Max Verstappen criticises overtake-heavy Las Vegas Grand Prix — Критика гонщиком трассы — это мнение, не событие.
-- [en] не_новость: [pool] Engadget — Amazon resorts to package stickers in its fight against NYC's proposed delivery  — Amazon клеит стикеры — рутинный бизнес-процесс в рамках спора, не событие.
-- [en] курьёз: [world] Rolling Stone — Switched at Birth: How Two Men Spent 36 Years Living Each Other’s Lives — История о подмененных при рождении детях — это лонгрид, не новость.
-- [en] не_новость: [world] Wired — Nvidia Is Powering Brain-Computer Interfaces Now — Техническое описание работы интерфейса без привязки к событию.
-- [en] не_новость: [world] The Independent — Democrats are planning a whopping 12 debates for 2028 race - with the first next — Планы партии по дебатам — это намерения, а не событие.
-- [en] не_новость: [world] WBAL — Medicare for All was once a long shot. — Рассуждение о статусе идеи Medicare for All — аналитика.
-- [en] не_новость: [world] The Guardian — From mocked to mainstream: how Spain’s far-right Vox transformed its fortunes — Исторический очерк о политической партии — не новость.
-- [en] не_новость: [world] Guardian Sport — The Ravens have long been a model of stability. Now they’re going off the rails — Анализ спортивной команды — это экспертное мнение.
-- [en] не_новость: [world] Engadget — Here's how much Starlink cost in 2020 vs. 2026 — Сравнение цен на услуги за годы — это аналитический обзор.
-- [en] не_новость: [world] TechCrunch — OpenAI’s chief scientist has thoughts on how to limit AI development — Обсуждение идей ученого — это не событие.
-- [en] не_новость: [world] Ars Technica — GLP-1 drugs could have a surprisingly large environmental payoff — Гипотеза о влиянии лекарств — научная статья, не событие.
+- [es] курьёз: [pool] La Nación CR — Christian Nodal se despide de los escenarios mexicanos y deja en suspenso el fut — Музыкальные новости об отмене карьеры артиста — это не событие мирового масштаба.
+- [es] повтор: [pool] eldiario.es — Un cálculo alternativo del CIS da empate técnico a PP y PSOE con una mayoría de  ≈ «El PSOE acaricia el empate con el PP, se» — Сюжет об опросах перед выборами в Испании дублирует содержание других карточек.
+- [es] повтор: [pool] El Mundo — El 'último' servicio de Tezanos: el CIS asegura que el PSOE arrasará y Sánchez g ≈ «Un cálculo alternativo del CIS da empate» — Дублирует тему предвыборных опросов в Испании.
+- [es] повтор: [pool] eldiario.es — El último CIS antes de las elecciones da al PSOE una ventaja de casi diez puntos ≈ «Un cálculo alternativo del CIS da empate» — Дублирует тему предвыборных опросов в Испании.
+- [es] повтор: [pool] La Jornada — Encuestas prevén dura batalla entre PP y PSOE en comicios españoles ≈ «Un cálculo alternativo del CIS da empate» — Дублирует тему предвыборных опросов в Испании.
+- [es] повтор: [pool] eldiario.es — El 'CIS andaluz' da la victoria al PP en las generales y la irrupción de Adelant ≈ «Un cálculo alternativo del CIS da empate» — Дублирует тему предвыборных опросов в Испании.
+- [es] повтор: [pool] El País — El PSOE acaricia el empate con el PP, según el ‘tracking’ de 40dB. ≈ «Un cálculo alternativo del CIS da empate» — Дублирует тему предвыборных опросов в Испании.
+- [es] не_новость: [world] Variety — Samantha Morton recibirá la beca del BFI — Награда деятелю культуры — это этикет/событие узкого профиля без последствий для широкого круга.
+- [es] курьёз: [world] Wired — Nvidia ahora impulsa interfaces cerebro-computadora — Технологическая заметка о партнерстве компаний, не имеющая глобальных последствий.
+- [es] не_новость: [world] Guardian Sport — ‘Esto no es la F1’: Max Verstappen critica el Gran Premio de Las Vegas por el ex — Мнение гонщика о формате соревнований не является событием.
+- [es] чужое_мелкое: [world] Guardian Sport — El plan de venta de 20.000 millones de dólares de Infantino para la Copa del Mun — Обсуждение архивных документов ФИФА не является мировой новостью.
+- [es] не_новость: [world] BBC Mundo — "El presidente (De la Espriella) está totalmente equivocado si cree que esta paz — Интервью и обмен мнениями политиков — это слова, а не событие.
+- [es] чужое_мелкое: [world] Guardian Sport — Los Ravens, un modelo de estabilidad durante mucho tiempo, atraviesan una mala r — Спортивная аналитика о результатах матчей местной лиги не является мировой новостью.
+- [es] чужое_мелкое: [world] Time — El ministro de Educación de Corea del Sur dimite tras la polémica por las medida — Отставка регионального министра в Южной Корее — внутренняя новость, не влияющая на мир.
