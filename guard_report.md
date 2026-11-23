@@ -1,27 +1,33 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] полка: [local] Sputnik KG (кыргызча) — ЖМК: ЕБ аткаминерлери салык жана Украинага берилчү жардамдан улам “мушташа башта — Событие в ЕС — мировая новость, не местная.
-- [ru] курьёз: [local] Knews.kg — Учёные предложили объяснение, почему правое полушарие мозга управляет левой поло — Научная гипотеза не является новостью для кыргызстанца.
-- [ru] полка: [local] Sputnik KG — Чиновники ЕС "начинают драться" из-за налогов и помощи Украине — Politico — Событие в ЕС — мировая новость, не местная.
-- [ru] чужое_мелкое: [pool] Avesta.tj — Таджикистан предложил увеличить квоты на обучение в вузах России — Внутренняя дипломатия РФ и РТ не является новостью для RU-потока в KG.
-- [ru] не_новость: [pool] 62.ru — Рязань — Почти 114 кубометров мусора: школьники убрались на берегах рязанских водоемов — Обычный субботник — не событие по списку.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Владельцев недоТЦ на Авроре спасли от банкротства — Локальное банкротство компании в Самаре не новость для пула.
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — В Парковом снесут полторы сотни берез и осин вдоль экотропы — Благоустройство в Челябинске не новость для пула.
-- [ru] чужое_мелкое: [pool] Onliner.by — 18-летний парень заработал 600 рублей на продаже несуществующих ноутбуков — Мелкая кража в Бобруйске не новость для пула.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — Жительница Балашихи забрала у тулячки почти 3,8 миллиона рублей и перевела деньг — Мошенничество в Туле не новость для пула.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Велосипед за дозу: рязанец-наркоман охотился на ценные вещи в подъездах — Мелкая кража в Рязани не новость для пула.
-- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — Горнолыжный сезон стартовал в Мурманской области — Локальное открытие сезона на курорте не новость для пула.
-- [ru] чужое_мелкое: [pool] iXBT — Суд, взлом и шантаж: мошенники начали запугивать россиян дипфейками — Очередной обзор схемы мошенничества — не событие.
-- [ru] полка: [pool] Kaktus.media — Опубликован проект Конституции Армении (без отсылки о воссоединении с Нагорным К — Конституция Армении — мировая новость, лежит не в той полке.
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — Тюменка час не могла вернуться домой из-за правил работы такси в Рощино — Бытовая проблема в такси — не новость.
-- [ru] не_новость: [pool] 59.ru — Пермь — Пермские «Территория передышки» и «Территория семьи» проведут книжную барахолку, — Анонс благотворительного мероприятия не является событием.
-- [ru] не_новость: [pool] 14.ru — Якутск — Изъятый 30 лет назад в Якутии неограненный алмаз передали государству — Передача алмаза — бюрократическая рутина.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Туле на девять дней изменят движение трамваев: часть маршрутов отменят — Изменение маршрутов в Туле не новость для пула.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Пьяный рязанец опрокинул автомобиль с подростком внутри — юноша в больнице — ДТП в Рязани не новость для пула.
-- [ru] курьёз: [pool] 72.ru — Тюмень — Диск в небе будет огромным. Тюменцы смогут увидеть в небе Бобровую луну — когда  — Астрономическое явление — для раздела интересное.
-- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Якутянка сядет за убийство сожителя. — Бытовое убийство в Якутске не новость для пула.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Двое бугурусланцев получили по 2 года колонии за нападение на случайного прохоже — Приговор в Оренбурге не новость для пула.
-- [ru] чужое_мелкое: [pool] 45.ru — Курган — В Кургане дорожники сняли свежеуложенный асфальт — Локальный ремонт дороги в Кургане не новость для пула.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — С 23 ноября в центре Тулы ограничат парковку из-за главной елки — Парковка в Туле не новость для пула.
-- [ru] не_новость: [pool] 72.ru — Тюмень — Тюменка прошла в полуфинал «Мисс Вселенная» — Очередной этап конкурса красоты — не событие.
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — Снежный коллапс: Тула стоит в пробках после снегопада — Пробки из-за снега в Туле не новость для пула.
+- [pt] чужое_мелкое: [local] Gazeta do Povo — Lula isolado: revista inglesa coloca Brasil e ditaduras como únicos governos de  — Внутренняя политика Бразилии и упоминание в иностранной прессе не является мировой новостью.
+- [pt] чужое_мелкое: [local] Gazeta do Povo — Gilmar admite falta de “autocontenção” do STF em “Gilmarpalooza da Argentina” e  — Спекуляции о внутренней политике STF и состояние здоровья экс-президента — местная повестка, не мировая.
+- [pt] не_новость: [pool] Terra BR — Ex de Djalminha se envolve em confusão durante campeonato infantil no Rio — Конфликт на детском футбольном матче не является событием общественно-политического масштаба.
+- [pt] чужое_мелкое: [world] Poder360 — Negociação de Eisenkot com partido de Netanyahu não avança — Текущие переговоры внутри коалиции в Израиле — узкоспециализированная или внутренняя новость этой страны.
+- [pt] срочность: [world] Observador PT — Escolas na Dinamarca e na Alemanha recebem ameaças de bomba — Анонимные угрозы по e-mail без подтвержденных последствий не требуют побудки читателя.
+- [pt] курьёз: [world] The Independent — Busca em grande escala é iniciada por animal 'semelhante a um leão' à solta pert — Поиск животного в Турции — типичный курьез, которому место в «Интересном».
+- [pt] не_новость: [world] The Independent — Estudo aponta que 1% das contas da Polymarket abocanhou 91% dos lucros das eleiç — Анализ структуры прибыли на платформе Polymarket — это разбор данных, а не новостное событие.
+- [pt] не_новость: [world] The Independent — Tom Jackson, ex-estrela da NFL e amado analista da ESPN, morre aos 75 anos — Смерть спортивного аналитика (пусть и известного) — не событие мирового масштаба.
+- [pt] чужое_мелкое: [world] Engadget — Amazon utiliza adesivos em pacotes em sua campanha contra lei de entregas propos — Маркетинговые ходы Amazon в споре с местным законом Нью-Йорка — не мировая новость.
+- [pt] не_новость: [world] Guardian Sport — Os Ravens são há muito tempo um modelo de estabilidade. Agora, estão perdendo o  — Серия поражений спортивной команды — это не событие в новостном смысле.
+- [pt] чужое_мелкое: [world] RFI — França: justiça é acionada por comentários racistas e saudação nazista em escola — Внутреннее дисциплинарное расследование в школе полиции Франции — местная новость.
+- [pt] не_новость: [world] BBC Brasil — O que os homens mais ricos da Rússia esperam para o futuro sem Putin — Рассуждения о будущем России без Путина — аналитика, а не новость о свершившемся событии.
+- [pt] повтор: [world] BBC Brasil — COP31 termina sem acordo após impasse sobre combustíveis fósseis ≈ «Por que as negociações climáticas mundia» — Тот же сюжет о провале COP31.
+- [pt] курьёз: [world] Ars Technica — Medicamentos GLP-1 podem gerar um impacto ambiental surpreendentemente positivo — Теоретическое исследование об экологии препаратов GLP-1 — типичное «интересное».
+- [fr] курьёз: [local] La Tribune — Markus Villig (Bolt) : « Les taxis autonomes vont pallier le manque de chauffeur — Технологический прогноз на 2028 год не является новостным событием.
+- [fr] повтор: [local] Franceinfo — Présidentielle 2027 : le parti Génération.s soutient officiellement la candidatu ≈ «Présidentielle 2027 : David Lisnard assu» — Та же тема политических альянсов перед выборами 2027 года.
+- [fr] курьёз: [local] France Bleu — "Tous les mois, je demande à mon employeur" : les acomptes sur salaire ont augme — Статистика по запросам авансов — это аналитика, а не событие.
+- [fr] курьёз: [local] L'Express — L’alerte des pharmacologues sur les médicaments anti-obésité GLP-1 détournés : " — Предупреждение о вреде препаратов — тема для статьи, а не новостной повод.
+- [fr] не_новость: [local] L'Express — Une règle d'or budgétaire dans la Constitution : cette piste qu'Emmanuel Macron  — Предположение Макрона о правках в Конституцию — это слова, а не свершившееся решение.
+- [fr] не_новость: [pool] Radio-Canada — Les États-Unis constatent des progrès dans les négociations avec le Canada — Слова об «успешных переговорах» без конкретных итогов — это этикет и намерения.
+- [fr] чужое_мелкое: [world] Jeune Afrique — Comment Ecobank est devenue la victime collatérale du scandale de la Deutsche Ba — Последствия банковского скандала для другого банка — частная бизнес-новость, не мировая.
+- [fr] не_новость: [world] Jeune Afrique — Législatives espagnoles : une victoire de la droite menacerait-elle le rapproche — Прогноз и ожидания перед выборами — не событие.
+- [fr] курьёз: [world] Bénin Web TV — Liga : Yassir Zabiri porte le Racing avec 11 buts en 13 matches — Спортивная статистика игрока не является мировым событием.
+- [fr] курьёз: [world] BFMTV — Un Brésilien de 74 ans atteint d’Alzheimer retrouvé après 11 jours passés dans l — Частная история спасения человека в лесу — не мировое событие.
+- [fr] не_новость: [world] TSA Algérie — Incendies en Algérie : une technologie de la NASA qui pourrait tout changer — Общие рассуждения о том, как технология могла бы помочь — не событие.
+- [fr] не_новость: [world] Nice-Matin — L'ex-commandant du Costa Concordia Francesco Schettino sort de prison après neuf — Выход из тюрьмы по окончании срока — плановое событие, а не новость.
+- [fr] повтор: [world] RTBF — Absence d’accord à la COP31 : chronique d’un échec annoncé ≈ «COP31 : indignation et appels aux réform» — Тот же сюжет о провале COP31.
+- [fr] курьёз: [world] La Dépêche — En arrêt maladie, il fait croire à son employeur qu'il se déplace en fauteuil ro — Случай с увольнением в Нидерландах — частная курьезная история без мирового значения.
+- [fr] не_новость: [world] Futura-Sciences — La plupart des inondations sont déclenchées par quelque chose d'autre que la plu — Научно-популярный факт из Futura-Sciences без конкретного события.
+- [fr] курьёз: [world] Courrier International — Les grandes fortunes britanniques prennent le large — Аналитика о переезде богатых людей — не новость.
+- [fr] не_новость: [world] TechCrunch — Le scientifique en chef d'OpenAI s'exprime sur les moyens de limiter le développ — Публикация статьи с размышлениями ученого — не событие.
