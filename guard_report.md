@@ -1,17 +1,26 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [local] Exame — Há 23 anos no Bandeirantes, ele voltou a ser aluno para levar IA à escola: ‘IA é — личная история, не событие.
-- [pt] не_новость: [local] Folha de S.Paulo — Mortes: Dedicou a vida à família e à fé — некролог, не событие.
-- [pt] курьёз: [local] Metrópoles — Fiat Uno desafia a fisíca e é flagrado levando montanha de entulho na Epia — вирусное видео, не событие.
-- [pt] не_новость: [local] G1 Rio — Diretor cênico da Beija-Flor, Márcio Vieira morre aos 51 anos em Araruama — смерть частного лица (художника), не событие.
-- [pt] курьёз: [local] G1 Rio — Golfinhos acompanham homem em moto aquática por trecho na orla do Rio; VÍDEO — наблюдение за животными, не событие.
-- [pt] не_новость: [pool] RTP Notícias — Sondagem da Católica aponta para empate técnico entre os três maiores partidos — результаты опроса не являются свершившимся событием.
-- [pt] не_новость: [pool] Terra BR — 'Por Você': Toy toma coragem, se declara para Leandra e é surpreendido com reaçã — спойлер сюжета сериала, не событие.
-- [pt] курьёз: [pool] Terra BR — Ingra Soares quebra o silêncio sobre fim com Zé Vaqueiro e expõe motivo: 'Não me — светская хроника, не событие.
-- [pt] не_новость: [pool] Observador PT — "Viana" foi o 2.º mais visto no fim de semana de estreia — рейтинг просмотра фильма, не событие.
-- [pt] метка_места: [pool] Téla Nón — “Não prometo um governo sem erros…prometo um governo que não esconde os erros “ — издание пишет о своей стране, место события ST, а не CV.
-- [pt] анонс: [world] Observador PT — Kiev: Rutte reitera que não há consenso para adesão à NATO — текст содержит служебную заглушку кода вместо статьи.
-- [pt] не_новость: [world] Superinteressante — “GTA VI” surpreende pelo ritmo e pelo tom – e alcança um novo patamar de imersão — рецензия на игру, не событие.
-- [pt] не_новость: [world] Variety — Oscar: 38 animações, 104 filmes internacionais e 190 documentários entram nas li — статистика участников премии, не событие.
-- [pt] курьёз: [world] Superinteressante — Cientistas criam biocomputador feito de bactérias — научный факт без прикладного результата, не событие.
-- [pt] чужое_мелкое: [world] 29.ru — Governador Andrey Chibis foi detido em Moscou: tudo o que se sabe — внутренняя политика России, нет последствий за рубежом.
+- [en] курьёз: [local] KSTP — Molly the “Cheese Ball Chick” qualifies to compete on American Ninja Warrior — Это личное достижение частного лица, не новость.
+- [en] чужое_мелкое: [local] WTOP — Trump targets Newsom in Justice Department speech over erasure of death row sent — Внутренняя полемика о политике штата не является мировой новостью.
+- [en] не_новость: [local] Untitled RSS Feed — Montana Police Chief On Leave After Kicked Out Of Bar, Then Tasing Property Owne — Описание бытового конфликта и отстранения на время проверки.
+- [en] курьёз: [local] 11Alive — GoFundMe says donor information was exposed in data breach — Информация об утечке данных сервиса, нет события/последствий.
+- [en] курьёз: [local] Untitled RSS Feed — Woman Calls Rancher "My Hero" After He Finds Horse Lost For Six Days In Mountain — История о спасении лошади — классический «лайфстайл».
+- [en] не_новость: [local] 11Alive — 'Ted Lasso' renewed for Season 5 at Apple TV — Продление сериала на сезон — не событие (индустриальная заметка).
+- [en] не_новость: [local] KOLO — Cortez Masto joins onto bill banning use of AI to surveil grocery store prices — Поддержка законопроекта сенатором — это намерение, а не факт принятия.
+- [en] курьёз: [local] Georgia Public Broadcasting — Seniors embrace Tesla automated driving technology despite questions about safet — Мнение пожилых людей о технологиях — это очерк, не событие.
+- [en] курьёз: [pool] Good News Network — 33 Kids Wrote Letters to a Wounded Veteran. — Историческая справка/письма из прошлого.
+- [en] курьёз: [pool] CNA — Gaming cafes packed, offices declare holidays: How Grand Theft Auto VI fever gri — Описательный материал о популярности игры.
+- [en] не_новость: [pool] Fortune — DeSantis says a Florida city misread his anti-DEI law. — Спор о трактовке закона — предмет дискуссии, не событие.
+- [en] не_новость: [pool] Global News CA — Manitoba solar panel project could create 8,000 jobs, First Nations group says — «Может создать» — это прогноз, а не состоявшееся событие.
+- [en] не_новость: [pool] The Globe and Mail — Cadet weekend activities to be restored, Defence Minister says — Заявление о планах по финансированию, не конкретный акт.
+- [en] курьёз: [pool] NASA — NASA Awards Contract for NOAA’s Near Earth Orbit Network Program — Техническая новость о госконтракте, не имеет значения для читателя.
+- [en] не_новость: [pool] The Hindu — Will bank manager accept Kayalvizhi Alagiri’s apology, asks Madras High Court — Рабочий вопрос судьи в процессе, событие — только приговор.
+- [en] не_новость: [pool] The Hindu — Rajasthan women’s varsity signs MoU with BRICS nations for global leadership cen — Подписание меморандума (MoU) — намерение, не событие.
+- [en] курьёз: [pool] Good News Network — Determined Volunteer Rescues Lost Toddler in the Desert: ‘She may not be our chi — Человеческая история, не имеющая общественной значимости.
+- [en] курьёз: [pool] Good News Network — One-of-a-Kind Refuge to 200,000 Walrus Protected Forever in Alaska — Экологическая заметка о статусе территории.
+- [en] курьёз: [world] Wired — Nvidia Is Powering Brain-Computer Interfaces Now — Описание технологии без события.
+- [en] не_новость: [world] Engadget — New leaks reveal the iPhone 18e will have a redesigned camera plateau — Слухи об устройстве (утечки).
+- [en] не_новость: [world] Engadget — GTA 6 player gets social ban on PSN after sending a photo of in-game nudity — Частный случай блокировки аккаунта в игре.
+- [en] не_новость: [world] UPI — LEGO Group to build new factory in Portugal — Анонс планов компании на 2030 год — слишком далеко и не является событием.
+- [en] курьёз: [world] ScienceAlert — Blood Vessel Function Improves Within 1 Hour of Taking This Anti-Aging Supplemen — Результаты научного исследования без практических последствий для читателя.
+- [en] курьёз: [world] ScienceAlert — DNA From The Shroud of Turin Reveals a Surprise Centuries Later — Научно-популярный факт об историческом артефакте.
