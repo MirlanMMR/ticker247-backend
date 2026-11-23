@@ -1,27 +1,17 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [pool] El Tiempo CO — Final de la Sudamericana dejó 60 millones de dólares en Barranquilla: cada visit — Внутренние экономические итоги матча в Колумбии для мексиканской ленты — лишний шум.
-- [es] чужое_мелкое: [pool] El Tiempo CO — Agresión a contratista de la Alcaldía de Sincelejo salpica al entorno familiar d — Местный инцидент с муниципальным подрядчиком в Колумбии.
-- [es] не_новость: [pool] La Nación AR — Naomi Holdt, psicóloga: “El producto natural de luchar contra un huracán es un a — Интервью/мнение психолога, события нет.
-- [es] не_новость: [pool] Prensa Libre GT — Parque Mundo Petapa enciende la Navidad 2026: inauguración de la temporada navid — Анонс праздничных мероприятий в парке.
-- [es] чужое_мелкое: [pool] La Nación AR — La dura denuncia de Francisco Álvarez por los atrasos salariales en Argentinos J — Внутренняя проблема аргентинского футбольного клуба.
-- [es] чужое_мелкое: [pool] Infobae — La UNP le notificó al periodista Daniel Coronell que le retiran su esquema de se — Личный вопрос безопасности колумбийского журналиста.
-- [es] чужое_мелкое: [pool] Marca — John Korir no podrá defender su corona en el Maratón de Valencia — Спортивная новость Испании о марафоне.
-- [es] чужое_мелкое: [pool] RPP PE — Con el Universitario vs Géminis: conoce la programación de la fecha 7 de la Fase — График лиги перуанского волейбола.
-- [es] курьёз: [pool] La Nación AR — Un chef argentino distinguido en París por la prestigiosa guía La Liste — Присуждение премии ресторану — «интересное», а не новость.
-- [es] чужое_мелкое: [pool] Marca — Silvia Intxaurrondo recurrirá la sanción de la Junta Electoral Central: "Ataque  — Внутренний юридический спор испанского журналиста.
-- [es] чужое_мелкое: [pool] El Nacional VE — Acceso a la Justicia alerta sobre inconsistencias en los títulos académicos de a — Внутренняя административная проблема Венесуэлы.
-- [es] чужое_мелкое: [pool] La Nación CR — ICE declara ‘confidencial’ inversión en tope de San José: ‘No es posible divulga — Административное решение в Коста-Рике.
-- [es] чужое_мелкое: [pool] Clarín AR — La confianza en el Gobierno de Milei volvió a subir en noviembre, pero sigue lej — Аргентинский внутренний политический рейтинг.
-- [es] чужое_мелкое: [pool] El Mundo — Sánchez y Díaz lanzan en campaña el permiso por fallecimiento de 10 días pactado — Внутренняя повестка правительства Испании.
-- [es] не_новость: [pool] El Universo EC — Christian Noboa, Felipe Caicedo e Iván Hurtado se unen a una campaña para apoyar — Участие футболистов в благотворительной кампании.
-- [es] не_новость: [pool] El Nacional VE — Cámara Minera de Venezuela exige reglamento de la Ley de Minas — Требование ассоциации — слова, а не событие.
-- [es] чужое_мелкое: [pool] El País — El Gobierno ampliará este martes el permiso de duelo por fallecimiento a 10 días — Внутреннее решение правительства Испании.
-- [es] чужое_мелкое: [pool] El Mundo — El 'último' servicio de Tezanos: el CIS asegura que el PSOE arrasará y Sánchez g — Внутренняя политика Испании, данные CIS.
-- [es] чужое_мелкое: [pool] La Jornada — Encuestas prevén dura batalla entre PP y PSOE en comicios españoles — Прогнозы выборов в Испании.
-- [es] чужое_мелкое: [pool] eldiario.es — El 'CIS andaluz' da la victoria al PP en las generales y la irrupción de Adelant — Оценка предвыборной ситуации в Испании.
-- [es] курьёз: [world] El Tiempo CO — ¿Cómo medio millón de botellas de aguardiente se convierten en nuevos equipos mé — Необычный факт об инвестициях в больницу.
-- [es] не_новость: [world] Engadget — Estos anillos inteligentes subestimados son más asequibles que el Oura Ring 5 — Совет по выбору техники.
-- [es] курьёз: [world] La Nación AR — La emoción de Reid Wiseman al observar la Tierra desde el espacio: “Una vista ma — Эмоциональное высказывание астронавта.
-- [es] чужое_мелкое: [world] The Independent — Autoridades escolares no proporcionaron RCP durante seis minutos a un estudiante — Мелкое происшествие/иск в США без общемирового значения.
-- [es] не_новость: [world] Ars Technica — Marvel incluye a todos los superhéroes en el tráiler final de Avengers: Doomsday — Анонс трейлера фильма.
+- [pt] курьёз: [local] Exame — Há 23 anos no Bandeirantes, ele voltou a ser aluno para levar IA à escola: ‘IA é — личная история, не событие.
+- [pt] не_новость: [local] Folha de S.Paulo — Mortes: Dedicou a vida à família e à fé — некролог, не событие.
+- [pt] курьёз: [local] Metrópoles — Fiat Uno desafia a fisíca e é flagrado levando montanha de entulho na Epia — вирусное видео, не событие.
+- [pt] не_новость: [local] G1 Rio — Diretor cênico da Beija-Flor, Márcio Vieira morre aos 51 anos em Araruama — смерть частного лица (художника), не событие.
+- [pt] курьёз: [local] G1 Rio — Golfinhos acompanham homem em moto aquática por trecho na orla do Rio; VÍDEO — наблюдение за животными, не событие.
+- [pt] не_новость: [pool] RTP Notícias — Sondagem da Católica aponta para empate técnico entre os três maiores partidos — результаты опроса не являются свершившимся событием.
+- [pt] не_новость: [pool] Terra BR — 'Por Você': Toy toma coragem, se declara para Leandra e é surpreendido com reaçã — спойлер сюжета сериала, не событие.
+- [pt] курьёз: [pool] Terra BR — Ingra Soares quebra o silêncio sobre fim com Zé Vaqueiro e expõe motivo: 'Não me — светская хроника, не событие.
+- [pt] не_новость: [pool] Observador PT — "Viana" foi o 2.º mais visto no fim de semana de estreia — рейтинг просмотра фильма, не событие.
+- [pt] метка_места: [pool] Téla Nón — “Não prometo um governo sem erros…prometo um governo que não esconde os erros “ — издание пишет о своей стране, место события ST, а не CV.
+- [pt] анонс: [world] Observador PT — Kiev: Rutte reitera que não há consenso para adesão à NATO — текст содержит служебную заглушку кода вместо статьи.
+- [pt] не_новость: [world] Superinteressante — “GTA VI” surpreende pelo ritmo e pelo tom – e alcança um novo patamar de imersão — рецензия на игру, не событие.
+- [pt] не_новость: [world] Variety — Oscar: 38 animações, 104 filmes internacionais e 190 documentários entram nas li — статистика участников премии, не событие.
+- [pt] курьёз: [world] Superinteressante — Cientistas criam biocomputador feito de bactérias — научный факт без прикладного результата, не событие.
+- [pt] чужое_мелкое: [world] 29.ru — Governador Andrey Chibis foi detido em Moscou: tudo o que se sabe — внутренняя политика России, нет последствий за рубежом.
