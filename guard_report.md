@@ -1,26 +1,16 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] курьёз: [local] KSTP — Molly the “Cheese Ball Chick” qualifies to compete on American Ninja Warrior — Это личное достижение частного лица, не новость.
-- [en] чужое_мелкое: [local] WTOP — Trump targets Newsom in Justice Department speech over erasure of death row sent — Внутренняя полемика о политике штата не является мировой новостью.
-- [en] не_новость: [local] Untitled RSS Feed — Montana Police Chief On Leave After Kicked Out Of Bar, Then Tasing Property Owne — Описание бытового конфликта и отстранения на время проверки.
-- [en] курьёз: [local] 11Alive — GoFundMe says donor information was exposed in data breach — Информация об утечке данных сервиса, нет события/последствий.
-- [en] курьёз: [local] Untitled RSS Feed — Woman Calls Rancher "My Hero" After He Finds Horse Lost For Six Days In Mountain — История о спасении лошади — классический «лайфстайл».
-- [en] не_новость: [local] 11Alive — 'Ted Lasso' renewed for Season 5 at Apple TV — Продление сериала на сезон — не событие (индустриальная заметка).
-- [en] не_новость: [local] KOLO — Cortez Masto joins onto bill banning use of AI to surveil grocery store prices — Поддержка законопроекта сенатором — это намерение, а не факт принятия.
-- [en] курьёз: [local] Georgia Public Broadcasting — Seniors embrace Tesla automated driving technology despite questions about safet — Мнение пожилых людей о технологиях — это очерк, не событие.
-- [en] курьёз: [pool] Good News Network — 33 Kids Wrote Letters to a Wounded Veteran. — Историческая справка/письма из прошлого.
-- [en] курьёз: [pool] CNA — Gaming cafes packed, offices declare holidays: How Grand Theft Auto VI fever gri — Описательный материал о популярности игры.
-- [en] не_новость: [pool] Fortune — DeSantis says a Florida city misread his anti-DEI law. — Спор о трактовке закона — предмет дискуссии, не событие.
-- [en] не_новость: [pool] Global News CA — Manitoba solar panel project could create 8,000 jobs, First Nations group says — «Может создать» — это прогноз, а не состоявшееся событие.
-- [en] не_новость: [pool] The Globe and Mail — Cadet weekend activities to be restored, Defence Minister says — Заявление о планах по финансированию, не конкретный акт.
-- [en] курьёз: [pool] NASA — NASA Awards Contract for NOAA’s Near Earth Orbit Network Program — Техническая новость о госконтракте, не имеет значения для читателя.
-- [en] не_новость: [pool] The Hindu — Will bank manager accept Kayalvizhi Alagiri’s apology, asks Madras High Court — Рабочий вопрос судьи в процессе, событие — только приговор.
-- [en] не_новость: [pool] The Hindu — Rajasthan women’s varsity signs MoU with BRICS nations for global leadership cen — Подписание меморандума (MoU) — намерение, не событие.
-- [en] курьёз: [pool] Good News Network — Determined Volunteer Rescues Lost Toddler in the Desert: ‘She may not be our chi — Человеческая история, не имеющая общественной значимости.
-- [en] курьёз: [pool] Good News Network — One-of-a-Kind Refuge to 200,000 Walrus Protected Forever in Alaska — Экологическая заметка о статусе территории.
-- [en] курьёз: [world] Wired — Nvidia Is Powering Brain-Computer Interfaces Now — Описание технологии без события.
-- [en] не_новость: [world] Engadget — New leaks reveal the iPhone 18e will have a redesigned camera plateau — Слухи об устройстве (утечки).
-- [en] не_новость: [world] Engadget — GTA 6 player gets social ban on PSN after sending a photo of in-game nudity — Частный случай блокировки аккаунта в игре.
-- [en] не_новость: [world] UPI — LEGO Group to build new factory in Portugal — Анонс планов компании на 2030 год — слишком далеко и не является событием.
-- [en] курьёз: [world] ScienceAlert — Blood Vessel Function Improves Within 1 Hour of Taking This Anti-Aging Supplemen — Результаты научного исследования без практических последствий для читателя.
-- [en] курьёз: [world] ScienceAlert — DNA From The Shroud of Turin Reveals a Surprise Centuries Later — Научно-популярный факт об историческом артефакте.
+- [es] курьёз: [local] El Universal MX — “Please Disturb”; café y croissants, una experiencia francesa en Reforma — Это статья о стиле жизни и гастрономическом опыте, а не событие.
+- [es] курьёз: [local] El Economista MX — Farmacias Similares sigue creciendo su concepto de cafetería y veterinaria; abre — Расширение бизнеса сети аптек — коммерческая деятельность, не событие.
+- [es] курьёз: [local] El Informador — MiBici se expande a Providencia y alrededores con nuevas estaciones — Расширение сети проката велосипедов — рутинная работа муниципальной службы.
+- [es] не_новость: [local] La Jornada — Arranca el Festival de Cine y Música el día 26 en la CDMX — Анонс культурного фестиваля без указания значимого события.
+- [es] курьёз: [pool] RPP PE — Francho Sierralta vive incómodo momento en show de Luzu TV cuando le recuerdan e — Сплетня о жизни знаменитостей в шоу-бизнесе.
+- [es] повтор: [pool] La Nación AR — Así están los cuartos de final del torneo Clausura con siete equipos ya clasific ≈ «Gimnasia gritó fuerte en el Bosque: elim» — Тот же матч Gimnasia против Newell’s.
+- [es] курьёз: [pool] La Nación AR — “Se hicieron los vivos”: realizaron maniobras peligrosas en Pinamar, los delató  — Инцидент с розовым пикапом — это развлекательный факт, а не новость.
+- [es] повтор: [pool] El Mundo — El 'tracking' final del 29-N: PP y Vox entran en los últimos días de campaña con ≈ «El PP gana por la mínima al PSOE y la de» — Обе карточки об одной и той же предвыборной ситуации в Испании.
+- [es] повтор: [pool] eldiario.es — El último CIS antes de las elecciones da al PSOE una ventaja de casi diez puntos ≈ «El PP gana por la mínima al PSOE y la de» — Очередной опрос перед выборами 29N.
+- [es] курьёз: [world] Variety — La película 'Avengers: Doomsday' de Marvel no se proyectará ante los BAFTA, Glob — Киношные подробности о премьере Marvel.
+- [es] курьёз: [world] TechCrunch — Anthropic lanza Claude Ship para que agentes de IA revisen, corrijan y aprueben  — Релиз инструментов для разработчиков ИИ — не новость общего характера.
+- [es] курьёз: [world] TechCrunch — Supertake recauda 20 millones de dólares para convertir predicciones de mercado  — Привлечение инвестиций стартапом — это бизнес-сообщение, не новость.
+- [es] курьёз: [world] BBC Mundo — El extraordinario hallazgo de un cementerio de osos de las cavernas que se extin — Археологическая находка — место в «Интересном», но не новость.
+- [es] не_новость: [world] BBC Mundo — "El presidente (De la Espriella) está totalmente equivocado si cree que esta paz — Интервью с политиками не является новостным событием.
