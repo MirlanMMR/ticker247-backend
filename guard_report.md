@@ -1,24 +1,26 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] чужое_мелкое: [pool] Avesta.tj — В Душанбе выбрали лучших председателей махаллей и участковых инспекторов — внутренний конкурс МВД Таджикистана
-- [ru] не_новость: [pool] 62.ru — Рязань — От советника Шпака до губернатора Заполярья: чем запомнился в Рязани задержанный — портретный материал/архив, нет события
-- [ru] не_новость: [pool] 72.ru — Тюмень — Новый ЖК с видом на кладбище: в центре Тюмени появится многоквартирник в 23 этаж — плановое строительство, не событие
-- [ru] не_новость: [pool] e1.ru — Екатеринбург — «Раньше нас было восемь, теперь я один». История последнего ремонтника Свердловс — очерк о сотруднике, нет события
-- [ru] не_новость: [pool] 86.ru — Ханты-Мансийск — «Это волшебство!» Югорск встретил поезд Деда Мороза — репортаж — плановое культурное мероприятие
-- [ru] курьёз: [pool] e1.ru — Екатеринбург — «Оплакивала урну всю ночь». В Екатеринбурге хозяйка покойного кота заявила, что  — бытовой спор о кремации, не значимо
-- [ru] не_новость: [pool] chita.ru — Чита — Уже второго главу МинЖКХ отправили в колонию за газификацию Читы — затяжное рутинное событие (приговор по старому делу)
-- [ru] не_новость: [pool] 173.ru — Ульяновск — В Ульяновске взыскали штраф за обман при получении соцвыплат — рутинное взыскание штрафа
-- [ru] не_новость: [pool] NewsGeorgia — Мэрия Батуми выставит 50 пастухов для борьбы с коровами на улицах — планы мэрии на 2027 год
-- [ru] курьёз: [world] Вечерний Бишкек — Паредес потерял сознание после победы "Бока Хуниорс" — спортивная байка, не событие
-- [ru] не_новость: [world] The Hill — Белый дом направил в Конгресс запрос об «аномалиях» для финансирования федеральн — запрос финансирования (слова, а не факт)
-- [ru] не_новость: [world] 60.ru — Псков — Бранд «фактически под наблюдением» в новой тюрьме — рутинные новости о заключенном
-- [ru] не_новость: [world] 56.ru — Оренбург — От отказов в работе до заказов из США: блогер с ДЦП путешествует по стране и соз — портрет/очерк о человеке
-- [ru] чужое_мелкое: [world] Semafor — Нидерландский суд запретил продажу автомобиля BYD из-за сходства с Range Rover — судебный спор BYD и Range Rover
-- [ru] курьёз: [world] Muy Interesante — Xiaomi жестко отвечает Google, снижая цену на модель 17T Pro почти до историческ — маркетинговое снижение цены
-- [ru] не_новость: [world] TechCrunch — Стартап Supertake привлек 20 миллионов долларов на создание ИИ-агентов для управ — привлечение инвестиций стартапом, не значимо
-- [ru] чужое_мелкое: [world] El Mundo — В Аргентине и Венесуэле проходит массовое голосование испанских граждан с исполь — внутренние выборы Испании
-- [ru] не_новость: [world] RFI — Франция: Елисейский дворец возвращает в общественную дискуссию идею «бюджетного  — политическая дискуссия, не событие
-- [ru] не_новость: [world] Knews.kg — К 10 годам лишения свободы приговорён экс-глава Фонда поддержки СМИ Узбекистана — приговор по делу давнего периода
-- [ru] курьёз: [world] Knews.kg — ИИ учат «обонянию» — он уже придумывает духи — технологическое любопытство, не событие
-- [ru] не_новость: [world] 60.ru — Псков — Трамп поделился проектом всеобщего здравоохранения от демократа — обмен мнениями (политическое обсуждение)
-- [ru] не_новость: [world] 60.ru — Псков — Ким Чен Ын игнорирует звонки Трампа и вернул его письмо — дипломатическая переписка (слова)
+- [fr] не_новость: [local] Franceinfo — Présidentielle 2027 : "Nous allons vers l'iceberg et donc j'ai décidé d'agir", d — предвыборная риторика кандидата, а не событие.
+- [fr] не_новость: [local] Franceinfo — Le chef Michel Dumas, connu pour ses vidéos de cuisine sur les réseaux sociaux,  — смерть от естественных причин/болезни (не массовое событие).
+- [fr] не_новость: [local] Le Figaro — « C’est dur, mais c’est ce qu’on est venus chercher » : à Épinal, les premiers p — репортаж о службе, а не событие.
+- [fr] не_новость: [local] L'Obs — Présidentielle 2027 : 51 % des Français seraient « mécontents d’une victoire de  — опрос общественного мнения, не событие.
+- [fr] не_новость: [local] Franceinfo — "On n'est plus à une surprise près" : pourquoi Emmanuel Macron envisage-t-il de  — обсуждение идеи/размышления президента.
+- [fr] не_новость: [local] La Dépêche — "Pansement non changé, manque de matériel d'hygiène pour la toilette, pas assez  — жалоба сотрудников (мнение, а не официальное расследование/решение).
+- [fr] анонс: [local] 20 Minutes — EN DIRECT Présidentielle 2027 : La candidature de David Lisnard va agiter le con — формат ленты прямого эфира, содержит анонсы будущих действий.
+- [fr] не_новость: [pool] Le Devoir — Le vouvoiement à l’école, «un coup d’épée dans l’eau», selon Arseneau — мнение депутата о законе.
+- [fr] курьёз: [pool] Radio-Canada — Encore plus de gras saturés et de sel dans le panier d’épicerie des Québécois — отчет о составе продуктов — познавательный факт.
+- [fr] повтор: [world] BFMTV — Sanofi va racheter Insmed pour 37,6 milliards d’euros ≈ «Nvidia : Jensen Huang redevient PDG, Don» — один и тот же сюжет (сделка Nvidia/Insmed).
+- [fr] курьёз: [world] Le Temps — Le cérumen, une arme (presque) imparable pour protéger nos oreilles des insectes — биологическая заметка.
+- [fr] не_новость: [world] Straits Times — ONU : Cinq femmes tuées chaque heure par des proches en 2025 — статистический отчет за 2025 год (публикация данных — не событие).
+- [fr] не_новость: [world] France 24 FR — CAN 2025 : le TAS rendra sa décision sur la finale ce mardi 24 novembre — анонс ожидания решения суда.
+- [fr] не_новость: [world] Sciences et Avenir — La défense planétaire à l’heure de vérité — научно-популярный разбор миссии.
+- [fr] не_новость: [world] RTBF — Rougeole aux États-Unis, Ebola en RDC... : un signal pour l'Europe ? "Nous somme — мнение/комментарий о ситуации, а не событие.
+- [fr] повтор: [world] France 24 FR — Washington durcit la lutte contre la contrebande de puces vers la Chine, Nvidia  ≈ «Singapour affirme coopérer avec Washingt» — тот же сюжет про сотрудничество Сингапура и США.
+- [fr] не_новость: [world] RTBF — Dans un carnet intime publié avec l’aval du Vatican, le pape François écrit avoi — описание книги с размышлениями папы.
+- [fr] не_новость: [world] RFI — Guerre en Ukraine: l'Union européenne propose d'interdire de compétition les ath — предложение ЕС, а не принятые санкции.
+- [fr] курьёз: [world] L'Express — La bonne nouvelle dont personne n'a parlé : l’Inde est sortie de l’extrême pauvr — история/очерк о преодолении бедности.
+- [fr] курьёз: [world] Superinteressante — Un mathématicien d'Anthropic prouve l'hypothèse de Riemann, le plus grand problè — математическое открытие (не является событием в новостном смысле).
+- [fr] не_новость: [world] Radio-Canada — Le Pentagone critique les dépenses de défense du Canada — критика в адрес правительства — слова, а не решение.
+- [fr] срочность: [world] RFI — Corée du Sud: des avions militaires russes repérés dans la zone de défense aérie — обычный инцидент в зоне ПВО, не требует пробуждения читателя.
+- [fr] повтор: [world] Franceinfo — Nvidia : Jensen Huang redevient PDG, Donald Trump aux commandes de l'opération ? ≈ «Sanofi va racheter Insmed pour 37,6 mill» — развитие сделки Sanofi/Nvidia.
+- [fr] не_новость: [world] Radio-Canada — Israël : Eisenkot et Nétanyahou en désaccord sur l’Iran — сообщение о разногласиях политиков (слова).
