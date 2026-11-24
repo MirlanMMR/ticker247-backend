@@ -1,27 +1,16 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [local] G1 Globo — Bombeiros se mobilizam para resgatar três cães que caíram no rio, em Teresópolis — спасение собак — локальный инцидент, не имеющий общественной значимости.
-- [pt] курьёз: [local] G1 Globo — Superlua acontece nesta terça-feira (24); confira pontos privilegiados de PE par — наблюдение за Луной — природное явление, не является новостным событием.
-- [pt] срочность: [local] G1 Rio — Dois policiais militares são encontrados mortos dentro de viatura na BR-101, em  — криминальная сводка — событие трагическое, но не требует прерывания дел пользователя.
-- [pt] срочность: [local] Agência Brasil — ONU: 5 mulheres foram mortas por hora por parceiro ou parente em 2025 — статистика ООН за 2025 год не является срочным событием для моментального уведомления.
-- [pt] чужое_мелкое: [world] Expresso das Ilhas — Presidente cubano queixa-se à OMS de impacto do bloqueio dos EUA na saúde — местная жалоба президента Кубы в международную организацию не влияет на жизнь бразильцев.
-- [pt] повтор: [world] RFI — A CAN 2025 foi atribuída definitivamente ao Senegal pelo Tribunal Arbitral do Es ≈ «Tribunal Arbitral do Desporto anula deci» — тот же факт решения суда по чемпионату CAN 2025.
-- [pt] чужое_мелкое: [world] Semafor — O retorno de Jensen Huang à Nvidia o torna intocável e endividado com Trump — корпоративные перестановки в Nvidia — внутренняя деловая новость США.
-- [pt] чужое_мелкое: [world] Semafor — Pequenos investidores lucram ao comprar ações da Nvidia durante a queda — поведение частных инвесторов на бирже США — не мировая новость.
-- [pt] чужое_мелкое: [world] Semafor — Emirados Árabes Unidos lançam assistente de IA para monitorar o aprendizado infa — локальный образовательный ИИ-сервис в ОАЭ не имеет мирового масштаба.
-- [pt] не_новость: [world] Téla Nón — Uma hora para atravessar o estuário do rio das Pérolas — описательный очерк о поездке по мосту, нет новостного повода.
-- [pt] курьёз: [world] Fortune — ‘Jogos Vorazes: Amanhecer na Colheita’ estreia com US$ 120 milhões, superando o  — сборы фильма — коммерческая информация, не влияющая на жизнь читателя.
-- [fr] курьёз: [local] La Dépêche — Le restaurant toulousain 2 étoiles Le Py-R classé parmi les 1 000 meilleurs rest — Рейтинг ресторанов — это любопытный факт, а не новостное событие.
-- [fr] не_новость: [local] BFMTV — Le cargo échoué dans les Landes a repris le large — Обычная логистическая операция (буксировка судна), не является событием.
-- [fr] курьёз: [local] France Bleu — GTA VI : les écoutes d'une chanson de Sylvie Vartan, présente dans le jeu, ont a — Рост прослушиваний песни в Spotify из-за игры — поп-культурный курьёз.
-- [fr] не_новость: [local] La Dépêche — Cyril Hanouna futur investisseur dans un club français ? Révoltés, les supporter — Планы инвестора и петиция фанатов — это слова и мнения, события нет.
-- [fr] повтор: [world] La Tribune — Spatial : décollage réussi d'Ariane 6, un soulagement pour Amazon et sa constell ≈ «Ariane 6 s'envole pour la dixième fois» — Один и тот же успешный запуск Ariane 6.
-- [fr] не_новость: [world] TechCrunch — L'acquisition de Decart par Amazon est un pari sur l'utilisation de logiciels po — Аналитическая статья о стратегиях компаний, не описывает свершившееся событие.
-- [fr] не_новость: [world] Sciences et Avenir — L'alcool progresse chez les mineurs et reste meurtrier sur les routes — Общий статистический отчет, не конкретное происшествие.
-- [fr] курьёз: [world] Futura-Sciences — « Un défi fou » : une peau artificielle vivante a été créée par des chercheurs f — Научно-популярный факт о разработке, не новость дня.
-- [fr] курьёз: [world] Sciences et Avenir — L'expérience LHCb laisse entrevoir une désintégration rarissime — Научное наблюдение, не является событием для широкого читателя.
-- [fr] курьёз: [world] Futura-Sciences — Apocalypse numérique : ce que les pannes de ces dernières semaines laissent entr — Ретроспективный анализ старой атаки, без актуального повода.
-- [fr] курьёз: [world] ScienceAlert — Une nouvelle injection réduit les graisses sanguines jusqu'à 46 % lors d'un essa — Результаты клинического испытания — научный факт, а не событие.
-- [fr] полка: [world] Азаттык (кыргызча) — Zelensky confirme une frappe ukrainienne contre le navire « Sparta II » — Новость о войне и ударе по судну — это мировая новость, а не «новости из».
-- [fr] не_новость: [world] Africanews FR — Arrêt sur images du 24 novembre 2026 : des soldats ghanéens contre les gangs haï — Фоторепортаж (arrêt sur images) не является новостным событием.
-- [fr] чужое_мелкое: [world] RFI — L'Iran inflige 74 coups de fouet à la chanteuse Parastoo Ahmadi — Внутренняя репрессивная мера Ирана, не имеющая глобальных последствий.
+- [es] чужое_мелкое: [pool] La Nación AR — Ravier negó versiones sobre una supuesta salida de Caputo: “Es uno de los minist — Внутренняя политика Аргентины, отставка министра — частное дело страны.
+- [es] курьёз: [pool] Infobae — Turista bogotano salió de vacaciones a Santan Marta y fue hallado sin vida en Pa — Криминальная хроника: смерть туриста — это трагедия, но не событие для широкой ленты.
+- [es] курьёз: [pool] El Universal MX — Antonio Gaudí destinó su patrimonio a la Sagrada Familia; sale a la luz el inven — Исторический факт/архивное открытие, не новость.
+- [es] чужое_мелкое: [pool] Marca — El Valencia, última víctima del arbitraje en la Liga F — Локальный спор о судействе в испанском женском футболе — не новость для Мексики.
+- [es] срочность: [pool] El Nacional VE — Funcionario de la PNB le quita el teléfono a la periodista Elaine Marrero durant — Мелкое происшествие с журналистом (кража телефона), не требует побудки.
+- [es] не_новость: [world] Semana CO — Hija de Bruce Willis se disculpó tras compartir una imagen con su padre: “Era de — Светская хроника, личные извинения актрисы в соцсетях.
+- [es] курьёз: [world] Ars Technica — Un dron de Amazon se estrella sobre un garaje tras entregar champú y motiva una  — Мелкая авария дрона, не несет общемировых последствий.
+- [es] не_новость: [world] Ars Technica — Amazon descubre que Falcon 9 y Ariane 6 pueden realizar entregas cuando nadie má — Техническое сообщение о запуске спутников без значимого эффекта для читателя.
+- [es] не_новость: [world] Engadget — La transmisión en la nube de GTA 6 llega a PS5 y PlayStation Portal — Анонс или рядовое обновление функции видеоигры.
+- [es] не_новость: [world] Engadget — Tidal prohíbe totalmente la música generada por inteligencia artificial — Внутренняя политика компании Tidal, не событие глобального масштаба.
+- [es] не_новость: [world] TechCrunch — Threads llega al iPad e imita la estrategia de X con los "cashtags" — Обновление интерфейса приложения Threads, не событие.
+- [es] не_новость: [world] TechCrunch — La startup de camiones eléctricos Harbinger obtiene financiación del banco de Pa — Финансовая сделка стартапа, не имеющая широкого значения.
+- [es] курьёз: [world] El Mundo — El secreto del mejor instituto de Castilla-La Mancha para que España repunte en  — Очерк о методах преподавания в одной школе — не новость.
+- [es] не_новость: [world] Expansión MX — “No deberíamos aceptar que el control de la sociedad pase a manos de la IA”, adv — Мнение эксперта («предупреждение»), а не свершившееся событие.
