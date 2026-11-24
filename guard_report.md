@@ -1,31 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] Metrópoles — Posse de Lula terá shows de Bad Bunny e Roger Waters em Brasília — Анонс планов, а не свершившееся событие.
-- [pt] не_новость: [local] CNN Brasil — Morre Fábio Konder Comparato, jurista e professor da USP, aos 90 anos — Смерть от старости в 90 лет не является событием для новостной ленты.
-- [pt] не_новость: [local] Poder360 — Ministério Público pede intervenção judicial na gestão do Corinthians — Запрос прокурора в суд — это лишь обращение, а не принятое решение.
-- [pt] не_новость: [local] Gazeta do Povo — Eduardo Bolsonaro recorre de condenação por suposta difamação a Tabata Amaral — Подача апелляции — рутина судебного процесса, а не событие.
-- [pt] курьёз: [pool] Notícias ao Minuto — Cão bebé atira-se a piscina e impede criança de se afogar. As imagens — Занимательная история с животными не является новостным событием.
-- [pt] курьёз: [pool] Notícias ao Minuto — Elon Musk desce de avião acompanhado por robô? Vídeo foi criado com IA — Разбор фейкового видео с ИИ — это контент для развлечения.
-- [pt] курьёз: [pool] Público — Lobos do Sul da Europa mudam o comportamento para evitar contacto com as populaç — Научная заметка о поведении животных, не влияющая на жизнь читателей.
-- [pt] курьёз: [world] Superinteressante — “Arqueologia do presente”: como a Funai estuda povos indígenas isolados sem nunc — Популяризаторская статья о методах работы Фунаи.
-- [pt] не_новость: [world] Folha de S.Paulo — Rodrigo Santoro entra para o elenco de série da FX com Elizabeth Olsen — Подписание контракта актером не является важным событием.
-- [pt] не_новость: [world] Variety — Festival de Cinema Australiano na Índia retorna após pausa devido à COVID-19 e l — Возвращение фестиваля после пандемии не имеет последствий для читателя.
-- [pt] не_новость: [world] Variety — Série de ação francesa de sucesso da Netflix, 'Elite Force', estrelada por Tomer — Начало съемок сериала не является новостным событием.
-- [pt] не_новость: [world] BBC Brasil — A intervenção de Trump que levou Jensen Huang de volta ao comando da Nvidia — Аналитическая статья о прошлом, без конкретного актуального события.
-- [pt] не_новость: [world] Engadget — Honor faz parceria com a fabricante de câmeras de cinema Arri para o Magic 9 Pro — Рекламный материал о партнерстве бренда смартфона и камеры.
-- [pt] курьёз: [world] Téla Nón — Uma hora para atravessar o estuário do rio das Pérolas — Путевая заметка о поездке по мосту в Китае.
-- [pt] не_новость: [world] Engadget — Apple confirma que Ted Lasso retornará para a 5ª temporada — Продление сериала — это индустриальная новость без масштаба.
-- [pt] не_новость: [world] TechCrunch — Anthropic lança o Claude Ship, permitindo que agentes de IA revisem, corrijam e  — Запуск функции в ПО не является общественно значимым событием.
-- [pt] не_новость: [world] TechCrunch — Supertake arrecada 20 milhões de dólares para permitir que agentes de IA transfo — Привлечение инвестиций стартапом — это бизнес-заметка без мировой значимости.
-- [fr] не_новость: [local] L'Express — Réindustrialisation : le satisfecit d'Emmanuel Macron à l’épreuve des chiffres — аналитический разбор выступления Макрона, а не свершившееся событие
-- [fr] не_новость: [local] Franceinfo — On vous résume la polémique autour de la députée RN Laure Lavalette, accusée d'a — пересказ чужих расследований, не является новым событием
-- [fr] не_новость: [local] 20 Minutes — Marine Le Pen et la chasse aux « associations politisées » : Le coup de grâce po — заявление о намерениях, а не принятое решение
-- [fr] не_новость: [local] 20 Minutes — « Je ne mange jamais dehors »… De plus en plus de salariés amènent leur repas du — очерк о потребительских привычках, не событие
-- [fr] не_новость: [pool] RTBF — Jean-Luc Crucke critique la méthode De Wever : "On ne peut pas demander à la pop — мнение политика, а не событие
-- [fr] не_новость: [pool] BBC Sport — Pourquoi Potts a quitté West Ham pour le Club Bruges après 16 ans — биографический очерк об игроке, не событие
-- [fr] курьёз: [world] Notícias ao Minuto — Le nombre de cas de méningite multiplié par huit dans la bande de Gaza — статистическая информация из зоны конфликта, подана без срочности и контекста последствий
-- [fr] не_новость: [world] Courrier International — Jensen Huang accueilli “en héros” chez Nvidia, avec applaudissements et accolade — описание корпоративного события (аплодисменты), не новость
-- [fr] не_новость: [world] BFMTV — James Bond : Robert Pattinson va-t-il lancer une guerre des montres ? — светская сплетня, не является событием
-- [fr] курьёз: [world] Le Figaro — «Le sexe fait vendre, les gars» : Donald Trump partage une image de Jensen Huang — обсуждение поста в соцсетях, не является общественно значимым событием
-- [fr] не_новость: [world] Courrier International — Donald Trump “ghosté” par Kim Jong-un — история о неотвеченном звонке прошлого года, не событие
-- [fr] курьёз: [world] Superinteressante — Un mathématicien d'Anthropic prouve l'hypothèse de Riemann, le plus grand problè — научное сообщение, требует плашки «интересное»
+- [ru] полка: [local] Sputnik KG (кыргызча) — Песков: Россия Украина маселесинде Европанын ролун так түшүнө элек — Событие происходит в РФ, для ленты KG это мировая новость.
+- [ru] полка: [local] Sputnik KG — Москва пока не понимает, какой вклад ЕС может внести в урегулирование — Песков — Событие происходит в РФ, для ленты KG это мировая новость.
+- [ru] чужое_мелкое: [pool] РИА Новости — "СКА-Нефтяник" разгромил "Ак Барс — Ракету" в чемпионате России по бенди — Внутренняя спортивная новость РФ, не имеет мирового значения.
+- [ru] чужое_мелкое: [pool] 68.ru — Тамбов — В Тамбовской области проверят содержание трассы «Каспий» — Локальная хозяйственная новость Тамбовской области РФ.
+- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — В ХМАО школьник поджег полицейскую машину — Криминальная хроника регионального уровня РФ.
+- [ru] чужое_мелкое: [pool] 45.ru — Курган — В Курганской области утвердили директора департамента строительства и ЖКХ — Локальное кадровое назначение в регионе РФ.
+- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Все спортивные мероприятия для школьников отменили в Якутске — в городе свирепст — Локальная новость Якутска, не имеет последствий за пределами РФ.
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — Скончался до приезда скорой: в СК рассказали о смерти 16-летнего школьника во вр — Региональное происшествие в Пермском крае РФ.
+- [ru] чужое_мелкое: [pool] 93.ru — Краснодар — Власти Крыма предложили водителям разово перевезти их машины на пароме — Локальная инфраструктурная проблема Крыма.
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — «Оренбург» и «Спартак» рассудит арбитр, при котором «газовики» только один раз д — Спортивная рутина РФ, не мировое событие.
+- [ru] чужое_мелкое: [pool] 45.ru — Курган — Без окон без дверей: в Кургане эвакуируют брошенные автомобили — Локальная новость Кургана, не имеет мирового значения.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — На вывоз мусора в Рязанской области потратят 4 миллиарда рублей — Локальная хозяйственная новость Рязани.
+- [ru] чужое_мелкое: [pool] 48.ru — Липецк — В Липецке с 14 декабря вводят одностороннее движение — Локальная дорожная новость Липецка.
+- [ru] чужое_мелкое: [pool] 48.ru — Липецк — Липецк убирают после снегопада — Локальная новость Липецка.
+- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Рязанцам не светит: несколько районов города оказались обесточены — Локальная коммунальная авария в Рязани.
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — Стадион Череповца готов на 75% — Локальная новость Череповца.
+- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — В Оренбурге на улице Ткачева под колеса «Хендэ» попала 9-летняя девочка — Региональная криминальная хроника Оренбургской области.
+- [ru] чужое_мелкое: [pool] 60.ru — Псков — Бюджетный комитет Псковской области одобрил проект бюджета — Локальная новость Псковской области.
+- [ru] чужое_мелкое: [pool] 48.ru — Липецк — УК «Малахит» не устранила нарушения по предписанию ГЖИ — Локальная новость Липецка.
+- [ru] чужое_мелкое: [pool] 14.ru — Якутск — Экс-директору музея «Дружба» утвердили приговор по делу о тяжелой травме посетит — Региональная новость Якутии.
+- [ru] чужое_мелкое: [pool] 59.ru — Пермь — Пермяк пришел к врачу с обычной аритмией, а у него обнаружили гигантскую аневриз — Медицинский случай в Пермском крае.
+- [ru] чужое_мелкое: [pool] 35.ru — Вологда — «Северсталь» обыграла «Сибирь» и продлила победную серию — Спортивная рутина РФ.
+- [ru] чужое_мелкое: [pool] 63.ru — Самара — «Быстро вышел из машины!»: возле ночного клуба в Тольятти избили пьяного виновни — Региональная криминальная хроника РФ.
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — В Боровичах прекратили дело о краже золота после примирения — Региональная криминальная хроника РФ.
+- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Штраф за ложный донос об изнасиловании — Региональная криминальная хроника РФ.
