@@ -1,27 +1,20 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] Untitled RSS Feed — Oregon Activist Vows To Take Anti-Hunting Push To Wyoming And Nationwide — Анонс намерений и личное заявление, нет свершившегося события.
-- [en] не_новость: [local] WFSB — Should customers pay for Eversource executive bonuses? Federal regulators weigh  — Экспертное мнение регулятора, нет принятого решения.
-- [en] срочность: [local] WVEC RSS Feed: news — Elizabeth City man killed in boating incident on Pasquotank River — Происшествие случилось вчера, не требует побудки.
-- [en] не_новость: [local] WSMV — Flu cases rise earlier than usual in Middle Tennessee ahead of Thanksgiving — Общее предупреждение CDC о сезонном росте, нет конкретного события.
-- [en] не_новость: [local] Fort Worth Report — Two Tarrant school districts risk losing state funds because of TAD appraisal fr — Риск потери средств в будущем, а не свершившийся факт.
-- [en] полка: [local] KARE11 — Wisconsin reports the 3rd measles death of the year — Мировая новость о эпидемиологической ситуации, не местное событие для US.
-- [en] не_новость: [local] WRDW — TSA lists which Thanksgiving foods go in carry-on and checked bags — Совет путешественникам от TSA — полезно, но не новость.
-- [en] не_новость: [local] Santa Fe New Mexican — PNM requests new rate hike months after the last increase went into effect — Запрос на повышение тарифа — это намерение, а не факт.
-- [en] не_новость: [local] KFVS12 — FIRST ALERT ACTION DAY Wed. and Thurs. due to snow — Прогноз погоды (Action Day), не является событием.
-- [en] не_новость: [local] WSMV — Will hundreds of banned library books removed in Wilson County be dumped? — Рассуждения о возможном будущем действии (утилизации книг).
-- [en] не_новость: [local] KOB — Albuquerque’s Luminaria Tour re-lights and readies for ticket sales Friday — Анонс начала продажи билетов в пятницу.
-- [en] не_новость: [local] Gothamist — NYC Council looks for colleges to testify about sexual assault procedures — Призыв к даче показаний, не свершившееся событие.
-- [en] не_новость: [local] Latest &amp; Breaking News — Army's plan to resume DCA helicopter training flights sparks concerns for Virgin — Законодатели выражают беспокойство, нет события.
-- [en] не_новость: [pool] Variety — Steven Hack, ‘American Horror Story’ Actor and Original Cast Member of ‘Cats,’ D — Умер 19 ноября (прошла неделя), событие не свежее.
-- [en] не_новость: [pool] The Independent — Trump gives Rudy Giuliani nation’s highest civilian honor — behind closed doors — Событие 2017 года, не актуально.
-- [en] не_новость: [pool] Fortune — ‘We’re begging’: DOGE slashed federal workforce to its lowest in 60 years, and t — Обзор проблем рекрутинга, нет конкретного события.
-- [en] не_новость: [pool] TechCrunch — Walmart teams up with Meta to bring Black Friday deals to AI agent Muse — Маркетинговый анонс партнерства компаний.
-- [en] не_новость: [pool] Forbes — Realbotix Putting Realistic Humanoid Robots At The Front Desk — Описание услуги компании («Realbotix представляет...»), рекламный характер.
-- [en] не_новость: [pool] TechCrunch — Maple raises $5.3M to build AI products that protect your data, even from itself — Стартап привлек инвестиции (не указана дата события), описание продукта.
-- [en] не_новость: [pool] Straits Times — Nvidia’s Jensen Huang apologises to staff, says he is in therapy: Reports — Извинения за нарушение кодекса (этикет), нет события существенного масштаба.
-- [en] не_новость: [pool] Time — Trump Gives ‘America’s Mayor’ the Presidential Medal of Freedom — Дублирует тему Giuliani, нет нового факта.
-- [en] не_новость: [pool] BBC News — Disability benefit review calls for closer link with claimant costs — Рекомендации правительственной комиссии, нет принятого закона.
-- [en] курьёз: [pool] BBC Sport — A world-class winger - Louis Rees-Zammit 2.0 — Спортивная аналитика (разбор игрока), не новость.
-- [en] не_новость: [pool] Fortune — On a $1,000 Social Security check, Medicare’s 2027 premium hike eats 18% of the  — Аналитическая статья о расходах, нет события.
-- [en] анонс: [world] The Independent — Ground stop issued at Chicago O’Hare Airport after system outage — Статья не загрузилась, пустой текст-анонс.
+- [es] не_новость: [local] El Financiero — ‘Alito’ Moreno alista denuncia contra Osorio Chong y ‘pandilla de corruptos’: ‘L — Это политическая перепалка и угрозы, а не свершившееся событие.
+- [es] не_новость: [local] El Sol de México — Panini suma franquicias y lanzará las tarjetas deportivas coleccionables del GTA — Анонс компьютерной игры, не является событием по белому списку.
+- [es] чужое_мелкое: [pool] Infobae — Capturan con un arma y cocaína a un colombiano presuntamente ligado a “Los Tanza — Задержание одного человека по подозрению — криминальная рутина, не мировая новость.
+- [es] курьёз: [pool] Infobae — Vecinos de Lince denuncian presunto maltrato animal: cerca de 30 perros vivirían — Бытовая жалоба соседей, не является новостью для широкой аудитории.
+- [es] чужое_мелкое: [pool] La Nación AR — Por qué en Antioquia aplicarán la eutanasia química a 10 hipopótamos detectados  — Локальное экологическое решение в Колумбии для аргентинского издания.
+- [es] курьёз: [pool] RPP PE — Christina Aguilera quedó encantada con el Perú: compró llamitas, probó nuestra c — Описание визита знаменитости и её бытовых действий, не является событием.
+- [es] чужое_мелкое: [pool] El Nacional VE — Los votos depositados en Washington para las elecciones generales de España supe — Техническая статистика голосования экспатов, не является мировой новостью.
+- [es] не_новость: [pool] El Informador — ¿Qué actividades habrá por el 25N en Jalisco? Anuncian 397 eventos — Анонс мероприятий в рамках дня борьбы с насилием, не конкретное событие.
+- [es] срочность: [pool] El Informador — Autoridades de Jalisco detienen en Guadalajara y Tlaquepaque a dos sujetos armad — Обычная работа полиции, нет оснований для срочности.
+- [es] чужое_мелкое: [pool] El Sol de México — Fiscalía paraguaya acusa a Santiago Peña por lavado de activos y cohecho por el  — Политическое преследование в Парагвае, не имеет глобальных последствий.
+- [es] не_новость: [pool] eldiario.es — Todas las claves de los nuevos permisos de duelo y de nacimiento: ¿cuánto se amp — Разбор и описание правительственного законопроекта, а не свершившийся факт.
+- [es] не_новость: [pool] BBC Mundo — "No creo que el narcotráfico sea invencible, pero en la práctica lo es para quie — Мнение и политический анализ, не является новостным событием.
+- [es] курьёз: [world] El Universal MX — Russell Brand busca trabajo como limpiador dentro de prisión; quiere costear sus — Мелкая бытовая новость про заключенного, не мировая новость.
+- [es] не_новость: [world] Xataka — Japón tiene un problema con el futuro de sus semiconductores. — Аналитическая статья про сектор экономики, нет события.
+- [es] не_новость: [world] Marca — Shavon Shields arruina la brega del Barça con siete triples en la segunda parte — Спортивный комментарий к матчу, а не результат турнира или трансфер.
+- [es] не_новость: [world] Rolling Stone — Pearl Jam se indigna por los arrestos «inconcebibles» del ICE en el aeropuerto d — Выражение мнения группой лиц, не событие.
+- [es] курьёз: [world] BBC Mundo — Cómo un adolescente aficionado a los videojuegos y su madre ayudaron a rescatar  — Человеческая история, не является мировой новостью.
+- [es] не_новость: [world] BBC Mundo — "Quiero destruir el capitalismo, no al país": así operan los grupos de ultraizqu — Аналитическая статья про деятельность групп, не событие.
