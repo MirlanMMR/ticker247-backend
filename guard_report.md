@@ -1,16 +1,24 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] курьёз: [local] El Universal MX — “Please Disturb”; café y croissants, una experiencia francesa en Reforma — Это статья о стиле жизни и гастрономическом опыте, а не событие.
-- [es] курьёз: [local] El Economista MX — Farmacias Similares sigue creciendo su concepto de cafetería y veterinaria; abre — Расширение бизнеса сети аптек — коммерческая деятельность, не событие.
-- [es] курьёз: [local] El Informador — MiBici se expande a Providencia y alrededores con nuevas estaciones — Расширение сети проката велосипедов — рутинная работа муниципальной службы.
-- [es] не_новость: [local] La Jornada — Arranca el Festival de Cine y Música el día 26 en la CDMX — Анонс культурного фестиваля без указания значимого события.
-- [es] курьёз: [pool] RPP PE — Francho Sierralta vive incómodo momento en show de Luzu TV cuando le recuerdan e — Сплетня о жизни знаменитостей в шоу-бизнесе.
-- [es] повтор: [pool] La Nación AR — Así están los cuartos de final del torneo Clausura con siete equipos ya clasific ≈ «Gimnasia gritó fuerte en el Bosque: elim» — Тот же матч Gimnasia против Newell’s.
-- [es] курьёз: [pool] La Nación AR — “Se hicieron los vivos”: realizaron maniobras peligrosas en Pinamar, los delató  — Инцидент с розовым пикапом — это развлекательный факт, а не новость.
-- [es] повтор: [pool] El Mundo — El 'tracking' final del 29-N: PP y Vox entran en los últimos días de campaña con ≈ «El PP gana por la mínima al PSOE y la de» — Обе карточки об одной и той же предвыборной ситуации в Испании.
-- [es] повтор: [pool] eldiario.es — El último CIS antes de las elecciones da al PSOE una ventaja de casi diez puntos ≈ «El PP gana por la mínima al PSOE y la de» — Очередной опрос перед выборами 29N.
-- [es] курьёз: [world] Variety — La película 'Avengers: Doomsday' de Marvel no se proyectará ante los BAFTA, Glob — Киношные подробности о премьере Marvel.
-- [es] курьёз: [world] TechCrunch — Anthropic lanza Claude Ship para que agentes de IA revisen, corrijan y aprueben  — Релиз инструментов для разработчиков ИИ — не новость общего характера.
-- [es] курьёз: [world] TechCrunch — Supertake recauda 20 millones de dólares para convertir predicciones de mercado  — Привлечение инвестиций стартапом — это бизнес-сообщение, не новость.
-- [es] курьёз: [world] BBC Mundo — El extraordinario hallazgo de un cementerio de osos de las cavernas que se extin — Археологическая находка — место в «Интересном», но не новость.
-- [es] не_новость: [world] BBC Mundo — "El presidente (De la Espriella) está totalmente equivocado si cree que esta paz — Интервью с политиками не является новостным событием.
+- [ru] чужое_мелкое: [pool] Avesta.tj — В Душанбе выбрали лучших председателей махаллей и участковых инспекторов — внутренний конкурс МВД Таджикистана
+- [ru] не_новость: [pool] 62.ru — Рязань — От советника Шпака до губернатора Заполярья: чем запомнился в Рязани задержанный — портретный материал/архив, нет события
+- [ru] не_новость: [pool] 72.ru — Тюмень — Новый ЖК с видом на кладбище: в центре Тюмени появится многоквартирник в 23 этаж — плановое строительство, не событие
+- [ru] не_новость: [pool] e1.ru — Екатеринбург — «Раньше нас было восемь, теперь я один». История последнего ремонтника Свердловс — очерк о сотруднике, нет события
+- [ru] не_новость: [pool] 86.ru — Ханты-Мансийск — «Это волшебство!» Югорск встретил поезд Деда Мороза — репортаж — плановое культурное мероприятие
+- [ru] курьёз: [pool] e1.ru — Екатеринбург — «Оплакивала урну всю ночь». В Екатеринбурге хозяйка покойного кота заявила, что  — бытовой спор о кремации, не значимо
+- [ru] не_новость: [pool] chita.ru — Чита — Уже второго главу МинЖКХ отправили в колонию за газификацию Читы — затяжное рутинное событие (приговор по старому делу)
+- [ru] не_новость: [pool] 173.ru — Ульяновск — В Ульяновске взыскали штраф за обман при получении соцвыплат — рутинное взыскание штрафа
+- [ru] не_новость: [pool] NewsGeorgia — Мэрия Батуми выставит 50 пастухов для борьбы с коровами на улицах — планы мэрии на 2027 год
+- [ru] курьёз: [world] Вечерний Бишкек — Паредес потерял сознание после победы "Бока Хуниорс" — спортивная байка, не событие
+- [ru] не_новость: [world] The Hill — Белый дом направил в Конгресс запрос об «аномалиях» для финансирования федеральн — запрос финансирования (слова, а не факт)
+- [ru] не_новость: [world] 60.ru — Псков — Бранд «фактически под наблюдением» в новой тюрьме — рутинные новости о заключенном
+- [ru] не_новость: [world] 56.ru — Оренбург — От отказов в работе до заказов из США: блогер с ДЦП путешествует по стране и соз — портрет/очерк о человеке
+- [ru] чужое_мелкое: [world] Semafor — Нидерландский суд запретил продажу автомобиля BYD из-за сходства с Range Rover — судебный спор BYD и Range Rover
+- [ru] курьёз: [world] Muy Interesante — Xiaomi жестко отвечает Google, снижая цену на модель 17T Pro почти до историческ — маркетинговое снижение цены
+- [ru] не_новость: [world] TechCrunch — Стартап Supertake привлек 20 миллионов долларов на создание ИИ-агентов для управ — привлечение инвестиций стартапом, не значимо
+- [ru] чужое_мелкое: [world] El Mundo — В Аргентине и Венесуэле проходит массовое голосование испанских граждан с исполь — внутренние выборы Испании
+- [ru] не_новость: [world] RFI — Франция: Елисейский дворец возвращает в общественную дискуссию идею «бюджетного  — политическая дискуссия, не событие
+- [ru] не_новость: [world] Knews.kg — К 10 годам лишения свободы приговорён экс-глава Фонда поддержки СМИ Узбекистана — приговор по делу давнего периода
+- [ru] курьёз: [world] Knews.kg — ИИ учат «обонянию» — он уже придумывает духи — технологическое любопытство, не событие
+- [ru] не_новость: [world] 60.ru — Псков — Трамп поделился проектом всеобщего здравоохранения от демократа — обмен мнениями (политическое обсуждение)
+- [ru] не_новость: [world] 60.ru — Псков — Ким Чен Ын игнорирует звонки Трампа и вернул его письмо — дипломатическая переписка (слова)
