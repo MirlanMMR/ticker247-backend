@@ -1,23 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [local] El Financiero — Andrés García golpeó a Luisito Rey por defender a Luis Miguel y a su mamá: ‘Los  — сплетни и история из прошлого, не являются актуальным событием
-- [es] не_новость: [local] El Financiero — Vadhir Derbez desconoce segunda denuncia por violación: ‘No podemos hablar’ — слухи и юридические формальности, события нет
-- [es] не_новость: [local] El Financiero — Christian Nodal toma pausa de los escenarios en México tras concierto en Mérida: — плановая пауза артиста, не является новостью
-- [es] срочность: [pool] Infobae — Hombres armados y encapuchados asaltaron un supermercado Éxito en Cartagena: la  — обычное криминальное происшествие, не требует побудки
-- [es] курьёз: [pool] La Nación CR — Película costarricense ‘Amor es el monstruo’ llega a cines de Costa Rica tras re — обзор кинофильма, а не событие
-- [es] курьёз: [pool] La Nación CR — WhatsApp aprende a esperar: ahora puede dejar mensajes para que se envíen solos  — описание функции приложения, не является новостью
-- [es] не_новость: [pool] El Nacional VE — Félix Hernández avisa: “Ya estamos en tres Salones de la Fama, falta uno” — спортивная статистика и церемония, не является значимым событием
-- [es] не_новость: [pool] Marca — El triste adiós de Maverick Viñales a MotoGP — завершение карьеры — это личное решение, событием не является
-- [es] курьёз: [pool] Marca — Blasi, Magnier, Cortina y compañía alucinan con la isla: "Gran Canaria tiene eta — мнение спортсменов о трассе, не является новостью
-- [es] не_новость: [pool] Marca — Pedro Martínez: "Estamos en modo supervivencia" — цитата тренера перед матчем, не является событием
-- [es] полка: [pool] Prensa Libre GT — Amarini Villatoro y Cartaginés remontan ante Alajuelense y pelean por el liderat — новость из CR для MX-пула должна быть в «Новости из...», а не в «Местных»
-- [es] полка: [pool] Clarín AR — Ataque con drones sacude una ciudad colombiana mientras explosivos no tripulados — событие в CO для MX-пула должно быть в «Новости из...», а не в «Мировых»
-- [es] не_новость: [pool] Clarín AR — Cómo una agenda en cuero negro de Jorge Bergoglio se convirtió en el "Diario per — исторический очерк, не является новостью
-- [es] курьёз: [world] Rolling Stone — Rey Quinto es el cantante aprobado por Peso Pluma que trae glamour y delineador  — рекламный материал о музыканте, не является новостью
-- [es] не_новость: [world] Variety — Taquilla de Acción de Gracias: «Focker In-Law» y «Hexed» de Disney compiten por  — прогнозы кассовых сборов — это аналитика, а не событие
-- [es] курьёз: [world] Clarín AR — Hallaron en China una roca de 3.950 millones de años, considerada la más antigua — археологическая находка, не имеет последствий для читателя
-- [es] чужое_мелкое: [world] Азаттык — Congresistas de EE. UU. instaron a Trump a retirar la invitación de Putin a la c — политическая переписка конгрессменов, не является мировым событием
-- [es] чужое_мелкое: [world] El Sol de México — Detienen a dos sospechosos de robo en una residencia de los príncipes William y  — мелкий криминал в другой стране, не имеет мирового значения
-- [es] курьёз: [world] La Jornada — Empieza Reino Unido ensayo para detectar cáncer de mama con IA — научный эксперимент, не является новостью
-- [es] не_новость: [world] El Mundo — El secreto del mejor instituto de Castilla-La Mancha para que España repunte en  — статья об образовательном процессе в школе, не является событием
-- [es] курьёз: [world] TechCrunch — Anthropic lanza Claude Ship para que agentes de IA revisen, corrijan y aprueben  — описание обновления ПО, не является новостью
+- [pt] курьёз: [local] G1 Globo — Bombeiros se mobilizam para resgatar três cães que caíram no rio, em Teresópolis — спасение собак — локальный инцидент, не имеющий общественной значимости.
+- [pt] курьёз: [local] G1 Globo — Superlua acontece nesta terça-feira (24); confira pontos privilegiados de PE par — наблюдение за Луной — природное явление, не является новостным событием.
+- [pt] срочность: [local] G1 Rio — Dois policiais militares são encontrados mortos dentro de viatura na BR-101, em  — криминальная сводка — событие трагическое, но не требует прерывания дел пользователя.
+- [pt] срочность: [local] Agência Brasil — ONU: 5 mulheres foram mortas por hora por parceiro ou parente em 2025 — статистика ООН за 2025 год не является срочным событием для моментального уведомления.
+- [pt] чужое_мелкое: [world] Expresso das Ilhas — Presidente cubano queixa-se à OMS de impacto do bloqueio dos EUA na saúde — местная жалоба президента Кубы в международную организацию не влияет на жизнь бразильцев.
+- [pt] повтор: [world] RFI — A CAN 2025 foi atribuída definitivamente ao Senegal pelo Tribunal Arbitral do Es ≈ «Tribunal Arbitral do Desporto anula deci» — тот же факт решения суда по чемпионату CAN 2025.
+- [pt] чужое_мелкое: [world] Semafor — O retorno de Jensen Huang à Nvidia o torna intocável e endividado com Trump — корпоративные перестановки в Nvidia — внутренняя деловая новость США.
+- [pt] чужое_мелкое: [world] Semafor — Pequenos investidores lucram ao comprar ações da Nvidia durante a queda — поведение частных инвесторов на бирже США — не мировая новость.
+- [pt] чужое_мелкое: [world] Semafor — Emirados Árabes Unidos lançam assistente de IA para monitorar o aprendizado infa — локальный образовательный ИИ-сервис в ОАЭ не имеет мирового масштаба.
+- [pt] не_новость: [world] Téla Nón — Uma hora para atravessar o estuário do rio das Pérolas — описательный очерк о поездке по мосту, нет новостного повода.
+- [pt] курьёз: [world] Fortune — ‘Jogos Vorazes: Amanhecer na Colheita’ estreia com US$ 120 milhões, superando o  — сборы фильма — коммерческая информация, не влияющая на жизнь читателя.
+- [fr] курьёз: [local] La Dépêche — Le restaurant toulousain 2 étoiles Le Py-R classé parmi les 1 000 meilleurs rest — Рейтинг ресторанов — это любопытный факт, а не новостное событие.
+- [fr] не_новость: [local] BFMTV — Le cargo échoué dans les Landes a repris le large — Обычная логистическая операция (буксировка судна), не является событием.
+- [fr] курьёз: [local] France Bleu — GTA VI : les écoutes d'une chanson de Sylvie Vartan, présente dans le jeu, ont a — Рост прослушиваний песни в Spotify из-за игры — поп-культурный курьёз.
+- [fr] не_новость: [local] La Dépêche — Cyril Hanouna futur investisseur dans un club français ? Révoltés, les supporter — Планы инвестора и петиция фанатов — это слова и мнения, события нет.
+- [fr] повтор: [world] La Tribune — Spatial : décollage réussi d'Ariane 6, un soulagement pour Amazon et sa constell ≈ «Ariane 6 s'envole pour la dixième fois» — Один и тот же успешный запуск Ariane 6.
+- [fr] не_новость: [world] TechCrunch — L'acquisition de Decart par Amazon est un pari sur l'utilisation de logiciels po — Аналитическая статья о стратегиях компаний, не описывает свершившееся событие.
+- [fr] не_новость: [world] Sciences et Avenir — L'alcool progresse chez les mineurs et reste meurtrier sur les routes — Общий статистический отчет, не конкретное происшествие.
+- [fr] курьёз: [world] Futura-Sciences — « Un défi fou » : une peau artificielle vivante a été créée par des chercheurs f — Научно-популярный факт о разработке, не новость дня.
+- [fr] курьёз: [world] Sciences et Avenir — L'expérience LHCb laisse entrevoir une désintégration rarissime — Научное наблюдение, не является событием для широкого читателя.
+- [fr] курьёз: [world] Futura-Sciences — Apocalypse numérique : ce que les pannes de ces dernières semaines laissent entr — Ретроспективный анализ старой атаки, без актуального повода.
+- [fr] курьёз: [world] ScienceAlert — Une nouvelle injection réduit les graisses sanguines jusqu'à 46 % lors d'un essa — Результаты клинического испытания — научный факт, а не событие.
+- [fr] полка: [world] Азаттык (кыргызча) — Zelensky confirme une frappe ukrainienne contre le navire « Sparta II » — Новость о войне и ударе по судну — это мировая новость, а не «новости из».
+- [fr] не_новость: [world] Africanews FR — Arrêt sur images du 24 novembre 2026 : des soldats ghanéens contre les gangs haï — Фоторепортаж (arrêt sur images) не является новостным событием.
+- [fr] чужое_мелкое: [world] RFI — L'Iran inflige 74 coups de fouet à la chanteuse Parastoo Ahmadi — Внутренняя репрессивная мера Ирана, не имеющая глобальных последствий.
