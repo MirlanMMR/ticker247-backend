@@ -1,13 +1,23 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] срочность: [local] WWLTV — Boil water advisory issued in Abita Springs after water main break — Плановое объявление (boil water advisory), не требует побудки.
-- [en] не_новость: [local] Oil City News — Early fog to clear, give way to sunny, mild and blustery conditions in Casper ar — Прогноз погоды — не событие.
-- [en] чужое_мелкое: [pool] The Independent — Rudy Giuliani ‘humbled and honored’ to be awarded Medal of Freedom by Trump — Внутренняя награда в США (Medal of Freedom), не имеет мирового масштаба.
-- [en] не_новость: [pool] BBC News — Huntley murderer handed new whole life jail term — Плановое судебное решение, «пожизненный срок» — рутина без новых последствий.
-- [en] чужое_мелкое: [pool] BBC World — India's 'cockroach' party leader says he was stopped from flying to UK — Мелкая история с местным политиком, для мировой аудитории — не событие.
-- [en] курьёз: [world] ScienceAlert — New Injection Slashes Blood Fats by Up to 46% in Clinical Trial — Научное исследование без события и конкретных последствий.
-- [en] не_новость: [world] Variety — ‘SNL’ Heads to France With Canal+, NBCUniversal Unveiling Cast and Manu Payet as — Анонс развлекательного шоу (SNL), не событие.
-- [en] курьёз: [world] Straits Times — France crowns world’s best egg mayonnaise — Гастрономический конкурс, интересно, но не мировая новость.
-- [en] не_новость: [world] Variety — ‘I See Buildings Fall Like Lightning’ and ‘Savage House’ Win British Independent — Список победителей кинопремии — это не новостное событие для широкого читателя.
-- [en] не_новость: [world] ProPublica — At a Doomed U.N. Conference, Saudi Arabia and Other Oil States Pushed Hard for a — Анализ прошедшей конференции, обсуждение позиций стран — это не событие.
-- [en] не_новость: [world] Sciences et Avenir — Drought continues in France despite recent rainfall — Сводка о погоде (засуха), не требует срочного внимания.
+- [es] не_новость: [local] El Financiero — Andrés García golpeó a Luisito Rey por defender a Luis Miguel y a su mamá: ‘Los  — сплетни и история из прошлого, не являются актуальным событием
+- [es] не_новость: [local] El Financiero — Vadhir Derbez desconoce segunda denuncia por violación: ‘No podemos hablar’ — слухи и юридические формальности, события нет
+- [es] не_новость: [local] El Financiero — Christian Nodal toma pausa de los escenarios en México tras concierto en Mérida: — плановая пауза артиста, не является новостью
+- [es] срочность: [pool] Infobae — Hombres armados y encapuchados asaltaron un supermercado Éxito en Cartagena: la  — обычное криминальное происшествие, не требует побудки
+- [es] курьёз: [pool] La Nación CR — Película costarricense ‘Amor es el monstruo’ llega a cines de Costa Rica tras re — обзор кинофильма, а не событие
+- [es] курьёз: [pool] La Nación CR — WhatsApp aprende a esperar: ahora puede dejar mensajes para que se envíen solos  — описание функции приложения, не является новостью
+- [es] не_новость: [pool] El Nacional VE — Félix Hernández avisa: “Ya estamos en tres Salones de la Fama, falta uno” — спортивная статистика и церемония, не является значимым событием
+- [es] не_новость: [pool] Marca — El triste adiós de Maverick Viñales a MotoGP — завершение карьеры — это личное решение, событием не является
+- [es] курьёз: [pool] Marca — Blasi, Magnier, Cortina y compañía alucinan con la isla: "Gran Canaria tiene eta — мнение спортсменов о трассе, не является новостью
+- [es] не_новость: [pool] Marca — Pedro Martínez: "Estamos en modo supervivencia" — цитата тренера перед матчем, не является событием
+- [es] полка: [pool] Prensa Libre GT — Amarini Villatoro y Cartaginés remontan ante Alajuelense y pelean por el liderat — новость из CR для MX-пула должна быть в «Новости из...», а не в «Местных»
+- [es] полка: [pool] Clarín AR — Ataque con drones sacude una ciudad colombiana mientras explosivos no tripulados — событие в CO для MX-пула должно быть в «Новости из...», а не в «Мировых»
+- [es] не_новость: [pool] Clarín AR — Cómo una agenda en cuero negro de Jorge Bergoglio se convirtió en el "Diario per — исторический очерк, не является новостью
+- [es] курьёз: [world] Rolling Stone — Rey Quinto es el cantante aprobado por Peso Pluma que trae glamour y delineador  — рекламный материал о музыканте, не является новостью
+- [es] не_новость: [world] Variety — Taquilla de Acción de Gracias: «Focker In-Law» y «Hexed» de Disney compiten por  — прогнозы кассовых сборов — это аналитика, а не событие
+- [es] курьёз: [world] Clarín AR — Hallaron en China una roca de 3.950 millones de años, considerada la más antigua — археологическая находка, не имеет последствий для читателя
+- [es] чужое_мелкое: [world] Азаттык — Congresistas de EE. UU. instaron a Trump a retirar la invitación de Putin a la c — политическая переписка конгрессменов, не является мировым событием
+- [es] чужое_мелкое: [world] El Sol de México — Detienen a dos sospechosos de robo en una residencia de los príncipes William y  — мелкий криминал в другой стране, не имеет мирового значения
+- [es] курьёз: [world] La Jornada — Empieza Reino Unido ensayo para detectar cáncer de mama con IA — научный эксперимент, не является новостью
+- [es] не_новость: [world] El Mundo — El secreto del mejor instituto de Castilla-La Mancha para que España repunte en  — статья об образовательном процессе в школе, не является событием
+- [es] курьёз: [world] TechCrunch — Anthropic lanza Claude Ship para que agentes de IA revisen, corrijan y aprueben  — описание обновления ПО, не является новостью
