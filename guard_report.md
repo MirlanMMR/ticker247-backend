@@ -1,20 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [local] Poder360 — Moraes se declara suspeito em ação sobre interferência nas eleições — Внутреннее процедурное решение судьи, не имеет последствий за пределами страны.
-- [pt] чужое_мелкое: [local] Gazeta do Povo — Polícia Federal remove registros de conversas com Moraes de documentos oficiais — Внутренние отчеты правоохранительных органов, не являются значимым событием для международной аудитории.
-- [pt] не_новость: [local] Poder360 — Governo rejeita mudar prazo para aéreas adotarem combustível sustentável — Обычное административное решение ведомства, отсутствие последствий для читателя.
-- [pt] чужое_мелкое: [local] Poder360 — Corinthians questiona pedido de intervenção judicial a 4 dias da eleição — Локальный судебный спор футбольного клуба, не имеющий значения за пределами Бразилии.
-- [pt] не_новость: [local] Agência Brasil — MEC divulga regras para distribuição de verbas adicionais do Fundeb — Плановое объявление правил распределения средств, канцелярия.
-- [pt] срочность: [world] Ars Technica — Número de mortes por sarampo sobe para 14 — Статистика по заболеваемости не является поводом для срочного уведомления.
-- [pt] курьёз: [world] Smithsonian Magazine — IA decifra a Hipótese de Riemann, o problema matemático não resolvido mais famos — Научная гипотеза/проблема математики, нет событийного характера.
-- [pt] чужое_мелкое: [world] The Independent — Democratas da Câmara exigem registros da empresa de Donald Trump Jr. com a expan — Внутренняя парламентская проверка деятельности частной компании, не событие мирового масштаба.
-- [pt] повтор: [world] RTP Notícias — Confederação Africana de Futebol vai devolver título africano ao Senegal ≈ «A CAN 2025 foi atribuída definitivamente» — Дублирование новости о решении CAS по Кубку африканских наций.
-- [pt] чужое_мелкое: [world] TechCrunch — Ações da Anthropic caem abaixo do preço de IPO, um sinal preocupante para startu — Колебания акций отдельной стартап-компании, бизнес-новость без глобальных последствий.
-- [pt] курьёз: [world] Ars Technica — Amazon descobre que Falcon 9 e Ariane 6 garantem entregas onde outros falham — Техническая заметка о запуске спутников, нет события как такового.
-- [pt] не_новость: [world] Engadget — Streaming em nuvem de GTA 6 chega ao PS5 e PlayStation Portal — Релиз функции игры, обычное обновление ПО.
-- [pt] не_новость: [world] TechCrunch — Reino Unido alerta que ataques cibernéticos impulsionados por IA estão expondo f — Общее предупреждение кибербезопасности, нет конкретного события.
-- [pt] не_новость: [world] TechCrunch — Threads chega ao iPad e adota estratégia de 'cashtags' do X — Техническое обновление приложения, не событие.
-- [pt] чужое_мелкое: [world] TechCrunch — Startup de caminhões elétricos Harbinger recebe aporte financeiro do banco de Pa — Финансирование конкретного стартапа, не является мировой новостью.
-- [pt] не_новость: [world] Expresso das Ilhas — Vítimas de minas terrestres aumentam 10% no mundo em 2025 — Публикация статистического отчета, отсутствие конкретного события.
-- [pt] чужое_мелкое: [world] Азаттык — Congressistas dos EUA pediram que Trump retire o convite a Putin para a cúpula d — Запрос группы конгрессменов к президенту, не решение и не событие.
-- [pt] не_новость: [world] Téla Nón — Uma hora para atravessar o estuário do rio das Pérolas — Описание поездки/дорожной инфраструктуры, путевая заметка.
+- [en] не_новость: [local] Untitled RSS Feed — Oregon Activist Vows To Take Anti-Hunting Push To Wyoming And Nationwide — Анонс намерений и личное заявление, нет свершившегося события.
+- [en] не_новость: [local] WFSB — Should customers pay for Eversource executive bonuses? Federal regulators weigh  — Экспертное мнение регулятора, нет принятого решения.
+- [en] срочность: [local] WVEC RSS Feed: news — Elizabeth City man killed in boating incident on Pasquotank River — Происшествие случилось вчера, не требует побудки.
+- [en] не_новость: [local] WSMV — Flu cases rise earlier than usual in Middle Tennessee ahead of Thanksgiving — Общее предупреждение CDC о сезонном росте, нет конкретного события.
+- [en] не_новость: [local] Fort Worth Report — Two Tarrant school districts risk losing state funds because of TAD appraisal fr — Риск потери средств в будущем, а не свершившийся факт.
+- [en] полка: [local] KARE11 — Wisconsin reports the 3rd measles death of the year — Мировая новость о эпидемиологической ситуации, не местное событие для US.
+- [en] не_новость: [local] WRDW — TSA lists which Thanksgiving foods go in carry-on and checked bags — Совет путешественникам от TSA — полезно, но не новость.
+- [en] не_новость: [local] Santa Fe New Mexican — PNM requests new rate hike months after the last increase went into effect — Запрос на повышение тарифа — это намерение, а не факт.
+- [en] не_новость: [local] KFVS12 — FIRST ALERT ACTION DAY Wed. and Thurs. due to snow — Прогноз погоды (Action Day), не является событием.
+- [en] не_новость: [local] WSMV — Will hundreds of banned library books removed in Wilson County be dumped? — Рассуждения о возможном будущем действии (утилизации книг).
+- [en] не_новость: [local] KOB — Albuquerque’s Luminaria Tour re-lights and readies for ticket sales Friday — Анонс начала продажи билетов в пятницу.
+- [en] не_новость: [local] Gothamist — NYC Council looks for colleges to testify about sexual assault procedures — Призыв к даче показаний, не свершившееся событие.
+- [en] не_новость: [local] Latest &amp; Breaking News — Army's plan to resume DCA helicopter training flights sparks concerns for Virgin — Законодатели выражают беспокойство, нет события.
+- [en] не_новость: [pool] Variety — Steven Hack, ‘American Horror Story’ Actor and Original Cast Member of ‘Cats,’ D — Умер 19 ноября (прошла неделя), событие не свежее.
+- [en] не_новость: [pool] The Independent — Trump gives Rudy Giuliani nation’s highest civilian honor — behind closed doors — Событие 2017 года, не актуально.
+- [en] не_новость: [pool] Fortune — ‘We’re begging’: DOGE slashed federal workforce to its lowest in 60 years, and t — Обзор проблем рекрутинга, нет конкретного события.
+- [en] не_новость: [pool] TechCrunch — Walmart teams up with Meta to bring Black Friday deals to AI agent Muse — Маркетинговый анонс партнерства компаний.
+- [en] не_новость: [pool] Forbes — Realbotix Putting Realistic Humanoid Robots At The Front Desk — Описание услуги компании («Realbotix представляет...»), рекламный характер.
+- [en] не_новость: [pool] TechCrunch — Maple raises $5.3M to build AI products that protect your data, even from itself — Стартап привлек инвестиции (не указана дата события), описание продукта.
+- [en] не_новость: [pool] Straits Times — Nvidia’s Jensen Huang apologises to staff, says he is in therapy: Reports — Извинения за нарушение кодекса (этикет), нет события существенного масштаба.
+- [en] не_новость: [pool] Time — Trump Gives ‘America’s Mayor’ the Presidential Medal of Freedom — Дублирует тему Giuliani, нет нового факта.
+- [en] не_новость: [pool] BBC News — Disability benefit review calls for closer link with claimant costs — Рекомендации правительственной комиссии, нет принятого закона.
+- [en] курьёз: [pool] BBC Sport — A world-class winger - Louis Rees-Zammit 2.0 — Спортивная аналитика (разбор игрока), не новость.
+- [en] не_новость: [pool] Fortune — On a $1,000 Social Security check, Medicare’s 2027 premium hike eats 18% of the  — Аналитическая статья о расходах, нет события.
+- [en] анонс: [world] The Independent — Ground stop issued at Chicago O’Hare Airport after system outage — Статья не загрузилась, пустой текст-анонс.
