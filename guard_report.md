@@ -1,22 +1,25 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] срочность: [local] G1 São Paulo — Centro educacional está sem água há uma semana; Prefeitura de SP manda alunos le — Плановое объявление, не требует побудки.
-- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Candidato guineense insta militares a publicarem resultados eleitorais — Внутренняя политика Гвинеи-Бисау, нет последствий для мира.
-- [pt] полка: [pool] Público — Incidente com um objecto deixa plataforma da Galp no Brasil sem produção e obrig — Событие в Бразилии, должно быть в Местных, а не в Новостях из…
-- [pt] чужое_мелкое: [pool] BBC Brasil — Julgamento de Van Hattem no STF é o primeiro round da guerra entre Senado e Supr — Внутренняя политика и суд США, не является мировой новостью.
-- [pt] чужое_мелкое: [world] The Independent — Identificadas as seis vítimas de acidente aéreo no Mississippi durante viagem fa — Местная трагедия, нет мирового масштаба.
-- [pt] чужое_мелкое: [world] Time — Cresce a pressão pela libertação de cientista de Princeton detida pelo ICE — Частный случай задержания в США, нет мирового масштаба.
-- [pt] не_новость: [world] Rolling Stone — Cardi B e Offset têm processo sobre mansão em Beverly Hills encerrado após acord — Закрытие частного судебного спора знаменитостей.
-- [pt] курьёз: [world] The Hill — Serviço Florestal divulga relatório de 1982 sobre pegadas de 'Pé-grande' encontr — Старый отчет 1982 года, не является новостью.
-- [pt] срочность: [world] The Hill — Explosão de azida de chumbo em Iowa afetará o fornecimento de alimentos do país? — Нет доказательств катастрофических последствий, звучит как алармизм.
-- [pt] чужое_мелкое: [world] Fortune — Ex-oficiais do Pentágono afirmam que bloqueio de Hegseth a visitas de senadores  — Внутренние бюрократические споры в Пентагоне.
-- [pt] курьёз: [world] The Independent — ICE prende imigrante dias após ele ser fotografado recebendo prêmio de US$ 1 mil — Частное происшествие, нет значимости для мирового читателя.
-- [pt] чужое_мелкое: [world] The Independent — Cidade do Colorado gasta US$ 23 milhões para comprar duas fazendas em busca de d — Локальная сделка муниципалитета в США.
-- [pt] не_новость: [world] Ars Technica — Backblaze explica por que compartilha informações de clientes com anunciantes — Разбор политики конфиденциальности компании.
-- [pt] не_новость: [world] Ars Technica — Etsy esclarece termos sobre IA após reação negativa de vendedores — Разъяснение условий использования сервиса (не событие).
-- [pt] курьёз: [world] Engadget — WhatsApp finalmente oferece mensagens agendadas — Обновление функции приложения, не является событием по белому списку.
-- [pt] чужое_мелкое: [world] France 24 — Paris enfrenta movimentos masculinistas — Локальная социальная инициатива города Парижа.
-- [pt] чужое_мелкое: [world] Fortune — Huawei é condenada em 10 acusações em julgamento nos EUA, mas veredito não deve  — Корпоративный суд, который по заявлению самого заголовка не навредит компании.
-- [pt] полка: [world] El Mundo — Puigdemont retornará à Espanha em 12 de dezembro após anistia: "O Estado fracass — Местная новость для испанского потока, в глобальной ленте не нужна.
-- [pt] полка: [world] AKIpress — Mais de 372 km de redes e 25 toneladas de lixo foram retirados de Issyk-Kul, Son — Местная новость для Кыргызстана, попала в португальский поток без адаптации.
-- [pt] полка: [world] AKIpress Эко — 1.300 metros de redes de pesca antigas são retirados do Lago Issyk-Kul — Местная новость для Кыргызстана, попала в португальский поток без адаптации.
+- [en] чужое_мелкое: [local] CBS News — Iran denounces U.S. use of AI in war — Внутренняя критика Ирана в адрес США — не событие мирового масштаба.
+- [en] срочность: [local] WKYC — No injuries reported after small plane crashes at Kent State University Airport — Авиационный инцидент без пострадавших не требует побудки читателя.
+- [en] курьёз: [local] KOLD — Booms heard around southern Arizona possibly explained — Слухи о звуках в небе без последствий и конкретики — это не новость.
+- [en] не_новость: [local] KTUU — Alaska’s next governor to be inaugurated in the state’s historic and current cap — Плановое описание подготовки к инаугурации, без свершившегося события.
+- [en] не_новость: [local] Untitled RSS Feed — Incoming Cody Legislator Wants To Make 1874 Sharps Rifle Wyoming’s Official Stat — Законодательная инициатива (желание законодателя) — не событие.
+- [en] срочность: [local] WOI RSS Feed: news — City of Des Moines shares downtown holiday road closures around Thanksgiving — Плановое перекрытие дорог — не повод для срочной метки.
+- [en] курьёз: [local] New Jersey 101.5 — New Jersey Makes an Unwanted List for the Cost of Celebrating Christmas — Субъективное мнение о дороговизне праздников — не событие.
+- [en] чужое_мелкое: [pool] Toronto Star — $6M Boys’ School verdict sparks call for more juvenile justice reforms — Внутренний судебный процесс в США (штат Вайоминг) для канадского издания.
+- [en] чужое_мелкое: [pool] The Hill — Trump: Iowa Gov-elect. Sand was 'absolutely no help' in controlled lead blast — Локальная политическая перепалка в Айове — не мировое событие.
+- [en] чужое_мелкое: [pool] WKYT — Review complete of UK law professor barred from teaching due to controversial we — Внутренний дисциплинарный вопрос в университете Кентукки.
+- [en] чужое_мелкое: [pool] Toronto Star — Vance says Jensen Huang won't need a pardon as scrutiny of Nvidia scandal builds — Политические предположения об отставке/пароне CEO компании в Вашингтоне.
+- [en] чужое_мелкое: [pool] The Independent — 92-year-old woman arrested in connection to 1969 cold-case murder of her son — Локальное криминальное дело из Техаса (cold case).
+- [en] не_новость: [pool] Toronto Star — FACT FOCUS: Maps online falsely claim to show the path of fallout from Iowa lead — Разбор слухов в соцсетях — это не событие, а мета-новость.
+- [en] чужое_мелкое: [pool] The Independent — Judge throws Supreme Court in Trump’s face in birthright citizenship rebuke — Локальный судебный акт по спору о гражданстве.
+- [en] не_новость: [pool] TechCrunch — Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it — Корпоративная этика и мнение сотрудников не являются новостью.
+- [en] не_новость: [pool] Mexico News Daily — Sheinbaum marks Day Against Violence Toward Women, questions US over unfulfilled — Пересказ пресс-конференции президента без конкретного принятого решения.
+- [en] курьёз: [world] Xataka — FBI, CIA, and now the Treasury: U.S. faces series of cybersecurity incidents, th — Обзор инцидентов кибербезопасности — не новость.
+- [en] курьёз: [world] ScienceAlert — Ancient Killer Is Rapidly Gaining Resistance to Antibiotics, Warns Study — Научная заметка без привязки к конкретному открытию или событию.
+- [en] курьёз: [world] Live Science — Your risk of heart attack and stroke could be forecasted 30 years in advance, st — Прогноз о рисках здоровью через 30 лет не является новостью дня.
+- [en] не_новость: [world] TechCrunch — OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work — Информация об обновлении интерфейса сервиса.
+- [en] повтор: [world] Wired — The Iowa Lead Detonation Happened. Now the Real Work Begins to Study It ≈ «FACT FOCUS: Maps online falsely claim to» — Освещение того же события в Айове.
+- [en] не_новость: [world] Semafor — Jensen Huang to face questioning on Capitol Hill — Анонс предстоящего опроса в Конгрессе.
+- [en] курьёз: [world] Азаттык — UN: HIV infections and AIDS-related deaths rising in Central Asia — Обзор отчета ООН о ситуации в регионе без факта события.
