@@ -1,24 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [world] Expresso das Ilhas — Rússia admite nova escassez de combustíveis devido a ataques a refinarias — Внутренняя ситуация с топливом в РФ — локальная новость, не имеющая прямого воздействия на читателя в Бразилии.
-- [pt] повтор: [world] Observador PT — Rússia recusa comentar estimativa de 700 mil russos mortos ≈ «Kremlin recusa comentar relatórios sobre» — Тот же сюжет, что и в карточке 68.
-- [pt] чужое_мелкое: [world] France 24 — Conferência de Prefeitos da França: David Lisnard, pré-candidato ao Eliseu, é re — Переизбрание главы ассоциации мэров во Франции — сугубо внутренняя французская политическая новость.
-- [pt] курьёз: [world] Ars Technica — Um grupo hacker iraniano conhecido encontrou uma nova forma de causar caos — Хакерская атака на супермаркеты (изменение температуры) — любопытный факт, а не важная новость для мира.
-- [pt] чужое_мелкое: [world] TechCrunch — Todoist confirma que dados de 6% dos clientes foram roubados em invasão — Утечка данных пользователей сервиса Todoist — рядовое событие, нет информации о масштабе и последствиях для глобальной а
-- [pt] чужое_мелкое: [world] Semafor — Vencimento de patentes impulsiona fusões e aquisições no setor farmacêutico — Корпоративная сделка (слияние) фармацевтических компаний — отраслевая новость, а не мировое событие.
-- [pt] не_новость: [world] Fortune — Ex-funcionário do governo Biden afirma que IA já está coletando dados do Censo — Заявление бывшего чиновника о подозрениях — слова, а не свершившийся факт.
-- [pt] курьёз: [world] Engadget — WhatsApp testa figurinhas com som — Тестирование новых стикеров в WhatsApp — незначительное обновление приложения.
-- [pt] чужое_мелкое: [world] RFI — Suspeitas de vazamentos do Ministério do Interior em benefício do RN: o prefeito — Увольнение одного чиновника во Франции — внутренняя новость без глобальных последствий.
-- [pt] чужое_мелкое: [world] BBC Brasil — A iraniana acusada de 'declarar guerra a Deus' após denunciar morte da filha — Личная история в Иране не является мировой новостью.
-- [pt] не_новость: [world] RFI — Haiti-El Salvador: como Nayib Bukele consolida sua popularidade graças às redes  — Аналитический материал о методах работы президента — это разбор, а не новостное событие.
-- [pt] чужое_мелкое: [world] Fortune — Every levanta US$ 17,5 milhões com avaliação de US$ 110 milhões, apostando na vi — Раунд инвестиций в небольшую медиа-компанию — внутренняя новость бизнес-сектора США.
-- [pt] не_новость: [world] BBC Brasil — Os riscos que Trump corre com a volta de Jensen Huang ao comando da Nvidia — Статья о рисках — это мнение или анализ, а не событие.
-- [pt] курьёз: [world] Ars Technica — Metade da frota da NASA em Marte suspende operações devido a problemas técnicos — Техническая неполадка марсохода — любопытное сообщение, не имеющее влияния на жизнь людей.
-- [fr] курьёз: [local] BFMTV — Infox: des milliardaires vont-ils vraiment en Nouvelle-Zélande en jet privé pour — Это «интересное» о фейковых новостях, а не событие.
-- [fr] не_новость: [local] France Bleu — Lycées : très peu de cas d'enseignants "complices" de violences recensés, selon  — Сборник мнений и оценок без конкретного события, меняющего ситуацию.
-- [fr] не_новость: [local] 20 Minutes — Six milliards d’euros d’aide versés chaque année à l’Ukraine, selon Marine Le Pe — Анализ высказывания политика, а не само событие.
-- [fr] чужое_мелкое: [world] Jeune Afrique — Pertes russes au Mali : la fuite de données qui trahit les fragilités de Moscou  — Детали утечки данных об участниках ЧВК во внутренних делах Мали — не мировая новость.
-- [fr] курьёз: [world] Bénin Web TV — Mode : deux créateurs nigérians habillent Cardi B pour Billboard Canada — Светская хроника (кто кого одел), не имеющая мирового значения.
-- [fr] чужое_мелкое: [world] Ars Technica — Un groupe de pirates informatiques iraniens connu a trouvé un nouveau moyen de s — Кибератака на неназванные системы охлаждения — без указания масштаба последствий это шум.
-- [fr] чужое_мелкое: [world] TechCrunch — Todoist confirme le vol des données de 6 % de ses clients lors d'une faille de s — Утечка данных пользователей сервиса Todoist — частный случай бизнеса, не мировая новость.
-- [fr] полка: [world] AKIpress — Plus de 372 km de filets et 25 tonnes de déchets extraits des lacs Issyk-Kul, So — Новость о Кыргызстане в пуле французского языка должна быть в «Мировых», а не в «Местных».
+- [es] не_новость: [local] El Universal MX — Encenderán pino navideño de 22 metros en Monterrey; permanecerá en exhibición ha — Плановое украшение города к празднику не является событием по белому списку.
+- [es] чужое_мелкое: [local] El Financiero — ‘La van a deportar a España’: Sheinbaum explica qué pasará con Inés Gómez Mont t — История частного лица, задержанного в США, не имеет значимости для широкого круга читателей в Мексике.
+- [es] не_новость: [local] El Economista MX — En medio de disputas contractuales con gigantes alimentarios: SNAC logra alza de — Обычный корпоративный спор и профсоюзные процессы не являются новостным событием.
+- [es] не_новость: [local] El Financiero — Blanca Cruz dice que empresas vinculadas a Hernández Casillas ya no tienen contr — Заявление о том, что у компании 'больше нет контрактов', не содержит события-действия.
+- [es] не_новость: [local] El Financiero — ¿Brote de influenza aviar en México? — Вопрос 'Есть ли вспышка?' без подтвержденного факта — не новость.
+- [es] срочность: [local] El Sol de México — Se cae página para votar por la nueva dirección del IPN — Техническая неполадка сайта не требует прерывания дел читателя.
+- [es] курьёз: [local] Expansión MX — Así funcionan los torneos de ciberdelincuentes por reputación, dinero y clientes — История о киберпреступниках не имеет события с последствиями для читателя.
+- [es] не_новость: [local] La Jornada — Mañana analiza el INE en acto público tema de pluris y sobrerrepresentación — Анонс предстоящего совещания не является новостью.
+- [es] не_новость: [local] La Jornada — En Astroconcierto, la música saldrá del plató para ver en un telescopio a Saturn — Плановое культурное мероприятие без массового воздействия на инфраструктуру.
+- [es] не_новость: [local] Expansión MX — Grupo Salinas dice que paga 40,400 mdp de impuestos en 2026 y exhibe los comprob — Публикация отчетности компании и заявления о выплатах — рутина, не событие.
+- [es] чужое_мелкое: [pool] Infobae — "Me siento libre y celebrando mi libertad", dice el salvadoreño Kilmar Ábrego de — Личная история отдельного гражданина Сальвадора в Испании.
+- [es] курьёз: [pool] Infobae — Inteligencia artificial: la nueva herramienta de las mipymes salvadoreñas para v — Обзор инструментов ИИ для малого бизнеса — это статья-совет, а не новость.
+- [es] чужое_мелкое: [pool] Infobae — Concejal Heidy Sánchez cuestionó al Pacto Histórico por el caso de Claudia Romer — Внутренний спор колумбийского чиновника о дипломе не является мировой новостью.
+- [es] не_новость: [pool] La Nación AR — Desinversión: Los Grobo vende por US$5,5 millones su molino harinero y una plant — Решение компании о продаже активов для покрытия долгов — дело бизнеса, нет события для широкой аудитории.
+- [es] не_новость: [pool] La Nación CR — Aspirante a magistratura de Sala III renunció luego que Asamblea le consultara p — Отставка кандидата в процессе отбора — рутина.
+- [es] не_новость: [pool] La Nación CR — San Carlos tiene tres problemas de cara a su ‘final’ contra Alajuelense — Анализ предстоящего футбольного матча — спортивная аналитика, а не событие.
+- [es] курьёз: [pool] Marca — El Tribunal Supremo obliga a una empresa a recuperar la cesta de Navidad que ret — Решение суда о корпоративном подарке — частный случай, не требующий внимания всей страны.
+- [es] не_новость: [pool] El Informador — Suman dos aspirantes para dirigir el Consejo de Cámaras Industriales de Jalisco — Процесс выдвижения кандидатов на пост главы бизнес-ассоциации.
+- [es] не_новость: [pool] El Nacional VE — Clubes de la Liga Futve mueven sus banquillos de cara a la próxima temporada — Подготовка клубов к сезону — не событие.
+- [es] не_новость: [pool] Clarín AR — La hojarasca del Senasa: dan de baja 4.346 circulares — Внутренняя бюрократическая чистка ведомства (отмена циркуляров).
+- [es] не_новость: [pool] El Informador — Guadalajara rehabilita espacios públicos en El Manantial — Завершение плановых работ по благоустройству парков — местная рутина.
+- [es] не_новость: [pool] El Comercio PE — Ejecutivo aprueba proyecto de masificación del gas natural para Cusco, Puno, Aya — Одобрение проекта (планирование), а не запуск строительства.
+- [es] не_новость: [pool] El Universo EC — Exámenes de confianza, fase del concurso para seleccionar a jueces de la Corte N — Описание этапов и сроков конкурсной процедуры — это процесс, а не новость.
+- [es] не_новость: [pool] El Informador — CONOCER certifica a cinco profesionales de salud de Zapopan; Ricardo de la Torre — Сертификация отдельных сотрудников компании — не новость.
+- [es] не_новость: [pool] El Informador — Cine al aire libre en Guadalajara: Cartelera gratuita del 25 al 29 de noviembre — Афиша кинопоказов.
