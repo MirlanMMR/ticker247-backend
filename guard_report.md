@@ -1,27 +1,22 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] не_новость: [local] El Universal MX — Encenderán pino navideño de 22 metros en Monterrey; permanecerá en exhibición ha — Плановое украшение города к празднику не является событием по белому списку.
-- [es] чужое_мелкое: [local] El Financiero — ‘La van a deportar a España’: Sheinbaum explica qué pasará con Inés Gómez Mont t — История частного лица, задержанного в США, не имеет значимости для широкого круга читателей в Мексике.
-- [es] не_новость: [local] El Economista MX — En medio de disputas contractuales con gigantes alimentarios: SNAC logra alza de — Обычный корпоративный спор и профсоюзные процессы не являются новостным событием.
-- [es] не_новость: [local] El Financiero — Blanca Cruz dice que empresas vinculadas a Hernández Casillas ya no tienen contr — Заявление о том, что у компании 'больше нет контрактов', не содержит события-действия.
-- [es] не_новость: [local] El Financiero — ¿Brote de influenza aviar en México? — Вопрос 'Есть ли вспышка?' без подтвержденного факта — не новость.
-- [es] срочность: [local] El Sol de México — Se cae página para votar por la nueva dirección del IPN — Техническая неполадка сайта не требует прерывания дел читателя.
-- [es] курьёз: [local] Expansión MX — Así funcionan los torneos de ciberdelincuentes por reputación, dinero y clientes — История о киберпреступниках не имеет события с последствиями для читателя.
-- [es] не_новость: [local] La Jornada — Mañana analiza el INE en acto público tema de pluris y sobrerrepresentación — Анонс предстоящего совещания не является новостью.
-- [es] не_новость: [local] La Jornada — En Astroconcierto, la música saldrá del plató para ver en un telescopio a Saturn — Плановое культурное мероприятие без массового воздействия на инфраструктуру.
-- [es] не_новость: [local] Expansión MX — Grupo Salinas dice que paga 40,400 mdp de impuestos en 2026 y exhibe los comprob — Публикация отчетности компании и заявления о выплатах — рутина, не событие.
-- [es] чужое_мелкое: [pool] Infobae — "Me siento libre y celebrando mi libertad", dice el salvadoreño Kilmar Ábrego de — Личная история отдельного гражданина Сальвадора в Испании.
-- [es] курьёз: [pool] Infobae — Inteligencia artificial: la nueva herramienta de las mipymes salvadoreñas para v — Обзор инструментов ИИ для малого бизнеса — это статья-совет, а не новость.
-- [es] чужое_мелкое: [pool] Infobae — Concejal Heidy Sánchez cuestionó al Pacto Histórico por el caso de Claudia Romer — Внутренний спор колумбийского чиновника о дипломе не является мировой новостью.
-- [es] не_новость: [pool] La Nación AR — Desinversión: Los Grobo vende por US$5,5 millones su molino harinero y una plant — Решение компании о продаже активов для покрытия долгов — дело бизнеса, нет события для широкой аудитории.
-- [es] не_новость: [pool] La Nación CR — Aspirante a magistratura de Sala III renunció luego que Asamblea le consultara p — Отставка кандидата в процессе отбора — рутина.
-- [es] не_новость: [pool] La Nación CR — San Carlos tiene tres problemas de cara a su ‘final’ contra Alajuelense — Анализ предстоящего футбольного матча — спортивная аналитика, а не событие.
-- [es] курьёз: [pool] Marca — El Tribunal Supremo obliga a una empresa a recuperar la cesta de Navidad que ret — Решение суда о корпоративном подарке — частный случай, не требующий внимания всей страны.
-- [es] не_новость: [pool] El Informador — Suman dos aspirantes para dirigir el Consejo de Cámaras Industriales de Jalisco — Процесс выдвижения кандидатов на пост главы бизнес-ассоциации.
-- [es] не_новость: [pool] El Nacional VE — Clubes de la Liga Futve mueven sus banquillos de cara a la próxima temporada — Подготовка клубов к сезону — не событие.
-- [es] не_новость: [pool] Clarín AR — La hojarasca del Senasa: dan de baja 4.346 circulares — Внутренняя бюрократическая чистка ведомства (отмена циркуляров).
-- [es] не_новость: [pool] El Informador — Guadalajara rehabilita espacios públicos en El Manantial — Завершение плановых работ по благоустройству парков — местная рутина.
-- [es] не_новость: [pool] El Comercio PE — Ejecutivo aprueba proyecto de masificación del gas natural para Cusco, Puno, Aya — Одобрение проекта (планирование), а не запуск строительства.
-- [es] не_новость: [pool] El Universo EC — Exámenes de confianza, fase del concurso para seleccionar a jueces de la Corte N — Описание этапов и сроков конкурсной процедуры — это процесс, а не новость.
-- [es] не_новость: [pool] El Informador — CONOCER certifica a cinco profesionales de salud de Zapopan; Ricardo de la Torre — Сертификация отдельных сотрудников компании — не новость.
-- [es] не_новость: [pool] El Informador — Cine al aire libre en Guadalajara: Cartelera gratuita del 25 al 29 de noviembre — Афиша кинопоказов.
+- [pt] срочность: [local] G1 São Paulo — Centro educacional está sem água há uma semana; Prefeitura de SP manda alunos le — Плановое объявление, не требует побудки.
+- [pt] чужое_мелкое: [pool] Notícias ao Minuto — Candidato guineense insta militares a publicarem resultados eleitorais — Внутренняя политика Гвинеи-Бисау, нет последствий для мира.
+- [pt] полка: [pool] Público — Incidente com um objecto deixa plataforma da Galp no Brasil sem produção e obrig — Событие в Бразилии, должно быть в Местных, а не в Новостях из…
+- [pt] чужое_мелкое: [pool] BBC Brasil — Julgamento de Van Hattem no STF é o primeiro round da guerra entre Senado e Supr — Внутренняя политика и суд США, не является мировой новостью.
+- [pt] чужое_мелкое: [world] The Independent — Identificadas as seis vítimas de acidente aéreo no Mississippi durante viagem fa — Местная трагедия, нет мирового масштаба.
+- [pt] чужое_мелкое: [world] Time — Cresce a pressão pela libertação de cientista de Princeton detida pelo ICE — Частный случай задержания в США, нет мирового масштаба.
+- [pt] не_новость: [world] Rolling Stone — Cardi B e Offset têm processo sobre mansão em Beverly Hills encerrado após acord — Закрытие частного судебного спора знаменитостей.
+- [pt] курьёз: [world] The Hill — Serviço Florestal divulga relatório de 1982 sobre pegadas de 'Pé-grande' encontr — Старый отчет 1982 года, не является новостью.
+- [pt] срочность: [world] The Hill — Explosão de azida de chumbo em Iowa afetará o fornecimento de alimentos do país? — Нет доказательств катастрофических последствий, звучит как алармизм.
+- [pt] чужое_мелкое: [world] Fortune — Ex-oficiais do Pentágono afirmam que bloqueio de Hegseth a visitas de senadores  — Внутренние бюрократические споры в Пентагоне.
+- [pt] курьёз: [world] The Independent — ICE prende imigrante dias após ele ser fotografado recebendo prêmio de US$ 1 mil — Частное происшествие, нет значимости для мирового читателя.
+- [pt] чужое_мелкое: [world] The Independent — Cidade do Colorado gasta US$ 23 milhões para comprar duas fazendas em busca de d — Локальная сделка муниципалитета в США.
+- [pt] не_новость: [world] Ars Technica — Backblaze explica por que compartilha informações de clientes com anunciantes — Разбор политики конфиденциальности компании.
+- [pt] не_новость: [world] Ars Technica — Etsy esclarece termos sobre IA após reação negativa de vendedores — Разъяснение условий использования сервиса (не событие).
+- [pt] курьёз: [world] Engadget — WhatsApp finalmente oferece mensagens agendadas — Обновление функции приложения, не является событием по белому списку.
+- [pt] чужое_мелкое: [world] France 24 — Paris enfrenta movimentos masculinistas — Локальная социальная инициатива города Парижа.
+- [pt] чужое_мелкое: [world] Fortune — Huawei é condenada em 10 acusações em julgamento nos EUA, mas veredito não deve  — Корпоративный суд, который по заявлению самого заголовка не навредит компании.
+- [pt] полка: [world] El Mundo — Puigdemont retornará à Espanha em 12 de dezembro após anistia: "O Estado fracass — Местная новость для испанского потока, в глобальной ленте не нужна.
+- [pt] полка: [world] AKIpress — Mais de 372 km de redes e 25 toneladas de lixo foram retirados de Issyk-Kul, Son — Местная новость для Кыргызстана, попала в португальский поток без адаптации.
+- [pt] полка: [world] AKIpress Эко — 1.300 metros de redes de pesca antigas são retirados do Lago Issyk-Kul — Местная новость для Кыргызстана, попала в португальский поток без адаптации.
