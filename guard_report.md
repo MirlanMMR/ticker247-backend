@@ -1,25 +1,21 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] чужое_мелкое: [local] CBS News — Iran denounces U.S. use of AI in war — Внутренняя критика Ирана в адрес США — не событие мирового масштаба.
-- [en] срочность: [local] WKYC — No injuries reported after small plane crashes at Kent State University Airport — Авиационный инцидент без пострадавших не требует побудки читателя.
-- [en] курьёз: [local] KOLD — Booms heard around southern Arizona possibly explained — Слухи о звуках в небе без последствий и конкретики — это не новость.
-- [en] не_новость: [local] KTUU — Alaska’s next governor to be inaugurated in the state’s historic and current cap — Плановое описание подготовки к инаугурации, без свершившегося события.
-- [en] не_новость: [local] Untitled RSS Feed — Incoming Cody Legislator Wants To Make 1874 Sharps Rifle Wyoming’s Official Stat — Законодательная инициатива (желание законодателя) — не событие.
-- [en] срочность: [local] WOI RSS Feed: news — City of Des Moines shares downtown holiday road closures around Thanksgiving — Плановое перекрытие дорог — не повод для срочной метки.
-- [en] курьёз: [local] New Jersey 101.5 — New Jersey Makes an Unwanted List for the Cost of Celebrating Christmas — Субъективное мнение о дороговизне праздников — не событие.
-- [en] чужое_мелкое: [pool] Toronto Star — $6M Boys’ School verdict sparks call for more juvenile justice reforms — Внутренний судебный процесс в США (штат Вайоминг) для канадского издания.
-- [en] чужое_мелкое: [pool] The Hill — Trump: Iowa Gov-elect. Sand was 'absolutely no help' in controlled lead blast — Локальная политическая перепалка в Айове — не мировое событие.
-- [en] чужое_мелкое: [pool] WKYT — Review complete of UK law professor barred from teaching due to controversial we — Внутренний дисциплинарный вопрос в университете Кентукки.
-- [en] чужое_мелкое: [pool] Toronto Star — Vance says Jensen Huang won't need a pardon as scrutiny of Nvidia scandal builds — Политические предположения об отставке/пароне CEO компании в Вашингтоне.
-- [en] чужое_мелкое: [pool] The Independent — 92-year-old woman arrested in connection to 1969 cold-case murder of her son — Локальное криминальное дело из Техаса (cold case).
-- [en] не_новость: [pool] Toronto Star — FACT FOCUS: Maps online falsely claim to show the path of fallout from Iowa lead — Разбор слухов в соцсетях — это не событие, а мета-новость.
-- [en] чужое_мелкое: [pool] The Independent — Judge throws Supreme Court in Trump’s face in birthright citizenship rebuke — Локальный судебный акт по спору о гражданстве.
-- [en] не_новость: [pool] TechCrunch — Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it — Корпоративная этика и мнение сотрудников не являются новостью.
-- [en] не_новость: [pool] Mexico News Daily — Sheinbaum marks Day Against Violence Toward Women, questions US over unfulfilled — Пересказ пресс-конференции президента без конкретного принятого решения.
-- [en] курьёз: [world] Xataka — FBI, CIA, and now the Treasury: U.S. faces series of cybersecurity incidents, th — Обзор инцидентов кибербезопасности — не новость.
-- [en] курьёз: [world] ScienceAlert — Ancient Killer Is Rapidly Gaining Resistance to Antibiotics, Warns Study — Научная заметка без привязки к конкретному открытию или событию.
-- [en] курьёз: [world] Live Science — Your risk of heart attack and stroke could be forecasted 30 years in advance, st — Прогноз о рисках здоровью через 30 лет не является новостью дня.
-- [en] не_новость: [world] TechCrunch — OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work — Информация об обновлении интерфейса сервиса.
-- [en] повтор: [world] Wired — The Iowa Lead Detonation Happened. Now the Real Work Begins to Study It ≈ «FACT FOCUS: Maps online falsely claim to» — Освещение того же события в Айове.
-- [en] не_новость: [world] Semafor — Jensen Huang to face questioning on Capitol Hill — Анонс предстоящего опроса в Конгрессе.
-- [en] курьёз: [world] Азаттык — UN: HIV infections and AIDS-related deaths rising in Central Asia — Обзор отчета ООН о ситуации в регионе без факта события.
+- [es] чужое_мелкое: [local] El Financiero — ‘Chapo Isidro’: ¿Quiénes son los hermanos Gálvez Meza, funcionarios ligados a su — Криминальная хроника местного значения, не имеющая мирового веса.
+- [es] не_новость: [local] El Financiero — Arturo Vázquez, actor de ‘El privilegio de amar’, atraviesa crisis económica: ‘N — История актера о финансовых трудностях — это светская хроника, а не событие по белому списку.
+- [es] чужое_мелкое: [local] El Financiero — ‘181 millones de pesos’: La presunta deuda de PEMEX con Antonio Carlos Santos, e — Разборки частного лица с госкомпанией — не новость для широкого круга читателей.
+- [es] не_новость: [local] El Sol de México — TEPJF tumba boletas de 2027 porque algunos partidos tenían logotipos más grandes — Техническое решение суда по логотипам на бюллетенях — рядовая административная новость без глобальных последствий.
+- [es] полка: [pool] Infobae — Escolar de 12 años desapareció tras salir rumbo a su colegio en Chiclayo y docen — Происшествие в Перу должно быть в рубрике международных новостей, а не в «Новости из...» (пул ES, MX).
+- [es] полка: [pool] Infobae — Daniella Borda se cuelga la medalla de bronce en skeet femenino en el XV Campeon — Спортивная новость из Перу, не региональная для Мексики.
+- [es] чужое_мелкое: [pool] Infobae — En prisión provisional el hermano del expresidente de Paraguay Santiago Peña por — Арест брата бывшего президента Парагвая — событие внутренней политики Парагвая, не мировой масштаб.
+- [es] не_новость: [pool] Marca — "A Julián le quiero como persona y le voy a sostener como futbolista" — Цитата тренера — мнение, а не событие.
+- [es] не_новость: [pool] El Nacional VE — Baloncesto venezolano sale con el compromiso de volver al primer grupo de Améric — Планы баскетбольной сборной — это не свершившееся событие.
+- [es] не_новость: [pool] El Universo EC — “Barcelona va a necesitar ese resultado”: Norberto Araujo anticipa el partido an — Прогноз тренера перед матчем — это слова, а не событие.
+- [es] не_новость: [pool] El Informador — Suman dos aspirantes para dirigir el Consejo de Cámaras Industriales de Jalisco — Просто выдвижение кандидатов на пост — не событие (выборы еще не прошли).
+- [es] не_новость: [pool] El Mundo — Viñetas (cada vez menos excepcionales) de una crisis de precariedad en vivienda: — Очерк о жилищном кризисе — разбор, а не событие.
+- [es] курьёз: [world] Infobae — Diseñan proteína con IA que activa receptores de insulina defectuosos en ratones — Исследование на мышах — научная заметка, без практических последствий для читателя.
+- [es] курьёз: [world] Xataka — Primero el FBI, después la CIA y ahora el Tesoro: EEUU encadena incidentes de ci — История про кибербезопасность в видеоиграх — любопытный факт, а не важная новость.
+- [es] курьёз: [world] Expansión MX — Una explosión de cinco toneladas en Iowa preocupa a la NASA; ¿qué es la azida de — Контролируемый взрыв в Айове — техническая процедура, не новость для читателя в Мексике.
+- [es] чужое_мелкое: [world] BBC Mundo — Kilmar Abrego García abandona EE.UU. y viaja a España tras una larga batalla leg — Частная история депортации одного человека.
+- [es] полка: [world] Азаттык — ONU: aumenta el número de contagios por VIH y muertes por SIDA en Asia Central — Ситуация с ВИЧ в Центральной Азии — мировая новость (статистика), а не местная или региональная для Мексики.
+- [es] курьёз: [world] BBC Mundo — "La chica del metro", la influencer que pasó 2 meses en una unidad psiquiátrica  — История инфлюенсера — развлекательный контент.
+- [es] полка: [world] AKIpress — Se retiraron más de 372 kilómetros de redes y 25 toneladas de basura en Issyk-Ku — Местная новость Кыргызстана не должна быть в ленте для мексиканского пула.
