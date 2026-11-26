@@ -1,27 +1,21 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] WKYC — Parma event venue releases statement following fatal baby shower shooting — послесловие с заявлением после события, нет нового факта
-- [en] курьёз: [local] Untitled RSS Feed — Catching Up With Wendy Corr: Former Cowboy State Daily Anchor Writes Book — личная история, не событие
-- [en] срочность: [local] WIS-TV — FIRST ALERT: Increasing wind speeds expected tonight into Friday — прогноз погоды не бывает срочным
-- [en] срочность: [local] Hawaii News Now — Waianapana State Park Beach closed due to large surf, dangerous riptides — плановое объявление, не экстренное
-- [en] срочность: [local] syracuse.com — Hudson Valley under a flood advisory until Friday afternoon — обычный прогноз/предупреждение, не требует побудки
-- [en] чужое_мелкое: [local] NH Union Leader Latest News — ICE nabs illegal immigrant $1 million Mass Lottery winner in East Boston foot ch — внутренние дела и криминал другой страны
-- [en] не_новость: [local] Untitled RSS Feed — Yellowstone's Newest Superintendent Started His Career Pumping Gas In The Park — биографический очерк, не событие
-- [en] срочность: [local] WECT — Naked man arrested after quadruple shooting kills 2 in Charlotte on Thanksgiving — прошедшее событие, нет нужды будить
-- [en] чужое_мелкое: [pool] The Independent — Nate Silver predicts Trump ‘absolutely’ could be impeached over Nvidia’s China c — мнение аналитика, не событие
-- [en] чужое_мелкое: [pool] The Independent — Mexico president slams US drug enforcement over ‘failure’ to tackle fentanyl — анонс/критика, нет конкретного события
-- [en] не_новость: [pool] Global News CA — Elon Musk pledges 2 SpaceX shares to every U.S. child — обещание («планирует»), не свершившийся факт
-- [en] курьёз: [pool] Concord Monitor — Historic cobbler shop moved next to Chichester’s town gazebo — местная историческая новость, не значима для мира
-- [en] не_новость: [pool] Fortune — ‘An epic fail’: Crypto world blasts Netflix’s ‘The Altruists’ for turning SBF’s  — рецензия на сериал
-- [en] не_новость: [pool] Semafor — MTN eyes bank licenses in Africa fintech push — планы («eyes banking licenses»), не событие
-- [en] срочность: [pool] RTÉ Ireland — Fatal attack on man in care home 'unforgivable' - mother — аналитика по делу, а не срочное событие
-- [en] не_новость: [pool] RTÉ Ireland — HSE board to appear before cttee over O'Connor sacking — анонс парламентских слушаний
-- [en] курьёз: [world] ScienceAlert — Man Keeps a Rock For Years, Hoping It's Gold. It Turned Out to Be Even More Valu — история с находкой из 2015 года
-- [en] срочность: [world] Engadget — Backloggd urges users to change their passwords after a breach — рекомендация сменить пароли не требует побудки
-- [en] не_новость: [world] Straits Times — EU leaders aim for budget deal before the end of the year, Merz says — ожидания и заявления («aim for»), не событие
-- [en] чужое_мелкое: [world] France 24 — Iranian monarchists disrupt Paris event, highlighting bitter diaspora divide — внутренний конфликт диаспоры в Париже
-- [en] срочность: [world] Engadget — 1Password says it was hacked but users' vaults are safe — отчет о взломе не требует побудки
-- [en] не_новость: [world] Engadget — Amazon workers around the world plan strikes and protests on Black Friday and Cy — анонс будущих протестов
-- [en] не_новость: [world] BBC News — Burnham joined by former PMs at Ann Widdecombe service — мемориальная служба, не событие
-- [en] чужое_мелкое: [world] NPR News — North Korea's Kim vows to build more nuclear weapons after ignoring Trump's over — уже описано как повтор/развитие риторики, нет нового факта
-- [en] курьёз: [world] Smithsonian Magazine — While Exploring a 500-Year-Old Shipwreck Off the Coast of Sweden, Underwater Arc — находка археологов, нет последствий
+- [es] не_новость: [local] El Financiero — Ricardo Monreal ‘lamenta mucho’ acusaciones contra Inés Gómez Mont: ‘Deseo que s — Выражение солидарности политиком не является событием по белому списку.
+- [es] курьёз: [local] El Economista MX — De Tijuana a China: UNIDEP busca nuevas oportunidades de intercambio académico — Анонс планов обмена студентов не является свершившимся фактом.
+- [es] не_новость: [pool] El Tiempo CO — Cada minuto cuenta: así funcionará la nueva red que atenderá a pacientes con inf — Описание принципа работы новой сети без факта её официального запуска.
+- [es] полка: [pool] Infobae — Los fondos de pensión le meten presión al aumento del salario mínimo: propusiero — Новость о Колумбии в ленте другой страны (Аргентины) должна быть в «Мировых», а не «Новости из…».
+- [es] курьёз: [pool] El Financiero — Lina Teresa, Miss Universo Cuba 2025, padece esclerosis múltiple: ‘Desperté y no — История о болезни участницы конкурса красоты — частный случай, не событие.
+- [es] не_новость: [pool] Infobae — El plan de Boca de cara al final de temporada: quiénes jugarán ante Gimnasia en  — Тренер 'определил критерии' — это обсуждение планов, а не само событие (матч).
+- [es] срочность: [pool] El Informador — La primera tormenta invernal de la temporada sorprende a Jalisco este jueves — Погодное явление не требует побудки, если это не экстремальная катастрофа.
+- [es] не_новость: [pool] Marca — El Crystal Palace corta de cuajo a la Real — Промежуточные спортивные прогнозы и математические шансы не являются событием.
+- [es] полка: [pool] El Nacional VE — Sánchez advierte de que hay dos caminos para España: recortes y motosierra o der — Испанская политика в венесуэльском издании — это мировая новость, а не «Новости из…».
+- [es] не_новость: [pool] Clarín AR — Presupuesto: el Gobierno desconoce los acuerdos, niega los fondos a discapacidad — Обсуждение и дебаты в парламенте без принятого решения — не событие.
+- [es] не_новость: [pool] 14ymedio — Muchos anuncios y pocos datos sobre las inversiones de las empresas extranjeras  — Заявление об инвестициях без конкретных деталей — общие слова.
+- [es] не_новость: [pool] El Sol de México — España ante las urnas: los temas que marcarán las elecciones — Перечисление тем, которые «будут волновать граждан» — это разбор, а не событие.
+- [es] курьёз: [world] Superinteressante — Los estudiantes universitarios son los mayores transmisores de COVID-19, según u — Исследование без последствий для читателя.
+- [es] чужое_мелкое: [world] Semafor — Un responsable político español será el nuevo presidente del BCE — Назначение в наднациональный орган (ЕЦБ) — плановая кадровая новость.
+- [es] курьёз: [world] 14.ru — El regreso de enfermedades olvidadas: por qué Rusia registra brotes de rubéola,  — Обзор ситуации с болезнями в РФ без актуального инфоповода.
+- [es] курьёз: [world] Xataka — Países Bajos se planta ante EEUU por las restricciones a las máquinas de ASML — Геополитическая аналитика ограничений торговли.
+- [es] не_новость: [world] Xataka — "Tenemos que prepararnos para los próximos meses": el presidente de Microsoft al — Предупреждение 'о риске капель' — слова без события.
+- [es] курьёз: [world] BBC Mundo — "La suerte se le terminó": el migrante que fue detenido por ICE en EE.UU. días d — Частная история мигранта — это «надо же», а не мировая новость.
+- [es] полка: [world] Азаттык — Suiza transferirá a Uzbekistán millones de dólares de Gulnara Karimova — Новость об Узбекистане должна быть в «Мировых», а не в «Новости из…».
