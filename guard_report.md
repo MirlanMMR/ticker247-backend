@@ -1,27 +1,44 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] полка: [local] 24.kg — После инцидента в Ташкенте ДУМК аннулировало аккредитацию «Нур Умра Трэвел» — новость из Узбекистана (UZ) в местной ленте Кыргызстана
-- [ru] чужое_мелкое: [pool] РИА Новости — В Крыму приняли закон о запрете продажи вейпов — внутренний закон региона РФ (Крым) не является мировой новостью
-- [ru] чужое_мелкое: [pool] Avesta.tj — В Душанбе стартовал III Международный форум Digital Tajikistan — региональный форум в Таджикистане (TJ) не является мировой новостью
-- [ru] чужое_мелкое: [pool] ngs55.ru — Омск — Омичам выплатят 200 тысяч за знакомых, которые заключат контракт — локальная выплата в Омске (RU)
-- [ru] чужое_мелкое: [pool] iXBT — «Яндекс Лавка» ускорила экспансию роботов: Самара стала первым городом — запуск роботов в Самаре (RU)
-- [ru] не_новость: [pool] РБК — Лукашенко внес в парламент законопроект об амнистии для женщин — законопроект, еще не принят
-- [ru] не_новость: [pool] e1.ru — Екатеринбург — Глава свердловской полиции уходит в отставку: рапорт уже написан — плановая отставка (пенсия), нет скандала
-- [ru] курьёз: [pool] 14.ru — Якутск — Якутия выиграла битву против Чукотки за звание самого холодного региона России — рейтинг холодных регионов РФ
-- [ru] чужое_мелкое: [pool] NewsGeorgia — В Тбилиси задержали кассира банка по обвинению в присвоении до 800 тыс. лари — местное преступление в Грузии (GE)
-- [ru] чужое_мелкое: [pool] Onliner.by — В России продавали продукты под видом белорусских. — мелкий рыночный обман в РФ
-- [ru] чужое_мелкое: [pool] 93.ru — Краснодар — У первого вице-губернатора Кубани Игоря Галася изъяли имущество почти на миллиар — региональное судебное решение в Краснодаре (RU)
-- [ru] чужое_мелкое: [pool] NewsGeorgia — В Грузии пресекли попытку ввоза 7 кг гашиша на пароме из Болгарии — задержание контрабандиста в Грузии (GE)
-- [ru] срочность: [pool] 63.ru — Самара — Самолет до Самары экстренно посадили на запасной аэродром из-за письма о бомбе — сообщение о бомбе — часто ложный сигнал, не требует побудки
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — В Волгоградской области резко повысили транспортный налог — сколько придется пла — региональный налог в Волгограде (RU)
-- [ru] курьёз: [pool] NewsGeorgia — Глава Минздрава Грузии заявил о рекорде по суррогатному материнству на фоне план — статистика суррогатного материнства в Грузии
-- [ru] срочность: [pool] v1.ru — Волгоград — Под Волгоградом подросток без «прав» сгорел в слетевшей с трассы иномарке — обычное ДТП в РФ, не требует побудки читателя в КР
-- [ru] чужое_мелкое: [pool] Kun.uz — В Хорезме автомобиль Damas угнали с территории метановой заправки — угон авто в Узбекистане (UZ)
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — Бюджет теряет 500–600 миллионов рублей в год: в Перми в два раза увеличат штрафы — региональные штрафы в Перми (RU)
-- [ru] чужое_мелкое: [pool] Азаттык — Обвинение запросило для казахстанского активиста Санжара Бокаева 12 лет тюрьмы — региональный суд в Казахстане (KZ)
-- [ru] не_новость: [pool] Asia-Plus — Всемирный банк: «Таджикистан стал одним из ключевых торговых партнеров Афганиста — отчет организации, нет свершившегося события
-- [ru] не_новость: [pool] Азаттык (кыргызча) — Чечен өкмөтү Кадыровдун баласынын Сербия жарандыгы тууралуу маалыматты четке как — опровержение слухов
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Не вывезли блок соперника: волейболисты «Оренбуржья» проиграли «Динамо-ЛО» в дом — спортивный результат региональной команды РФ
-- [ru] срочность: [pool] 56.ru — Оренбург — В Соль-Илецке водитель «Рено» отправил женщину на «Гранте» в припаркованный груз — обычное ДТП в Оренбурге (RU)
-- [ru] чужое_мелкое: [pool] Asia-Plus — «Выдавал себя за сотрудника ГКНБ». Житель Худжанда задержан по подозрению в моше — мелкое мошенничество в Таджикистане (TJ)
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — На фоне участившихся случаев выхода медведей к людям в Прикамье изменили правила — изменение правил охоты в регионе РФ
+- [pt] срочность: [local] Gazeta do Povo — Moraes mantém preso acusado de fabricar bomba para atentado no aeroporto de Bras — Это судебное решение, а не чрезвычайное происшествие, требующее пробуждения.
+- [pt] срочность: [local] G1 Minas — 2 jovens são mortos a tiros e outros 2 ficam feridos em ataque em BH. — Криминальная сводка — важное событие, но не требует статуса «срочно».
+- [pt] срочность: [local] G1 Rio Grande do Sul — Jovem de 26 anos é morto a tiros dentro de carro na Zona Norte de Porto Alegre — Криминальная сводка — не повод для побудки читателя.
+- [pt] полка: [pool] Notícias ao Minuto — Farmacêuticos alertam para défice de profissionais na lusofonia — Новость из Мозамбика в португальском пуле должна быть в «Мировых», а не «Новости из…».
+- [pt] срочность: [pool] Observador PT — Leixões. 60 buscas a empresa de transporte de mercadorias — Полицейские обыски — рутина правоохранительных органов, не требует побудки.
+- [pt] срочность: [pool] Observador PT — Ladrões entram pelo telhado de hipermercado e roubam tabaco — Кража со взломом — происшествие, но не срочное событие для читателя.
+- [pt] полка: [world] Metrópoles — Navio com 7 mil toneladas de diesel afunda perto de Ibiza e deixa um morto — Авария судна в Испании — мировая новость, не «местная» (издание BR ошибочно в полке).
+- [pt] не_новость: [world] Semafor — Consórcio liderado pelos EUA compra ativos da gigante russa de energia Lukoil — Корпоративная сделка (покупка активов) без масштаба мировой катастрофы или изменения рынка.
+- [pt] курьёз: [world] Metrópoles — Jannik Sinner está fora do Australian Open após cirurgia no joelho — Спортивная травма — это не мировая новость масштаба Олимпиады или глобального изменения правил.
+- [pt] чужое_мелкое: [world] Semafor — Legisladores holandeses condenam restrições tecnológicas dos EUA — Внутреннее давление парламентариев на правительство по поводу законодательства США.
+- [pt] чужое_мелкое: [world] Semafor — Novas tarifas de Washington geram indignação no exterior — Общие жалобы на тарифную политику без конкретных санкций или блокад.
+- [pt] чужое_мелкое: [world] The Independent — Relatório indica que Pete Hegseth considerou usar lei de guerra para forçar a re — Дискуссии внутри министерства США, не приведшие к реализации действий.
+- [pt] чужое_мелкое: [world] The Independent — Tarifa surpresa de 10% de Donald Trump sobre jatos ameaça pressionar companhias  — Торговый спор и тарифы — это важная новость, но в текущем контексте — внутренняя политика США.
+- [pt] чужое_мелкое: [world] Time — Juíza decide que a perseguição da administração Trump à ABC não tem fundamento — Внутренний судебный процесс США (FCC) — не мировая новость.
+- [pt] не_новость: [world] Engadget — O X está implementando seus primeiros controles parentais — Внедрение настроек родительского контроля в соцсети — не событие-новость.
+- [pt] полка: [world] Азаттык (кыргызча) — Ataque com mísseis em Kiev deixa sete feridos; duas pessoas morrem em Kharkiv — Война в Украине — мировая новость, но источник (Азаттык) делает её важной для региона, однако здесь полка «Мировые» подх
+- [pt] полка: [world] The Hill — Hochul declara estado de emergência em condados de Nova York antes de tempestade — Местная чрезвычайная ситуация в США — мировая новость, но для читателя в Бразилии это не местная полка.
+- [pt] не_новость: [world] TechCrunch — S&P considera rebaixar nota de crédito da Nvidia devido a riscos de governança e — Аналитическое предположение S&P о возможном снижении рейтинга — не свершившийся факт.
+- [pt] курьёз: [world] Ars Technica — Nave espacial europeia encontra cenário caótico após experimento de desvio de as — Научный отчет о результатах эксперимента четырехлетней давности — интересное, а не новость.
+- [pt] не_новость: [world] Ars Technica — A Kagi, alternativa ao Google, lança rival do Gmail — Запуск e-mail сервиса небольшой компанией — не новость.
+- [pt] не_новость: [world] TechCrunch — OpenAI informa que usuários intensivos do ChatGPT podem atingir limites mais rap — Изменение лимитов использования ChatGPT для некоторых пользователей — не новость.
+- [pt] не_новость: [world] Ars Technica — Backblaze explica por que compartilha informações de clientes com anunciantes — Разъяснение политики конфиденциальности облачного сервиса — не новость.
+- [fr] чужое_мелкое: [local] Sud Ouest — Présidentielle 2027 : « Beaucoup de maires ont peur », le RN n’a toujours pas se — Внутренняя политика Франции — сбор подписей партией RN не является мировой новостью.
+- [fr] чужое_мелкое: [local] Sud Ouest — Airbags Takata défectueux : Stellantis et l’équipementier Joyson Safety Systems  — Следственные действия в отношении компаний Stellantis и Joyson во Франции — местная новость.
+- [fr] чужое_мелкое: [local] Franceinfo — "Tous les partis font ça" : qui est Christian de Rocquigny, le procureur qui se  — Политический скандал с французским прокурором — местная новость.
+- [fr] не_новость: [local] Le Figaro — Circulation paralysée, soirées sacrifiées, maires ignorés : le grand éloignement — Это публицистический материал/очерк о жизни в пригороде, а не событие.
+- [fr] повтор: [local] 20 Minutes — Ecrits antisémites : « Les sionistes sont à la tête des banques… » Jordan Bardel ≈ «Écrits antisémites: «Le Monde» et Mediap» — Тот же сюжет об обвинениях в адрес Жордана Барделлы.
+- [fr] чужое_мелкое: [local] Franceinfo — "C'est la confirmation de mon identité politique" : comment David Lisnard compte — Внутрифранцузские политические амбиции Давида Лиснара.
+- [fr] повтор: [local] 20 Minutes — Emilie König, l’ancienne « égérie » de Daesh accusée d’avoir joué les recruteuse ≈ «France: le procès d'Émilie König, «égéri» — Тот же сюжет о суде над Эмили Кёниг.
+- [fr] чужое_мелкое: [pool] Courrier International — Au Québec, l’expérience tourne court pour des milliers de Français — Миграционная политика Квебека — региональная новость для Канады, не мировая.
+- [fr] курьёз: [world] BFMTV — "Je n'en croyais pas mes yeux": un avion s'écrase dans un jardin aux États-Unis — Бытовое происшествие в США без последствий для мира — место в «Интересном».
+- [fr] чужое_мелкое: [world] Semafor — Un consortium dirigé par les États-Unis achète les actifs du géant russe de l'én — Сделка с активами Лукойла — коммерческое событие, которое не является мировой повесткой.
+- [fr] курьёз: [world] La Dépêche — "Une menace pour les usagers" : il est filmé en train de conduire en tongs, le t — Комичный случай с водителем автобуса в Италии — не мировая новость.
+- [fr] не_новость: [world] Sud Ouest — Elon Musk promet d’offrir deux actions SpaceX à chaque enfant américain — Обещание Илона Маска — это слова/намерение, а не состоявшееся действие.
+- [fr] повтор: [world] Engadget — SpaceX obtient l'autorisation de la FCC pour déployer 1 million de satellites de ≈ «Data centers dans l'espace : le projet c» — Тот же сюжет о проекте SpaceX в космосе.
+- [fr] не_новость: [world] RFI — Ukraine: la propagande russe invente la mort de Volodymyr Zelensky — Это разбор пропаганды, а не событие.
+- [fr] чужое_мелкое: [world] BBC Sport — 440 joueurs, trois jours, un seul site : le défi logistique du Nations Champions — Логистические трудности спортивного турнира — не мировая новость.
+- [fr] не_новость: [world] BBC News — Le nouveau traité entre le Royaume-Uni et l'UE inclut une clause de résiliation  — Обсуждение условий договора до публикации — не событие.
+- [fr] повтор: [world] Africanews FR — Égypte : des proches des victimes sous le choc après l'incendie meurtrier d'un c ≈ «L'explosion d'un camion-citerne sur une » — Тот же сюжет об аварии в Египте.
+- [fr] срочность: [world] The Hill — La gouverneure Kathy Hochul déclare l'état d'urgence dans plusieurs comtés de Ne — Объявление о подготовке к непогоде — не «срочно» (прогноз), а обычное оповещение.
+- [fr] чужое_мелкое: [world] BBC Sport — Nouvelles frustrations pour Mauricio Pochettino après un début chaotique à Manch — Результаты матчей и трудности тренера — не мировая новость.
+- [fr] не_новость: [world] BBC — Un système laser ukrainien a abattu un drone russe pour la première fois — Сообщение о применении технологии без подтвержденных последствий в условиях войны — выглядит как пропаганда/заявление.
