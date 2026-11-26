@@ -1,27 +1,16 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] NY Post — Tech bro who lost fortune during wedding reveals another stunning setback to inv — Бизнес-аналитика и обзор рынка, нет конкретного события-сделки.
-- [en] не_новость: [local] AL.com — A central Alabama city council’s meetings stall as city business goes unresolved — Заседание закончилось без принятия решений, событие отсутствует.
-- [en] не_новость: [local] Fort Worth Report — Two state legislators want to change the state bird. Tarrant County birders weig — Это анонс законопроекта, а не принятое решение.
-- [en] не_новость: [local] NH Union Leader Latest News — Widow of slain cop sues National Grid, alleging ‘slalom’ work zone lacked barrie — Подача иска — это юридический процесс, не событие в белом списке.
-- [en] не_новость: [local] Gothamist — NYC bill would give crash victims online access to NYPD investigation updates — Законопроект на стадии обсуждения, а не принятый закон.
-- [en] не_новость: [local] NH Union Leader Latest News — ‘Dancing With the Stars’ champion hitting the road with first show set for Manch — Анонс шоу и гастролей — не является общественно значимым событием.
-- [en] чужое_мелкое: [pool] Straits Times — Around 100,000 British defence veterans contacted amid ‘heightened threat’ — Внутренняя мобилизация ветеранов Британии не является мировой новостью.
-- [en] не_новость: [pool] CNA — Marlboro maker Altria explores takeover of UK's Imperial Brands — «Explore a takeover» — это лишь слухи и намерения, не закрытая сделка.
-- [en] не_новость: [pool] Sky Sports — Yoro red card: Written reasons for overturned decision revealed — Разбор судейских решений — это анализ/мнение, а не событие.
-- [en] не_новость: [pool] BBC Sport — Faldo urges LIV stars to 'chip in' for unpaid firms — Призыв эксперта/бывшего игрока не является событием.
-- [en] не_новость: [pool] BBC News — BBC launches partnership with Met Office for weather coverage — Партнерство медиа и метеослужбы — корпоративный пиар.
-- [en] не_новость: [pool] BBC News — Expect fewer frosts and more hot days as UK seasons shift, says Met Office — Отчет об изменении климата — это аналитика, а не событие.
-- [en] не_новость: [pool] Ars Technica — Google search alternative Kagi launches Gmail rival — Запуск Gmail-клиента — это продукт, а не событие мирового масштаба.
-- [en] не_новость: [pool] TechCrunch — Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it — Нарушение кодекса поведения — внутреннее дело компании, нет последствий.
-- [en] курьёз: [world] Engadget — Casetify's Pokémon 30th anniversary collection includes a Poké Ball case for you — Анонс сувенирной продукции Pokémon.
-- [en] курьёз: [world] Fortune — A Mark Cuban-backed AI startup is helping families turn Thanksgiving conversatio — Стартап для семейных разговоров — не является событием.
-- [en] не_новость: [world] Fortune — Amazon workers on food stamps have tripled despite its record revenue—and it’s j — Экономическая аналитика, а не событие.
-- [en] не_новость: [world] Fortune — U.S. Treasury has an unusual national debt headache: An $18 billion hole from GL — Финансовая аналитика долга США.
-- [en] не_новость: [world] Engadget — SpaceX gets FCC approval to deploy 1 million satellites for its AI orbital data  — Прогноз на 2033 год — это планы, а не событие.
-- [en] не_новость: [world] Engadget — X is adding its first-ever parental controls — Обновление функции в приложении.
-- [en] не_новость: [world] Fortune — Why businesses are embracing ‘good enough’ open-weight AI—and how geopolitics co — Мнение о бизнес-стратегиях в ИИ.
-- [en] курьёз: [world] BBC Sport — Motorcycle passenger who took stunning cricket catch found — Вирусное видео с крикетным броском.
-- [en] не_новость: [world] TechCrunch — S&P considers Nvidia credit downgrade over governance and ‘key man’ risks — Агентство только «рассматривает» возможность снижения рейтинга, нет факта.
-- [en] не_новость: [world] Ars Technica — European spacecraft finds chaotic scene after asteroid deflection experiment — Анализ прошлых миссий NASA.
-- [en] не_новость: [world] TechCrunch — OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work — Изменения в интерфейсе сервиса.
+- [es] курьёз: [local] Expansión MX — Starbucks convierte su vaso de oso Bearista de un fenómeno viral en una estrateg — Это потребительская заметка о коллекционировании сувениров, не событие.
+- [es] полка: [pool] Infobae — La Policía detuvo a 261 personas en operativos desplegados durante 48 horas en R — Новость о полиции Доминиканской Республики должна быть в «Новости из...», а не в «Местных» (испанский пул, домашняя стра
+- [es] срочность: [pool] El Informador — ¿Usas López Mateos o Mariano Otero? Estas rutas de transporte pararán HOY — Плановое объявление об изменениях в расписании не требует пометки «СРОЧНО».
+- [es] не_новость: [pool] Semana CO — “Lo del gobierno anterior fue irresponsable e ilegal”: MinSalud propone reducció — Обсуждение проекта и планы министерства не являются свершившимся событием.
+- [es] не_новость: [pool] El Informador — A esta hora lloverá en Guadalajara este jueves 26 de noviembre — Прогноз погоды не является новостью в нашем формате.
+- [es] повтор: [pool] BBC Mundo — Inés Gómez Mont, la exestrella de TV acusada de delincuencia organizada que caus ≈ «Inés Gómez Mont, la exestrella de TV acu» — Заголовок дублирует сам себя, новость выглядит как некачественный контент.
+- [es] не_новость: [pool] BBC Mundo — La España de los (casi) 50 millones: cómo la inmigración ha transformado el país — Аналитическая статья о демографии за десятилетие, а не новостное событие.
+- [es] чужое_мелкое: [world] Clarín AR — Medios hutíes reportan ataques sauditas contra capital de Yemen — Очередные сводки локальных обстрелов в Йемене без последствий для мира не являются мировым событием.
+- [es] курьёз: [world] Clarín AR — Londres busca controlar sus ostentosos, caros y ruidosos bicitaxis — Описание жизни лондонских велотакси — интересная зарисовка, а не мировая новость.
+- [es] не_новость: [world] BBC Mundo — Efecto BYD: por qué Brasil se ha convertido en un "laboratorio en América Latina — Разбор влияния китайских компаний на рынок (аналитика), а не факт события.
+- [es] курьёз: [world] BBC Mundo — "Si puedes reconocer como padre a alguien sin vínculo biológico, también es just — Тема прав в семейных отношениях — философское/правовое рассуждение, не новостное событие.
+- [es] не_новость: [world] Engadget — X añade sus primeros controles parentales — Обзор функционала приложения (обновление настроек X) не является событием по белому списку.
+- [es] не_новость: [world] TechCrunch — S&P evalúa rebajar la calificación crediticia de Nvidia por riesgos de gobernanz — Оценка агентством возможности снижения рейтинга в будущем — это мнение, а не событие.
+- [es] не_новость: [world] Ars Technica — Kagi, alternativa al buscador de Google, lanza un competidor de Gmail — Запуск нового продукта компанией (почта Kagi) — бизнес-новость, но без масштаба для мировой полки.
