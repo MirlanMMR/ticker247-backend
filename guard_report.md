@@ -1,11 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] курьёз: [local] G1 São Paulo — 'Gostoso da Paulista' estreia como modelo e abre desfile de moda sustentável em  — fato curioso sem impacto relevante, estilo entretenimento.
-- [pt] не_новость: [local] G1 São Paulo — Kéfera registra boletim de ocorrência após médica enviar mensagem com críticas a — conflito interpessoal entre influenciadora e médica não é evento público.
-- [pt] не_новость: [world] Engadget — Trabalhadores da Amazon ao redor do mundo planejam greves e protestos na Black F — planejamento de greve (intenção) não é o fato da greve ocorrida.
-- [pt] чужое_мелкое: [world] The Independent — Adolescente da Flórida persegue a mãe com motosserra após ela confiscar seu Xbox — crime doméstico nos EUA sem impacto internacional.
-- [pt] чужое_мелкое: [world] The Independent — Aliada próxima de Donald Trump faz ataques contra prefeito muçulmano por causa d — polêmica política local/pessoal nos EUA sem alcance global.
-- [pt] чужое_мелкое: [world] The Independent — Banda marcial da USC Trojans é excluída do Rose Bowl após escândalo com frase ob — decisão de banda universitária local nos EUA.
-- [pt] чужое_мелкое: [world] Engadget — Funcionários do estúdio de GTA 6, a Rockstar Games, votam contra o reconheciment — votação sindical interna de empresa no Reino Unido.
-- [pt] чужое_мелкое: [world] Engadget — Homem é condenado a 47 meses de prisão por usar IA para se passar pelo streamer  — condenação por crime comum individual nos EUA.
-- [pt] не_новость: [world] Fortune — CEO da Sephora nos EUA recusou inicialmente uma vaga de nível inicial na empresa — relato de carreira pessoal/anedota de 1998.
+- [en] не_новость: [local] WKYC — Parma event venue releases statement following fatal baby shower shooting — послесловие с заявлением после события, нет нового факта
+- [en] курьёз: [local] Untitled RSS Feed — Catching Up With Wendy Corr: Former Cowboy State Daily Anchor Writes Book — личная история, не событие
+- [en] срочность: [local] WIS-TV — FIRST ALERT: Increasing wind speeds expected tonight into Friday — прогноз погоды не бывает срочным
+- [en] срочность: [local] Hawaii News Now — Waianapana State Park Beach closed due to large surf, dangerous riptides — плановое объявление, не экстренное
+- [en] срочность: [local] syracuse.com — Hudson Valley under a flood advisory until Friday afternoon — обычный прогноз/предупреждение, не требует побудки
+- [en] чужое_мелкое: [local] NH Union Leader Latest News — ICE nabs illegal immigrant $1 million Mass Lottery winner in East Boston foot ch — внутренние дела и криминал другой страны
+- [en] не_новость: [local] Untitled RSS Feed — Yellowstone's Newest Superintendent Started His Career Pumping Gas In The Park — биографический очерк, не событие
+- [en] срочность: [local] WECT — Naked man arrested after quadruple shooting kills 2 in Charlotte on Thanksgiving — прошедшее событие, нет нужды будить
+- [en] чужое_мелкое: [pool] The Independent — Nate Silver predicts Trump ‘absolutely’ could be impeached over Nvidia’s China c — мнение аналитика, не событие
+- [en] чужое_мелкое: [pool] The Independent — Mexico president slams US drug enforcement over ‘failure’ to tackle fentanyl — анонс/критика, нет конкретного события
+- [en] не_новость: [pool] Global News CA — Elon Musk pledges 2 SpaceX shares to every U.S. child — обещание («планирует»), не свершившийся факт
+- [en] курьёз: [pool] Concord Monitor — Historic cobbler shop moved next to Chichester’s town gazebo — местная историческая новость, не значима для мира
+- [en] не_новость: [pool] Fortune — ‘An epic fail’: Crypto world blasts Netflix’s ‘The Altruists’ for turning SBF’s  — рецензия на сериал
+- [en] не_новость: [pool] Semafor — MTN eyes bank licenses in Africa fintech push — планы («eyes banking licenses»), не событие
+- [en] срочность: [pool] RTÉ Ireland — Fatal attack on man in care home 'unforgivable' - mother — аналитика по делу, а не срочное событие
+- [en] не_новость: [pool] RTÉ Ireland — HSE board to appear before cttee over O'Connor sacking — анонс парламентских слушаний
+- [en] курьёз: [world] ScienceAlert — Man Keeps a Rock For Years, Hoping It's Gold. It Turned Out to Be Even More Valu — история с находкой из 2015 года
+- [en] срочность: [world] Engadget — Backloggd urges users to change their passwords after a breach — рекомендация сменить пароли не требует побудки
+- [en] не_новость: [world] Straits Times — EU leaders aim for budget deal before the end of the year, Merz says — ожидания и заявления («aim for»), не событие
+- [en] чужое_мелкое: [world] France 24 — Iranian monarchists disrupt Paris event, highlighting bitter diaspora divide — внутренний конфликт диаспоры в Париже
+- [en] срочность: [world] Engadget — 1Password says it was hacked but users' vaults are safe — отчет о взломе не требует побудки
+- [en] не_новость: [world] Engadget — Amazon workers around the world plan strikes and protests on Black Friday and Cy — анонс будущих протестов
+- [en] не_новость: [world] BBC News — Burnham joined by former PMs at Ann Widdecombe service — мемориальная служба, не событие
+- [en] чужое_мелкое: [world] NPR News — North Korea's Kim vows to build more nuclear weapons after ignoring Trump's over — уже описано как повтор/развитие риторики, нет нового факта
+- [en] курьёз: [world] Smithsonian Magazine — While Exploring a 500-Year-Old Shipwreck Off the Coast of Sweden, Underwater Arc — находка археологов, нет последствий
