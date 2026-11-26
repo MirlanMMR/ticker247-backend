@@ -1,27 +1,27 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] курьёз: [local] Sputnik KG — В Кыргызстане в 2025 году родили 315 несовершеннолетних, одной было 13 лет — статистическая информация, не является событием в новостном смысле
-- [ru] повтор: [local] Sputnik KG (кыргызча) — Былтыр 327 өспүрүм кыз кош бойлуу болуп катталып, 64 гана иш козголгон ≈ «В Кыргызстане в 2025 году родили 315 нес» — та же тема ранних беременностей, что и в №10
-- [ru] повтор: [local] Knews.kg — Мэрия Бишкека опубликовала список стройкомпаний — злостных неплательщиков штрафо ≈ «Бишкекте 29 курулуш компаниясы 12,4 млн » — повторение новости об айыппулах стройкомпаний
-- [ru] не_новость: [local] Knews.kg — Камила Талиева опровергла слухи о сложении депутатских полномочий — опровержение слухов о плановом уходе — это отсутствие события
-- [ru] полка: [local] Sputnik KG (кыргызча) — Каирдеги айланма жолдо чыккан өрттөн 31 киши набыт болуп, 15и жабыркады — событие в Египте не является местным для KG, должно быть в Мировых
-- [ru] не_новость: [local] Вечерний Бишкек — Глава ГТС Улан Кимсанов подтянулся 8 раз перед журналистами — публичная активность чиновника (подтягивания) — не новостное событие
-- [ru] чужое_мелкое: [pool] 93.ru — Краснодар — Мороз до −8 °C, снег и метели. — погода в российском регионе не является мировой новостью
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Три тысячи игрушек и 40 елей: Рязань готовится к Новому году — местная подготовка к празднику в Рязани
-- [ru] чужое_мелкое: [pool] 72.ru — Тюмень — В Тюменской области выявили смертельно опасную инфекцию — внутренняя медицинская статистика РФ
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Опять за свое! У компании из Самарской области нашли кефир с кишечной палочкой — локальный случай с продукцией компании в РФ
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — «Еле ползем». Екатеринбург встал в 10-балльные пробки — локальная дорожная ситуация в Екатеринбурге
-- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — Арктический фестиваль в Териберке и еще два проекта Заполярья выиграли гранты — локальный грант в Мурманской области
-- [ru] чужое_мелкое: [pool] e1.ru — Екатеринбург — «Нас выгоняют с детьми на мороз». Екатеринбуржцы возвращались домой, но внезапно — локальный инцидент с авиарейсом в РФ
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Не вышло откупиться: за фальшивые права рязанец получил ограничение свободы — мелкое уголовное дело в Рязани
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — Мошенники обманули туляков на два миллиона рублей — мелкое мошенничество в Туле
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Алексине курьеру телефонных мошенников дали штраф 300 тысяч рублей — локальное судебное решение в Алексине
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Двое — в больнице, один — скончался: в Бузулуке оставили под стражей парня, сбив — локальное уголовное дело в Бузулуке
-- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — Пожар на Тихорецком: пенсионерка жарила кошку на свечах — бытовое происшествие в СПб
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Три года колонии-поселения за смерть подростка: рязанскому чиновнику вынесли при — локальное судебное решение в Рязани
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Евгений Солнцев сменил Олега Димова на посту секретаря реготделения «Единой Росс — внутренняя партийная перестановка в РФ
-- [ru] не_новость: [pool] 51.ru — Мурманск — Ко Дню борьбы со СПИДом в Мурманске организуют бесплатное тестирование на ВИЧ — плановая акция к международному дню
-- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — У трёх злостных нарушителей ПДД изъяли автомобили — локальная статистика ГИБДД
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Бензин по паспорту: рязанским школьникам перекроют доступ к горючему — запрет в Рязанской области (региональный уровень РФ)
-- [ru] чужое_мелкое: [pool] 53.ru — Великий Новгород — Полицейский в выходной задержал пьяного угонщика внедорожника — локальный случай задержания в Новгороде
-- [ru] чужое_мелкое: [pool] 71.ru — Тула — В Тульской области полностью запретят вейпы с марта 2027 года — региональный запрет в Тульской области
+- [en] не_новость: [local] NY Post — Tech bro who lost fortune during wedding reveals another stunning setback to inv — Бизнес-аналитика и обзор рынка, нет конкретного события-сделки.
+- [en] не_новость: [local] AL.com — A central Alabama city council’s meetings stall as city business goes unresolved — Заседание закончилось без принятия решений, событие отсутствует.
+- [en] не_новость: [local] Fort Worth Report — Two state legislators want to change the state bird. Tarrant County birders weig — Это анонс законопроекта, а не принятое решение.
+- [en] не_новость: [local] NH Union Leader Latest News — Widow of slain cop sues National Grid, alleging ‘slalom’ work zone lacked barrie — Подача иска — это юридический процесс, не событие в белом списке.
+- [en] не_новость: [local] Gothamist — NYC bill would give crash victims online access to NYPD investigation updates — Законопроект на стадии обсуждения, а не принятый закон.
+- [en] не_новость: [local] NH Union Leader Latest News — ‘Dancing With the Stars’ champion hitting the road with first show set for Manch — Анонс шоу и гастролей — не является общественно значимым событием.
+- [en] чужое_мелкое: [pool] Straits Times — Around 100,000 British defence veterans contacted amid ‘heightened threat’ — Внутренняя мобилизация ветеранов Британии не является мировой новостью.
+- [en] не_новость: [pool] CNA — Marlboro maker Altria explores takeover of UK's Imperial Brands — «Explore a takeover» — это лишь слухи и намерения, не закрытая сделка.
+- [en] не_новость: [pool] Sky Sports — Yoro red card: Written reasons for overturned decision revealed — Разбор судейских решений — это анализ/мнение, а не событие.
+- [en] не_новость: [pool] BBC Sport — Faldo urges LIV stars to 'chip in' for unpaid firms — Призыв эксперта/бывшего игрока не является событием.
+- [en] не_новость: [pool] BBC News — BBC launches partnership with Met Office for weather coverage — Партнерство медиа и метеослужбы — корпоративный пиар.
+- [en] не_новость: [pool] BBC News — Expect fewer frosts and more hot days as UK seasons shift, says Met Office — Отчет об изменении климата — это аналитика, а не событие.
+- [en] не_новость: [pool] Ars Technica — Google search alternative Kagi launches Gmail rival — Запуск Gmail-клиента — это продукт, а не событие мирового масштаба.
+- [en] не_новость: [pool] TechCrunch — Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it — Нарушение кодекса поведения — внутреннее дело компании, нет последствий.
+- [en] курьёз: [world] Engadget — Casetify's Pokémon 30th anniversary collection includes a Poké Ball case for you — Анонс сувенирной продукции Pokémon.
+- [en] курьёз: [world] Fortune — A Mark Cuban-backed AI startup is helping families turn Thanksgiving conversatio — Стартап для семейных разговоров — не является событием.
+- [en] не_новость: [world] Fortune — Amazon workers on food stamps have tripled despite its record revenue—and it’s j — Экономическая аналитика, а не событие.
+- [en] не_новость: [world] Fortune — U.S. Treasury has an unusual national debt headache: An $18 billion hole from GL — Финансовая аналитика долга США.
+- [en] не_новость: [world] Engadget — SpaceX gets FCC approval to deploy 1 million satellites for its AI orbital data  — Прогноз на 2033 год — это планы, а не событие.
+- [en] не_новость: [world] Engadget — X is adding its first-ever parental controls — Обновление функции в приложении.
+- [en] не_новость: [world] Fortune — Why businesses are embracing ‘good enough’ open-weight AI—and how geopolitics co — Мнение о бизнес-стратегиях в ИИ.
+- [en] курьёз: [world] BBC Sport — Motorcycle passenger who took stunning cricket catch found — Вирусное видео с крикетным броском.
+- [en] не_новость: [world] TechCrunch — S&P considers Nvidia credit downgrade over governance and ‘key man’ risks — Агентство только «рассматривает» возможность снижения рейтинга, нет факта.
+- [en] не_новость: [world] Ars Technica — European spacecraft finds chaotic scene after asteroid deflection experiment — Анализ прошлых миссий NASA.
+- [en] не_новость: [world] TechCrunch — OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work — Изменения в интерфейсе сервиса.
