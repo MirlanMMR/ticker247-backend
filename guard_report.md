@@ -1,31 +1,14 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] срочность: [world] Straits Times — Egípcios lamentam e exigem responsabilização após explosão mortal de caminhão-ta — Событие произошло в Египте, для читателя в Бразилии это не повод для побудки.
-- [pt] чужое_мелкое: [world] Folha de S.Paulo — ICE prende imigrante que ganhou US$ 1 milhão na loteria 4 dias antes — Частный случай задержания иммигранта в США не имеет мирового значения.
-- [pt] курьёз: [world] Público — Maria Middleton morreu de tumor no cérebro e pode ser a primeira santa da geraçã — История о возможной святой — это не новость, а любопытный факт для «Интересного».
-- [pt] курьёз: [world] Engadget — A coleção de 30 anos de Pokémon da Casetify inclui um estojo de Poké Bola para A — Выпуск чехла для наушников с дизайном Pokemon — рекламная новость, а не событие.
-- [pt] курьёз: [world] BBC Brasil — Menos sexo, mais pornografia: o que pesquisa revela sobre jovens britânicos — Разбор привычек британской молодежи — это статья-обзор, а не событийная новость.
-- [pt] чужое_мелкое: [world] Engadget — SpaceX obtém aprovação da FCC para lançar 1 milhão de satélites para seu centro  — Одобрение лицензии регулятором для SpaceX — техническая новость без прямого влияния на читателя.
-- [pt] не_новость: [world] BBC Brasil — Morre Andy Taylor: o guitarrista que ajudou a levar o Duran Duran ao topo do mun — Смерть гитариста через три дня после события — это некролог, лишенный актуальности.
-- [pt] чужое_мелкое: [world] Engadget — O X está implementando seus primeiros controles parentais — Внедрение родительского контроля в соцсети — текущее обновление сервиса, а не значимое событие.
-- [pt] не_новость: [world] BBC Brasil — O que revelam imagens do asteroide atingido deliberadamente pela Nasa para testa — Разбор старых данных о миссии NASA — это просветительский материал, а не событие.
-- [pt] курьёз: [world] Ars Technica — A Kagi, alternativa ao Google, lança rival do Gmail — Запуск нишевого почтового сервиса — не новость мирового масштаба.
-- [pt] не_новость: [world] TechCrunch — OpenAI informa que usuários intensivos do ChatGPT podem atingir limites mais rap — Внутреннее изменение интерфейса ChatGPT — рабочая рутина компании.
-- [fr] чужое_мелкое: [local] L'Express — Pablo Hernandez de Cos à la BCE : en coulisses, la volte-face d'Emmanuel Macron  — Внутренняя кадровая политика Испании, не имеет последствий для Франции.
-- [fr] не_новость: [local] France Bleu — L'enseignante grenobloise convoquée pour avoir donné un devoir sur le mouvement  — Отмена дисциплинарной процедуры — отсутствие события.
-- [fr] не_новость: [local] 20 Minutes — Saisir la justice pour débloquer un établissement scolaire marche-t-il ? Ce que  — Аналитическая статья о том, работает ли обращение в суд, а не факт события.
-- [fr] не_новость: [local] Franceinfo — Une convention citoyenne sur les finances publiques lancée vendredi pour "réduir — Анонс запуска мероприятия, нет результата.
-- [fr] курьёз: [local] 20 Minutes — PFAS : Œuf, poisson, lait infantile… Ces aliments particulièrement contaminés pa — Обзор продуктов с загрязнителями, нет конкретного события.
-- [fr] чужое_мелкое: [pool] RTBF — A Bruxelles, un locataire de 73 ans bientôt expulsé : le propriétaire s'oppose à — Частный жилищный спор в Бельгии, не является мировой новостью.
-- [fr] не_новость: [pool] RTBF — L’Etat peut réclamer à un étranger expulsé des frais de rapatriement mais pas de — Разъяснение закона, а не новостное событие.
-- [fr] не_новость: [pool] RTBF — Les aidants proches respirent : la dérogation pour l’allocation de chômage est p — Продление действия льгот — плановая канцелярия.
-- [fr] не_новость: [pool] RTBF — Loyer ou crédit trop cher : de plus en plus de Belges peinent à payer, voici com — Советы по экономии при выплате кредитов.
-- [fr] курьёз: [pool] Radio-Canada — Des enfants de la DPJ hébergés par leurs profs — Частный случай без официальных последствий.
-- [fr] не_новость: [world] Courrier International — Afrique du Sud : la menace d’une procédure de destitution de Cyril Ramaphosa éca — Процедура импичмента не запущена, угроза миновала — нет события.
-- [fr] не_новость: [world] RFI — Hong Kong: des hommages sous surveillance, un an après l'incendie de Wang Fuk Co — Годовщина события, возложение цветов — не новостное событие.
-- [fr] курьёз: [world] ScienceAlert — La solitude chronique associée à un risque de démence 38 % plus élevé, selon une — Научный факт/исследование без привязки к конкретному событию.
-- [fr] курьёз: [world] Sciences et Avenir — Les data centers consomment beaucoup plus d’électricité que prévu — Оценка потребления энергии, не новостное событие.
-- [fr] чужое_мелкое: [world] Africanews FR — Sénégal : le Parlement conteste le recours au décret pour le budget 2026 — Внутриполитический спор в Сенегале, нет последствий для региона.
-- [fr] не_новость: [world] Engadget — SpaceX obtient l'autorisation de la FCC pour déployer 1 million de satellites de — Разрешение на планируемые действия (SpaceX только планирует деплой).
-- [fr] не_новость: [world] RFI — Ukraine: la propagande russe invente la mort de Volodymyr Zelensky — Опровержение слуха, нет реального события.
-- [fr] курьёз: [world] Radio-Canada — Les secrets de la forêt québécoise : quand un arbre cache un empire — Информационный очерк о бизнесмене, а не новость.
+- [es] не_новость: [local] El Informador — Mascota celebra el Día Internacional de la Raicilla este 27 y 28 de noviembre — День-праздник, нет конкретного события или последствия для читателя.
+- [es] курьёз: [local] El Informador — Buscan casa en Guadalajara para Carlitos, perrito VIRAL de tres patas — История про щенка — для рубрики «Интересное», не является новостным событием.
+- [es] повтор: [pool] La Nación AR — Sesión en el Congreso por Reforma Electoral y Presupuesto, EN VIVO: suspensión d ≈ «Diputados, en vivo: con cruces entre el » — Один и тот же сюжет о дебатах по бюджету в Аргентине.
+- [es] чужое_мелкое: [pool] Infobae — Ilia Topuria y su próximo reto: “Lo que me mantiene motivado para 2027 es recupe — Личные планы спортсмена на 2027 год — не новость мирового масштаба.
+- [es] курьёз: [pool] La Nación AR — World Cheese Awards: un empresario argentino con un apellido icónico en las acei — История о победе на конкурсе сыров — для рубрики «Интересное».
+- [es] метка_места: [pool] El Comercio PE — México: un sistema de policultivo tradicional restaura la tierra en la Sierra No — Статья о Мексике в издании Перу, полка выбрана верно, но указана как событие в Мексике (корректно), однако в тексте приз
+- [es] курьёз: [pool] Marca — ¡Khabib se rinde ante una cabra! El luchador de la UFC no pudo ganar el duelo de — Шуточный поединок с животным — развлекательный контент.
+- [es] срочность: [world] Clarín AR — Ford vuelve a la guerra en Le Mans: presentó el GT41 para desafiar otra vez a Fe — Возвращение команды в гонки в 2027 году — не является экстренным событием для побудки.
+- [es] курьёз: [world] Sciences et Avenir — Un astronauta pakistaní llega a la estación china Tiangong, un hecho sin precede — Научно-популярный факт об астронавте — для «Интересного».
+- [es] чужое_мелкое: [world] Reforma — Denuncia FIFA que fue víctima de un ciberataque — Технический инцидент с серверами FIFA, не имеющий существенных последствий для читателей.
+- [es] курьёз: [world] ScienceAlert — Un estudio vincula la soledad crónica con un riesgo un 38% mayor de demencia, mi — Результаты научного исследования — для рубрики «Интересное».
+- [es] не_новость: [world] TechCrunch — S&P evalúa rebajar la calificación crediticia de Nvidia por riesgos de gobernanz — Оценка аналитиков о возможном будущем снижении рейтинга — это рассуждение, а не свершившийся факт.
