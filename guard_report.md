@@ -1,16 +1,31 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] курьёз: [local] Expansión MX — Starbucks convierte su vaso de oso Bearista de un fenómeno viral en una estrateg — Это потребительская заметка о коллекционировании сувениров, не событие.
-- [es] полка: [pool] Infobae — La Policía detuvo a 261 personas en operativos desplegados durante 48 horas en R — Новость о полиции Доминиканской Республики должна быть в «Новости из...», а не в «Местных» (испанский пул, домашняя стра
-- [es] срочность: [pool] El Informador — ¿Usas López Mateos o Mariano Otero? Estas rutas de transporte pararán HOY — Плановое объявление об изменениях в расписании не требует пометки «СРОЧНО».
-- [es] не_новость: [pool] Semana CO — “Lo del gobierno anterior fue irresponsable e ilegal”: MinSalud propone reducció — Обсуждение проекта и планы министерства не являются свершившимся событием.
-- [es] не_новость: [pool] El Informador — A esta hora lloverá en Guadalajara este jueves 26 de noviembre — Прогноз погоды не является новостью в нашем формате.
-- [es] повтор: [pool] BBC Mundo — Inés Gómez Mont, la exestrella de TV acusada de delincuencia organizada que caus ≈ «Inés Gómez Mont, la exestrella de TV acu» — Заголовок дублирует сам себя, новость выглядит как некачественный контент.
-- [es] не_новость: [pool] BBC Mundo — La España de los (casi) 50 millones: cómo la inmigración ha transformado el país — Аналитическая статья о демографии за десятилетие, а не новостное событие.
-- [es] чужое_мелкое: [world] Clarín AR — Medios hutíes reportan ataques sauditas contra capital de Yemen — Очередные сводки локальных обстрелов в Йемене без последствий для мира не являются мировым событием.
-- [es] курьёз: [world] Clarín AR — Londres busca controlar sus ostentosos, caros y ruidosos bicitaxis — Описание жизни лондонских велотакси — интересная зарисовка, а не мировая новость.
-- [es] не_новость: [world] BBC Mundo — Efecto BYD: por qué Brasil se ha convertido en un "laboratorio en América Latina — Разбор влияния китайских компаний на рынок (аналитика), а не факт события.
-- [es] курьёз: [world] BBC Mundo — "Si puedes reconocer como padre a alguien sin vínculo biológico, también es just — Тема прав в семейных отношениях — философское/правовое рассуждение, не новостное событие.
-- [es] не_новость: [world] Engadget — X añade sus primeros controles parentales — Обзор функционала приложения (обновление настроек X) не является событием по белому списку.
-- [es] не_новость: [world] TechCrunch — S&P evalúa rebajar la calificación crediticia de Nvidia por riesgos de gobernanz — Оценка агентством возможности снижения рейтинга в будущем — это мнение, а не событие.
-- [es] не_новость: [world] Ars Technica — Kagi, alternativa al buscador de Google, lanza un competidor de Gmail — Запуск нового продукта компанией (почта Kagi) — бизнес-новость, но без масштаба для мировой полки.
+- [pt] срочность: [world] Straits Times — Egípcios lamentam e exigem responsabilização após explosão mortal de caminhão-ta — Событие произошло в Египте, для читателя в Бразилии это не повод для побудки.
+- [pt] чужое_мелкое: [world] Folha de S.Paulo — ICE prende imigrante que ganhou US$ 1 milhão na loteria 4 dias antes — Частный случай задержания иммигранта в США не имеет мирового значения.
+- [pt] курьёз: [world] Público — Maria Middleton morreu de tumor no cérebro e pode ser a primeira santa da geraçã — История о возможной святой — это не новость, а любопытный факт для «Интересного».
+- [pt] курьёз: [world] Engadget — A coleção de 30 anos de Pokémon da Casetify inclui um estojo de Poké Bola para A — Выпуск чехла для наушников с дизайном Pokemon — рекламная новость, а не событие.
+- [pt] курьёз: [world] BBC Brasil — Menos sexo, mais pornografia: o que pesquisa revela sobre jovens britânicos — Разбор привычек британской молодежи — это статья-обзор, а не событийная новость.
+- [pt] чужое_мелкое: [world] Engadget — SpaceX obtém aprovação da FCC para lançar 1 milhão de satélites para seu centro  — Одобрение лицензии регулятором для SpaceX — техническая новость без прямого влияния на читателя.
+- [pt] не_новость: [world] BBC Brasil — Morre Andy Taylor: o guitarrista que ajudou a levar o Duran Duran ao topo do mun — Смерть гитариста через три дня после события — это некролог, лишенный актуальности.
+- [pt] чужое_мелкое: [world] Engadget — O X está implementando seus primeiros controles parentais — Внедрение родительского контроля в соцсети — текущее обновление сервиса, а не значимое событие.
+- [pt] не_новость: [world] BBC Brasil — O que revelam imagens do asteroide atingido deliberadamente pela Nasa para testa — Разбор старых данных о миссии NASA — это просветительский материал, а не событие.
+- [pt] курьёз: [world] Ars Technica — A Kagi, alternativa ao Google, lança rival do Gmail — Запуск нишевого почтового сервиса — не новость мирового масштаба.
+- [pt] не_новость: [world] TechCrunch — OpenAI informa que usuários intensivos do ChatGPT podem atingir limites mais rap — Внутреннее изменение интерфейса ChatGPT — рабочая рутина компании.
+- [fr] чужое_мелкое: [local] L'Express — Pablo Hernandez de Cos à la BCE : en coulisses, la volte-face d'Emmanuel Macron  — Внутренняя кадровая политика Испании, не имеет последствий для Франции.
+- [fr] не_новость: [local] France Bleu — L'enseignante grenobloise convoquée pour avoir donné un devoir sur le mouvement  — Отмена дисциплинарной процедуры — отсутствие события.
+- [fr] не_новость: [local] 20 Minutes — Saisir la justice pour débloquer un établissement scolaire marche-t-il ? Ce que  — Аналитическая статья о том, работает ли обращение в суд, а не факт события.
+- [fr] не_новость: [local] Franceinfo — Une convention citoyenne sur les finances publiques lancée vendredi pour "réduir — Анонс запуска мероприятия, нет результата.
+- [fr] курьёз: [local] 20 Minutes — PFAS : Œuf, poisson, lait infantile… Ces aliments particulièrement contaminés pa — Обзор продуктов с загрязнителями, нет конкретного события.
+- [fr] чужое_мелкое: [pool] RTBF — A Bruxelles, un locataire de 73 ans bientôt expulsé : le propriétaire s'oppose à — Частный жилищный спор в Бельгии, не является мировой новостью.
+- [fr] не_новость: [pool] RTBF — L’Etat peut réclamer à un étranger expulsé des frais de rapatriement mais pas de — Разъяснение закона, а не новостное событие.
+- [fr] не_новость: [pool] RTBF — Les aidants proches respirent : la dérogation pour l’allocation de chômage est p — Продление действия льгот — плановая канцелярия.
+- [fr] не_новость: [pool] RTBF — Loyer ou crédit trop cher : de plus en plus de Belges peinent à payer, voici com — Советы по экономии при выплате кредитов.
+- [fr] курьёз: [pool] Radio-Canada — Des enfants de la DPJ hébergés par leurs profs — Частный случай без официальных последствий.
+- [fr] не_новость: [world] Courrier International — Afrique du Sud : la menace d’une procédure de destitution de Cyril Ramaphosa éca — Процедура импичмента не запущена, угроза миновала — нет события.
+- [fr] не_новость: [world] RFI — Hong Kong: des hommages sous surveillance, un an après l'incendie de Wang Fuk Co — Годовщина события, возложение цветов — не новостное событие.
+- [fr] курьёз: [world] ScienceAlert — La solitude chronique associée à un risque de démence 38 % plus élevé, selon une — Научный факт/исследование без привязки к конкретному событию.
+- [fr] курьёз: [world] Sciences et Avenir — Les data centers consomment beaucoup plus d’électricité que prévu — Оценка потребления энергии, не новостное событие.
+- [fr] чужое_мелкое: [world] Africanews FR — Sénégal : le Parlement conteste le recours au décret pour le budget 2026 — Внутриполитический спор в Сенегале, нет последствий для региона.
+- [fr] не_новость: [world] Engadget — SpaceX obtient l'autorisation de la FCC pour déployer 1 million de satellites de — Разрешение на планируемые действия (SpaceX только планирует деплой).
+- [fr] не_новость: [world] RFI — Ukraine: la propagande russe invente la mort de Volodymyr Zelensky — Опровержение слуха, нет реального события.
+- [fr] курьёз: [world] Radio-Canada — Les secrets de la forêt québécoise : quand un arbre cache un empire — Информационный очерк о бизнесмене, а не новость.
