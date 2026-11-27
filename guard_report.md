@@ -1,49 +1,52 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] не_новость: [local] Gazeta do Povo — Bolsonaro apresenta melhora e volta a se alimentar após cinco dias de jejum oral — Возобновление питания после поста — личное медицинское состояние экс-президента.
-- [pt] не_новость: [local] G1 Globo — BRB é multado em R$ 14 mil por irregularidades na oferta de crédito — Штраф банку за нарушения в рекламе кредитов — рутинный административный процесс.
-- [pt] срочность: [local] G1 Rio — Casa onde fogos de artifício explodiram durante incêndio no Cachambi é interdita — Последствия инцидента (интердикция дома) не требуют побудки читателя.
-- [pt] чужое_мелкое: [local] Poder360 — Inadimplência sobe para 5,1% em outubro, diz Banco Central — Данные о кредитной нагрузке — статистика, не имеющая экстренного характера.
-- [pt] чужое_мелкое: [local] Metrópoles — Endividamento das famílias ficou em 50% no mês de setembro, segundo BC — Статистика задолженности домохозяйств — не событие-новость.
-- [pt] не_новость: [local] CNN Brasil — Dorival cita Corinthians ao expor crise no São Paulo: “Muito parecidos” — Мнение тренера о сходстве команд — не событие.
-- [pt] курьёз: [local] Agência Brasil — Super El Niño é o primeiro de uma série, alerta climatologista — Мнение климатолога о будущем — не новость с конкретным фактом.
-- [pt] не_новость: [local] Gazeta do Povo — Vieira pede que Fachin divulgue relatórios da PF sobre ministros do STF no caso  — Ходатайство сенатора о снятии грифа секретности — намерение, а не факт.
-- [pt] срочность: [local] G1 Rio — Tiroteio entre traficantes e milicianos assusta moradores e deixa academia ating — Перестрелка в криминальной зоне — рутина, не требующая побудки.
-- [pt] не_новость: [local] Agência Brasil — Expectativa de vida no Brasil sobe para 76,9 anos, diz IBGE — Статистический отчет IBGE об ожидаемой продолжительности жизни.
-- [pt] курьёз: [local] Agência Brasil — Eólicas e avanço do mar desafiam reserva ambiental no litoral potiguar — Очерк о жизни рыбака и экологических вызовах — тематический материал.
-- [pt] срочность: [local] G1 São Paulo — Falhas em trens provocam atrasos e lotação nas linhas 8, 9 e 11 na Grande SP — Технические сбои в метро — типичная жалоба пассажиров, не требующая побудки.
-- [pt] не_новость: [local] Gazeta do Povo — STF contraria Moraes e mantém restrições ao porte de armas de GCMs — Юридическое уточнение полномочий охранников — не событийная новость.
-- [pt] срочность: [local] G1 Rio Grande do Sul — Rio Uruguai ultrapassa cota de inundação e moradores são retirados de casa em Sã — Подъем уровня реки — плановое природное явление, уже зафиксировано.
-- [pt] срочность: [local] G1 Rio — Polícia prende 'Capitão Léo', suspeito de homicídios em guerra por territórios e — Арест по старому делу — не требует побудки.
-- [pt] не_новость: [local] G1 Rio — 13º salário pode injetar R$ 15,3 bilhões na economia carioca no fim do ano, calc — Прогноз вливания денег в экономику — оценочное суждение мэрии.
-- [pt] не_новость: [local] G1 Rio — Áudios, vídeo com arma: veja o conteúdo do celular de David usado para fundament — Детали уголовного дела, уже повлекшего арест — избыточно и не новость.
-- [pt] полка: [pool] Público — Rússia quer trocar campeã de futebol presa no país por russo detido no Brasil — Новость о россиянах и бразильцах в СМИ Португалии — мировой масштаб, а не региональный.
-- [pt] курьёз: [world] Público — Em prisão domiciliária por violação, enteado do rei da Noruega arranja trabalho — Трудоустройство члена королевской семьи в домашнем аресте.
-- [pt] чужое_мелкое: [world] Fortune — Fundo hospitalar do Medicare pode pagar benefícios integrais apenas até meados d — Финансовые детали госпрограммы США — узкоспециализированная информация.
-- [pt] чужое_мелкое: [world] Азаттык — Bloomberg: Bancos do Cazaquistão podem financiar compra da Altynalmas pelo empre — Слухи Bloomberg о финансировании частной сделки в Казахстане.
-- [pt] чужое_мелкое: [world] BBC Brasil — O imigrante que ganhou US$ 1 milhão na loteria e foi preso pelo ICE: 'A sorte ac — Личная история иммигранта — не мировая новость.
-- [pt] не_новость: [world] Ars Technica — As baterias grandes da Volvo: dirigimos seus híbridos plug-in atualizados de 202 — Автообзор — тест-драйв, а не новость.
-- [pt] не_новость: [world] Engadget — Backloggd solicita que usuários alterem senhas após violação de segurança — Просьба сменить пароль — это рекомендация, а не новость об инциденте.
-- [pt] не_новость: [world] Ars Technica — Ford revela o GT41 com o objetivo de vencer novamente em Le Mans — Анонс спортивного автомобиля, который выйдет на гонки в будущем.
-- [fr] не_новость: [local] 20 Minutes — « Je ne suis pas que la fille rigolote et populaire », rappelle Marine qui propa — альбом вышел — это не событие с общественными последствиями
-- [fr] не_новость: [pool] La Libre — Conner Rousseau jette de l'huile sur le feu, après l'invitation de Bart De Wever — внутриполитическая полемика без решения или события
-- [fr] не_новость: [pool] RTBF — "Le PS est toujours prêt à aller aux élections", déclare Caroline Désir (PS) qui — партийные заявления и прогнозы, а не свершившееся событие
-- [fr] курьёз: [pool] RTBF — Arrivée prochaine d'un nouveau panda à Pairi Daiza : en douze ans, les ours chin — история про панд для рубрики «интересное», а не в новости
-- [fr] курьёз: [pool] RTBF — Sourire éclatant, pratiques douteuses et danger pour la santé : enquête sur le b — потребительский обзор услуги, место в «интересном»
-- [fr] не_новость: [pool] RTBF — QR : un hôpital peut-il facturer des frais supplémentaires liés à la cybersécuri — ответ на вопрос читателя, а не событие
-- [fr] не_новость: [world] Le Temps — Deux ans après avoir frôlé la mort, Cyprien Sarrazin retrouve la Coupe du monde  — очерк о спортсмене перед матчем
-- [fr] полка: [world] Futura-Sciences — Le télescope James-Webb a découvert un mystérieux objet cosmique qui pourrait éc — «Интересное» (космос) не должно быть в Мировых как текущее событие
-- [fr] курьёз: [world] Courrier International — En Inde, le mariage démesuré de la fille d’un élu local attire 500 000 personnes — частная свадьба, пусть и большая, — не мировая новость
-- [fr] не_новость: [world] RFI — Face aux restrictions de visas, les touristes russes prêts à délaisser l'Europe? — аналитическая статья, «готовятся ли» — не событие
-- [fr] не_новость: [world] RTBF — Un jour, une carte : 50 ans après la fin de la dictature en Espagne, l'extrême d — аналитический разбор истории, не событие
-- [fr] не_новость: [world] Courrier International — En Équateur, le président Daniel Noboa veut faire des élections municipales un p — предисловие к выборам, анонс
-- [fr] не_новость: [world] Radio-Canada — À quel point la vague démocrate est-elle historique? La réponse en 8 graphiques — анализ графиков, разбор, не событие
-- [fr] не_новость: [world] Азаттык (кыргызча) — Le ministère des Situations d'urgence du Kirghizistan écarte le risque de ruptur — опровержение слухов, отсутствие события
-- [fr] полка: [world] Sciences et Avenir — La Nasa a percuté un astéroïde : les premières images dévoilent un résultat inat — ошибка: событие FR (космос), перенести в «Интересное»
-- [fr] курьёз: [world] BBC News — « Je ne serais pas là aujourd'hui sans vous » : une étudiante remercie l'homme q — личная история, нет общественной значимости
-- [fr] не_новость: [world] L'Obs — Pourquoi l’ombre de Franco continue-t-elle de planer sur l’Espagne ? — аналитический разбор, не событие
-- [fr] не_новость: [world] RFI — Des millions de personnes dans le monde concernées par les mariages précoces et  — тематический день ООН, нет конкретного события
-- [fr] не_новость: [world] Franceinfo — "Ils jouent avec nos vies" : en Espagne, la crise du logement pousse les locatai — очерк о жизни арендаторов, нет события
-- [fr] полка: [world] Superinteressante — Les étudiants universitaires sont les principaux propagateurs du Covid-19, selon — научное исследование — в «Интересное»
-- [fr] не_новость: [world] Le Nouvelliste — Visit of the WHO Director in Haiti — визит без подписанных соглашений, протокольное
-- [fr] не_новость: [world] Time — La Chine et le Brésil mènent la contestation contre les menaces tarifaires « ina — анализ торговых угроз, не свершившееся действие
+- [en] чужое_мелкое: [local] WLBT — Lucedale man sentenced to 40 years in child sexual abuse material case — Обычное местное уголовное дело, не имеет мирового значения.
+- [en] не_новость: [local] VTDigger — New tax brings in over $100K for Little City so far — Отчет о налогах — рабочая рутина госуправления.
+- [en] не_новость: [local] El Paso Matters — El Paso approves incentives for $255 million manufacturing facility; early votin — Подборка новостей за неделю.
+- [en] курьёз: [local] OPB — Red gold and cold hands: Inside Oregon’s most painstaking harvest — История об урожае шафрана — тема для раздела «Интересное».
+- [en] не_новость: [local] OPB — Outpouring of public support propels local funding fix for Clark Conservation Di — Обзор общественных комментариев без свершившегося события.
+- [en] не_новость: [local] Bangor Daily News — Maine’s outdoor recreation economy hit a record $4B last year — Статистика экономики за прошлый год — это не событие.
+- [en] не_новость: [local] WKYT — Two Keys Tavern set to reopen near UK’s campus — Открытие локального бара — мелкий бизнес-факт.
+- [en] срочность: [local] NH Union Leader Latest News — Fire leaves one dead and two injured in Francestown — Пожар — трагедия, но не повод будить всех пользователей.
+- [en] не_новость: [local] 1011NOW — Cool Friday, rain likely Saturday — Прогноз погоды — не событие.
+- [en] не_новость: [local] Latest &amp; Breaking News — WSSC Water's 'Essential Water Use Only' request continues for 1.9 million Maryla — Отмена рекомендации по экономии воды — бытовая информация.
+- [en] срочность: [local] WUSA9 — Power outages in DC and Mar could last until Sunday. — Бытовые перебои с электричеством не требуют экстренной пометки.
+- [en] не_новость: [local] VTDigger — After yearlong dispute, Vermont state employees required to return to the office — Плановое решение о возвращении сотрудников в офис.
+- [en] не_новость: [local] CBS News — Trump says he's giving Iran "a chance to be smart" — Очередные заявления Трампа об Иране — слова без изменения статуса.
+- [en] не_новость: [local] WBAY — Thanksgiving begins a busy season for recycling centers — Напоминание о том, что праздники — время для переработки мусора.
+- [en] не_новость: [local] Georgia Public Broadcasting — GPB morning headlines for November 27, 2026 — Сводка новостей за день.
+- [en] не_новость: [local] WFSB — Hartford Winterfest delays opening day due to weather — Обычное закрытие из-за погоды.
+- [en] не_новость: [local] KFVS12 — Power outages in the Heartland 11/26 — Погода и бытовые отключения.
+- [en] не_новость: [local] WRDW — Windy Friday, sunshine returning this weekend. — Прогноз погоды.
+- [en] не_новость: [local] WBRC — Black grime, dirty floors lead to lowest score of the week — Результаты рядовой санитарной проверки в кафе.
+- [en] не_новость: [local] WHYY — How Philadelphians can avoid porch pirates this holiday season — Советы, как избежать краж посылок.
+- [en] не_новость: [local] WCAX — Avoiding scams during Black Friday, Cyber Monday — Памятка по безопасности при покупках.
+- [en] срочность: [local] WBRC — Mother, 2 kids jumped from window during Thanksgiving Day apartment fire — Трагическое происшествие, но не требует статуса «СРОЧНО».
+- [en] курьёз: [world] RNZ — Elon Musk's 1 million 'Starmind' satellites a 'land grab', Auckland professor sa — Мнение профессора о планах Илона Маска — аналитика, а не событие.
+- [en] чужое_мелкое: [world] Engadget — Amazon workers around the world plan strikes and protests on Black Friday and Cy — Протесты локального масштаба в разных городах, события недостаточно для «Мировых».
+- [en] не_новость: [world] TechCrunch — X finally gets parental controls after 20 years — Обновление функции в соцсети — текущая работа платформы.
+- [en] не_новость: [local] Gothamist — Busted NYC streetlights wait longer for repairs after brutal winter — Плановая статистика обслуживания инфраструктуры, не событие.
+- [en] курьёз: [local] OPB — From a town of 500, an Eastern Oregon mayor is heading for the Boston Marathon — История о марафонце не является новостью общенационального значения.
+- [en] не_новость: [local] OPB — Portland considers yearlong moratorium on AI software — Рассмотрение инициативы политиком, а не принятое решение.
+- [en] курьёз: [local] OPB — Red gold and cold hands: Inside Oregon’s most painstaking harvest — Очерк о местном фермере, классифицируется как интересное.
+- [en] не_новость: [local] OPB — Portland-area water bills have spiked, partly driven by climate change — Общий обзор тренда на удорожание услуг, нет конкретного события.
+- [en] срочность: [local] NH Union Leader Latest News — Fire leaves one dead and two injured in Francestown — Локальный бытовой пожар не требует прерывания дел читателя.
+- [en] срочность: [local] Bangor Daily News — 2 injured in Milford UTV rollover — Мелкое ДТП без массовых последствий.
+- [en] срочность: [local] WUSA9 — Power outages in DC and Mar could last until Sunday. — Плановое объявление об отключении, не требует срочной плашки.
+- [en] чужое_мелкое: [local] Inquirer.com — 6abc won’t go dark after judge rules against Trump administration — Внутренняя судебная тяжба по регулированию FCC, не мировая новость.
+- [en] не_новость: [local] Homepage — Candy Cane Lane lights up West Allis for the 41st holiday season on Friday — Анонс ежегодного праздничного мероприятия.
+- [en] не_новость: [local] WSMV — Nashville Symphony to celebrate holidays with concerts and classic films — Анонс программы симфонического оркестра.
+- [en] не_новость: [local] reviewjournal — ‘More than just a dress’: Southern Nevada nonprofit needs $70K to avoid closing — Сбор средств некоммерческой организацией, событием не является.
+- [en] не_новость: [local] The Salt Lake Tribune — How Real Salt Lake’s 36-year-old goalkeeper ‘found his magic’ to guide club’s pl — Спортивный очерк о форме игрока.
+- [en] не_новость: [local] Mississippi Today — Old Tallahatchie courthouse preserved as Emmett Till museum — Долгосрочный проект по созданию музея, не событие дня.
+- [en] не_новость: [local] WBAY — New Holstein charity plans campaign to fund new warehouse — Планируемая кампания по сбору средств.
+- [en] не_новость: [local] WECT — New ice skating rink opens near Carolina Beach boardwalk for holiday season — Открытие аттракциона — плановое событие.
+- [en] не_новость: [local] Startribune News — St. Paul cracks down on copper theft, yet more streetlights there are dark than  — Аналитическая заметка о проблемах города, нет свежего события.
+- [en] не_новость: [local] Startribune News — Former Gopher Kim Royston has guided Cretin-Derham Hall football back to the sta — Очерк о тренере и его карьере.
+- [en] не_новость: [local] Santa Fe New Mexican — Robert Earl Keen brings his Texas-style disco Christmas party to Santa Fe — Анонс концерта.
+- [en] не_новость: [local] WHYY — ‘We feel unsafe’: University of Delaware College Republicans detail series of cl — Конфликт между местными партийными ячейками не является новостью.
+- [en] не_новость: [local] WFSB — Westfarms open doors for thousands of Black Friday shoppers — Обычная работа торгового центра в «черную пятницу».
+- [en] не_новость: [local] Startribune News — U students get a crash course in real-world veterinary care — Учебная ротация студентов.
+- [en] не_новость: [local] LA Times — LAUSD blocks Google AI, despite tech giant's move to pressure schools to go all  — Решение школьного округа об ограничении софта для учеников.
+- [en] не_новость: [local] Honolulu Star-Advertiser — Five years after Red Hill fuel leak, the fallout isn’t over — Рефлексия о давнем событии без новых фактов.
+- [en] не_новость: [local] WPLN — Data centers flood Black communities without residents having a say — Общий материал о проблеме без конкретного события дня.
