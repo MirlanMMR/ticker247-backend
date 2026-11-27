@@ -1,58 +1,16 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] полка: [local] El Financiero — ¡Ofertas de ganancias! Wall Street abre con expectativa positiva por Black Frida — Wall Street — мировая финансовая новость, не должна быть в «Местных» (MX).
-- [es] не_новость: [local] Expansión MX — Moisés Chaves deja Consejo de Bankaool ante imposibilidad de que CNBV autorice s — Это плановое корпоративное изменение, не влияющее на рынок или граждан.
-- [es] полка: [pool] Infobae — Lista de convocados de la selección peruana para amistoso ante Panamá en Cusco — Событие в Перу — для Мексики это мировая новость, а не «Новости из…».
-- [es] чужое_мелкое: [pool] Infobae — Rufián llama al electorado socialista a confiar en ERC: "No os fallaremos" — Внутренняя политика Испании (кампания партии ERC) не является значимой для Мексики.
-- [es] полка: [pool] Infobae — Honduras: capturan a supuesto administrador de las redes sociales del Cártel del — Событие в Гондурасе — для Мексики это мировая новость, а не «Новости из…».
-- [es] не_новость: [pool] El Universo EC — Alfredo Cuentas será candidato a presidente de Barcelona SC en las elecciones de — Предвыборные спекуляции в футбольном клубе не являются новостью.
-- [es] чужое_мелкое: [pool] La Nación AR — Elecciones España 2026: resumen del debate, las últimas encuestas y las noticias — Внутренние выборы в Испании не имеют последствий для Мексики.
-- [es] не_новость: [pool] El Nacional VE — Consecomercio solicita revisar la carga tributaria y simplificar trámites para i — Просьба о снижении налогов — это дискуссия, а не принятое решение.
-- [es] полка: [pool] El Economista MX — Relatora de la ONU dice que Costa Rica debe responder por falsas acusaciones de  — Событие в Коста-Рике — для Мексики это мировая новость.
-- [es] полка: [pool] La Nación CR — Laura Fernández anuncia referéndum sobre minería en Crucitas — Событие в Коста-Рике — для Мексики это мировая новость.
-- [es] чужое_мелкое: [pool] Marca — El problema del Madrid con Nico Paz: "Su deseo choca con la realidad y la Premie — Слухи о трансфере игрока — мелкая спортивная новость, не мировая.
-- [es] полка: [pool] Prensa Libre GT — Caso Los Calavera: juez ordena investigar a fiscalía por ausentarse de audiencia — Событие в Эквадоре — для Мексики это мировая новость.
-- [es] чужое_мелкое: [pool] Marca — Ricky Rubio da el salto a los despachos: entra en el accionariado del nuevo Jove — Мелкая бизнес-новость испанского клуба.
-- [es] не_новость: [pool] El Informador — Nombran nuevo rector general de la Universidad Panamericana y del IPADE Business — Назначение ректора университета — внутренняя кадровая новость организации.
-- [es] не_новость: [pool] El Informador — La FIL "se volvió un espacio de ideas de derecha": Sheinbaum — Мнение президента о культурной ярмарке — это слова, а не событие.
-- [es] чужое_мелкое: [pool] La Vanguardia — Feijóo apela al votante del PSOE y de Junts para hacer del PP “la casa común” de — Внутренняя предвыборная риторика в Испании.
-- [es] чужое_мелкое: [pool] El Mundo — Feijóo pide "votar en masa contra el miedo" para asegurar el cambio en España: " — Внутренняя предвыборная риторика в Испании.
-- [es] чужое_мелкое: [pool] eldiario.es — El PP agita el fantasma del fraude con una denuncia ante la Junta Electoral por  — Местная жалоба на выборы в Испании.
-- [es] чужое_мелкое: [pool] La Vanguardia — Sánchez exprime el ‘calladita’ de Feijóo: “Rezuma machismo” — Внутренняя полемика политиков в Испании.
-- [es] чужое_мелкое: [pool] eldiario.es — Pedro Sánchez: "El capital y la gran empresa están apoyando a la derecha y a la  — Внутренняя предвыборная риторика в Испании.
-- [es] чужое_мелкое: [pool] eldiario.es — Feijóo se enreda en la polémica tras su “calladita” y Ada Colau responde: “Las m — Внутренняя полемика политиков в Испании.
-- [es] чужое_мелкое: [pool] La Vanguardia — El tándem Sánchez-Colau contrarresta la ofensiva de Feijóo y Abascal en el debat — Внутренняя полемика политиков в Испании.
-- [es] чужое_мелкое: [world] El Mundo — Un testigo protegido declara a la juez que el jefe de Policía de Tetuán le anunc — Внутреннее полицейское расследование в Испании/Марокко, не имеющее глобального значения.
-- [es] полка: [world] Азаттык (кыргызча) — Al menos tres muertos tras ataques con misiles y drones en Ucrania — Война в Украине — мировая новость, не должна быть в «Мировых» (кг-язык).
-- [es] полка: [world] Азаттык (кыргызча) — El Ministerio de Situaciones de Emergencia afirma que el riesgo de desborde de l — Событие в Кыргызстане — не должно быть в «Мировых» (кг-язык).
-- [es] чужое_мелкое: [local] El Financiero — ¡Ofertas de ganancias! Wall Street abre con expectativa positiva por Black Frida — Финансовые ожидания Wall Street — это рыночная аналитика, а не мировое событие с последствиями.
-- [es] полка: [pool] Infobae — Lista de convocados de la selección peruana para amistoso ante Panamá en Cusco — Спортивный анонс матча Перу-Панама не является важной новостью для Мексики или мировой повесткой.
-- [es] чужое_мелкое: [pool] Infobae — Honduras: capturan a supuesto administrador de las redes sociales del Cártel del — Задержание местного преступника в Гондурасе — внутренняя новость, не имеющая мирового масштаба.
-- [es] курьёз: [pool] Semana CO — Creyó que nadie lo veía: adulto mayor terminó grabado robando espejo de carro en — Кража зеркала заднего вида — бытовое происшествие, не новость.
-- [es] чужое_мелкое: [pool] El Economista MX — Relatora de la ONU dice que Costa Rica debe responder por falsas acusaciones de  — Дипломатический спор Коста-Рики с ООН — частный случай, не мировой масштаб.
-- [es] не_новость: [pool] Semana CO — Las caravanas de Cola-Cola tendrán transmisión en vivo: así puede conectarse — Расписание новогодних караванов — рекламный анонс, а не событие.
-- [es] чужое_мелкое: [pool] Prensa Libre GT — Caso Los Calavera: juez ordena investigar a fiscalía por ausentarse de audiencia — Внутренние дисциплинарные разборки прокуратуры Гватемалы — местная рутина.
-- [es] чужое_мелкое: [pool] La Vanguardia — Hereu apela al votante de Junts ante la “amenaza” de PP y Vox para el autogobier — Предвыборная риторика внутри Испании не является мировой новостью.
-- [es] не_новость: [pool] Diario Libre DO — Adriano Espaillat recibe Orden de Duarte, Sánchez y Mella — Получение награды или почестей — дипломатический этикет, событием не является.
-- [es] чужое_мелкое: [pool] BBC Mundo — Los campesinos en Colombia que no dejan de recibir amenazas por un terreno que l — Длительный земельный спор — внутренняя проблема, не мирового значения.
-- [es] чужое_мелкое: [world] RFI — Irak: Trump dice apoyar los esfuerzos para acabar con el contrabando de petróleo — Заявление Трампа по Ираку в контексте нефти — текущая дипломатическая работа, не срочно.
-- [es] курьёз: [world] The Independent — La naturaleza revela qué hay detrás de la lona del Kennedy Center que cubría el  — Погодные условия сорвали рекламный баннер Трампа — это забавный факт, не новость.
-- [es] курьёз: [world] The Independent — Las ventas de las memorias de Joe Biden quedan rezagadas respecto a los libros d — Сравнение продаж книг — чисто рыночная статистика, не событие.
-- [es] не_новость: [world] The Independent — Fallece a los 95 años Dan Carney, cofundador de Pizza Hut — Смерть сооснователя сети ресторанов в 95 лет — не мировое событие.
-- [es] курьёз: [world] The Independent — Piloto recurre a la Corte Suprema para recuperar su avión de 95,000 dólares conf — Судебная тяжба из-за пива в самолете — курьез, не имеющий глобальных последствий.
-- [es] чужое_мелкое: [world] Semafor — Aumentan las importaciones de paneles solares chinos en Kenia ante la volatilida — Аналитика импорта панелей в Кению — бизнес-заметка, не мировая новость.
-- [es] чужое_мелкое: [world] RFI — Israel: Gadi Eisenkot continúa sus gestiones para formar el próximo gobierno — Переговоры о формировании правительства внутри Израиля — местная политика.
-- [es] чужое_мелкое: [world] Semafor — El presidente del parlamento de Senegal insta a convocar elecciones anticipadas  — Внутрипартийные призывы к выборам в Сенегале — внутренняя политика.
-- [es] чужое_мелкое: [world] Азаттык — Bloomberg: Bancos de Kazajistán podrían proporcionar fondos al empresario Mutali — Банковские кредиты для частного бизнеса в Казахстане — частная экономическая новость.
-- [es] не_новость: [pool] La Nación AR — Murió el empresario Jorge Born, víctima de un secuestro de Montoneros — Это некролог известного бизнесмена, событие не несёт оперативного смысла для читателя.
-- [es] курьёз: [pool] Semana CO — Creyó que nadie lo veía: adulto mayor terminó grabado robando espejo de carro en — Кража зеркала — мелкое происшествие, не заслуживающее места в ленте.
-- [es] не_новость: [world] The Independent — La naturaleza revela qué hay detrás de la lona del Kennedy Center que cubría el  — Это обсуждение декораций, не имеющее общественной значимости.
-- [es] не_новость: [world] The Independent — Las ventas de las memorias de Joe Biden quedan rezagadas respecto a los libros d — Статистика продаж книг — рыночный отчет, не является новостным событием.
-- [es] чужое_мелкое: [world] The Independent — Piloto recurre a la Corte Suprema para recuperar su avión de 95,000 dólares conf — Частный иск пилота о возврате имущества — внутренняя судебная хроника США.
-- [es] полка: [world] Азаттык — Sanzhar Bokaev fue condenado a diez años de prisión en Almaty — Местная новость Казахстана (издание Азаттык) попала в мировые; не имеет мирового значения.
-- [es] полка: [world] Азаттык (кыргызча) — Al menos tres muertos tras ataques con misiles y drones en Ucrania — Война в Украине — мировая новость, должна быть в мировых, а не в разделе Азаттык.
-- [es] чужое_мелкое: [world] Азаттык — En Uzbekistán, obligan a los visitantes de la administración a usar cubrezapatos — Локальное административное требование в Узбекистане, не имеет значения для читателя в MX.
-- [es] полка: [world] Азаттык (кыргызча) — Se informó sobre llamadas de diputados para alterar las puntuaciones del examen  — Внутренний скандал в парламенте КР — это местная новость Кыргызстана, а не мировая.
-- [es] чужое_мелкое: [world] Азаттык (кыргызча) — Se investiga la muerte de un ciudadano tayiko en Rusia — Криминальная хроника: расследование смерти гражданина Таджикистана в РФ.
-- [es] чужое_мелкое: [world] Азаттык — Afganistán anuncia la pronta finalización de la segunda fase del canal Qosh Tepa — Строительство канала в Афганистане — локальная инфраструктурная новость, не мировая.
-- [es] полка: [world] Азаттык (кыргызча) — El Ministerio de Situaciones de Emergencia afirma que el riesgo de desborde de l — Внутренняя ситуация в горах Кыргызстана (отчёт МЧС) — это местная новость, а не мировая.
+- [pt] чужое_мелкое: [local] Agência Brasil — Governo avalia que novo tarifaço dos EUA busca proteger big techs — Análise governamental sobre tarifas dos EUA; não é evento, é avaliação de conjuntura.
+- [pt] не_новость: [pool] Observador PT — Chega quer reforma após 40 anos de descontos na Constituição — Proposta política de um partido; não é decisão tomada ou fato consumado.
+- [pt] чужое_мелкое: [world] Notícias ao Minuto — Rússia acusa Letónia de querer provocar uma "guerra aberta" no Báltico — Troca de acusações diplomáticas entre Rússia e Letônia sem impacto direto no Brasil ou escala global de crise imediata.
+- [pt] чужое_мелкое: [world] The Hill — Milhares continuam sem energia após tempestades no Dia de Ação de Graças — Falta de energia após tempestade é evento local nos EUA; não possui relevância global para justificar a seção 'Mundiais'
+- [pt] чужое_мелкое: [world] RFI — Iraque: Trump declara apoio aos esforços para acabar com o contrabando de petról — Apoio de Trump a esforços internos do Iraque é notícia interna da política iraquiana.
+- [pt] чужое_мелкое: [world] RFI — Israel: Gadi Eisenkot continua as negociações para formar o próximo governo — Negociações políticas internas de Israel para formar governo são notícia local.
+- [pt] полка: [world] Азаттык — Sanzhar Bokaev é condenado a dez anos de prisão em Almaty — Notícia sobre condenação no Cazaquistão em 'Mundiais'; deveria estar em 'Notícias de...' ou ser omitida por falta de rel
+- [pt] полка: [world] Азаттык (кыргызча) — Pelo menos três mortos em ataques de mísseis e drones na Ucrânia — Notícia sobre conflito na Ucrânia publicada por edição do Quirguistão; não é evento local ou regional para o pool brasil
+- [pt] чужое_мелкое: [world] RFI — A Coreia do Norte suspende temporariamente a sua ajuda militar à Rússia — Suspensão temporária de ajuda militar entre Coreia do Norte e Rússia; é ruído diplomático constante, não evento de impac
+- [pt] полка: [world] Азаттык (кыргызча) — Diretora informa que recebe telefonemas de deputados para alterar pontuações do  — Notícia sobre parlamentares do Quirguistão em um pool brasileiro.
+- [pt] чужое_мелкое: [world] Азаттык — Bloomberg: Bancos do Cazaquistão podem financiar compra da Altynalmas pelo empre — Negociações financeiras de empresário cazaque não possuem relevância para o leitor brasileiro.
+- [pt] полка: [world] Азаттык (кыргызча) — Morte de cidadão do Tajiquistão na Rússia está sendo investigada — Notícia sobre cidadão tajique na Rússia, publicada por edição do Quirguistão; sem relação com o pool pt-BR.
+- [pt] чужое_мелкое: [world] Азаттык — Afeganistão anuncia a conclusão iminente da segunda fase da construção do canal  — Construção de canal no Afeganistão é notícia local daquele país.
+- [pt] полка: [world] Азаттык (кыргызча) — Ministério de Situações de Emergência afirma que risco de rompimento de lagos em — Notícia sobre o Quirguistão em um pool brasileiro.

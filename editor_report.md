@@ -1,94 +1,120 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-11-27 19:16 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-11-27 20:19 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [es]: помечено 91 из 371 за 4 запросов
-  🧭 [es] после отбора и отсечки полок: всего 70 — местных 28, соседей 19, мира 23; областных 43 в 18 регионах
-  🧭 [es] после чистки текста: всего 68 — местных 27, соседей 19, мира 22; областных 43 в 18 регионах
-  🧭 [es] после обзоров прессы: всего 62 — местных 26, соседей 20, мира 16; областных 20 в 11 регионах
-  🧭 [es] после склейки пересказов: всего 58 — местных 23, соседей 20, мира 15; областных 18 в 11 регионах
-  🧭 [es] после рубежа: всего 50 — местных 18, соседей 20, мира 12; областных 18 в 11 регионах
+  🧪 Этап 1 (боевой) [pt]: помечено 112 из 420 за 4 запросов
+  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 58 в 18 регионах
+  🧭 [pt] после чистки текста: всего 70 — местных 28, соседей 14, мира 28; областных 58 в 18 регионах
+  🧭 [pt] после обзоров прессы: всего 64 — местных 26, соседей 14, мира 24; областных 38 в 9 регионах
+  🧭 [pt] после склейки пересказов: всего 50 — местных 19, соседей 11, мира 20; областных 33 в 7 регионах
+  🧭 [pt] после рубежа: всего 49 — местных 19, соседей 11, мира 19; областных 33 в 7 регионах
 
-  🗞 Редактор [es] (В ЭФИРЕ): карточек 68, спрошено 68, вторым 0
-     память не сработала: новая 68
-     снято: нет события 10, реклама 1
-     починено: текст сокращён до сути 38, фото заменено 9, нужно другое фото 2, строка НОС отклонена замком 1, строка НОС принята 1
-     🎲 Любопытное [es] (в полосу «Интересное»): 1
-       🎲 снято · [178.ru] Ferrocarril de alta velocidad Moscú-San Petersburgo: innovaciones para alcanzar 400 km/h · https://178.ru/text/gorod/2026/11/27/76795874/ — проект, а не событие; любопытно — в интересное
-       ✂️ [La Jornada] Entre 2016 y 2018, Gómez Mont percibió 178 mdp de factureras — абзацы 4/13; выбраны абзацы с сутью обвинений
-       ✂️ [Expansión MX] México supera en octubre sus exportaciones de todo 2025 y al — абзацы 4/5; статистика экспорта и импорта
-       ✂️ [El Financiero] Gasolineras y casetas de cobro, adiós al efectivo: Hacienda  — абзацы 6/21; суть перехода на цифровую оплату
-       ✂️ [El Economista MX] Relatora de la ONU dice que Costa Rica debe responder por fa — абзацы 6/8; инцидент с задержанием
-       ✂️ [El Universal MX] Colectivos de desaparecidos dialogan con autoridades en Tama — абзацы 5/17; встреча властей с родственниками
-       ✗ нет события: [El Universal MX] Rommel Pacheco espera ver al Tri Femenil en Juegos Olímpicos de 2028 — интервью и пожелания чиновника
-       ✂️ [El Universal MX] Pemex descarta explosión en ducto en Cadereyta, Nuevo León;  — абзацы 4/13; выбраны факты без мусора и рекламы
-       ✂️ [El Universal MX] México empata con Venezuela en el Mundial Sub 17; avanza com — абзацы 6/13; суть матча и состояние игрока
-       ✂️ [El Universal MX] Dictan prisión preventiva a 4 integrantes del CJNG detenidos — абзацы 4/13; убраны лишние повторы и реклама
-       ✂️ [El Universal MX] Reportan ataque a balazos en Mazatlán, Sinaloa; abaten a cua — абзацы 4/10; убраны рекламные и служебные блоки
-       ✂️ [La Jornada] Pobladores de Milpa Alta se levantan por sexta ocasión para  — абзацы 1/9; снимок №2 — логотип; нужен поиск
-       ✂️ [El Economista MX] Crece presencia femenina en sindicatos tras reforma laboral, — абзацы 4/6; выбраны факты о доле женщин и планах по изменениям
-       ✂️ [El Economista MX] Pobreza laboral tocó mínimo histórico por alimentos más bara — абзацы 6/9
-       ✂️ [Expansión MX] Intentaron llevar GTA 6 a PC sin permiso, pero Rockstar ya b — абзацы 5/7; взят подходящий снимок, убраны повторы
-       ✗ нет события: [Expansión MX] Más allá de la contratación, el desafío de impulsar el talento femenino en ciberseguridad — статья-рассуждение без инфоповода
-       ✂️ [Expansión MX] Dish recurre a concurso mercantil tras perder clientes en me — абзацы 8/13; выбраны ключевые факты о начале процесса
-       🖼 [Expansión MX] Dish recurre a concurso mercantil tras perder clie — фото: №2 вместо №1
-       ✂️ [Expansión MX] Moisés Chaves deja Consejo de Bankaool ante imposibilidad de — абзацы 4/6; выбраны факты об отставке и причине (отказ CNBV)
-       🖼 [Expansión MX] Moisés Chaves deja Consejo de Bankaool ante imposi — фото: №2 вместо №1
-       ⛔ строка НОС отклонена: «Десять из 24 пострадавших при теракте в Вильявисенсио остаются в больницах.» ← Diez de las 24 personas heridas por el atentado te
-       ✂️ [El Tiempo CO] Diez de las 24 personas heridas por el atentado terrorista e — абзацы 4/5
-       ✂️ [La Vanguardia] Feijóo apela al votante del PSOE y de Junts para hacer del P — абзацы 6/8
-       ✂️ [La Nación AR] Elecciones España 2026: resumen del debate, las últimas encu — абзацы 8/16
-       ✂️ [La Nación AR] Murió el empresario Jorge Born, víctima de un secuestro de M — абзацы 4/6
-       ✂️ [El Tiempo CO] Revelan ultimátum que dieron secuestradores del Éxito de Car — абзацы 8/14
-       🖼 [El Tiempo CO] Revelan ultimátum que dieron secuestradores del Éx — фото: №6 вместо №1
-       ✂️ [La Nación CR] Laura Fernández anuncia referéndum sobre minería en Crucitas — абзацы 6/7
-       ✂️ [14ymedio] Al menos un muerto y tres desaparecidos en el naufragio de u — абзацы 4/5
-       ✂️ [Montevideo Portal] Encuesta de Opción sobre preferencias partidarias: blancos 3 — абзацы 4/6
-       ✂️ [La Nación AR] Franco Colapinto terminó 12° en la primera práctica del Gran — абзацы 8/15
-       ✂️ [El Tiempo CO] Barranquilla da el primer paso para enfrentar la violencia d — абзацы 5/7
-       ✂️ [El Tiempo CO] Antioquia se acerca al mar: el Túnel del Toyo alcanza el 42  — абзацы 4/5
-       ✂️ [Marca] El campeón mete miedo: Antonelli domina en una sangría para  — абзацы 4/5
-       ✂️ [Marca] El problema del Madrid con Nico Paz: "Su deseo choca con la  — абзацы 5/7; выбраны ключевые факты об интересе клубов
-       ✂️ [Marca] Ricky Rubio da el salto a los despachos: entra en el acciona — абзацы 3/4; убраны подробности о будущей конференции
-       ✗ нет события: [Variety] Sebastian Stan afirma que 'Thunderbolts' tuvo 'más matices' que 'algunas de las recientes' — интервью, мнение
-       ✗ нет события: [Variety] Monica Bellucci sobre el desafío al edadismo en Hollywood en James Bond, su trabajo con Me — воспоминания, не новость
-       ✂️ [Clarín AR] Murió Veruschka, la supermodelo que desafió las convenciones — абзацы 5/7; убран лишний биографический абзац
-       ✂️ [El Mundo] Un testigo protegido declara a la juez que el jefe de Policí — абзацы 7/10
-       🖼 [El Mundo] Un testigo protegido declara a la juez que el jefe — фото: №2 вместо №1
-       ✂️ [BBC Mundo] Los campesinos en Colombia que no dejan de recibir amenazas  — абзацы 8/45
-       🖼 [BBC Mundo] Los campesinos en Colombia que no dejan de recibir — фото: №2 вместо №1
-       ✗ нет события: [BBC Mundo] Elecciones en España: 4 datos que explican cómo está la economía del país tras 8 años de g — аналитическая статья к выборам
-       ✂️ [BBC Mundo] La científica mexicana que ayudó a descubrir el origen de lo — абзацы 8/18
-       🖼 [BBC Mundo] La científica mexicana que ayudó a descubrir el or — фото: №2 вместо №1
-       ✂️ [Infobae] Lista de convocados de la selección peruana para amistoso an — абзацы 3/4
-       🖼 [Infobae] Lista de convocados de la selección peruana para a — фото: №6 вместо №1
-       ✗ нет события: [Infobae] ChocQuibTown estrenó el video de ‘Todo Contigo’ tras la confirmación del regreso de Goyo,  — интервью/музыкальный релиз, нет события
-       ✗ нет события: [Infobae] Buscan que se descuente a deudores alimentarios automáticamente en sus cuentas — законопроект (только предложение)
-       ✂️ [Infobae] Rufián llama al electorado socialista a confiar en ERC: "No  — абзацы 4/6
-       ✂️ [Infobae] Honduras: capturan a supuesto administrador de las redes soc — абзацы 6/9
-       📝 [El Informador] Sheinbaum alerta por caída de nieve y aguanieve en → Claudia Sheinbaum alertó sobre nevadas en Jalisco, Colima y Michoacán.
-       🖼 [178.ru] Residentes de un edificio en San Petersburgo obser — фото: №2 вместо №1
-       ✗ нет события: [63.ru] Cinco citas del actor Maksim Lagashkin sobre Samara y su trabajo — интервью
-       ✗ реклама: [El Informador] Despacho Hermanos Vázquez Medina celebra su Magno Evento Anual — корпоративное мероприятие компании
-       ✗ нет события: [e1.ru] En Ekaterimburgo, un crossover que circulaba por las vías del tranvía recibió un impacto l — мелкое ДТП, локальное происшествие
-       🖼 [29.ru] Vladimir Putin participó en el izado de bandera en — фото: №2 вместо №1
-       ✂️ [El Informador] Nombran nuevo rector general de la Universidad Panamericana  — абзацы 6/9
-       ✂️ [El Informador] La FIL "se volvió un espacio de ideas de derecha": Sheinbaum — абзацы 4/5
-       ✗ нет события: [178.ru] Ferrocarril de alta velocidad Moscú-San Petersburgo: innovaciones para alcanzar 400 km/h — проект, а не событие; любопытно — в интересное
-     лента: было 68, снято 10, добрано до полной 22, стало 80; фото: взято у соседа 0, убрано чужих 3
-     💰 редактор: $0.0260
-  🧭 [es] после редактора (в эфир): всего 56 — местных 18, соседей 16, мира 22; областных 3 в 1 регионах
+  🗞 Редактор [pt] (В ЭФИРЕ): карточек 82, спрошено 52, вторым 0
+     память не сработала: новая 48, текст стал короче 3, текст вырос 1
+     снято: нет события 3, повтор 3
+     починено: текст сокращён до сути 55, фото заменено 20, строка НОС принята 5, нужно другое фото 2, строка НОС отклонена замком 1
+     🎲 Любопытное [pt] (в полосу «Интересное»): 0
+       📝 [Estadão] Sul tem mais de 200 cidades sob alerta de perigo p → Sul tem mais de 200 cidades em alerta para chuvas intensas e ventos de até 100 km/h.
+       ✂️ [Estadão] Sul tem mais de 200 cidades sob alerta de perigo para chuvas — абзацы 1/13
+       ✂️ [G1 Globo] Ao falar para idosos, Lula cita estado de saúde de FHC: 'Est — абзацы 7/9
+       ✂️ [Poder360] Bolsonaro tem melhora clínica, mas segue na UTI, diz boletim — абзацы 3/14
+       🖼 [Poder360] Bolsonaro tem melhora clínica, mas segue na UTI, d — фото: №2 вместо №1
+       ✂️ [Gazeta do Povo] Dino suspende R$ 79,3 milhões em emendas de Flávio Bolsonaro — абзацы 8/11
+       🖼 [Gazeta do Povo] Dino suspende R$ 79,3 milhões em emendas de Flávio — фото: №3 вместо №1
+       ✂️ [Poder360] Moraes autoriza Mauro Cid a cumprir pena no RJ — абзацы 4/5
+       🖼 [Poder360] Moraes autoriza Mauro Cid a cumprir pena no RJ — фото: №2 вместо №1
+       ✂️ [G1 Globo] Araras-canindé, conhecidas por terem penas com as cores da b — абзацы 4/8
+       🖼 [G1 Globo] Araras-canindé, conhecidas por terem penas com as  — фото: №2 вместо №1
+       ✂️ [G1 Globo] Policiais são condenados por pedir R$ 50 mil de foragido par — абзацы 6/37
+       ✂️ [G1 Globo] OpenAI processa Apple e acusa empresa de roubar segredos com — абзацы 1/6; фото из статьи — реклама, нет других снимков
+       🖼 [G1 Globo] OpenAI processa Apple e acusa empresa de roubar se — фото из статьи — реклама, нет других снимков
+       ✂️ [G1 Globo] Cachorro fica cerca de sete horas acorrentado a uma árvore a — абзацы 4/10
+       ✂️ [Folha de S.Paulo] Papel higiênico e videogames são destaque em vendas na Black — абзацы 8/12
+       ✂️ [CNN Brasil] Palmeiras: Patrocinador mobiliza 100 ônibus para final em Mo — абзацы 3/8
+       ✂️ [CNN Brasil] Ouro fecha dia em alta robusta e avança na semana com melhor — абзацы 2/7
+       ✂️ [Agência Brasil] Governo avalia que novo tarifaço dos EUA busca proteger big  — абзацы 6/8; выбраны факты о сути тарифов и спора
+       ✂️ [Agência Brasil] Brasil tem 387 mil crianças e adolescentes em união conjugal — абзацы 4/5; убраны лишние детали, добавлен контекст закона
+       ✂️ [Estadão] Psicóloga é encontrada morta em apartamento no RS; irmão con — абзацы 5/9; суть преступления и хода расследования
+       ✂️ [Metrópoles] Receita vê “vantagem indevida” e cobra R$ 814 milhões da Lat — абзацы 6/8; суть спора, цифры и позиции сторон
+       ✂️ [Metrópoles] Prefeitura de SP inaugura decoração de Natal. Saiba custo it — абзацы 5/6; информация о расходах и соответствии реальности
+       ✂️ [Poder360] Com apoio do PT, deputados articulam votar PL que muda leilã — абзацы 6/12; суть политического процесса и рисков для рынка
+       ✂️ [BBC Brasil] Dólar cai e bolsa sobe: a reação do mercado - e de economist — абзацы 8/16; убраны абзацы с призывами подписки
+       ✂️ [Jornal de Negócios] Black Friday é oportunidade mas depois há retração nas venda — абзацы 8/13; убраны рекламные/лишние абзацы, последний не берём
+       ✂️ [Jornal de Negócios] Wall Street no verde com regresso do apetite por IA. S&P reg — абзацы 7/9; последний абзац (9) не берём
+       ✂️ [BBC Brasil] Os caminhoneiros que se arriscam e ganham pouco para entrega — абзацы 8/67
+       🖼 [BBC Brasil] Os caminhoneiros que se arriscam e ganham pouco pa — фото: №2 вместо №1
+       ✂️ [Terra BR] Mulher de atacante do Galo denuncia assédio e diz que deixou — абзацы 4/6
+       ✂️ [Observador PT] Chega quer reforma após 40 anos de descontos na Constituição — абзацы 8/13; последний абзац (10) не берём
+       ✂️ [Observador PT] Edo Bosch: 90 dias suspenso por criticar árbitros — абзацы 4/6; убран мусор и технические блоки
+       ✂️ [Público] Estoril Folk Fest chega à terceira edição a celebrar o canto — абзацы 7/10
+       ✂️ [ECO] Governo reduz desconto e abranda descida dos combustíveis — абзацы 4/10
+       📝 [The Independent] Zelensky compara a aproximação de Trump a Putin co → Zelensky comparou a aproximação de Trump a Putin com a amizade com Hitler.
+       🖼 [The Independent] Zelensky compara a aproximação de Trump a Putin co — фото: №4 вместо №1
+       📝 [Notícias ao Minuto] Rússia acusa Letónia de querer provocar uma "guerr → Rússia acusa Letónia de tentar provocar uma guerra aberta no Báltico.
+       ✂️ [Notícias ao Minuto] Rússia acusa Letónia de querer provocar uma "guerra aberta"  — абзацы 8/18
+       🖼 [Notícias ao Minuto] Rússia acusa Letónia de querer provocar uma "guerr — фото: №3 вместо №1
+       📝 [ABC Australia] Campeão mundial de MotoGP, Marquez anuncia aposent → Campeão mundial de MotoGP Marc Marquez anuncia sua aposentadoria após o fim da temporada de 2026.
+       ✗ нет события: [Variety] Sebastian Stan diz que 'Thunderbolts' teve 'mais nuances' do que 'alguns dos recentes' fil — мнение актёра о фильме
+       ✂️ [G1 Globo] Líder da seita do jejum é considerado culpado pela morte de  — абзацы 8/15
+       ✂️ [BBC Brasil] O imigrante que ganhou US$ 1 milhão na loteria e foi preso p — абзацы 5/14; выбраны суть события, даты и детали
+       ✗ повтор: [Semafor] Presidente do parlamento do Senegal defende eleições antecipadas devido a impasse sobre dí — предыдущая карточка уже раскрыла этот сюжет
+       ✗ нет события: [France 24] De ruim para catastrófico: o sistema de justiça do Irã já era injusto há muitas décadas — аналитическая статья, нет события
+       📝 [G1 Rio] Tiroteio entre traficantes e milicianos assusta mo → Tiroteio entre traficantes e milicianos deixa academia atingida na Taquara, Rio.
+       ✂️ [G1 Rio] Tiroteio entre traficantes e milicianos assusta moradores e  — абзацы 4/5
+       ✂️ [G1 São Paulo] Vaticano mantém intervenção nos Arautos do Evangelho, grupo  — абзацы 5/7
+       🖼 [G1 São Paulo] Vaticano mantém intervenção nos Arautos do Evangel — фото: №2 вместо №1
+       ✂️ [G1 Distrito Federal] 'Golpe do falso leilão': Justiça do DF condena grupo acusado — абзацы 5/14
+       🖼 [G1 Distrito Federal] 'Golpe do falso leilão': Justiça do DF condena gru — фото: №3 вместо №1
+       ✂️ [G1 Santa Catarina] Com déficit de quase 50%, Justiça determina que SC apresente — абзацы 6/23
+       ✂️ [G1 Ceará] Motociclista é baleado pelo próprio passageiro enquanto cond — абзацы 3/10
+       🖼 [G1 Ceará] Motociclista é baleado pelo próprio passageiro enq — фото: №2 вместо №1
+       ✂️ [G1 Minas] BH antecipa auxílio financeiro de R$4,1 milhões para escolas — абзацы 5/13
+       ⛔ строка НОС отклонена: «Polícia prende 'Capitão Léo', suspeito de chefiar milícia no Rio.» ← Polícia prende 'Capitão Léo', suspeito de homicídi
+       ✂️ [G1 Rio] Polícia prende 'Capitão Léo', suspeito de homicídios em guer — абзацы 6/20
+       🖼 [G1 Rio] Polícia prende 'Capitão Léo', suspeito de homicídi — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Rompimento de cabos de fibra óptica afeta serviços públicos  — абзацы 7/28
+       ✂️ [G1 Minas] Cleitinho promete priorizar Rodoanel após reunião com Álvaro — абзацы 5/11
+       ✂️ [G1 São Paulo] 'Sniper dos Jardins': publicitário admite ter atirado em hot — абзацы 6/41
+       🖼 [G1 São Paulo] 'Sniper dos Jardins': publicitário admite ter atir — фото: №2 вместо №1
+       ✂️ [G1 Rio] 'É uma visita de agradecimento à lição que vocês deram ao Br — абзацы 8/12
+       🖼 [G1 Rio] 'É uma visita de agradecimento à lição que vocês d — фото: №2 вместо №1
+       ✗ повтор: [G1 São Paulo] 'Eu também não gostei', diz Nunes sobre enfeites de Natal criticados em SP — уже есть аналогичная новость в ленте
+       ✗ повтор: [G1 Minas] Corpo de jovem atropelada na BR-262 é enterrado em Juatuba — была карточка с теми же фактами и фото
+       ✂️ [G1 São Paulo] Após críticas, enfeites de Natal da Avenida Paulista ganham  — абзацы 8/15
+       🖼 [G1 São Paulo] Após críticas, enfeites de Natal da Avenida Paulis — фото: №2 вместо №1
+       ✂️ [G1 Minas] Homem suspeito de tentar assaltar motociclista é encontrado  — абзацы 8/9
+       ✂️ [G1 Rio] Criminosos deixam cabeça humana dentro do batalhão de Jacare — абзацы 3/14
+       🖼 [G1 Rio] Criminosos deixam cabeça humana dentro do batalhão — фото: №2 вместо №1
+       ✂️ [G1 Minas] Moradores denunciam água turva e barrenta em diversos bairro — абзацы 7/10
+       🖼 [G1 Minas] Moradores denunciam água turva e barrenta em diver — фото: №2 вместо №1
+       ✂️ [G1 Rio] Esquadrão Antibombas é acionado para casa onde fogos de arti — абзацы 6/12
+       ✂️ [G1 São Paulo] Família faz buscas por conta própria após cobrar mais empenh — абзацы 8/23; выбраны содержательные абзацы, исключена вода
+       ✂️ [G1 Minas] Homem é preso suspeito de esfaquear colega de infância em re — абзацы 8/12; полный текст, исключены лишние блоки
+       ✂️ [G1 São Paulo] Casos graves de Covid quintuplicam em dois meses na cidade d — абзацы 7/10
+       ✂️ [G1 Rio] PM faz operação contra o TCP com mais de 100 agentes na Maré — абзацы 4/16
+       ✂️ [G1 São Paulo] Mulher morre prensada entre ônibus e caminhão de lixo após a — абзацы 6/8
+       🖼 [G1 São Paulo] Mulher morre prensada entre ônibus e caminhão de l — фото: №2 вместо №1
+       ✂️ [G1 Rio] 13º salário pode injetar R$ 15,3 bilhões na economia carioca — абзацы 4/9; экономическая статистика по городу
+       ✂️ [G1 São Paulo] Falhas em trens provocam atrasos e lotação nas linhas 8, 9 e — абзацы 7/50
+       🖼 [G1 São Paulo] Falhas em trens provocam atrasos e lotação nas lin — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Caso Fictor: Investidor colocou economias de uma vida e hoje — абзацы 7/48
+       ✂️ [G1 São Paulo] Sem retorno financeiro, Urbia quer reduzir investimentos em  — абзацы 8/45; выбран снимок из статьи, №1 такой же у связного материала
+       🖼 [G1 São Paulo] Sem retorno financeiro, Urbia quer reduzir investi — фото: №2 вместо №1
+       ✗ нет события: [G1 São Paulo] Número de negros cai conforme aumenta hierarquia em universidades, hospitais e Justiça de  — аналитический разбор, нет события
+     лента: было 82, снято 6, добрано до полной 24, стало 100; фото: взято у соседа 0, убрано чужих 2
+     💰 редактор: $0.0207
+  🧭 [pt] после редактора (в эфир): всего 59 — местных 19, соседей 8, мира 32; областных 29 в 6 регионах
 
-💰 Расход по этапам: всего $0.0986
-     редактор: $0.0336 (34%), запросов 24
-     перевод: $0.0181 (18%), запросов 9
-     спасение текста: $0.0129 (13%), запросов 9
-     отбор (этап 2): $0.0123 (12%), запросов 5
-     прочее: $0.0083 (8%), запросов 3
-     отсев (этап 1): $0.0049 (5%), запросов 4
-     мировые сюжеты: $0.0026 (3%), запросов 1
-     склейка пересказов: $0.0023 (2%), запросов 1
-     обзоры прессы: $0.0018 (2%), запросов 1
-     снимки происшествий: $0.0018 (2%), запросов 6
+💰 Расход по этапам: всего $0.0666
+     редактор: $0.0185 (28%), запросов 12
+     спасение текста: $0.0139 (21%), запросов 11
+     отбор (этап 2): $0.0097 (15%), запросов 4
+     перевод: $0.0068 (10%), запросов 7
+     отсев (этап 1): $0.0056 (8%), запросов 4
+     прочее: $0.0035 (5%), запросов 1
+     склейка пересказов: $0.0031 (5%), запросов 1
+     мировые сюжеты: $0.0027 (4%), запросов 1
+     обзоры прессы: $0.0016 (2%), запросов 1
+     снимки происшествий: $0.0012 (2%), запросов 4
 ```
