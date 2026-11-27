@@ -1,26 +1,49 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] чужое_мелкое: [pool] РИА Новости — Правительство обнулило вывозные таможенные пошлины на горох и чечевицу — Внутренняя экономическая новость РФ, не имеющая мирового значения.
-- [ru] чужое_мелкое: [pool] Азаттык — В Казахстане предупредили об угрозе исчезновения фламинго из-за полётов дронов — Локальная экологическая новость Казахстана.
-- [ru] чужое_мелкое: [pool] 51.ru — Мурманск — Мусатян не давал показаний против Чибиса: адвокат опроверг информацию о сделке с — Внутренняя судебная хроника РФ.
-- [ru] не_новость: [pool] 51.ru — Мурманск — В Мурманской области назначили новых руководителей двух судов — Плановое кадровое назначение в судах РФ.
-- [ru] не_новость: [pool] 45.ru — Курган — В Кургане закрылся молодежный мультицентр «Скрепка» — Закрытие местного центра не является событием для читателя в KG.
-- [ru] не_новость: [pool] NewsGeorgia — Число воспитанников детсадов в Грузии сократилось на четверть за 7 лет — Статистический отчет без событийного повода.
-- [ru] не_новость: [pool] 56.ru — Оренбург — Начали хорошо, чуть сдали и опять рванули: «Надежда» ярко победила «Спарту энд К — Спортивный обзор-отчет, не влияющий на читателя.
-- [ru] чужое_мелкое: [pool] 76.ru — Ярославль — Ущерб — миллион рублей. ЧП с сухогрузом на Рыбинском море обернулось уголовным д — Региональное происшествие в РФ (Ярославль).
-- [ru] полка: [pool] 71.ru — Тула — Проблемы с бензином в соседней с Тулой области начались после атак на НПЗ в Росс — Новости из РФ должны быть в региональных, а не мировых.
-- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — Полицейские Югры задержали мужчину из Махачкалы, который развращал двух 8-летних — Криминальная хроника РФ (Югра).
-- [ru] не_новость: [pool] 74.ru — Челябинск — Охранникам запретили работать после избиения человека до сотрясения мозга в Челя — Рутинное решение суда по трудовому спору в РФ.
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — Прокуратура требует не только уволить худрука театра «У Моста» Сергея Федотова,  — Локальный конфликт в сфере культуры Перми.
-- [ru] не_новость: [pool] 71.ru — Тула — Тульская гимнастка Алена Глотова взяла золото на международном турнире в Москве — Участие в турнире местного значения не является событием мирового масштаба.
-- [ru] не_новость: [pool] 76.ru — Ярославль — «Скорая не сможет добраться»: жители домов в ярославском селе остались без подъе — Бытовая жалоба жителей, нет события (решения или действия).
-- [ru] не_новость: [pool] 72.ru — Тюмень — В Тюмени запретят продажу вейпов — Законопроект (планы), а не принятое решение.
-- [ru] не_новость: [pool] 72.ru — Тюмень — В Тюмени расторгли договор о реновации — что будет дальше? — Хозяйственный спор застройщика и мэрии Тюмени.
-- [ru] не_новость: [pool] 59.ru — Пермь — С марта в Прикамье ужесточат правила продажи табака: где его нельзя будет продав — Законопроект об ограничениях, который вступит в силу в будущем.
-- [ru] не_новость: [pool] 14.ru — Якутск — Чикачев ушел с должности главы ГУП «ЖКХ» сразу после принятия бюджета — Плановый уход руководителя (пенсия/окончание цикла).
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Псковский суд дал 10 лет курьеру с 991 г наркотика — Приговор курьеру в РФ не имеет значения для мира.
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Суд арестовал мужчину за поджог сожительницы в Великих Луках — Арест по уголовному делу в РФ.
-- [ru] не_новость: [world] Fortune — Покупатели оплатили пошлины Трампа, теперь Target, Best Buy и Kohl's получают 38 — Аналитика/разбор последствий старых решений, а не новое событие.
-- [ru] не_новость: [world] Time — Трамп обвинил собственное правительство в фальсификации экономических данных — Риторика и обвинения без фактологического подтверждения (политические слова).
-- [ru] полка: [world] 60.ru — Псков — Суд встал на сторону ABC в споре с FCC — Мелкое судебное решение США в мировой ленте.
-- [ru] не_новость: [world] BBC Русская служба — «Прежде чем моя жизнь оборвется в петле». Иранки, приговоренные к смертной казни — Призыв о помощи, не содержащий нового события (приговоры были вынесены ранее).
+- [pt] не_новость: [local] Gazeta do Povo — Bolsonaro apresenta melhora e volta a se alimentar após cinco dias de jejum oral — Возобновление питания после поста — личное медицинское состояние экс-президента.
+- [pt] не_новость: [local] G1 Globo — BRB é multado em R$ 14 mil por irregularidades na oferta de crédito — Штраф банку за нарушения в рекламе кредитов — рутинный административный процесс.
+- [pt] срочность: [local] G1 Rio — Casa onde fogos de artifício explodiram durante incêndio no Cachambi é interdita — Последствия инцидента (интердикция дома) не требуют побудки читателя.
+- [pt] чужое_мелкое: [local] Poder360 — Inadimplência sobe para 5,1% em outubro, diz Banco Central — Данные о кредитной нагрузке — статистика, не имеющая экстренного характера.
+- [pt] чужое_мелкое: [local] Metrópoles — Endividamento das famílias ficou em 50% no mês de setembro, segundo BC — Статистика задолженности домохозяйств — не событие-новость.
+- [pt] не_новость: [local] CNN Brasil — Dorival cita Corinthians ao expor crise no São Paulo: “Muito parecidos” — Мнение тренера о сходстве команд — не событие.
+- [pt] курьёз: [local] Agência Brasil — Super El Niño é o primeiro de uma série, alerta climatologista — Мнение климатолога о будущем — не новость с конкретным фактом.
+- [pt] не_новость: [local] Gazeta do Povo — Vieira pede que Fachin divulgue relatórios da PF sobre ministros do STF no caso  — Ходатайство сенатора о снятии грифа секретности — намерение, а не факт.
+- [pt] срочность: [local] G1 Rio — Tiroteio entre traficantes e milicianos assusta moradores e deixa academia ating — Перестрелка в криминальной зоне — рутина, не требующая побудки.
+- [pt] не_новость: [local] Agência Brasil — Expectativa de vida no Brasil sobe para 76,9 anos, diz IBGE — Статистический отчет IBGE об ожидаемой продолжительности жизни.
+- [pt] курьёз: [local] Agência Brasil — Eólicas e avanço do mar desafiam reserva ambiental no litoral potiguar — Очерк о жизни рыбака и экологических вызовах — тематический материал.
+- [pt] срочность: [local] G1 São Paulo — Falhas em trens provocam atrasos e lotação nas linhas 8, 9 e 11 na Grande SP — Технические сбои в метро — типичная жалоба пассажиров, не требующая побудки.
+- [pt] не_новость: [local] Gazeta do Povo — STF contraria Moraes e mantém restrições ao porte de armas de GCMs — Юридическое уточнение полномочий охранников — не событийная новость.
+- [pt] срочность: [local] G1 Rio Grande do Sul — Rio Uruguai ultrapassa cota de inundação e moradores são retirados de casa em Sã — Подъем уровня реки — плановое природное явление, уже зафиксировано.
+- [pt] срочность: [local] G1 Rio — Polícia prende 'Capitão Léo', suspeito de homicídios em guerra por territórios e — Арест по старому делу — не требует побудки.
+- [pt] не_новость: [local] G1 Rio — 13º salário pode injetar R$ 15,3 bilhões na economia carioca no fim do ano, calc — Прогноз вливания денег в экономику — оценочное суждение мэрии.
+- [pt] не_новость: [local] G1 Rio — Áudios, vídeo com arma: veja o conteúdo do celular de David usado para fundament — Детали уголовного дела, уже повлекшего арест — избыточно и не новость.
+- [pt] полка: [pool] Público — Rússia quer trocar campeã de futebol presa no país por russo detido no Brasil — Новость о россиянах и бразильцах в СМИ Португалии — мировой масштаб, а не региональный.
+- [pt] курьёз: [world] Público — Em prisão domiciliária por violação, enteado do rei da Noruega arranja trabalho — Трудоустройство члена королевской семьи в домашнем аресте.
+- [pt] чужое_мелкое: [world] Fortune — Fundo hospitalar do Medicare pode pagar benefícios integrais apenas até meados d — Финансовые детали госпрограммы США — узкоспециализированная информация.
+- [pt] чужое_мелкое: [world] Азаттык — Bloomberg: Bancos do Cazaquistão podem financiar compra da Altynalmas pelo empre — Слухи Bloomberg о финансировании частной сделки в Казахстане.
+- [pt] чужое_мелкое: [world] BBC Brasil — O imigrante que ganhou US$ 1 milhão na loteria e foi preso pelo ICE: 'A sorte ac — Личная история иммигранта — не мировая новость.
+- [pt] не_новость: [world] Ars Technica — As baterias grandes da Volvo: dirigimos seus híbridos plug-in atualizados de 202 — Автообзор — тест-драйв, а не новость.
+- [pt] не_новость: [world] Engadget — Backloggd solicita que usuários alterem senhas após violação de segurança — Просьба сменить пароль — это рекомендация, а не новость об инциденте.
+- [pt] не_новость: [world] Ars Technica — Ford revela o GT41 com o objetivo de vencer novamente em Le Mans — Анонс спортивного автомобиля, который выйдет на гонки в будущем.
+- [fr] не_новость: [local] 20 Minutes — « Je ne suis pas que la fille rigolote et populaire », rappelle Marine qui propa — альбом вышел — это не событие с общественными последствиями
+- [fr] не_новость: [pool] La Libre — Conner Rousseau jette de l'huile sur le feu, après l'invitation de Bart De Wever — внутриполитическая полемика без решения или события
+- [fr] не_новость: [pool] RTBF — "Le PS est toujours prêt à aller aux élections", déclare Caroline Désir (PS) qui — партийные заявления и прогнозы, а не свершившееся событие
+- [fr] курьёз: [pool] RTBF — Arrivée prochaine d'un nouveau panda à Pairi Daiza : en douze ans, les ours chin — история про панд для рубрики «интересное», а не в новости
+- [fr] курьёз: [pool] RTBF — Sourire éclatant, pratiques douteuses et danger pour la santé : enquête sur le b — потребительский обзор услуги, место в «интересном»
+- [fr] не_новость: [pool] RTBF — QR : un hôpital peut-il facturer des frais supplémentaires liés à la cybersécuri — ответ на вопрос читателя, а не событие
+- [fr] не_новость: [world] Le Temps — Deux ans après avoir frôlé la mort, Cyprien Sarrazin retrouve la Coupe du monde  — очерк о спортсмене перед матчем
+- [fr] полка: [world] Futura-Sciences — Le télescope James-Webb a découvert un mystérieux objet cosmique qui pourrait éc — «Интересное» (космос) не должно быть в Мировых как текущее событие
+- [fr] курьёз: [world] Courrier International — En Inde, le mariage démesuré de la fille d’un élu local attire 500 000 personnes — частная свадьба, пусть и большая, — не мировая новость
+- [fr] не_новость: [world] RFI — Face aux restrictions de visas, les touristes russes prêts à délaisser l'Europe? — аналитическая статья, «готовятся ли» — не событие
+- [fr] не_новость: [world] RTBF — Un jour, une carte : 50 ans après la fin de la dictature en Espagne, l'extrême d — аналитический разбор истории, не событие
+- [fr] не_новость: [world] Courrier International — En Équateur, le président Daniel Noboa veut faire des élections municipales un p — предисловие к выборам, анонс
+- [fr] не_новость: [world] Radio-Canada — À quel point la vague démocrate est-elle historique? La réponse en 8 graphiques — анализ графиков, разбор, не событие
+- [fr] не_новость: [world] Азаттык (кыргызча) — Le ministère des Situations d'urgence du Kirghizistan écarte le risque de ruptur — опровержение слухов, отсутствие события
+- [fr] полка: [world] Sciences et Avenir — La Nasa a percuté un astéroïde : les premières images dévoilent un résultat inat — ошибка: событие FR (космос), перенести в «Интересное»
+- [fr] курьёз: [world] BBC News — « Je ne serais pas là aujourd'hui sans vous » : une étudiante remercie l'homme q — личная история, нет общественной значимости
+- [fr] не_новость: [world] L'Obs — Pourquoi l’ombre de Franco continue-t-elle de planer sur l’Espagne ? — аналитический разбор, не событие
+- [fr] не_новость: [world] RFI — Des millions de personnes dans le monde concernées par les mariages précoces et  — тематический день ООН, нет конкретного события
+- [fr] не_новость: [world] Franceinfo — "Ils jouent avec nos vies" : en Espagne, la crise du logement pousse les locatai — очерк о жизни арендаторов, нет события
+- [fr] полка: [world] Superinteressante — Les étudiants universitaires sont les principaux propagateurs du Covid-19, selon — научное исследование — в «Интересное»
+- [fr] не_новость: [world] Le Nouvelliste — Visit of the WHO Director in Haiti — визит без подписанных соглашений, протокольное
+- [fr] не_новость: [world] Time — La Chine et le Brésil mènent la contestation contre les menaces tarifaires « ina — анализ торговых угроз, не свершившееся действие
