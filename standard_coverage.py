@@ -88,6 +88,7 @@ LOCKS = {
     "J64": ("потолок расхода смотрит на сброшенный счёт", ["save_ai_spend", "test_ai_spend"], "test", "save_ai_spend"),
     "J65": ("срочное чужой страны через полку соседа", ["serverVital", "URGENT_LOCAL_ONLY"], "test", "serverVital"),
     "J66": ("полка соседей США пуста", ["FAT_ONLY_IN"], "check", None),
+    "J77": ("свои граждане за границей на «Мировых»", ["final_own_citizens_guard"], "test", "final_own_citizens_guard"),
     "J73": ("метка места события не сверена с изданием и текстом", ["event_where"], "audit", None),
     "J72": ("заголовок в карусели обрезан «…» на одну букву", ["FitTitle", "final_title_compress"], "border", "final_title_compress"),
     "J71": ("плановое объявление помечено «срочно»", ["URGENT_LOCAL_ONLY"], "audit", None),

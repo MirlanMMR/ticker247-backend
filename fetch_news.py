@@ -6909,7 +6909,7 @@ from twins import drop_twins, find_reposts, remember_shown, touch, reused_covers
 from shelves import parse_where_scale, final_shelf_guard, POOL_HOME
 from dull import cap_dull
 from curious import topup_interesting, is_curious_content, is_longread_url
-from topic_country import final_foreign_topic_guard, final_local_foreign_guard, final_foreign_region_guard, final_foreign_tech_guard, final_statement_country_guard, final_own_subject_guard
+from topic_country import final_foreign_topic_guard, final_local_foreign_guard, final_foreign_region_guard, final_foreign_tech_guard, final_statement_country_guard, final_own_subject_guard, final_own_citizens_guard
 import border
 import nos_line   # сжатие строки НОС и заголовка карусели (J70, J72)
 import urgent_log   # журнал срочного: история для замера доверия к метке (04.11.2026)
@@ -9791,6 +9791,7 @@ def main():
         filtered = final_end_guard(filtered, lang)
         filtered = final_title_guard(filtered, lang)
         filtered = nos_line.final_title_compress(filtered, lang)   # J72: заголовок карусели — по смыслу, без «…»
+        filtered = final_own_citizens_guard(filtered, lang, POOL_HOME.get(lang, ""), set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})  # J77: свои граждане за границей — событие у граждан (до стража полки)
         filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},
                                     home=POOL_HOME.get(lang, ""))
         filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
