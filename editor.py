@@ -525,7 +525,10 @@ def apply_verdict(item: dict, v: dict, paras, photos, vital_ok=VITAL_FROM_AI):
     # номера применимы. Нет целой статьи — прежний путь со лимитом по знакам
     full = TC.real_paragraphs(item.get("_full") or "")
     whole = bool(full) and bool(paras) and list(paras) == full[:len(paras)]
-    if whole:
+    if item.get("_ruled") and full:
+        # J80: текст уже собран по правилу абзацев до перевода — редактор его не кромсает и не добирает
+        paras, idx = full, list(range(1, len(full) + 1))
+    elif whole:
         paras = full
         idx = TC.compose_card(paras, idx)
     else:
