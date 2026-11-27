@@ -538,3 +538,84 @@ def final_foreign_region_guard(items, lang, space):
         for x in dropped[:6]:
             print(f"       · {x.get('source','?')} [{x.get('region')}]: {(x.get('title') or '')[:60]}")
     return kept
+
+
+# ─── Беда своих граждан за границей: событие — у граждан, а не в месте, где они оказались (J77) ──────
+# Владелец 27.11.2026: «Более 250 паломников из Кыргызстана застряли в Саудовской Аравии» (Азаттык)
+# лежала в «Мировых» у читателя из Кыргызстана: ИИ поставил место события SA, масштаб local, а
+# приложение/сервер по «чужому месту и небольшому масштабу» отправили её на мировую полку.
+# EDITORIAL.md («МЕСТНАЯ»): событие местное, если «его главные участники суть её граждане». Это
+# сестра J50 (заявление должностного лица о гражданах) — там страну события правили по должности в
+# начале заголовка, здесь по ЛЮДЯМ в заголовке («паломников из Кыргызстана», «кыргызстанцы»).
+# Правило узкое, чтобы не стать шире причины:
+#   · подлежащее — люди страны X (демоним «кыргызстанцы», «граждане Кыргызстана», «паломники из
+#     Кыргызстана», «Americans», «mexicanos»…);
+#   · масштаб НЕ мировой (мировое решает масштаб, а не граждане: чемпион мира из Кыргызстана);
+#   · X — дом пула или страна его пространства (чужим гражданам в чужой ленте полку не двигаем);
+#   · место события Y ≠ X; если X не дом, а Y — дом или страна пространства («узбекистанцы в Бишкеке»),
+#     событие у читателя дома — не трогаем.
+_PEOPLE_RU = (r"(?:граждан\w*|паломник\w*|студент\w*|мигрант\w*|рабоч\w*|водител\w*|турист\w*|школьник\w*|"
+              r"жител\w*|дальнобойщик\w*|моряк\w*|соотечественник\w*|спортсмен\w*|врач\w*|волонтёр\w*|волонтер\w*)")
+_COUNTRY_RU = {          # (демоним-существительное, прилагательное, страна в родительном)
+    "KG": (r"кыргызстанц\w*|киргизстанц\w*|кыргызстанк\w*|киргизстанк\w*", r"кыргызск\w+|киргизск\w+|кыргызстанск\w+",
+           r"кыргызстан\w*|киргизи\w+|кыргызской\s+республик\w+"),
+    "KZ": (r"казахстанц\w*|казахстанк\w*", r"казахстанск\w+|казахск\w+", r"казахстан\w*"),
+    "UZ": (r"узбекистанц\w*|узбекистанк\w*", r"узбекистанск\w+|узбекск\w+", r"узбекистан\w*"),
+    "TJ": (r"таджикистанц\w*|таджикистанк\w*", r"таджикистанск\w+|таджикск\w+", r"таджикистан\w*"),
+    "RU": (r"россиян\w*", r"российск\w+|росси\w+ск\w+", r"росси\w+"),
+    "BY": (r"белорус\w*|беларус\w*", r"белорусск\w+|беларусск\w+", r"беларус\w+|белорусси\w+"),
+    "AM": (r"армян\w*", r"армянск\w+", r"армени\w+"),
+    "AZ": (r"азербайджанц\w*", r"азербайджанск\w+", r"азербайджан\w*"),
+    "GE": (r"грузин\w*", r"грузинск\w+", r"грузи\w+"),
+    "MD": (r"молдаван\w*", r"молдавск\w+", r"молдов\w+|молдави\w+"),
+    "TM": (r"туркмен\w*", r"туркменск\w+", r"туркмени\w+"),
+}
+_OWN_PEOPLE = {}
+for _c, (_noun, _adj, _gen) in _COUNTRY_RU.items():
+    _OWN_PEOPLE[_c] = re.compile(
+        r"(?<!\w)(?:(?:" + _noun + r")|(?:" + _adj + r")\s+" + _PEOPLE_RU + r"|" + _PEOPLE_RU
+        + r"\s+(?:из\s+)?(?:" + _gen + r"))(?!\w)", re.I)
+# другие языки пулов: люди дома пула (en — США, es — Мексика, pt — Бразилия, fr — Франция)
+_OWN_PEOPLE_OTHER = {
+    "US": re.compile(r"\b(?:americans|american\s+(?:citizens|tourists|travell?ers|students|pilgrims|workers|nationals)|"
+                     r"u\.?s\.?\s+(?:citizens|nationals))\b", re.I),
+    "MX": re.compile(r"\b(?:mexicanos|mexicanas|ciudadanos\s+mexicanos|connacionales|mexican\s+(?:citizens|nationals|migrants))\b", re.I),
+    "BR": re.compile(r"\b(?:brasileiros|brasileiras|cidad[aã]os\s+brasileiros|brazilians|brazilian\s+(?:citizens|nationals))\b", re.I),
+    "FR": re.compile(r"\b(?:fran[cç]ais|françaises|ressortissants?\s+fran[cç]ais|french\s+(?:citizens|nationals))\b", re.I),
+}
+
+
+def own_people_country(title, candidates):
+    """→ код страны X (из candidates), если подлежащее заголовка — её люди; иначе None."""
+    t = title or ""
+    found = [c for c in candidates
+             if (c in _OWN_PEOPLE and _OWN_PEOPLE[c].search(t)) or (c in _OWN_PEOPLE_OTHER and _OWN_PEOPLE_OTHER[c].search(t))]
+    return found[0] if len(found) == 1 else None
+
+
+def final_own_citizens_guard(items, lang, home, space):
+    """Беда/дело своих граждан за границей — событие у граждан, а не там, где они оказались (J77)."""
+    fixed = []
+    cands = sorted(set(space) | {home})
+    for x in items:
+        if x.get("interesting") or x.get("vital") or x.get("bridge") or x.get("scale") == "world" \
+                or x.get("category") in ("URGENT", "URGENT_LOCAL_ONLY"):
+            continue
+        y = (x.get("event_where") or "").strip().upper()
+        if not y:
+            continue
+        code = own_people_country(x.get("title"), cands)
+        if not code or code == y:
+            continue
+        if code != home and (y == home or y in space):
+            continue                    # чужие граждане там, где читатель дома или рядом — решение ИИ
+        x["event_where"] = code
+        ec = [c for c in (x.get("event_countries") or "").split(",") if c and c != y]
+        if ec:
+            x["event_countries"] = ",".join(sorted(set(ec) | {code}))
+        fixed.append((y, x))
+    if fixed:
+        print(f"  🧳 Свои граждане за границей: страна события — страна граждан [{lang}]: {len(fixed)}")
+        for y, x in fixed[:5]:
+            print(f"       · {x.get('source','?')} {y}→{x.get('event_where')}: {(x.get('title') or '')[:60]}")
+    return items
