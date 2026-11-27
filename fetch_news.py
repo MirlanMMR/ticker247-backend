@@ -8347,8 +8347,38 @@ def _trace(lang, stage, items):
          f"соседей {c.get('pool', 0)}, мира {c.get('world', 0)}{regional}")
 
 
+def _editor_apply_all(res):
+    """Решения редактора → (оставленные, снятые). Общая для основного прогона и позднего добора (J79)."""
+    kept, dropped = [], []
+    for it, v, paras, photos in res:
+        if not v:
+            kept.append(it)         # ИИ не ответил — карточка как была
+            continue
+        ok, x, _notes = ED.apply_verdict(it, v, paras, photos)
+        # «Любопытное» от редактора (09.10.2026: «есть ли у ИИ сознание» должно быть в «Интересном»):
+        # метка идёт в полосу, если заголовок прошёл проверку по содержанию. Карточку,
+        # которую редактор снял как «нет события», но назвал любопытной, возвращаем
+        if v.get("curious") is True and is_curious_content(it):
+            if not ok and any("нет события" in str(n) for n in _notes):
+                it["interesting"] = True
+                kept.append(it)
+                continue
+            if ok:
+                x["interesting"] = True
+        # Жизненно важное — текст целиком. У отключения суть и есть
+        # список: районы, ЧАСЫ, улицы. 24.09.2026 редактор оставил из
+        # списка Kaktus «отключат свет» два пункта и выбросил районы —
+        # читатель не знал, касается ли это его улицы и когда
+        if ok and x.get("vital") and x.get("_full"):
+            x["summary"] = polish_summary(x["_full"])
+        (kept if ok else dropped).append(x if ok else it)
+    return kept, dropped
+
+
+
 def run_editor(filtered, lang, leftover=(), max_items=70):
     """Выпускающий редактор над готовой лентой пула. См. editor.py."""
+    run_editor.last_dropped = []          # снятое редактором: поздний добор (J79) не берёт его снова
     if EDITOR_MODE == "off" or AI_STOPPED or not EDITOR_MD:
         return filtered
     cost0 = current_run_cost()
@@ -8388,34 +8418,10 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
         return filtered
 
     # ── В ЭФИРЕ: исполняем решения ──
-    def apply_all(res):
-        kept, dropped = [], []
-        for it, v, paras, photos in res:
-            if not v:
-                kept.append(it)         # ИИ не ответил — карточка как была
-                continue
-            ok, x, _notes = ED.apply_verdict(it, v, paras, photos)
-            # «Любопытное» от редактора (09.10.2026: «есть ли у ИИ сознание» должно быть в «Интересном»):
-            # метка идёт в полосу, если заголовок прошёл проверку по содержанию. Карточку,
-            # которую редактор снял как «нет события», но назвал любопытной, возвращаем
-            if v.get("curious") is True and is_curious_content(it):
-                if not ok and any("нет события" in str(n) for n in _notes):
-                    it["interesting"] = True
-                    kept.append(it)
-                    continue
-                if ok:
-                    x["interesting"] = True
-            # Жизненно важное — текст целиком. У отключения суть и есть
-            # список: районы, ЧАСЫ, улицы. 24.09.2026 редактор оставил из
-            # списка Kaktus «отключат свет» два пункта и выбросил районы —
-            # читатель не знал, касается ли это его улицы и когда
-            if ok and x.get("vital") and x.get("_full"):
-                x["summary"] = polish_summary(x["_full"])
-            (kept if ok else dropped).append(x if ok else it)
-        return kept, dropped
-
+    apply_all = _editor_apply_all
     out, dropped = apply_all(results)
     out, added = _editor_refill(out, dropped, filtered, lang, leftover, max_items, apply_all)
+    run_editor.last_dropped = list(dropped)
     # Редактор мог выбрать ту же заглушку со страницы (og:image) — нельзя
     for x in out:
         if x.get("imageUrl") in FLAT_PLACEHOLDERS:
@@ -8453,6 +8459,33 @@ def run_editor(filtered, lang, leftover=(), max_items=70):
               f"лента выходит без него")
         return filtered
     return out
+
+
+LATE_TOPUP_MIN_GAP = 6      # меньше стольких до полной ленты — не добираем (как и в _editor_refill)
+LATE_TOPUP_ROUNDS = 2
+
+
+def late_topup(out, lang, leftover, max_items, after_editor):
+    """J79 (27.11.2026): добор до полной ленты ПОСЛЕ последнего снятия, а не до поздних стражей.
+
+    `_editor_refill` стоит внутри редактора и добирает до max_items, но потом идут стражи
+    (сторож читателя, ведомственное, полки, «своё о своём»…) и снимают ещё ~20 карточек в каждом пуле —
+    ru 27.11: после редактора 103, в эфире 77; es 76→57, fr 68→45. Заменить снятое было некем: добора
+    после них нет. Урок тот же, что в docstring `_editor_refill` (24.09): «снимать легко, наполнять
+    трудно — наполняем последним». Поздние стражи добавлялись позже и снова встали после добора.
+
+    Кандидаты — тот же запас полок (leftover) и тот же редактор; уже попробованное, снятое редактором и
+    снятое стражами не берём. → (лента, сколько добрано). Вызывающий прогоняет стражей заново."""
+    if EDITOR_MODE != "live" or AI_STOPPED or not EDITOR_MD or not leftover:
+        return out, 0
+    nat = [x for x in out if not x.get("region")]
+    if max_items - len(nat) <= LATE_TOPUP_MIN_GAP:
+        return out, 0
+    kept_urls = {x.get("url") for x in out}
+    removed = [x for x in after_editor if x.get("url") not in kept_urls]     # снято стражами
+    dropped = list(getattr(run_editor, "last_dropped", [])) + removed
+    out, n = _editor_refill_once(out, dropped, after_editor, lang, leftover, max_items, _editor_apply_all)
+    return out, n
 
 
 def polish_summary(text: str) -> str:
@@ -9785,45 +9818,58 @@ def main():
         filtered = drop_flat_placeholders(filtered, lang)
         filtered = run_editor(filtered, lang, leftover=leftover,
                               max_items=max_items)
-        filtered = final_start_guard(filtered, lang)
-        filtered = drop_stub_summaries(filtered, lang)
-        filtered = drop_foreign_script(filtered, lang)
-        filtered = final_end_guard(filtered, lang)
-        filtered = final_title_guard(filtered, lang)
-        filtered = nos_line.final_title_compress(filtered, lang)   # J72: заголовок карусели — по смыслу, без «…»
-        filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},
-                                    home=POOL_HOME.get(lang, ""))
-        filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
-        filtered = final_statement_country_guard(filtered, lang, POOL_HOME.get(lang, ""))  # J50: заявление о своих гражданах — событие в стране заявителя
-        filtered = final_own_subject_guard(filtered, lang, source_country)  # J51: издание страны пишет о своей стране — событие там
-        filtered = final_local_foreign_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")}, POOL_HOME.get(lang, ""))
-        filtered = final_foreign_region_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
-        filtered = final_foreign_tech_guard(filtered, lang, POOL_HOME.get(lang, ""))   # J44: заявление зарубежной компании → «Интересное»
-        filtered = final_urgent_guard(filtered, lang)   # J38: «срочно» вне «Местных» — только масштаб
-        filtered = final_prepared_guard(filtered, lang)  # J48: подготовленный без спешки материал — не срочное
-        filtered = final_planned_guard(filtered, lang)   # J71: плановое объявление («с 5 ноября изменятся…») — не срочное
-        filtered = final_personnel_guard(filtered, lang)  # J54: освобождение/назначение чиновника — не срочное
-        filtered = final_category_guard(filtered, lang)  # J39/J40: рубрика из списка вёрстки, потолок «важного»
-        filtered = strip_known_stubs(filtered, lang)
-        filtered, _ = cap_dull(filtered, lang)
-        # Признак «интересное» пропадал по дороге (редактор пересобирает карточки): возвращаем
-        # его по источнику ПОСЛЕДНИМ шагом, перед записью (журнал J13)
-        for _x in filtered:
-            if _is_interesting(_x):
-                _x["interesting"] = True
-            elif _x.get("interesting"):
-                _x.pop("interesting", None)     # флаг от источника, а проверка по содержанию отклонила (J22)
-        # Знакомая обложка у новости не по теме (решение владельца 17.10.2026, J55): одно фото уместно
-        # только у одного сюжета; иначе читатель принимает новость за повтор — не берём
-        _cover_dups = reused_covers(filtered, _shown)
-        if _cover_dups:
-            _dup_ids = {id(_x) for _x, _ in _cover_dups}
-            filtered = [_x for _x in filtered if id(_x) not in _dup_ids]
-            for _x, _e in _cover_dups:
-                print(f"  🖼 [{lang}] снято: тот же снимок, что у «{_e.get('title', '')[:50]}», новость не по теме: "
-                      f"«{_x.get('title', '')[:50]}» ({_x.get('source')})")
-        filtered = reader_guard_step(filtered, lang)   # J63: итог глазами читателя (тень → live)
-        filtered, _ = standard_fix.repair(filtered, lang)   # справочник правок из журнала; STANDARD_FIX=shadow|live|off
+        # Стражи итога — одной функцией: после позднего добора (J79) их надо прогнать заново на новых карточках
+        def _tail_guards(filtered):
+            filtered = final_start_guard(filtered, lang)
+            filtered = drop_stub_summaries(filtered, lang)
+            filtered = drop_foreign_script(filtered, lang)
+            filtered = final_end_guard(filtered, lang)
+            filtered = final_title_guard(filtered, lang)
+            filtered = nos_line.final_title_compress(filtered, lang)   # J72: заголовок карусели — по смыслу, без «…»
+            filtered = final_shelf_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")},
+                                        home=POOL_HOME.get(lang, ""))
+            filtered = final_foreign_topic_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
+            filtered = final_statement_country_guard(filtered, lang, POOL_HOME.get(lang, ""))  # J50: заявление о своих гражданах — событие в стране заявителя
+            filtered = final_own_subject_guard(filtered, lang, source_country)  # J51: издание страны пишет о своей стране — событие там
+            filtered = final_local_foreign_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")}, POOL_HOME.get(lang, ""))
+            filtered = final_foreign_region_guard(filtered, lang, set(POOL_COUNTRIES.get(lang, ())) | {POOL_HOME.get(lang, "")})
+            filtered = final_foreign_tech_guard(filtered, lang, POOL_HOME.get(lang, ""))   # J44: заявление зарубежной компании → «Интересное»
+            filtered = final_urgent_guard(filtered, lang)   # J38: «срочно» вне «Местных» — только масштаб
+            filtered = final_prepared_guard(filtered, lang)  # J48: подготовленный без спешки материал — не срочное
+            filtered = final_planned_guard(filtered, lang)   # J71: плановое объявление («с 5 ноября изменятся…») — не срочное
+            filtered = final_personnel_guard(filtered, lang)  # J54: освобождение/назначение чиновника — не срочное
+            filtered = final_category_guard(filtered, lang)  # J39/J40: рубрика из списка вёрстки, потолок «важного»
+            filtered = strip_known_stubs(filtered, lang)
+            filtered, _ = cap_dull(filtered, lang)
+            # Признак «интересное» пропадал по дороге (редактор пересобирает карточки): возвращаем
+            # его по источнику ПОСЛЕДНИМ шагом, перед записью (журнал J13)
+            for _x in filtered:
+                if _is_interesting(_x):
+                    _x["interesting"] = True
+                elif _x.get("interesting"):
+                    _x.pop("interesting", None)     # флаг от источника, а проверка по содержанию отклонила (J22)
+            # Знакомая обложка у новости не по теме (решение владельца 17.10.2026, J55): одно фото уместно
+            # только у одного сюжета; иначе читатель принимает новость за повтор — не берём
+            _cover_dups = reused_covers(filtered, _shown)
+            if _cover_dups:
+                _dup_ids = {id(_x) for _x, _ in _cover_dups}
+                filtered = [_x for _x in filtered if id(_x) not in _dup_ids]
+                for _x, _e in _cover_dups:
+                    print(f"  🖼 [{lang}] снято: тот же снимок, что у «{_e.get('title', '')[:50]}», новость не по теме: "
+                          f"«{_x.get('title', '')[:50]}» ({_x.get('source')})")
+            filtered = reader_guard_step(filtered, lang)   # J63: итог глазами читателя (тень → live)
+            filtered, _ = standard_fix.repair(filtered, lang)   # справочник правок из журнала; STANDARD_FIX=shadow|live|off
+            return filtered
+        _after_editor = list(filtered)
+        filtered = _tail_guards(filtered)
+        # J79: добор до полной ленты — ПОСЛЕ последнего снятия (редакторский добор стоит до стражей)
+        for _round in range(LATE_TOPUP_ROUNDS):
+            filtered, _topped = late_topup(filtered, lang, leftover, max_items, _after_editor)
+            if not _topped:
+                break
+            print(f"  🧺 Поздний добор [{lang}]: +{_topped} после стражей (круг {_round + 1})")
+            _after_editor = list(filtered)
+            filtered = _tail_guards(filtered)
         border.control(filtered, lang, report=_BORDER_REPORT)
         try:
             print(f"  📒 Журнал срочного [{lang}]: +{urgent_log.record(filtered, lang)}")
