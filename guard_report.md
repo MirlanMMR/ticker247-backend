@@ -1,16 +1,74 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [pt] чужое_мелкое: [local] Agência Brasil — Governo avalia que novo tarifaço dos EUA busca proteger big techs — Análise governamental sobre tarifas dos EUA; não é evento, é avaliação de conjuntura.
-- [pt] не_новость: [pool] Observador PT — Chega quer reforma após 40 anos de descontos na Constituição — Proposta política de um partido; não é decisão tomada ou fato consumado.
-- [pt] чужое_мелкое: [world] Notícias ao Minuto — Rússia acusa Letónia de querer provocar uma "guerra aberta" no Báltico — Troca de acusações diplomáticas entre Rússia e Letônia sem impacto direto no Brasil ou escala global de crise imediata.
-- [pt] чужое_мелкое: [world] The Hill — Milhares continuam sem energia após tempestades no Dia de Ação de Graças — Falta de energia após tempestade é evento local nos EUA; não possui relevância global para justificar a seção 'Mundiais'
-- [pt] чужое_мелкое: [world] RFI — Iraque: Trump declara apoio aos esforços para acabar com o contrabando de petról — Apoio de Trump a esforços internos do Iraque é notícia interna da política iraquiana.
-- [pt] чужое_мелкое: [world] RFI — Israel: Gadi Eisenkot continua as negociações para formar o próximo governo — Negociações políticas internas de Israel para formar governo são notícia local.
-- [pt] полка: [world] Азаттык — Sanzhar Bokaev é condenado a dez anos de prisão em Almaty — Notícia sobre condenação no Cazaquistão em 'Mundiais'; deveria estar em 'Notícias de...' ou ser omitida por falta de rel
-- [pt] полка: [world] Азаттык (кыргызча) — Pelo menos três mortos em ataques de mísseis e drones na Ucrânia — Notícia sobre conflito na Ucrânia publicada por edição do Quirguistão; não é evento local ou regional para o pool brasil
-- [pt] чужое_мелкое: [world] RFI — A Coreia do Norte suspende temporariamente a sua ajuda militar à Rússia — Suspensão temporária de ajuda militar entre Coreia do Norte e Rússia; é ruído diplomático constante, não evento de impac
-- [pt] полка: [world] Азаттык (кыргызча) — Diretora informa que recebe telefonemas de deputados para alterar pontuações do  — Notícia sobre parlamentares do Quirguistão em um pool brasileiro.
-- [pt] чужое_мелкое: [world] Азаттык — Bloomberg: Bancos do Cazaquistão podem financiar compra da Altynalmas pelo empre — Negociações financeiras de empresário cazaque não possuem relevância para o leitor brasileiro.
-- [pt] полка: [world] Азаттык (кыргызча) — Morte de cidadão do Tajiquistão na Rússia está sendo investigada — Notícia sobre cidadão tajique na Rússia, publicada por edição do Quirguistão; sem relação com o pool pt-BR.
-- [pt] чужое_мелкое: [world] Азаттык — Afeganistão anuncia a conclusão iminente da segunda fase da construção do canal  — Construção de canal no Afeganistão é notícia local daquele país.
-- [pt] полка: [world] Азаттык (кыргызча) — Ministério de Situações de Emergência afirma que risco de rompimento de lagos em — Notícia sobre o Quirguistão em um pool brasileiro.
+- [en] не_новость: [local] Deseret News — Plenty still at stake for No. 10 Cougars against pesky Bearcats — Это анонс предстоящего матча, а не свершившееся событие.
+- [en] не_новость: [local] WCAX — Scammers target Vermont vendors with fake craft fair posts — Предупреждение о мошенниках — это совет, а не событие.
+- [en] не_новость: [local] WDAM — LIST: Christmas parades around the Pine Belt — Список праздничных мероприятий — справочная информация, не событие.
+- [en] не_новость: [local] WBRC — Calera Police adding new officer positions after 3,000 more service calls in fis — Плановое расширение штата после отчетного периода — не событие.
+- [en] не_новость: [local] WDBJ7 — Danville-Pittsylvania County Habitat for Humanity homeowner application open thr — Объявление о приеме заявок на жилищную программу — не событие.
+- [en] не_новость: [local] WRDW — Safety alert: What to know before you buy an e-bike — Совет по безопасности при покупке e-bike — не событие.
+- [en] не_новость: [local] WTOC — Open for business: Burton Fire District installs Santa Mailboxes ahead of Christ — Установка почтовых ящиков для писем Санте — курьез, а не новость.
+- [en] не_новость: [local] reviewjournal — Nevada State license plate adds school to ranks of UNLV, UNR — Анонс выпуска нового дизайна номерных знаков.
+- [en] не_новость: [local] WIS-TV — Sumter County EMS no longer sends lights and sirens to every 911 call, here’s wh — Разъяснение политики работы службы EMS — не событие.
+- [en] полка: [local] WCAX — New York Senate majority leader dies — Смерть лидера Сената штата Нью-Йорк — это местная новость для US, а не мировая.
+- [en] курьёз: [local] Untitled RSS Feed — Indoor Slide Is Centerpiece Of Unorthodox $1 Million Home Near Cheyenne — Статья об интерьере дома — типичный лайфстайл/интересное.
+- [en] не_новость: [local] KFVS12 — Missouri Agriculture Industry’s annual economic impact reaches $121 billion — Публикация отчета о влиянии индустрии на экономику — не событие.
+- [en] не_новость: [local] KOTA — South Dakota plans to start Medicaid work requirements Jan. — Анонс предстоящих изменений в правилах Medicaid (с января).
+- [en] не_новость: [local] NH Union Leader Latest News — Maple Leafs' Morgan Rielly hits 100 career goals in road win over Bruins — Спортивная статистика (достижение 100 голов) не является событием.
+- [en] не_новость: [local] KOB — Salsa dancing social event returns to support New Mexico families — Анонс танцевального мероприятия.
+- [en] чужое_мелкое: [pool] ABC Australia — The extraordinary allegations that defined Queensland's CFMEU inquiry — Внутреннее расследование профсоюзов в Австралии не имеет значения для читателя в US.
+- [en] не_новость: [pool] Global News CA — A road through Nunavut: The monumental billion-dollar plan to connect Canada’s A — Описание планов и обсуждение проекта — не свершившееся событие.
+- [en] не_новость: [pool] BBC Sport — Cricket Australia may not like sandpaper forum findings — Мнение эксперта о результатах форума, который еще не состоялся или не завершен.
+- [en] не_новость: [pool] WFPL — Amid housing shortage, Kentucky lawmakers will try again to pass legislation to  — Намерение законодателей обсудить законопроект — не событие.
+- [en] чужое_мелкое: [pool] RTÉ Ireland — O'Connor claims minister never wanted her as HSE CEO — Внутренний корпоративный конфликт в госоргане Ирландии.
+- [en] не_новость: [world] BBC News — Weary of war but with no sign of backing down, Kyiv faces another punishing wint — Аналитическая статья-очерк о ситуации в Киеве.
+- [en] чужое_мелкое: [world] BBC World — Brazil pushes back on Macron calling its meat 'doped' — Дипломатический спор о торговле мясом между Бразилией и Францией — мелкое для US.
+- [en] полка: [world] Азаттык (кыргызча) — Emergency Ministry reports low risk of glacial lake outburst in Ala-Archa — Событие в Кыргызстане ошибочно в разделе Мировых новостей; местная для KG потока.
+- [en] не_новость: [world] TechCrunch — Nvidia hits pause on chip shipments to Southeast Asia — Пересказ слухов из отчета WSJ о действиях компании.
+- [en] чужое_мелкое: [local] KFVS12 — Ex-husband of ‘Thousand Pound Sisters’ star jailed on child abuse charge — Внутренняя уголовная хроника штата Кентукки не имеет значения для читателя в США.
+- [en] не_новость: [local] Untitled RSS Feed — More Than 100 Years Of Douglas History Went Up In Flames In Downtown Fire — Пожар произошел в начале месяца, новость не актуальна.
+- [en] чужое_мелкое: [local] Arizona's Family — Pirates trade catcher Henry Davis to Diamondbacks for utility player Tim Tawa — Сделка внутри одной спортивной лиги США — это частная новость лиги, а не значимое событие.
+- [en] не_новость: [local] Oil City News — David Street Station Community Christmas Tree Lighting to kick off holiday seaso — Анонс планового праздничного мероприятия (включение гирлянды).
+- [en] не_новость: [local] Arizona's Family — Teen had open container, gun while driving 115 mph in Chandler, DPS says — Обычная сводка о задержании нарушителя, событие локального уровня без последствий.
+- [en] чужое_мелкое: [local] Arizona's Family — Firefighters battle rooftop air conditioning fire at Tempe High School — Локальное происшествие в школе (пожар на крыше), не требует внимания всей страны.
+- [en] чужое_мелкое: [local] WCAX — New York Senate majority leader dies — Смерть лидера сената штата (не федерального уровня) — событие локального масштаба.
+- [en] чужое_мелкое: [local] WIBW — Silver Lake caps off perfect season with 2A state championship — Результат местного школьного спортивного чемпионата штата Канзас.
+- [en] курьёз: [local] KSTP — Deer rescued from frozen pond in New Hope — Спасение оленя — локальное любопытное событие, не является общественно значимой новостью.
+- [en] не_новость: [local] KLKN-TVKLKN-TV — Sen. Deb Fischer’s office releases new information on her husband’s death — Смерть супруга политика — частное событие, не меняющее правила жизни читателей (см. описание карточки 45).
+- [en] не_новость: [local] Santa Fe New Mexican — Santa Fe County crews working on waterline break in Hyde Park Estates — Ремонт водопровода — плановая коммунальная работа.
+- [en] не_новость: [local] KFYR-TV — Stay out once you get out — Совет пожарной службы по безопасности, не является событием.
+- [en] не_новость: [local] KFYR-TV — ‘Spirit of the Land’ showcases handmade trees at TR Presidential Library — Описание выставочных деревьев в библиотеке — не новость.
+- [en] курьёз: [local] KOB — Dog found after escaping from vet hospital in Albuquerque — Поиск сбежавшей собаки — локальное происшествие.
+- [en] не_новость: [local] WCTV — US senator shares tragic update on husband’s death — Смерть супруга сенатора — частное событие, не являющееся новостью.
+- [en] чужое_мелкое: [pool] Sky Sports — Southampton sink Middlesbrough in first meeting since 'Spygate' — Результат матча чемпионата Великобритании не является мировой новостью для США.
+- [en] чужое_мелкое: [pool] ABC Australia — 'Everything is on the table' as inquiry into military sexual violence kicks off — Внутреннее расследование Канады не является мировой новостью.
+- [en] чужое_мелкое: [pool] ABC Australia — Rain not enough to extinguish Flinders Island bushfire — Локальный австралийский пожар без мировых последствий.
+- [en] не_новость: [pool] Sky Sports — Taylor says he is quitting darts for good after comeback — Очередное заявление о завершении карьеры спортсмена.
+- [en] чужое_мелкое: [pool] Straits Times — British police link substance release at Don Toliver concert to robbery attempts — Криминальная хроника (ограбление на концерте) в Великобритании.
+- [en] чужое_мелкое: [pool] The Globe and Mail — Ottawa adds Northwest Territories highway to major projects list — Строительство региональной трассы в Канаде.
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Driver who was on phone when lorry struck woman is jailed — Локальный приговор в Ирландии.
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Rooney inquest hears evidence on disinformation campaign — Ход судебного следствия по давнему делу в Ирландии.
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Man charged with murder of Qayyum Balogun in Dublin — Криминальная хроника в Дублине.
+- [en] курьёз: [world] Variety — Filming the Moroccan Horse-Riding Doc ‘Bardi’ Took Director Tala Hadid Into a ‘T — История съемок документального фильма в Марокко — не новость, место в «Интересном».
+- [en] срочность: [local] WCNC — One person suffers life-threatening injuries in west Charlotte shooting — рядовое происшествие, нет последствий за пределами инцидента
+- [en] срочность: [local] WBNS RSS Feed: news — ODOT approves guardrail along I-71 after crash that killed central Ohio family’s — плановое решение/меры безопасности, не требует побудки
+- [en] срочность: [local] WCAX — 1 teen dead, another faces DUI charge after St. Albans crash — криминальная сводка, не требует немедленного уведомления
+- [en] срочность: [local] WUSA9 — Old Town Alexandria underwater as Thanksgiving storm floods Union Street — последствия стихии, не требует побудки
+- [en] срочность: [local] WHYY — West Philadelphia boil water advisory will continue until at least Saturday — бытовое предупреждение, не требует побудки
+- [en] срочность: [local] KFVS12 — Power outages in the Heartland 11/27 — бытовое предупреждение о последствиях погоды
+- [en] чужое_мелкое: [pool] SMH Australia — Man charged after teen struck by ute in Sydney’s south-west — криминальная сводка из Австралии, нет мирового значения
+- [en] чужое_мелкое: [pool] SMH Australia — Man charged after alleged road rage attack leaves elderly man injured — местный криминальный инцидент в Австралии
+- [en] чужое_мелкое: [pool] Irish Times — Bridge defect at Drumcondra means disruption for commuters and vintage Santa tra — локальные транспортные проблемы в Ирландии
+- [en] чужое_мелкое: [pool] Irish Times — MetroLink €150m archaeology contract awarded to Wicklow firm — региональный контракт в Ирландии
+- [en] чужое_мелкое: [pool] The Independent — Trump seeks to replace Texas judicial nominee blocked by Senator Cornyn — внутренняя политика США в разделе новостей из Ирландии/Великобритании, это местное для US
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Driver who was on phone when lorry struck woman is jailed — криминал в Ирландии
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Rooney inquest hears evidence on disinformation campaign — внутреннее расследование в Ирландии
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Man charged with murder of Qayyum Balogun in Dublin — криминал в Ирландии
+- [en] чужое_мелкое: [pool] Jamaica Gleaner — RELIEF LAWSUIT - Pastor challenges NIDS requirement for hurricane aid — внутреннее правовое дело на Ямайке
+- [en] чужое_мелкое: [pool] Jamaica Gleaner — JPS puts long-term projects on hold amid licensing uncertainty — бизнес-дела на Ямайке
+- [en] чужое_мелкое: [pool] Jamaica Gleaner — Constitutional red flag raised over power to sell property for unpaid fees — правовая коллизия на Ямайке
+- [en] курьёз: [world] Engadget — Samsung is reportedly giving its camera app an AI mode — слухи об обновлении приложения, не событие
+- [en] курьёз: [world] Variety — ‘A Girl Unknown,’ ‘Crawling Into Myself,’ ‘Concrete Land’ Take Main Prizes at Do — итоги локального кинофестиваля
+- [en] полка: [world] Engadget — Hackers reportedly infiltrated the Air Force's cloud systems — внутренний инцидент США, должно быть в местных
+- [en] чужое_мелкое: [world] Азаттык — Bloomberg: Kazakhstani banks may provide funds to businessman Shakmurat Mutalip  — бизнес-сделка в Казахстане, нет мирового значения
+- [en] полка: [world] Азаттык (кыргызча) — Emergency Ministry reports low risk of glacial lake outburst in Ala-Archa — местная новость Кыргызстана, попала в мировые
+- [en] курьёз: [world] TechCrunch — X finally gets parental controls after 20 years — обновление функций соцсети, не событие
