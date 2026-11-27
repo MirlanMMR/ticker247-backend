@@ -6245,7 +6245,24 @@ def save_translations():
         print(f"  ⚠️ Память переводов не сохранилась: {e}")
 
 
+TRANSLATE_TEXT_MAX = 3600      # знаков текста на новость в переводе (было 900 — карточка не могла быть длиннее, J80)
+TRANSLATE_LONG_CHUNK = 4       # длинные тексты переводим порциями по 4: ответ ИИ — JSON, обрыв теряет всю порцию
+
+
 def _gemini_translate(items, target_lang):
+    """Перевод с делением длинных текстов на малые порции (J80); результат — список пар, как у _gemini_translate_chunk.
+    Порция, на которой ИИ не ответил, даёт пустые пары — translate_batch переведёт их запасным путём."""
+    if len(items) <= TRANSLATE_LONG_CHUNK or all(len(it.get("summary") or "") <= 900 for it in items):
+        return _gemini_translate_chunk(items, target_lang)
+    out = []
+    for i in range(0, len(items), TRANSLATE_LONG_CHUNK):
+        part = items[i:i + TRANSLATE_LONG_CHUNK]
+        res = _gemini_translate_chunk(part, target_lang)
+        out.extend(res if res else [("", "")] * len(part))
+    return out if any(t for t, _ in out) else None
+
+
+def _gemini_translate_chunk(items, target_lang):
     """Перевод пачки новостей через ИИ. Возвращает список пар или None.
 
     Почему ИИ, а не бесплатный переводчик: тот ломается ровно там, где всего
@@ -6267,7 +6284,7 @@ def _gemini_translate(items, target_lang):
                  "pt": "португальский", "fr": "французский"}
     numbered = []
     for i, it in enumerate(items, 1):
-        numbered.append(f"{i}. ЗАГОЛОВОК: {it.get('title','')}\n   ТЕКСТ: {(it.get('summary') or '')[:900]}")
+        numbered.append(f"{i}. ЗАГОЛОВОК: {it.get('title','')}\n   ТЕКСТ: {(it.get('summary') or '')[:TRANSLATE_TEXT_MAX]}")
 
     prompt = f"""Переведи новости на {LANG_NAME.get(target_lang, target_lang)} язык.
 
@@ -6278,6 +6295,7 @@ def _gemini_translate(items, target_lang):
   ВСТРЕТИТСЯ С Гейтсом, а не «председатель Билл Гейтс»
 · Идиомы передавай смыслом, а не по словам
 · Не сокращай и не пересказывай, не добавляй ничего от себя
+· Абзацы текста сохраняй: между ними пустая строка, число абзацев то же
 · Служебные пометки телеграфных лент — «(4th LD)», «UPDATE 2» — убирай
 
 Верни ТОЛЬКО JSON без пояснений, ключ — номер новости:
@@ -6375,6 +6393,37 @@ def _still_foreign(text: str, target: str) -> bool:
     return len(re.findall(r"[а-яё]", t)) >= 10
 
 
+def compose_before_translation(items, lang):
+    """J80 (27.11.2026): текст карточки собираем по правилу абзацев ДО перевода, а переводим уже его.
+
+    Раньше: перевод шёл на `summary` из ленты (одно предложение или ≤ 900 знаков), а дотяжку «переведённые не
+    трогаем» — страница на языке оригинала. Итог: все 15 «коротких» карточек ru 27.11 — переведённые (Straits
+    Times, Engadget, Ars Technica, El Mundo…). Теперь у тех, кого переведём: дотягиваем страницу, берём
+    `textcut.card_text` от целой статьи и ставим метку `_ruled` — дальше правило абзацев повторно НЕ применяется
+    (иначе 8 абзацев перевода снова урезались бы до 6). Страницу не дали (закрыта, ошибка) — карточка как была."""
+    need = [x for x in items if needs_translation(x, lang)
+            and not x.get("translated") and not x.get("pageClosed")
+            and not str(x.get("url", "")).startswith("https://t.me")]
+    if not need:
+        return 0
+    todo = [x for x in need if not x.get("_article")]
+    if todo:
+        enrich_short_summaries(todo, budget=len(todo), annotations_too=True)
+    n = 0
+    for x in need:
+        art = x.get("_article")
+        if not art or len(art) < len(x.get("summary") or ""):
+            continue
+        text = card_text(polish_summary(art))
+        if len(text) > len(x.get("summary") or ""):
+            x["summary"] = text
+            x["_ruled"] = True
+            n += 1
+    if n:
+        print(f"  🧩 [{lang}] текст по правилу абзацев до перевода: {n} из {len(need)}")
+    return n
+
+
 def translate_batch(items, target_lang):
     """Переводит title и summary на язык пула.
 
@@ -6417,7 +6466,10 @@ def translate_batch(items, target_lang):
     for item in items:
         key = _cache_key(item)
         saved = pool_mem.get(key)
-        if isinstance(saved, dict) and saved.get("title"):
+        # Память верна только для ТОГО ЖЕ исходного текста (J80): раньше ключом был адрес, и после того как
+        # текст стал полным (правило абзацев), двое суток возвращался старый короткий перевод
+        if isinstance(saved, dict) and saved.get("title") \
+                and (saved.get("origSummary") or "") == (item.get("summary") or ""):
             if apply(item, saved["title"], saved.get("summary", ""),
                      saved.get("origTitle", item.get("title", "")),
                      saved.get("origSummary", item.get("summary", ""))):
@@ -6456,7 +6508,7 @@ def translate_batch(items, target_lang):
                 # ИИ вернул заголовок, но не текст — такое случается, и раньше
                 # мы молча оставляли английское тело под русским заголовком,
                 # да ещё и запоминали эту пару на двое суток
-                s_ = _gtx_translate(os_[:800], target_lang) or ""
+                s_ = _gtx_translate(os_[:2800], target_lang) or ""
                 time.sleep(0.15)
             if apply(item, t, s_, ot, os_):
                 translated += 1
@@ -8205,13 +8257,14 @@ def _editor_review(items, lang):
 def _prepare_reserve(cands, lang):
     """Запасные карточки — в тот же вид, что эфир: текст, перевод, чистка."""
     enrich_feed_bodies(cands, lang)
+    compose_before_translation(cands, lang)             # J80
     need = [x for x in cands if needs_translation(x, lang)]
     for j in range(0, len(need), 10):
         translate_batch(need[j:j + 10], lang)
     ready = [x for x in cands if not needs_translation(x, lang)]
     for x in ready:
         x["_full"] = full_text_of(x)
-        x["summary"] = card_text(polish_summary(x["_full"]))
+        x["summary"] = polish_summary(x["_full"]) if x.get("_ruled") else card_text(polish_summary(x["_full"]))
     return ready
 
 
@@ -9588,6 +9641,7 @@ def main():
         # Автоперевод: статьи не на языке пула переводим через Gemini
         # Батчи по 15 + один повтор для неудавшихся — падение батча не оставляет
         # половину пула на чужом языке (приложение фильтрует их из ленты)
+        compose_before_translation(filtered, lang)     # J80: текст по правилу абзацев — до перевода
         to_translate = [x for x in filtered if needs_translation(x, lang)]
         if to_translate:
             print(f"  🌍 Переводим {len(to_translate)} статей на {lang}...")
@@ -9668,6 +9722,10 @@ def main():
             # абзацы. Перед записью в базу поле убирается
             _x["_full"] = full_text_of(_x)
             smart = None
+            if _x.get("_ruled"):
+                # J80: текст уже собран по правилу абзацев ДО перевода — второй раз не режем
+                _x["summary"] = polish_summary(_x["_full"])
+                continue
             if EDITOR_MODE == "live":
                 # Редактор выберет абзацы сам — не платим за обрезку дважды
                 _x["summary"] = card_text(polish_summary(_x["_full"]))
