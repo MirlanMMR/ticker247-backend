@@ -1,74 +1,58 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] не_новость: [local] Deseret News — Plenty still at stake for No. 10 Cougars against pesky Bearcats — Это анонс предстоящего матча, а не свершившееся событие.
-- [en] не_новость: [local] WCAX — Scammers target Vermont vendors with fake craft fair posts — Предупреждение о мошенниках — это совет, а не событие.
-- [en] не_новость: [local] WDAM — LIST: Christmas parades around the Pine Belt — Список праздничных мероприятий — справочная информация, не событие.
-- [en] не_новость: [local] WBRC — Calera Police adding new officer positions after 3,000 more service calls in fis — Плановое расширение штата после отчетного периода — не событие.
-- [en] не_новость: [local] WDBJ7 — Danville-Pittsylvania County Habitat for Humanity homeowner application open thr — Объявление о приеме заявок на жилищную программу — не событие.
-- [en] не_новость: [local] WRDW — Safety alert: What to know before you buy an e-bike — Совет по безопасности при покупке e-bike — не событие.
-- [en] не_новость: [local] WTOC — Open for business: Burton Fire District installs Santa Mailboxes ahead of Christ — Установка почтовых ящиков для писем Санте — курьез, а не новость.
-- [en] не_новость: [local] reviewjournal — Nevada State license plate adds school to ranks of UNLV, UNR — Анонс выпуска нового дизайна номерных знаков.
-- [en] не_новость: [local] WIS-TV — Sumter County EMS no longer sends lights and sirens to every 911 call, here’s wh — Разъяснение политики работы службы EMS — не событие.
-- [en] полка: [local] WCAX — New York Senate majority leader dies — Смерть лидера Сената штата Нью-Йорк — это местная новость для US, а не мировая.
-- [en] курьёз: [local] Untitled RSS Feed — Indoor Slide Is Centerpiece Of Unorthodox $1 Million Home Near Cheyenne — Статья об интерьере дома — типичный лайфстайл/интересное.
-- [en] не_новость: [local] KFVS12 — Missouri Agriculture Industry’s annual economic impact reaches $121 billion — Публикация отчета о влиянии индустрии на экономику — не событие.
-- [en] не_новость: [local] KOTA — South Dakota plans to start Medicaid work requirements Jan. — Анонс предстоящих изменений в правилах Medicaid (с января).
-- [en] не_новость: [local] NH Union Leader Latest News — Maple Leafs' Morgan Rielly hits 100 career goals in road win over Bruins — Спортивная статистика (достижение 100 голов) не является событием.
-- [en] не_новость: [local] KOB — Salsa dancing social event returns to support New Mexico families — Анонс танцевального мероприятия.
-- [en] чужое_мелкое: [pool] ABC Australia — The extraordinary allegations that defined Queensland's CFMEU inquiry — Внутреннее расследование профсоюзов в Австралии не имеет значения для читателя в US.
-- [en] не_новость: [pool] Global News CA — A road through Nunavut: The monumental billion-dollar plan to connect Canada’s A — Описание планов и обсуждение проекта — не свершившееся событие.
-- [en] не_новость: [pool] BBC Sport — Cricket Australia may not like sandpaper forum findings — Мнение эксперта о результатах форума, который еще не состоялся или не завершен.
-- [en] не_новость: [pool] WFPL — Amid housing shortage, Kentucky lawmakers will try again to pass legislation to  — Намерение законодателей обсудить законопроект — не событие.
-- [en] чужое_мелкое: [pool] RTÉ Ireland — O'Connor claims minister never wanted her as HSE CEO — Внутренний корпоративный конфликт в госоргане Ирландии.
-- [en] не_новость: [world] BBC News — Weary of war but with no sign of backing down, Kyiv faces another punishing wint — Аналитическая статья-очерк о ситуации в Киеве.
-- [en] чужое_мелкое: [world] BBC World — Brazil pushes back on Macron calling its meat 'doped' — Дипломатический спор о торговле мясом между Бразилией и Францией — мелкое для US.
-- [en] полка: [world] Азаттык (кыргызча) — Emergency Ministry reports low risk of glacial lake outburst in Ala-Archa — Событие в Кыргызстане ошибочно в разделе Мировых новостей; местная для KG потока.
-- [en] не_новость: [world] TechCrunch — Nvidia hits pause on chip shipments to Southeast Asia — Пересказ слухов из отчета WSJ о действиях компании.
-- [en] чужое_мелкое: [local] KFVS12 — Ex-husband of ‘Thousand Pound Sisters’ star jailed on child abuse charge — Внутренняя уголовная хроника штата Кентукки не имеет значения для читателя в США.
-- [en] не_новость: [local] Untitled RSS Feed — More Than 100 Years Of Douglas History Went Up In Flames In Downtown Fire — Пожар произошел в начале месяца, новость не актуальна.
-- [en] чужое_мелкое: [local] Arizona's Family — Pirates trade catcher Henry Davis to Diamondbacks for utility player Tim Tawa — Сделка внутри одной спортивной лиги США — это частная новость лиги, а не значимое событие.
-- [en] не_новость: [local] Oil City News — David Street Station Community Christmas Tree Lighting to kick off holiday seaso — Анонс планового праздничного мероприятия (включение гирлянды).
-- [en] не_новость: [local] Arizona's Family — Teen had open container, gun while driving 115 mph in Chandler, DPS says — Обычная сводка о задержании нарушителя, событие локального уровня без последствий.
-- [en] чужое_мелкое: [local] Arizona's Family — Firefighters battle rooftop air conditioning fire at Tempe High School — Локальное происшествие в школе (пожар на крыше), не требует внимания всей страны.
-- [en] чужое_мелкое: [local] WCAX — New York Senate majority leader dies — Смерть лидера сената штата (не федерального уровня) — событие локального масштаба.
-- [en] чужое_мелкое: [local] WIBW — Silver Lake caps off perfect season with 2A state championship — Результат местного школьного спортивного чемпионата штата Канзас.
-- [en] курьёз: [local] KSTP — Deer rescued from frozen pond in New Hope — Спасение оленя — локальное любопытное событие, не является общественно значимой новостью.
-- [en] не_новость: [local] KLKN-TVKLKN-TV — Sen. Deb Fischer’s office releases new information on her husband’s death — Смерть супруга политика — частное событие, не меняющее правила жизни читателей (см. описание карточки 45).
-- [en] не_новость: [local] Santa Fe New Mexican — Santa Fe County crews working on waterline break in Hyde Park Estates — Ремонт водопровода — плановая коммунальная работа.
-- [en] не_новость: [local] KFYR-TV — Stay out once you get out — Совет пожарной службы по безопасности, не является событием.
-- [en] не_новость: [local] KFYR-TV — ‘Spirit of the Land’ showcases handmade trees at TR Presidential Library — Описание выставочных деревьев в библиотеке — не новость.
-- [en] курьёз: [local] KOB — Dog found after escaping from vet hospital in Albuquerque — Поиск сбежавшей собаки — локальное происшествие.
-- [en] не_новость: [local] WCTV — US senator shares tragic update on husband’s death — Смерть супруга сенатора — частное событие, не являющееся новостью.
-- [en] чужое_мелкое: [pool] Sky Sports — Southampton sink Middlesbrough in first meeting since 'Spygate' — Результат матча чемпионата Великобритании не является мировой новостью для США.
-- [en] чужое_мелкое: [pool] ABC Australia — 'Everything is on the table' as inquiry into military sexual violence kicks off — Внутреннее расследование Канады не является мировой новостью.
-- [en] чужое_мелкое: [pool] ABC Australia — Rain not enough to extinguish Flinders Island bushfire — Локальный австралийский пожар без мировых последствий.
-- [en] не_новость: [pool] Sky Sports — Taylor says he is quitting darts for good after comeback — Очередное заявление о завершении карьеры спортсмена.
-- [en] чужое_мелкое: [pool] Straits Times — British police link substance release at Don Toliver concert to robbery attempts — Криминальная хроника (ограбление на концерте) в Великобритании.
-- [en] чужое_мелкое: [pool] The Globe and Mail — Ottawa adds Northwest Territories highway to major projects list — Строительство региональной трассы в Канаде.
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Driver who was on phone when lorry struck woman is jailed — Локальный приговор в Ирландии.
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Rooney inquest hears evidence on disinformation campaign — Ход судебного следствия по давнему делу в Ирландии.
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Man charged with murder of Qayyum Balogun in Dublin — Криминальная хроника в Дублине.
-- [en] курьёз: [world] Variety — Filming the Moroccan Horse-Riding Doc ‘Bardi’ Took Director Tala Hadid Into a ‘T — История съемок документального фильма в Марокко — не новость, место в «Интересном».
-- [en] срочность: [local] WCNC — One person suffers life-threatening injuries in west Charlotte shooting — рядовое происшествие, нет последствий за пределами инцидента
-- [en] срочность: [local] WBNS RSS Feed: news — ODOT approves guardrail along I-71 after crash that killed central Ohio family’s — плановое решение/меры безопасности, не требует побудки
-- [en] срочность: [local] WCAX — 1 teen dead, another faces DUI charge after St. Albans crash — криминальная сводка, не требует немедленного уведомления
-- [en] срочность: [local] WUSA9 — Old Town Alexandria underwater as Thanksgiving storm floods Union Street — последствия стихии, не требует побудки
-- [en] срочность: [local] WHYY — West Philadelphia boil water advisory will continue until at least Saturday — бытовое предупреждение, не требует побудки
-- [en] срочность: [local] KFVS12 — Power outages in the Heartland 11/27 — бытовое предупреждение о последствиях погоды
-- [en] чужое_мелкое: [pool] SMH Australia — Man charged after teen struck by ute in Sydney’s south-west — криминальная сводка из Австралии, нет мирового значения
-- [en] чужое_мелкое: [pool] SMH Australia — Man charged after alleged road rage attack leaves elderly man injured — местный криминальный инцидент в Австралии
-- [en] чужое_мелкое: [pool] Irish Times — Bridge defect at Drumcondra means disruption for commuters and vintage Santa tra — локальные транспортные проблемы в Ирландии
-- [en] чужое_мелкое: [pool] Irish Times — MetroLink €150m archaeology contract awarded to Wicklow firm — региональный контракт в Ирландии
-- [en] чужое_мелкое: [pool] The Independent — Trump seeks to replace Texas judicial nominee blocked by Senator Cornyn — внутренняя политика США в разделе новостей из Ирландии/Великобритании, это местное для US
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Driver who was on phone when lorry struck woman is jailed — криминал в Ирландии
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Rooney inquest hears evidence on disinformation campaign — внутреннее расследование в Ирландии
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Man charged with murder of Qayyum Balogun in Dublin — криминал в Ирландии
-- [en] чужое_мелкое: [pool] Jamaica Gleaner — RELIEF LAWSUIT - Pastor challenges NIDS requirement for hurricane aid — внутреннее правовое дело на Ямайке
-- [en] чужое_мелкое: [pool] Jamaica Gleaner — JPS puts long-term projects on hold amid licensing uncertainty — бизнес-дела на Ямайке
-- [en] чужое_мелкое: [pool] Jamaica Gleaner — Constitutional red flag raised over power to sell property for unpaid fees — правовая коллизия на Ямайке
-- [en] курьёз: [world] Engadget — Samsung is reportedly giving its camera app an AI mode — слухи об обновлении приложения, не событие
-- [en] курьёз: [world] Variety — ‘A Girl Unknown,’ ‘Crawling Into Myself,’ ‘Concrete Land’ Take Main Prizes at Do — итоги локального кинофестиваля
-- [en] полка: [world] Engadget — Hackers reportedly infiltrated the Air Force's cloud systems — внутренний инцидент США, должно быть в местных
-- [en] чужое_мелкое: [world] Азаттык — Bloomberg: Kazakhstani banks may provide funds to businessman Shakmurat Mutalip  — бизнес-сделка в Казахстане, нет мирового значения
-- [en] полка: [world] Азаттык (кыргызча) — Emergency Ministry reports low risk of glacial lake outburst in Ala-Archa — местная новость Кыргызстана, попала в мировые
-- [en] курьёз: [world] TechCrunch — X finally gets parental controls after 20 years — обновление функций соцсети, не событие
+- [es] не_новость: [local] El Financiero — Luis de Llano revela que no puede pagar la reparación del daño a Sasha Sokol: ‘V — Это личное дело и апелляция, не имеющая общественного значения.
+- [es] не_новость: [local] La Jornada — Entre 2016 y 2018, Gómez Mont percibió 178 mdp de factureras — Старая история о событиях 2016-2018 годов, нет нового факта.
+- [es] чужое_мелкое: [pool] La Nación CR — Director titular de la Orquesta Sinfónica Nacional de Costa Rica dice que renunc — Локальное кадровое решение в культурной организации другой страны.
+- [es] полка: [pool] Prensa Libre GT — Mourinho recupera a un futbolista del Real Madrid tras casi siete meses de ausen — Событие происходит в Испании (ES), должно быть в «Мировых».
+- [es] курьёз: [world] La Nación AR — Agit Kabayel, el kurdo admirado en Alemania: de la prisión al Mundial pesado — Биография спортсмена, нет событийного повода.
+- [es] повтор: [world] El Financiero — Ejército de Estados Unidos inutiliza el buque mercante Pacific Archer que intent ≈ «Ejército de EEUU dispara contra una nave» — Та же новость о перехвате судна, что в карточке 54.
+- [es] повтор: [world] Expansión MX — Hackers vulneran la nube militar de EU operada por Microsoft, Amazon, Google y O ≈ «Hackers atacan y penetran la plataforma » — Та же новость о хакерской атаке на облачную инфраструктуру армии США.
+- [es] курьёз: [world] BBC Mundo — La científica mexicana que ayudó a descubrir el origen de los murciélagos y por  — Научпоп-статья о биологии без события.
+- [es] чужое_мелкое: [world] Азаттык — Bloomberg: Bancos de Kazajistán podrían proporcionar fondos al empresario Mutali — Бизнес-слухи в Казахстане, не имеют последствий для Мексики или мира.
+- [es] полка: [world] Азаттык (кыргызча) — El Ministerio de Situaciones de Emergencia afirma que el riesgo de desborde de l — Новость о Кыргызстане (KG) в ленте Мексики должна быть в «Мировых», а не «Местных».
+- [es] не_новость: [local] El Sol de México — Cuatro de cada 10 diputados pluris de la 4T no han presentado iniciativas — Оценочное суждение о работе депутатов, а не событие.
+- [es] курьёз: [pool] El Tiempo CO — El drama de Mara, la perrita que quedó ciega por la pólvora y es símbolo de prev — История о собаке — трогательный очерк, не новость.
+- [es] полка: [pool] Infobae — 28-28. Las Guerreras rescata un empate en el tramo final del partido contra Port — Событие произошло в Испании (ES), а не в регионе Латинской Америки. Должно быть в мировых.
+- [es] курьёз: [pool] El Nacional VE — Sentimiento Muerto volvió a tocar después de 21 años — Музыкальный реюньон — это развлекательный контент.
+- [es] не_новость: [pool] La Nación AR — Inscriben una nueva variedad de soja tolerante a tres herbicidas — Регистрация сорта семян — бюрократическая рутина, не имеющая масштаба события.
+- [es] не_новость: [pool] El Comercio PE — El 2026 apunta a ser un año récord para las OxI: ¿qué factores impulsan su creci — Аналитическая статья о росте показателей, нет конкретного события-факта.
+- [es] курьёз: [pool] Semana CO — Reconocida cantante de música popular aseguró ser víctima de brujería: “Se me mu — История о суевериях и котах — развлекательный контент.
+- [es] курьёз: [pool] Clarín AR — Lo de Tono, la casa de Villa Luro donde jóvenes con discapacidad intelectual apr — Очерк о социальной инициативе, не новость.
+- [es] чужое_мелкое: [pool] Prensa Libre GT — Mourinho recupera a un futbolista del Real Madrid tras casi siete meses de ausen — Спортивная новость о составе команды Испании — не имеет последствий для читателей MX.
+- [es] не_новость: [pool] Montevideo Portal — “Difícil ver un camino claro”: Uber avisó a sus choferes que duda de seguir en U — «Уверенность» и «сомнения» компании не являются свершившимся фактом прекращения работы.
+- [es] повтор: [pool] La Vanguardia — Sánchez cierra su campaña en Madrid con la mayor movilización socialista desde 1 ≈ «Feijóo apela al votante crítico del PSOE» — Оба материала освещают закрытие кампании одними и теми же политиками.
+- [es] повтор: [pool] El Mundo — Feijóo cierra la campaña pidiendo el voto a "quienes dudan" y que nunca antes vo ≈ «Feijóo apela al votante crítico del PSOE» — Повтор темы закрытия кампании.
+- [es] повтор: [pool] La Vanguardia — Abascal pide “votar sin miedo” para reconstruir España y “echar a Sánchez de La  ≈ «Feijóo apela al votante crítico del PSOE» — Повтор темы закрытия кампании.
+- [es] повтор: [pool] La Vanguardia — ERC se aferra al tirón de Rufián y apela a no conformarse con el mal menor sino  ≈ «Feijóo apela al votante crítico del PSOE» — Повтор темы закрытия кампании.
+- [es] не_новость: [pool] BBC Mundo — Los campesinos en Colombia que no dejan de recibir amenazas por un terreno que l — Статья о затяжной проблеме (6 месяцев), не является оперативным событием.
+- [es] курьёз: [world] La Nación AR — Agit Kabayel, el kurdo admirado en Alemania: de la prisión al Mundial pesado — История жизни спортсмена — биографический очерк.
+- [es] не_новость: [world] El Financiero — Mujeres de Afganistán ‘resisten’ ante el régimen Talibán: Así estudian y trabaja — Общий очерк о жизни в Афганистане, нет конкретного события.
+- [es] не_новость: [world] Fortune — La inflación presiona tanto a los estadounidenses que el aumento en los precios  — Аналитика инфляции, нет события.
+- [es] не_новость: [world] BBC Mundo — Los estafadores que engañaron a miles de migrantes detenidos en EE.UU. con servi — История мошенничества, нет привязки к конкретному задержанию или решению в настоящем.
+- [es] курьёз: [world] BBC Mundo — La científica mexicana que ayudó a descubrir el origen de los murciélagos y por  — Научно-популярный очерк об исследовании летучих мышей.
+- [es] полка: [world] Азаттык (кыргызча) — El Ministerio de Situaciones de Emergencia afirma que el riesgo de desborde de l — Событие происходит в Кыргызстане (KG). Местное событие для пула ru, но в пуле es ошибочно помещено в 'Мировые' и не явля
+- [es] курьёз: [world] Ars Technica — Las baterías de gran capacidad de Volvo: probamos sus híbridos enchufables actua — Тест-драйв автомобилей — обзор продукта, не новость.
+- [es] не_новость: [world] TechCrunch — Nvidia pausa los envíos de chips al Sudeste Asiático — Компания «приостановила» поставки — статус-кво, нет события с окончательным результатом.
+- [es] курьёз: [local] Expansión MX — Intentaron llevar GTA 6 a PC sin permiso, pero Rockstar ya bloqueó todos los esf — Это техническая новость о блокировке фанатского мода для видеоигры.
+- [es] курьёз: [pool] El Tiempo CO — El drama de Mara, la perrita que quedó ciega por la pólvora y es símbolo de prev — История о конкретной собаке не является общественно значимым событием.
+- [es] чужое_мелкое: [pool] Infobae — 28-28. Las Guerreras rescata un empate en el tramo final del partido contra Port — Спортивный матч женских сборных по гандболу не является мировой новостью.
+- [es] курьёз: [pool] Semana CO — Reconocida cantante de música popular aseguró ser víctima de brujería: “Se me mu — Сплетни о личной жизни певицы не являются новостью.
+- [es] чужое_мелкое: [pool] RPP PE — Alianza Lima anunció la salida de José Letelier: "Gracias por ser parte de nuest — Внутреннее кадровое решение футбольного клуба Перу не имеет значения для мира.
+- [es] курьёз: [pool] Clarín AR — Lo de Tono, la casa de Villa Luro donde jóvenes con discapacidad intelectual apr — История об одном благотворительном проекте — формат очерка, а не новость.
+- [es] чужое_мелкое: [pool] 14ymedio — Más de 20.000 médicos cubanos viven en España, 12.000 han homologado sus títulos — Проблемы профессиональной адаптации группы эмигрантов — не мировое событие.
+- [es] курьёз: [world] La Nación AR — Agit Kabayel, el kurdo admirado en Alemania: de la prisión al Mundial pesado — История боксера — это биография, а не мировое новостное событие.
+- [es] срочность: [world] Clarín AR — Ejército de EEUU dispara contra una nave que intentaba romper el bloqueo sobre p — Инцидент с кораблем уже произошел, срочность не оправдана.
+- [es] чужое_мелкое: [world] The Independent — Hamás afirma que el hijo del líder sobrevivió a un intento de asesinato por part — Очередной эпизод локального конфликта без крупных последствий для мира не требует срочности.
+- [es] не_новость: [world] The Hill — Un retraso meteorológico costará 700 000 dólares a la banda de Hawái que partici — Финансовые неурядицы музыкальной группы из-за погоды — не новость.
+- [es] чужое_мелкое: [world] Engadget — Chips de NVIDIA sujetos a restricciones fueron instalados en un centro de datos  — Техническое расследование о поставках чипов в один из дата-центров — это бизнес-деталь, не мирового масштаба.
+- [es] чужое_мелкое: [world] RFI — Irak: Trump dice apoyar los esfuerzos para acabar con el contrabando de petróleo — Локальные действия по борьбе с контрабандой нефти — рутина конфликта.
+- [es] чужое_мелкое: [world] RFI — Israel: Gadi Eisenkot continúa sus gestiones para formar el próximo gobierno — Переговоры о формировании правительства — внутренний процесс страны.
+- [es] курьёз: [world] Naked Science — Una mujer hibernó durante treinta inviernos consecutivos: el estudio de su cereb — Научный факт о редком медицинском случае.
+- [es] курьёз: [world] Naked Science — Un púlsar «escapó» de su remanente de supernova a una velocidad récord de 1460 k — Астрономический факт.
+- [es] полка: [world] Азаттык (кыргызча) — Al menos tres muertos tras ataques con misiles y drones en Ucrania — Событие UA в издании KG для пула ES не имеет смысла.
+- [es] курьёз: [world] BBC Mundo — La científica mexicana que ayudó a descubrir el origen de los murciélagos y por  — Научное открытие об эволюции летучих мышей.
+- [es] чужое_мелкое: [world] RFI — CAN 2025: para los congoleños, la decisión del TAS rehabilita al árbitro Jean-Ja — Спортивный арбитраж по африканскому футбольному турниру не является мировой новостью.
+- [es] полка: [world] Азаттык (кыргызча) — Se informó sobre llamadas de diputados para alterar las puntuaciones del examen  — Событие KG в пуле ES должно быть 'Мировой', так как не относится к Мексике.
+- [es] курьёз: [world] Live Science — El telescopio James Webb descubre un misterioso objeto rojo apenas 450 millones  — Астрономическая находка.
+- [es] полка: [world] Азаттык (кыргызча) — El Ministerio de Situaciones de Emergencia afirma que el riesgo de desborde de l — Событие KG для пула ES — это 'Мировая' (дальняя география).
+- [es] не_новость: [world] Ars Technica — Las baterías de gran capacidad de Volvo: probamos sus híbridos enchufables actua — Обзор автомобиля — это контент, а не новостное событие.
