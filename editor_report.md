@@ -1,73 +1,64 @@
 # Отчёт выпускающего редактора
 
-Прогон 2026-11-28 19:17 UTC · режим live · модель gemini-3.1-flash-lite
+Прогон 2026-11-28 20:27 UTC · режим live · модель gemini-3.1-flash-lite
 
 ```
-  🧪 Этап 1 (боевой) [es]: помечено 68 из 338 за 3 запросов
-  🧭 [es] после отбора и отсечки полок: всего 70 — местных 28, соседей 14, мира 28; областных 26 в 16 регионах
-  🧭 [es] после чистки текста: всего 69 — местных 28, соседей 14, мира 27; областных 26 в 16 регионах
-  🧭 [es] после обзоров прессы: всего 52 — местных 25, соседей 13, мира 14; областных 8 в 4 регионах
-  🧭 [es] после склейки пересказов: всего 47 — местных 23, соседей 11, мира 13; областных 8 в 4 регионах
-  🧭 [es] после рубежа: всего 43 — местных 19, соседей 11, мира 13; областных 8 в 4 регионах
+  🧪 Этап 1 (боевой) [pt]: помечено 0 из 389 за 0 запросов
+  🧭 [pt] после отбора и отсечки полок: всего 70 — местных 29, соседей 15, мира 26; областных 72 в 22 регионах
+  🧭 [pt] после чистки текста: всего 65 — местных 26, соседей 14, мира 25; областных 72 в 22 регионах
+  🧭 [pt] после обзоров прессы: всего 58 — местных 26, соседей 14, мира 18; областных 53 в 15 регионах
+  🧭 [pt] после склейки пересказов: всего 58 — местных 26, соседей 14, мира 18; областных 53 в 15 регионах
+  🧭 [pt] после рубежа: всего 57 — местных 26, соседей 14, мира 17; областных 53 в 15 регионах
 
-  🗞 Редактор [es] (В ЭФИРЕ): карточек 51, спрошено 34, вторым 0
-     память не сработала: новая 34
-     снято: нет события 7
-     починено: текст сокращён до сути 26, фото заменено 3, строка НОС: из заголовка 3, нужно другое фото 2, строка НОС принята 1
-     🎲 Любопытное [es] (в полосу «Интересное»): 0
-       ✂️ [El Financiero] FGR asegura 4 casas ligadas a Taddei y a presunta red de cor — абзацы 3/19; выбраны факты о сути обысков
-       ✂️ [El Financiero] EU ofrece acuerdo a Caro Quintero: ¿Cuándo iniciaría el juic — абзацы 2/11
-       ✂️ [El Universal MX] Pondrán en operación Centro de Identificación Humana en Tama — абзацы 4/10; событие: запуск центра и его польза
-       ✂️ [El Universal MX] Exhortan al PAN a garantizar paridad de género en candidatur — абзацы 6/23; суть призыва женщин-политиков
-       ✂️ [La Jornada] El precio del café debe ser justo: Sheinbaum — абзацы 3/4; снимок — повтор, новый не найден
-       ✂️ [El Economista MX] Subsidios a gasolina y diésel dejarán un faltante en la reca — абзацы 4/6; убраны рассуждения в конце
-       ✂️ [Expansión MX] Hacienda cobrará 6.70 pesos de IEPS a gasolina Magna; va por — абзацы 3/4; изменение цен на топливо
-       🖼 [Expansión MX] Hacienda cobrará 6.70 pesos de IEPS a gasolina Mag — фото: №2 вместо №1
-       ✂️ [Expansión MX] Suzuki resucita al Ignis, pero ahora con motor eléctrico — абзацы 8/13; выбран снимок из статьи
-       🖼 [Expansión MX] Suzuki resucita al Ignis, pero ahora con motor elé — фото: №2 вместо №1
-       ✂️ [Expansión MX] A los 70 años puedes quedarte sin ahorros en la Afore aunque — абзацы 5/7
-       ✂️ [Expansión MX] El campo mexicano quiere evitar una guerra comercial si EU l — абзацы 7/10
-       ✂️ [Expansión MX] Más vigilancia y menos tiempos de espera motivan a Hacienda  — абзацы 5/7
-       ✂️ [Expansión MX] Aguinaldo del ISSSTE 2026: cuándo cae el depósito y qué pens — абзацы 3/4
-       ✗ нет события: [El Financiero] El ‘problema del pavo’ de Wall Street: ¿Por qué es un riesgo apostar demasiado al auge de  — аналитическая колонка о рынке
-       ✗ нет события: [El Financiero] De portero a cantante: La historia de Jakson Follmann, quien sobrevivió al accidente aéreo — история о событии 2016 года
-       ✗ нет события: [El Financiero] América vs. Monterrey EN VIVO HOY: ¿Dónde y a qué hora ver los partidos de vuelta de cuart — анонс матча, события нет
-       ✂️ [El Financiero] Tormenta invernal, frente frío y otros 5 fenómenos meteoroló — абзацы 8/14
-       ✂️ НОС [El Tiempo CO] Terremoto: estos son los cierres viales en Pereira por la in → Terremoto: estos son los cierres viales en Pereira por la inminente implosión del edificio Invico.
-       ✂️ [El Tiempo CO] Terremoto: estos son los cierres viales en Pereira por la in — абзацы 6/8
-       ✂️ НОС [Clarín AR] Rusia afirma que derribó más de 1200 drones lanzados por Ucr → Rusia afirma que derribó más de 1200 drones lanzados por Ucrania y se intensifica la guerra.
-       ✂️ [Clarín AR] Rusia afirma que derribó más de 1200 drones lanzados por Ucr — абзацы 4/6
-       ✗ нет события: [14ymedio] El Parlamento cubano llega a sus 50 años entre vacantes, renuncias y rechazo popular — обзор ситуации в парламенте без события
-       ✗ нет события: [Montevideo Portal] Bentancourt: El triunfo ante Racing y la “muy reñida” final que se viene con Peñarol — интервью игрока после матча
-       ✂️ [La Nación AR] El mercado no se fía del profeta promercado — абзацы 8/15; снято: нет события (колонка/аналитика)
-       ✂️ [La Nación AR] El Equipo Comercial de LA NACION ganó como mejor “Equipo Com — абзацы 4/5; снято: нет события (корпоративная новость)
-       ✂️ [La Nación AR] Prefabricadas con crédito: qué bancos financian casas indust — абзацы 6/8
-       ✂️ [Infobae] Estudiantes de La Plata quiere hacer historia ante Palmeiras — абзацы 5/7
-       ✂️ [El Tiempo CO] Tren del Caribe: tras 12 años de estudios, Verano dice que l — абзацы 5/7
-       ✂️ [El Tiempo CO] Video: Medellín encendió su Navidad con pabellones interacti — абзацы 4/6
-       📝 [NPR News] Explosión en una escuela al este de Afganistán dej → Una explosión en una escuela al este de Afganistán deja 10 muertos y 110 heridos.
-       ✂️ НОС [Semana CO] Terremoto sacude a Los Ángeles y se emiten alertas de “grave → Terremoto sacude a Los Ángeles y se emiten alertas de “gravedad severa”.
-       ✂️ [BBC Mundo] El Tribunal del Mar rechaza el reclamo de Argentina para fre — абзацы 7/35; Выбраны ключевые факты о решении суда.
-       ✂️ [BBC Mundo] "Ni EE.UU. llegó tan lejos": por qué Costa Rica le impidió l — абзацы 8/52; Убраны повторы и цитаты без новых данных.
-       ✗ нет события: [Time] Por qué el exclave ruso de Kaliningrado está en el centro de una disputa con la OTAN — аналитический разбор, события нет
-       ✗ нет события: [72.ru] Cancelan el concierto de una banda conocida en Tiumén por problemas de salud del solista — плановая отмена концерта из-за здоровья — не новость
-       🖼 [60.ru] El guitarrista de The Killers sufrió un accidente  — фото: №2 вместо №1
-       ✂️ [El Informador] Extienden descuentos en multas y recargos en Guadalajara: nu — абзацы 4/5
-       ✂️ [El Informador] Vuelve la lluvia hoy sábado a Guadalajara a esta hora — абзацы 4/6
-       ✂️ [El Informador] Lista de colonias con cortes de agua este sábado y domingo e — абзацы 4/5; убрал 5-й абзац (последний)
-     лента: было 51, снято 7, добрано до полной 33, стало 77; фото: взято у соседа 0, убрано чужих 2
-     💰 редактор: $0.0173
-  🧭 [es] после редактора (в эфир): всего 65 — местных 21, соседей 15, мира 29; областных 5 в 1 регионах
-
-💰 Расход по этапам: всего $0.0904
-     спасение текста: $0.0279 (31%), запросов 15
-     редактор: $0.0226 (25%), запросов 17
-     перевод: $0.0103 (11%), запросов 8
-     отбор (этап 2): $0.0100 (11%), запросов 4
-     прочее: $0.0086 (9%), запросов 3
-     отсев (этап 1): $0.0042 (5%), запросов 3
-     мировые сюжеты: $0.0026 (3%), запросов 1
-     склейка пересказов: $0.0018 (2%), запросов 1
-     обзоры прессы: $0.0015 (2%), запросов 1
-     снимки происшествий: $0.0009 (1%), запросов 3
+  🗞 Редактор [pt] (В ЭФИРЕ): карточек 110, спрошено 66, вторым 0
+     память не сработала: новая 65, текст вырос 1
+     снято: повтор 4, нет события 2
+     починено: без ответа 66, текст сокращён до сути 27, фото заменено 8, нужно другое фото 2, строка НОС принята 2
+     🎲 Любопытное [pt] (в полосу «Интересное»): 0
+       ✗ нет события: [RFI] Eleições legislativas na Espanha: "Podemos qualificá-las como históricas" — анализ и мнения перед выборами, нет события
+       ✗ нет события: [BBC Brasil] Tragédia da Chapecoense, 10 anos depois: 'Não deixo nada para amanhã. Perdoo hoje, abraço  — ретроспектива к годовщине, нет события
+       ✗ повтор: [Semafor] Presidente do parlamento do Senegal defende eleições antecipadas devido a impasse sobre dí — предыдущая карточка уже раскрыла этот сюжет
+       📝 [G1 Minas] Homem é morto a tiros após discussão em bar na Gra → Um homem morreu e outros 5 ficaram feridos após tiroteio em bar na Grande BH.
+       ✂️ [G1 Minas] Homem é morto a tiros após discussão em bar na Grande BH; ci — абзацы 4/7
+       📝 [G1 São Paulo] Incêndio em prédio deixa oito feridos, entre eles  → Oito pessoas, incluindo um bebê, ficaram feridas após incêndio em prédio no centro de SP.
+       ✂️ [G1 Distrito Federal] Fachin libera R$ 316 milhões da liquidação do Banco Master p — абзацы 4/5
+       🖼 [72.ru] Concerto de banda famosa é cancelado em Tyumen dev — фото: №2 вместо №1
+       ✂️ [G1 Minas] Adolescente denuncia injúria racial cometida por colega em e — абзацы 7/16
+       🖼 [G1 Minas] Adolescente denuncia injúria racial cometida por c — фото: №2 вместо №1
+       ✂️ [G1 São Paulo] Justiça de SP condena Tuta, chefe do PCC, a 18 anos de prisã — абзацы 5/37
+       ✂️ [G1 Distrito Federal] 'Golpe do falso leilão': Justiça do DF condena grupo acusado — абзацы 5/14
+       🖼 [G1 Distrito Federal] 'Golpe do falso leilão': Justiça do DF condena gru — фото: №2 вместо №1
+       ✂️ [G1 Rio Grande do Sul] VÍDEO: Criança escapa por pouco de carro em alta velocidade  — абзацы 3/4
+       🖼 [G1 Rio Grande do Sul] VÍDEO: Criança escapa por pouco de carro em alta v — фото: №2 вместо №1
+       ✂️ [G1 Rio] Adolescente segue em estado grave após afogamento que deixou — абзацы 3/11
+       🖼 [G1 Rio] Adolescente segue em estado grave após afogamento  — фото: №2 вместо №1
+       ✂️ [G1 Minas] PM investiga denúncia de que cabo foi atingido com spray de  — абзацы 7/16
+       ✂️ [G1 São Paulo] Estudante de Direito morre após ser esfaqueada por prima de  — абзацы 5/7
+       ✗ повтор: [G1 Rio Grande do Sul] Cover de Elvis que será secretário no RS tem carreira com 1,5 mil apresentações, museu e b — информация о секретаре уже была
+       ✂️ [G1 Rio] No 9º mês de gestação, Sabrina Sato desfila pela Vila Isabel — абзацы 3/20
+       ✂️ [G1 Minas] Júri da chacina de Neves entra no 6º dia após ouvir 12 pesso — абзацы 3/21
+       ✂️ [G1 São Paulo] Trem descarrila na Linha 11-Coral dias após TriviaTrens reto — абзацы 3/21
+       ✂️ [G1 Rio Grande do Sul] Esporotricose: entenda o que é doença transmitida por gatos  — абзацы 6/33
+       ✂️ [G1 Rio] RJ é o estado com cenário criminal mais complexo do país, di — абзацы 3/24; опубликован отчет Abin
+       ✂️ [G1 Minas] Professor de jiu-jitsu suspeito de estuprar e criar ‘contrat — абзацы 8/12; развитие сюжета: мера пресечения
+       ✂️ [G1 São Paulo] Sobrevivente do Massacre do Carandiru consegue na Justiça in — абзацы 6/9
+       🖼 [G1 São Paulo] Sobrevivente do Massacre do Carandiru consegue na  — фото: №2 вместо №1
+       ✂️ [Gazeta do Povo] Lula pede desculpas após chamar FHC de “morto-vivo” e admite — абзацы 8/10
+       ✂️ [G1 Rio] Às vésperas do Natal, Saara, no Centro do Rio, tem lojas fec — абзацы 5/52
+       ✂️ [G1 Minas] Intervenções na linha 1 do metrô de BH alteram intervalo das — абзацы 6/8; важная информация для жителей города
+       ✂️ [G1 São Paulo] Operação de fiscalização de adegas mobiliza mais de 500 poli — абзацы 3/4
+       ✂️ [G1 Rio] Justiça Federal condena grupo por fraude tributária de R$ 30 — абзацы 8/25
+       ✂️ [G1 Minas] Contagem terá interdições no trânsito neste fim de semana pa — абзацы 4/19
+       ✂️ [G1 São Paulo] Empresa responsável por decoração de Natal de R$ 6 milhões n — абзацы 7/64
+       ✂️ [G1 Rio] Coroas de flores a PMs vivos e cabeça humana em batalhão: o  — абзацы 6/36
+       🖼 [G1 Rio] Coroas de flores a PMs vivos e cabeça humana em ba — фото: №2 вместо №1
+       ✂️ [G1 Minas] BH e Região Metropolitana promovem Dia D de combate à dengue — абзацы 6/12
+       ✂️ [G1 São Paulo] Alunos da escola estadual mais antiga de SP protestam contra — абзацы 5/25
+       🖼 [G1 São Paulo] Alunos da escola estadual mais antiga de SP protes — фото: №2 вместо №1
+       ✗ повтор: [G1 Rio] Justiça nega pedido de liberdade de gêmeos de grupo de pagode suspeitos de estupro em MG — предыдущая новость по теме уже была
+       ✂️ [G1 São Paulo] Cantor de pagode é morto a tiros durante tentativa de assalt — абзацы 6/13
+       ✗ повтор: [G1 Rio] Denúncia de estupro em navio da Marinha: veja o que se sabe sobre o caso — новость уже была, снимок — повтор
+     лента: было 110, снято 6, добрано до полной 16, стало 120; фото: взято у соседа 0, убрано чужих 4
+     💰 редактор: $0.0062
+  🧭 [pt] после редактора (в эфир): всего 67 — местных 23, соседей 9, мира 35; областных 37 в 6 регионах
 ```
