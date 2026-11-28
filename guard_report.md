@@ -1,43 +1,73 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [es] чужое_мелкое: [local] El Universal MX — Relatora de la ONU viaja a México tras fallida estancia en Costa Rica; Albanese  — Внутренняя политическая ситуация вокруг докладчика ООН в Коста-Рике и Мексике не является значимым событием.
-- [es] курьёз: [local] El Financiero — Eres ‘old’, pero así de ‘old’: Tamagotchi cumple 30 años con más de 100 millones — Юбилей игрушки (Tamagotchi) — развлекательный факт, не событие.
-- [es] курьёз: [local] La Jornada — El Museo de los Beatles se enfrenta a prohibición de música en la azotea — Запрет на музыку на крыше — любопытный факт, не событие.
-- [es] не_новость: [local] La Jornada — Insta Morena a Maru Campos a dejar el cargo mientras es investigada — Призыв оппозиции к губернатору уйти в отставку — это мнение и политическая риторика, а не событие.
-- [es] не_новость: [local] Expansión MX — A los 70 años puedes quedarte sin ahorros en la Afore aunque no los retires: est — Объяснительная статья о правилах пенсионных накоплений, а не событие.
-- [es] не_новость: [local] Expansión MX — Más vigilancia y menos tiempos de espera motivan a Hacienda a eliminar el efecti — Законодательная инициатива или описание цели закона без факта его принятия.
-- [es] не_новость: [pool] El Universo EC — El Festival Cóndor celebró una nueva edición de la publicidad ecuatoriana — Итоги фестиваля рекламы — не событие для широкого круга читателей.
-- [es] курьёз: [pool] Marca — Joseph Stockdale logra en el Trofeo Virtus su segundo triunfo en Mutua Madrid Ho — Результаты соревнований по конному спорту в Мадриде — узкоспециализированный интерес.
-- [es] не_новость: [pool] El Mundo — El PP se juega 14 escaños clave frente a una izquierda movilizada: "Ya pasó en 2 — Анализ электоральных перспектив и прогнозы перед выборами — это мнение, а не свершившееся событие.
-- [es] не_новость: [pool] eldiario.es — La izquierda cierra la campaña ilusionada por la "remontada" con PP y Vox seguro — Оценка настроений в конце кампании, а не событие.
-- [es] курьёз: [world] Xataka — Todos conocemos a alguien que predice las borrascas con un pinchazo en la rodill — Научно-популярный материал о приметах погоды, не событие.
-- [es] не_новость: [world] BBC Mundo — Erika Cheung, la joven que creció en la pobreza y terminó exponiendo el fraude m — Пересказ истории мошенничества Theranos в формате биографического очерка.
-- [es] не_новость: [world] BBC Mundo — El país cuya revolución solar ha sido tan exitosa que su red eléctrica se está d — Аналитический лонгрид о проблемах энергосети в Пакистане, а не оперативное событие.
-- [es] чужое_мелкое: [pool] El Nacional VE — Alejandra Guzmán canceló concierto en Arena Ciudad de México debido a nueva disl — Частная жизнь знаменитости (отмена концерта) не является новостью для общественности.
-- [es] не_новость: [pool] La Nación AR — Murió el periodista Javier Lozano, cronista de TN y eltrece — Смерть пожилого человека по естественным причинам (66 лет) — это не новость, если не указаны необычные обстоятельства.
-- [es] не_новость: [world] NPR News — Las conversaciones climáticas COP31 no logran un acuerdo sobre la mención de com — Провал переговоров — это отсутствие события, констатация факта отсутствия прогресса.
-- [es] чужое_мелкое: [world] 14ymedio — Tres juezas federales fallan a favor de cubanos detenidos por el ICE — Внутренняя судебная практика США по делам мигрантов не имеет мирового масштаба.
-- [es] чужое_мелкое: [world] RFI — Irán: el periodista Mehdi Mahmoudian fue arrestado en un contexto de represión c — Арест одного журналиста — это внутренняя репрессивная политика страны, не событие мирового масштаба.
-- [es] чужое_мелкое: [world] The Hill — La ACLU demanda a la administración Trump por las investigaciones contra crítico — Подача иска к ведомству — это текущая юридическая процедура, а не мировое событие.
-- [es] чужое_мелкое: [world] Азаттык — Azattyk: las autoridades de Turkmenistán exigen a los empresarios que se suscrib — Местная административная принудиловка в Туркменистане для бизнесменов.
-- [es] чужое_мелкое: [world] Азаттык — Detenida en Almatý una sospechosa de incendiar una casa privada donde murieron c — Криминальная хроника (задержание по бытовому пожару) — это местная новость Казахстана, не мировая.
-- [es] чужое_мелкое: [world] Азаттык (кыргызча) — Se informó que el año pasado solo se abrieron casos por 64 de los 340 hechos de  — Статистика по прошлому году не является актуальной новостью, это очерковый материал.
-- [es] чужое_мелкое: [world] RFI — Un ciudadano francés detenido por el ICE en Estados Unidos: su esposa relata su  — Частная история задержания одного иностранца в США — это не мировая новость.
-- [es] чужое_мелкое: [world] RFI — Francia: un psicólogo experto presenta su análisis en el juicio de la yihadista  — Текущий процесс над одной террористкой — это местная судебная хроника Франции.
-- [es] чужое_мелкое: [world] Азаттык (кыргызча) — ¿Competencia artificial? El proceso de recolección de firmas genera debate — Спор о сборе подписей в Киргизии не является мировой новостью.
-- [es] курьёз: [local] El Financiero — Eres ‘old’, pero así de ‘old’: Tamagotchi cumple 30 años con más de 100 millones — Юбилей игрушки (Tamagotchi) — это любопытный факт, а не событие.
-- [es] курьёз: [local] La Jornada — El Museo de los Beatles se enfrenta a prohibición de música en la azotea — История о запрете музыки в музее не является значимым событием.
-- [es] не_новость: [pool] El Tiempo CO — El alcalde Alejandro Char mueve sus fichas para traer a Barranquilla la final de — Начало переговоров — это не событие, нет свершившегося факта.
-- [es] не_новость: [pool] El Universo EC — Estos son los candidatos a la Alcaldía de Guayaquil para las elecciones secciona — Список кандидатов перед выборами — это справочная информация, а не событие.
-- [es] не_новость: [pool] Semana CO — Iván Cepeda no se quedó callado frente al retiro del cuadro de Gustavo Petro de  — Споры вокруг картины в коридоре не являются событием с последствиями.
-- [es] курьёз: [pool] Muy Interesante — Insólito descubrimiento arqueológico: unos anillos con rostros de dioses de hace — Археологическая находка без исторического прорыва — это в раздел «Интересное».
-- [es] не_новость: [pool] La Vanguardia — Los mítines finales anticipan una alta movilización este domingo — Общие наблюдения об окончании кампании и митингах перед выборами не являются новостным событием.
-- [es] курьёз: [world] Xataka — Todos conocemos a alguien que predice las borrascas con un pinchazo en la rodill — Размышления о народных приметах — это очерк, не событие.
-- [es] курьёз: [world] Futura-Sciences — Extraños cabellos de hielo descubiertos en los bosques estos días: ¡no es lo que — Природное явление (ледяные фигуры) — классический курьёз.
-- [es] курьёз: [world] Muy Interesante — Un misterioso linaje humano sobrevivió en el sur de China hace más de 100.000 añ — Научная гипотеза о древних людях — это познавательный контент, не событие.
-- [es] курьёз: [world] Futura-Sciences — Hablamos lenguas diferentes, pero comparten un ancestro común: el ADN antiguo ar — Научно-популярная заметка об эволюции языков не является новостью.
-- [es] не_новость: [world] Sciences et Avenir — Lactosa: ¿y si pudiéramos volver a aprender a digerirla? — Объяснение физиологии пищеварения (лактоза) — это ликбез, а не новость.
-- [es] курьёз: [world] Futura-Sciences — Ingenieros aplican una punta de diamante sobre un metal que resiste más de 2.600 — Научно-популярное описание эксперимента с металлом — это «Интересное».
-- [es] не_новость: [world] Sciences et Avenir — EXPOSICIÓN. Donde crece el suelo — Анонс выставки о почве — не событие.
-- [es] курьёз: [world] Good News Network — Una familia celebra que su bebé, a quien le dieron semanas de vida en Nochebuena — Личная история выздоровления (Human Interest) — это курьёз/очерк.
-- [es] курьёз: [world] Good News Network — Residentes de Texas trabajan gratis en tierras ajenas para financiar los estudio — Благотворительная инициатива без масштаба и конкретного результата — это курьёз.
+- [pt] не_новость: [local] Folha de S.Paulo — Cleitinho é 'figura especial' e 'fenômeno na política' de MG, diz Lula — этикет, похвала политика, отсутствие события.
+- [pt] не_новость: [local] Metrópoles — Campanha de Lula pagou servidores do governo que trabalharam na reeleição — расследование/критика прошлых расходов, а не событие.
+- [pt] не_новость: [local] Gazeta do Povo — Lula pede desculpas após chamar FHC de “morto-vivo” e admite gafe — извинение за слова — этикет, не событие.
+- [pt] не_новость: [local] CNN Brasil — Flávio critica Dino e diz que suspensão de emendas é “malandragem jurídica” — критика судебного решения политиком, нет события.
+- [pt] не_новость: [local] Gazeta do Povo — PF muda relatórios sobre ministros do STF e esconde nomes de agentes — обсуждение рабочих документов, нет события.
+- [pt] не_новость: [local] G1 Rio — No 9º mês de gestação, Sabrina Sato desfila pela Vila Isabel e diz que Rio ‘recl — светская хроника, не событие.
+- [pt] не_новость: [local] G1 Rio — Às vésperas do Natal, Saara, no Centro do Rio, tem lojas fechadas; abertura de e — наблюдение за рынком, нет события.
+- [pt] не_новость: [local] G1 São Paulo — Empresa responsável por decoração de Natal de R$ 6 milhões na Avenida Paulista n — критика процесса госзакупок, не является фактом нарушения.
+- [pt] повтор: [pool] G1 Bahia — Casal que comandava facção carioca morre em confronto após fugir da Bahia com ar ≈ «Segundo suspeito de chacina que matou tr» — один и тот же сюжет о гибели преступников в перестрелке.
+- [pt] чужое_мелкое: [world] Expresso das Ilhas — Kyiv e Conselho da Europa discutem tribunal especial para julgar Rússia — внутренняя дипломатическая дискуссия без практического итога.
+- [pt] не_новость: [world] The Independent — Equipe de Trump reformula página da USAID para expor arquivos sobre como ela foi — обновление сайта/архива, не событие.
+- [pt] не_новость: [world] The Hill — Cúpula da UE falha em chegar a um acordo orçamentário após 15 horas de negociaçõ — очередная неудача в переговорах, нет итогового решения.
+- [pt] не_новость: [world] The Hill — Nenhuma contaminação da água potável detectada após detonação de chumbo em Iowa: — рутинный отчет о безопасности, нет события.
+- [pt] не_новость: [world] Expresso das Ilhas — José Maria Neves toma posse a 08 de Dezembro para segundo mandato como President — плановая инаугурация в будущем.
+- [pt] не_новость: [world] NPR News — Conferência climática COP31 não consegue chegar a um acordo sobre menção a combu — отсутствие соглашения на переговорах — нет результата.
+- [pt] чужое_мелкое: [world] Азаттык — Azatlyky: autoridades do Turcomenistão exigem que empresários assinem jornais es — местная политика и принуждение в Туркменистане, не имеет последствий для Бразилии.
+- [pt] не_новость: [world] Téla Nón — 25 de Novembro : Defesa do recluso Lucas Lima pede amnistia ao parlamento — ходатайство адвоката, не событие.
+- [pt] не_новость: [world] El Mundo — O PP disputa 14 cadeiras cruciais contra uma esquerda mobilizada: "Já aconteceu  — аналитика предвыборных рейтингов, не событие.
+- [pt] не_новость: [world] Time — Por que o exclave russo de Kaliningrado está no centro de uma disputa da OTAN — разбор геополитической ситуации без события.
+- [pt] не_новость: [world] Ars Technica — Intel enfrentou uma escolha: dar 10% a Trump ou arcar com as consequências — пересказ слов, нет свершившегося факта сделки или санкции.
+- [fr] срочность: [local] Le Figaro — Jeune homme mort le soir de la victoire du PSG : cinq suspects écroués pour «meu — Событие полугодовой давности не требует побудки.
+- [fr] срочность: [local] La Dépêche — Une valeur de 900 000 euros : plus de 500 000 fioles de gaz hilarant découvertes — Это криминальная хроника, не требующая немедленного уведомления читателя.
+- [fr] повтор: [local] Franceinfo — Plus de 500 000 cartouches de protoxyde d'azote saisies dans un entrepôt en Sein ≈ «Une valeur de 900 000 euros : plus de 50» — Тот же сюжет, что в №4.
+- [fr] срочность: [local] Nice-Matin — Affrontements en marge d’un banquet du Canon français à Biarritz, un policier bl — Локальный инцидент на мероприятии не является мировым или экстренным событием.
+- [fr] срочность: [local] France Bleu — Rixes, fausse séquestration, téléphone perdu : à Flers, la police mobilisée pour — Бытовые конфликты на праздниках не требуют срочного оповещения.
+- [fr] не_новость: [pool] Courrier International — Entrée en récession, la France a vécu un “vendredi noir” — Анализ экономической ситуации, а не конкретное свершившееся событие.
+- [fr] не_новость: [pool] Le Temps — La France confie à 158 citoyens la mission d’imaginer des compromis sur la maîtr — Формирование комиссии — это бюрократический процесс, не меняющий ситуацию прямо сейчас.
+- [fr] не_новость: [world] La Tribune — Pétrole : la menace d'une offre excédentaire fait reculer les cours malgré les t — Обзор колебаний биржевых котировок не является новостью в нашем формате.
+- [fr] срочность: [world] La Nación CR — 21 personnes, dont cinq enfants, tuées par un bombardement de l'armée birmane lo — Событие произошло в Мьянме, не является критическим для мировой безопасности прямо сейчас.
+- [fr] не_новость: [world] BFMTV — Il préside un empire financier de 1.200 milliards de dollars, conduit toujours s — Портретный очерк без новостного повода.
+- [fr] срочность: [world] BBC News — Une femme de 21 ans décède dans un accident après une course-poursuite policière — Криминальная хроника из Британии не является срочной для международного читателя.
+- [fr] чужое_мелкое: [world] Sud Ouest — Allemagne : le parti de gauche radicale BSW valide une collaboration ponctuelle  — Внутренняя политическая сделка регионального уровня в Германии.
+- [fr] срочность: [world] The Independent — Les manifestations étudiantes contre le gouvernement albanais deviennent violent — Столкновения студентов с полицией — локальное происшествие без глобальных последствий.
+- [fr] срочность: [world] BBC News — Un homme arrêté pour le meurtre d'une adolescente de 16 ans — Локальное происшествие в Британии не требует уведомления всей мировой аудитории.
+- [fr] полка: [world] Africanews FR — Conflit russo-ukrainien : un convoi russe rebrousse chemin après une frappe ukra — Событие описывает российско-украинский конфликт, заголовок и текст про Украину/РФ, а не Ливию.
+- [fr] повтор: [world] BBC World — OpenAI dépose une plainte reconventionnelle contre Apple pour vol présumé de sec ≈ «Pratiques anticoncurrentielles, pression» — Тот же сюжет, что в №34.
+- [fr] чужое_мелкое: [world] Africanews FR — Johannesburg : Herman Mashaba élu maire pour un nouveau mandat — Муниципальные выборы в Йоханнесбурге — локальное событие без мирового влияния.
+- [fr] чужое_мелкое: [world] Africanews FR — Guinée-Bissau : le report des élections suscite l'incompréhension — Внутриполитические споры в Гвинее-Бисау.
+- [fr] чужое_мелкое: [world] BBC Mundo — Le Costa Rica refuse l'entrée sur son territoire à Francesca Albanese, rapporteu — Миграционный спор Коста-Рики с чиновником ООН не является мировым событием масштаба.
+- [fr] полка: [world] Азаттык (кыргызча) — Ukraine : au moins trois morts lors d'attaques russes au missile et au drone — Издание на кыргызском языке в ленте франкоязычного пула без адаптации текста.
+- [fr] не_новость: [local] Franceinfo — Incidents lors d'OM-Levski Sofia : l'entraîneur Bruno Genesio condamne "les viol — футбольные разборки и цитирование тренера не являются событием
+- [fr] чужое_мелкое: [local] Nice-Matin — Affrontements en marge d’un banquet du Canon français à Biarritz, un policier bl — местный инцидент без общенациональных последствий для уровня МИРОВЫХ
+- [fr] чужое_мелкое: [local] France Bleu — Rixes, fausse séquestration, téléphone perdu : à Flers, la police mobilisée pour — бытовой конфликт на праздновании дня рождения, не событие для ленты
+- [fr] не_новость: [local] Le Figaro — Sécurité, immigration… David Lisnard révèle son programme présidentiel au Figaro — анонс политической программы кандидата — это не свершившееся событие
+- [fr] повтор: [pool] Jeune Afrique — Le Sénégal récupère son titre de champion d’Afrique, Paris confronté au boycott  ≈ «Derrière l’échec de la COP31, un réveil » — смешанная подборка новостей, дублирующая основную тему
+- [fr] чужое_мелкое: [pool] TSA Algérie — Toulouse : un avion vers Alger émet un signal d’urgence et fait demi-tour — рядовой авиационный инцидент без жертв и серьезных последствий
+- [fr] чужое_мелкое: [world] Variety — Rishab Shetty remporte le prix du meilleur acteur pour « Kantara: A Legend – Cha — локальная кинопремия не является мировой новостью
+- [fr] чужое_мелкое: [world] France 24 FR — Élection à la mairie de Taipei : Puma Shen déçu après sa défaite — результаты местных выборов в Тайбэе — внутренняя новость, не имеющая мирового значения
+- [fr] чужое_мелкое: [world] BBC News — Une femme de 21 ans décède dans un accident après une course-poursuite policière — криминальная хроника Великобритании (дело местного значения)
+- [fr] чужое_мелкое: [world] The Independent — Les manifestations étudiantes contre le gouvernement albanais deviennent violent — локальные беспорядки в Албании без международного резонанса
+- [fr] чужое_мелкое: [world] BBC News — Un homme arrêté pour le meurtre d'une adolescente de 16 ans — криминальная хроника Великобритании (дело местного значения)
+- [fr] метка_места: [world] Africanews FR — Conflit russo-ukrainien : un convoi russe rebrousse chemin après une frappe ukra — текст про события в Украине, ошибочно указана Ливия
+- [fr] полка: [world] Азаттык (кыргызча) — Ukraine : au moins trois morts lors d'attaques russes au missile et au drone — новости об Украине являются мировыми, а не местными для издания из Кыргызстана (и не подходят для пула fr в данный разде
+- [fr] полка: [local] France Bleu — Saint-Vivien-de-Médoc : une information judiciaire ouverte pour assassinat, un h — Событие местное (Франция), должно быть в «Местных», а не в «Новостях из…»
+- [fr] не_новость: [local] La Dépêche — Mort de Lina : deux hommes seront jugés en 2027 pour le viol de l’adolescente un — Плановое судебное решение (назначенная дата суда на 2027 год) не является новостным событием
+- [fr] не_новость: [local] La Dépêche — Disparue avec ses deux enfants, une mère de famille retrouvée après 15 mois d'en — Завершение давнего расследования (15 месяцев) без указания нового факта (например, обвинения или приговора) — это очерк
+- [fr] не_новость: [pool] Jeune Afrique — La CEEAC prend officiellement acte du retrait du Rwanda — Дипломатический этикет (официальное признание факта, произошедшего полгода назад) — не новость
+- [fr] не_новость: [pool] RTBF — Budget fédéral : réaliser 14 milliards d’efforts rapprocherait-il la Belgique de — Аналитическая статья о бюджете, нет свершившегося события
+- [fr] не_новость: [pool] RTBF — Chantier du data center interrompu à Aiseau-Presles : Google se justifie — Заявление компании-подрядчика о 'диалоге' — это слова, а не событие
+- [fr] не_новость: [pool] Radio-Canada — Les garderies subventionnées réclament plus d’équité avec les CPE — Описание процесса, жалобы и обсуждение ситуации в секторе — нет конкретного события
+- [fr] анонс: [pool] Le Nouvelliste — Late documents, anxious candidates, registrations end — Заголовок и текст говорят о задержках и процессах, нет свершившегося факта регистрации
+- [fr] не_новость: [world] La Tribune — Climat : le transport maritime joue sa transition écologique à Londres — Анонс предстоящего события («будет проходить всю неделю»)
+- [fr] не_новость: [world] Forbes — Microsoft annonce l'abandon prochain d'une fonctionnalité de connexion entre Win — Объявление об отказе от функционала в будущем (план)
+- [fr] курьёз: [world] Futura-Sciences — D’immenses cercles de pierres révélés par des photographies aériennes en Arabie  — Текст противоречит заголовку (арабские камни vs венгерский лед), это набор фактов, не событие
+- [fr] не_новость: [world] Rolling Stone — Le scandale Nvidia en préparation depuis des années : une chronologie — Очерк/таймлайн (хронология) о старых событиях
+- [fr] не_новость: [world] NPR News — Les négociations climatiques de la COP31 échouent à trouver un accord sur la men — Дипломатическая неудача (провал переговоров без принятого решения) — нет события
+- [fr] курьёз: [world] Futura-Sciences — Nous parlons des langues différentes, mais elles partagent un ancêtre commun : l — Научпоп про 5000 лет назад — место в «Интересном», нет события
+- [fr] метка_места: [world] Africanews FR — Conflit russo-ukrainien : un convoi russe rebrousse chemin après une frappe ukra — Africanews FR пишет о сорвавшемся конвое в Ливии (событие не UA, а LY)
+- [fr] курьёз: [world] BBC Русская служба — Le divorce record de Potanine à Londres : ce que la première semaine de procès a — Подробности бракоразводного процесса в суде — не мировая новость
+- [fr] не_новость: [world] Ars Technica — Intel faceait face à un choix : verser 10 % à Trump ou en subir les conséquences — Слухи/обсуждение юридического давления без принятого решения или свершившегося факта
+- [fr] не_новость: [world] BBC Русская служба — Une campagne à caractère idéologique : l'Espagne se dirige vers des élections où — Предвыборная агитация (митинг и слова премьера) — не новость
