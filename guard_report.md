@@ -1,52 +1,62 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [ru] полка: [local] Sputnik KG (кыргызча) — Германиянын ири концерни Украинада завод куруудан баш тартышы мүмкүн — Это новость о Германии и Украине, для пула KG (не входящего в ЕС или НАТО) это мировая новость, а не местная.
-- [ru] полка: [local] Sputnik KG (кыргызча) — Россиянын 450дөй жогорку окуу жайларына квота менен акысыз окууга болот — Новость о квотах в российских вузах для Кыргызстана — это местная повестка, а не международная.
-- [ru] чужое_мелкое: [pool] РИА Новости — В Госдуме хотят продлить психологическую помощь по ОМС женщинам после родов — Внутренняя инициатива Госдумы РФ, не имеющая последствий для Кыргызстана.
-- [ru] чужое_мелкое: [pool] РИА Новости — "Рубин" разгромил "Акрон" в РПЛ — Результат матча чемпионата России по футболу не является мировой новостью.
-- [ru] чужое_мелкое: [pool] РБК — «Роскосмос» рассказал о применении ИИ на МКС и в проектировании — Технологические обновления Роскосмоса — внутренняя корпоративная новость РФ.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — «Даже скорую не вызвать»: под Рязанью жители несколько суток оставались без свет — Локальная коммунальная проблема в Рязанской области РФ.
-- [ru] чужое_мелкое: [pool] 86.ru — Ханты-Мансийск — В Ханты-Мансийске соберутся Деды Морозы и Снегурочки со всей страны — Анонс развлекательного мероприятия в Ханты-Мансийске.
-- [ru] чужое_мелкое: [pool] 59.ru — Пермь — На Чусовском мосту на ночь ограничат движение — Перекрытие моста в Перми РФ — не имеет значения для читателя в Кыргызстане.
-- [ru] чужое_мелкое: [pool] Onliner.by — В МАРТ объяснили разницу между отменой скидки и повышением тарифов операторов — Разъяснения белорусского МАРТ по тарифам связи внутри Беларуси.
-- [ru] чужое_мелкое: [pool] Onliner.by — «МЛ Витебск» — чемпион Беларуси, БАТЭ вылетел в Первую лигу — Внутренний чемпионат Беларуси по футболу.
-- [ru] чужое_мелкое: [pool] Kun.uz — В Ташкенте задержан налоговик, требовавший 1 млн долларов за оформление земельно — Задержание налоговика в Ташкенте — внутренняя новость Узбекистана.
-- [ru] чужое_мелкое: [pool] v1.ru — Волгоград — В ЦПКиО открывается каток «Лагуна» — смотрим, сколько стоят билеты — Анонс открытия катка в Волгограде.
-- [ru] чужое_мелкое: [pool] Avesta.tj — На сцене AI Journey состоялась мировая премьера шоу-балета студентов Академии та — Культурное мероприятие (балет роботов) в РФ.
-- [ru] чужое_мелкое: [pool] Азаттык — В Узбекистане заменят 30 русских военных терминов аналогами на госязыке — Внутренняя лингвистическая реформа в Узбекистане.
-- [ru] чужое_мелкое: [pool] ngs24.ru — Красноярск — В Красноярском крае будут судить мать, которая в пьяном виде уронила девятимесяч — Уголовное дело в Красноярском крае РФ.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — «Пять человек с температурой играли»: орский «Южный Урал» всухую проиграл на вые — Результат выездного матча орского хоккейного клуба.
-- [ru] чужое_мелкое: [pool] Avesta.tj — Следователи Таджикистана и России обсудили правовую помощь по уголовным делам — Рабочая встреча ведомств РФ и Таджикистана — рутина без конкретного результата.
-- [ru] чужое_мелкое: [pool] 63.ru — Самара — Можем повторить! Определился первый соперник «Крыльев Советов» в Кубке России — Соперник самарского клуба в Кубке России.
-- [ru] чужое_мелкое: [pool] 74.ru — Челябинск — Семья раненого бойца СВО из Златоуста отсудила потерянные после любовной перепис — Частный судебный спор в Челябинской области РФ.
-- [ru] чужое_мелкое: [pool] 56.ru — Оренбург — Одиннадцатый раз за месяц: в Оренбургской области снова действовала опасность ат — Ежедневная рутина с БПЛА в приграничных с Украиной регионах РФ.
-- [ru] чужое_мелкое: [pool] 60.ru — Псков — Псковские росгвардейцы задержали 19 нарушителей за неделю — Статистика работы Росгвардии в Псковской области.
-- [ru] курьёз: [world] BBC Русская служба — Рекордный развод Потанина в Лондоне: что мы узнали за первую неделю суда — Светская хроника (развод олигарха) не является мировой новостью.
-- [ru] курьёз: [world] 60.ru — Псков — Гитарист The Killers пережил почти смертельный инсульт — Личная медицинская история музыканта не является мировой новостью.
-- [ru] чужое_мелкое: [world] BBC Русская служба — «Я служил стране верой и правдой». Бывший глава полиции Италии в предсмертной за — Предсмертная записка экс-главы полиции Италии — частная драма, не имеющая мировых последствий.
-- [ru] не_новость: [world] BBC Русская служба — Кампания идеологического характера. — Это политический анализ/рассуждение, а не факт совершившегося события.
-- [ru] не_новость: [local] Sputnik KG — 18-летняя Ариет Санжарова представит Кыргызстан на "Мисс Земля" — видео — представление на конкурс красоты — это анонс события, которое еще не состоялось.
-- [ru] чужое_мелкое: [local] Sputnik KG (кыргызча) — Германиянын ири концерни Украинада завод куруудан баш тартышы мүмкүн — внутренние новости бизнеса Германии и Украины не являются значимыми для киргизстанского читателя.
-- [ru] чужое_мелкое: [local] Sputnik KG (кыргызча) — Россиянын 450дөй жогорку окуу жайларына квота менен акысыз окууга болот — информация о квотах на обучение в РФ — повтор темы карточки 11, но с фокусом на внутренние процессы РФ.
-- [ru] чужое_мелкое: [pool] 178.ru — Санкт-Петербург — В Петербурге пресекли работу подпольного банка — криминальная хроника Санкт-Петербурга не является мировой новостью.
-- [ru] чужое_мелкое: [pool] 62.ru — Рязань — Рязанцам разрешили самостоятельно менять выбитые при атаке БПЛА окна: власти вып — локальная рязанская новость о компенсациях за разбитые окна.
-- [ru] курьёз: [pool] 178.ru — Санкт-Петербург — Бобр в заповеднике ходит за енотовидной собакой — зоологическая заметка из заповедника — это интересное, не новость.
-- [ru] курьёз: [pool] 178.ru — Санкт-Петербург — В Петербурге нашли изразец, украденный в 1997 году — находка изразца спустя 30 лет — интересная история, но не событие.
-- [ru] чужое_мелкое: [pool] 24.kg — В Узбекистане бывших сотрудников СГБ приговорили к срокам до 17 лет — внутренние судебные дела Узбекистана, не затрагивающие Кыргызстан.
-- [ru] чужое_мелкое: [pool] Gazeta.uz — Сенат одобрил ужесточение наказания за нарушение некоторых ПДД — ужесточение ПДД в Узбекистане — внутренняя новость соседней страны.
-- [ru] чужое_мелкое: [pool] Asia-Plus — Три сотрудника «Точиктелекома» погибли в ДТП — бытовое ДТП в Таджикистане без международных последствий.
-- [ru] не_новость: [pool] NewsGeorgia — Кобахидзе объявил о старте строительства спортивного городка в Тбилиси, не раскр — анонс строительства без деталей — это планы, а не событие.
-- [ru] чужое_мелкое: [world] 93.ru — Краснодар — На Крымском мосту начали ремонт — технический ремонт моста — рутина, не мировая новость.
-- [ru] курьёз: [world] Kaktus.media — В США беременная заключенная сбежала, пока охранники покупали гамбургеры — криминальный случай в США, не имеющий мирового масштаба или отношения к KG.
-- [ru] не_новость: [world] Terra BR — «Мы должны подготовиться к ближайшим месяцам»: президент Microsoft предупреждает — мнение/предупреждение президента компании, а не свершившийся факт.
-- [ru] не_новость: [world] Fortune — 96-летний Уоррен Баффет ускоряет передачу миллиардов, опасаясь, что его дети мог — финансовые операции миллиардера по передаче наследства не являются событием для широкого круга читателей.
-- [ru] чужое_мелкое: [world] Kaktus.media — OpenAI подала в суд на Apple, обвинив компанию в краже коммерческих секретов — корпоративный судебный спор Apple и OpenAI — это бизнес-битва компаний, не имеющая глобальных последствий для жизни чита
-- [ru] не_новость: [world] 35.ru — Вологда — Звонок о беде с родственником — схема мошенников — описание схемы мошенничества — это памятка, а не новостное событие.
-- [ru] чужое_мелкое: [world] 24.kg — Хакеры взломали одну из крупнейших облачных платформ ВВС США Cloud One — взлом облачной платформы США — мелкий инцидент без критических для мира последствий.
-- [ru] не_новость: [world] RFI — Сербия: Радомир Сайшич стал кандидатом от студенческого движения на президентски — выдвижение кандидата — это политический процесс, а не свершившийся факт выборов.
-- [ru] не_новость: [world] BBC Русская служба — Рекордный развод Потанина в Лондоне: что мы узнали за первую неделю суда — светская хроника развода миллиардера не является новостью.
-- [ru] не_новость: [world] 60.ru — Псков — Гитарист The Killers пережил почти смертельный инсульт — история о пережитом инсульте музыканта — личная жизнь, не событие.
-- [ru] не_новость: [world] RFI — Тайвань: Чан Ван-ан и Пума Шэнь идут «ноздря в ноздрю» на выборах мэра Тайбэя — прогноз/ход выборов — не новость о результате.
-- [ru] чужое_мелкое: [world] Engadget — Ограниченные в экспорте чипы NVIDIA были установлены в китайском центре обработк — корпоративные вопросы поставок чипов NVIDIA — тема для узких специалистов, а не для ленты 24/7.
-- [ru] не_новость: [world] Semafor — Импорт солнечных панелей из Китая в Кению резко вырос — статистика импорта — это аналитический отчет, не новостное событие.
-- [ru] не_новость: [world] BBC Русская служба — США предлагают Украине гарантии «как в НАТО». Поможет ли это обеспечить мир с Ро — аналитический разбор «поможет ли это?» — не новость.
+- [en] курьёз: [local] New Jersey 101.5 — Storm Rips Off Billboard, Reveals Hand-Painted Sands Casino Ad — незначительное событие, интересное лишь как любопытный факт.
+- [en] не_новость: [local] Gothamist — Lenape tribe says NFL owner's NJ development plan would destroy sacred artifacts — описание позиции племени по проекту, события нет.
+- [en] чужое_мелкое: [local] Axios — Congress grapples with sexual misconduct — внутренняя законодательная деятельность Конгресса — обычный рабочий процесс.
+- [en] чужое_мелкое: [local] Colorado Public Radio — Colorado congressional members make a last push in lame duck session — законодательная рутина Конгресса, не новость.
+- [en] не_новость: [local] LA Times — Inside the race for control of NASA's Jet Propulsion Laboratory — описание процесса борьбы компаний за контракт — не свершившееся событие.
+- [en] не_новость: [local] Charleston Gazette-Mail — Conrail split problems from 1999 fuel 2026 UP-NS merger debate — обсуждение сделки 1999 года и дебаты вокруг возможного слияния.
+- [en] чужое_мелкое: [pool] The Independent — Markwayne Mullin labeled an ‘idiot’ by Trump staffers as rumors swirl about his  — слухи и перепалки внутри администрации США — политический шум.
+- [en] не_новость: [pool] Toronto Star — Voters delivered a rebuke. But Trump is sticking to his agenda — аналитический разбор повестки, события нет.
+- [en] не_новость: [pool] Toronto Star — The Supreme Court will decide whether assault weapons bans violate the Second Am — анонс будущего решения суда, события нет.
+- [en] чужое_мелкое: [pool] RTÉ Ireland — Daggers, fury and public unease after HSE sacking — местная политическая склока в Ирландии.
+- [en] не_новость: [pool] WFPL — Amid housing shortage, Kentucky lawmakers will try again to pass legislation to  — намерение законодателей обсудить законопроект, события нет.
+- [en] курьёз: [world] Xataka — China, Japan, and India aim to turn lunar water into rocket fuel; the race is on — научно-технический обзор планов агентств, события нет.
+- [en] не_новость: [world] TechCrunch — Sakana AI’s CEO says its homegrown models are about more than Japan’s national s — мнение CEO о стратегии компании, события нет.
+- [en] не_новость: [world] El Nacional VE — OPEC+ meets this Sunday to agree on 2027 oil supply — анонс встречи, события нет.
+- [en] полка: [world] Азаттык — UN committee orders Kyrgyzstan to compensate politician Omurbek Tekebayev for 20 — внутреннее дело Кыргызстана, мировой новостью не является.
+- [en] чужое_мелкое: [world] 14.ru — Drones strike bus: nine people injured; summary of overnight attacks — внутренняя военная сводка, нет мирового масштаба.
+- [en] не_новость: [world] KSL.com — Mexico's government is slamming a DEA crime tip line as foreign interference. — обмен критикой между правительствами, события нет.
+- [en] чужое_мелкое: [world] BBC World — Spanish PM and rivals rally supporters in final pitch for votes — внутренняя предвыборная риторика в Испании.
+- [en] не_новость: [world] Ars Technica — Intel faced a choice: Give Trump 10% or face the consequences — аналитика о давлении на компанию, события нет.
+- [en] не_новость: [world] TechCrunch — Nvidia hits pause on chip shipments to Southeast Asia — информация о намерениях компании, события нет.
+- [en] не_новость: [world] TechCrunch — X finally gets parental controls after 20 years — техническое обновление функции, не новость мирового масштаба.
+- [en] срочность: [local] WWLTV — Wheelchair-bound man hit and killed in Lower Ninth Ward, police say — рядовое происшествие, не требует немедленного уведомления
+- [en] курьёз: [local] New Jersey 101.5 — Storm Rips Off Billboard, Reveals Hand-Painted Sands Casino Ad — интересная находка, не является новостным событием
+- [en] срочность: [local] KENS5 — 2 injured in crash off Old Corpus Christi Road — обычное ДТП, плашка срочно неуместна
+- [en] не_новость: [local] NPR News — New wave of Democratic attorneys general may reshape the justice system — аналитический прогноз о политических сдвигах, а не свершившийся факт
+- [en] чужое_мелкое: [pool] Punch Nigeria — Nollywood stars visit Ngozi Nwosu in hospital, appeal for donations — локальная новость шоу-бизнеса Нигерии
+- [en] курьёз: [pool] Good News Network — Small Town Gets a Superhero: ‘Banana Man’ Peels Around on a Bike Leaving Smiles  — городская легенда/факт, место в «Интересном»
+- [en] курьёз: [pool] ScienceAlert — One Simple Dietary Change Can Reduce Blood Sugar Spikes by 27% — медицинский совет/факт, не является событием
+- [en] не_новость: [pool] RTÉ Ireland — 'Defence wins games' - Ireland get reward for hard work — мнение о ходе игры, а не результат
+- [en] курьёз: [world] Xataka — China, Japan, and India aim to turn lunar water into rocket fuel; the race is on — научно-популярный факт, не является новостным событием
+- [en] чужое_мелкое: [world] The Hill — ACLU sues Trump administration over investigations into online ICE critics — внутренняя судебная тяжба США
+- [en] чужое_мелкое: [world] Азаттык — UN committee orders Kyrgyzstan to compensate politician Omurbek Tekebayev for 20 — местная судебная новость Кыргызстана в ленте США без мирового масштаба
+- [en] не_новость: [world] NPR News — Sudan's lost generation: War is stealing the childhood of millions — очерк о ситуации в стране, нет конкретного события
+- [en] чужое_мелкое: [world] Semafor — Kenya’s Chinese solar imports surge amid diesel volatility — торговая статистика Кении, нет мировых последствий
+- [en] чужое_мелкое: [world] Semafor — Senegal speaker urges early elections over debt rift — внутренний политический конфликт в Сенегале
+- [en] курьёз: [local] New Jersey 101.5 — Storm Rips Off Billboard, Reveals Hand-Painted Sands Casino Ad — находка старой рекламы после шторма — любопытный факт, не новость.
+- [en] курьёз: [local] CBS News — College student finds golf ball-sized brain tumor: "There's no way" — личная история студента без общественно значимых последствий.
+- [en] не_новость: [local] WHYY — As Philly’s park trees grow old, planners are preparing the next generation — планы на будущее про саженцы, нет свершившегося события.
+- [en] курьёз: [local] LA Times — After a historic hatch, what's next for Southern California's sea turtles? — научно-популярная заметка о морских черепахах.
+- [en] не_новость: [local] LA Times — Inside the L.A. library parking lot that has become a haven for homeless women — очерк о жизни в парковке без события.
+- [en] чужое_мелкое: [local] NBC News — Zelenskyy questions Trump’s ‘strange’ reference to Putin as a ‘friend’ — внешнеполитические высказывания Зеленского о Трампе — это мнение.
+- [en] не_новость: [local] Hawaii News Now — Black Friday shoppers report gridlock in Ala Moana Center parking garage — рутинная жалоба на пробки в праздничный день.
+- [en] чужое_мелкое: [pool] Punch Nigeria — Troops kill two terrorists, rescue kidnap victim in Zamfara, Kaduna — локальные военные операции в Нигерии не имеют мирового значения.
+- [en] чужое_мелкое: [pool] Punch Nigeria — 2027: Mbah unveils ‘Enugu Declaration’, urges South-East to back Tinubu — локальная политическая декларация в штате Энугу.
+- [en] чужое_мелкое: [pool] The Hindu — Thirupparankundram Karthigai Deepam lit at ‘deepathoon’ in accordance with Supre — локальный религиозный обряд в Индии.
+- [en] чужое_мелкое: [pool] Hindustan Times — Travel agent held for traffic women by luring them with jobs in Gulf, seizing pa — арест мелкого мошенника в индийском городке.
+- [en] повтор: [pool] Toronto Star — EPA says no rise in contamination after Army detonates lead azide stockpile in I ≈ «EPA releases drinking water results afte» — тот же сюжет про детонацию в Айове.
+- [en] чужое_мелкое: [pool] ABC Australia — One Nation finds its base in regional Victoria — региональная политика в штате Виктория (Австралия).
+- [en] курьёз: [pool] ScienceAlert — One Simple Dietary Change Can Reduce Blood Sugar Spikes by 27% — медицинский совет по диете, не новость.
+- [en] курьёз: [pool] RNZ — Inside the NZ genebank sending seeds to the Arctic Circle doomsday vault — научно-популярный факт о семенном фонде.
+- [en] чужое_мелкое: [pool] Irish Times — Search for Real IRA weapons to continue at west Cork properties — обыски в Ирландии по старым делам, локальное событие.
+- [en] не_новость: [pool] RNZ — Black Caps hold upper hand over India after day two of Christchurch test — спортивная хроника матча без итогового результата.
+- [en] чужое_мелкое: [pool] Jamaica Gleaner — ‘We can’t intercept them all’ - Chang warns of Haitian gangsters eyeing Jamaica  — заявление министра Ямайки о страхах перед бандами.
+- [en] не_новость: [pool] KSFY — Goldin performance led to Skyforce starting a new win streak — спортивная рутина, описание победы без значимых последствий.
+- [en] чужое_мелкое: [pool] Global News CA — Moe, Doerkson urge unity to Smith’s UCP at kickoff for annual meeting — локальные партийные разборки в Канаде.
+- [en] курьёз: [world] Xataka — China, Japan, and India aim to turn lunar water into rocket fuel; the race is on — планы космических агентств, не событие.
+- [en] не_новость: [world] Straits Times — Bethlehem businesses hopeful tourism will return this Christmas — ожидания владельцев бизнеса от будущего праздника.
+- [en] не_новость: [world] 24.kg — Hackers breach US Air Force Cloud One platform — ссылка на Reuters без подтвержденного факта взлома.
+- [en] не_новость: [world] KOB — UN warns hunger will deepen in the Middle East as war. — аналитический прогноз ООН по голоду в мире, не событие.
+- [en] чужое_мелкое: [world] Азаттык (кыргызча) — At least three killed in missile and drone strikes in Ukraine — рутинная сводка обстрелов в войне, ставшая ежедневной нормой.
