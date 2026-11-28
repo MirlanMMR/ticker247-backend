@@ -1,62 +1,43 @@
 # Сторож — находки последнего запуска (режим live)
 
-- [en] курьёз: [local] New Jersey 101.5 — Storm Rips Off Billboard, Reveals Hand-Painted Sands Casino Ad — незначительное событие, интересное лишь как любопытный факт.
-- [en] не_новость: [local] Gothamist — Lenape tribe says NFL owner's NJ development plan would destroy sacred artifacts — описание позиции племени по проекту, события нет.
-- [en] чужое_мелкое: [local] Axios — Congress grapples with sexual misconduct — внутренняя законодательная деятельность Конгресса — обычный рабочий процесс.
-- [en] чужое_мелкое: [local] Colorado Public Radio — Colorado congressional members make a last push in lame duck session — законодательная рутина Конгресса, не новость.
-- [en] не_новость: [local] LA Times — Inside the race for control of NASA's Jet Propulsion Laboratory — описание процесса борьбы компаний за контракт — не свершившееся событие.
-- [en] не_новость: [local] Charleston Gazette-Mail — Conrail split problems from 1999 fuel 2026 UP-NS merger debate — обсуждение сделки 1999 года и дебаты вокруг возможного слияния.
-- [en] чужое_мелкое: [pool] The Independent — Markwayne Mullin labeled an ‘idiot’ by Trump staffers as rumors swirl about his  — слухи и перепалки внутри администрации США — политический шум.
-- [en] не_новость: [pool] Toronto Star — Voters delivered a rebuke. But Trump is sticking to his agenda — аналитический разбор повестки, события нет.
-- [en] не_новость: [pool] Toronto Star — The Supreme Court will decide whether assault weapons bans violate the Second Am — анонс будущего решения суда, события нет.
-- [en] чужое_мелкое: [pool] RTÉ Ireland — Daggers, fury and public unease after HSE sacking — местная политическая склока в Ирландии.
-- [en] не_новость: [pool] WFPL — Amid housing shortage, Kentucky lawmakers will try again to pass legislation to  — намерение законодателей обсудить законопроект, события нет.
-- [en] курьёз: [world] Xataka — China, Japan, and India aim to turn lunar water into rocket fuel; the race is on — научно-технический обзор планов агентств, события нет.
-- [en] не_новость: [world] TechCrunch — Sakana AI’s CEO says its homegrown models are about more than Japan’s national s — мнение CEO о стратегии компании, события нет.
-- [en] не_новость: [world] El Nacional VE — OPEC+ meets this Sunday to agree on 2027 oil supply — анонс встречи, события нет.
-- [en] полка: [world] Азаттык — UN committee orders Kyrgyzstan to compensate politician Omurbek Tekebayev for 20 — внутреннее дело Кыргызстана, мировой новостью не является.
-- [en] чужое_мелкое: [world] 14.ru — Drones strike bus: nine people injured; summary of overnight attacks — внутренняя военная сводка, нет мирового масштаба.
-- [en] не_новость: [world] KSL.com — Mexico's government is slamming a DEA crime tip line as foreign interference. — обмен критикой между правительствами, события нет.
-- [en] чужое_мелкое: [world] BBC World — Spanish PM and rivals rally supporters in final pitch for votes — внутренняя предвыборная риторика в Испании.
-- [en] не_новость: [world] Ars Technica — Intel faced a choice: Give Trump 10% or face the consequences — аналитика о давлении на компанию, события нет.
-- [en] не_новость: [world] TechCrunch — Nvidia hits pause on chip shipments to Southeast Asia — информация о намерениях компании, события нет.
-- [en] не_новость: [world] TechCrunch — X finally gets parental controls after 20 years — техническое обновление функции, не новость мирового масштаба.
-- [en] срочность: [local] WWLTV — Wheelchair-bound man hit and killed in Lower Ninth Ward, police say — рядовое происшествие, не требует немедленного уведомления
-- [en] курьёз: [local] New Jersey 101.5 — Storm Rips Off Billboard, Reveals Hand-Painted Sands Casino Ad — интересная находка, не является новостным событием
-- [en] срочность: [local] KENS5 — 2 injured in crash off Old Corpus Christi Road — обычное ДТП, плашка срочно неуместна
-- [en] не_новость: [local] NPR News — New wave of Democratic attorneys general may reshape the justice system — аналитический прогноз о политических сдвигах, а не свершившийся факт
-- [en] чужое_мелкое: [pool] Punch Nigeria — Nollywood stars visit Ngozi Nwosu in hospital, appeal for donations — локальная новость шоу-бизнеса Нигерии
-- [en] курьёз: [pool] Good News Network — Small Town Gets a Superhero: ‘Banana Man’ Peels Around on a Bike Leaving Smiles  — городская легенда/факт, место в «Интересном»
-- [en] курьёз: [pool] ScienceAlert — One Simple Dietary Change Can Reduce Blood Sugar Spikes by 27% — медицинский совет/факт, не является событием
-- [en] не_новость: [pool] RTÉ Ireland — 'Defence wins games' - Ireland get reward for hard work — мнение о ходе игры, а не результат
-- [en] курьёз: [world] Xataka — China, Japan, and India aim to turn lunar water into rocket fuel; the race is on — научно-популярный факт, не является новостным событием
-- [en] чужое_мелкое: [world] The Hill — ACLU sues Trump administration over investigations into online ICE critics — внутренняя судебная тяжба США
-- [en] чужое_мелкое: [world] Азаттык — UN committee orders Kyrgyzstan to compensate politician Omurbek Tekebayev for 20 — местная судебная новость Кыргызстана в ленте США без мирового масштаба
-- [en] не_новость: [world] NPR News — Sudan's lost generation: War is stealing the childhood of millions — очерк о ситуации в стране, нет конкретного события
-- [en] чужое_мелкое: [world] Semafor — Kenya’s Chinese solar imports surge amid diesel volatility — торговая статистика Кении, нет мировых последствий
-- [en] чужое_мелкое: [world] Semafor — Senegal speaker urges early elections over debt rift — внутренний политический конфликт в Сенегале
-- [en] курьёз: [local] New Jersey 101.5 — Storm Rips Off Billboard, Reveals Hand-Painted Sands Casino Ad — находка старой рекламы после шторма — любопытный факт, не новость.
-- [en] курьёз: [local] CBS News — College student finds golf ball-sized brain tumor: "There's no way" — личная история студента без общественно значимых последствий.
-- [en] не_новость: [local] WHYY — As Philly’s park trees grow old, planners are preparing the next generation — планы на будущее про саженцы, нет свершившегося события.
-- [en] курьёз: [local] LA Times — After a historic hatch, what's next for Southern California's sea turtles? — научно-популярная заметка о морских черепахах.
-- [en] не_новость: [local] LA Times — Inside the L.A. library parking lot that has become a haven for homeless women — очерк о жизни в парковке без события.
-- [en] чужое_мелкое: [local] NBC News — Zelenskyy questions Trump’s ‘strange’ reference to Putin as a ‘friend’ — внешнеполитические высказывания Зеленского о Трампе — это мнение.
-- [en] не_новость: [local] Hawaii News Now — Black Friday shoppers report gridlock in Ala Moana Center parking garage — рутинная жалоба на пробки в праздничный день.
-- [en] чужое_мелкое: [pool] Punch Nigeria — Troops kill two terrorists, rescue kidnap victim in Zamfara, Kaduna — локальные военные операции в Нигерии не имеют мирового значения.
-- [en] чужое_мелкое: [pool] Punch Nigeria — 2027: Mbah unveils ‘Enugu Declaration’, urges South-East to back Tinubu — локальная политическая декларация в штате Энугу.
-- [en] чужое_мелкое: [pool] The Hindu — Thirupparankundram Karthigai Deepam lit at ‘deepathoon’ in accordance with Supre — локальный религиозный обряд в Индии.
-- [en] чужое_мелкое: [pool] Hindustan Times — Travel agent held for traffic women by luring them with jobs in Gulf, seizing pa — арест мелкого мошенника в индийском городке.
-- [en] повтор: [pool] Toronto Star — EPA says no rise in contamination after Army detonates lead azide stockpile in I ≈ «EPA releases drinking water results afte» — тот же сюжет про детонацию в Айове.
-- [en] чужое_мелкое: [pool] ABC Australia — One Nation finds its base in regional Victoria — региональная политика в штате Виктория (Австралия).
-- [en] курьёз: [pool] ScienceAlert — One Simple Dietary Change Can Reduce Blood Sugar Spikes by 27% — медицинский совет по диете, не новость.
-- [en] курьёз: [pool] RNZ — Inside the NZ genebank sending seeds to the Arctic Circle doomsday vault — научно-популярный факт о семенном фонде.
-- [en] чужое_мелкое: [pool] Irish Times — Search for Real IRA weapons to continue at west Cork properties — обыски в Ирландии по старым делам, локальное событие.
-- [en] не_новость: [pool] RNZ — Black Caps hold upper hand over India after day two of Christchurch test — спортивная хроника матча без итогового результата.
-- [en] чужое_мелкое: [pool] Jamaica Gleaner — ‘We can’t intercept them all’ - Chang warns of Haitian gangsters eyeing Jamaica  — заявление министра Ямайки о страхах перед бандами.
-- [en] не_новость: [pool] KSFY — Goldin performance led to Skyforce starting a new win streak — спортивная рутина, описание победы без значимых последствий.
-- [en] чужое_мелкое: [pool] Global News CA — Moe, Doerkson urge unity to Smith’s UCP at kickoff for annual meeting — локальные партийные разборки в Канаде.
-- [en] курьёз: [world] Xataka — China, Japan, and India aim to turn lunar water into rocket fuel; the race is on — планы космических агентств, не событие.
-- [en] не_новость: [world] Straits Times — Bethlehem businesses hopeful tourism will return this Christmas — ожидания владельцев бизнеса от будущего праздника.
-- [en] не_новость: [world] 24.kg — Hackers breach US Air Force Cloud One platform — ссылка на Reuters без подтвержденного факта взлома.
-- [en] не_новость: [world] KOB — UN warns hunger will deepen in the Middle East as war. — аналитический прогноз ООН по голоду в мире, не событие.
-- [en] чужое_мелкое: [world] Азаттык (кыргызча) — At least three killed in missile and drone strikes in Ukraine — рутинная сводка обстрелов в войне, ставшая ежедневной нормой.
+- [es] чужое_мелкое: [local] El Universal MX — Relatora de la ONU viaja a México tras fallida estancia en Costa Rica; Albanese  — Внутренняя политическая ситуация вокруг докладчика ООН в Коста-Рике и Мексике не является значимым событием.
+- [es] курьёз: [local] El Financiero — Eres ‘old’, pero así de ‘old’: Tamagotchi cumple 30 años con más de 100 millones — Юбилей игрушки (Tamagotchi) — развлекательный факт, не событие.
+- [es] курьёз: [local] La Jornada — El Museo de los Beatles se enfrenta a prohibición de música en la azotea — Запрет на музыку на крыше — любопытный факт, не событие.
+- [es] не_новость: [local] La Jornada — Insta Morena a Maru Campos a dejar el cargo mientras es investigada — Призыв оппозиции к губернатору уйти в отставку — это мнение и политическая риторика, а не событие.
+- [es] не_новость: [local] Expansión MX — A los 70 años puedes quedarte sin ahorros en la Afore aunque no los retires: est — Объяснительная статья о правилах пенсионных накоплений, а не событие.
+- [es] не_новость: [local] Expansión MX — Más vigilancia y menos tiempos de espera motivan a Hacienda a eliminar el efecti — Законодательная инициатива или описание цели закона без факта его принятия.
+- [es] не_новость: [pool] El Universo EC — El Festival Cóndor celebró una nueva edición de la publicidad ecuatoriana — Итоги фестиваля рекламы — не событие для широкого круга читателей.
+- [es] курьёз: [pool] Marca — Joseph Stockdale logra en el Trofeo Virtus su segundo triunfo en Mutua Madrid Ho — Результаты соревнований по конному спорту в Мадриде — узкоспециализированный интерес.
+- [es] не_новость: [pool] El Mundo — El PP se juega 14 escaños clave frente a una izquierda movilizada: "Ya pasó en 2 — Анализ электоральных перспектив и прогнозы перед выборами — это мнение, а не свершившееся событие.
+- [es] не_новость: [pool] eldiario.es — La izquierda cierra la campaña ilusionada por la "remontada" con PP y Vox seguro — Оценка настроений в конце кампании, а не событие.
+- [es] курьёз: [world] Xataka — Todos conocemos a alguien que predice las borrascas con un pinchazo en la rodill — Научно-популярный материал о приметах погоды, не событие.
+- [es] не_новость: [world] BBC Mundo — Erika Cheung, la joven que creció en la pobreza y terminó exponiendo el fraude m — Пересказ истории мошенничества Theranos в формате биографического очерка.
+- [es] не_новость: [world] BBC Mundo — El país cuya revolución solar ha sido tan exitosa que su red eléctrica se está d — Аналитический лонгрид о проблемах энергосети в Пакистане, а не оперативное событие.
+- [es] чужое_мелкое: [pool] El Nacional VE — Alejandra Guzmán canceló concierto en Arena Ciudad de México debido a nueva disl — Частная жизнь знаменитости (отмена концерта) не является новостью для общественности.
+- [es] не_новость: [pool] La Nación AR — Murió el periodista Javier Lozano, cronista de TN y eltrece — Смерть пожилого человека по естественным причинам (66 лет) — это не новость, если не указаны необычные обстоятельства.
+- [es] не_новость: [world] NPR News — Las conversaciones climáticas COP31 no logran un acuerdo sobre la mención de com — Провал переговоров — это отсутствие события, констатация факта отсутствия прогресса.
+- [es] чужое_мелкое: [world] 14ymedio — Tres juezas federales fallan a favor de cubanos detenidos por el ICE — Внутренняя судебная практика США по делам мигрантов не имеет мирового масштаба.
+- [es] чужое_мелкое: [world] RFI — Irán: el periodista Mehdi Mahmoudian fue arrestado en un contexto de represión c — Арест одного журналиста — это внутренняя репрессивная политика страны, не событие мирового масштаба.
+- [es] чужое_мелкое: [world] The Hill — La ACLU demanda a la administración Trump por las investigaciones contra crítico — Подача иска к ведомству — это текущая юридическая процедура, а не мировое событие.
+- [es] чужое_мелкое: [world] Азаттык — Azattyk: las autoridades de Turkmenistán exigen a los empresarios que se suscrib — Местная административная принудиловка в Туркменистане для бизнесменов.
+- [es] чужое_мелкое: [world] Азаттык — Detenida en Almatý una sospechosa de incendiar una casa privada donde murieron c — Криминальная хроника (задержание по бытовому пожару) — это местная новость Казахстана, не мировая.
+- [es] чужое_мелкое: [world] Азаттык (кыргызча) — Se informó que el año pasado solo se abrieron casos por 64 de los 340 hechos de  — Статистика по прошлому году не является актуальной новостью, это очерковый материал.
+- [es] чужое_мелкое: [world] RFI — Un ciudadano francés detenido por el ICE en Estados Unidos: su esposa relata su  — Частная история задержания одного иностранца в США — это не мировая новость.
+- [es] чужое_мелкое: [world] RFI — Francia: un psicólogo experto presenta su análisis en el juicio de la yihadista  — Текущий процесс над одной террористкой — это местная судебная хроника Франции.
+- [es] чужое_мелкое: [world] Азаттык (кыргызча) — ¿Competencia artificial? El proceso de recolección de firmas genera debate — Спор о сборе подписей в Киргизии не является мировой новостью.
+- [es] курьёз: [local] El Financiero — Eres ‘old’, pero así de ‘old’: Tamagotchi cumple 30 años con más de 100 millones — Юбилей игрушки (Tamagotchi) — это любопытный факт, а не событие.
+- [es] курьёз: [local] La Jornada — El Museo de los Beatles se enfrenta a prohibición de música en la azotea — История о запрете музыки в музее не является значимым событием.
+- [es] не_новость: [pool] El Tiempo CO — El alcalde Alejandro Char mueve sus fichas para traer a Barranquilla la final de — Начало переговоров — это не событие, нет свершившегося факта.
+- [es] не_новость: [pool] El Universo EC — Estos son los candidatos a la Alcaldía de Guayaquil para las elecciones secciona — Список кандидатов перед выборами — это справочная информация, а не событие.
+- [es] не_новость: [pool] Semana CO — Iván Cepeda no se quedó callado frente al retiro del cuadro de Gustavo Petro de  — Споры вокруг картины в коридоре не являются событием с последствиями.
+- [es] курьёз: [pool] Muy Interesante — Insólito descubrimiento arqueológico: unos anillos con rostros de dioses de hace — Археологическая находка без исторического прорыва — это в раздел «Интересное».
+- [es] не_новость: [pool] La Vanguardia — Los mítines finales anticipan una alta movilización este domingo — Общие наблюдения об окончании кампании и митингах перед выборами не являются новостным событием.
+- [es] курьёз: [world] Xataka — Todos conocemos a alguien que predice las borrascas con un pinchazo en la rodill — Размышления о народных приметах — это очерк, не событие.
+- [es] курьёз: [world] Futura-Sciences — Extraños cabellos de hielo descubiertos en los bosques estos días: ¡no es lo que — Природное явление (ледяные фигуры) — классический курьёз.
+- [es] курьёз: [world] Muy Interesante — Un misterioso linaje humano sobrevivió en el sur de China hace más de 100.000 añ — Научная гипотеза о древних людях — это познавательный контент, не событие.
+- [es] курьёз: [world] Futura-Sciences — Hablamos lenguas diferentes, pero comparten un ancestro común: el ADN antiguo ar — Научно-популярная заметка об эволюции языков не является новостью.
+- [es] не_новость: [world] Sciences et Avenir — Lactosa: ¿y si pudiéramos volver a aprender a digerirla? — Объяснение физиологии пищеварения (лактоза) — это ликбез, а не новость.
+- [es] курьёз: [world] Futura-Sciences — Ingenieros aplican una punta de diamante sobre un metal que resiste más de 2.600 — Научно-популярное описание эксперимента с металлом — это «Интересное».
+- [es] не_новость: [world] Sciences et Avenir — EXPOSICIÓN. Donde crece el suelo — Анонс выставки о почве — не событие.
+- [es] курьёз: [world] Good News Network — Una familia celebra que su bebé, a quien le dieron semanas de vida en Nochebuena — Личная история выздоровления (Human Interest) — это курьёз/очерк.
+- [es] курьёз: [world] Good News Network — Residentes de Texas trabajan gratis en tierras ajenas para financiar los estudio — Благотворительная инициатива без масштаба и конкретного результата — это курьёз.
